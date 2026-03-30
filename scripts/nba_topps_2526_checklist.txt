@@ -1,0 +1,2180 @@
+Base Set (300 cards):
+1 Jayson Tatum, Boston Celtics
+2 Jaylen Brown, Boston Celtics
+3 Kristaps Porzingis, Boston Celtics
+4 Payton Pritchard, Boston Celtics
+5 Baylor Scheierman, Boston Celtics
+6 Derrick White, Boston Celtics
+7 Jrue Holiday, Boston Celtics
+8 D'Angelo Russell, Brooklyn Nets
+9 Ziaire Williams, Brooklyn Nets
+10 Nic Claxton, Brooklyn Nets
+11 Cam Thomas, Brooklyn Nets
+12 Jalen Wilson, Brooklyn Nets
+13 Cameron Johnson, Brooklyn Nets
+14 Jalen Brunson, New York Knicks
+15 OG Anunoby, New York Knicks
+16 Josh Hart, New York Knicks
+17 Miles McBride, New York Knicks
+18 Mikal Bridges, New York Knicks
+19 Karl-Anthony Towns, New York Knicks
+20 Tyler Kolek, New York Knicks
+21 Tyrese Maxey, Philadelphia 76ers
+22 Joel Embiid, Philadelphia 76ers
+23 Paul George, Philadelphia 76ers
+24 Jared McCain, Philadelphia 76ers
+25 Quentin Grimes, Philadelphia 76ers
+26 Guerschon Yabusele, Philadelphia 76ers
+27 Kelly Oubre Jr., Philadelphia 76ers
+28 Gradey Dick, Toronto Raptors
+29 Jonathan Mogbo, Toronto Raptors
+30 Brandon Ingram, Toronto Raptors
+31 Scottie Barnes, Toronto Raptors
+32 Immanuel Quickley, Toronto Raptors
+33 RJ Barrett, Toronto Raptors
+34 Coby White, Chicago Bulls
+35 Josh Giddey, Chicago Bulls
+36 Nikola Vučević, Chicago Bulls
+37 Matas Buzelis, Chicago Bulls
+38 Patrick Williams, Chicago Bulls
+39 Lonzo Ball, Chicago Bulls
+40 Cade Cunningham, Detroit Pistons
+41 Jalen Duren, Detroit Pistons
+42 Ron Holland II, Detroit Pistons
+43 Malik Beasley, Detroit Pistons
+44 Ausar Thompson, Detroit Pistons
+45 Jaden Ivey, Detroit Pistons
+46 Marcus Sasser, Detroit Pistons
+47 Tyrese Haliburton, Indiana Pacers
+48 Bennedict Mathurin, Indiana Pacers
+49 Myles Turner, Indiana Pacers
+50 Jarace Walker, Indiana Pacers
+51 Obi Toppin, Indiana Pacers
+52 Andrew Nembhard, Indiana Pacers
+53 Pascal Siakam, Indiana Pacers
+54 Giannis Antetokounmpo, Milwaukee Bucks
+55 Damian Lillard, Milwaukee Bucks
+56 Kyle Kuzma, Milwaukee Bucks
+57 AJ Green, Milwaukee Bucks
+58 Brook Lopez, Milwaukee Bucks
+59 Gary Trent Jr., Milwaukee Bucks
+60 Tyler Smith, Milwaukee Bucks
+61 Trae Young, Atlanta Hawks
+62 Zaccharie Risacher, Atlanta Hawks
+63 Clint Capela, Atlanta Hawks
+64 Dyson Daniels, Atlanta Hawks
+65 Jalen Johnson, Atlanta Hawks
+66 Onyeka Okongwu, Atlanta Hawks
+67 LaMelo Ball, Charlotte Hornets
+68 Brandon Miller, Charlotte Hornets
+69 Miles Bridges, Charlotte Hornets
+70 Mark Williams, Charlotte Hornets
+71 Tidjane Salaün, Charlotte Hornets
+72 Nick Smith Jr., Charlotte Hornets
+73 Tyler Herro, Miami Heat
+74 Kel'el Ware, Miami Heat
+75 Bam Adebayo, Miami Heat
+76 Nikola Jović, Miami Heat
+77 Andrew Wiggins, Miami Heat
+78 Jaime Jaquez Jr., Miami Heat
+79 Pelle Larsson, Miami Heat
+80 Donovan Mitchell, Cleveland Cavaliers
+81 Darius Garland, Cleveland Cavaliers
+82 Evan Mobley, Cleveland Cavaliers
+83 Ty Jerome, Cleveland Cavaliers
+84 Max Strus, Cleveland Cavaliers
+85 Jarrett Allen, Cleveland Cavaliers
+86 Jaylon Tyson, Cleveland Cavaliers
+87 Paolo Banchero, Orlando Magic
+88 Franz Wagner, Orlando Magic
+89 Anthony Black, Orlando Magic
+90 Wendell Carter Jr., Orlando Magic
+91 Cole Anthony, Orlando Magic
+92 Jalen Suggs, Orlando Magic
+93 Tristan da Silva, Orlando Magic
+94 Jordan Poole, Washington Wizards
+95 Bilal Coulibaly, Washington Wizards
+96 Alex Sarr, Washington Wizards
+97 Bub Carrington, Washington Wizards
+98 Kyshawn George, Washington Wizards
+99 AJ Johnson, Washington Wizards
+100 Khris Middleton, Washington Wizards
+101 Nikola Jokić, Denver Nuggets
+102 Christian Braun, Denver Nuggets
+103 Jamal Murray, Denver Nuggets
+104 Russell Westbrook, Denver Nuggets
+105 Michael Porter Jr., Denver Nuggets
+106 Peyton Watson, Denver Nuggets
+107 Jalen Pickett, Denver Nuggets
+108 Anthony Edwards, Minnesota Timberwolves
+109 Naz Reid, Minnesota Timberwolves
+110 Julius Randle, Minnesota Timberwolves
+111 Rudy Gobert, Minnesota Timberwolves
+112 Mike Conley, Minnesota Timberwolves
+113 Terrence Shannon Jr., Minnesota Timberwolves
+114 Rob Dillingham, Minnesota Timberwolves
+115 Shai Gilgeous-Alexander, Oklahoma City Thunder
+116 Jalen Williams, Oklahoma City Thunder
+117 Luguentz Dort, Oklahoma City Thunder
+118 Chet Holmgren, Oklahoma City Thunder
+119 Cason Wallace, Oklahoma City Thunder
+120 Isaiah Hartenstein, Oklahoma City Thunder
+121 Isaiah Joe, Oklahoma City Thunder
+122 Scoot Henderson, Portland Trail Blazers
+123 Anfernee Simons, Portland Trail Blazers
+124 Deandre Ayton, Portland Trail Blazers
+125 Deni Avdija, Portland Trail Blazers
+126 Donovan Clingan, Portland Trail Blazers
+127 Shaedon Sharpe, Portland Trail Blazers
+128 Toumani Camara, Portland Trail Blazers
+129 Lauri Markkanen, Utah Jazz
+130 Cody Williams, Utah Jazz
+131 Keyonte George, Utah Jazz
+132 Jordan Clarkson, Utah Jazz
+133 Isaiah Collier, Utah Jazz
+134 Kyle Filipowski, Utah Jazz
+135 Stephen Curry, Golden State Warriors
+136 Jimmy Butler III, Golden State Warriors
+137 Draymond Green, Golden State Warriors
+138 Jonathan Kuminga, Golden State Warriors
+139 Quinten Post, Golden State Warriors
+140 Moses Moody, Golden State Warriors
+141 Brandin Podziemski, Golden State Warriors
+142 Kawhi Leonard, Los Angeles Clippers
+143 James Harden, Los Angeles Clippers
+144 Norman Powell, Los Angeles Clippers
+145 Ivica Zubac, Los Angeles Clippers
+146 Nicolas Batum, Los Angeles Clippers
+147 Ben Simmons, Los Angeles Clippers
+148 Derrick Jones Jr., Los Angeles Clippers
+149 Dorian Finney-Smith, Los Angeles Lakers
+150 LeBron James, Los Angeles Lakers
+151 Austin Reaves, Los Angeles Lakers
+152 Bronny James Jr., Los Angeles Lakers
+153 Dalton Knecht, Los Angeles Lakers
+154 Rui Hachimura, Los Angeles Lakers
+155 Jarred Vanderbilt, Los Angeles Lakers
+156 Devin Booker, Phoenix Suns
+157 Kevin Durant, Houston Rockets
+158 Bradley Beal, Phoenix Suns
+159 Ryan Dunn, Phoenix Suns
+160 Oso Ighodaro, Phoenix Suns
+161 Grayson Allen, Phoenix Suns
+162 DeMar DeRozan, Sacramento Kings
+163 Zach LaVine, Sacramento Kings
+164 Malik Monk, Sacramento Kings
+165 Devin Carter, Sacramento Kings
+166 Keegan Murray, Sacramento Kings
+167 Domantas Sabonis, Sacramento Kings
+168 Kyrie Irving, Dallas Mavericks
+169 Anthony Davis, Dallas Mavericks
+170 Klay Thompson, Dallas Mavericks
+171 Brandon Williams, Dallas Mavericks
+172 Dereck Lively II, Dallas Mavericks
+173 P.J. Washington Jr., Dallas Mavericks
+174 Max Christie, Dallas Mavericks
+175 Jalen Green, Houston Rockets
+176 Amen Thompson, Houston Rockets
+177 Jabari Smith Jr., Houston Rockets
+178 Reed Sheppard, Houston Rockets
+179 Tari Eason, Houston Rockets
+180 Alperen Sengun, Houston Rockets
+181 Dillon Brooks, Houston Rockets
+182 Ja Morant, Memphis Grizzlies
+183 Jaylen Wells, Memphis Grizzlies
+184 Jaren Jackson Jr., Memphis Grizzlies
+185 Desmond Bane, Memphis Grizzlies
+186 Zach Edey, Memphis Grizzlies
+187 Santi Aldama, Memphis Grizzlies
+188 Yuki Kawamura, Memphis Grizzlies
+189 Herbert Jones, New Orleans Pelicans
+190 Trey Murphy III, New Orleans Pelicans
+191 Yves Missi, New Orleans Pelicans
+192 Dejounte Murray, New Orleans Pelicans
+193 CJ McCollum, New Orleans Pelicans
+194 Jordan Hawkins, New Orleans Pelicans
+195 Victor Wembanyama, San Antonio Spurs
+196 De'Aaron Fox, San Antonio Spurs
+197 Stephon Castle, San Antonio Spurs
+198 Chris Paul, San Antonio Spurs
+199 Jeremy Sochan, San Antonio Spurs
+200 Keldon Johnson, San Antonio Spurs
+201 Cooper Flagg, Dallas Mavericks RC
+202 Dylan Harper, San Antonio Spurs RC
+203 VJ Edgecombe, Philadelphia 76ers RC
+204 Kon Knueppel, Charlotte Hornets RC
+205 Ace Bailey, Utah Jazz RC
+206 Tre Johnson III, Washington Wizards RC
+207 Jeremiah Fears, New Orleans Pelicans RC
+208 Egor Dëmin, Brooklyn Nets RC
+209 Collin Murray-Boyles, Toronto Raptors RC
+210 Khaman Maluach, Phoenix Suns RC
+211 Cedric Coward, Memphis Grizzlies RC
+212 Noa Essengue, Chicago Bulls RC
+213 Derik Queen, New Orleans Pelicans RC
+214 Carter Bryant, San Antonio Spurs RC
+215 Thomas Sorber, Oklahoma City Thunder RC
+216 Yang Hansen, Portland Trail Blazers RC
+217 Joan Beringer, Minnesota Timberwolves RC
+218 Walter Clayton Jr., Utah Jazz RC
+219 Nolan Traore, Brooklyn Nets RC
+220 Kasparas Jakučionis, Miami Heat RC
+221 Will Riley, Washington Wizards RC
+222 Drake Powell, Brooklyn Nets RC
+223 Asa Newell, Atlanta Hawks RC
+224 Nique Clifford, Sacramento Kings RC
+225 Jase Richardson, Orlando Magic RC
+226 Ben Saraf, Brooklyn Nets RC
+227 Danny Wolf, Brooklyn Nets RC
+228 Hugo González, Boston Celtics RC
+229 Liam McNeeley, Charlotte Hornets RC
+230 Yanic Konan-Niederhäuser, Los Angeles Clippers RC
+231 Rasheer Fleming, Phoenix Suns RC
+232 Noah Penda, Orlando Magic RC
+233 Sion James, Charlotte Hornets RC
+234 Ryan Kalkbrenner, Charlotte Hornets RC
+235 Johni Broome, Philadelphia 76ers RC
+236 Adou Thiero, Los Angeles Lakers RC
+237 Buddy Hield, Golden State Warriors
+238 Chaz Lanier, Detroit Pistons RC
+239 Kam Jones, Indiana Pacers RC
+240 Alijah Martin, Toronto Raptors RC
+241 Micah Peavy, New Orleans Pelicans RC
+242 Koby Brea, Phoenix Suns RC
+243 Maxime Raynaud, Sacramento Kings RC
+244 Jamir Watkins, Washington Wizards RC
+245 Brooks Barnhizer, Oklahoma City Thunder RC
+246 Naji Marshall, Dallas Mavericks
+247 Ochai Agbaji, Toronto Raptors
+248 Jaden McDaniels, Minnesota Timberwolves
+249 GG Jackson II, Memphis Grizzlies
+250 Tyrese Proctor, Cleveland Cavaliers RC
+251 Bill Russell, Boston Celtics
+252 Dirk Nowitzki, Dallas Mavericks
+253 Allen Iverson, Philadelphia 76ers
+254 Kevin Garnett, Minnesota Timberwolves
+255 Magic Johnson, Los Angeles Lakers
+256 Carmelo Anthony, Denver Nuggets
+257 Larry Bird, Boston Celtics
+258 Rick Barry, Golden State Warriors
+259 Kareem Abdul-Jabbar, Milwaukee Bucks
+260 Shaquille O'Neal, Orlando Magic
+261 Dwyane Wade, Miami Heat
+262 Manu Ginobili, San Antonio Spurs
+263 Tracy McGrady, Houston Rockets
+264 John Stockton, Utah Jazz
+265 George Gervin, San Antonio Spurs
+266 Spud Webb, Atlanta Hawks
+267 Steve Kerr, San Antonio Spurs
+268 Bernard King, New York Knicks
+269 Isiah Thomas, Detroit Pistons
+270 Detlef Schrempf, Seattle Supersonics
+Combo Cards (cards 271-300) — single player per card, no co_players:
+271 Paolo Banchero, Orlando Magic
+272 Jayson Tatum, Boston Celtics
+273 Cameron Johnson, Brooklyn Nets
+274 Jalen Brunson, New York Knicks
+275 Jared McCain, Philadelphia 76ers
+276 RJ Barrett, Toronto Raptors
+277 Josh Giddey, Chicago Bulls
+278 Donovan Mitchell, Cleveland Cavaliers
+279 Cade Cunningham, Detroit Pistons
+280 Tyrese Haliburton, Indiana Pacers
+281 Giannis Antetokounmpo, Milwaukee Bucks
+282 Trae Young, Atlanta Hawks
+283 Brandon Miller, Charlotte Hornets
+284 Tyler Herro, Miami Heat
+285 Alex Sarr, Washington Wizards
+286 Nikola Jokić, Denver Nuggets
+287 Anthony Edwards, Minnesota Timberwolves
+288 Shai Gilgeous-Alexander, Oklahoma City Thunder
+289 Shaedon Sharpe, Portland Trail Blazers
+290 Kyle Filipowski, Utah Jazz
+291 Stephen Curry, Golden State Warriors
+292 James Harden, Los Angeles Clippers
+293 Austin Reaves, Los Angeles Lakers
+294 Devin Booker, Phoenix Suns
+295 Zach LaVine, Sacramento Kings
+296 Anthony Davis, Dallas Mavericks
+297 Amen Thompson, Houston Rockets
+298 Ja Morant, Memphis Grizzlies
+299 Trey Murphy III, New Orleans Pelicans
+300 Victor Wembanyama, San Antonio Spurs
+Player Number Variation (25 cards) — same players as base, store as insert set "Player Number Variation", unnumbered:
+1 Jayson Tatum, Boston Celtics
+14 Jalen Brunson, New York Knicks
+24 Jared McCain, Philadelphia 76ers
+40 Cade Cunningham, Detroit Pistons
+47 Tyrese Haliburton, Indiana Pacers
+54 Giannis Antetokounmpo, Milwaukee Bucks
+61 Trae Young, Atlanta Hawks
+67 LaMelo Ball, Charlotte Hornets
+73 Tyler Herro, Miami Heat
+80 Donovan Mitchell, Cleveland Cavaliers
+87 Paolo Banchero, Orlando Magic
+101 Nikola Jokić, Denver Nuggets
+108 Anthony Edwards, Minnesota Timberwolves
+115 Shai Gilgeous-Alexander, Oklahoma City Thunder
+116 Jalen Williams, Oklahoma City Thunder
+122 Scoot Henderson, Portland Trail Blazers
+135 Stephen Curry, Golden State Warriors
+142 Kawhi Leonard, Los Angeles Clippers
+150 LeBron James, Los Angeles Lakers
+156 Devin Booker, Phoenix Suns
+157 Kevin Durant, Houston Rockets
+168 Kyrie Irving, Dallas Mavericks
+176 Amen Thompson, Houston Rockets
+182 Ja Morant, Memphis Grizzlies
+195 Victor Wembanyama, San Antonio Spurs
+Autograph sets:
+Flagship Real Ones Autographs (42 cards):
+TFRA-AI Allen Iverson, Philadelphia 76ers
+TFRA-AN Andrew Nembhard, Indiana Pacers
+TFRA-BB Bradley Beal, Phoenix Suns
+TFRA-BC Bilal Coulibaly, Washington Wizards
+TFRA-BM Brandon Miller, Charlotte Hornets
+TFRA-CH Chet Holmgren, Oklahoma City Thunder
+TFRA-DB Desmond Bane, Memphis Grizzlies
+TFRA-DL Dereck Lively II, Dallas Mavericks
+TFRA-DM Donovan Mitchell, Cleveland Cavaliers
+TFRA-DW Derrick White, Boston Celtics
+TFRA-FW Franz Wagner, Orlando Magic
+TFRA-GD Gradey Dick, Toronto Raptors
+TFRA-IC Isaiah Collier, Utah Jazz
+TFRA-JB Jalen Brunson, New York Knicks
+TFRA-JC Jordan Clarkson, Utah Jazz
+TFRA-JG Jalen Green, Houston Rockets
+TFRA-JH James Harden, Los Angeles Clippers
+TFRA-JM Jonathan Mogbo, Toronto Raptors
+TFRA-JS John Stockton, Utah Jazz
+TFRA-JT Jayson Tatum, Boston Celtics
+TFRA-JW Jalen Wilson, Brooklyn Nets
+TFRA-JWI Jalen Williams, Oklahoma City Thunder
+TFRA-KD Kevin Durant, Phoenix Suns
+TFRA-KM Khris Middleton, Washington Wizards
+TFRA-KT Karl-Anthony Towns, New York Knicks
+TFRA-LB Larry Bird, Boston Celtics
+TFRA-LJ LeBron James, Los Angeles Lakers
+TFRA-MJ Magic Johnson, Los Angeles Lakers
+TFRA-NR Naz Reid, Minnesota Timberwolves
+TFRA-OO Onyeka Okongwu, Atlanta Hawks
+TFRA-PB Paolo Banchero, Orlando Magic
+TFRA-PP Payton Pritchard, Boston Celtics
+TFRA-RG Rudy Gobert, Minnesota Timberwolves
+TFRA-SC Stephen Curry, Golden State Warriors
+TFRA-SCA Stephon Castle, San Antonio Spurs
+TFRA-SH Scoot Henderson, Portland Trail Blazers
+TFRA-SO Shaquille O'Neal, Orlando Magic
+TFRA-TH Tyler Herro, Miami Heat
+TFRA-THA Tyrese Haliburton, Indiana Pacers
+TFRA-TM Tyrese Maxey, Philadelphia 76ers
+TFRA-TS Terrence Shannon Jr., Minnesota Timberwolves
+TFRA-VW Victor Wembanyama, San Antonio Spurs
+Flagship Real One Autographs – Spike Lee (1 card):
+TFRA-SL Spike Lee
+1980-81 Topps Basketball Autographs (44 cards):
+80B2-AD Ayo Dosunmu, Chicago Bulls
+80B2-AJ AJ Johnson, Washington Wizards
+80B2-AM Ajay Mitchell, Oklahoma City Thunder
+80B2-AS Alex Sarr, Washington Wizards
+80B2-BS Baylor Scheierman, Boston Celtics
+80B2-BSH Ben Sheppard, Indiana Pacers
+80B2-CA Cole Anthony, Orlando Magic
+80B2-CJ Colby Jones, Washington Wizards
+80B2-CM CJ McCollum, New Orleans Pelicans
+80B2-CW Cody Williams, Utah Jazz
+80B2-DC Devin Carter, Sacramento Kings
+80B2-DG Daniel Gafford, Dallas Mavericks
+80B2-DJ Derrick Jones Jr., Los Angeles Clippers
+80B2-DS Domantas Sabonis, Sacramento Kings
+80B2-DV Devin Vassell, San Antonio Spurs
+80B2-DW Dwyane Wade, Miami Heat
+80B2-DWH Derrick White, Boston Celtics
+80B2-FW Franz Wagner, Orlando Magic
+80B2-GJ GG Jackson II, Memphis Grizzlies
+80B2-IH Isaiah Hartenstein, Oklahoma City Thunder
+80B2-IQ Immanuel Quickley, Toronto Raptors
+80B2-JA Jarrett Allen, Cleveland Cavaliers
+80B2-JJ Jaime Jaquez Jr., Miami Heat
+80B2-JJJ Jaren Jackson Jr., Memphis Grizzlies
+80B2-JS Julian Strawther, Denver Nuggets
+80B2-JV Jarred Vanderbilt, Los Angeles Lakers
+80B2-JW Jalen Wilson, Brooklyn Nets
+80B2-KB Kobe Bufkin, Atlanta Hawks
+80B2-KC Corey Kispert, Washington Wizards
+80B2-KH Kevin Huerter, Chicago Bulls
+80B2-KL Kevon Looney, Golden State Warriors
+80B2-KM Kris Murray, Portland Trail Blazers
+80B2-KW Kel'el Ware, Miami Heat
+80B2-LB Larry Bird, Boston Celtics
+80B2-MB Mikal Bridges, New York Knicks
+80B2-MJ Magic Johnson, Los Angeles Lakers
+80B2-OI Oso Ighodaro, Phoenix Suns
+80B2-OP Olivier-Maxence Prosper, Dallas Mavericks
+80B2-RH Ron Holland II, Detroit Pistons
+80B2-SO Shaquille O'Neal, Los Angeles Lakers
+80B2-SS Shaedon Sharpe, Portland Trail Blazers
+80B2-TJD Trayce Jackson-Davis, Golden State Warriors
+80B2-TM Terance Mann, Atlanta Hawks
+80B2-ZR Zaccharie Risacher, Atlanta Hawks
+1980-81 Topps Chrome Basketball Veteran Autographs (45 cards):
+80CA2-AB Anthony Black, Orlando Magic
+80CA2-AG Aaron Gordon, Denver Nuggets
+80CA2-AM Ajay Mitchell, Oklahoma City Thunder
+80CA2-AN Aaron Nesmith, Indiana Pacers
+80CA2-AS Alperen Sengun, Houston Rockets
+80CA2-DF De'Aaron Fox, San Antonio Spurs
+80CA2-DM Davion Mitchell, Miami Heat
+80CA2-DMI Donovan Mitchell, Cleveland Cavaliers
+80CA2-DR Dennis Rodman, Chicago Bulls
+80CA2-DT David Thompson, Denver Nuggets
+80CA2-DW Dominique Wilkins, Atlanta Hawks
+80CA2-GT Gary Trent Jr., Milwaukee Bucks
+80CA2-HO Hakeem Olajuwon, Houston Rockets
+80CA2-JB Jalen Brunson, New York Knicks
+80CA2-JG Jalen Green, Houston Rockets
+80CA2-JH Jrue Holiday, Boston Celtics
+80CA2-JHR James Harden, Los Angeles Clippers
+80CA2-JK Jonathan Kuminga, Golden State Warriors
+80CA2-JV Jarred Vanderbilt, Los Angeles Lakers
+80CA2-JW Jaylen Wells, Memphis Grizzlies
+80CA2-JWA Jordan Walsh, Boston Celtics
+80CA2-JWI Jalen Wilson, Brooklyn Nets
+80CA2-KG Kevin Garnett, Minnesota Timberwolves
+80CA2-KK Kyle Kuzma, Milwaukee Bucks
+80CA2-KP Kristaps Porzingis, Boston Celtics
+80CA2-LBJ LeBron James, Los Angeles Lakers
+80CA2-MS Marcus Sasser, Detroit Pistons
+80CA2-MW Mark Williams, Charlotte Hornets
+80CA2-PA Precious Achiuwa, New York Knicks
+80CA2-PG Pau Gasol, Los Angeles Lakers
+80CA2-PP Payton Pritchard, Boston Celtics
+80CA2-PS Pascal Siakam, Indiana Pacers
+80CA2-PST Peja Stojakovic, Sacramento Kings
+80CA2-QP Quinten Post, Golden State Warriors
+80CA2-RH Rip Hamilton, Detroit Pistons
+80CA2-SH Scoot Henderson, Portland Trail Blazers
+80CA2-TD Tristan da Silva, Orlando Magic
+80CA2-TH Tyler Herro, Miami Heat
+80CA2-TMC Tracy McGrady, Orlando Magic
+80CA2-TMU Trey Murphy III, New Orleans Pelicans
+80CA2-TS Terrence Shannon Jr., Minnesota Timberwolves
+80CA2-VC Vince Carter, Toronto Raptors
+80CA2-VW Victor Wembanyama, San Antonio Spurs
+80CA2-YM Yves Missi, New Orleans Pelicans
+80CA2-ZC Zach Collins, Chicago Bulls
+Marks of Excellence (38 cards):
+ME-AD Ayo Dosunmu, Chicago Bulls
+ME-AN Andrew Nembhard, Indiana Pacers
+ME-AR Antonio Reeves, New Orleans Pelicans
+ME-BS Ben Sheppard, Indiana Pacers
+ME-CB Christian Braun, Denver Nuggets
+ME-CJ Colby Jones, Washington Wizards
+ME-DG Daniel Gafford, Dallas Mavericks
+ME-DH Dwight Howard, Orlando Magic
+ME-DJ Dillon Jones, Oklahoma City Thunder
+ME-DM Davion Mitchell, Miami Heat
+ME-EG Eric Gordon, Philadelphia 76ers
+ME-GH Grant Hill, Detroit Pistons
+ME-HO Hakeem Olajuwon, Houston Rockets
+ME-JB Jalen Brunson, New York Knicks
+ME-JHA Jordan Hawkins, New Orleans Pelicans
+ME-JM Jonathan Mogbo, Toronto Raptors
+ME-JT Jayson Tatum, Boston Celtics
+ME-JW Jaylen Wells, Memphis Grizzlies
+ME-JWA Jabari Walker, Portland Trail Blazers
+ME-JWI Jalen Wilson, Brooklyn Nets
+ME-KL Kevon Looney, Golden State Warriors
+ME-MS Max Strus, Cleveland Cavaliers
+ME-MW Mark Williams, Charlotte Hornets
+ME-NB Nicolas Batum, Los Angeles Clippers
+ME-NC Nic Claxton, Brooklyn Nets
+ME-NR Naz Reid, Minnesota Timberwolves
+ME-NT Nikola Topić, Oklahoma City Thunder
+ME-OI Oso Ighodaro, Phoenix Suns
+ME-OO Onyeka Okongwu, Atlanta Hawks
+ME-QG Quentin Grimes, Philadelphia 76ers
+ME-SH Sam Hauser, Boston Celtics
+ME-TK Tyler Kolek, New York Knicks
+ME-TN Tristen Newton, Minnesota Timberwolves
+ME-TP Tony Parker, San Antonio Spurs
+ME-VC Vince Carter, Toronto Raptors
+ME-WK Walker Kessler, Utah Jazz
+ME-YM Yves Missi, New Orleans Pelicans
+ME-ZC Zach Collins, Chicago Bulls
+Contemporary Marks (37 cards) — all is_rookie: true:
+CM-AB Ace Bailey, Utah Jazz
+CM-AM Alijah Martin, Toronto Raptors
+CM-AN Asa Newell, Atlanta Hawks
+CM-BB Brooks Barnhizer, Oklahoma City Thunder
+CM-BS Ben Saraf, Brooklyn Nets
+CM-CC Cedric Coward, Memphis Grizzlies
+CM-CF Cooper Flagg, Dallas Mavericks
+CM-CL Chaz Lanier, Detroit Pistons
+CM-CM Collin Murray-Boyles, Toronto Raptors
+CM-DH Dylan Harper, San Antonio Spurs
+CM-DP Drake Powell, Brooklyn Nets
+CM-DQ Derik Queen, New Orleans Pelicans
+CM-DW Danny Wolf, Brooklyn Nets
+CM-ED Egor Dëmin, Brooklyn Nets
+CM-JB Joan Beringer, Minnesota Timberwolves
+CM-JO Johni Broome, Philadelphia 76ers
+CM-JR Jase Richardson, Orlando Magic
+CM-JW Jamir Watkins, Washington Wizards
+CM-KB Koby Brea, Phoenix Suns
+CM-KJ Kasparas Jakučionis, Miami Heat
+CM-KK Kon Knueppel, Charlotte Hornets
+CM-KM Khaman Maluach, Phoenix Suns
+CM-KO Kam Jones, Indiana Pacers
+CM-LM Liam McNeeley, Charlotte Hornets
+CM-MP Micah Peavy, New Orleans Pelicans
+CM-MR Maxime Raynaud, Sacramento Kings
+CM-NC Nique Clifford, Sacramento Kings
+CM-NE Noa Essengue, Chicago Bulls
+CM-NP Noah Penda, Orlando Magic
+CM-NT Nolan Traore, Brooklyn Nets
+CM-RF Rasheer Fleming, Phoenix Suns
+CM-RK Ryan Kalkbrenner, Charlotte Hornets
+CM-SJ Sion James, Charlotte Hornets
+CM-TP Tyrese Proctor, Cleveland Cavaliers
+CM-TS Thomas Sorber, Oklahoma City Thunder
+CM-WC Walter Clayton Jr., Utah Jazz
+CM-WR Will Riley, Washington Wizards
+Havoc Marks (19 cards):
+HM-AE Alex English, Denver Nuggets
+HM-AJ AJ Johnson, Washington Wizards
+HM-CF Cooper Flagg, Dallas Mavericks
+HM-DB Dillon Brooks, Houston Rockets
+HM-DH Dylan Harper, San Antonio Spurs
+HM-DJ Derrick Jones Jr., Los Angeles Clippers
+HM-DQ Derik Queen, New Orleans Pelicans
+HM-DW Derrick White, Boston Celtics
+HM-ED Egor Dëmin, Brooklyn Nets
+HM-GG George Gervin, San Antonio Spurs
+HM-JA Jarrett Allen, Cleveland Cavaliers
+HM-JH James Harden, Los Angeles Clippers
+HM-JR Jalen Rose, Chicago Bulls
+HM-JW Jason Williams, Sacramento Kings
+HM-KK Kon Knueppel, Charlotte Hornets
+HM-MW Mark Williams, Charlotte Hornets
+HM-NC Nic Claxton, Brooklyn Nets
+HM-NR Naz Reid, Minnesota Timberwolves
+HM-RW Rasheed Wallace, Detroit Pistons
+Topps Notch Signatures (38 cards):
+TNS-AC Alex Caruso, Oklahoma City Thunder
+TNS-AH Anfernee Hardaway, Orlando Magic
+TNS-AM Alonzo Mourning, Miami Heat
+TNS-AR Kel'el Ware, Miami Heat
+TNS-ARE Austin Reaves, Los Angeles Lakers
+TNS-AREE Antonio Reeves, New Orleans Pelicans
+TNS-BSC Baylor Scheierman, Boston Celtics
+TNS-CJ Colby Jones, Washington Wizards
+TNS-CK Corey Kispert, Washington Wizards
+TNS-CL Christian Laettner, Minnesota Timberwolves
+TNS-DB Desmond Bane, Memphis Grizzlies
+TNS-DG Daniel Gafford, Dallas Mavericks
+TNS-DR David Robinson, San Antonio Spurs
+TNS-DW Deron Williams, Utah Jazz
+TNS-HI Harrison Ingram, San Antonio Spurs
+TNS-IQ Immanuel Quickley, Toronto Raptors
+TNS-IS Isaiah Stewart, Detroit Pistons
+TNS-JF Johnny Furphy, Indiana Pacers
+TNS-JG Jeff Green, Houston Rockets
+TNS-JH Juwan Howard, Washington Wizards
+TNS-JK Jason Kidd, Phoenix Suns
+TNS-JT Jaylon Tyson, Cleveland Cavaliers
+TNS-JW Jalen Wilson, Brooklyn Nets
+TNS-KG Kyshawn George, Washington Wizards
+TNS-KM Kris Murray, Portland Trail Blazers
+TNS-LJ Larry Johnson, Charlotte Hornets
+TNS-LM Leonard Miller, Minnesota Timberwolves
+TNS-OT Obi Toppin, Indiana Pacers
+TNS-PB Paolo Banchero, Orlando Magic
+TNS-PW Patrick Williams, Chicago Bulls
+TNS-RD Ryan Dunn, Phoenix Suns
+TNS-RJ Richard Jefferson, New Jersey Nets
+TNS-RP Robert Parish, Boston Celtics
+TNS-TH Tim Hardaway Jr., Detroit Pistons
+TNS-TJ Trayce Jackson-Davis, Golden State Warriors
+TNS-TK Tyler Kolek, New York Knicks
+TNS-TS Terrence Shannon Jr., Minnesota Timberwolves
+TNS-WK Walker Kessler, Utah Jazz
+New Applicants Autographs (38 cards) — all is_rookie: true:
+NA-AB Ace Bailey, Utah Jazz
+NA-AM Alijah Martin, Toronto Raptors
+NA-AN Asa Newell, Atlanta Hawks
+NA-BB Brooks Barnhizer, Oklahoma City Thunder
+NA-BS Ben Saraf, Brooklyn Nets
+NA-CC Cedric Coward, Memphis Grizzlies
+NA-CF Cooper Flagg, Dallas Mavericks
+NA-CL Chaz Lanier, Detroit Pistons
+NA-CM Collin Murray-Boyles, Toronto Raptors
+NA-DH Dylan Harper, San Antonio Spurs
+NA-DK Derik Queen, New Orleans Pelicans
+NA-DP Drake Powell, Brooklyn Nets
+NA-DW Danny Wolf, Brooklyn Nets
+NA-ED Egor Dëmin, Brooklyn Nets
+NA-JB Joan Beringer, Minnesota Timberwolves
+NA-JO Johni Broome, Philadelphia 76ers
+NA-JR Jase Richardson, Orlando Magic
+NA-KB Koby Brea, Phoenix Suns
+NA-KJ Kasparas Jakučionis, Miami Heat
+NA-KK Kon Knueppel, Charlotte Hornets
+NA-KM Khaman Maluach, Phoenix Suns
+NA-KO Kam Jones, Indiana Pacers
+NA-LM Liam McNeeley, Charlotte Hornets
+NA-MP Micah Peavy, New Orleans Pelicans
+NA-MR Maxime Raynaud, Sacramento Kings
+NA-NC Nique Clifford, Sacramento Kings
+NA-NE Noa Essengue, Chicago Bulls
+NA-NP Noah Penda, Orlando Magic
+NA-NT Nolan Traore, Brooklyn Nets
+NA-RF Rasheer Fleming, Phoenix Suns
+NA-RK Ryan Kalkbrenner, Charlotte Hornets
+NA-SJ Sion James, Charlotte Hornets
+NA-TP Tyrese Proctor, Cleveland Cavaliers
+NA-TS Thomas Sorber, Oklahoma City Thunder
+NA-WC Walter Clayton Jr., Utah Jazz
+NA-WR Will Riley, Washington Wizards
+NA-YH Yang Hansen, Portland Trail Blazers
+NA-YK Yanic Konan-Niederhäuser, Los Angeles Clippers
+Signed and Sealed (19 cards):
+BSI-AN Asa Newell, Atlanta Hawks
+BSI-BSE Brice Sensabaugh, Utah Jazz
+BSI-DF De'Aaron Fox, San Antonio Spurs
+BSI-DP Drake Powell, Brooklyn Nets
+BSI-JJ Jaren Jackson Jr., Memphis Grizzlies
+BSI-JP Jordan Poole, Washington Wizards
+BSI-JR Jase Richardson, Orlando Magic
+BSI-JS Jerry Stackhouse, Dallas Mavericks
+BSI-KJ Kasparas Jakučionis, Miami Heat
+BSI-MM Malik Monk, Sacramento Kings
+BSI-MW Metta World Peace, Los Angeles Lakers
+BSI-NC Nique Clifford, Sacramento Kings
+BSI-RA Ray Allen, Seattle Supersonics
+BSI-SS Shaedon Sharpe, Portland Trail Blazers
+BSI-TH Tyrese Haliburton, Indiana Pacers
+BSI-TM Tyrese Maxey, Philadelphia 76ers
+BSI-WC Walter Clayton Jr., Utah Jazz
+BSI-WR Will Riley, Washington Wizards
+BSI-ZR Zaccharie Risacher, Atlanta Hawks
+Rookie Photo Shoot Autographs (40 cards) — all is_rookie: true:
+RP-AB Ace Bailey, Utah Jazz
+RP-AM Alijah Martin, Toronto Raptors
+RP-AN Asa Newell, Atlanta Hawks
+RP-AT Adou Thiero, Los Angeles Lakers
+RP-BB Brooks Barnhizer, Oklahoma City Thunder
+RP-BS Ben Saraf, Brooklyn Nets
+RP-CC Cedric Coward, Memphis Grizzlies
+RP-CF Cooper Flagg, Dallas Mavericks
+RP-CL Chaz Lanier, Detroit Pistons
+RP-CM Collin Murray-Boyles, Toronto Raptors
+RP-DH Dylan Harper, San Antonio Spurs
+RP-DP Drake Powell, Brooklyn Nets
+RP-DQ Derik Queen, New Orleans Pelicans
+RP-DW Danny Wolf, Brooklyn Nets
+RP-ED Egor Dëmin, Brooklyn Nets
+RP-JB Joan Beringer, Minnesota Timberwolves
+RP-JO Johni Broome, Philadelphia 76ers
+RP-JR Jase Richardson, Orlando Magic
+RP-JW Jamir Watkins, Washington Wizards
+RP-KB Koby Brea, Phoenix Suns
+RP-KJ Kasparas Jakučionis, Miami Heat
+RP-KK Kon Knueppel, Charlotte Hornets
+RP-KM Khaman Maluach, Phoenix Suns
+RP-KO Kam Jones, Indiana Pacers
+RP-LM Liam McNeeley, Charlotte Hornets
+RP-MP Micah Peavy, New Orleans Pelicans
+RP-MR Maxime Raynaud, Sacramento Kings
+RP-NC Nique Clifford, Sacramento Kings
+RP-NE Noa Essengue, Chicago Bulls
+RP-NP Noah Penda, Orlando Magic
+RP-NT Nolan Traore, Brooklyn Nets
+RP-RF Rasheer Fleming, Phoenix Suns
+RP-RK Ryan Kalkbrenner, Charlotte Hornets
+RP-SJ Sion James, Charlotte Hornets
+RP-TP Tyrese Proctor, Cleveland Cavaliers
+RP-TS Thomas Sorber, Oklahoma City Thunder
+RP-WC Walter Clayton Jr., Utah Jazz
+RP-WR Will Riley, Washington Wizards
+RP-YH Yang Hansen, Portland Trail Blazers
+RP-YK Yanic Konan-Niederhäuser, Los Angeles Clippers
+1980-81 Topps Rookie Autographs (40 cards) — all is_rookie: true:
+80B2R-AB Ace Bailey, Utah Jazz
+80B2R-AM Alijah Martin, Toronto Raptors
+80B2R-AN Asa Newell, Atlanta Hawks
+80B2R-AT Adou Thiero, Los Angeles Lakers
+80B2R-BB Brooks Barnhizer, Oklahoma City Thunder
+80B2R-BS Ben Saraf, Brooklyn Nets
+80B2R-CB Collin Murray-Boyles, Toronto Raptors
+80B2R-CC Cedric Coward, Memphis Grizzlies
+80B2R-CF Cooper Flagg, Dallas Mavericks
+80B2R-Cl Chaz Lanier, Detroit Pistons
+80B2R-DH Dylan Harper, San Antonio Spurs
+80B2R-DP Drake Powell, Brooklyn Nets
+80B2R-DQ Derik Queen, New Orleans Pelicans
+80B2R-DW Danny Wolf, Brooklyn Nets
+80B2R-ED Egor Dëmin, Brooklyn Nets
+80B2R-JB Joan Beringer, Minnesota Timberwolves
+80B2R-JO Johni Broome, Philadelphia 76ers
+80B2R-JR Jase Richardson, Orlando Magic
+80B2R-JW Jamir Watkins, Washington Wizards
+80B2R-KB Koby Brea, Phoenix Suns
+80B2R-KJ Kasparas Jakučionis, Miami Heat
+80B2R-KK Kon Knueppel, Charlotte Hornets
+80B2R-KM Khaman Maluach, Phoenix Suns
+80B2R-KO Kam Jones, Indiana Pacers
+80B2R-LM Liam McNeeley, Charlotte Hornets
+80B2R-MP Micah Peavy, New Orleans Pelicans
+80B2R-MR Maxime Raynaud, Sacramento Kings
+80B2R-NC Nique Clifford, Sacramento Kings
+80B2R-NE Noa Essengue, Chicago Bulls
+80B2R-NP Noah Penda, Orlando Magic
+80B2R-NT Nolan Traore, Brooklyn Nets
+80B2R-RF Rasheer Fleming, Phoenix Suns
+80B2R-RK Ryan Kalkbrenner, Charlotte Hornets
+80B2R-SJ Sion James, Charlotte Hornets
+80B2R-TP Tyrese Proctor, Cleveland Cavaliers
+80B2R-TS Thomas Sorber, Oklahoma City Thunder
+80B2R-WC Walter Clayton Jr., Utah Jazz
+80B2R-WR Will Riley, Washington Wizards
+80B2R-YH Yang Hansen, Portland Trail Blazers
+80B2R-YK Yanic Konan-Niederhäuser, Los Angeles Clippers
+Flagship Real Ones Rookie Autographs (39 cards) — all is_rookie: true:
+TFRR-AB Ace Bailey, Utah Jazz
+TFRR-AM Alijah Martin, Toronto Raptors
+TFRR-AN Asa Newell, Atlanta Hawks
+TFRR-AT Adou Thiero, Los Angeles Lakers
+TFRR-BB Brooks Barnhizer, Oklahoma City Thunder
+TFRR-BS Ben Saraf, Brooklyn Nets
+TFRR-CB Collin Murray-Boyles, Toronto Raptors
+TFRR-CC Cedric Coward, Memphis Grizzlies
+TFRR-CF Cooper Flagg, Dallas Mavericks
+TFRR-CL Chaz Lanier, Detroit Pistons
+TFRR-DH Dylan Harper, San Antonio Spurs
+TFRR-DP Drake Powell, Brooklyn Nets
+TFRR-DQ Derik Queen, New Orleans Pelicans
+TFRR-DW Danny Wolf, Brooklyn Nets
+TFRR-ED Egor Dëmin, Brooklyn Nets
+TFRR-JB Joan Beringer, Minnesota Timberwolves
+TFRR-JO Johni Broome, Philadelphia 76ers
+TFRR-JR Jase Richardson, Orlando Magic
+TFRR-JW Jamir Watkins, Washington Wizards
+TFRR-KB Koby Brea, Phoenix Suns
+TFRR-KJ Kasparas Jakučionis, Miami Heat
+TFRR-KK Kon Knueppel, Charlotte Hornets
+TFRR-KM Khaman Maluach, Phoenix Suns
+TFRR-KO Kam Jones, Indiana Pacers
+TFRR-LM Liam McNeeley, Charlotte Hornets
+TFRR-MP Micah Peavy, New Orleans Pelicans
+TFRR-MR Maxime Raynaud, Sacramento Kings
+TFRR-NC Nique Clifford, Sacramento Kings
+TFRR-NE Noa Essengue, Chicago Bulls
+TFRR-NP Noah Penda, Orlando Magic
+TFRR-NT Nolan Traore, Brooklyn Nets
+TFRR-RF Rasheer Fleming, Phoenix Suns
+TFRR-RK Ryan Kalkbrenner, Charlotte Hornets
+TFRR-SJ Sion James, Charlotte Hornets
+TFRR-TP Tyrese Proctor, Cleveland Cavaliers
+TFRR-TS Thomas Sorber, Oklahoma City Thunder
+TFRR-WC Walter Clayton Jr., Utah Jazz
+TFRR-WR Will Riley, Washington Wizards
+TFRR-YH Yang Hansen, Portland Trail Blazers
+1980-81 Topps Basketball Triple Autographs (10 cards) — split each group of 3 players, co_players logic, all is_rookie: true for rookies:
+80BT-AB: Dylan Harper, Ace Bailey, Kon Knueppel
+80BT-CF: Kon Knueppel, Dylan Harper, Cooper Flagg
+80BT-DH: Ace Bailey, Cooper Flagg, Dylan Harper
+80BT-DQ: Derik Queen, Khaman Maluach, Yang Hansen
+80BT-ED: Collin Murray-Boyles, Egor Dëmin, Khaman Maluach
+80BT-KB: Kon Knueppel, Ace Bailey, Walter Clayton Jr.
+80BT-KK: Khaman Maluach, Kon Knueppel, Cooper Flagg
+80BT-NE: Derik Queen, Thomas Sorber, Noa Essengue
+80BT-NT: Nolan Traore, Drake Powell, Egor Dëmin
+80BT-WC: Dylan Harper, Egor Dëmin, Walter Clayton Jr.
+Rookie Photo Shoot Dual Autographs (10 cards) — split each pair, co_players logic, all is_rookie: true:
+RPD-AB: Ace Bailey / Cooper Flagg
+RPD-CF: Cooper Flagg / Dylan Harper
+RPD-DH: Dylan Harper / Ace Bailey
+RPD-EA: Kasparas Jakučionis / Egor Dëmin
+RPD-ED: Kon Knueppel / Egor Dëmin
+RPD-KK: Kon Knueppel / Cooper Flagg
+RPD-KM: Khaman Maluach / Collin Murray-Boyles
+RPD-NE: Derik Queen / Noa Essengue
+RPD-WC: Walter Clayton Jr. / Ace Bailey
+RPD-WH: Walter Clayton Jr. / Dylan Harper
+Retail Rush Signatures (50 cards):
+RS-AB Adem Bona, Philadelphia 76ers
+RS-ABL Anthony Black, Orlando Magic
+RS-AM Ajay Mitchell, Oklahoma City Thunder
+RS-AS Alex Sarr, Washington Wizards
+RS-BM Brandon Miller, Charlotte Hornets
+RS-BS Baylor Scheierman, Boston Celtics
+RS-BSH Ben Sheppard, Indiana Pacers
+RS-CH Chet Holmgren, Oklahoma City Thunder
+RS-CW Cam Whitmore, Houston Rockets
+RS-CWI Cody Williams, Utah Jazz
+RS-DC Devin Carter, Sacramento Kings
+RS-DG Daniel Gafford, Dallas Mavericks
+RS-DH DaRon Holmes II, Denver Nuggets
+RS-DL Dereck Lively II, Dallas Mavericks
+RS-DM Donovan Mitchell, Cleveland Cavaliers
+RS-EF Enrique Freeman, Indiana Pacers
+RS-GD Gradey Dick, Toronto Raptors
+RS-GJ GG Jackson II, Memphis Grizzlies
+RS-HI Harrison Ingram, San Antonio Spurs
+RS-IC Isaiah Collier, Utah Jazz
+RS-JC Jaylen Clark, Minnesota Timberwolves
+RS-JF Johnny Furphy, Indiana Pacers
+RS-JH James Harden, Los Angeles Clippers
+RS-JHA Jordan Hawkins, New Orleans Pelicans
+RS-JHO Jett Howard, Orlando Magic
+RS-JJ Jaime Jaquez Jr., Miami Heat
+RS-JM Jamal Murray, Denver Nuggets
+RS-JT Jaylon Tyson, Cleveland Cavaliers
+RS-JV Jarred Vanderbilt, Los Angeles Lakers
+RS-JW Jalen Hood-Schifino, Philadelphia 76ers
+RS-JWA Jarace Walker, Indiana Pacers
+RS-JWL Jordan Walsh, Boston Celtics
+RS-KB Kobe Bufkin, Atlanta Hawks
+RS-KG Kyshawn George, Washington Wizards
+RS-KM Kevin McCullar Jr., New York Knicks
+RS-KW Kel'el Ware, Miami Heat
+RS-LM Leonard Miller, Minnesota Timberwolves
+RS-MS Marcus Sasser, Detroit Pistons
+RS-NC Noah Clowney, Brooklyn Nets
+RS-NR Naz Reid, Minnesota Timberwolves
+RS-NS Nick Smith Jr., Charlotte Hornets
+RS-NT Nikola Topić, Oklahoma City Thunder
+RS-PB Paolo Banchero, Orlando Magic
+RS-PP Payton Pritchard, Boston Celtics
+RS-RD Rob Dillingham, Minnesota Timberwolves
+RS-RH Ron Holland II, Detroit Pistons
+RS-RU Ryan Dunn, Phoenix Suns
+RS-TH Taylor Hendricks, Utah Jazz
+RS-TJD Trayce Jackson-Davis, Golden State Warriors
+RS-TN Tristen Newton, Minnesota Timberwolves
+1980-81 Topps Chrome Rookie Autographs (40 cards) — all is_rookie: true:
+80CR2-AB Ace Bailey, Utah Jazz
+80CR2-AM Alijah Martin, Toronto Raptors
+80CR2-AN Asa Newell, Atlanta Hawks
+80CR2-AT Adou Thiero, Los Angeles Lakers
+80CR2-BB Brooks Barnhizer, Oklahoma City Thunder
+80CR2-BS Ben Saraf, Brooklyn Nets
+80CR2-CC Cedric Coward, Memphis Grizzlies
+80CR2-CF Cooper Flagg, Dallas Mavericks
+80CR2-CL Chaz Lanier, Detroit Pistons
+80CR2-CM Collin Murray-Boyles, Toronto Raptors
+80CR2-DH Dylan Harper, San Antonio Spurs
+80CR2-DP Drake Powell, Brooklyn Nets
+80CR2-DQ Derik Queen, New Orleans Pelicans
+80CR2-DW Danny Wolf, Brooklyn Nets
+80CR2-ED Egor Dëmin, Brooklyn Nets
+80CR2-JB Joan Beringer, Minnesota Timberwolves
+80CR2-JO Johni Broome, Philadelphia 76ers
+80CR2-JR Jase Richardson, Orlando Magic
+80CR2-JW Jamir Watkins, Washington Wizards
+80CR2-KB Koby Brea, Phoenix Suns
+80CR2-KJ Kasparas Jakučionis, Miami Heat
+80CR2-KK Kon Knueppel, Charlotte Hornets
+80CR2-KM Khaman Maluach, Phoenix Suns
+80CR2-KO Kam Jones, Indiana Pacers
+80CR2-LM Liam McNeeley, Charlotte Hornets
+80CR2-MP Micah Peavy, New Orleans Pelicans
+80CR2-MR Maxime Raynaud, Sacramento Kings
+80CR2-NC Nique Clifford, Sacramento Kings
+80CR2-NE Noa Essengue, Chicago Bulls
+80CR2-NP Noah Penda, Orlando Magic
+80CR2-NT Nolan Traore, Brooklyn Nets
+80CR2-RF Rasheer Fleming, Phoenix Suns
+80CR2-RK Ryan Kalkbrenner, Charlotte Hornets
+80CR2-SJ Sion James, Charlotte Hornets
+80CR2-TP Tyrese Proctor, Cleveland Cavaliers
+80CR2-TS Thomas Sorber, Oklahoma City Thunder
+80CR2-WC Walter Clayton Jr., Utah Jazz
+80CR2-WR Will Riley, Washington Wizards
+80CR2-YH Yang Hansen, Portland Trail Blazers
+80CR2-YK Yanic Konan-Niederhäuser, Los Angeles Clippers
+Shopping Spree Signatures (39 cards) — all is_rookie: true:
+SSA-AB Ace Bailey, Utah Jazz
+SSA-AM Alijah Martin, Toronto Raptors
+SSA-AN Asa Newell, Atlanta Hawks
+SSA-AT Adou Thiero, Los Angeles Lakers
+SSA-BS Ben Saraf, Brooklyn Nets
+SSA-CC Cedric Coward, Memphis Grizzlies
+SSA-CF Cooper Flagg, Dallas Mavericks
+SSA-CL Chaz Lanier, Detroit Pistons
+SSA-CM Collin Murray-Boyles, Toronto Raptors
+SSA-DH Dylan Harper, San Antonio Spurs
+SSA-DP Drake Powell, Brooklyn Nets
+SSA-DQ Derik Queen, New Orleans Pelicans
+SSA-DW Danny Wolf, Brooklyn Nets
+SSA-ED Egor Dëmin, Brooklyn Nets
+SSA-JB Joan Beringer, Minnesota Timberwolves
+SSA-JO Johni Broome, Philadelphia 76ers
+SSA-JR Jase Richardson, Orlando Magic
+SSA-JW Jamir Watkins, Washington Wizards
+SSA-KB Koby Brea, Phoenix Suns
+SSA-KJ Kasparas Jakučionis, Miami Heat
+SSA-KK Kon Knueppel, Charlotte Hornets
+SSA-KM Khaman Maluach, Phoenix Suns
+SSA-KO Kam Jones, Indiana Pacers
+SSA-LW Liam McNeeley, Charlotte Hornets
+SSA-MP Micah Peavy, New Orleans Pelicans
+SSA-MR Maxime Raynaud, Sacramento Kings
+SSA-NC Nique Clifford, Sacramento Kings
+SSA-NE Noa Essengue, Chicago Bulls
+SSA-NP Noah Penda, Orlando Magic
+SSA-NT Nolan Traore, Brooklyn Nets
+SSA-RF Rasheer Fleming, Phoenix Suns
+SSA-RK Ryan Kalkbrenner, Charlotte Hornets
+SSA-SJ Sion James, Charlotte Hornets
+SSA-TP Tyrese Proctor, Cleveland Cavaliers
+SSA-TS Thomas Sorber, Oklahoma City Thunder
+SSA-WC Walter Clayton Jr., Utah Jazz
+SSA-WR Will Riley, Washington Wizards
+SSA-YH Yang Hansen, Portland Trail Blazers
+SSA-YK Yanic Konan-Niederhäuser, Los Angeles Clippers
+Memorabilia sets:
+Rise to the Occasion Relics (39 cards) — all is_rookie: true:
+RTO-AB Ace Bailey, Utah Jazz
+RTO-AM Alijah Martin, Toronto Raptors
+RTO-AN Asa Newell, Atlanta Hawks
+RTO-AT Adou Thiero, Los Angeles Lakers
+RTO-BB Brooks Barnhizer, Oklahoma City Thunder
+RTO-BS Ben Saraf, Brooklyn Nets
+RTO-CB Collin Murray-Boyles, Toronto Raptors
+RTO-CC Cedric Coward, Memphis Grizzlies
+RTO-CF Cooper Flagg, Dallas Mavericks
+RTO-CL Chaz Lanier, Detroit Pistons
+RTO-DH Dylan Harper, San Antonio Spurs
+RTO-DP Drake Powell, Brooklyn Nets
+RTO-DQ Derik Queen, New Orleans Pelicans
+RTO-DW Danny Wolf, Brooklyn Nets
+RTO-ED Egor Dëmin, Brooklyn Nets
+RTO-JB Joan Beringer, Minnesota Timberwolves
+RTO-JO Johni Broome, Philadelphia 76ers
+RTO-JR Jase Richardson, Orlando Magic
+RTO-JW Jamir Watkins, Washington Wizards
+RTO-KB Koby Brea, Phoenix Suns
+RTO-KJ Kasparas Jakučionis, Miami Heat
+RTO-KK Kon Knueppel, Charlotte Hornets
+RTO-KM Khaman Maluach, Phoenix Suns
+RTO-KO Kam Jones, Indiana Pacers
+RTO-LM Liam McNeeley, Charlotte Hornets
+RTO-MP Micah Peavy, New Orleans Pelicans
+RTO-MR Maxime Raynaud, Sacramento Kings
+RTO-NC Nique Clifford, Sacramento Kings
+RTO-NE Noa Essengue, Chicago Bulls
+RTO-NP Noah Penda, Orlando Magic
+RTO-NT Nolan Traore, Brooklyn Nets
+RTO-RF Rasheer Fleming, Phoenix Suns
+RTO-RK Ryan Kalkbrenner, Charlotte Hornets
+RTO-SJ Sion James, Charlotte Hornets
+RTO-TO Tyrese Proctor, Cleveland Cavaliers
+RTO-TS Thomas Sorber, Oklahoma City Thunder
+RTO-WC Walter Clayton Jr., Utah Jazz
+RTO-WR Will Riley, Washington Wizards
+RTO-YH Yang Hansen, Portland Trail Blazers
+Own The Game (40 cards):
+OTGA-AC Alex Caruso, Oklahoma City Thunder
+OTGA-AD Ayo Dosunmu, Chicago Bulls
+OTGA-BA Bam Adebayo, Miami Heat
+OTGA-BL Brook Lopez, Milwaukee Bucks
+OTGA-BM Bennedict Mathurin, Indiana Pacers
+OTGA-CA Cole Anthony, Orlando Magic
+OTGA-CB Christian Braun, Denver Nuggets
+OTGA-CJ Cameron Johnson, Brooklyn Nets
+OTGA-CM CJ McCollum, New Orleans Pelicans
+OTGA-CP Clint Capela, Atlanta Hawks
+OTGA-DA Deandre Ayton, Portland Trail Blazers
+OTGA-DB Dillon Brooks, Houston Rockets
+OTGA-DJ Dillon Jones, Oklahoma City Thunder
+OTGA-DV Devin Vassell, San Antonio Spurs
+OTGA-FV Fred VanVleet, Houston Rockets
+OTGA-GW Grant Williams, Charlotte Hornets
+OTGA-HJ Herbert Jones, New Orleans Pelicans
+OTGA-IZ Ivica Zubac, Los Angeles Clippers
+OTGA-JB Jaylen Brown, Boston Celtics
+OTGA-JC Jordan Clarkson, Utah Jazz
+OTGA-JE Joel Embiid, Philadelphia 76ers
+OTGA-JG Jerami Grant, Portland Trail Blazers
+OTGA-JM Jaden McDaniels, Minnesota Timberwolves
+OTGA-JP Jordan Poole, Washington Wizards
+OTGA-KM Keegan Murray, Sacramento Kings
+OTGA-KO Kelly Oubre Jr., Philadelphia 76ers
+OTGA-KW Kenrich Williams, Oklahoma City Thunder
+OTGA-MB Miles Bridges, Charlotte Hornets
+OTGA-MC Mike Conley, Minnesota Timberwolves
+OTGA-MT Myles Turner, Indiana Pacers
+OTGA-NB Nicolas Batum, Los Angeles Clippers
+OTGA-NC Nic Claxton, Brooklyn Nets
+OTGA-NP Norman Powell, Los Angeles Clippers
+OTGA-PA Precious Achiuwa, New York Knicks
+OTGA-PW Patrick Williams, Chicago Bulls
+OTGA-PWA P.J. Washington Jr., Dallas Mavericks
+OTGA-RG Rudy Gobert, Minnesota Timberwolves
+OTGA-TB Tobias Harris, Detroit Pistons
+OTGA-TY Trae Young, Atlanta Hawks
+OTGA-WC Wendell Carter Jr., Orlando Magic
+Rookie Roundball Remnants (20 cards) — all is_rookie: true:
+RRR-AB Ace Bailey, Utah Jazz
+RRR-AN Asa Newell, Atlanta Hawks
+RRR-CC Cedric Coward, Memphis Grizzlies
+RRR-CF Cooper Flagg, Dallas Mavericks
+RRR-CM Collin Murray-Boyles, Toronto Raptors
+RRR-DH Dylan Harper, San Antonio Spurs
+RRR-DP Drake Powell, Brooklyn Nets
+RRR-DQ Derik Queen, New Orleans Pelicans
+RRR-ED Egor Dëmin, Brooklyn Nets
+RRR-JB Joan Beringer, Minnesota Timberwolves
+RRR-KJ Kasparas Jakučionis, Miami Heat
+RRR-KK Kon Knueppel, Charlotte Hornets
+RRR-KM Khaman Maluach, Phoenix Suns
+RRR-NC Nique Clifford, Sacramento Kings
+RRR-NE Noa Essengue, Chicago Bulls
+RRR-NT Nolan Traore, Brooklyn Nets
+RRR-TS Thomas Sorber, Oklahoma City Thunder
+RRR-WC Walter Clayton Jr., Utah Jazz
+RRR-WR Will Riley, Washington Wizards
+RRR-YH Yang Hansen, Portland Trail Blazers
+Franchise Fabrics (39 cards) — all is_rookie: true:
+FF-AB Ace Bailey, Utah Jazz
+FF-AM Alijah Martin, Toronto Raptors
+FF-AN Asa Newell, Atlanta Hawks
+FF-AT Adou Thiero, Los Angeles Lakers
+FF-BS Ben Saraf, Brooklyn Nets
+FF-CB Collin Murray-Boyles, Toronto Raptors
+FF-CC Cedric Coward, Memphis Grizzlies
+FF-CF Cooper Flagg, Dallas Mavericks
+FF-CL Chaz Lanier, Detroit Pistons
+FF-DH Dylan Harper, San Antonio Spurs
+FF-DP Drake Powell, Brooklyn Nets
+FF-DQ Derik Queen, New Orleans Pelicans
+FF-DW Danny Wolf, Brooklyn Nets
+FF-ED Egor Dëmin, Brooklyn Nets
+FF-JB Joan Beringer, Minnesota Timberwolves
+FF-JO Johni Broome, Philadelphia 76ers
+FF-JR Jase Richardson, Orlando Magic
+FF-JW Jamir Watkins, Washington Wizards
+FF-KB Koby Brea, Phoenix Suns
+FF-KJ Kasparas Jakučionis, Miami Heat
+FF-KK Kon Knueppel, Charlotte Hornets
+FF-KM Khaman Maluach, Phoenix Suns
+FF-KO Kam Jones, Indiana Pacers
+FF-LM Liam McNeeley, Charlotte Hornets
+FF-MP Micah Peavy, New Orleans Pelicans
+FF-MR Maxime Raynaud, Sacramento Kings
+FF-NC Nique Clifford, Sacramento Kings
+FF-NE Noa Essengue, Chicago Bulls
+FF-NP Noah Penda, Orlando Magic
+FF-NT Nolan Traore, Brooklyn Nets
+FF-RF Rasheer Fleming, Phoenix Suns
+FF-RK Ryan Kalkbrenner, Charlotte Hornets
+FF-SJ Sion James, Charlotte Hornets
+FF-TP Tyrese Proctor, Cleveland Cavaliers
+FF-TS Thomas Sorber, Oklahoma City Thunder
+FF-WC Walter Clayton Jr., Utah Jazz
+FF-WR Will Riley, Washington Wizards
+FF-YH Yang Hansen, Portland Trail Blazers
+FF-YK Yanic Konan-Niederhäuser, Los Angeles Clippers
+Swish and Stitch Relics (40 cards):
+SST-AN Andrew Nembhard, Indiana Pacers
+SST-BB Bradley Beal, Phoenix Suns
+SST-BP Brandin Podziemski, Golden State Warriors
+SST-BPO Bobby Portis, Milwaukee Bucks
+SST-CP Cameron Payne, New York Knicks
+SST-CT Cam Thomas, Brooklyn Nets
+SST-CW Cason Wallace, Oklahoma City Thunder
+SST-DB Dillon Brooks, Houston Rockets
+SST-DD DeMar DeRozan, Sacramento Kings
+SST-DJ Dillon Jones, Oklahoma City Thunder
+SST-DS Dennis Schröder, Detroit Pistons
+SST-DW Derrick White, Boston Celtics
+SST-GT Gary Trent Jr., Milwaukee Bucks
+SST-HB Harrison Barnes, San Antonio Spurs
+SST-JC John Collins, Utah Jazz
+SST-JD Jalen Duren, Detroit Pistons
+SST-JG Josh Giddey, Chicago Bulls
+SST-JH Josh Hart, New York Knicks
+SST-JM Jamal Murray, Denver Nuggets
+SST-JR Julius Randle, Minnesota Timberwolves
+SST-JS Jeremy Sochan, San Antonio Spurs
+SST-JSJ Jabari Smith Jr., Houston Rockets
+SST-JT Jayson Tatum, Boston Celtics
+SST-JTY Jaylon Tyson, Cleveland Cavaliers
+SST-JW Jarace Walker, Indiana Pacers
+SST-KG Keyonte George, Utah Jazz
+SST-LM Lauri Markkanen, Utah Jazz
+SST-MB Mikal Bridges, New York Knicks
+SST-MM Miles McBride, New York Knicks
+SST-MS Marcus Smart, Memphis Grizzlies
+SST-OO Onyeka Okongwu, Atlanta Hawks
+SST-PB Paolo Banchero, Orlando Magic
+SST-PW Peyton Watson, Denver Nuggets
+SST-RH Rui Hachimura, Los Angeles Lakers
+SST-SA Santi Aldama, Memphis Grizzlies
+SST-SD Spencer Dinwiddie, Dallas Mavericks
+SST-TH Tyler Herro, Miami Heat
+SST-TM Tyrese Maxey, Philadelphia 76ers
+SST-ZE Zach Edey, Memphis Grizzlies
+SST-ZR Zaccharie Risacher, Atlanta Hawks
+Woven Wonders Relics (20 cards):
+WW-AS Alex Sarr, Washington Wizards
+WW-BC Bilal Coulibaly, Washington Wizards
+WW-BM Brandon Miller, Charlotte Hornets
+WW-DJ Dillon Jones, Oklahoma City Thunder
+WW-GD Gradey Dick, Toronto Raptors
+WW-JC Jaylen Clark, Minnesota Timberwolves
+WW-JF Johnny Furphy, Indiana Pacers
+WW-JJ Jaime Jaquez Jr., Miami Heat
+WW-JW Jordan Hawkins, New Orleans Pelicans
+WW-KB Kobe Brown, Los Angeles Clippers
+WW-KG Kyshawn George, Washington Wizards
+WW-KM Kris Murray, Portland Trail Blazers
+WW-LM Leonard Miller, Minnesota Timberwolves
+WW-NS Nick Smith Jr., Charlotte Hornets
+WW-PD Pacôme Dadiet, New York Knicks
+WW-RD Rob Dillingham, Minnesota Timberwolves
+WW-RH Ron Holland II, Detroit Pistons
+WW-SC Stephon Castle, San Antonio Spurs
+WW-SH Scoot Henderson, Portland Trail Blazers
+WW-VW Victor Wembanyama, San Antonio Spurs
+Flagship Real One Relics (50 cards):
+FRO-AB Ace Bailey, Utah Jazz
+FRO-AE Anthony Edwards, Minnesota Timberwolves
+FRO-AN Asa Newell, Atlanta Hawks
+FRO-AT Adou Thiero, Los Angeles Lakers
+FRO-BJJ Bronny James Jr., Los Angeles Lakers
+FRO-BS Ben Saraf, Brooklyn Nets
+FRO-CC Cade Cunningham, Detroit Pistons
+FRO-CF Cooper Flagg, Dallas Mavericks
+FRO-CL Chaz Lanier, Detroit Pistons
+FRO-CM Collin Murray-Boyles, Toronto Raptors
+FRO-CO Cedric Coward, Memphis Grizzlies
+FRO-DB Devin Booker, Phoenix Suns
+FRO-DH Dylan Harper, San Antonio Spurs
+FRO-DM Donovan Mitchell, Cleveland Cavaliers
+FRO-DP Drake Powell, Brooklyn Nets
+FRO-DQ Derik Queen, New Orleans Pelicans
+FRO-DW Danny Wolf, Brooklyn Nets
+FRO-ED Egor Dëmin, Brooklyn Nets
+FRO-GA Giannis Antetokounmpo, Milwaukee Bucks
+FRO-JB Joan Beringer, Minnesota Timberwolves
+FRO-JG Jalen Green, Houston Rockets
+FRO-JH James Harden, Los Angeles Clippers
+FRO-JM Ja Morant, Memphis Grizzlies
+FRO-JO Johni Broome, Philadelphia 76ers
+FRO-JR Jase Richardson, Orlando Magic
+FRO-JT Jayson Tatum, Boston Celtics
+FRO-JW Jalen Williams, Oklahoma City Thunder
+FRO-KJ Kasparas Jakučionis, Miami Heat
+FRO-KK Kon Knueppel, Charlotte Hornets
+FRO-KM Khaman Maluach, Phoenix Suns
+FRO-LB LaMelo Ball, Charlotte Hornets
+FRO-LBJ LeBron James, Los Angeles Lakers
+FRO-MB Mikal Bridges, New York Knicks
+FRO-NC Nique Clifford, Sacramento Kings
+FRO-NE Noa Essengue, Chicago Bulls
+FRO-NJ Nikola Jokić, Denver Nuggets
+FRO-NP Noah Penda, Orlando Magic
+FRO-NT Nolan Traore, Brooklyn Nets
+FRO-RF Rasheer Fleming, Phoenix Suns
+FRO-RK Ryan Kalkbrenner, Charlotte Hornets
+FRO-SC Stephen Curry, Golden State Warriors
+FRO-SH Scoot Henderson, Portland Trail Blazers
+FRO-SJ Sion James, Charlotte Hornets
+FRO-TH Tyrese Haliburton, Indiana Pacers
+FRO-THE Tyler Herro, Miami Heat
+FRO-TS Thomas Sorber, Oklahoma City Thunder
+FRO-TY Trae Young, Atlanta Hawks
+FRO-WC Walter Clayton Jr., Utah Jazz
+FRO-WR Will Riley, Washington Wizards
+FRO-YH Yang Hansen, Portland Trail Blazers
+Store Exclusive Relics (50 cards):
+SR-AB Ace Bailey, Utah Jazz
+SR-AE Anthony Edwards, Minnesota Timberwolves
+SR-AH Adou Thiero, Los Angeles Lakers
+SR-AM Alijah Martin, Toronto Raptors
+SR-AN Asa Newell, Atlanta Hawks
+SR-AT Ausar Thompson, Detroit Pistons
+SR-ATH Amen Thompson, Houston Rockets
+SR-BL Brook Lopez, Milwaukee Bucks
+SR-BS Ben Saraf, Brooklyn Nets
+SR-CC Cedric Coward, Memphis Grizzlies
+SR-CF Cooper Flagg, Dallas Mavericks
+SR-CL Chaz Lanier, Detroit Pistons
+SR-CM Collin Murray-Boyles, Toronto Raptors
+SR-DH Dylan Harper, San Antonio Spurs
+SR-DM Donovan Mitchell, Cleveland Cavaliers
+SR-DP Drake Powell, Brooklyn Nets
+SR-DQ Derik Queen, New Orleans Pelicans
+SR-DW Danny Wolf, Brooklyn Nets
+SR-ED Egor Dëmin, Brooklyn Nets
+SR-JB Joan Beringer, Minnesota Timberwolves
+SR-JH Jrue Holiday, Boston Celtics
+SR-JHA Josh Hart, New York Knicks
+SR-JHR James Harden, Los Angeles Clippers
+SR-JM Ja Morant, Memphis Grizzlies
+SR-JO Johni Broome, Philadelphia 76ers
+SR-JP Jordan Poole, Washington Wizards
+SR-JR Jase Richardson, Orlando Magic
+SR-JS Jeremy Sochan, San Antonio Spurs
+SR-KB Koby Brea, Phoenix Suns
+SR-KJ Kasparas Jakučionis, Miami Heat
+SR-KK Kon Knueppel, Charlotte Hornets
+SR-KM Khaman Maluach, Phoenix Suns
+SR-KO Kam Jones, Indiana Pacers
+SR-LM Liam McNeeley, Charlotte Hornets
+SR-MR Mitchell Robinson, New York Knicks
+SR-MY Maxime Raynaud, Sacramento Kings
+SR-NC Noah Clowney, Brooklyn Nets
+SR-NE Noa Essengue, Chicago Bulls
+SR-NI Nique Clifford, Sacramento Kings
+SR-NJ Nikola Jokić, Denver Nuggets
+SR-NP Noah Penda, Orlando Magic
+SR-NT Nolan Traore, Brooklyn Nets
+SR-RF Rasheer Fleming, Phoenix Suns
+SR-RK Ryan Kalkbrenner, Charlotte Hornets
+SR-SJ Sion James, Charlotte Hornets
+SR-TH Tyrese Haliburton, Indiana Pacers
+SR-TS Thomas Sorber, Oklahoma City Thunder
+SR-WC Walter Clayton Jr., Utah Jazz
+SR-WR Will Riley, Washington Wizards
+SR-YH Yang Hansen, Portland Trail Blazers
+Retail Ripper Relics (50 cards):
+RR-AB Ace Bailey, Utah Jazz
+RR-AM Alijah Martin, Toronto Raptors
+RR-AN Asa Newell, Atlanta Hawks
+RR-AT Adou Thiero, Los Angeles Lakers
+RR-BB Brooks Barnhizer, Oklahoma City Thunder
+RR-BS Ben Saraf, Brooklyn Nets
+RR-CC Clint Capela, Atlanta Hawks
+RR-CCU Cade Cunningham, Detroit Pistons
+RR-CF Cooper Flagg, Dallas Mavericks
+RR-CL Chaz Lanier, Detroit Pistons
+RR-CM Collin Murray-Boyles, Toronto Raptors
+RR-CO Cedric Coward, Memphis Grizzlies
+RR-DH Dylan Harper, San Antonio Spurs
+RR-DP Drake Powell, Brooklyn Nets
+RR-DQ Derik Queen, New Orleans Pelicans
+RR-DW Danny Wolf, Brooklyn Nets
+RR-ED Egor Dëmin, Brooklyn Nets
+RR-GA Giannis Antetokounmpo, Milwaukee Bucks
+RR-JB Jaylen Brown, Boston Celtics
+RR-JE Joan Beringer, Minnesota Timberwolves
+RR-JO Johni Broome, Philadelphia 76ers
+RR-JR Jase Richardson, Orlando Magic
+RR-JW Jamir Watkins, Washington Wizards
+RR-KB Koby Brea, Phoenix Suns
+RR-KJ Kasparas Jakučionis, Miami Heat
+RR-KK Kon Knueppel, Charlotte Hornets
+RR-KL Kawhi Leonard, Los Angeles Clippers
+RR-KM Khaman Maluach, Phoenix Suns
+RR-KO Kam Jones, Indiana Pacers
+RR-LB LaMelo Ball, Charlotte Hornets
+RR-LM Liam McNeeley, Charlotte Hornets
+RR-MP Micah Peavy, New Orleans Pelicans
+RR-MR Maxime Raynaud, Sacramento Kings
+RR-NC Nique Clifford, Sacramento Kings
+RR-NE Noa Essengue, Chicago Bulls
+RR-NP Noah Penda, Orlando Magic
+RR-NT Nolan Traore, Brooklyn Nets
+RR-PG Paul George, Philadelphia 76ers
+RR-RF Rasheer Fleming, Phoenix Suns
+RR-RG Rudy Gobert, Minnesota Timberwolves
+RR-RK Ryan Kalkbrenner, Charlotte Hornets
+RR-SJ Sion James, Charlotte Hornets
+RR-TH Tyler Herro, Miami Heat
+RR-TP Tyrese Proctor, Cleveland Cavaliers
+RR-TS Thomas Sorber, Oklahoma City Thunder
+RR-TY Trae Young, Atlanta Hawks
+RR-WC Walter Clayton Jr., Utah Jazz
+RR-WR Will Riley, Washington Wizards
+RR-YH Yang Hansen, Portland Trail Blazers
+RR-YK Yanic Konan-Niederhäuser, Los Angeles Clippers
+Insert sets:
+The Daily Dribble (40 cards):
+DD-1 LeBron James, Los Angeles Lakers
+DD-2 Shai Gilgeous-Alexander, Oklahoma City Thunder
+DD-3 Jayson Tatum, Boston Celtics
+DD-4 Nikola Jokić, Denver Nuggets
+DD-5 Giannis Antetokounmpo, Milwaukee Bucks
+DD-6 Stephen Curry, Golden State Warriors
+DD-7 Anthony Edwards, Minnesota Timberwolves
+DD-8 Donovan Mitchell, Cleveland Cavaliers
+DD-9 Kevin Durant, Phoenix Suns
+DD-10 Jalen Brunson, New York Knicks
+DD-11 Victor Wembanyama, San Antonio Spurs
+DD-12 Anthony Davis, Dallas Mavericks
+DD-13 Cade Cunningham, Detroit Pistons
+DD-14 Tyrese Haliburton, Indiana Pacers
+DD-15 Jaylen Brown, Boston Celtics
+DD-16 Devin Booker, Phoenix Suns
+DD-17 Karl-Anthony Towns, New York Knicks
+DD-18 Kawhi Leonard, Los Angeles Clippers
+DD-19 Jimmy Butler III, Golden State Warriors
+DD-20 Paolo Banchero, Orlando Magic
+DD-21 Domantas Sabonis, Sacramento Kings
+DD-22 James Harden, Los Angeles Clippers
+DD-23 Trae Young, Atlanta Hawks
+DD-24 Ja Morant, Memphis Grizzlies
+DD-25 LaMelo Ball, Charlotte Hornets
+DD-26 Shaquille O'Neal, Los Angeles Lakers
+DD-27 Kevin Garnett, Minnesota Timberwolves
+DD-28 Dirk Nowitzki, Dallas Mavericks
+DD-29 Dwyane Wade, Miami Heat
+DD-30 Vince Carter, Toronto Raptors
+DD-31 Cooper Flagg, Dallas Mavericks
+DD-32 Dylan Harper, San Antonio Spurs
+DD-33 VJ Edgecombe, Philadelphia 76ers
+DD-34 Kon Knueppel, Charlotte Hornets
+DD-35 Ace Bailey, Utah Jazz
+DD-36 Tre Johnson III, Washington Wizards
+DD-37 Jeremiah Fears, New Orleans Pelicans
+DD-38 Egor Dëmin, Brooklyn Nets
+DD-39 Collin Murray-Boyles, Toronto Raptors
+DD-40 Khaman Maluach, Phoenix Suns
+New School (40 cards) — all is_rookie: true:
+NS-1 Cooper Flagg, Dallas Mavericks
+NS-2 Dylan Harper, San Antonio Spurs
+NS-3 VJ Edgecombe, Philadelphia 76ers
+NS-4 Kon Knueppel, Charlotte Hornets
+NS-5 Ace Bailey, Utah Jazz
+NS-6 Tre Johnson III, Washington Wizards
+NS-7 Jeremiah Fears, New Orleans Pelicans
+NS-8 Egor Dëmin, Brooklyn Nets
+NS-9 Collin Murray-Boyles, Toronto Raptors
+NS-10 Khaman Maluach, Phoenix Suns
+NS-11 Cedric Coward, Memphis Grizzlies
+NS-12 Noa Essengue, Chicago Bulls
+NS-13 Derik Queen, New Orleans Pelicans
+NS-14 Carter Bryant, San Antonio Spurs
+NS-15 Thomas Sorber, Oklahoma City Thunder
+NS-16 Yang Hansen, Portland Trail Blazers
+NS-17 Joan Beringer, Minnesota Timberwolves
+NS-18 Walter Clayton Jr., Utah Jazz
+NS-19 Nolan Traore, Brooklyn Nets
+NS-20 Kasparas Jakučionis, Miami Heat
+NS-21 Will Riley, Washington Wizards
+NS-22 Drake Powell, Brooklyn Nets
+NS-23 Asa Newell, Atlanta Hawks
+NS-24 Nique Clifford, Sacramento Kings
+NS-25 Jase Richardson, Orlando Magic
+NS-26 Ben Saraf, Brooklyn Nets
+NS-27 Danny Wolf, Brooklyn Nets
+NS-28 Hugo González, Boston Celtics
+NS-29 Liam McNeeley, Charlotte Hornets
+NS-30 Yanic Konan-Niederhäuser, Los Angeles Clippers
+NS-31 Rasheer Fleming, Phoenix Suns
+NS-32 Noah Penda, Orlando Magic
+NS-33 Sion James, Charlotte Hornets
+NS-34 Ryan Kalkbrenner, Charlotte Hornets
+NS-35 Johni Broome, Philadelphia 76ers
+NS-36 Adou Thiero, Los Angeles Lakers
+NS-37 Chaz Lanier, Detroit Pistons
+NS-38 Kam Jones, Indiana Pacers
+NS-39 Alijah Martin, Toronto Raptors
+NS-40 Micah Peavy, New Orleans Pelicans
+1980-81 Topps Chrome Basketball (100 cards):
+TC-AB Ace Bailey, Utah Jazz
+TC-AD Anthony Davis, Dallas Mavericks
+TC-AE Anthony Edwards, Minnesota Timberwolves
+TC-AG Aaron Gordon, Denver Nuggets
+TC-AH Adou Thiero, Los Angeles Lakers
+TC-AM Alijah Martin, Toronto Raptors
+TC-AN Asa Newell, Atlanta Hawks
+TC-AR Alex Sarr, Washington Wizards
+TC-AT Amen Thompson, Houston Rockets
+TC-BB Brooks Barnhizer, Oklahoma City Thunder
+TC-BM Bennedict Mathurin, Indiana Pacers
+TC-BMI Brandon Miller, Charlotte Hornets
+TC-BS Ben Saraf, Brooklyn Nets
+TC-CB Josh Giddey, Chicago Bulls
+TC-CC Cade Cunningham, Detroit Pistons
+TC-CE VJ Edgecombe, Philadelphia 76ers
+TC-CF Cooper Flagg, Dallas Mavericks
+TC-CH Chet Holmgren, Oklahoma City Thunder
+TC-CL Chaz Lanier, Detroit Pistons
+TC-CMB Collin Murray-Boyles, Toronto Raptors
+TC-CO Cedric Coward, Memphis Grizzlies
+TC-CT Cam Thomas, Brooklyn Nets
+TC-CY Carter Bryant, San Antonio Spurs
+TC-DB Devin Booker, Phoenix Suns
+TC-DG Darius Garland, Cleveland Cavaliers
+TC-DH Dylan Harper, San Antonio Spurs
+TC-DL Damian Lillard, Milwaukee Bucks
+TC-DM Donovan Mitchell, Cleveland Cavaliers
+TC-DP Drake Powell, Brooklyn Nets
+TC-DQ Derik Queen, New Orleans Pelicans
+TC-DR D'Angelo Russell, Brooklyn Nets
+TC-DW Danny Wolf, Brooklyn Nets
+TC-ED Egor Dëmin, Brooklyn Nets
+TC-EM Evan Mobley, Cleveland Cavaliers
+TC-FW Franz Wagner, Orlando Magic
+TC-GA Giannis Antetokounmpo, Milwaukee Bucks
+TC-GD Gradey Dick, Toronto Raptors
+TC-HG Hugo González, Boston Celtics
+TC-JA Jamir Watkins, Washington Wizards
+TC-JB Jaylen Brown, Boston Celtics
+TC-JBE Joel Embiid, Philadelphia 76ers
+TC-JBI Joan Beringer, Minnesota Timberwolves
+TC-JBR Jalen Brunson, New York Knicks
+TC-JBU Jimmy Butler III, Golden State Warriors
+TC-JF Jeremiah Fears, New Orleans Pelicans
+TC-JG Jalen Green, Houston Rockets
+TC-JH James Harden, Los Angeles Clippers
+TC-JI Jaden Ivey, Detroit Pistons
+TC-JM Jamal Murray, Denver Nuggets
+TC-JMA Ja Morant, Memphis Grizzlies
+TC-JO Johni Broome, Philadelphia 76ers
+TC-JP Jordan Poole, Washington Wizards
+TC-JR Jase Richardson, Orlando Magic
+TC-JT Jayson Tatum, Boston Celtics
+TC-JW Jalen Williams, Oklahoma City Thunder
+TC-KB Koby Brea, Phoenix Suns
+TC-KD Kevin Durant, Phoenix Suns
+TC-KI Kyrie Irving, Dallas Mavericks
+TC-KJ Kasparas Jakučionis, Miami Heat
+TC-KK Kon Knueppel, Charlotte Hornets
+TC-KL Kawhi Leonard, Los Angeles Clippers
+TC-KM Khaman Maluach, Phoenix Suns
+TC-KO Kam Jones, Indiana Pacers
+TC-KT Karl-Anthony Towns, New York Knicks
+TC-LB LaMelo Ball, Charlotte Hornets
+TC-LJ LeBron James, Los Angeles Lakers
+TC-LM Liam McNeeley, Charlotte Hornets
+TC-MP Micah Peavy, New Orleans Pelicans
+TC-MR Maxime Raynaud, Sacramento Kings
+TC-NC Nique Clifford, Sacramento Kings
+TC-NE Noa Essengue, Chicago Bulls
+TC-NJ Nikola Jokić, Denver Nuggets
+TC-NP Noah Penda, Orlando Magic
+TC-NT Nolan Traore, Brooklyn Nets
+TC-PB Paolo Banchero, Orlando Magic
+TC-PS Pascal Siakam, Indiana Pacers
+TC-RF Rasheer Fleming, Phoenix Suns
+TC-RK Ryan Kalkbrenner, Charlotte Hornets
+TC-SB Scottie Barnes, Toronto Raptors
+TC-SC Stephon Castle, San Antonio Spurs
+TC-SCU Stephen Curry, Golden State Warriors
+TC-SG Shai Gilgeous-Alexander, Oklahoma City Thunder
+TC-SH Scoot Henderson, Portland Trail Blazers
+TC-SJ Sion James, Charlotte Hornets
+TC-TH Tyrese Haliburton, Indiana Pacers
+TC-THR Tyler Herro, Miami Heat
+TC-TJ Tre Johnson III, Washington Wizards
+TC-TM Tyrese Maxey, Philadelphia 76ers
+TC-TMU Trey Murphy III, New Orleans Pelicans
+TC-TP Tyrese Proctor, Cleveland Cavaliers
+TC-TS Thomas Sorber, Oklahoma City Thunder
+TC-TY Trae Young, Atlanta Hawks
+TC-UZ Lauri Markkanen, Utah Jazz
+TC-VW Victor Wembanyama, San Antonio Spurs
+TC-WC Walter Clayton Jr., Utah Jazz
+TC-WR Will Riley, Washington Wizards
+TC-YH Yang Hansen, Portland Trail Blazers
+TC-YK Yanic Konan-Niederhäuser, Los Angeles Clippers
+TC-ZL Zach LaVine, Sacramento Kings
+TC-ZR Zaccharie Risacher, Atlanta Hawks
+Levitation (20 cards):
+L-1 LeBron James, Los Angeles Lakers
+L-2 Anthony Edwards, Minnesota Timberwolves
+L-3 Ja Morant, Memphis Grizzlies
+L-4 Shai Gilgeous-Alexander, Oklahoma City Thunder
+L-5 Giannis Antetokounmpo, Milwaukee Bucks
+L-6 Jayson Tatum, Boston Celtics
+L-7 Donovan Mitchell, Cleveland Cavaliers
+L-8 Kevin Durant, Phoenix Suns
+L-9 Jalen Brunson, New York Knicks
+L-10 Victor Wembanyama, San Antonio Spurs
+L-11 Cade Cunningham, Detroit Pistons
+L-12 Devin Booker, Phoenix Suns
+L-13 Kawhi Leonard, Los Angeles Clippers
+L-14 Kyrie Irving, Dallas Mavericks
+L-15 Jalen Green, Houston Rockets
+L-16 Cooper Flagg, Dallas Mavericks
+L-17 Dylan Harper, San Antonio Spurs
+L-18 Walter Clayton Jr., Utah Jazz
+L-19 Kon Knueppel, Charlotte Hornets
+L-20 Ace Bailey, Utah Jazz
+No Limit (40 cards) — rookies is_rookie: true:
+NL-1 Cooper Flagg, Dallas Mavericks
+NL-2 Dylan Harper, San Antonio Spurs
+NL-3 VJ Edgecombe, Philadelphia 76ers
+NL-4 Kon Knueppel, Charlotte Hornets
+NL-5 Ace Bailey, Utah Jazz
+NL-6 Tre Johnson III, Washington Wizards
+NL-7 Jeremiah Fears, New Orleans Pelicans
+NL-8 Egor Dëmin, Brooklyn Nets
+NL-9 Collin Murray-Boyles, Toronto Raptors
+NL-10 Khaman Maluach, Phoenix Suns
+NL-11 Cedric Coward, Memphis Grizzlies
+NL-12 Noa Essengue, Chicago Bulls
+NL-13 Derik Queen, New Orleans Pelicans
+NL-14 Carter Bryant, San Antonio Spurs
+NL-15 Thomas Sorber, Oklahoma City Thunder
+NL-16 Yang Hansen, Portland Trail Blazers
+NL-17 Joan Beringer, Minnesota Timberwolves
+NL-18 Walter Clayton Jr., Utah Jazz
+NL-19 Nolan Traore, Brooklyn Nets
+NL-20 Kasparas Jakučionis, Miami Heat
+NL-21 Will Riley, Washington Wizards
+NL-22 Drake Powell, Brooklyn Nets
+NL-23 Asa Newell, Atlanta Hawks
+NL-24 Nique Clifford, Sacramento Kings
+NL-25 Jase Richardson, Orlando Magic
+NL-26 Ben Saraf, Brooklyn Nets
+NL-27 Danny Wolf, Brooklyn Nets
+NL-28 Hugo González, Boston Celtics
+NL-29 Liam McNeeley, Charlotte Hornets
+NL-30 Yanic Konan-Niederhäuser, Los Angeles Clippers
+NL-31 Rasheer Fleming, Phoenix Suns
+NL-32 Noah Penda, Orlando Magic
+NL-33 Sion James, Charlotte Hornets
+NL-34 Ryan Kalkbrenner, Charlotte Hornets
+NL-35 Johni Broome, Philadelphia 76ers
+NL-36 Adou Thiero, Los Angeles Lakers
+NL-37 Chaz Lanier, Detroit Pistons
+NL-38 Kam Jones, Indiana Pacers
+NL-39 Micah Peavy, New Orleans Pelicans
+NL-40 Tyrese Proctor, Cleveland Cavaliers
+Stars of the NBA (30 cards) — store as insert set named "Stars of the NBA" to distinguish from "Sole Ambition" which also uses SA- prefix:
+SA-1 Nikola Jokić, Denver Nuggets
+SA-2 Shai Gilgeous-Alexander, Oklahoma City Thunder
+SA-3 Giannis Antetokounmpo, Milwaukee Bucks
+SA-4 Jayson Tatum, Boston Celtics
+SA-5 Stephen Curry, Golden State Warriors
+SA-6 LeBron James, Los Angeles Lakers
+SA-7 Anthony Edwards, Minnesota Timberwolves
+SA-8 Donovan Mitchell, Cleveland Cavaliers
+SA-9 Kevin Durant, Phoenix Suns
+SA-10 Jalen Brunson, New York Knicks
+SA-11 Victor Wembanyama, San Antonio Spurs
+SA-12 Anthony Davis, Dallas Mavericks
+SA-13 Cam Thomas, Brooklyn Nets
+SA-14 Cade Cunningham, Detroit Pistons
+SA-15 Tyrese Haliburton, Indiana Pacers
+SA-16 Coby White, Chicago Bulls
+SA-17 Jordan Poole, Washington Wizards
+SA-18 Kawhi Leonard, Los Angeles Clippers
+SA-19 Lauri Markkanen, Utah Jazz
+SA-20 Paolo Banchero, Orlando Magic
+SA-21 Domantas Sabonis, Sacramento Kings
+SA-22 Anfernee Simons, Portland Trail Blazers
+SA-23 Jalen Green, Houston Rockets
+SA-24 Ja Morant, Memphis Grizzlies
+SA-25 Trae Young, Atlanta Hawks
+SA-26 Bam Adebayo, Miami Heat
+SA-27 Tyrese Maxey, Philadelphia 76ers
+SA-28 Scottie Barnes, Toronto Raptors
+SA-29 LaMelo Ball, Charlotte Hornets
+SA-30 CJ McCollum, New Orleans Pelicans
+Rise to Stardom (20 cards) — all is_rookie: true:
+RTS-1 Cooper Flagg, Dallas Mavericks
+RTS-2 Dylan Harper, San Antonio Spurs
+RTS-3 VJ Edgecombe, Philadelphia 76ers
+RTS-4 Kon Knueppel, Charlotte Hornets
+RTS-5 Ace Bailey, Utah Jazz
+RTS-6 Tre Johnson III, Washington Wizards
+RTS-7 Jeremiah Fears, New Orleans Pelicans
+RTS-8 Egor Dëmin, Brooklyn Nets
+RTS-9 Collin Murray-Boyles, Toronto Raptors
+RTS-10 Khaman Maluach, Phoenix Suns
+RTS-11 Cedric Coward, Memphis Grizzlies
+RTS-12 Noa Essengue, Chicago Bulls
+RTS-13 Derik Queen, New Orleans Pelicans
+RTS-14 Carter Bryant, San Antonio Spurs
+RTS-15 Thomas Sorber, Oklahoma City Thunder
+RTS-16 Yang Hansen, Portland Trail Blazers
+RTS-17 Joan Beringer, Minnesota Timberwolves
+RTS-18 Walter Clayton Jr., Utah Jazz
+RTS-19 Nolan Traore, Brooklyn Nets
+RTS-20 Kasparas Jakučionis, Miami Heat
+MVP Vault (10 cards):
+MVP-1 Nikola Jokić, Denver Nuggets
+MVP-2 Shai Gilgeous-Alexander, Oklahoma City Thunder
+MVP-3 Giannis Antetokounmpo, Milwaukee Bucks
+MVP-4 James Harden, Houston Rockets
+MVP-5 Russell Westbrook, Oklahoma City Thunder
+MVP-6 Stephen Curry, Golden State Warriors
+MVP-7 Kevin Durant, Oklahoma City Thunder
+MVP-8 LeBron James, Miami Heat
+MVP-9 Dirk Nowitzki, Dallas Mavericks
+MVP-10 Kevin Garnett, Minnesota Timberwolves
+Comic Court (20 cards) — store as insert set "Comic Court":
+CC-1 LeBron James, Los Angeles Lakers
+CC-2 Stephen Curry, Golden State Warriors
+CC-3 Giannis Antetokounmpo, Milwaukee Bucks
+CC-4 Nikola Jokić, Denver Nuggets
+CC-5 Cade Cunningham, Detroit Pistons
+CC-6 James Harden, Los Angeles Clippers
+CC-7 Paolo Banchero, Orlando Magic
+CC-8 Joel Embiid, Philadelphia 76ers
+CC-9 Kyrie Irving, Dallas Mavericks
+CC-10 LaMelo Ball, Charlotte Hornets
+CC-11 Tyrese Haliburton, Indiana Pacers
+CC-12 Jalen Brunson, New York Knicks
+CC-13 Kevin Durant, Phoenix Suns
+CC-14 Devin Booker, Phoenix Suns
+CC-15 Anthony Edwards, Minnesota Timberwolves
+CC-16 Cooper Flagg, Dallas Mavericks
+CC-17 Dylan Harper, San Antonio Spurs
+CC-18 VJ Edgecombe, Philadelphia 76ers
+CC-19 Jeremiah Fears, New Orleans Pelicans
+CC-20 Cedric Coward, Memphis Grizzlies
+Home Court (10 cards):
+HCA-1 LeBron James, Los Angeles Lakers
+HCA-2 Stephen Curry, Golden State Warriors
+HCA-3 Anthony Edwards, Minnesota Timberwolves
+HCA-4 Nikola Jokić, Denver Nuggets
+HCA-5 Shai Gilgeous-Alexander, Oklahoma City Thunder
+HCA-6 Kevin Durant, Phoenix Suns
+HCA-7 Victor Wembanyama, San Antonio Spurs
+HCA-8 Cooper Flagg, Dallas Mavericks
+HCA-9 Dylan Harper, San Antonio Spurs
+HCA-10 Ace Bailey, Utah Jazz
+Sonic Boom (20 cards):
+SB-1 LeBron James, Los Angeles Lakers
+SB-2 Anthony Davis, Dallas Mavericks
+SB-3 Giannis Antetokounmpo, Milwaukee Bucks
+SB-4 Nikola Jokić, Denver Nuggets
+SB-5 LaMelo Ball, Charlotte Hornets
+SB-6 Kevin Durant, Phoenix Suns
+SB-7 Shai Gilgeous-Alexander, Oklahoma City Thunder
+SB-8 Paolo Banchero, Orlando Magic
+SB-9 Donovan Mitchell, Cleveland Cavaliers
+SB-10 Joel Embiid, Philadelphia 76ers
+SB-11 Victor Wembanyama, San Antonio Spurs
+SB-12 Stephen Curry, Golden State Warriors
+SB-13 Tyrese Haliburton, Indiana Pacers
+SB-14 Jalen Brunson, New York Knicks
+SB-15 Chet Holmgren, Oklahoma City Thunder
+SB-16 Tre Johnson III, Washington Wizards
+SB-17 Jeremiah Fears, New Orleans Pelicans
+SB-18 Cooper Flagg, Dallas Mavericks
+SB-19 Dylan Harper, San Antonio Spurs
+SB-20 VJ Edgecombe, Philadelphia 76ers
+Sole Ambition (10 cards) — store as insert set "Sole Ambition":
+SA-1 LeBron James, Los Angeles Lakers
+SA-2 Kevin Durant, Phoenix Suns
+SA-3 Stephen Curry, Golden State Warriors
+SA-4 Anthony Edwards, Minnesota Timberwolves
+SA-5 Giannis Antetokounmpo, Milwaukee Bucks
+SA-6 Jayson Tatum, Boston Celtics
+SA-7 Kawhi Leonard, Los Angeles Clippers
+SA-8 LaMelo Ball, Charlotte Hornets
+SA-9 Shai Gilgeous-Alexander, Oklahoma City Thunder
+SA-10 Kyrie Irving, Dallas Mavericks
+8-Bit Ballers (40 cards):
+8B-1 Cade Cunningham, Detroit Pistons
+8B-2 Tyler Herro, Miami Heat
+8B-3 Devin Booker, Phoenix Suns
+8B-4 Victor Wembanyama, San Antonio Spurs
+8B-5 Anthony Davis, Dallas Mavericks
+8B-6 Trae Young, Atlanta Hawks
+8B-7 Paul George, Philadelphia 76ers
+8B-8 Damian Lillard, Milwaukee Bucks
+8B-9 Paolo Banchero, Orlando Magic
+8B-10 Austin Reaves, Los Angeles Lakers
+8B-11 Donovan Mitchell, Cleveland Cavaliers
+8B-12 Ja Morant, Memphis Grizzlies
+8B-13 Jimmy Butler III, Golden State Warriors
+8B-14 Scoot Henderson, Portland Trail Blazers
+8B-15 Klay Thompson, Dallas Mavericks
+8B-16 James Harden, Los Angeles Clippers
+8B-17 LaMelo Ball, Charlotte Hornets
+8B-18 Anthony Edwards, Minnesota Timberwolves
+8B-19 LeBron James, Los Angeles Lakers
+8B-20 Nikola Jokić, Denver Nuggets
+8B-21 Shaquille O'Neal, Los Angeles Lakers
+8B-22 Dirk Nowitzki, Dallas Mavericks
+8B-23 Dwyane Wade, Miami Heat
+8B-24 John Stockton, Utah Jazz
+8B-25 Larry Bird, Boston Celtics
+8B-26 Vince Carter, Toronto Raptors
+8B-27 Tracy McGrady, Houston Rockets
+8B-28 Ray Allen, Seattle Supersonics
+8B-29 Manu Ginobili, San Antonio Spurs
+8B-30 Kevin Garnett, Boston Celtics
+8B-31 Cooper Flagg, Dallas Mavericks
+8B-32 Dylan Harper, San Antonio Spurs
+8B-33 VJ Edgecombe, Philadelphia 76ers
+8B-34 Kon Knueppel, Charlotte Hornets
+8B-35 Ace Bailey, Utah Jazz
+8B-36 Tre Johnson III, Washington Wizards
+8B-37 Jeremiah Fears, New Orleans Pelicans
+8B-38 Noa Essengue, Chicago Bulls
+8B-39 Derik Queen, New Orleans Pelicans
+8B-40 Carter Bryant, San Antonio Spurs
+Generation Now (30 cards) — all is_rookie: true:
+GN-1 Cooper Flagg, Dallas Mavericks
+GN-2 Dylan Harper, San Antonio Spurs
+GN-3 VJ Edgecombe, Philadelphia 76ers
+GN-4 Kon Knueppel, Charlotte Hornets
+GN-5 Ace Bailey, Utah Jazz
+GN-6 Tre Johnson III, Washington Wizards
+GN-7 Jeremiah Fears, New Orleans Pelicans
+GN-8 Egor Dëmin, Brooklyn Nets
+GN-9 Collin Murray-Boyles, Toronto Raptors
+GN-10 Khaman Maluach, Phoenix Suns
+GN-11 Cedric Coward, Memphis Grizzlies
+GN-12 Noa Essengue, Chicago Bulls
+GN-13 Derik Queen, New Orleans Pelicans
+GN-14 Carter Bryant, San Antonio Spurs
+GN-15 Thomas Sorber, Oklahoma City Thunder
+GN-16 Yang Hansen, Portland Trail Blazers
+GN-17 Joan Beringer, Minnesota Timberwolves
+GN-18 Walter Clayton Jr., Utah Jazz
+GN-19 Nolan Traore, Brooklyn Nets
+GN-20 Kasparas Jakučionis, Miami Heat
+GN-21 Will Riley, Washington Wizards
+GN-22 Drake Powell, Brooklyn Nets
+GN-23 Asa Newell, Atlanta Hawks
+GN-24 Nique Clifford, Sacramento Kings
+GN-25 Jase Richardson, Orlando Magic
+GN-26 Ben Saraf, Brooklyn Nets
+GN-27 Danny Wolf, Brooklyn Nets
+GN-28 Hugo González, Boston Celtics
+GN-29 Liam McNeeley, Charlotte Hornets
+GN-30 Yanic Konan-Niederhäuser, Los Angeles Clippers
+Power Players (20 cards):
+PP-1 Giannis Antetokounmpo, Milwaukee Bucks
+PP-2 Paolo Banchero, Orlando Magic
+PP-3 Pascal Siakam, Indiana Pacers
+PP-4 Karl-Anthony Towns, New York Knicks
+PP-5 Jayson Tatum, Boston Celtics
+PP-6 Kevin Durant, Phoenix Suns
+PP-7 LeBron James, Los Angeles Lakers
+PP-8 Kawhi Leonard, Los Angeles Clippers
+PP-9 Scottie Barnes, Toronto Raptors
+PP-10 Jimmy Butler III, Golden State Warriors
+PP-11 Paul George, Philadelphia 76ers
+PP-12 Nikola Jokić, Denver Nuggets
+PP-13 Anthony Davis, Dallas Mavericks
+PP-14 Domantas Sabonis, Sacramento Kings
+PP-15 Victor Wembanyama, San Antonio Spurs
+PP-16 Cooper Flagg, Dallas Mavericks
+PP-17 Dylan Harper, San Antonio Spurs
+PP-18 Egor Dëmin, Brooklyn Nets
+PP-19 Collin Murray-Boyles, Toronto Raptors
+PP-20 Khaman Maluach, Phoenix Suns
+Clutch City Prospects (10 cards) — store as insert set "Clutch City Prospects", all is_rookie: true:
+CCP-1 Cooper Flagg, Dallas Mavericks
+CCP-2 Dylan Harper, San Antonio Spurs
+CCP-3 VJ Edgecombe, Philadelphia 76ers
+CCP-4 Kon Knueppel, Charlotte Hornets
+CCP-5 Ace Bailey, Utah Jazz
+CCP-6 Tre Johnson III, Washington Wizards
+CCP-7 Jeremiah Fears, New Orleans Pelicans
+CCP-8 Egor Dëmin, Brooklyn Nets
+CCP-9 Collin Murray-Boyles, Toronto Raptors
+CCP-10 Khaman Maluach, Phoenix Suns
+All Kings (25 cards):
+AK-1 Victor Wembanyama, San Antonio Spurs
+AK-2 Stephen Curry, Golden State Warriors
+AK-3 LeBron James, Los Angeles Lakers
+AK-4 Giannis Antetokounmpo, Milwaukee Bucks
+AK-5 Anthony Edwards, Minnesota Timberwolves
+AK-6 Nikola Jokić, Denver Nuggets
+AK-7 Jayson Tatum, Boston Celtics
+AK-8 Cade Cunningham, Detroit Pistons
+AK-9 Shai Gilgeous-Alexander, Oklahoma City Thunder
+AK-10 Donovan Mitchell, Cleveland Cavaliers
+AK-11 Paolo Banchero, Orlando Magic
+AK-12 Kyrie Irving, Dallas Mavericks
+AK-13 Jalen Brunson, New York Knicks
+AK-14 Tyrese Haliburton, Indiana Pacers
+AK-15 Tracy McGrady, Orlando Magic
+AK-16 Cooper Flagg, Dallas Mavericks
+AK-17 Dylan Harper, San Antonio Spurs
+AK-18 VJ Edgecombe, Philadelphia 76ers
+AK-19 Kon Knueppel, Charlotte Hornets
+AK-20 Ace Bailey, Utah Jazz
+AK-21 Tre Johnson III, Washington Wizards
+AK-22 Jeremiah Fears, New Orleans Pelicans
+AK-23 Egor Dëmin, Brooklyn Nets
+AK-24 Kasparas Jakučionis, Miami Heat
+AK-25 Walter Clayton Jr., Utah Jazz
+Hardwood Stars (20 cards):
+HS-1 Victor Wembanyama, San Antonio Spurs
+HS-2 LeBron James, Los Angeles Lakers
+HS-3 Anthony Edwards, Minnesota Timberwolves
+HS-4 LaMelo Ball, Charlotte Hornets
+HS-5 Stephen Curry, Golden State Warriors
+HS-6 Shai Gilgeous-Alexander, Oklahoma City Thunder
+HS-7 Amen Thompson, Houston Rockets
+HS-8 Donovan Mitchell, Cleveland Cavaliers
+HS-9 Devin Booker, Phoenix Suns
+HS-10 Vince Carter, Toronto Raptors
+HS-11 Cooper Flagg, Dallas Mavericks
+HS-12 Dylan Harper, San Antonio Spurs
+HS-13 VJ Edgecombe, Philadelphia 76ers
+HS-14 Kon Knueppel, Charlotte Hornets
+HS-15 Ace Bailey, Utah Jazz
+HS-16 Tre Johnson III, Washington Wizards
+HS-17 Jeremiah Fears, New Orleans Pelicans
+HS-18 Noa Essengue, Chicago Bulls
+HS-19 Derik Queen, New Orleans Pelicans
+HS-20 Carter Bryant, San Antonio Spurs
+Companion Cards (16 cards) — store as insert set "Companion Cards":
+CNC-1 Victor Wembanyama, San Antonio Spurs
+CNC-2 LeBron James, Los Angeles Lakers
+CNC-3 Devin Booker, Phoenix Suns
+CNC-4 Paolo Banchero, Orlando Magic
+CNC-5 Giannis Antetokounmpo, Milwaukee Bucks
+CNC-6 Jalen Brunson, New York Knicks
+CNC-7 Stephen Curry, Golden State Warriors
+CNC-8 Shai Gilgeous-Alexander, Oklahoma City Thunder
+CNC-9 Jayson Tatum, Boston Celtics
+CNC-10 Tyrese Haliburton, Indiana Pacers
+CNC-11 Dylan Harper, San Antonio Spurs
+CNC-12 VJ Edgecombe, Philadelphia 76ers
+CNC-13 Kon Knueppel, Charlotte Hornets
+CNC-14 Ace Bailey, Utah Jazz
+CNC-15 Tre Johnson III, Washington Wizards
+CNC-16 Jeremiah Fears, New Orleans Pelicans
+Companion Cards SPs (5 cards) — store as insert set "Companion Cards SPs":
+CCV-1 Cade Cunningham, Detroit Pistons
+CCV-2 Ja Morant, Memphis Grizzlies
+CCV-3 LaMelo Ball, Charlotte Hornets
+CCV-4 Donovan Mitchell, Cleveland Cavaliers
+CCV-5 Cooper Flagg, Dallas Mavericks
+Oversized Topps Cards (16 cards):
+OTC-1 Jayson Tatum, Boston Celtics
+OTC-2 Victor Wembanyama, San Antonio Spurs
+OTC-3 Jalen Brunson, New York Knicks
+OTC-4 Shai Gilgeous-Alexander, Oklahoma City Thunder
+OTC-5 Anthony Edwards, Minnesota Timberwolves
+OTC-6 Nikola Jokić, Denver Nuggets
+OTC-7 Scoot Henderson, Portland Trail Blazers
+OTC-8 Ja Morant, Memphis Grizzlies
+OTC-9 Stephen Curry, Golden State Warriors
+OTC-10 Paolo Banchero, Orlando Magic
+OTC-11 Cooper Flagg, Dallas Mavericks
+OTC-12 VJ Edgecombe, Philadelphia 76ers
+OTC-13 Kon Knueppel, Charlotte Hornets
+OTC-14 Ace Bailey, Utah Jazz
+OTC-15 Tre Johnson III, Washington Wizards
+OTC-16 Jeremiah Fears, New Orleans Pelicans
+Oversized Topps Cards SPs (5 cards):
+OTSP-1 LaMelo Ball, Charlotte Hornets
+OTSP-2 Cade Cunningham, Detroit Pistons
+OTSP-3 Jalen Williams, Oklahoma City Thunder
+OTSP-4 LeBron James, Los Angeles Lakers
+OTSP-5 Dylan Harper, San Antonio Spurs
+Scan and Slam (50 cards):
+SS-1 Jayson Tatum, Boston Celtics
+SS-2 Jalen Brunson, New York Knicks
+SS-3 Giannis Antetokounmpo, Milwaukee Bucks
+SS-4 Shai Gilgeous-Alexander, Oklahoma City Thunder
+SS-5 Donovan Mitchell, Cleveland Cavaliers
+SS-6 Paolo Banchero, Orlando Magic
+SS-7 Nikola Jokić, Denver Nuggets
+SS-8 LeBron James, Los Angeles Lakers
+SS-9 Anthony Edwards, Minnesota Timberwolves
+SS-10 Cade Cunningham, Detroit Pistons
+SS-11 Devin Booker, Phoenix Suns
+SS-12 Stephen Curry, Golden State Warriors
+SS-13 Trae Young, Atlanta Hawks
+SS-14 Tyler Herro, Miami Heat
+SS-15 Victor Wembanyama, San Antonio Spurs
+SS-16 Alex Sarr, Washington Wizards
+SS-17 LaMelo Ball, Charlotte Hornets
+SS-18 Tyrese Haliburton, Indiana Pacers
+SS-19 Tyrese Maxey, Philadelphia 76ers
+SS-20 Scottie Barnes, Toronto Raptors
+SS-21 Lauri Markkanen, Utah Jazz
+SS-22 DeMar DeRozan, Sacramento Kings
+SS-23 Anthony Davis, Dallas Mavericks
+SS-24 Ja Morant, Memphis Grizzlies
+SS-25 Jaylen Brown, Boston Celtics
+SS-26 Cooper Flagg, Dallas Mavericks
+SS-27 Dylan Harper, San Antonio Spurs
+SS-28 VJ Edgecombe, Philadelphia 76ers
+SS-29 Kon Knueppel, Charlotte Hornets
+SS-30 Ace Bailey, Utah Jazz
+SS-31 Tre Johnson III, Washington Wizards
+SS-32 Jeremiah Fears, New Orleans Pelicans
+SS-33 Egor Dëmin, Brooklyn Nets
+SS-34 Collin Murray-Boyles, Toronto Raptors
+SS-35 Khaman Maluach, Phoenix Suns
+SS-36 Cedric Coward, Memphis Grizzlies
+SS-37 Noa Essengue, Chicago Bulls
+SS-38 Derik Queen, New Orleans Pelicans
+SS-39 Carter Bryant, San Antonio Spurs
+SS-40 Thomas Sorber, Oklahoma City Thunder
+SS-41 Yang Hansen, Portland Trail Blazers
+SS-42 Joan Beringer, Minnesota Timberwolves
+SS-43 Walter Clayton Jr., Utah Jazz
+SS-44 Nolan Traore, Brooklyn Nets
+SS-45 Kasparas Jakučionis, Miami Heat
+SS-46 Will Riley, Washington Wizards
+SS-47 Drake Powell, Brooklyn Nets
+SS-48 Asa Newell, Atlanta Hawks
+SS-49 Nique Clifford, Sacramento Kings
+SS-50 Jase Richardson, Orlando Magic
+Social Media Follow Back Redemptions (10 cards):
+SMF-1 Zaccharie Risacher, Atlanta Hawks
+SMF-2 Jaime Jaquez Jr., Miami Heat
+SMF-3 Ron Holland II, Detroit Pistons
+SMF-4 Isaiah Collier, Utah Jazz
+SMF-5 Stephon Castle, San Antonio Spurs
+SMF-6 Alex Sarr, Washington Wizards
+SMF-7 Anthony Black, Orlando Magic
+SMF-8 Gradey Dick, Toronto Raptors
+SMF-9 Ace Bailey, Utah Jazz
+SMF-10 Derik Queen, New Orleans Pelicans
+Limited Stock Legends (50 cards):
+LST-1 Cooper Flagg, Dallas Mavericks
+LST-2 Dylan Harper, San Antonio Spurs
+LST-3 VJ Edgecombe, Philadelphia 76ers
+LST-4 Kon Knueppel, Charlotte Hornets
+LST-5 Ace Bailey, Utah Jazz
+LST-6 Tre Johnson III, Washington Wizards
+LST-7 Jeremiah Fears, New Orleans Pelicans
+LST-8 Egor Dëmin, Brooklyn Nets
+LST-9 Collin Murray-Boyles, Toronto Raptors
+LST-10 Khaman Maluach, Phoenix Suns
+LST-11 Cedric Coward, Memphis Grizzlies
+LST-12 Noa Essengue, Chicago Bulls
+LST-13 Derik Queen, New Orleans Pelicans
+LST-14 Carter Bryant, San Antonio Spurs
+LST-15 Thomas Sorber, Oklahoma City Thunder
+LST-16 Yang Hansen, Portland Trail Blazers
+LST-17 Joan Beringer, Minnesota Timberwolves
+LST-18 Walter Clayton Jr., Utah Jazz
+LST-19 Nolan Traore, Brooklyn Nets
+LST-20 Kasparas Jakučionis, Miami Heat
+LST-21 Will Riley, Washington Wizards
+LST-22 Drake Powell, Brooklyn Nets
+LST-23 Asa Newell, Atlanta Hawks
+LST-24 Nique Clifford, Sacramento Kings
+LST-25 Jase Richardson, Orlando Magic
+LST-26 Ben Saraf, Brooklyn Nets
+LST-27 Danny Wolf, Brooklyn Nets
+LST-28 Hugo González, Boston Celtics
+LST-29 Liam McNeeley, Charlotte Hornets
+LST-30 Yanic Konan-Niederhäuser, Los Angeles Clippers
+LST-31 Jayson Tatum, Boston Celtics
+LST-32 Amen Thompson, Houston Rockets
+LST-33 Victor Wembanyama, San Antonio Spurs
+LST-34 Kyrie Irving, Dallas Mavericks
+LST-35 Alex Sarr, Washington Wizards
+LST-36 Devin Booker, Phoenix Suns
+LST-37 Stephen Curry, Golden State Warriors
+LST-38 Kawhi Leonard, Los Angeles Clippers
+LST-39 Shai Gilgeous-Alexander, Oklahoma City Thunder
+LST-40 Anthony Edwards, Minnesota Timberwolves
+LST-41 Nikola Jokić, Denver Nuggets
+LST-42 Jalen Brunson, New York Knicks
+LST-43 Paolo Banchero, Orlando Magic
+LST-44 Donovan Mitchell, Cleveland Cavaliers
+LST-45 Tyler Herro, Miami Heat
+LST-46 LaMelo Ball, Charlotte Hornets
+LST-47 Trae Young, Atlanta Hawks
+LST-48 Giannis Antetokounmpo, Milwaukee Bucks
+LST-49 Cade Cunningham, Detroit Pistons
+LST-50 Jared McCain, Philadelphia 76ers
+Class of '25 (20 cards) — all is_rookie: true:
+C25-1 Cooper Flagg, Dallas Mavericks
+C25-2 Dylan Harper, San Antonio Spurs
+C25-3 VJ Edgecombe, Philadelphia 76ers
+C25-4 Kon Knueppel, Charlotte Hornets
+C25-5 Ace Bailey, Utah Jazz
+C25-6 Tre Johnson III, Washington Wizards
+C25-7 Jeremiah Fears, New Orleans Pelicans
+C25-8 Egor Dëmin, Brooklyn Nets
+C25-9 Collin Murray-Boyles, Toronto Raptors
+C25-10 Khaman Maluach, Phoenix Suns
+C25-11 Cedric Coward, Memphis Grizzlies
+C25-12 Noa Essengue, Chicago Bulls
+C25-13 Derik Queen, New Orleans Pelicans
+C25-14 Carter Bryant, San Antonio Spurs
+C25-15 Thomas Sorber, Oklahoma City Thunder
+C25-16 Yang Hansen, Portland Trail Blazers
+C25-17 Joan Beringer, Minnesota Timberwolves
+C25-18 Walter Clayton Jr., Utah Jazz
+C25-19 Nolan Traore, Brooklyn Nets
+C25-20 Kasparas Jakučionis, Miami Heat
+Big Box Ballers (50 cards):
+BB-1 Cooper Flagg, Dallas Mavericks
+BB-2 Dylan Harper, San Antonio Spurs
+BB-3 VJ Edgecombe, Philadelphia 76ers
+BB-4 Kon Knueppel, Charlotte Hornets
+BB-5 Ace Bailey, Utah Jazz
+BB-6 Tre Johnson III, Washington Wizards
+BB-7 Jeremiah Fears, New Orleans Pelicans
+BB-8 Egor Dëmin, Brooklyn Nets
+BB-9 Collin Murray-Boyles, Toronto Raptors
+BB-10 Khaman Maluach, Phoenix Suns
+BB-11 Cedric Coward, Memphis Grizzlies
+BB-12 Noa Essengue, Chicago Bulls
+BB-13 Derik Queen, New Orleans Pelicans
+BB-14 Carter Bryant, San Antonio Spurs
+BB-15 Thomas Sorber, Oklahoma City Thunder
+BB-16 Yang Hansen, Portland Trail Blazers
+BB-17 Joan Beringer, Minnesota Timberwolves
+BB-18 Walter Clayton Jr., Utah Jazz
+BB-19 Nolan Traore, Brooklyn Nets
+BB-20 Kasparas Jakučionis, Miami Heat
+BB-21 Will Riley, Washington Wizards
+BB-22 Drake Powell, Brooklyn Nets
+BB-23 Asa Newell, Atlanta Hawks
+BB-24 Nique Clifford, Sacramento Kings
+BB-25 Jase Richardson, Orlando Magic
+BB-26 LeBron James, Los Angeles Lakers
+BB-27 Shai Gilgeous-Alexander, Oklahoma City Thunder
+BB-28 Jayson Tatum, Boston Celtics
+BB-29 Nikola Jokić, Denver Nuggets
+BB-30 Giannis Antetokounmpo, Milwaukee Bucks
+BB-31 Stephen Curry, Golden State Warriors
+BB-32 Anthony Edwards, Minnesota Timberwolves
+BB-33 Donovan Mitchell, Cleveland Cavaliers
+BB-34 Amen Thompson, Houston Rockets
+BB-35 Jalen Brunson, New York Knicks
+BB-36 Victor Wembanyama, San Antonio Spurs
+BB-37 Anthony Davis, Dallas Mavericks
+BB-38 Cade Cunningham, Detroit Pistons
+BB-39 Tyrese Haliburton, Indiana Pacers
+BB-40 Jaylen Brown, Boston Celtics
+BB-41 Devin Booker, Phoenix Suns
+BB-42 Karl-Anthony Towns, New York Knicks
+BB-43 Kawhi Leonard, Los Angeles Clippers
+BB-44 Jimmy Butler III, Golden State Warriors
+BB-45 Paolo Banchero, Orlando Magic
+BB-46 Domantas Sabonis, Sacramento Kings
+BB-47 James Harden, Los Angeles Clippers
+BB-48 Trae Young, Atlanta Hawks
+BB-49 Ja Morant, Memphis Grizzlies
+BB-50 LaMelo Ball, Charlotte Hornets
+1980-81 Topps Basketball (99 cards):
+80BK-1 Larry Bird, Boston Celtics
+80BK-3 Magic Johnson, Los Angeles Lakers
+80BK-4 Shaquille O'Neal, Los Angeles Lakers
+80BK-5 Dwyane Wade, Miami Heat
+80BK-6 Austin Reaves, Los Angeles Lakers
+80BK-7 Devin Vassell, San Antonio Spurs
+80BK-8 Immanuel Quickley, Toronto Raptors
+80BK-9 Jalen Wilson, Brooklyn Nets
+80BK-10 Daniel Gafford, Dallas Mavericks
+80BK-11 Kris Murray, Portland Trail Blazers
+80BK-12 Ajay Mitchell, Oklahoma City Thunder
+80BK-13 Corey Kispert, Washington Wizards
+80BK-14 Oso Ighodaro, Phoenix Suns
+80BK-15 Isaiah Hartenstein, Oklahoma City Thunder
+80BK-16 Ben Sheppard, Indiana Pacers
+80BK-17 Kevin Huerter, Chicago Bulls
+80BK-18 AJ Johnson, Washington Wizards
+80BK-19 Kevon Looney, Golden State Warriors
+80BK-20 Colby Jones, Washington Wizards
+80BK-21 Ayo Dosunmu, Chicago Bulls
+80BK-22 Trayce Jackson-Davis, Golden State Warriors
+80BK-23 Alex Sarr, Washington Wizards
+80BK-24 Zaccharie Risacher, Atlanta Hawks
+80BK-25 Jarrett Allen, Cleveland Cavaliers
+80BK-26 Cole Anthony, Orlando Magic
+80BK-27 Kel'el Ware, Miami Heat
+80BK-28 Julian Strawther, Denver Nuggets
+80BK-29 Jaime Jaquez Jr., Miami Heat
+80BK-30 Kobe Bufkin, Atlanta Hawks
+80BK-31 Devin Carter, Sacramento Kings
+80BK-32 Franz Wagner, Orlando Magic
+80BK-33 OG Anunoby, New York Knicks
+80BK-34 GG Jackson II, Memphis Grizzlies
+80BK-35 Shaedon Sharpe, Portland Trail Blazers
+80BK-36 Domantas Sabonis, Sacramento Kings
+80BK-37 Cody Williams, Utah Jazz
+80BK-38 Mikal Bridges, New York Knicks
+80BK-39 Ron Holland II, Detroit Pistons
+80BK-40 CJ McCollum, New Orleans Pelicans
+80BK-41 Jaren Jackson Jr., Memphis Grizzlies
+80BK-42 Grant Williams, Charlotte Hornets
+80BK-43 Derrick White, Boston Celtics
+80BK-44 Terance Mann, Atlanta Hawks
+80BK-45 Derrick Jones Jr., Los Angeles Clippers
+80BK-46 Quentin Grimes, Philadelphia 76ers
+80BK-47 Olivier-Maxence Prosper, Dallas Mavericks
+80BK-48 Nic Claxton, Brooklyn Nets
+80BK-49 Baylor Scheierman, Boston Celtics
+80BK-50 Jarred Vanderbilt, Los Angeles Lakers
+80BK-51 Cooper Flagg, Dallas Mavericks
+80BK-52 Dylan Harper, San Antonio Spurs
+80BK-53 Kon Knueppel, Charlotte Hornets
+80BK-54 Ace Bailey, Utah Jazz
+80BK-55 Egor Dëmin, Brooklyn Nets
+80BK-56 Collin Murray-Boyles, Toronto Raptors
+80BK-57 Khaman Maluach, Phoenix Suns
+80BK-58 Cedric Coward, Memphis Grizzlies
+80BK-59 Noa Essengue, Chicago Bulls
+80BK-60 Derik Queen, New Orleans Pelicans
+80BK-61 Thomas Sorber, Oklahoma City Thunder
+80BK-62 Yang Hansen, Portland Trail Blazers
+80BK-63 Joan Beringer, Minnesota Timberwolves
+80BK-64 Walter Clayton Jr., Utah Jazz
+80BK-65 Nolan Traore, Brooklyn Nets
+80BK-66 Kasparas Jakučionis, Miami Heat
+80BK-67 Will Riley, Washington Wizards
+80BK-68 Drake Powell, Brooklyn Nets
+80BK-69 Asa Newell, Atlanta Hawks
+80BK-70 Nique Clifford, Sacramento Kings
+80BK-71 Jase Richardson, Orlando Magic
+80BK-72 Ben Saraf, Brooklyn Nets
+80BK-73 Danny Wolf, Brooklyn Nets
+80BK-74 Rasheer Fleming, Phoenix Suns
+80BK-75 Noah Penda, Orlando Magic
+80BK-76 Sion James, Charlotte Hornets
+80BK-77 Ryan Kalkbrenner, Charlotte Hornets
+80BK-78 Johni Broome, Philadelphia 76ers
+80BK-79 Adou Thiero, Los Angeles Lakers
+80BK-80 Chaz Lanier, Detroit Pistons
+80BK-81 Kam Jones, Indiana Pacers
+80BK-82 Alijah Martin, Toronto Raptors
+80BK-83 Micah Peavy, New Orleans Pelicans
+80BK-84 Koby Brea, Phoenix Suns
+80BK-85 Maxime Raynaud, Sacramento Kings
+80BK-86 Jamir Watkins, Washington Wizards
+80BK-87 Brooks Barnhizer, Oklahoma City Thunder
+80BK-88 Liam McNeeley, Charlotte Hornets
+80BK-89 Stephen Curry, Golden State Warriors
+80BK-90 Anthony Edwards, Minnesota Timberwolves
+80BK-91 Shai Gilgeous-Alexander, Oklahoma City Thunder
+80BK-92 Tyrese Proctor, Cleveland Cavaliers
+80BK-93 Yanic Konan-Niederhäuser, Los Angeles Clippers
+80BK-94 Tyrese Haliburton, Indiana Pacers
+80BK-95 Jalen Brunson, New York Knicks
+80BK-96 VJ Edgecombe, Philadelphia 76ers
+80BK-97 Tre Johnson III, Washington Wizards
+80BK-98 Jeremiah Fears, New Orleans Pelicans
+80BK-99 Carter Bryant, San Antonio Spurs
+80BK-100 Hugo González, Boston Celtics
+Fanatics Authentic Redemptions (30 cards):
+FR-1 Trae Young, Atlanta Hawks
+FR-2 Al Horford, Boston Celtics
+FR-3 Jason Kidd, Brooklyn Nets
+FR-4 Brandon Miller, Charlotte Hornets
+FR-5 Dennis Rodman, Chicago Bulls
+FR-6 Evan Mobley, Cleveland Cavaliers
+FR-7 Klay Thompson, Dallas Mavericks
+FR-8 Nikola Jokić, Denver Nuggets
+FR-9 Cade Cunningham, Detroit Pistons
+FR-10 Stephen Curry, Golden State Warriors
+FR-11 Kevin Durant, Phoenix Suns
+FR-12 Tyrese Haliburton, Indiana Pacers
+FR-13 James Harden, Los Angeles Clippers
+FR-14 Bronny James Jr., Los Angeles Lakers
+FR-15 Jaren Jackson Jr., Memphis Grizzlies
+FR-16 Tyler Herro, Miami Heat
+FR-17 Giannis Antetokounmpo, Milwaukee Bucks
+FR-18 Anthony Edwards, Minnesota Timberwolves
+FR-19 Zion Williamson, New Orleans Pelicans
+FR-20 Jalen Brunson, New York Knicks
+FR-21 Chet Holmgren, Oklahoma City Thunder
+FR-22 Paolo Banchero, Orlando Magic
+FR-23 Tyrese Maxey, Philadelphia 76ers
+FR-24 Steve Nash, Phoenix Suns
+FR-25 Scoot Henderson, Portland Trail Blazers
+FR-26 Chris Webber, Sacramento Kings
+FR-27 Victor Wembanyama, San Antonio Spurs
+FR-28 Vince Carter, Toronto Raptors
+FR-29 Lauri Markkanen, Utah Jazz
+FR-30 Alex Sarr, Washington Wizards

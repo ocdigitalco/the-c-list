@@ -1,0 +1,1824 @@
+import json
+import re
+
+CHECKLIST = """\
+Base Set
+201 cards
+Parallels
+
+Refractor
+Pineapple Blast
+Prism Refractor
+Pulsar Refractor
+RayWave Refractor
+Geometric
+Teal Refractor /299
+Yellow Refractor /275
+Yellow RayWave /275
+Pink Refractor /250
+Pink RayWave /250
+Aqua Refractor /199
+Aqua Wave Refractor /199
+Aqua RayWave /199
+Blue Refractor /150
+Blue Wave Refractor /150
+Blue RayWave /150
+Green Refractor /99
+Green Wave Refractor /99
+Green RayWave /99
+Premier League Retrofractor /92
+Purple Refractor /75
+Purple Wave Refractor /75
+Purple RayWave /75
+Purple Geometric /75
+Gold Refractor /50
+Gold Wave Refractor /50
+Gold RayWave /50
+White Refractor /30
+Orange Refractor /25
+Orange Wave Refractor /25
+Orange RayWave /25
+Orange Geometric /25
+Black Refractor /10
+Black Wave Refractor /10
+Black RayWave /5
+Black Geometric /10
+Frozenfractor /-5
+Red Refractor /5
+Red Wave Refractor /5
+Red RayWave /5
+Red Geometric /5
+Tie-Dye Geometric /2
+Superfractor 1/1
+Shop for 2026 Topps Premier League cards on eBay
+
+1 Justin Kluivert, AFC Bournemouth
+2 Tyler Adams, AFC Bournemouth
+3 Antoine Semenyo, AFC Bournemouth
+4 David Brooks, AFC Bournemouth
+5 Julio Soler, AFC Bournemouth RC
+6 Bafodé Diakité, AFC Bournemouth
+7 Eli Junior Kroupi, AFC Bournemouth
+8 Evanilson, AFC Bournemouth
+9 Ben Gannon Doak, AFC Bournemouth
+10 Adrien Truffert, AFC Bournemouth
+11 Eberechi Eze, Arsenal
+12 Martin Ødegaard, Arsenal
+13 Bukayo Saka, Arsenal
+14 Declan Rice, Arsenal
+15 Viktor Gyökeres, Arsenal
+16 Gabriel Magalhães, Arsenal
+17 David Raya, Arsenal
+18 Martín Zubimendi, Arsenal
+19 Ethan Nwaneri, Arsenal (Future Stars)
+20 Myles Lewis-Skelly, Arsenal (Future Stars)
+21 Ben Broggio, Aston Villa RC
+22 Morgan Rogers, Aston Villa
+23 Ollie Watkins, Aston Villa
+24 Amadou Onana, Aston Villa
+25 Youri Tielemans, Aston Villa
+26 John McGinn, Aston Villa
+27 Rory Wilson, Aston Villa RC
+28 Evann Guessand, Aston Villa
+29 Bradley Burrowes, Aston Villa RC
+30 Jamaldeen Jimoh-Aloba, Aston Villa RC
+31 Gustavo Nunes, Brentford RC
+32 Michael Kayode, Brentford
+33 Mikkel Damsgaard, Brentford
+34 Kevin Schade, Brentford
+35 Dango Ouattara, Brentford
+36 Nathan Collins, Brentford
+37 Romelle Donovan, Brentford RC
+38 Sepp van den Berg, Brentford
+39 Jordan Henderson, Brentford
+40 Antoni Milambo, Brentford
+41 Brajan Gruda, Brighton & Hove Albion
+42 Stefanos Tzimas, Brighton & Hove Albion RC
+43 Yasin Ayari, Brighton & Hove Albion RC
+44 Tom Watson, Brighton & Hove Albion RC
+45 Kaoru Mitoma, Brighton & Hove Albion
+46 Carlos Baleba, Brighton & Hove Albion
+47 Yankuba Minteh, Brighton & Hove Albion
+48 Georginio Rutter, Brighton & Hove Albion
+49 Harry Howell, Brighton & Hove Albion RC
+50 Charalampos Kostoulas, Brighton & Hove Albion (Future Stars)
+51 Maxime Estève, Burnley FC
+52 Marcus Edwards, Burnley FC
+53 Loum Tchaouna, Burnley FC
+54 Jaidon Anthony, Burnley FC
+55 Jaydon Banel, Burnley FC RC
+56 Josh Cullen, Burnley FC
+57 Hannibal, Burnley FC
+58 Bashir Humphreys, Burnley FC RC
+59 Quilindschy Hartman, Burnley FC
+60 Zian Flemming, Burnley FC RC
+61 João Pedro, Chelsea
+62 Liam Delap, Chelsea
+63 Cole Palmer, Chelsea
+64 Shumaira Mheuka, Chelsea RC
+65 Jorrel Hato, Chelsea
+66 Enzo Fernández, Chelsea
+67 Moisés Caicedo, Chelsea
+68 Estêvão Willian, Chelsea RC
+69 Harrison Murray-Campbell, Chelsea RC
+70 Tyrique George, Chelsea (Future Stars)
+71 Justin Devenny, Crystal Palace RC
+72 Romain Esse, Crystal Palace RC
+73 Yeremy Pino, Crystal Palace
+74 Ismaïla Sarr, Crystal Palace
+75 Jean-Philippe Mateta, Crystal Palace
+76 Chris Richards, Crystal Palace
+77 Adam Wharton, Crystal Palace
+78 Maxence Lacroix, Crystal Palace
+79 Daichi Kamada, Crystal Palace
+80 Daniel Muñoz, Crystal Palace
+81 Charly Alcaraz, Everton
+82 Iliman Ndiaye, Everton
+83 Dwight McNeil, Everton
+84 Jordan Pickford, Everton
+85 Jarrad Branthwaite, Everton
+86 James Garner, Everton
+87 Jack Grealish, Everton
+88 Tyler Dibling, Everton
+89 Thierno Barry, Everton
+90 Beto, Everton
+91 Josh King, Fulham RC
+92 Emile Smith Rowe, Fulham
+93 Raúl Jiménez, Fulham
+94 Alex Iwobi, Fulham
+95 Rodrigo Muniz, Fulham
+96 Adama Traoré, Fulham
+97 Harry Wilson, Fulham
+98 Jonah Kusi-Asare, Fulham RC
+99 Kevin, Fulham
+100 Antonee Robinson, Fulham
+101 Ilia Gruev, Leeds United
+102 Jaka Bijol, Leeds United
+103 Harry Gray, Leeds United RC
+104 Dominic Calvert-Lewin, Leeds United
+105 Brenden Aaronson, Leeds United
+106 Wilfried Gnonto, Leeds United
+107 Ao Tanaka, Leeds United
+108 Jayden Bogle, Leeds United
+109 Joël Piroe, Leeds United RC
+110 Anton Stach, Leeds United
+111 Milos Kerkez, Liverpool FC
+112 Rio Ngumoha, Liverpool FC RC
+113 Trent Koné-Doherty, Liverpool FC RC
+114 Jeremie Frimpong, Liverpool FC
+115 Alexis Mac Allister, Liverpool FC
+116 Virgil van Dijk, Liverpool FC
+117 Alexander Isak, Liverpool FC
+118 Mohamed Salah, Liverpool FC
+119 Florian Wirtz, Liverpool FC
+120 Hugo Ekitike, Liverpool FC
+121 Omar Marmoush, Manchester City
+122 Tijjani Reijnders, Manchester City
+123 Bernardo Silva, Manchester City
+124 Phil Foden, Manchester City
+125 Erling Haaland, Manchester City
+126 Rayan Cherki, Manchester City
+127 Rodri, Manchester City
+128 Divine Mukasa, Manchester City RC
+129 Reigan Heskey, Manchester City RC
+130 Nico O'Reilly, Manchester City (Future Stars)
+131 Bryan Mbeumo, Manchester United
+132 Amir Ibragimov, Manchester United RC
+133 Sékou Koné, Manchester United RC
+134 Matheus Cunha, Manchester United
+135 Bruno Fernandes, Manchester United
+136 Amad, Manchester United
+137 Benjamin Šeško, Manchester United
+138 Shea Lacey, Manchester United RC
+139 Bendito Mantato, Manchester United RC
+140 Chido Obi, Manchester United (Future Stars)
+141 Yoane Wissa, Newcastle United
+142 Dan Burn, Newcastle United
+143 Bruno Guimarães, Newcastle United
+144 Anthony Gordon, Newcastle United
+145 Nick Woltemade, Newcastle United
+146 Joelinton, Newcastle United
+147 Sandro Tonali, Newcastle United
+148 Seung-Soo Park, Newcastle United RC
+149 Anthony Elanga, Newcastle United
+150 Tino Livramento, Newcastle United
+151 Igor Jesus, Nottingham Forest RC
+152 Callum Hudson-Odoi, Nottingham Forest
+153 Dan Ndoye, Nottingham Forest
+154 Morgan Gibbs-White, Nottingham Forest
+155 Murillo, Nottingham Forest
+156 James McAtee, Nottingham Forest
+157 Zach Abbott, Nottingham Forest RC
+158 Chris Wood, Nottingham Forest
+159 Jair, Nottingham Forest RC
+160 Omari Hutchinson, Nottingham Forest
+161 Noah Sadiki, Sunderland RC
+162 Eliezer Mayenda, Sunderland RC
+163 Chris Rigg, Sunderland RC
+164 Habib Diarra, Sunderland
+165 Dan Ballard, Sunderland RC
+166 Wilson Isidor, Sunderland RC
+167 Enzo Le Fée, Sunderland
+168 Simon Adingra, Sunderland
+169 Granit Xhaka, Sunderland
+170 Chemsdine Talbi, Sunderland (Future Stars)
+171 Cristian Romero, Tottenham Hotspur
+172 Randal Kolo Muani, Tottenham Hotspur
+173 Richarlison, Tottenham Hotspur
+174 Micky van de Ven, Tottenham Hotspur
+175 Xavi Simons, Tottenham Hotspur
+176 Mohammed Kudus, Tottenham Hotspur
+177 Kōta Takai, Tottenham Hotspur RC
+178 Brennan Johnson, Tottenham Hotspur
+179 Archie Gray, Tottenham Hotspur (Future Stars)
+180 Lucas Bergvall, Tottenham Hotspur (Future Stars)
+181 El Hadji Malick Diouf, West Ham United RC
+182 Jarrod Bowen, West Ham United
+183 Mateus Fernandes, West Ham United
+184 Igor Julio, West Ham United
+185 Luis Guilherme, West Ham United RC
+186 Freddie Potts, West Ham United RC
+187 Lucas Paquetá, West Ham United
+188 Tomáš Souček, West Ham United
+189 Ollie Scarles, West Ham United
+190 Aaron Wan-Bissaka, West Ham United
+191 Tolu Arokodare, Wolverhampton Wanderers RC
+192 André, Wolverhampton Wanderers
+193 Jørgen Strand Larsen, Wolverhampton Wanderers
+194 João Gomes, Wolverhampton Wanderers
+195 Jhon Arias, Wolverhampton Wanderers
+196 Hwang Hee-Chan, Wolverhampton Wanderers
+197 Fer López, Wolverhampton Wanderers RC
+198 Emmanuel Agbadou, Wolverhampton Wanderers
+199 José Sá, Wolverhampton Wanderers
+200 Rodrigo Gomes, Wolverhampton Wanderers (Future Stars)
+201 Max Dowman, Arsenal RC (Hobby-Exclusive)
+
+Chrome Autographs
+128 cards
+Parallels
+
+Refractor
+Geometric Refractor
+Aqua Refractor /199
+Blue Refractor /150
+Green Refractor /99
+Green Wave Refractor /99
+Purple Refractor /75
+Purple Wave Refractor /75
+Gold Refractor /50
+Gold Wave Refractor /50
+Orange Refractor /25
+Orange Wave Refractor /25
+Orange Geometric Refractor /25
+Black Refractor /10
+Black Wave Refractor /10
+Black Geometric Refractor /10
+Red Refractor /5
+Red Wave Refractor /5
+Red Geometric Refractor /5
+Superfractor 1/1
+Shop for Chrome Autographs on eBay
+
+CA-AB Zach Abbott, Nottingham Forest
+CA-AC Andy Cole, Manchester United
+CA-AE Anthony Elanga, Newcastle United
+CA-AI Alexander Isak, Liverpool FC
+CA-AS Alan Shearer, Newcastle United
+CA-AY Anthony Gordon, Newcastle United
+CA-BB Ben Broggio, Aston Villa
+CA-BF Bruno Fernandes, Manchester United
+CA-BG Bruno Guimarães, Newcastle United
+CA-BL Jayden Bogle, Leeds United
+CA-BM Bryan Mbeumo, Manchester United
+CA-BO Jarrod Bowen, West Ham United
+CA-BS Bukayo Saka, Arsenal
+CA-BV Dimitar Berbatov, Manchester United
+CA-CB Harrison Murray-Campbell, Chelsea
+CA-CD Clint Dempsey, Fulham
+CA-CF Cesc Fàbregas, Arsenal
+CA-CG Cody Gakpo, Liverpool FC
+CA-CHO Callum Hudson-Odoi, Nottingham Forest
+CA-CL Joe Cole, West Ham United
+CA-CM Claude Makélélé, Chelsea
+CA-CP Cole Palmer, Chelsea
+CA-CR Chris Rigg, Sunderland
+CA-CT Carlos Tevez, West Ham United
+CA-CW Chris Wood, Nottingham Forest
+CA-DD Didier Drogba, Chelsea
+CA-DE Dennis Bergkamp, Arsenal
+CA-DF Duncan Ferguson, Everton
+CA-DM Divine Mukasa, Manchester City
+CA-DR Declan Rice, Arsenal
+CA-DS David Silva, Manchester City
+CA-DY Dwight Yorke, Manchester United
+CA-EC Eric Cantona, Manchester United
+CA-EH Erling Haaland, Manchester City
+CA-EM Emiliano Martínez, Aston Villa
+CA-ER Cristian Romero, Tottenham Hotspur
+CA-ES Emile Smith Rowe, Fulham
+CA-EZE Eberechi Eze, Arsenal
+CA-FA Faustino Asprilla, Newcastle United
+CA-FL Frank Lampard, Chelsea
+CA-FR Robbie Fowler, Liverpool FC
+CA-FT Fernando Torres, Liverpool FC
+CA-FW Florian Wirtz, Liverpool FC
+CA-GA Gabriel Agbonlahor, Aston Villa
+CA-GB Gareth Bale, Tottenham Hotspur
+CA-GK Petr Čech, Chelsea
+CA-GP Gustavo Poyet, Chelsea
+CA-GR Jack Grealish, Everton
+CA-GS Ryan Giggs, Manchester United
+CA-GX Granit Xhaka, Sunderland
+CA-GZ Gianfranco Zola, Chelsea
+CA-HE Hugo Ekitike, Liverpool FC
+CA-HG Harry Gray, Leeds United
+CA-HK Harry Kane, Tottenham Hotspur
+CA-HS Heung-Min Son, Tottenham Hotspur
+CA-IN Iliman Ndiaye, Everton
+CA-JC Jamie Carragher, Liverpool FC
+CA-JD Jermain Defoe, Tottenham Hotspur
+CA-JO João Pedro, Chelsea
+CA-JR Jacob Ramsey, Newcastle United
+CA-JS Jørgen Strand Larsen, Wolverhampton Wanderers
+CA-JT John Terry, Chelsea
+CA-KA Kanu, Arsenal
+CA-KDB Kevin De Bruyne, Manchester City
+CA-KS Kevin Schade, Brentford
+CA-KZ Milos Kerkez, Liverpool FC
+CA-LF Les Ferdinand, Tottenham Hotspur
+CA-LH Lewis Hall, Newcastle United
+CA-LJ Freddie Ljungberg, Arsenal
+CA-LM Luka Modrić, Tottenham Hotspur
+CA-LP Lucas Paquetá, West Ham United
+CA-LS Luis Suárez, Liverpool FC
+CA-MA Mikel Arteta, Arsenal
+CA-MC Matheus Cunha, Manchester United
+CA-ME Marcus Edwards, Burnley FC
+CA-MG Marc Guiu, Chelsea
+CA-MI Randal Kolo Muani, Tottenham Hotspur
+CA-MK Mohammed Kudus, Tottenham Hotspur
+CA-MN Mark Noble, West Ham United
+CA-MOU José Mourinho, Chelsea
+CA-MU Manuel Ugarte, Manchester United
+CA-MZ Martín Zubimendi, Arsenal
+CA-MØ Martin Ødegaard, Arsenal
+CA-NE Neville Southall, Everton
+CA-NM Nikola Milenković, Nottingham Forest
+CA-NV Gary Neville, Manchester United
+CA-OW Ollie Watkins, Aston Villa
+CA-PF Phil Foden, Manchester City
+CA-PG Pep Guardiola, Manchester City
+CA-PK Patrick Kluivert, Newcastle United
+CA-PS Paul Scholes, Manchester United
+CA-PV Patrick Vieira, Arsenal
+CA-RE Romain Esse, Crystal Palace
+CA-RF Rio Ferdinand, Manchester United
+CA-RH Raphinha, Leeds United
+CA-RI Chris Richards, Crystal Palace
+CA-RK Roy Keane, Manchester United
+CA-RO Morgan Rogers, Aston Villa
+CA-RP Robert Pirès, Arsenal
+CA-RT Georginio Rutter, Brighton & Hove Albion
+CA-RVP Robin van Persie, Manchester United
+CA-SA Sergio Agüero, Manchester City
+CA-SAF Sir Alex Ferguson, Manchester United
+CA-SG Steven Gerrard, Liverpool FC
+CA-SH Peter Schmeichel, Manchester United
+CA-SL Shea Lacey, Manchester United
+CA-SM Shumaira Mheuka, Chelsea
+CA-SO Dominic Solanke, Tottenham Hotspur
+CA-TD Tyler Dibling, Everton
+CA-TH Thierry Henry, Arsenal
+CA-TK Trent Koné-Doherty, Liverpool FC
+CA-TL Tino Livramento, Newcastle United
+CA-TW Tom Watson, Brighton & Hove Albion
+CA-UF El Hadji Malick Diouf, West Ham United
+CA-VG Viktor Gyökeres, Arsenal
+CA-VV Virgil van Dijk, Liverpool FC
+CA-WH Adam Wharton, Crystal Palace
+CA-WR Wayne Rooney, Manchester United
+CA-XS Xavi Simons, Tottenham Hotspur
+CA-YA Yaya Touré, Manchester City
+CA-YI Yasin Ayari, Brighton & Hove Albion
+CA-YM Yankuba Minteh, Brighton & Hove Albion
+CA-YT Youri Tielemans, Aston Villa
+CA-ZI Zlatan Ibrahimović, Manchester United
+CA-EV Estêvão Willian, Chelsea
+CA-MS Mohamed Salah, Liverpool FC
+CA-RN Rio Ngumoha, Liverpool FC
+CA-MD Max Dowman, Arsenal
+
+Chrome Dual Autographs
+25 cards
+Parallels
+
+Gold Refractor /50
+Orange Refractor /25
+Black Refractor /10
+Red Refractor /5
+Superfractor 1/1
+Shop for Chrome Dual Autographs on eBay
+
+CDA-BP Stiliyan Petrov/Gareth Barry, Aston Villa
+CDA-CY Andy Cole/Dwight Yorke, Manchester United
+CDA-DK Jermain Defoe/Robbie Keane, Tottenham Hotspur
+CDA-DM Clint Dempsey/Brian McBride, Fulham
+CDA-GA Steven Gerrard/Xabi Alonso, Liverpool FC
+CDA-GD Jack Grealish/Tyler Dibling, Everton
+CDA-GE Anthony Gordon/Anthony Elanga, Newcastle United
+CDA-GS Gabriel Magalhães/William Saliba, Arsenal
+CDA-GT Fernando Torres/Steven Gerrard, Liverpool FC
+CDA-HA Sergio Agüero/Erling Haaland, Manchester City
+CDA-HB Dennis Bergkamp/Thierry Henry, Arsenal
+CDA-KG Cody Gakpo/Dirk Kuyt, Liverpool FC
+CDA-KS Harry Kane/Heung-Min Son, Tottenham Hotspur
+CDA-MC Harrison Murray-Campbell/Shumaira Mheuka, Chelsea
+CDA-ME Claude Makélélé/Michael Essien, Chelsea
+CDA-MF Sir Alex Ferguson/José Mourinho, Manchester United
+CDA-NB Mark Noble/Jarrod Bowen, West Ham United
+CDA-RF Wayne Rooney/Duncan Ferguson, Everton
+CDA-RP Wayne Rooney/Robin van Persie, Manchester United
+CDA-SH Bukayo Saka/Thierry Henry, Arsenal
+CDA-SN Ethan Nwaneri/Myles Lewis-Skelly, Arsenal
+CDA-SS David Silva/Bernardo Silva, Manchester City
+CDA-TL Frank Lampard/John Terry, Chelsea
+CDA-VR Patrick Vieira/Declan Rice, Arsenal
+CDA-ZB Yannick Bolasie/Wilfried Zaha, Crystal Palace
+
+Chrome Triple Autographs
+12 cards
+Parallels
+
+Gold Refractor /50
+Orange Refractor /25
+Black Refractor /10
+Red Refractor /5
+Superfractor 1/1
+Shop for Chrome Triple Autographs on eBay
+
+CT-BKS Heung-Min Son/Gareth Bale/Harry Kane, Tottenham Hotspur
+CT-DLT John Terry/Didier Drogba/Frank Lampard, Chelsea
+CT-GHZ Eiður Guðjohnsen/Gianfranco Zola/Jimmy-Floyd Hasselbaink, Chelsea
+CT-HBW Ian Wright/Thierry Henry/Dennis Bergkamp, Arsenal
+CT-KCG Roy Keane/Eric Cantona/Ryan Giggs, Manchester United
+CT-MFC Matheus Cunha/Bruno Fernandes/Bryan Mbeumo, Manchester United
+CT-SGS Luis Suárez/Steven Gerrard/Mohamed Salah, Liverpool FC
+CT-SPK Stuart Pearce/Teddy Sheringham/Roy Keane, Nottingham Forest
+CT-SRG Viktor Gyökeres/Declan Rice/Bukayo Saka, Arsenal
+CT-VFL Patrick Vieira/Robert Pirès/Freddie Ljungberg, Arsenal
+CT-YAD David Silva/Yaya Touré/Sergio Agüero, Manchester City
+CT-YAW Gabriel Agbonlahor/Dwight Yorke/Ollie Watkins, Aston Villa
+
+Winner's Enclosure Autographs – Superfractors
+4 cards
+
+WIN-DR David Raya, Arsenal (Joint Golden Glove Winner)
+WIN-MS Matz Sels, Nottingham Forest (Joint Golden Glove Winner)
+WIN-MSB Mohamed Salah, Liverpool FC (Golden Boot Winner)
+WIN-MSP Mohamed Salah, Liverpool FC (Playmaker Winner)
+
+Winner's Enclosure Autographs – Superfractor
+1 card
+
+WIN-QUAD David Raya (Joint Golden Glove Winner)/Matz Sels (Joint Golden Glove Winner)/Mohamed Saleh (Golden Boot and Playmaker Winner) Arsenal/Nottingham Forest/Liverpool FC
+
+Kings Of The Premier League Quad Autograph
+1 card
+Parallel
+
+Superfractor /1
+KING-QUAD Cole Palmer/Erling Haaland/Bruno Fernandes/Mohamed Salah Chelsea/Manchester City/Manchester United/Liverpool FC
+
+Superstar Sensations Autographs
+17 cards
+Parallels
+
+Gold Refractor /50
+Orange Refractor /25
+Black Refractor /10
+Red Refractor /5
+Superfractor 1/1
+Shop for Superstar Sensations autographs on eBay
+
+SUP-BF Bruno Fernandes, Manchester United
+SUP-BS Bukayo Saka, Arsenal
+SUP-CP Cole Palmer, Chelsea
+SUP-DR Declan Rice, Arsenal
+SUP-EH Erling Haaland, Manchester City
+SUP-GO Anthony Gordon, Newcastle United
+SUP-JB Jarrod Bowen, West Ham United
+SUP-JG Jack Grealish, Everton
+SUP-KO Benjamin Šeško, Manchester United
+SUP-KS Cristian Romero, Tottenham Hotspur
+SUP-LM Matheus Cunha, Manchester United
+SUP-MD Matthijs De Ligt, Manchester United
+SUP-MK Mohammed Kudus, Tottenham Hotspur
+SUP-MO Martin Ødegaard, Arsenal
+SUP-MS Mohamed Salah, Liverpool FC
+SUP-PF Phil Foden, Manchester City
+SUP-VV Virgil van Dijk, Liverpool FC
+
+Retro Rookies Autographs – Purple
+7 cards
+Breaker Delight-Exclusive
+Parallels
+
+Orange Geometric /25
+Black Geometric /10
+Red Geometric /5
+Superfractor /1
+Shop for Retro Rookies autographs on eBay
+
+RR-BB Ben Broggio, Aston Villa
+RR-DM Divine Mukasa, Manchester City
+RR-ES Estêvão Willian, Chelsea
+RR-HG Harry Gray, Leeds United
+RR-KD Trent Koné-Doherty, Liverpool FC
+RR-RN Rio Ngumoha, Liverpool FC
+RR-ZA Zach Abbott, Nottingham Forest
+
+Zero Hours On-Card Autographs
+11 cards
+Hobby-Exclusive
+Parallels
+
+Black Refractor /10
+Red Refractor /5
+Superfractor /1
+Shop for Zero Hours autographs on eBay
+
+ZH-AY Tosin Adarabioyo, Chelsea /20
+ZH-BF Bruno Fernandes, Manchester United /20
+ZH-BG Bruno Guimarães, Newcastle United /20
+ZH-DF Jermain Defoe, Sunderland /20
+ZH-GB Gareth Bale, Tottenham Hotspur /20
+ZH-LS Myles Lewis-Skelly, Arsenal /20
+ZH-MC Matheus Cunha, Manchester United /20
+ZH-MS Mohamed Salah, Liverpool FC /20
+ZH-SL Jørgen Strand Larsen, Wolverhampton Wanderers /20
+ZH-TH Thierry Henry, Arsenal /20
+ZH-WR Wayne Rooney, Manchester United /20
+
+Cold Battle Frozenfractor On-Card Autographs
+2 cards
+Hobby-Exclusive
+
+FF-CP Cole Palmer, Chelsea /-5
+FF-MR Morgan Rogers, Aston Villa /-5
+
+Cold Battle Frozenfractor On-Card Dual Autograph
+1 card
+
+FF-PR Cole Palmer/Morgan Rogers, Chelsea/Aston Villa /-5
+
+The Streets Won't Forget
+20 cards
+Parallels
+
+Green Refractor /99
+Purple Refractor /75
+Gold Refractor /50
+Orange Refractor /25
+Black Refractor /10
+Red Refractor /5
+Superfractor 1/1
+Shop for The Streets Won't Forget inserts on eBay
+
+SWF-1 Harry Kewell, Liverpool FC
+SWF-2 Eiður Guðjohnsen, Chelsea
+SWF-3 Elano, Manchester City
+SWF-4 Aaron Lennon, Tottenham Hotspur
+SWF-5 Yakubu, Everton
+SWF-6 Andy Johnson, Crystal Palace
+SWF-7 Papiss Cissé, Newcastle United
+SWF-8 Yannick Bolasie, Crystal Palace
+SWF-9 Bobby Zamora, Fulham
+SWF-10 Niko Kranjčar, Tottenham Hotspur
+SWF-11 Stephen Ireland, Manchester City
+SWF-12 John Arne Riise, Liverpool FC
+SWF-13 Nolberto Solano, Newcastle United
+SWF-14 Zoltán Gera, Fulham
+SWF-15 Abou Diaby, Arsenal
+SWF-16 Georgi Kinkladze, Manchester City
+SWF-17 Tony Yeboah, Leeds United
+SWF-18 Faustino Asprilla, Newcastle United
+SWF-19 Gabriel Agbonlahor, Aston Villa
+SWF-20 Kevin Phillips, Sunderland
+
+Alive And Kicking
+20 cards
+Parallels
+
+Green Refractor /99
+Purple Refractor /75
+Gold Refractor /50
+Orange Refractor /25
+Black Refractor /10
+Red Refractor /5
+Superfractor 1/1
+Shop for Alive And Kicking inserts on eBay
+
+AK-1 Harvey Elliott, Aston Villa
+AK-2 Amad, Manchester United
+AK-3 Dominik Szoboszlai, Liverpool FC
+AK-4 Rodri, Manchester City
+AK-5 Noni Madueke, Arsenal
+AK-6 Tyler Dibling, Everton
+AK-7 Reece James, Chelsea
+AK-8 André, Wolverhampton Wanderers
+AK-9 Georginio Rutter, Brighton & Hove Albion
+AK-10 Harry Gray, Leeds United
+AK-11 Antonee Robinson, Fulham
+AK-12 Mohamed Salah, Liverpool FC
+AK-13 Chris Rigg, Sunderland
+AK-14 Estêvão Willian, Chelsea
+AK-15 Iliman Ndiaye, Everton
+AK-16 Bukayo Saka, Arsenal
+AK-17 Joelinton, Newcastle United
+AK-18 Ola Aina, Nottingham Forest
+AK-19 Archie Gray, Tottenham Hotspur
+AK-20 Omar Marmoush, Manchester City
+
+That's His Job
+20 cards
+Parallels
+
+Green Refractor /99
+Purple Refractor /75
+Gold Refractor /50
+Orange Refractor /25
+Black Refractor /10
+Red Refractor /5
+Superfractor 1/1
+Shop for That's His Job inserts on eBay
+
+THJ-1 Tyler Adams, AFC Bournemouth
+THJ-2 Lewis Dunk, Brighton & Hove Albion
+THJ-3 William Saliba, Arsenal
+THJ-4 Ollie Watkins, Aston Villa
+THJ-5 Nathan Collins, Brentford
+THJ-6 Maxime Estève, Burnley FC
+THJ-7 Moisés Caicedo, Chelsea
+THJ-8 Jean-Philippe Mateta, Crystal Palace
+THJ-9 James Tarkowski, Everton
+THJ-10 Raúl Jiménez, Fulham
+THJ-11 Habib Diarra, Sunderland
+THJ-12 Virgil van Dijk, Liverpool FC
+THJ-13 Erling Haaland, Manchester City
+THJ-14 Bruno Fernandes, Manchester United
+THJ-15 Dan Burn, Newcastle United
+THJ-16 Chris Wood, Nottingham Forest
+THJ-17 Anton Stach, Leeds United
+THJ-18 João Palhinha, Tottenham Hotspur
+THJ-19 João Gomes, Wolverhampton Wanderers
+THJ-20 Jørgen Strand Larsen, Wolverhampton Wanderers
+
+Stoppage Time Heartbreaker
+20 cards
+Parallels
+
+Green Refractor /99
+Purple Refractor /75
+Gold Refractor /50
+Orange Refractor /25
+Black Refractor /10
+Red Refractor /5
+Superfractor 1/1
+Shop for Stoppage Time Heartbreaker inserts on eBay
+
+STH-1 Stan Collymore, Liverpool FC
+STH-2 Sergio Agüero, Manchester City
+STH-3 Gareth Bale, Tottenham Hotspur
+STH-4 Cole Palmer, Chelsea
+STH-5 Reiss Nelson, Arsenal
+STH-6 Alisson, Liverpool FC
+STH-7 Rodrigo Muniz, Fulham
+STH-8 Steve Bruce, Manchester United
+STH-9 Oscar Bobb, Manchester City
+STH-10 Robin van Persie, Manchester United
+STH-11 Michael Owen, Manchester United
+STH-12 Sadio Mané, Liverpool FC
+STH-13 Paul Scholes, Manchester United
+STH-14 Steven Gerrard, Liverpool FC
+STH-15 Dirk Kuyt, Liverpool FC
+STH-16 Alex Iwobi, Fulham
+STH-17 Federico Macheda, Manchester United
+STH-18 Danny Welbeck, Arsenal
+STH-19 Declan Rice, Arsenal
+STH-20 Dejan Kulusevski, Tottenham Hotspur
+
+Golazo
+20 cards
+Parallels
+
+Green Refractor /99
+Purple Refractor /75
+Gold Refractor /50
+Orange Refractor /25
+Black Refractor /10
+Red Refractor /5
+Superfractor 1/1
+Shop for Golazo inserts on eBay
+
+GZ-1 Justin Kluivert, AFC Bournemouth
+GZ-2 Kaoru Mitoma, Brighton & Hove Albion
+GZ-3 James Tarkowski, Everton
+GZ-4 Luis Suárez, Liverpool FC
+GZ-5 Kobbie Mainoo, Manchester United
+GZ-6 Dennis Bergkamp, Arsenal
+GZ-7 Eric Cantona, Manchester United
+GZ-8 Gus Poyet, Chelsea
+GZ-9 Philippe Albert, Newcastle United
+GZ-10 Kanu, Arsenal
+GZ-11 Wayne Rooney, Manchester United
+GZ-12 Gareth Bale, Tottenham Hotspur
+GZ-13 Tony Yeboah, Leeds United
+GZ-14 Thierry Henry, Arsenal
+GZ-15 Olivier Giroud, Arsenal
+GZ-16 Harry Kane, Tottenham Hotspur
+GZ-17 Robert Pirès, Arsenal
+GZ-18 Georgi Kinkladze, Manchester City
+GZ-19 Andy Cole, Manchester United
+GZ-20 Robbie Fowler, Liverpool FC
+
+Locked In
+49 cards
+Parallels
+
+Black Refractor /10
+Red Refractor /5
+Superfractor /1
+Shop for Locked In inserts on eBay
+
+LI-1 Richarlison, Tottenham Hotspur
+LI-2 Gianluigi Donnarumma, Manchester City
+LI-3 Bukayo Saka, Arsenal
+LI-4 Patrick Vieira, Arsenal
+LI-5 Viktor Gyökeres, Arsenal
+LI-6 Tolu Arokodare, Wolverhampton Wanderers
+LI-7 Youri Tielemans, Aston Villa
+LI-8 Gustavo Nunes, Brentford
+LI-9 Antoine Semenyo, AFC Bournemouth
+LI-10 Charalampos Kostoulas, Brighton & Hove Albion
+LI-11 Stefanos Tzimas, Brighton & Hove Albion
+LI-12 Zian Flemming, Burnley FC
+LI-13 Josh Acheampong, Chelsea
+LI-14 Eden Hazard, Chelsea
+LI-15 Estêvão Willian, Chelsea
+LI-16 Frank Lampard, Chelsea
+LI-17 Jean-Philippe Mateta, Crystal Palace
+LI-18 Romain Esse, Crystal Palace
+LI-19 Thierno Barry, Everton
+LI-20 Duncan Ferguson, Everton
+LI-21 Emile Smith Rowe, Fulham
+LI-22 Josh King, Fulham
+LI-23 Harry Gray, Leeds United
+LI-24 Anthony Gordon, Newcastle United
+LI-25 Florian Wirtz, Liverpool FC
+LI-26 Rio Ngumoha, Liverpool FC
+LI-27 Luis Suárez, Liverpool FC
+LI-28 Steven Gerrard, Liverpool FC
+LI-29 Rayan Aït-Nouri, Manchester City
+LI-30 Rodri, Manchester City
+LI-31 Reigan Heskey, Manchester City
+LI-32 Divine Mukasa, Manchester City
+LI-33 Yaya Touré, Manchester City
+LI-34 Bruno Fernandes, Manchester United
+LI-35 Eric Cantona, Manchester United
+LI-36 Shea Lacey, Manchester United
+LI-37 Roy Keane, Manchester United
+LI-39 Bruno Guimarães, Newcastle United
+LI-40 Alexander Isak, Liverpool FC
+LI-41 Murillo, Nottingham Forest
+LI-42 Igor Jesus, Nottingham Forest
+LI-43 Chris Rigg, Sunderland
+LI-44 Eliezer Mayenda, Sunderland
+LI-45 Xavi Simons, Tottenham Hotspur
+LI-46 Mohammed Kudus, Tottenham Hotspur
+LI-47 Gareth Bale, Tottenham Hotspur
+LI-48 Luis Guilherme, West Ham United
+LI-49 Hwang Hee-Chan, Wolverhampton Wanderers
+LI-50 João Pedro, Chelsea
+
+A Cold And Rainy Night In Chrome
+24 cards
+Parallels
+
+Black Shimmer /10
+Red Shimmer /5
+Superfractor /1
+Shop for A Cold And Rainy Night In Chrome inserts on eBay
+
+CRN-1 Phil Foden, Manchester City
+CRN-2 Mohammed Kudus, Tottenham Hotspur
+CRN-3 Harry Kane, Tottenham Hotspur
+CRN-4 Michael Essien, Chelsea
+CRN-6 Hugo Ekitike, Liverpool FC
+CRN-7 Mohamed Salah, Liverpool FC
+CRN-8 Cesc Fàbregas, Arsenal
+CRN-9 Anthony Gordon, Newcastle United
+CRN-10 Tijjani Reijnders, Manchester City
+CRN-11 N'Golo Kanté, Chelsea
+CRN-12 Estêvão Willian, Chelsea
+CRN-13 Erling Haaland, Manchester City
+CRN-14 Chris Rigg, Sunderland
+CRN-15 Steven Gerrard, Liverpool FC
+CRN-16 Kaoru Mitoma, Brighton & Hove Albion
+CRN-17 Ollie Watkins, Aston Villa
+CRN-18 Bryan Mbeumo, Manchester United
+CRN-19 Declan Rice, Arsenal
+CRN-20 Rio Ngumoha, Liverpool FC
+CRN-21 Morgan Gibbs-White, Nottingham Forest
+CRN-22 Thierry Henry, Arsenal
+CRN-23 Paul Scholes, Manchester United
+CRN-24 Alan Shearer, Newcastle United
+CRN-25 Wayne Rooney, Manchester United
+
+Give Him His Flowers
+25 cards
+Parallels
+
+Snapdragon Variation /10
+Iris Variation /5
+Roses Variation /1
+Shop for Give Him His Flowers inserts on eBay
+
+HF-1 Dirk Kuyt, Liverpool FC
+HF-2 Nani, Manchester United
+HF-3 Antoine Semenyo, AFC Bournemouth
+HF-4 Antonio Valencia, Manchester United
+HF-5 Yoane Wissa, Newcastle United
+HF-6 Carlos Baleba, Brighton & Hove Albion
+HF-7 Alexis Mac Allister, Liverpool FC
+HF-8 Gabriel Magalhães, Arsenal
+HF-9 Iliman Ndiaye, Everton
+HF-10 Daniel Muñoz, Crystal Palace
+HF-11 Jermain Defoe, Tottenham Hotspur
+HF-12 Wilfried Zaha, Crystal Palace
+HF-13 Ramires, Chelsea
+HF-14 Chris Wood, Nottingham Forest
+HF-15 Harvey Barnes, Newcastle United
+HF-16 Gilberto Silva, Arsenal
+HF-17 Aaron Wan-Bissaka, West Ham United
+HF-18 Youri Tielemans, Aston Villa
+HF-19 Leighton Baines, Everton
+HF-20 Michael Carrick, Manchester United
+HF-21 Claude Makélélé, Chelsea
+HF-22 Sadio Mané, Liverpool FC
+HF-23 Robert Pirès, Arsenal
+HF-24 Jérémy Doku, Manchester City
+HF-25 Carlos Tevez, Manchester United
+
+Club Crests – Superfractors
+20 cards
+
+CS-1 Arsenal
+CS-2 Aston Villa
+CS-3 AFC Bournemouth
+CS-4 Brentford
+CS-5 Brighton & Hove Albion
+CS-6 Chelsea
+CS-7 Crystal Palace
+CS-8 Everton
+CS-9 Fulham
+CS-10 Burnley FC
+CS-11 Leeds United
+CS-12 Liverpool FC
+CS-13 Manchester City
+CS-14 Manchester United
+CS-15 Newcastle United
+CS-16 Nottingham Forest
+CS-17 Sunderland
+CS-18 Tottenham Hotspur
+CS-19 West Ham United
+CS-20 Wolverhampton Wanderers
+
+Premier League Trophy – Superfractor
+1 card
+
+PLT-1 Premier League Trophy
+
+Winner's Enclosure – Superfractors
+4 cards
+
+WE-1 Mohamed Salah, Liverpool FC (Golden Boot Winner)
+WE-2 David Raya, Arsenal (Joint Golden Glove Winner)
+WE-3 Matz Sels, Nottingham Forest (Joint Golden Glove Winner)
+WE-4 Mohamed Salah, Liverpool FC (Playmaker Winner)
+
+Chrome Anime
+10 cards
+Parallels
+
+Black Refractor /10
+Red Refractor /5
+Superfractor /1
+Shop for Chrome Anime inserts on eBay
+
+CA-AI Alexander Isak, Liverpool FC
+CA-BA Brenden Aaronson, Leeds United
+CA-BS Bukayo Saka, Arsenal
+CA-EH Erling Haaland, Manchester City
+CA-KM Kaoru Mitoma, Brighton & Hove Albion
+CA-MC Matheus Cunha, Manchester United
+CA-MR Morgan Rogers, Aston Villa
+CA-PR Cole Palmer, Chelsea
+CA-VG Viktor Gyökeres, Arsenal
+CA-VVD Virgil van Dijk, Liverpool FC
+
+Helix
+10 cards
+Parallel
+
+Superfractor /1
+Shop for Helix inserts on eBay
+
+HX-1 Mohamed Salah, Liverpool FC
+HX-2 Erling Haaland, Manchester City
+HX-3 Martin Ødegaard, Arsenal
+HX-4 Alexander Isak, Liverpool FC
+HX-5 Bukayo Saka, Arsenal
+HX-6 Cole Palmer, Chelsea
+HX-7 Bruno Fernandes, Manchester United
+HX-8 Rio Ngumoha, Liverpool FC
+HX-9 Estêvão Willian, Chelsea
+HX-10 Rodri, Manchester City
+
+Genius Chrome
+25 cards
+Hobby-Exclusive
+Parallels
+
+Black Refractor /10
+Red Refractor /5
+Superfractor /1
+Shop for Genius Chrome inserts on eBay
+
+GC-1 David Silva, Manchester City
+GC-2 Santi Cazorla, Arsenal
+GC-3 Wayne Rooney, Manchester United
+GC-4 Eden Hazard, Chelsea
+GC-5 Thierry Henry, Arsenal
+GC-6 Alexis Mac Allister, Liverpool FC
+GC-7 Bukayo Saka, Arsenal
+GC-8 Luis Suárez, Liverpool FC
+GC-9 Dimitar Berbatov, Manchester United
+GC-10 Cesc Fàbregas, Chelsea
+GC-11 Alex Iwobi, Fulham
+GC-12 Dennis Bergkamp, Arsenal
+GC-13 Phil Foden, Manchester City
+GC-14 Rayan Cherki, Manchester City
+GC-15 Martin Ødegaard, Arsenal
+GC-16 Mohamed Salah, Liverpool FC
+GC-17 Philippe Coutinho, Liverpool FC
+GC-18 Bruno Fernandes, Manchester United
+GC-19 Lucas Paquetá, West Ham United
+GC-20 Cole Palmer, Chelsea
+GC-21 Mikkel Damsgaard, Brentford
+GC-22 Heung-Min Son, Tottenham Hotspur
+GC-23 Matheus Cunha, Manchester United
+GC-24 Eberechi Eze, Arsenal
+GC-25 Jarrod Bowen, West Ham United
+
+Triple Platinum
+25 cards
+Hobby-Exclusive
+Parallels
+
+Black Stainless Steel /10
+Red Stainless Steel /5
+Superfractor /1
+Shop for Triple Platinum inserts on eBay
+
+TP-1 Cole Palmer, Chelsea
+TP-2 Virgil van Dijk, Liverpool FC
+TP-3 Bruno Fernandes, Manchester United
+TP-4 Bukayo Saka, Arsenal
+TP-5 Martin Ødegaard, Arsenal
+TP-6 Mohamed Salah, Liverpool FC
+TP-7 Erling Haaland, Manchester City
+TP-8 Phil Foden, Manchester City
+TP-9 Alexander Isak, Liverpool FC
+TP-10 Rodri, Manchester City
+TP-11 Kaoru Mitoma, Brighton & Hove Albion
+TP-12 Estêvão Willian, Chelsea
+TP-13 Benjamin Šeško, Manchester United
+TP-14 Alexis Mac Allister, Liverpool FC
+TP-15 Chris Wood, Nottingham Forest
+TP-16 Viktor Gyökeres, Arsenal
+TP-17 Eberechi Eze, Arsenal
+TP-18 Declan Rice, Arsenal
+TP-19 Moisés Caicedo, Chelsea
+TP-20 Bruno Guimarães, Newcastle United
+TP-21 Florian Wirtz, Liverpool FC
+TP-22 Morgan Rogers, Aston Villa
+TP-23 Matheus Cunha, Manchester United
+TP-24 Enzo Fernández, Chelsea
+TP-25 Jarrod Bowen, West Ham United
+
+Clinical Chrome
+30 cards
+Tin-Exclusive
+Parallels
+
+Gold Refractor /50
+Orange Refractor /25
+Black Refractor /10
+Red Refractor /5
+Superfractor /1
+Shop for Clinical Chrome inserts on eBay
+
+CC-1 Alan Shearer, Newcastle United
+CC-2 Jean-Philippe Mateta, Crystal Palace
+CC-3 Andy Cole, Manchester United
+CC-4 Didier Drogba, Chelsea
+CC-5 Sergio Agüero, Manchester City
+CC-6 Harry Kane, Tottenham Hotspur
+CC-7 Fernando Torres, Liverpool FC
+CC-8 Jermain Defoe, Tottenham Hotspur
+CC-9 Kevin Phillips, Sunderland
+CC-10 Wayne Rooney, Manchester United
+CC-11 Erling Haaland, Manchester City
+CC-12 Yoane Wissa, Newcastle United
+CC-13 Raúl Jiménez, Fulham
+CC-14 Thierry Henry, Arsenal
+CC-15 Liam Delap, Chelsea
+CC-16 Chris Wood, Nottingham Forest
+CC-17 Alexander Isak, Liverpool FC
+CC-18 Ollie Watkins, Aston Villa
+CC-19 Mohamed Salah, Liverpool FC
+CC-20 Jørgen Strand Larsen, Wolverhampton Wanderers
+CC-21 Viktor Gyökeres, Arsenal
+CC-22 Benjamin Šeško, Manchester United
+CC-23 Beto, Everton
+CC-24 Stefanos Tzimas, Brighton & Hove Albion
+CC-25 Antoine Semenyo, AFC Bournemouth
+CC-26 Niclas Füllkrug, West Ham United
+CC-27 Hugo Ekitike, Liverpool FC
+CC-28 Wilson Isidor, Sunderland
+CC-29 Joël Piroe, Leeds United
+CC-30 Zian Flemming, Burnley FC
+
+Monday Night Lights
+40 cards
+Value-Exclusive
+Parallels
+
+Gold Refractor /50
+Orange Refractor /25
+Black Refractor /10
+Red Refractor /5
+Superfractor /1
+Shop for Monday Night Lights inserts on eBay
+
+MNL-1 Sandro Tonali, Newcastle United
+MNL-2 Lewis Miley, Newcastle United
+MNL-3 Dominik Szoboszlai, Liverpool FC
+MNL-4 Curtis Jones, Liverpool FC
+MNL-5 Ethan Nwaneri, Arsenal
+MNL-6 Eberechi Eze, Arsenal
+MNL-7 Rayan Cherki, Manchester City
+MNL-8 Divine Mukasa, Manchester City
+MNL-9 Enzo Fernández, Chelsea
+MNL-10 Estêvão Willian, Chelsea
+MNL-11 Morgan Rogers, Aston Villa
+MNL-12 Evann Guessand, Aston Villa
+MNL-13 Jair, Nottingham Forest
+MNL-14 Callum Hudson-Odoi, Nottingham Forest
+MNL-15 Stefanos Tzimas, Brighton & Hove Albion
+MNL-16 Yankuba Minteh, Brighton & Hove Albion
+MNL-17 Julio Soler, AFC Bournemouth
+MNL-18 Evanilson, AFC Bournemouth
+MNL-19 Yehor Yarmolyuk, Brentford
+MNL-20 Gustavo Nunes, Brentford
+MNL-21 Adama Traoré, Fulham
+MNL-22 Joachim Andersen, Fulham
+MNL-23 Ismaïla Sarr, Crystal Palace
+MNL-24 Jean-Philippe Mateta, Crystal Palace
+MNL-25 Dwight McNeil, Everton
+MNL-26 Adam Aznou, Everton
+MNL-27 Lucas Paquetá, West Ham United
+MNL-28 Mateus Fernandes, West Ham United
+MNL-29 Leny Yoro, Manchester United
+MNL-30 Patrick Dorgu, Manchester United
+MNL-31 Jhon Arias, Wolverhampton Wanderers
+MNL-32 João Gomes, Wolverhampton Wanderers
+MNL-33 Jamie Gittens, Chelsea
+MNL-34 Brennan Johnson, Tottenham Hotspur
+MNL-35 Jayden Bogle, Leeds United
+MNL-36 Sean Longstaff, Leeds United
+MNL-37 Enzo Le Fée, Sunderland
+MNL-38 Chris Rigg, Sunderland
+MNL-39 Hannibal, Burnley FC
+MNL-40 Kyle Walker, Burnley FC
+
+Lightning Chrome
+30 cards
+Hanger Box-Exclusive
+Parallels
+
+Gold Refractor /50
+Orange Refractor /25
+Black Refractor /10
+Red Refractor /5
+Superfractor /1
+Shop for Lightning Chrome inserts on eBay
+
+LC-1 Adama Traoré, Fulham
+LC-2 Gabriel Martinelli, Arsenal
+LC-3 Micky van de Ven, Tottenham Hotspur
+LC-4 Erling Haaland, Manchester City
+LC-5 Mohamed Salah, Liverpool FC
+LC-6 Anthony Gordon, Newcastle United
+LC-7 Anthony Elanga, Newcastle United
+LC-8 Donyell Malen, Aston Villa
+LC-9 Cole Palmer, Chelsea
+LC-10 Ryan Giggs, Manchester United
+LC-11 Daniel James, Leeds United
+LC-12 Daichi Kamada, Crystal Palace
+LC-13 Kaoru Mitoma, Brighton & Hove Albion
+LC-14 Omar Marmoush, Manchester City
+LC-15 Simon Adingra, Sunderland
+LC-16 Marcus Edwards, Burnley FC
+LC-17 Eli Junior Kroupi, AFC Bournemouth
+LC-18 Jarrad Branthwaite, Everton
+LC-19 Gustavo Nunes, Brentford
+LC-20 Fer López, Wolverhampton Wanderers
+LC-21 Kyle Walker, Burnley FC
+LC-22 Gareth Bale, Tottenham Hotspur
+LC-23 Arjen Robben, Chelsea
+LC-24 Elliot Anderson, Nottingham Forest
+LC-25 Frank Lampard, Chelsea
+LC-26 Steven Gerrard, Liverpool FC
+LC-27 Rio Ferdinand, Manchester United
+LC-28 Gabriel Agbonlahor, Aston Villa
+LC-29 Myles Lewis-Skelly, Arsenal
+LC-30 Emile Heskey, Liverpool FC
+
+Black Edge Chrome
+50 cards
+Retail-Exclusive
+Parallels
+
+Red Refractor /5
+Superfractor /1
+Shop for Black Edge Chrome inserts on eBay
+
+BLK-1 Thierry Henry, Arsenal
+BLK-2 Didier Drogba, Chelsea
+BLK-3 Fernando Torres, Liverpool FC
+BLK-4 Carlos Tevez, Manchester City
+BLK-5 Crysencio Summerville, West Ham United
+BLK-6 Alan Shearer, Newcastle United
+BLK-7 Joe Cole, West Ham United
+BLK-8 Kevin Doyle, Wolverhampton Wanderers
+BLK-9 Jimmy Floyd Hasselbaink, Leeds United
+BLK-10 Harrison Murray-Campbell, Chelsea
+BLK-11 Estêvão Willian, Chelsea
+BLK-12 Romain Esse, Crystal Palace
+BLK-13 Rio Ngumoha, Liverpool FC
+BLK-14 El Hadji Malick Diouf, West Ham United
+BLK-15 Andy Cole, Newcastle United
+BLK-16 Chris Rigg, Sunderland
+BLK-17 Eliezer Mayenda, Sunderland
+BLK-18 Bukayo Saka, Arsenal
+BLK-19 Viktor Gyökeres, Arsenal
+BLK-20 Ollie Watkins, Aston Villa
+BLK-21 Donyell Malen, Aston Villa
+BLK-22 Dion Dublin, Aston Villa
+BLK-23 Duncan Ferguson, Everton
+BLK-24 Igor Thiago, Brentford
+BLK-25 Adam Wharton, Crystal Palace
+BLK-26 Antonee Robinson, Fulham
+BLK-27 Clint Dempsey, Fulham
+BLK-28 Mohamed Salah, Liverpool FC
+BLK-29 Erling Haaland, Manchester City
+BLK-30 Omar Marmoush, Manchester City
+BLK-31 Benjamin Šeško, Manchester United
+BLK-32 Bruno Guimarães, Newcastle United
+BLK-33 Jaap Stam, Manchester United
+BLK-34 Morgan Gibbs-White, Nottingham Forest
+BLK-35 Murillo, Nottingham Forest
+BLK-36 Gareth Bale, Tottenham Hotspur
+BLK-37 Heung-Min Son, Tottenham Hotspur
+BLK-38 Eric Cantona, Leeds United
+BLK-39 Paul Scholes, Manchester United
+BLK-40 Ao Tanaka, Leeds United
+BLK-41 Wayne Rooney, Manchester United
+BLK-42 Zlatan Ibrahimović, Manchester United
+BLK-43 Kyle Walker, Burnley FC
+BLK-44 Florian Wirtz, Liverpool FC
+BLK-45 Les Ferdinand, Tottenham Hotspur
+BLK-46 Ian Wright, Arsenal
+BLK-47 Bruno Fernandes, Manchester United
+BLK-48 Eden Hazard, Chelsea
+BLK-49 Harry Howell, Brighton & Hove Albion
+BLK-50 Jack Grealish, Everton
+"""
+
+# ─────────────────────────────────────────────────────────────
+# Known Premier League teams (for no-comma quad parsing)
+# ─────────────────────────────────────────────────────────────
+KNOWN_TEAMS = {
+    "Arsenal",
+    "Aston Villa",
+    "AFC Bournemouth",
+    "Brentford",
+    "Brighton & Hove Albion",
+    "Chelsea",
+    "Crystal Palace",
+    "Everton",
+    "Fulham",
+    "Leeds United",
+    "Liverpool FC",
+    "Manchester City",
+    "Manchester United",
+    "Newcastle United",
+    "Nottingham Forest",
+    "Sunderland",
+    "Tottenham Hotspur",
+    "West Ham United",
+    "Wolverhampton Wanderers",
+    "Burnley FC",
+}
+
+# ─────────────────────────────────────────────────────────────
+# Lines to skip (distribution labels, shop links)
+# ─────────────────────────────────────────────────────────────
+SKIP_PATTERNS = [
+    r"^shop for .+ on ebay",
+    r"^hobby-exclusive$",
+    r"^breaker delight-exclusive$",
+    r"^value-exclusive$",
+    r"^tin-exclusive$",
+    r"^hanger box-exclusive$",
+    r"^retail-exclusive$",
+    r"^hobby exclusive$",
+]
+
+
+def should_skip(line: str) -> bool:
+    low = line.lower().strip()
+    return any(re.match(p, low) for p in SKIP_PATTERNS)
+
+
+# ─────────────────────────────────────────────────────────────
+# Parallel helpers
+# ─────────────────────────────────────────────────────────────
+
+def parse_print_run(text: str):
+    """
+    Extract serialized print run.
+      1/1 → 1
+      /-N → -N  (Frozenfractor)
+      /N  → N
+      nothing → None
+    """
+    if re.search(r"\b1/1\b", text):
+        return 1
+    m = re.search(r"/(-\d+)", text)
+    if m:
+        return int(m.group(1))
+    m = re.search(r"/(\d+)", text)
+    if m:
+        return int(m.group(1))
+    return None
+
+
+def parse_parallel_line(line: str) -> dict:
+    """Parse one parallel descriptor line → {name, print_run}."""
+    pr = parse_print_run(line)
+    # Strip trailing parentheticals (distribution notes)
+    name = re.sub(r"\s*\([^)]*\)\s*$", "", line).strip()
+    # Strip /N or /-N suffix
+    name = re.sub(r"\s*/[-]?\d+.*$", "", name).strip()
+    # Strip standalone "1/1" suffix
+    name = re.sub(r"\s*\b1/1\b.*$", "", name).strip()
+    return {"name": name, "print_run": pr}
+
+
+# ─────────────────────────────────────────────────────────────
+# Card line regex
+# ─────────────────────────────────────────────────────────────
+# Matches: "123 rest..." or "PREFIX-SUFFIX rest..."
+CARD_LINE_RE = re.compile(r"^([A-Z][A-Z0-9]*-[^\s]+|\d+)\s+(.+)")
+
+
+def is_card_line(line: str) -> bool:
+    return bool(CARD_LINE_RE.match(line.strip()))
+
+
+# ─────────────────────────────────────────────────────────────
+# Section boundary detection
+# ─────────────────────────────────────────────────────────────
+
+def next_nonempty(lines, start):
+    """Return index of next non-empty line at or after start, or len(lines)."""
+    i = start
+    while i < len(lines) and not lines[i].strip():
+        i += 1
+    return i
+
+
+def is_section_start(lines, idx):
+    """True if lines[idx] is a section title (next non-blank = 'N cards?')."""
+    peek = next_nonempty(lines, idx + 1)
+    if peek < len(lines) and re.match(r"^\d+ cards?\.?$", lines[peek].strip()):
+        return True
+    return False
+
+
+# ─────────────────────────────────────────────────────────────
+# Multi-player card splitting
+# ─────────────────────────────────────────────────────────────
+
+def _strip_team_suffix(s: str):
+    """
+    Try to strip a known team from the END of s (space-separated tokens).
+    Returns (remainder, team_name) or (s, None).
+    Team names sorted longest-first for greedy match.
+    """
+    s = s.strip()
+    for team in _SORTED_TEAMS:
+        if s == team:
+            return "", team
+        if s.endswith(" " + team):
+            return s[: -(len(team) + 1)].strip(), team
+    return s, None
+
+
+_SORTED_TEAMS = sorted(KNOWN_TEAMS, key=len, reverse=True)
+
+
+def split_no_comma_quad(rest: str):
+    """
+    Handle lines like:
+      KING-QUAD Cole Palmer/Erling Haaland/Bruno Fernandes/Mohamed Salah Chelsea/Manchester City/Manchester United/Liverpool FC
+      WIN-QUAD  David Raya (Joint Golden Glove Winner)/Matz Sels (...)/Mohamed Saleh (...) Arsenal/Nottingham Forest/Liverpool FC
+
+    The last player token and first team token are merged into one slash-segment
+    (e.g. "Mohamed Salah Chelsea").  We detect this by checking for a known-team
+    suffix on the last player segment.
+
+    Returns list of (player_name, team, award_or_None, is_rookie).
+    """
+    raw_tokens = rest.split("/")
+    n = len(raw_tokens)
+
+    for split_at in range(1, n):
+        # Teams are raw_tokens[split_at:]
+        team_tokens_raw = [t.strip() for t in raw_tokens[split_at:]]
+        if not all(t in KNOWN_TEAMS for t in team_tokens_raw):
+            continue
+
+        # The token at split_at-1 might carry the first team as a suffix
+        last_player_raw = raw_tokens[split_at - 1].strip()
+        stripped_player, first_team = _strip_team_suffix(last_player_raw)
+
+        if first_team is None:
+            # No embedded team: player count must equal team count already
+            if split_at != len(team_tokens_raw):
+                continue
+            player_tokens = [t.strip() for t in raw_tokens[:split_at]]
+            teams = team_tokens_raw
+        else:
+            # Embedded team found: build player/team lists
+            player_tokens = [t.strip() for t in raw_tokens[: split_at - 1]] + [stripped_player]
+            teams = [first_team] + team_tokens_raw
+
+        if len(player_tokens) != len(teams):
+            continue
+
+        result = []
+        for pt, team in zip(player_tokens, teams):
+            pt = pt.strip()
+            award = None
+            m = re.search(r"\(([^)]+)\)\s*$", pt)
+            if m:
+                award = m.group(1)
+                pt = pt[: m.start()].strip()
+            is_rc = bool(re.search(r"\bRC\b", pt))
+            pt = re.sub(r"\s*\bRC\b\s*", "", pt).strip()
+            result.append((pt, team, award, is_rc))
+        return result
+
+    # Fallback
+    return [(rest, "", None, False)]
+
+
+# ─────────────────────────────────────────────────────────────
+# Single/multi card line parser
+# ─────────────────────────────────────────────────────────────
+
+# Sections where card has no comma and players/teams are slash-separated
+NO_COMMA_MULTI_SECTIONS = {
+    "Kings Of The Premier League Quad Autograph",
+    "Winner's Enclosure Autographs – Superfractor",  # WIN-QUAD
+}
+
+# Team Card sections
+TEAM_CARD_SECTIONS = {
+    "Club Crests – Superfractors",
+    "Premier League Trophy – Superfractor",
+}
+
+
+def parse_card_line(line: str, section_name: str):
+    """
+    Parse one card line. Returns a list of card dicts (>1 for multi-player cards).
+    Each dict: {card_number, player, team, is_rookie, subset}
+    """
+    line = line.strip()
+    m = CARD_LINE_RE.match(line)
+    if not m:
+        return []
+
+    card_number = m.group(1)
+    rest = m.group(2).strip()
+
+    # ── Team Card sections ──────────────────────────────────
+    if section_name in TEAM_CARD_SECTIONS:
+        team = re.sub(r"\s*/[-]?\d+\s*$", "", rest).strip()
+        return [{"card_number": card_number, "player": "Team Card",
+                 "team": team, "is_rookie": False, "subset": None}]
+
+    # ── Base Set card 201: strip (Hobby-Exclusive) ──────────
+    if section_name == "Base Set" and card_number == "201":
+        rest = re.sub(r"\s*\(Hobby-Exclusive\)\s*$", "", rest).strip()
+
+    # ── No-comma multi-player sections ──────────────────────
+    if section_name in NO_COMMA_MULTI_SECTIONS:
+        entries = split_no_comma_quad(rest)
+        return [
+            {"card_number": card_number, "player": pname,
+             "team": team, "is_rookie": is_rc, "subset": award}
+            for (pname, team, award, is_rc) in entries
+        ]
+
+    # ── Check if "/" in rest (possible multi-player) ────────
+    if "/" in rest and "," in rest:
+        # Comma present — find split: everything before last comma = player(s), after = team(s)
+        comma_pos = rest.rfind(",")
+        player_str = rest[:comma_pos].strip()
+        team_str = rest[comma_pos + 1:].strip()
+
+        # Strip trailing print run from team_str (Cold Battle Dual: "Chelsea/Aston Villa /-5")
+        team_str_clean = re.sub(r"\s*/[-]?\d+\s*$", "", team_str).strip()
+
+        if "/" in player_str:
+            # Multi-player: split players and teams
+            player_parts = player_str.split("/")
+            team_parts = [t.strip() for t in team_str_clean.split("/")] \
+                if "/" in team_str_clean else None
+
+            results = []
+            for i, pp in enumerate(player_parts):
+                pp = pp.strip()
+                award = None
+                aw_m = re.search(r"\(([^)]+)\)\s*$", pp)
+                if aw_m:
+                    award = aw_m.group(1)
+                    pp = pp[:aw_m.start()].strip()
+                is_rc = bool(re.search(r"\bRC\b", pp))
+                pp = re.sub(r"\s*\bRC\b\s*", "", pp).strip()
+                team = team_parts[i] if team_parts and i < len(team_parts) else team_str_clean
+                results.append({"card_number": card_number, "player": pp,
+                                 "team": team, "is_rookie": is_rc, "subset": award})
+            return results
+
+    # ── Single-player card ───────────────────────────────────
+
+    # Strip trailing /N or /-N (Zero Hours & Cold Battle single cards)
+    rest = re.sub(r"\s*/[-]?\d+\s*$", "", rest).strip()
+
+    # is_rookie
+    is_rookie = bool(re.search(r"\bRC\b", rest))
+    rest = re.sub(r"\s*\bRC\b\s*", " ", rest).strip()
+
+    # Subset / award: trailing (...)
+    subset = None
+    sub_m = re.search(r"\(([^)]+)\)\s*$", rest)
+    if sub_m:
+        subset = sub_m.group(1)
+        rest = rest[:sub_m.start()].strip()
+
+    # Split player / team at last comma
+    if "," in rest:
+        cp = rest.rfind(",")
+        player = rest[:cp].strip()
+        team = rest[cp + 1:].strip()
+    else:
+        player = rest
+        team = ""
+
+    # Fix typo
+    team = team.replace("Liverpoool FC", "Liverpool FC")
+
+    return [{"card_number": card_number, "player": player,
+             "team": team, "is_rookie": is_rookie, "subset": subset}]
+
+
+# ─────────────────────────────────────────────────────────────
+# Main checklist parser
+# ─────────────────────────────────────────────────────────────
+
+def parse_checklist(text: str):
+    lines = text.split("\n")
+    sections = []
+    idx = 0
+    n = len(lines)
+
+    while idx < n:
+        line = lines[idx].strip()
+        if not line:
+            idx += 1
+            continue
+
+        if not is_section_start(lines, idx):
+            idx += 1
+            continue
+
+        # ── Section header ──────────────────────────────────
+        section_name = line
+
+        # Skip past "N cards" line
+        idx = next_nonempty(lines, idx + 1) + 1  # skip the count line itself
+
+        # ── Parse parallels ─────────────────────────────────
+        # Strategy: after the "Parallels"/"Parallel" keyword, read non-card,
+        # non-skip lines as parallel descriptors until we see:
+        #   - a card line (signals cards starting), OR
+        #   - the start of a new section (is_section_start)
+        # Blank lines are skipped freely; they do NOT end the parallels block.
+        parallels = []
+        in_parallels = False
+
+        while idx < n:
+            ln = lines[idx].strip()
+
+            if not ln:
+                idx += 1
+                continue
+
+            if should_skip(ln):
+                idx += 1
+                continue
+
+            if ln.lower() in ("parallels", "parallel"):
+                in_parallels = True
+                idx += 1
+                continue
+
+            if in_parallels:
+                # A card line ends the parallels block
+                if is_card_line(ln):
+                    break
+                # A new section starting also ends it
+                if is_section_start(lines, idx):
+                    break
+                parallels.append(parse_parallel_line(ln))
+                idx += 1
+            else:
+                # Haven't seen "Parallels" keyword yet
+                if is_card_line(ln):
+                    break
+                if is_section_start(lines, idx):
+                    break
+                # Distribution label or other non-parallel text before "Parallels" keyword
+                idx += 1
+
+        # ── Parse cards ──────────────────────────────────────
+        cards = []
+
+        while idx < n:
+            ln = lines[idx].strip()
+
+            if not ln:
+                idx += 1
+                continue
+
+            if should_skip(ln):
+                idx += 1
+                continue
+
+            # Next section starting?
+            if is_section_start(lines, idx):
+                break
+
+            if is_card_line(ln):
+                cards.extend(parse_card_line(ln, section_name))
+
+            idx += 1
+
+        sections.append({"insert_set": section_name, "parallels": parallels, "cards": cards})
+
+    return sections
+
+
+# ─────────────────────────────────────────────────────────────
+# Post-processing: synthetic parallels
+# ─────────────────────────────────────────────────────────────
+
+SUPERFRACTOR_ONLY = [{"name": "Superfractor", "print_run": 1}]
+FROZENFRACTOR_ONLY = [{"name": "Frozenfractor", "print_run": -5}]
+
+
+def apply_synthetic_parallels(sections):
+    """Mutate sections in-place applying the synthetic parallel rules."""
+    for section in sections:
+        name = section["insert_set"]
+
+        if name in (
+            "Winner's Enclosure Autographs – Superfractors",
+            "Winner's Enclosure Autographs – Superfractor",
+            "Club Crests – Superfractors",
+            "Premier League Trophy – Superfractor",
+            "Winner's Enclosure – Superfractors",
+        ):
+            section["parallels"] = SUPERFRACTOR_ONLY
+
+        elif name in (
+            "Cold Battle Frozenfractor On-Card Autographs",
+            "Cold Battle Frozenfractor On-Card Dual Autograph",
+        ):
+            section["parallels"] = FROZENFRACTOR_ONLY
+
+        elif name == "Zero Hours On-Card Autographs":
+            # Prepend Base /20; keep existing Black/Red/Superfractor parallels
+            section["parallels"] = [{"name": "Base", "print_run": 20}] + section["parallels"]
+
+
+# ─────────────────────────────────────────────────────────────
+# Stats
+# ─────────────────────────────────────────────────────────────
+
+def compute_stats(appearances):
+    unique_cards = 0
+    total_print_run = 0
+    one_of_ones = 0
+    for appearance in appearances:
+        unique_cards += 1  # base card
+        for parallel in appearance["parallels"]:
+            unique_cards += 1
+            if parallel["print_run"] is not None:
+                total_print_run += parallel["print_run"]
+                if parallel["print_run"] == 1:
+                    one_of_ones += 1
+    return {
+        "unique_cards": unique_cards,
+        "total_print_run": total_print_run,
+        "one_of_ones": one_of_ones,
+        "insert_sets": len(appearances),
+    }
+
+
+# ─────────────────────────────────────────────────────────────
+# Build output
+# ─────────────────────────────────────────────────────────────
+
+def build_output(sections):
+    # Collect all players who are rookies in any section (propagate to all appearances)
+    rc_players = set()
+    for section in sections:
+        for card in section["cards"]:
+            if card.get("is_rookie"):
+                rc_players.add(card["player"])
+
+    player_index = {}
+
+    for section in sections:
+        for card in section["cards"]:
+            pname = card["player"]
+            if pname not in player_index:
+                player_index[pname] = {"player": pname, "appearances": []}
+            player_index[pname]["appearances"].append({
+                "insert_set": section["insert_set"],
+                "card_number": card["card_number"],
+                "team": card["team"],
+                "is_rookie": card["player"] in rc_players,
+                "subset_tag": card["subset"],
+                "parallels": section["parallels"],
+            })
+
+    players = []
+    for pname in sorted(player_index.keys()):
+        data = player_index[pname]
+        players.append({
+            "player": pname,
+            "appearances": data["appearances"],
+            "stats": compute_stats(data["appearances"]),
+        })
+
+    return {
+        "set_name": "2026 Topps Chrome Premier League",
+        "sport": "Soccer",
+        "season": "2025-26",
+        "league": "Premier League",
+        "sections": sections,
+        "players": players,
+    }
+
+
+# ─────────────────────────────────────────────────────────────
+# Entry point
+# ─────────────────────────────────────────────────────────────
+
+if __name__ == "__main__":
+    print("Parsing 2026 Topps Chrome Premier League checklist...")
+
+    sections = parse_checklist(CHECKLIST)
+    print(f"Raw sections found: {len(sections)}")
+
+    apply_synthetic_parallels(sections)
+
+    output = build_output(sections)
+
+    out_path = "epl_chrome_parsed.json"
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(output, f, ensure_ascii=False, indent=2)
+
+    # ── Summary ─────────────────────────────────────────────
+    print(f"\nSet: {output['set_name']} ({output['season']})")
+    print(f"Sections: {len(output['sections'])}")
+    for s in output["sections"]:
+        print(f"  {s['insert_set']}: {len(s['cards'])} cards, {len(s['parallels'])} parallels")
+    print(f"\nTotal players: {len(output['players'])}")
+
+    player_map = {p["player"]: p for p in output["players"]}
+
+    # ── Spot-check: Mohamed Salah ────────────────────────────
+    print("\n=== SPOT CHECK: Mohamed Salah ===")
+    if "Mohamed Salah" in player_map:
+        salah = player_map["Mohamed Salah"]
+        st = salah["stats"]
+        print(f"  Insert sets:  {st['insert_sets']}")
+        print(f"  Unique cards: {st['unique_cards']}")
+        for a in salah["appearances"]:
+            print(f"  [{a['insert_set']}] #{a['card_number']} | team={a['team']} | subset={a['subset_tag']} | parallels={len(a['parallels'])}")
+
+    # ── Spot-check: Base Set rookies ─────────────────────────
+    print("\n=== SPOT CHECK: Base Set rookie count ===")
+    base = next((s for s in output["sections"] if s["insert_set"] == "Base Set"), None)
+    if base:
+        rookies = [c for c in base["cards"] if c["is_rookie"]]
+        print(f"  Rookies in Base Set: {len(rookies)}")
+        for r in rookies:
+            print(f"    #{r['card_number']} {r['player']} ({r['team']})")
+
+    # ── Spot-check: WIN-DR subset_tag ───────────────────────
+    print("\n=== SPOT CHECK: WIN-DR (David Raya) subset_tag ===")
+    win_s = next((s for s in output["sections"]
+                  if s["insert_set"] == "Winner's Enclosure Autographs – Superfractors"), None)
+    if win_s:
+        win_dr = next((c for c in win_s["cards"] if c["card_number"] == "WIN-DR"), None)
+        if win_dr:
+            print(f"  subset = {win_dr['subset']!r}  (expected: 'Joint Golden Glove Winner')")
+    if "David Raya" in player_map:
+        dr_apps = [a for a in player_map["David Raya"]["appearances"]
+                   if a["card_number"] == "WIN-DR"]
+        for a in dr_apps:
+            print(f"  Via player index: subset_tag = {a['subset_tag']!r}")
+
+    # ── Spot-check: KING-QUAD ───────────────────────────────
+    print("\n=== SPOT CHECK: KING-QUAD appearances ===")
+    king_s = next((s for s in output["sections"]
+                   if s["insert_set"] == "Kings Of The Premier League Quad Autograph"), None)
+    if king_s:
+        print(f"  Cards in section: {len(king_s['cards'])}")
+        for c in king_s["cards"]:
+            print(f"  [{c['card_number']}] player={c['player']!r} team={c['team']!r} subset={c['subset']!r}")
+
+    # ── Spot-check: WIN-QUAD ────────────────────────────────
+    print("\n=== SPOT CHECK: WIN-QUAD appearances ===")
+    winq_s = next((s for s in output["sections"]
+                   if s["insert_set"] == "Winner's Enclosure Autographs – Superfractor"), None)
+    if winq_s:
+        print(f"  Cards in section: {len(winq_s['cards'])}")
+        for c in winq_s["cards"]:
+            print(f"  [{c['card_number']}] player={c['player']!r} team={c['team']!r} subset={c['subset']!r}")
+
+    # ── Spot-check: Zero Hours ──────────────────────────────
+    print("\n=== SPOT CHECK: Zero Hours – Base /20 parallel ===")
+    zh_s = next((s for s in output["sections"]
+                 if s["insert_set"] == "Zero Hours On-Card Autographs"), None)
+    if zh_s:
+        base_par = next((p for p in zh_s["parallels"] if p["name"] == "Base"), None)
+        if base_par:
+            print(f"  Base parallel: print_run={base_par['print_run']}  (expected: 20)")
+        else:
+            print("  Base parallel NOT found!")
+        print(f"  All parallels: {zh_s['parallels']}")
+
+    # ── Spot-check: Cold Battle ─────────────────────────────
+    print("\n=== SPOT CHECK: Cold Battle – Frozenfractor /-5 ===")
+    cb_s = next((s for s in output["sections"]
+                 if s["insert_set"] == "Cold Battle Frozenfractor On-Card Autographs"), None)
+    if cb_s:
+        ff_par = next((p for p in cb_s["parallels"] if p["name"] == "Frozenfractor"), None)
+        if ff_par:
+            print(f"  Frozenfractor parallel: print_run={ff_par['print_run']}  (expected: -5)")
+        for c in cb_s["cards"]:
+            print(f"  [{c['card_number']}] player={c['player']!r} team={c['team']!r}")
+
+    print(f"\nSaved to {out_path}")

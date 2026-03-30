@@ -1,0 +1,111 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1773123001694,
+      "tag": "0000_silly_victor_mancha",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1773123002000,
+      "tag": "0001_players_scoped_to_set",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1773123003000,
+      "tag": "0002_sets_add_league",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1773123004000,
+      "tag": "0003_co_players",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1773123005000,
+      "tag": "0004_topps_sets",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1773123006000,
+      "tag": "0005_team_nullable",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "6",
+      "when": 1773123007000,
+      "tag": "0006_player_events",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "6",
+      "when": 1773123008000,
+      "tag": "0007_fix_topps_set_names",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "6",
+      "when": 1773123009000,
+      "tag": "0008_tier_and_fixes",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "6",
+      "when": 1773123010000,
+      "tag": "0009_tier_premium",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "6",
+      "when": 1773123011000,
+      "tag": "0010_midnight_premium",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "6",
+      "when": 1773123012000,
+      "tag": "0011_chrome_premier_league_tier",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "6",
+      "when": 1773123013000,
+      "tag": "0012_chrome_mls_tier",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "6",
+      "when": 1773556920324,
+      "tag": "0013_empty_legion",
+      "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "6",
+      "when": 1774000000000,
+      "tag": "0017_release_date",
+      "breakpoints": true
+    }
+  ]
+}

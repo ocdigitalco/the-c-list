@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+/* ─── Tailwind theme extensions ─────────────────────────────────────────── */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ─── Fallback (no data-theme set, e.g. before FOUC script runs) ─────────── */
+:root {
+  --background: #09090b;
+  --foreground: #f4f4f5;
+}
+
+/* ─── Base body styles ───────────────────────────────────────────────────── */
+/*
+ * NOTE: This rule is unlayered, so it wins over Tailwind's @layer utilities.
+ * bg-zinc-950 on <body> is cosmetic only — this rule controls actual body bg/color.
+ * Both --background and --color-zinc-* must be overridden together for theme to work.
+ */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ─── Dark theme (default) ───────────────────────────────────────────────── */
+/*
+ * Applied by FOUC script + ThemeToggle on mount.
+ * Also handles light-system users who have stored "dark" preference.
+ */
+html[data-theme="dark"] {
+  --background: #09090b;
+  --foreground: #f4f4f5;
+  color-scheme: dark;
+}
+
+/* ─── Light theme ────────────────────────────────────────────────────────── */
+/*
+ * Inverts the zinc scale so the dark-by-default app becomes light.
+ * Unlayered → beats @layer theme { :root { --color-zinc-* } } every time.
+ */
+html[data-theme="light"] {
+  --background: #fafafa;
+  --foreground: #0f0f10;
+  color-scheme: light;
+
+  --color-zinc-950: #fafafa;
+  --color-zinc-900: #f4f4f5;
+  --color-zinc-800: #e4e4e7;
+  --color-zinc-700: #d4d4d8;
+  --color-zinc-600: #a1a1aa;
+  --color-zinc-500: #71717a;
+  --color-zinc-400: #52525b;
+  --color-zinc-300: #3f3f46;
+  --color-zinc-200: #27272a;
+  --color-zinc-100: #18181b;
+  --color-zinc-50:  #09090b;
+  --color-white:    #0f0f10;
+}
+
+/* ─── Logo visibility per theme ─────────────────────────────────────────── */
+/* Default (dark): show light logo (white text), hide dark logo */
+.logo-for-light { display: none; }
+.logo-for-dark  { display: block; }
+
+/* Light theme: show dark logo (black text), hide light logo */
+html[data-theme="light"] .logo-for-light { display: block; }
+html[data-theme="light"] .logo-for-dark  { display: none; }
+
+/* ─── Smooth theme transitions ───────────────────────────────────────────── */
+/*
+ * The theme-ready class is added by ThemeToggle after the initial theme is
+ * applied, preventing transitions from firing on first paint (FOUC prevention).
+ */
+html.theme-ready *:not(img):not(video):not(svg):not(path) {
+  transition-property: color, background-color, border-color;
+  transition-duration: 175ms;
+  transition-timing-function: ease;
+}
