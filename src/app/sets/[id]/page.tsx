@@ -422,10 +422,19 @@ export default async function SetPage({
   }
 
   function singleToBoxFormat(label: string, fmt: BoxConfigSingle, note: string | undefined): BoxFormat {
+    const packsPerBox = fmt.packs_per_box ?? 1;
+    // Extract guaranteed auto (or auto-or-relic) hits per box
+    const guaranteedAutos =
+      fmt.autos_per_box ??
+      fmt.autos_or_memorabilia_per_box ??
+      fmt.autos_or_relics_per_box ??
+      0;
     return {
       label,
       boxesPerCase: fmt.boxes_per_case,
-      packsPerCase: fmt.boxes_per_case * (fmt.packs_per_box ?? 1),
+      packsPerCase: fmt.boxes_per_case * packsPerBox,
+      packsPerBox,
+      guaranteedAutos,
       autoRowLabel: fmt.autos_or_memorabilia_per_box != null
         ? "Autograph or Memorabilia"
         : fmt.autos_or_relics_per_box != null
@@ -509,6 +518,9 @@ export default async function SetPage({
     "Player Number Variation": "Base Player Number Variation",
     // 2026 Topps Finest Premier League overrides
     "Finest Partnerships": "Finest Partnerships Dual Autographs",
+    // 2025-26 Topps Finest Basketball overrides
+    "Finest Autographs": "Autographs",
+    "Finest Rookie Autographs": "Rookie Autographs",
   };
 
   // Build PackOddsCalculator slot data for the selected player (all sets)
@@ -542,11 +554,16 @@ export default async function SetPage({
           ? "Base"
           : (ODDS_KEY_OVERRIDES[is.insertSetName] ?? is.insertSetName);
         const baseKey = is.insertSetName === "Base Set" ? null : prefix;
+        // Some sets (e.g. Electrifying Signatures) have no plain base key in pack odds;
+        // their base entry uses a suffix like " Geometric". Try fallback.
+        const baseDenom = baseKey
+          ? (packOddsData[baseKey] ?? packOddsData[`${baseKey} Geometric`] ?? null)
+          : null;
         return {
           insertSetName: is.insertSetName,
           playerApps: is.appearances.length,
           totalApps: totalAppsByIS.get(is.insertSetId) ?? 0,
-          baseOddsDenom: baseKey ? (packOddsData[baseKey] ?? null) : null,
+          baseOddsDenom: baseDenom,
           isAuto,
           serializedParallels: is.parallels
             .filter((p) => p.printRun !== null)
@@ -559,10 +576,18 @@ export default async function SetPage({
       });
     }
 
+    // Map pack-odds JSON keys to the box-format labels used by the calculator.
+    // Needed when the odds key differs from the box-config key (e.g. "breaker"
+    // odds correspond to the "breakers_delight" box config → "Breaker's Delight").
+    const ODDS_TO_FORMAT_LABEL: Record<string, string> = {
+      breaker: "Breaker's Delight",
+    };
+
     if (isNestedOdds) {
       // Nested odds: { hobby: {...}, jumbo: {...} }
       for (const [key, data] of Object.entries(rawOdds as Record<string, Record<string, number>>)) {
-        packOddsSlotsByFormat[formatBoxLabel(key)] = buildSlots(data);
+        const label = ODDS_TO_FORMAT_LABEL[key] ?? formatBoxLabel(key);
+        packOddsSlotsByFormat[label] = buildSlots(data);
       }
     } else {
       // Flat odds: shared across all box formats
@@ -574,6 +599,26 @@ export default async function SetPage({
       if (boxFormats.length === 0) packOddsSlotsByFormat["default"] = slots;
     }
   }
+
+  // ── Auto guaranteed-slot data ───────────────────────────────────────────────
+  // Total auto cards across the entire set (for the guaranteed-slot auto model).
+  const autoFilter = `(LOWER(i.name) LIKE '%auto%' OR LOWER(i.name) LIKE '%signature%' OR LOWER(i.name) LIKE '%graph%' OR LOWER(i.name) LIKE '%relic%')`;
+  const totalAutoCards = (
+    await rawQuery.get<{ n: number }>(
+      `SELECT COUNT(*) AS n
+       FROM player_appearances pa
+       JOIN insert_sets i ON pa.insert_set_id = i.id
+       WHERE i.set_id = ? AND ${autoFilter}`,
+      setRow.id
+    )
+  )?.n ?? 0;
+
+  // This player's auto card count
+  const playerAutoCards = playerView
+    ? playerView.insertSets
+        .filter((is) => autoKeywords.some((kw) => is.insertSetName.toLowerCase().includes(kw)))
+        .reduce((sum, is) => sum + is.appearances.length, 0)
+    : 0;
 
   // ── Leaderboard data ────────────────────────────────────────────────────────
   // Use a CTE to pre-compute numbered parallel counts per player so we avoid
@@ -771,6 +816,8 @@ export default async function SetPage({
                 <PackOddsCalculator
                   slotsByFormat={packOddsSlotsByFormat}
                   boxFormats={boxFormats}
+                  totalAutoCards={totalAutoCards}
+                  playerAutoCards={playerAutoCards}
                 />
               ) : null}
 

@@ -11,6 +11,28 @@ export interface Update {
 }
 
 export const updates: Update[] = [
+  // ─── March 30, 2026 ──────────────────────────────────────────────────────
+  {
+    id: "078-finest-basketball-2025-odds",
+    title: "Pack Odds Added: 2025-26 Topps Finest Basketball",
+    date: "2026-03-30T12:00:00Z",
+    summary: "Hobby and Breaker pack odds are now live for 2025-26 Topps Finest Basketball (223 entries).",
+    description: `## Pack Odds: 2025-26 Topps Finest Basketball
+
+### Hobby (217 entries)
+- Base Common / Uncommon / Rare cards and all parallel tiers (Refractor, Oil Spill, Xfractor, Sky Blue, Purple, Blue, Green, Gold, Orange, Black, Red, SuperFractor)
+- Geometric parallels across all base rarities
+- Insert sets: Arrivals, Muse, First, Finishers — with all parallel tiers
+- Autographs and Rookie Autographs — base through SuperFractor
+- Baseline Autographs and Masters Autographs — base through SuperFractor
+- Electrifying Signatures and Colossal Shots Autographs — Geometric tiers
+- Case hits: Pulse (1:62), The Man (1:480), Headliners (1:648), Aura (1:962)
+
+### Breaker (6 entries)
+- Pulse, The Man, Headliners, Aura — base and SuperFractor`,
+    tags: ["odds"],
+  },
+
   // ─── March 29, 2026 ──────────────────────────────────────────────────────
   {
     id: "077-universe-wwe-2025-box-config",
