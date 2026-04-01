@@ -423,7 +423,7 @@ export default async function SetsCoveragePage() {
       try {
         const bc = JSON.parse(s.boxConfig);
         const cfg = bc.hobby ?? bc;
-        hasBoxConfig = cfg.packs_per_box != null && cfg.boxes_per_case != null;
+        hasBoxConfig = cfg.packs_per_box != null;
       } catch {}
     }
     if (s.packOdds) {
