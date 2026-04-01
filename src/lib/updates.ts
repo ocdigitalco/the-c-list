@@ -8,9 +8,40 @@ export interface Update {
   summary: string;
   description: string; // markdown
   tags: string[]; // "checklist" | "box-config" | "odds" | "feature" | "announcement"
+  setId?: number;
 }
 
 export const updates: Update[] = [
+  // ─── March 31, 2026 ──────────────────────────────────────────────────────
+  {
+    id: "081-cactus-jack-basketball-2526-release-date",
+    title: "Release Date: 2025-26 Topps Chrome Cactus Jack Basketball",
+    date: "2026-03-31T12:00:00Z",
+    summary: "Release date set to February 13, 2026 for 2025-26 Topps Chrome Cactus Jack Basketball.",
+    description: `## Release Date: 2025-26 Topps Chrome Cactus Jack Basketball
+
+Release date set to **February 13, 2026**.`,
+    tags: ["checklist"],
+    setId: 23,
+  },
+  {
+    id: "080-cosmic-chrome-basketball-2526-box-config",
+    title: "Box Config & Release Date: 2025-26 Topps Cosmic Chrome Basketball",
+    date: "2026-03-31T12:00:00Z",
+    summary: "Box configuration and April 29 release date added for 2025-26 Topps Cosmic Chrome Basketball.",
+    description: `## Box Config: 2025-26 Topps Cosmic Chrome Basketball
+
+Release date set to **April 29, 2026**.
+
+Two box formats configured:
+
+- **Hobby** — 4 cards/pack, 20 packs/box (mirroring First Day Issue config until hobby config is confirmed)
+- **First Day Issue** — 4 cards/pack, 20 packs/box
+
+Break Hit Calculator is now fully active with pack odds and box configuration.`,
+    tags: ["box-config"],
+    setId: 35,
+  },
   // ─── March 30, 2026 ──────────────────────────────────────────────────────
   {
     id: "079-cosmic-chrome-basketball-2526-odds",
@@ -33,6 +64,7 @@ export const updates: Update[] = [
 
 Break Hit Calculator is now active for all Cosmic Chrome Basketball player pages.`,
     tags: ["odds"],
+    setId: 35,
   },
   {
     id: "078-finest-basketball-2025-odds",
@@ -53,6 +85,7 @@ Break Hit Calculator is now active for all Cosmic Chrome Basketball player pages
 ### Breaker (6 entries)
 - Pulse, The Man, Headliners, Aura — base and SuperFractor`,
     tags: ["odds"],
+    setId: 25,
   },
 
   // ─── March 29, 2026 ──────────────────────────────────────────────────────
@@ -73,6 +106,7 @@ Break Hit Calculator is now active for all Cosmic Chrome Basketball player pages
 
 Release date: February 27, 2026`,
     tags: ["box-config"],
+    setId: 20,
   },
   // ─── March 28, 2026 ──────────────────────────────────────────────────────
   {
@@ -88,6 +122,7 @@ Release date: February 27, 2026`,
 
 Release date: February 5, 2026`,
     tags: ["box-config"],
+    setId: 42,
   },
   {
     id: "075-museum-collection-baseball-2025-odds",
@@ -99,6 +134,7 @@ Release date: February 5, 2026`,
 ### Hobby
 150 pack odds entries covering base cards, parallels, autographs, relics, framed cards, signature swatches, book cards, cut signatures, and more.`,
     tags: ["odds"],
+    setId: 42,
   },
   {
     id: "074-museum-collection-baseball-2025",
@@ -113,6 +149,7 @@ Includes Base Set, Canvas Collection Original Player Autographs, Archival Autogr
 
 No parallels in this set.`,
     tags: ["checklist"],
+    setId: 42,
   },
   {
     id: "073-bowman-draft-sapphire-box-config",
@@ -127,6 +164,7 @@ No parallels in this set.`,
 
 Release date: February 11, 2026`,
     tags: ["box-config"],
+    setId: 41,
   },
   {
     id: "072-bowman-draft-sapphire-2025",
@@ -142,6 +180,7 @@ Release date: February 11, 2026`,
 - **Sapphire Selections** insert (18 cards) with Gold /50, Orange /25, Red /5, Superfractor /1
 - Full pack odds included for all parallels and insert sets`,
     tags: ["checklist"],
+    setId: 41,
   },
   {
     id: "071-stadium-club-ufc-box-config",
@@ -164,6 +203,7 @@ Release date: February 11, 2026`,
 
 Release date: January 23, 2026`,
     tags: ["box-config"],
+    setId: 40,
   },
   {
     id: "070-stadium-club-ufc-2025",
@@ -180,6 +220,7 @@ Release date: January 23, 2026`,
 - **7 insert sets:** Hype Machines (20), Dynasty And Destiny (20), Instavision (10), Power Packed (20), Special Forces (30), Beam Team (20), Triumvirates (18)
 - Co-Signers feature dual-autograph cards with fighter pairings`,
     tags: ["checklist"],
+    setId: 40,
   },
   {
     id: "069-mcdonalds-allamerican-box-config",
@@ -197,6 +238,7 @@ Release date: January 23, 2026`,
 
 Release date: March 12, 2026`,
     tags: ["box-config"],
+    setId: 39,
   },
   {
     id: "068-mcdonalds-allamerican-basketball-2025",
@@ -211,6 +253,7 @@ Release date: March 12, 2026`,
 - **6 insert sets:** High Rises, Top Recruits, Prospect Paths, Hype To Legacy, All-American Drip, Concrete Canvas (130 insert cards)
 - **8 parallel types** per insert set including Refractor, Purple /299, Blue /199, Green /99, Gold /50, Orange /25, Red /5, and SuperFractor 1/1`,
     tags: ["checklist"],
+    setId: 39,
   },
   // ─── March 27, 2026 ──────────────────────────────────────────────────────
   {
@@ -230,6 +273,7 @@ Release date: March 12, 2026`,
 
 Release date: July 1, 2022`,
     tags: ["box-config"],
+    setId: 22,
   },
   {
     id: "066-finest-basketball-box-config",
@@ -248,6 +292,7 @@ Release date: July 1, 2022`,
 
 Release date: February 26, 2026`,
     tags: ["box-config"],
+    setId: 25,
   },
   {
     id: "065-topps-three-basketball-box-config",
@@ -264,6 +309,7 @@ Release date: February 26, 2026`,
 - 4 cards per pack · 1 pack per box
 - **Guarantees:** 3 autos or auto relics + 1 FDI-exclusive Rookie Patch Auto + 1 base or insert per box`,
     tags: ["box-config"],
+    setId: 37,
   },
   {
     id: "064-topps-three-basketball-2526",
@@ -281,6 +327,7 @@ The complete checklist and pack odds for 2025-26 Topps Three Basketball are now 
 - **Triple Relic Autographs** feature 3-player cards with co-player links
 - **Pack odds** for all 28 sections and their parallels`,
     tags: ["checklist", "odds"],
+    setId: 37,
   },
   {
     id: "063-chrome-sapphire-basketball-box-config",
@@ -295,6 +342,7 @@ The complete checklist and pack odds for 2025-26 Topps Three Basketball are now 
 
 Release date: January 22, 2026`,
     tags: ["box-config"],
+    setId: 26,
   },
   {
     id: "062-chrome-sapphire-basketball-pack-odds",
@@ -310,6 +358,7 @@ Official pack odds are now available for 2025-26 Topps Chrome Basketball Sapphir
 - **Autograph sets:** Topps Chrome Autographs, TCAI Rookies, Next Stop Signatures, SKY-Write Signatures, Signature Style
 - **Inserts:** Sapphire Selections (all tiers) and Infinity`,
     tags: ["odds"],
+    setId: 26,
   },
   {
     id: "061-cosmic-chrome-basketball-2526",
@@ -326,6 +375,7 @@ The full checklist for 2025-26 Topps Cosmic Chrome Basketball is now live.
 - **Planetary Pursuit** features 10 planet-themed parallels (Sun through Pluto)
 - **First Light** — all 30 cards are rookie cards`,
     tags: ["checklist"],
+    setId: 35,
   },
   {
     id: "060-bowman-basketball-box-config",
@@ -355,6 +405,7 @@ Box configs for all five formats of 2025-26 Topps Bowman Basketball are now live
 
 Set releases **April 23, 2026**.`,
     tags: ["box-config"],
+    setId: 34,
   },
 
   // ─── March 26, 2026 ──────────────────────────────────────────────────────
@@ -442,6 +493,7 @@ Cooper Flagg (Dallas), Dylan Harper (San Antonio), Ace Bailey (Utah), VJ Edgecom
 
 AJ Dybantsa (BYU), Darryn Peterson (Kansas), Koa Peat (Arizona), Juju Watkins (USC), Sienna Betts (UCLA), and 95 more college players across both men's and women's basketball.`,
     tags: ["checklist"],
+    setId: 34,
   },
   // ─── March 24, 2026 ──────────────────────────────────────────────────────
   {
@@ -499,6 +551,7 @@ Pack odds are now live for the 2026 Topps Finest Premier League set. The Break H
 
 Single flat format — no hobby/jumbo split for this set.`,
     tags: ["odds"],
+    setId: 33,
   },
   {
     id: "055-finest-pl-2026",
@@ -532,6 +585,7 @@ The full checklist for 2026 Topps Finest Premier League (season 2025-26) is now 
 - Gustographs
 - Finest Fans`,
     tags: ["checklist"],
+    setId: 33,
   },
   {
     id: "057-logo-updated",
@@ -588,6 +642,7 @@ Break format details have been configured for 2025-26 Topps Basketball, enabling
 
 The Break Hit Calculator now shows a hobby/jumbo toggle for this set.`,
     tags: ["box-config"],
+    setId: 31,
   },
   // ─── March 22, 2026 ──────────────────────────────────────────────────────
   {
@@ -615,6 +670,7 @@ All base parallels, insert sets, and autograph sets including:
 
 17 name-mapping overrides were added to reconcile the database insert set names with the pack odds key naming convention (e.g., plural vs. singular, article differences, "1980-81 Topps Basketball" insert prefix).`,
     tags: ["odds"],
+    setId: 31,
   },
   // ─── March 21, 2026 ──────────────────────────────────────────────────────
   {
@@ -643,6 +699,7 @@ Full set with all insert sets and parallels, including:
 
 October 23, 2025`,
     tags: ["checklist"],
+    setId: 31,
   },
   // ─── March 20, 2026 ──────────────────────────────────────────────────────
   {
@@ -677,6 +734,7 @@ Pack odds stored as nested \`{ "hobby": {...}, "jumbo": {...} }\` automatically 
 
 Chrome-tier set tracking U.S. Olympic and Paralympic hopefuls ahead of the Paris 2024 Games. Full checklist now live.`,
     tags: ["checklist"],
+    setId: 29,
   },
   {
     id: "050-olympic-hopefuls-2024",
@@ -689,6 +747,7 @@ The complete checklist for 2024 Topps Chrome U.S. Olympic & Paralympic Team Hope
 
 This Chrome-tier set covers athletes across the full spectrum of U.S. Olympic and Paralympic sports ahead of the 2024 Paris Games.`,
     tags: ["checklist"],
+    setId: 29,
   },
   {
     id: "039-chrome-ufc-2025-odds",
@@ -699,6 +758,7 @@ This Chrome-tier set covers athletes across the full spectrum of U.S. Olympic an
 
 Full pack odds are now configured for 2025 Topps Chrome UFC. All refractor parallels and autograph tiers are covered.`,
     tags: ["odds"],
+    setId: 28,
   },
   {
     id: "040-chrome-ufc-2025-box",
@@ -709,6 +769,7 @@ Full pack odds are now configured for 2025 Topps Chrome UFC. All refractor paral
 
 Break format details are now configured for 2025 Topps Chrome UFC, enabling the Break Hit Calculator for this set.`,
     tags: ["box-config"],
+    setId: 28,
   },
   {
     id: "049-chrome-ufc-2025",
@@ -721,6 +782,7 @@ The complete checklist for 2025 Topps Chrome UFC is now live.
 
 Chrome-tier UFC set featuring the full active roster with the standard Topps Chrome refractor parallel structure.`,
     tags: ["checklist"],
+    setId: 28,
   },
   // ─── March 18, 2026 ──────────────────────────────────────────────────────
   {
@@ -734,6 +796,7 @@ The complete checklist for 2026 Topps Heritage Baseball is now live.
 
 The Heritage set pays homage to classic Topps designs. This Standard-tier set covers the full MLB roster with the vintage aesthetic parallels and short prints characteristic of the Heritage line.`,
     tags: ["checklist"],
+    setId: 27,
   },
   {
     id: "038-panini-select-ufc-2022",
@@ -744,6 +807,7 @@ The Heritage set pays homage to classic Topps designs. This Standard-tier set co
 
 The checklist for 2022 Panini Select UFC is now live. This is the first non-Topps set on Checklist2, expanding coverage to include Panini's premium UFC offering from the 2022 season.`,
     tags: ["checklist"],
+    setId: 22,
   },
   {
     id: "037-chrome-sapphire-formula1",
@@ -754,6 +818,7 @@ The checklist for 2022 Panini Select UFC is now live. This is the first non-Topp
 
 The Sapphire-tier Chrome set for Formula 1 is now live. Coverage spans the full 2025 F1 grid with the exclusive Sapphire refractor parallel structure unique to this premium product.`,
     tags: ["checklist"],
+    setId: 21,
   },
   {
     id: "018-chrome-premier-league-2026",
@@ -764,6 +829,7 @@ The Sapphire-tier Chrome set for Formula 1 is now live. Coverage spans the full 
 
 The full checklist for 2026 Topps Chrome Premier League (2025-26 season) is now live. Chrome-tier with standard refractor parallels across all cards.`,
     tags: ["checklist"],
+    setId: 13,
   },
   // ─── March 17, 2026 ──────────────────────────────────────────────────────
   {
@@ -796,6 +862,7 @@ A new page at /sets/topps provides a comprehensive view of the entire Topps cata
 
 Full pack odds have been configured for 2025 Topps Royalty UFC.`,
     tags: ["odds"],
+    setId: 14,
   },
   {
     id: "021-royalty-ufc-box",
@@ -806,6 +873,7 @@ Full pack odds have been configured for 2025 Topps Royalty UFC.`,
 
 Break format details are now configured for 2025 Topps Royalty UFC, enabling break hit calculations for this premium MMA product.`,
     tags: ["box-config"],
+    setId: 14,
   },
   {
     id: "033-series1-baseball-odds",
@@ -816,6 +884,7 @@ Break format details are now configured for 2025 Topps Royalty UFC, enabling bre
 
 Full hobby and jumbo pack odds are now configured for 2026 Topps Series 1 Baseball. The Break Hit Calculator's hobby/jumbo toggle is active for this set.`,
     tags: ["odds"],
+    setId: 18,
   },
   {
     id: "034-series1-baseball-box",
@@ -826,6 +895,7 @@ Full hobby and jumbo pack odds are now configured for 2026 Topps Series 1 Baseba
 
 Break format details have been configured for 2026 Topps Series 1 Baseball in both hobby and jumbo formats, enabling the Break Hit Calculator with the hobby/jumbo toggle.`,
     tags: ["box-config"],
+    setId: 18,
   },
   {
     id: "028-chrome-sapphire-basketball-odds",
@@ -836,6 +906,7 @@ Break format details have been configured for 2026 Topps Series 1 Baseball in bo
 
 Full pack odds are configured for 2025-26 Topps Chrome Sapphire Basketball. All numbered parallel tiers are covered.`,
     tags: ["odds"],
+    setId: 26,
   },
   {
     id: "029-chrome-sapphire-basketball-box",
@@ -846,6 +917,7 @@ Full pack odds are configured for 2025-26 Topps Chrome Sapphire Basketball. All 
 
 Break format details are now configured for 2025-26 Topps Chrome Sapphire Basketball, enabling break hit calculations for this premium product.`,
     tags: ["box-config"],
+    setId: 26,
   },
   {
     id: "025-finest-basketball-odds",
@@ -856,6 +928,7 @@ Break format details are now configured for 2025-26 Topps Chrome Sapphire Basket
 
 Full pack odds are configured for 2025-26 Topps Finest Basketball. All refractor parallels and autograph sets are covered.`,
     tags: ["odds"],
+    setId: 25,
   },
   {
     id: "026-finest-basketball-box",
@@ -866,6 +939,7 @@ Full pack odds are configured for 2025-26 Topps Finest Basketball. All refractor
 
 Break format details are now configured for 2025-26 Topps Finest Basketball, enabling the Break Hit Calculator for this Premium-tier Chrome set.`,
     tags: ["box-config"],
+    setId: 25,
   },
   // ─── March 15, 2026 ──────────────────────────────────────────────────────
   {
@@ -946,6 +1020,7 @@ This helps identify which players are hot right now and which sets are getting t
 
 The full checklist is now live for this Chrome-tier Olympics set covering U.S. hopefuls for the 2026 Milan-Cortina Winter Games.`,
     tags: ["checklist"],
+    setId: 15,
   },
   {
     id: "019-royalty-ufc-2025",
@@ -956,6 +1031,7 @@ The full checklist is now live for this Chrome-tier Olympics set covering U.S. h
 
 The checklist for 2025 Topps Royalty UFC is now live. Royalty is a Premium-tier product focused on top-tier UFC talent with premium on-card autograph content.`,
     tags: ["checklist"],
+    setId: 14,
   },
   // ─── March 13, 2026 ──────────────────────────────────────────────────────
   {
@@ -967,6 +1043,7 @@ The checklist for 2025 Topps Royalty UFC is now live. Royalty is a Premium-tier 
 
 The flagship Topps baseball set for 2026 is now live. Series 1 covers the full MLB roster with base cards, short prints, and all flagship insert sets.`,
     tags: ["checklist"],
+    setId: 18,
   },
   {
     id: "036-universe-wwe-2025",
@@ -977,6 +1054,7 @@ The flagship Topps baseball set for 2026 is now live. Series 1 covers the full M
 
 The full checklist for 2025 Topps Universe WWE is now live. This is Checklist2's first wrestling set, expanding coverage from MMA/UFC into professional wrestling.`,
     tags: ["checklist"],
+    setId: 20,
   },
   {
     id: "030-chrome-sapphire-basketball",
@@ -987,6 +1065,7 @@ The full checklist for 2025 Topps Universe WWE is now live. This is Checklist2's
 
 The Sapphire-tier Chrome set for NBA basketball is now live. All cards in this premium product are numbered, with the Sapphire refractor as the base parallel.`,
     tags: ["checklist"],
+    setId: 26,
   },
   {
     id: "027-finest-basketball-2526",
@@ -997,6 +1076,7 @@ The Sapphire-tier Chrome set for NBA basketball is now live. All cards in this p
 
 The full checklist for 2025-26 Topps Finest Basketball is now live. Finest is a Premium-tier Chrome product featuring refractor-based parallels across all inserts.`,
     tags: ["checklist"],
+    setId: 25,
   },
   {
     id: "024-midnight-basketball-2526",
@@ -1007,6 +1087,7 @@ The full checklist for 2025-26 Topps Finest Basketball is now live. Finest is a 
 
 The checklist for 2025-26 Topps Midnight Basketball is now live. Midnight is a Standard-tier product featuring dark foil aesthetics across base and parallels.`,
     tags: ["checklist"],
+    setId: 24,
   },
   {
     id: "023-cactus-jack-basketball",
@@ -1017,6 +1098,7 @@ The checklist for 2025-26 Topps Midnight Basketball is now live. Midnight is a S
 
 The full checklist for 2025-26 Topps Chrome Cactus Jack Basketball is now live. This Chrome-tier collaboration set features Cactus Jack (Travis Scott) themed design elements and unique parallel colorways not found in standard Chrome.`,
     tags: ["checklist"],
+    setId: 23,
   },
   {
     id: "016-mcdonald-allamerican-2025",
@@ -1027,6 +1109,7 @@ The full checklist for 2025-26 Topps Chrome Cactus Jack Basketball is now live. 
 
 The checklist for 2025 Topps Chrome McDonald's All-American is now live. This Chrome-tier set covers the elite high school basketball prospects who participated in the 2025 McDonald's All-American Game.`,
     tags: ["checklist"],
+    setId: 39,
   },
   {
     id: "015-chrome-basketball-2526",
@@ -1047,6 +1130,7 @@ The full checklist for 2025-26 Topps Chrome Basketball is now live. Chrome-tier 
 
 The full checklist for 2025 Bowman's Best Baseball is now live. Bowman's Best is a Premium-tier product featuring both MLB prospects and veterans with on-card autograph content.`,
     tags: ["checklist"],
+    setId: 12,
   },
   // ─── March 12, 2026 ──────────────────────────────────────────────────────
   {
@@ -1232,6 +1316,7 @@ The /checklists page is the main entry point for browsing every set in the datab
 
 The checklist for 2024 Topps Midnight UFC is now live alongside the 2025 edition. Both Midnight UFC products are now fully searchable on Checklist2.`,
     tags: ["checklist"],
+    setId: 9,
   },
   {
     id: "011-midnight-ufc-2025",
@@ -1242,6 +1327,7 @@ The checklist for 2024 Topps Midnight UFC is now live alongside the 2025 edition
 
 The checklist for 2025 Topps Midnight UFC is now live. Standard-tier MMA product featuring dark foil aesthetics and the full UFC active roster.`,
     tags: ["checklist"],
+    setId: 8,
   },
   {
     id: "010-chrome-mls-2025",
@@ -1252,6 +1338,7 @@ The checklist for 2025 Topps Midnight UFC is now live. Standard-tier MMA product
 
 The full checklist for 2025 Topps Chrome MLS is now live. Chrome-tier product covering the complete MLS roster for the 2025 season with standard refractor parallels.`,
     tags: ["checklist"],
+    setId: 6,
   },
   {
     id: "009-uefa-club-competitions-2526",
@@ -1262,6 +1349,7 @@ The full checklist for 2025 Topps Chrome MLS is now live. Chrome-tier product co
 
 The full checklist for 2025-26 Topps UEFA Club Competitions is now live. This set covers all three UEFA club competitions: the Champions League, Europa League, and Conference League.`,
     tags: ["checklist"],
+    setId: 36,
   },
   {
     id: "004-initial-launch",

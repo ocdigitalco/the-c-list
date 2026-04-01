@@ -79,6 +79,15 @@ export default async function UpdatePage({ params }: { params: Promise<{ id: str
           {update.summary}
         </p>
 
+        {update.setId && (
+          <Link
+            href={`/sets/${update.setId}`}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-800 text-sm font-medium text-zinc-300 hover:bg-zinc-700 hover:text-white transition-colors"
+          >
+            &rarr; View Checklist
+          </Link>
+        )}
+
         {/* Divider */}
         <div className="h-px bg-zinc-800" />
 
