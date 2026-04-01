@@ -14,6 +14,34 @@ export interface Update {
 export const updates: Update[] = [
   // ─── March 31, 2026 ──────────────────────────────────────────────────────
   {
+    id: "083-finest-pl-production-run",
+    title: "Break Hit Calculator: Production Run Accuracy for 2026 Topps Finest Premier League",
+    date: "2026-03-31T19:00:00Z",
+    summary: "Break Hit Calculator now uses total production run data for more accurate numbered parallel odds on 2026 Topps Finest Premier League.",
+    description: `## Production Run Accuracy
+
+The Break Hit Calculator for 2026 Topps Finest Premier League now uses the known total production run to compute exact odds for numbered parallels, replacing the estimate-based approach for cards with known print runs.`,
+    tags: ["odds"],
+    setId: 33,
+  },
+  {
+    id: "082-cosmic-chrome-production-run",
+    title: "Break Hit Calculator: Production Run Accuracy for 2025-26 Topps Cosmic Chrome Basketball",
+    date: "2026-03-31T18:00:00Z",
+    summary: "Break Hit Calculator now uses total production run data for more accurate numbered parallel odds on 2025-26 Topps Cosmic Chrome Basketball.",
+    description: `## Production Run Accuracy
+
+The Break Hit Calculator for 2025-26 Topps Cosmic Chrome Basketball now uses the known total production run (79,440 boxes / 1,588,800 packs) to compute exact odds for numbered parallels.
+
+For cards with known print runs, the calculator now uses the formula:
+
+> per-pack probability = (player copies × print run) / total packs produced
+
+This replaces the estimate-based approach for numbered cards, giving exact odds when production data is available.`,
+    tags: ["odds"],
+    setId: 35,
+  },
+  {
     id: "081-cactus-jack-basketball-2526-release-date",
     title: "Release Date: 2025-26 Topps Chrome Cactus Jack Basketball",
     date: "2026-03-31T12:00:00Z",

@@ -30,6 +30,8 @@ export interface BoxFormat {
   autoRowLabel?: string;
   /** Disclaimer shown below the standard disclaimer */
   note?: string;
+  /** Total packs in the entire production run (when known) — used for exact odds on numbered cards */
+  totalPacksProduced?: number;
 }
 
 interface Props {
@@ -67,6 +69,10 @@ interface OddsResult {
   numberedCount: number;
   /** Whether this format has any usable pack odds for this player */
   hasPackOdds: boolean;
+  /** True when auto odds are computed from pack odds (no guaranteed slots) */
+  autoFromPackOdds: boolean;
+  /** Number of auto insert sets with pack odds (only when autoFromPackOdds) */
+  autoISCount: number;
 }
 
 function computeOdds(
@@ -76,8 +82,27 @@ function computeOdds(
   guaranteedAutos: number,
   totalAutoCards: number,
   playerAutoCards: number,
+  totalPacksProduced?: number,
 ): OddsResult {
   const totalPacks = boxes * packsPerBox;
+
+  // Helper: per-pack probability for a numbered parallel.
+  // When total production run is known, use exact formula:
+  //   p = (playerApps × printRun) / totalPacksProduced
+  // Otherwise fall back to pack-odds ratio:
+  //   p = (playerApps / totalApps) / denom
+  function parPerPack(
+    playerApps: number,
+    totalApps: number,
+    printRun: number,
+    denom: number | null,
+  ): number {
+    if (totalPacksProduced && totalPacksProduced > 0) {
+      return (playerApps * printRun) / totalPacksProduced;
+    }
+    if (denom === null) return 0;
+    return (playerApps / totalApps) / denom;
+  }
 
   // ── Any Card: base odds + all parallel odds ──
   let pAnyPerPack = 0;
@@ -92,8 +117,9 @@ function computeOdds(
       anyISCount++;
     }
     for (const par of slot.serializedParallels) {
-      if (par.denom === null) continue;
-      pAnyPerPack += share / par.denom;
+      const pp = parPerPack(slot.playerApps, slot.totalApps, par.printRun, par.denom);
+      if (pp <= 0) continue;
+      pAnyPerPack += pp;
     }
   }
 
@@ -110,8 +136,9 @@ function computeOdds(
       pNumPerPack += share / slot.baseOddsDenom;
     }
     for (const par of slot.serializedParallels) {
-      if (par.denom === null) continue;
-      pNumPerPack += share / par.denom;
+      const pp = parPerPack(slot.playerApps, slot.totalApps, par.printRun, par.denom);
+      if (pp <= 0) continue;
+      pNumPerPack += pp;
       numberedCount++;
     }
   }
@@ -125,23 +152,64 @@ function computeOdds(
     ? 1 - Math.pow(1 - Math.min(pNumPerPack, 1), totalPacks)
     : 0;
 
-  // ── Autograph: guaranteed-slot model ──
-  const autoShare = totalAutoCards > 0 ? playerAutoCards / totalAutoCards : 0;
-  const autoSlots = guaranteedAutos * boxes;
-  const pAuto = autoSlots > 0 && autoShare > 0
-    ? 1 - Math.pow(1 - autoShare, autoSlots)
-    : 0;
+  // ── Autograph ──
+  // Two models depending on whether the set guarantees auto slots per box:
+  //   1) Guaranteed-slot model: P = 1 − (1 − playerAutoCards/totalAutoCards)^slots
+  //   2) Pack-odds model (no guaranteed autos): sum auto base+parallel odds per
+  //      pack, then compound across packs. Auto odds are already included in
+  //      pAnyPerPack and pNumPerPack, so no folding needed.
+  let pAuto: number;
+  let autoFromPackOdds = false;
+  let autoISCount = 0;
+
+  if (guaranteedAutos > 0) {
+    // Guaranteed-slot model
+    const autoShare = totalAutoCards > 0 ? playerAutoCards / totalAutoCards : 0;
+    const autoSlots = guaranteedAutos * boxes;
+    pAuto = autoSlots > 0 && autoShare > 0
+      ? 1 - Math.pow(1 - autoShare, autoSlots)
+      : 0;
+  } else {
+    // Pack-odds model: compute auto probability from pack odds directly
+    autoFromPackOdds = true;
+    let pAutoPerPack = 0;
+    for (const slot of slots) {
+      if (!slot.isAuto || slot.totalApps === 0) continue;
+      const share = slot.playerApps / slot.totalApps;
+      if (slot.baseOddsDenom !== null) {
+        pAutoPerPack += share / slot.baseOddsDenom;
+        autoISCount++;
+      }
+      for (const par of slot.serializedParallels) {
+        const pp = parPerPack(slot.playerApps, slot.totalApps, par.printRun, par.denom);
+        if (pp <= 0) continue;
+        pAutoPerPack += pp;
+      }
+    }
+    pAuto = totalPacks > 0 && pAutoPerPack > 0
+      ? 1 - Math.pow(1 - Math.min(pAutoPerPack, 1), totalPacks)
+      : 0;
+  }
 
   // ── Combine pack-odds and guaranteed-slot probabilities ──
-  // Auto slots also produce "any card" and "numbered" hits (auto cards are
-  // serialized hits), so fold pAuto into the higher tiers to guarantee
-  // the ordering constraint: Auto ≤ Numbered ≤ Any Card.
-  const pNumbered = 1 - (1 - pNumFromPacks) * (1 - pAuto);
-  const pAny = 1 - (1 - pAnyFromPacks) * (1 - pAuto);
+  // When using guaranteed-slot auto model, auto slots produce hits independent
+  // of pack odds, so fold pAuto into the higher tiers to maintain ordering:
+  //   Auto ≤ Numbered ≤ Any Card.
+  // When using pack-odds auto model, auto odds are already included in
+  // pAnyPerPack and pNumPerPack, so no folding needed — ordering holds naturally.
+  let pNumbered: number;
+  let pAny: number;
+  if (autoFromPackOdds) {
+    pNumbered = pNumFromPacks;
+    pAny = pAnyFromPacks;
+  } else {
+    pNumbered = 1 - (1 - pNumFromPacks) * (1 - pAuto);
+    pAny = 1 - (1 - pAnyFromPacks) * (1 - pAuto);
+  }
 
   const hasPackOdds = pAnyPerPack > 0;
 
-  return { pAny, pNumbered, pAuto, anyISCount, numberedCount, hasPackOdds };
+  return { pAny, pNumbered, pAuto, anyISCount, numberedCount, hasPackOdds, autoFromPackOdds, autoISCount };
 }
 
 // ─── Formatting ───────────────────────────────────────────────────────────────
@@ -239,14 +307,32 @@ export function PackOddsCalculator({
   const [fmtIdx, setFmtIdx] = useState(0);
 
   const fmt = boxFormats[fmtIdx] ?? boxFormats[0];
-  const { boxesPerCase, packsPerBox, guaranteedAutos, autoRowLabel, note } = fmt;
+  const { boxesPerCase, packsPerBox, guaranteedAutos, autoRowLabel, note, totalPacksProduced } = fmt;
   const showToggle = boxFormats.length > 1;
   const unit = boxes === 1 ? "box" : "box";
 
   const slots = slotsByFormat[fmt.label] ?? [];
 
-  const { pAny, pNumbered, pAuto, anyISCount, numberedCount, hasPackOdds } =
-    computeOdds(slots, boxes, packsPerBox, guaranteedAutos, totalAutoCards, playerAutoCards);
+  const { pAny, pNumbered, pAuto, anyISCount, numberedCount, hasPackOdds, autoFromPackOdds, autoISCount } =
+    computeOdds(slots, boxes, packsPerBox, guaranteedAutos, totalAutoCards, playerAutoCards, totalPacksProduced);
+
+  // ── Sanity check: SuperFractor (print_run=1) odds validation ──
+  if (typeof window !== "undefined" && totalPacksProduced && boxes === 1) {
+    for (const slot of slots) {
+      for (const par of slot.serializedParallels) {
+        if (par.printRun !== 1) continue;
+        const expectedPerBox = (slot.playerApps * 1) / totalPacksProduced * packsPerBox;
+        const expectedOneIn = 1 / expectedPerBox;
+        const totalBoxes = totalPacksProduced / packsPerBox;
+        if (Math.abs(expectedOneIn - totalBoxes) / totalBoxes > 0.01) {
+          console.warn(
+            `[BreakHitCalc] SuperFractor sanity check failed for "${slot.insertSetName} ${par.name}": ` +
+            `expected ~1:${totalBoxes.toFixed(0)} per box, got ~1:${expectedOneIn.toFixed(0)}`
+          );
+        }
+      }
+    }
+  }
 
   const hasAny = pAny > 0;
   const hasNumbered = pNumbered > 0;
@@ -261,7 +347,9 @@ export function PackOddsCalculator({
     : undefined;
 
   const autoBreakdown = hasAuto
-    ? `${playerAutoCards} of ${totalAutoCards} auto cards · ${guaranteedAutos * boxes} guaranteed slot${guaranteedAutos * boxes !== 1 ? "s" : ""}`
+    ? autoFromPackOdds
+      ? `Based on pack odds across ${autoISCount} auto insert set${autoISCount !== 1 ? "s" : ""}`
+      : `${playerAutoCards} of ${totalAutoCards} auto cards · ${guaranteedAutos * boxes} guaranteed slot${guaranteedAutos * boxes !== 1 ? "s" : ""}`
     : undefined;
 
   return (
@@ -388,8 +476,9 @@ export function PackOddsCalculator({
 
       {/* Disclaimer */}
       <p className="mt-3 text-xs text-zinc-700 leading-relaxed">
-        Any Card and Numbered Parallel based on official pack ratios.
-        Autograph based on {guaranteedAutos} guaranteed slot{guaranteedAutos !== 1 ? "s" : ""} per box ({totalAutoCards} total auto cards in set).
+        {autoFromPackOdds
+          ? "All probabilities based on official pack ratios."
+          : `Any Card and Numbered Parallel based on official pack ratios. Autograph based on ${guaranteedAutos} guaranteed slot${guaranteedAutos !== 1 ? "s" : ""} per box (${totalAutoCards} total auto cards in set).`}
       </p>
       {note && (
         <p className="mt-1.5 text-xs text-zinc-600 leading-relaxed">{note}</p>

@@ -384,13 +384,18 @@ export default async function SetPage({
   type BoxConfigSingle = {
     cards_per_pack?: number;
     packs_per_box?: number;
-    boxes_per_case: number;
+    boxes_per_case: number | null;
     autos_or_memorabilia_per_box?: number;
     autos_or_relics_per_box?: number;
     autos_per_box?: number;
+    autos_or_auto_relics_per_box?: number;
+    nba_autos_per_box?: number;
+    ncaa_autos_per_box?: number;
     memorabilia_per_box?: number;
     relics_per_box?: number;
-    [key: string]: number | undefined;
+    total_boxes_produced?: number;
+    total_packs_produced?: number;
+    note?: string;
   };
   type BoxConfigMulti = Record<string, BoxConfigSingle>;
 
@@ -423,6 +428,7 @@ export default async function SetPage({
 
   function singleToBoxFormat(label: string, fmt: BoxConfigSingle, note: string | undefined): BoxFormat {
     const packsPerBox = fmt.packs_per_box ?? 1;
+    const boxesPerCase = fmt.boxes_per_case ?? 8; // default when unknown
     // Extract guaranteed auto (or auto-or-relic) hits per box
     const guaranteedAutos =
       fmt.autos_per_box ??
@@ -432,8 +438,8 @@ export default async function SetPage({
       0;
     return {
       label,
-      boxesPerCase: fmt.boxes_per_case,
-      packsPerCase: fmt.boxes_per_case * packsPerBox,
+      boxesPerCase,
+      packsPerCase: boxesPerCase * packsPerBox,
       packsPerBox,
       guaranteedAutos,
       autoRowLabel: fmt.autos_or_memorabilia_per_box != null
@@ -444,6 +450,7 @@ export default async function SetPage({
         ? "Autograph or Relic"
         : undefined,
       note,
+      totalPacksProduced: fmt.total_packs_produced ?? undefined,
     };
   }
 
@@ -524,6 +531,12 @@ export default async function SetPage({
     // 2025-26 Topps Finest Basketball overrides
     "Finest Autographs": "Autographs",
     "Finest Rookie Autographs": "Rookie Autographs",
+    // 2025-26 Topps Cosmic Chrome Basketball overrides
+    "Cosmic Chrome Autographs": "Cosmic Chrome Autograph Variation",
+    "Cosmic Chrome Autographs II": "Cosmic Chrome Autograph Variation II",
+    "Electro Static Signatures": "Electro-Static Signatures",
+    "Starfractor": "StarFractor",
+    "Re Entry": "Re-Entry",
   };
 
   // Build PackOddsCalculator slot data for the selected player (all sets)
@@ -557,10 +570,10 @@ export default async function SetPage({
           ? "Base"
           : (ODDS_KEY_OVERRIDES[is.insertSetName] ?? is.insertSetName);
         const baseKey = is.insertSetName === "Base Set" ? null : prefix;
-        // Some sets (e.g. Electrifying Signatures) have no plain base key in pack odds;
-        // their base entry uses a suffix like " Geometric". Try fallback.
+        // Some sets have no plain base key in pack odds; their base entry uses a
+        // suffix like " Geometric" or " Refractor" (common for auto sets). Try fallbacks.
         const baseDenom = baseKey
-          ? (packOddsData[baseKey] ?? packOddsData[`${baseKey} Geometric`] ?? null)
+          ? (packOddsData[baseKey] ?? packOddsData[`${baseKey} Geometric`] ?? packOddsData[`${baseKey} Refractor`] ?? null)
           : null;
         return {
           insertSetName: is.insertSetName,
