@@ -428,6 +428,7 @@ export default async function SetPage({
       fmt.autos_per_box ??
       fmt.autos_or_memorabilia_per_box ??
       fmt.autos_or_relics_per_box ??
+      fmt.autos_or_auto_relics_per_box ??
       0;
     return {
       label,
@@ -438,6 +439,8 @@ export default async function SetPage({
       autoRowLabel: fmt.autos_or_memorabilia_per_box != null
         ? "Autograph or Memorabilia"
         : fmt.autos_or_relics_per_box != null
+        ? "Autograph or Relic"
+        : fmt.autos_or_auto_relics_per_box != null
         ? "Autograph or Relic"
         : undefined,
       note,

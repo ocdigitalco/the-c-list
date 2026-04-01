@@ -13,6 +13,28 @@ export interface Update {
 export const updates: Update[] = [
   // ─── March 30, 2026 ──────────────────────────────────────────────────────
   {
+    id: "079-cosmic-chrome-basketball-2526-odds",
+    title: "Pack Odds Added: 2025-26 Topps Cosmic Chrome Basketball",
+    date: "2026-03-30T12:00:00Z",
+    summary: "Pack odds are now live for 2025-26 Topps Cosmic Chrome Basketball with 126 entries across all insert sets and parallels.",
+    description: `## Pack Odds: 2025-26 Topps Cosmic Chrome Basketball
+
+126 pack odds entries covering:
+
+- **Base cards** — 15 parallel tiers (Refractor through SuperFractor, plus White Hole, FDI 1, and Lunar)
+- **Galaxy Greats** — base + 10 refractor parallels
+- **Extraterrestrial Talent** — base + 10 refractor parallels
+- **Propulsion** — base + 10 refractor parallels
+- **Space Walk** — base + 10 refractor parallels
+- **Case hits:** StarFractor (1:609), Re-Entry (1:871), Geocentric (1:1109), First Light (1:1109), each with 4 parallels
+- **Hyper Nova** (1:201) and **Cosmic Dust** (1:793)
+- **Planetary Pursuit** — 10-tier system (Sun through Pluto)
+- **6 autograph sets:** Cosmic Chrome Autograph Variation, Singularity Signatures, Alien Autographs, Electro-Static Signatures, First Flight Signatures, and Cosmic Chrome Autograph Variation II — each with up to 5 refractor parallels
+
+Break Hit Calculator is now active for all Cosmic Chrome Basketball player pages.`,
+    tags: ["odds"],
+  },
+  {
     id: "078-finest-basketball-2025-odds",
     title: "Pack Odds Added: 2025-26 Topps Finest Basketball",
     date: "2026-03-30T12:00:00Z",
