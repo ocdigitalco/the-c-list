@@ -86,7 +86,7 @@ export function OddsTabView({ formats }: { formats: OddsFormat[] }) {
 
   return (
     <div className="space-y-4">
-      <div className="flex gap-1 rounded-lg bg-zinc-800/60 p-0.5 w-fit">
+      <div className="flex gap-1 rounded-lg bg-zinc-800/60 p-0.5 w-fit max-w-full overflow-x-auto">
         {formats.map((f, i) => (
           <button
             key={f.label}

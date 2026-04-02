@@ -12,6 +12,29 @@ export interface Update {
 }
 
 export const updates: Update[] = [
+  // ─── April 1, 2026 ───────────────────────────────────────────────────────
+  {
+    id: "084-topps-basketball-2526-retail-odds",
+    title: "Full Retail Pack Odds: 2025-26 Topps Basketball",
+    date: "2026-04-01T12:00:00Z",
+    summary: "Break Hit Calculator for 2025-26 Topps Basketball now includes pack odds for all six box types: Hobby, Jumbo, Value, Mega, Fat Pack, and Hanger.",
+    description: `## Full Multi-Format Pack Odds
+
+The Break Hit Calculator for 2025-26 Topps Basketball has been updated with complete pack odds across all six box types:
+
+- **Hobby** — 12 cards/pack, 20 packs/box
+- **Jumbo** — 40 cards/pack, 10 packs/box
+- **Value** — 12 cards/pack, 12 packs/box
+- **Mega** — 14 cards/pack, 16 packs/box
+- **Fat Pack** — 26 cards/pack, 12 packs/box
+- **Hanger** — 40 cards/pack, 1 pack/box
+
+Each box type has its own exclusive insert sets and parallel families. Retail formats (Value, Mega, Fat Pack, Hanger) feature Holo Foil and Diamante parallels, along with retail-exclusive insert sets like 8 Bit Ballers, Generation Now, Power Players, and Clutch City Prospects. Hobby and Jumbo formats carry Rainbow parallels, plus insert sets like The Daily Dribble, New School, Levitation, and more.
+
+All autograph and relic insert sets (Flagship Real One Autographs, 1980-81 Topps Basketball Autographs, Topps Notch Signatures, New Applicants Autographs, Signed and Sealed, Franchise Fabrics, Swish and Stitch Relics, Woven Wonders Relics) now have per-format odds across all six box types.`,
+    tags: ["odds", "box-config"],
+    setId: 31,
+  },
   // ─── March 31, 2026 ──────────────────────────────────────────────────────
   {
     id: "083-finest-pl-production-run",

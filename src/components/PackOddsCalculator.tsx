@@ -313,6 +313,11 @@ export function PackOddsCalculator({
 
   const slots = slotsByFormat[fmt.label] ?? [];
 
+  // Premium-only formats are box types that physically cannot contain base cards.
+  // Only these formats may show the "exclusive inserts" message.
+  const PREMIUM_ONLY_FORMATS = ["Breaker's Delight"];
+  const isPremiumOnly = PREMIUM_ONLY_FORMATS.includes(fmt.label);
+
   const { pAny, pNumbered, pAuto, anyISCount, numberedCount, hasPackOdds, autoFromPackOdds, autoISCount } =
     computeOdds(slots, boxes, packsPerBox, guaranteedAutos, totalAutoCards, playerAutoCards, totalPacksProduced);
 
@@ -356,12 +361,12 @@ export function PackOddsCalculator({
     <div className="rounded-xl border border-zinc-700/60 bg-zinc-900 px-5 py-4">
       {/* Box type toggle (only shown for multi-format sets) */}
       {showToggle && (
-        <div className="flex gap-1 rounded-lg bg-zinc-800/60 p-0.5 mb-3">
+        <div className="flex gap-1 rounded-lg bg-zinc-800/60 p-0.5 mb-3 overflow-x-auto">
           {boxFormats.map((f, i) => (
             <button
               key={f.label}
               onClick={() => { setFmtIdx(i); setBoxes(1); }}
-              className={`flex-1 text-xs py-1.5 rounded-md font-semibold transition-colors ${
+              className={`shrink-0 flex-1 text-xs py-1.5 px-2 rounded-md font-semibold transition-colors ${
                 i === fmtIdx
                   ? "bg-zinc-700 text-white"
                   : "text-zinc-500 hover:text-zinc-300"
@@ -419,48 +424,29 @@ export function PackOddsCalculator({
       <div className="border-t border-zinc-800 mb-1" />
 
       {/* Odds rows */}
-      {!hasPackOdds && !hasAuto ? (
-        // Full empty state: no pack odds AND no auto odds
+      {isPremiumOnly && !hasPackOdds && !hasAuto ? (
+        // Full empty state: premium-only format with no matching inserts or autos
         <p className="py-4 text-center text-sm text-zinc-600">
           This player does not appear in {fmt.label} exclusive inserts.
         </p>
       ) : (
         <>
-          {/* Any Card: may be empty for breaker formats where player has no matching inserts */}
-          {!hasPackOdds ? (
-            <div className="py-2.5">
-              <p className="text-xs text-zinc-600 italic">
-                This player does not appear in {fmt.label} exclusive inserts.
-              </p>
-            </div>
-          ) : (
-            <OddsRow
-              label="Any Card"
-              p={hasAny ? pAny : null}
-              greyed={!hasAny}
-              breakdown={anyBreakdown}
-              unit={unit}
-            />
-          )}
+          <OddsRow
+            label="Any Card"
+            p={hasAny ? pAny : null}
+            greyed={!hasAny}
+            breakdown={anyBreakdown}
+            unit={unit}
+          />
           <div className="border-t border-zinc-800/60" />
 
-          {!hasPackOdds ? (
-            <div className="py-2.5 opacity-40">
-              <div className="flex items-center gap-3">
-                <span className="shrink-0 w-2 h-2 rounded-full bg-zinc-700" />
-                <span className="flex-1 text-sm font-medium text-zinc-600">Numbered Parallel</span>
-                <span className="text-xs text-zinc-700 italic">N/A for this format</span>
-              </div>
-            </div>
-          ) : (
-            <OddsRow
-              label="Numbered Parallel"
-              p={hasNumbered ? pNumbered : null}
-              greyed={!hasNumbered}
-              breakdown={numberedBreakdown}
-              unit={unit}
-            />
-          )}
+          <OddsRow
+            label="Numbered Parallel"
+            p={hasNumbered ? pNumbered : null}
+            greyed={!hasNumbered}
+            breakdown={numberedBreakdown}
+            unit={unit}
+          />
           <div className="border-t border-zinc-800/60" />
 
           {/* Auto always shown (based on guaranteed slots, not pack odds) */}

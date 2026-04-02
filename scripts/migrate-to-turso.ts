@@ -49,7 +49,7 @@ async function batchInsert(
   for (let i = 0; i < rows.length; i += batchSize) {
     const batch = rows.slice(i, i + batchSize);
     const stmts = batch.map((row) => ({
-      sql: `INSERT INTO ${table} (${columns.join(", ")}) VALUES ${placeholders}`,
+      sql: `INSERT OR REPLACE INTO ${table} (${columns.join(", ")}) VALUES ${placeholders}`,
       args: columns.map((col) => {
         const val = row[col];
         if (val === undefined || val === null) return null;

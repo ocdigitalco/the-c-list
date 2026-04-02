@@ -461,6 +461,9 @@ export default async function SetPage({
     jumbo: "Jumbo",
     mega: "Mega",
     blaster: "Blaster",
+    value: "Value",
+    fat_pack: "Fat Pack",
+    hanger: "Hanger",
     breakers_delight: "Breaker's Delight",
     first_day_issue: "First Day Issue",
     breaker: "Breaker",
@@ -509,6 +512,7 @@ export default async function SetPage({
     "Prospect Patch Autographs": "Prospect Patch Autograph",
     "Strokes Of Gold": "Strokes of Gold",
     // 2025-26 Topps Basketball overrides
+    "8-Bit Ballers": "8 Bit Ballers",
     "1980-81 Topps Basketball": "1980-81 Topps Basketball Insert",
     "1980-81 Topps Basketball Autographs": "1980-81 Topps Basketball Autograph",
     "1980-81 Topps Basketball Triple Autographs": "1980-81 Topps Basketball Triple Autograph",
@@ -569,7 +573,7 @@ export default async function SetPage({
         const prefix = is.insertSetName === "Base Set"
           ? "Base"
           : (ODDS_KEY_OVERRIDES[is.insertSetName] ?? is.insertSetName);
-        const baseKey = is.insertSetName === "Base Set" ? null : prefix;
+        const baseKey = prefix;
         // Some sets have no plain base key in pack odds; their base entry uses a
         // suffix like " Geometric" or " Refractor" (common for auto sets). Try fallbacks.
         const baseDenom = baseKey
