@@ -12,6 +12,50 @@ export interface Update {
 }
 
 export const updates: Update[] = [
+  // ─── April 2, 2026 ───────────────────────────────────────────────────────
+  {
+    id: "086-chrome-uefa-2526-odds",
+    title: "Pack Odds & Box Config: Chrome UEFA Club Competitions",
+    date: "2026-04-02T18:00:00Z",
+    summary: "Full pack odds added for 2025-26 Topps Chrome UEFA Club Competitions across 11 box types: Hobby, Jumbo, Value, Breaker's Delight, Hanger, Sapphire, Mega, First Day Issue, Logofractor, Hongbao, and FFNYC.",
+    description: `## Pack Odds for 2025-26 Topps Chrome UEFA Club Competitions
+
+Complete pack odds now available across 11 box types with over 1,200 individual odds entries:
+
+- **Hobby** — 204 entries
+- **Jumbo** — 199 entries
+- **Value** — 150 entries
+- **Breaker's Delight** — 123 entries
+- **Hanger** — 100 entries
+- **Sapphire** — 37 entries
+- **Mega** — 135 entries
+- **First Day Issue** — 99 entries
+- **Logofractor** — 60 entries
+- **Hongbao** — 19 entries
+- **FFNYC** — 102 entries
+
+Box configuration added for all 8 purchasable formats. The Break Hit Calculator and Pack Odds page now support all formats.`,
+    tags: ["odds", "box-config"],
+    setId: 43,
+  },
+  {
+    id: "085-chrome-uefa-2526",
+    title: "New Set: 2025-26 Topps Chrome UEFA Club Competitions",
+    date: "2026-04-02T12:00:00Z",
+    summary: "Full checklist added for 2025-26 Topps Chrome UEFA Club Competitions — 200 base cards, 36 insert sets, and over 350 players.",
+    description: `## 2025-26 Topps Chrome UEFA Club Competitions
+
+Complete checklist now available with 200 base cards, 36 insert and autograph sets, and over 350 players spanning UEFA Champions League, Europa League, and Conference League clubs.
+
+Highlights include:
+- **Base Set** (200 cards) with a Future Stars subset
+- **19 insert sets** including Wonderkids, Shadow Etch, Budapest at Night, Helix, Chrome Anime, and more
+- **17 autograph sets** including Chrome Autographs (109 cards), Chrome Legends Autographs (67 cards), Road to Glory Autographs (63 cards), and multi-player cards (Dual, Triple, Quad, and Piece of Club History book cards)
+- **UCL Final Performers** featuring Linkin Park members
+- **Legends** including Messi, Ronaldinho, Zidane, Beckham, Maldini, and many more`,
+    tags: ["checklist"],
+    setId: 43,
+  },
   // ─── April 1, 2026 ───────────────────────────────────────────────────────
   {
     id: "084-topps-basketball-2526-retail-odds",

@@ -468,6 +468,10 @@ export default async function SetPage({
     first_day_issue: "First Day Issue",
     breaker: "Breaker",
     hobby_hybrid: "Hobby Hybrid",
+    sapphire: "Sapphire",
+    hongbao: "Hongbao",
+    logofractor: "Logofractor",
+    ffnyc: "FFNYC",
   };
   function formatBoxLabel(key: string): string {
     return BOX_LABEL_MAP[key] ?? key.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
