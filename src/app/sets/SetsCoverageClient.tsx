@@ -96,6 +96,18 @@ function SetsCoverageInner({ rows }: { rows: CoverageRow[] }) {
       yd.bySport.get(row.sport)!.push(row);
     }
 
+    // Sort within each sport group by releaseDate descending, nulls last
+    for (const yd of by.values()) {
+      for (const sportRows of yd.bySport.values()) {
+        sportRows.sort((a, b) => {
+          if (a.releaseDate && b.releaseDate) return b.releaseDate.localeCompare(a.releaseDate);
+          if (a.releaseDate) return -1;
+          if (b.releaseDate) return 1;
+          return a.name.localeCompare(b.name);
+        });
+      }
+    }
+
     return { years: yrs, byYear: by, matchedCount: filtered.filter((r) => r.matchedSetId !== null).length };
   }, [filtered]);
 
