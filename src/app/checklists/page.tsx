@@ -114,7 +114,8 @@ export default async function ChecklistsPage({
     .from(sets)
     .where(activeSport ? eq(sets.sport, activeSport) : undefined)
     .orderBy(
-      sql`SUBSTR(${sets.season}, 1, 4) DESC`,
+      sql`CASE WHEN ${sets.releaseDate} IS NULL THEN 1 ELSE 0 END`,
+      sql`${sets.releaseDate} DESC`,
       sets.name
     );
 
