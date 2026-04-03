@@ -14,6 +14,26 @@ export interface Update {
 export const updates: Update[] = [
   // ─── April 3, 2026 ───────────────────────────────────────────────────────
   {
+    id: "088-chrome-uefa-2526-boxconfig-release",
+    title: "Box Config & Release Date: Chrome UEFA Club Competitions",
+    date: "2026-04-03T18:00:00Z",
+    summary: "Updated box configuration and release date (May 7, 2026) for 2025-26 Topps Chrome UEFA Club Competitions across 6 box types.",
+    description: `## Box Config & Release Date for 2025-26 Topps Chrome UEFA Club Competitions
+
+Release date set to **May 7, 2026**.
+
+Updated box configuration now available for 6 box types:
+
+- **Hobby** — 20 packs/box, 12 boxes/case, 1 auto/box. 1 Road to Glory auto per case guaranteed. 2x Grail Chase.
+- **First Day Issue** — 4 cards/pack, 20 packs/box, 12 boxes/case, 1 auto/box, 2 FDI exclusive parallels/box
+- **Breaker's Delight** — 1 pack/box, 6 boxes/case, 2 autos/box. 1 Global Attraction auto per case guaranteed.
+- **Jumbo** — 12 packs/box, 8 boxes/case, 3 autos/box
+- **Logofractor** — 7 packs/box, 20 boxes/case
+- **Sapphire** — 8 packs/box, 10 boxes/case, 1 auto/box`,
+    tags: ["box-config"],
+    setId: 43,
+  },
+  {
     id: "087-chrome-football-2025",
     title: "New Set: 2025 Topps Chrome Football",
     date: "2026-04-03T12:00:00Z",

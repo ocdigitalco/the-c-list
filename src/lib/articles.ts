@@ -6,13 +6,16 @@
 // - Links use the "link" section type with href and text fields.
 
 export interface ArticleSection {
-  type: "h2" | "h3" | "h4" | "p" | "image" | "video" | "ul" | "ol" | "link";
+  type: "h2" | "h3" | "h4" | "p" | "image" | "video" | "ul" | "ol" | "link" | "table";
   text?: string;
+  html?: boolean; // when true, "p" renders with dangerouslySetInnerHTML
   src?: string;
   alt?: string;
   caption?: string;
   items?: string[];
   href?: string;
+  headers?: string[];
+  rows?: string[][];
 }
 
 export interface Article {
@@ -25,9 +28,386 @@ export interface Article {
   tags: string[];
   tldr: string;
   content: ArticleSection[];
+  setId?: number;
 }
 
 export const articles: Article[] = [
+  {
+    id: "2025-26-topps-chrome-ucc-release-guide",
+    title: "2025-26 Topps Chrome UEFA Club Competitions: Complete Release Guide",
+    publishedAt: "2026-04-03",
+    description:
+      "Everything you need to know about the 2025-26 Topps Chrome UEFA Club Competitions release, including box formats, parallel styles, autograph highlights, and exclusive inserts across six box types.",
+    heroImage: "/articles/chrome-ucc/2025-26-Topps-Chrome-UEFA-Club-Competitions-Soccer.jpg",
+    tags: ["topps chrome", "soccer", "uefa", "release guide", "2026"],
+    setId: 43,
+    tldr: "The 2025-26 Topps Chrome UEFA Club Competitions rolls out across six box formats from May 5 to May 25, 2026. The product features a 200-card base set, a deep autograph program including Dual, Triple, and Quad Autographs, format-exclusive inserts and parallels, and ultra-rare hits like The Grail (only 2 Zlatan Ibrahimovic cards exist in the entire production run). Each box type has its own parallel ecosystem and exclusive inserts, making format selection a key part of the collecting strategy.",
+    content: [
+      // ── INTRO ──────────────────────────────────────────────────────────────
+      {
+        type: "p",
+        html: true,
+        text: 'The 2025-26 Topps Chrome UEFA Club Competitions is one of the most anticipated soccer card releases of 2026. Staggered across six box formats between May 5 and May 25, the product features a 200-card base set spanning current stars and legends, a massive autograph program, and a parallel system that varies by box type. Whether you are chasing a Jobe Bellingham Radiating Rookie, hunting a Lionel Messi Superior Signatures 1/1, or targeting a Piece of Club History booklet, this is a release with something for every level of collector. <a href="/sets/43">View the full checklist for this set on Checklist\u00b2</a>, check out the <a href="https://www.checklistinsider.com/2025-26-topps-chrome-uefa" target="_blank" rel="noopener noreferrer">full checklist at Checklist Insider</a>, and find product details on the <a href="https://www.topps.com/pages/topps-chrome-uefa-club-competitions" target="_blank" rel="noopener noreferrer">official Topps product page</a>.',
+      },
+      {
+        type: "p",
+        text: "This guide covers every box format, the full parallel system, exclusive inserts by box type, and the standout autograph hits you should be looking for. If you are planning your purchasing strategy or just want to understand the product before ripping, this is the place to start.",
+      },
+      {
+        type: "image",
+        src: "/articles/chrome-ucc/2025-26-Topps-Chrome-UEFA-Club-Competitions-Soccer-Radiating-Rookies-Jobe-Bellingham-RC.jpg",
+        alt: "Radiating Rookies Jobe Bellingham RC",
+        caption: "Jobe Bellingham Radiating Rookie, one of 15 Radiating Rookies in the set",
+      },
+
+      // ── RELEASE DATES AND BOX FORMATS ──────────────────────────────────────
+      {
+        type: "h2",
+        text: "Release Dates and Box Formats",
+      },
+      {
+        type: "p",
+        text: "The release is staggered across six formats. First Day Issue boxes are the first available on May 5, 2026, followed by Hobby, Jumbo, and Breaker's Delight boxes on May 7. Logofractor boxes release May 18 and Sapphire boxes close out the window on May 25.",
+      },
+      {
+        type: "table",
+        headers: ["Box Type", "Release Date"],
+        rows: [
+          ["First Day Issue", "May 5, 2026"],
+          ["Hobby", "May 7, 2026"],
+          ["Jumbo", "May 7, 2026"],
+          ["Breaker's Delight", "May 7, 2026"],
+          ["Logofractor", "May 18, 2026"],
+          ["Sapphire", "May 25, 2026"],
+        ],
+      },
+      {
+        type: "p",
+        text: "Beyond the hobby and premium boxes, retail options include Value Boxes, Hanger Packs, and Mega Boxes, each with their own exclusive parallel styles.",
+      },
+
+      // ── BOX CONFIGURATIONS ─────────────────────────────────────────────────
+      {
+        type: "h2",
+        text: "Box Configurations",
+      },
+      {
+        type: "h3",
+        text: "Hobby Box: 20 Packs, 1 Auto Guaranteed",
+      },
+      {
+        type: "p",
+        text: "Hobby boxes contain 20 packs per box across 12 boxes per case. Each box guarantees one autograph, and each case guarantees one Road to Glory autograph. Hobby is also the only format where collectors have a shot at The Grail, a pair of ultra-rare Zlatan Ibrahimovic cards. Only two exist in the entire hobby production run.",
+      },
+      {
+        type: "h3",
+        text: "Jumbo Box: 12 Packs, 3 Autos Guaranteed",
+      },
+      {
+        type: "p",
+        text: "Jumbo boxes offer 12 packs per box across 8 boxes per case, with three autographs guaranteed per box. Jumbo is the only format where Black Lazer Autographs can be found.",
+      },
+      {
+        type: "image",
+        src: "/articles/chrome-ucc/2025-26-Topps-Chrome-UEFA-Club-Competitions-Soccer-Black-Lazer-Autographs-Red-Mohamed-Salah.jpg",
+        alt: "Black Lazer Autograph Red Mohamed Salah 1/5",
+        caption: "Black Lazer Autograph Red Mohamed Salah 1/5, exclusive to Jumbo boxes",
+      },
+      {
+        type: "h3",
+        text: "Breaker's Delight: 1 Pack, 2 Autos Guaranteed",
+      },
+      {
+        type: "p",
+        text: "Breaker's Delight boxes are designed for live breaking, with 1 pack per box and 6 boxes per case. Each box guarantees two autographs and each case guarantees one Global Attraction Autograph. Global Attraction Autographs are exclusive to this format.",
+      },
+      {
+        type: "h3",
+        text: "First Day Issue: FDI Exclusive Autos and Parallels",
+      },
+      {
+        type: "p",
+        text: "First Day Issue boxes contain 4 cards per pack, 20 packs per box, and 12 boxes per case. Each FDI box guarantees one autograph and two FDI exclusive parallels, and each case guarantees one Road to Glory autograph. The First 11 insert set is also exclusive to this format.",
+      },
+      {
+        type: "h3",
+        text: "Logofractor: 7 Packs, Starball Universe",
+      },
+      {
+        type: "p",
+        text: "Logofractor boxes contain 7 packs per box across 20 boxes per case. The entire format is built around the Logofractor and Starball Refractor parallel ecosystem, featuring logo-embedded variations unavailable anywhere else in the product.",
+      },
+      {
+        type: "h3",
+        text: "Sapphire: 8 Packs, 1 Auto Guaranteed",
+      },
+      {
+        type: "p",
+        text: "Sapphire boxes contain 8 packs per box across 10 boxes per case with one autograph guaranteed per box. The Sapphire format features its own dedicated parallel line including Green, Purple, Gold, Orange, Black, Red Sapphire, and the ultra-rare Padparadscha.",
+      },
+
+      // ── EXCLUSIVE INSERTS BY BOX TYPE ──────────────────────────────────────
+      {
+        type: "h2",
+        text: "Exclusive Inserts by Box Type",
+      },
+      {
+        type: "p",
+        text: "Several inserts are locked to specific formats. Knowing where to look is half the battle.",
+      },
+      {
+        type: "image",
+        src: "/articles/chrome-ucc/2025-26-Topps-Chrome-UEFA-Club-Competitions-Soccer-Metaverse-Lautaro-Martinez-.jpeg",
+        alt: "Metaverse Lautaro Martinez",
+        caption: "Metaverse Lautaro Martinez, only available in Mega boxes",
+      },
+      {
+        type: "image",
+        src: "/articles/chrome-ucc/2025-26-Topps-Chrome-UEFA-Club-Competitions-Soccer-Bionic-Jude-Bellingham.jpg",
+        alt: "Bionic Jude Bellingham",
+        caption: "Bionic Jude Bellingham, an extremely rare find available only in Value boxes",
+      },
+      {
+        type: "ul",
+        items: [
+          "Black Lazer Autographs: Jumbo boxes only",
+          "Global Attraction Autographs: Breaker's Delight boxes only",
+          "Metaverse inserts: Mega boxes only",
+          "Bionic inserts: Value boxes only (extremely rare)",
+          "Chrome Youthquake: Breaker's Delight boxes only",
+          "First 11: First Day Issue boxes only",
+          "Logofractor and Starball Refractor parallels: Logofractor boxes only",
+          "Sapphire parallels: Sapphire boxes only",
+        ],
+      },
+      {
+        type: "image",
+        src: "/articles/chrome-ucc/2025-26-Topps-Chrome-UEFA-Club-Competitions-Soccer-Budapest-at-Night-Michael-Olise.jpg",
+        alt: "Budapest at Night Michael Olise",
+        caption: "Budapest at Night Michael Olise, available in Hobby boxes",
+      },
+
+      // ── PARALLEL STYLES BY BOX TYPE ────────────────────────────────────────
+      {
+        type: "h2",
+        text: "Parallel Styles by Box Type",
+      },
+      {
+        type: "p",
+        text: "The parallel system in this release is one of the most varied in recent soccer card history. Each format has its own identity.",
+      },
+      {
+        type: "image",
+        src: "/articles/chrome-ucc/2025-26-Topps-Chrome-UEFA-Club-Competitions-Soccer-Wonderkids-Orange-Estevao-Willian-RC.jpg",
+        alt: "Wonderkids Orange Estevao Willian RC 01/25",
+        caption: "Wonderkids Orange Estevao Willian RC 01/25",
+      },
+      {
+        type: "image",
+        src: "/articles/chrome-ucc/2025-26-Topps-Chrome-UEFA-Club-Competitions-Soccer-Silenced-Michael-Olise.jpg",
+        alt: "Silenced Michael Olise",
+        caption: "Silenced Michael Olise, the Silenced insert runs across Hobby, Jumbo, Value, FDI, Hanger, and Mega formats",
+      },
+      {
+        type: "image",
+        src: "/articles/chrome-ucc/2025-26-Topps-Chrome-UEFA-Club-Competitions-Soccer-Power-Players-Dusan-Vlahovic.jpg",
+        alt: "Power Players Dusan Vlahovic",
+        caption: "Power Players Dusan Vlahovic",
+      },
+      {
+        type: "h3",
+        text: "Traditional Colored Refractors",
+      },
+      {
+        type: "p",
+        text: "Standard colored Refractors, including Teal, Pink, Aqua, Blue, Green, Purple, Gold, Orange, White, Black, and Red, run through Hobby, Jumbo, Value, First Day Issue, and Fanatics Fest boxes. These are the most widely distributed parallels and the entry point for parallel collectors at every level.",
+      },
+      {
+        type: "h3",
+        text: "Lava Refractors",
+      },
+      {
+        type: "p",
+        text: "Lava Refractors share the same color spectrum as standard Refractors but feature a distinctive lava texture. Available in Hobby, Jumbo, First Day Issue, and Fanatics Fest boxes.",
+      },
+      {
+        type: "h3",
+        text: "Mini Diamond Refractors",
+      },
+      {
+        type: "p",
+        text: "Mini Diamond Refractors are exclusive to Value Boxes and Hanger Packs. They feature a unique geometric cut and run across Teal, Yellow, Pink, Aqua, Blue, Green, Purple, Gold, Orange, Black, and Red.",
+      },
+      {
+        type: "h3",
+        text: "X-Fractors",
+      },
+      {
+        type: "p",
+        text: "X-Fractors are a Mega Box exclusive available across a full color range. They are the defining parallel chase for Mega Box collectors in this product.",
+      },
+      {
+        type: "h3",
+        text: "Geometric Refractors",
+      },
+      {
+        type: "p",
+        text: "Geometric Refractors are exclusive to Breaker's Delight boxes, running through base cards and autographs across Green, Purple, Gold, Orange, Black, and Red color tiers.",
+      },
+      {
+        type: "h3",
+        text: "Sapphire Parallels",
+      },
+      {
+        type: "p",
+        text: "Available only in Sapphire Boxes, the Sapphire parallel line includes Green, Purple, Gold, Orange, Black, and Red Sapphire along with the Padparadscha, the rarest tier in the format.",
+      },
+      {
+        type: "h3",
+        text: "Logofractor and Starball Refractors",
+      },
+      {
+        type: "p",
+        text: "Exclusive to Logofractor Boxes, these logo-embedded parallels run through Night Vision, Green, Magenta, Gold, Orange, Black, Red, and Rose Gold Starball Refractor tiers.",
+      },
+
+      // ── AUTOGRAPH HIGHLIGHTS ───────────────────────────────────────────────
+      {
+        type: "h2",
+        text: "Autograph Highlights",
+      },
+      {
+        type: "p",
+        html: true,
+        text: 'The autograph program in this product is one of the deepest in any soccer release. For a full breakdown of every autograph in the set, check out <a href="https://www.beckett.com/news/2025-26-topps-chrome-uefa-club-competitions-soccer-cards/" target="_blank" rel="noopener noreferrer">Beckett\'s coverage</a>.',
+      },
+      {
+        type: "h3",
+        text: "Chrome Autograph Cards",
+      },
+      {
+        type: "p",
+        text: "The base autograph set covers more than 100 players ranging from active stars like Jude Bellingham, Lamine Yamal, Erling Haaland, Florian Wirtz, and Mohamed Salah to legends including Lionel Messi, Ronaldo, Ronaldinho, Zinedine Zidane, and Thierry Henry.",
+      },
+      {
+        type: "h3",
+        text: "Chrome Legends Autographs",
+      },
+      {
+        type: "p",
+        text: "The Legends autograph set is entirely dedicated to historic players. The checklist includes Andres Iniesta, Paolo Maldini, Kaka, Ronaldinho, Zinedine Zidane, Luka Modric, Gareth Bale, Sergio Busquets, Ryan Giggs, Sadio Mane, and more.",
+      },
+      {
+        type: "h3",
+        text: "Black Lazer Autographs: Jumbo Exclusive",
+      },
+      {
+        type: "p",
+        text: "Black Lazer Autographs are one of the most visually striking sets in the product and are only available in Jumbo boxes. The checklist features Lionel Messi, Erling Haaland, Lamine Yamal, Jude Bellingham, Neymar Jr., Ronaldinho, and Zinedine Zidane among others.",
+      },
+      {
+        type: "h3",
+        text: "Global Attraction Autographs: Breaker's Delight Exclusive",
+      },
+      {
+        type: "p",
+        text: "Global Attraction Autographs feature 24 of the game's biggest names and are exclusive to Breaker's Delight boxes, with one guaranteed per case. The checklist includes Erling Haaland, Lionel Messi, Lamine Yamal, Jude Bellingham, Mohamed Salah, Vini Jr., and others.",
+      },
+      {
+        type: "h3",
+        text: "Road to Glory Autographs",
+      },
+      {
+        type: "p",
+        text: "Available in Hobby and First Day Issue boxes with one per case guaranteed in each format. The checklist spans more than 70 legends across European clubs including Paolo Maldini, Frank Lampard, Gareth Bale, Toni Kroos, Raul, and many more.",
+      },
+      {
+        type: "h3",
+        text: "Superior Signatures",
+      },
+      {
+        type: "p",
+        text: "Chrome Superior Signatures are split into Veterans and Rookies, and a separate Legends tier. These are among the most premium single-autograph cards in the product, with SuperFractors numbered 1/1.",
+      },
+      {
+        type: "image",
+        src: "/articles/chrome-ucc/2025-26-Topps-Chrome-UEFA-Club-Competitions-Soccer-Chrome-Superior-Signatures-Lionel-Messi.jpg",
+        alt: "Chrome Superior Signatures Lionel Messi SuperFractor 1/1",
+        caption: "Chrome Superior Signatures Lionel Messi SuperFractor 1/1",
+      },
+      {
+        type: "h3",
+        text: "Dual, Triple, and Quad Autographs",
+      },
+      {
+        type: "p",
+        text: "Multi-autograph cards are among the biggest hits in the product. Dual Autographs pair legends and current stars like Lamine Yamal and Lionel Messi, Erling Haaland and Phil Foden, and Ronaldo and Adriano. Triple Autographs include iconic trios like the MSN Barcelona combination of Messi, Suarez, and Neymar Jr., the SFM Liverpool trio of Salah, Firmino, and Mane, and the Arsenal defensive trio of William Saliba, Gabriel, and Declan Rice. Quad Autographs cover four-player groupings including the 2024 Real Madrid Champions League winners and the FC Barcelona La Masia group of Messi, Xavi, Iniesta, and Busquets.",
+      },
+      {
+        type: "image",
+        src: "/articles/chrome-ucc/2025-26-Topps-Chrome-UEFA-Club-Competitions-Soccer-Triple-Autographs-SuperFractor-Arsenal.jpg",
+        alt: "Triple Autograph SuperFractor 1/1: William Saliba, Gabriel, and Declan Rice",
+        caption: "Triple Autograph SuperFractor 1/1: William Saliba, Gabriel, and Declan Rice, Arsenal FC",
+      },
+      {
+        type: "h3",
+        text: "Piece of Club History Autograph Book Cards",
+      },
+      {
+        type: "p",
+        text: "The Piece of Club History Autograph Book Cards are six-autograph booklets representing five clubs: FC Bayern Munchen, FC Barcelona, Arsenal FC, AC Milan, and Liverpool FC. Each booklet spans the full arc of a club's history from icons to current stars. The Liverpool booklet for example includes Kevin Keegan, Kenny Dalglish, Jamie Carragher, Steven Gerrard, Virgil van Dijk, and Mohamed Salah on a single card.",
+      },
+
+      // ── ADDITIONAL CHASES ──────────────────────────────────────────────────
+      {
+        type: "h2",
+        text: "Additional Chases",
+      },
+      {
+        type: "h3",
+        text: "Ballon d'Or Buyback Autographs",
+      },
+      {
+        type: "p",
+        text: "Authenticated original Topps cards signed by past Ballon d'Or winners. These are among the most historically significant cards in the release and are numbered based on the original card's print run.",
+      },
+      {
+        type: "h3",
+        text: "Bowman 1st Edition Autographs",
+      },
+      {
+        type: "p",
+        text: "Bowman 1st Edition Autographs bring early career cards of major stars into the Chrome ecosystem. A popular crossover target for both Topps Chrome and Bowman collectors.",
+      },
+      {
+        type: "h3",
+        text: "The Grail",
+      },
+      {
+        type: "p",
+        text: "Only two Grail cards exist in the entire hobby production run, both featuring Zlatan Ibrahimovic. One is from his time at AFC Ajax and one from FC Internazionale Milano. Pulling either card would be one of the all-time great hobby moments.",
+      },
+      {
+        type: "h3",
+        text: "Trophy SuperFractors",
+      },
+      {
+        type: "p",
+        text: "UCL, UEL, and UECL Trophy SuperFractors are tied to specific box types. The UCL Trophy SuperFractor is a Hobby exclusive, the UEL Trophy SuperFractor is a Jumbo exclusive, and the UECL Trophy SuperFractor is a Breaker's Delight exclusive. Each is a true 1/1.",
+      },
+
+      // ── FINAL THOUGHTS ─────────────────────────────────────────────────────
+      {
+        type: "h2",
+        text: "Final Thoughts",
+      },
+      {
+        type: "p",
+        html: true,
+        text: 'The 2025-26 Topps Chrome UEFA Club Competitions is a comprehensive release that rewards collectors across every budget and format preference. The staggered release schedule gives collectors multiple entry points throughout May 2026, and the format-exclusive parallel and insert ecosystem means there is always a reason to come back. Whether you are opening a single Value Box or going case-deep on Hobby, the product has depth at every level. View the complete checklist on <a href="/sets/43">Checklist\u00b2</a>, and check out the <a href="https://www.topps.com/pages/topps-chrome-uefa-club-competitions" target="_blank" rel="noopener noreferrer">official Topps product page</a> for more details.',
+      },
+    ],
+  },
   {
     id: "how-to-get-free-sports-cards",
     title: "How to Get Free Sports Cards and Where to Get Them",

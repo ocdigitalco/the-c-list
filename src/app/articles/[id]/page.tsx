@@ -61,6 +61,14 @@ function ArticleContent({ section }: { section: ArticleSection }) {
         </h4>
       );
     case "p":
+      if (section.html) {
+        return (
+          <p
+            className="text-sm text-zinc-400 leading-relaxed mb-4 [&_a]:text-amber-400 [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-amber-300 [&_a]:transition-colors"
+            dangerouslySetInnerHTML={{ __html: section.text ?? "" }}
+          />
+        );
+      }
       return (
         <p className="text-sm text-zinc-400 leading-relaxed mb-4">
           {section.text}
@@ -120,6 +128,38 @@ function ArticleContent({ section }: { section: ArticleSection }) {
             </svg>
           </a>
         </p>
+      );
+    case "table":
+      return (
+        <div className="rounded-xl border border-zinc-800 overflow-hidden mb-6">
+          <table className="w-full">
+            {section.headers && (
+              <thead>
+                <tr className="border-b border-zinc-800 bg-zinc-900/60">
+                  {section.headers.map((h, i) => (
+                    <th
+                      key={i}
+                      className="text-left text-xs font-semibold text-zinc-500 uppercase tracking-wider px-4 py-2.5"
+                    >
+                      {h}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+            )}
+            <tbody className="divide-y divide-zinc-800/60">
+              {section.rows?.map((row, i) => (
+                <tr key={i} className="bg-zinc-900 hover:bg-zinc-800/40 transition-colors">
+                  {row.map((cell, j) => (
+                    <td key={j} className="px-4 py-2.5 text-sm text-zinc-400">
+                      {cell}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       );
     case "video": {
       const ytId = section.src ? isYouTube(section.src) : null;
