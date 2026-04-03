@@ -12,6 +12,25 @@ export interface Update {
 }
 
 export const updates: Update[] = [
+  // ─── April 3, 2026 ───────────────────────────────────────────────────────
+  {
+    id: "087-chrome-football-2025",
+    title: "New Set: 2025 Topps Chrome Football",
+    date: "2026-04-03T12:00:00Z",
+    summary: "Full checklist added for 2025 Topps Chrome Football — 400 base cards, 39 insert sets, and over 540 players.",
+    description: `## 2025 Topps Chrome Football
+
+Complete checklist now available with 400 base cards, 39 insert and autograph sets, and 547 players.
+
+Highlights include:
+- **Base Set** (400 cards) with 100 rookies and 6 variation sets (Camo, Lightboard Logo, Chrome Etch, Image Variation, and more)
+- **16 insert sets** including Future Stars, 1975 Topps, Power Players, Legends of the Gridiron, Fortune 15, Helix, Shadow Etch, Kaiju, and more
+- **9 autograph sets** including Base Cards Autograph Variation (70 cards), Rookies Autograph Variation (94 cards), Dual Autographs, Chromographs, Chrome Legends Autographs, and Hall of Chrome Autographs
+- **3 relic sets** and **2 autograph relic sets** including Topps Chrome Rookie Patch Autographs and Rookie Premiere Patch Autographs (98 cards)
+- **Legends** including Tom Brady, Peyton Manning, Barry Sanders, Jerry Rice, Walter Payton, Ray Lewis, and many more`,
+    tags: ["checklist"],
+    setId: 44,
+  },
   // ─── April 2, 2026 ───────────────────────────────────────────────────────
   {
     id: "086-chrome-uefa-2526-odds",
