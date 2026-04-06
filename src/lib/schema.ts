@@ -39,6 +39,7 @@ export const players = sqliteTable("players", {
   totalPrintRun: integer("total_print_run").notNull().default(0),
   oneOfOnes: integer("one_of_ones").notNull().default(0),
   insertSetCount: integer("insert_set_count").notNull().default(0),
+  nbaPlayerId: integer("nba_player_id"),
 }, (t) => [
   uniqueIndex("players_set_name_unique").on(t.setId, t.name),
 ]);

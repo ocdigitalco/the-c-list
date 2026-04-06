@@ -52,6 +52,8 @@ export function V2ThemeWrapper({ children }: { children: React.ReactNode }) {
             --v2-row-alt: #F9FAFB;
             --v2-hover-shadow: 0 2px 8px rgba(0,0,0,0.06);
             --v2-card-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            --v2-break-sheet-bg: #111827;
+            --v2-break-sheet-hover-bg: #1F2937;
           }
           .v2-root[data-v2-theme="dark"] {
             --v2-page-bg: #0F172A;
@@ -67,6 +69,8 @@ export function V2ThemeWrapper({ children }: { children: React.ReactNode }) {
             --v2-row-alt: #1E293B;
             --v2-hover-shadow: 0 2px 8px rgba(0,0,0,0.3);
             --v2-card-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            --v2-break-sheet-bg: #0F172A;
+            --v2-break-sheet-hover-bg: #1E293B;
           }
           .v2-root {
             background: var(--v2-page-bg);

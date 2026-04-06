@@ -17,7 +17,8 @@ import { V2Checklist } from "@/components/sets-v2/V2Checklist";
 import { PackOddsCalculator, type PackOddsSlot, type BoxFormat } from "@/components/PackOddsCalculator";
 import { BreakCalcWarning } from "@/components/BreakCalcWarning";
 import type { LeaderboardRow, InsertSetDetail, BoxConfigSingle, BoxConfigMulti } from "@/components/sets-v2/types";
-import type { BreakSheetPlayer } from "@/components/BreakSheetModal";
+import { AthleteHeadshot } from "@/components/sets-v2/AthleteHeadshot";
+
 
 export const dynamic = "force-dynamic";
 
@@ -380,6 +381,7 @@ export default async function V2AthletePage({
     autographs: number;
     inserts: number;
     numberedParallels: number;
+    nbaPlayerId: number | null;
   }>(
     `WITH player_is AS (
        SELECT DISTINCT pa.player_id, pa.insert_set_id
@@ -413,7 +415,8 @@ export default async function V2AthletePage({
            AND lower(i.name) NOT LIKE '%signed%'
            AND lower(i.name) NOT LIKE '%autograph%'
          THEN pa.insert_set_id END) AS inserts,
-       COALESCE(n.cnt, 0) AS numberedParallels
+       COALESCE(n.cnt, 0) AS numberedParallels,
+       p.nba_player_id AS nbaPlayerId
      FROM players p
      LEFT JOIN player_appearances pa ON pa.player_id = p.id
      LEFT JOIN insert_sets i ON i.id = pa.insert_set_id
@@ -434,87 +437,10 @@ export default async function V2AthletePage({
     autographs: r.autographs,
     inserts: r.inserts,
     numberedParallels: r.numberedParallels,
+    nbaPlayerId: r.nbaPlayerId,
   }));
 
   const hasTeamData = leaderboardEntries.some((e) => e.team != null && e.team !== "");
-
-  // ── Break Sheet data ──────────────────────────────────────────────────────
-  const allPlayers = await db.query.players.findMany({
-    where: (t, { eq: e }) => e(t.setId, setId),
-    orderBy: (p, { asc: a }) => [a(p.name)],
-  });
-
-  const rookieRows =
-    insertSetIds.length > 0
-      ? await db
-          .selectDistinct({ playerId: playerAppearances.playerId })
-          .from(playerAppearances)
-          .where(
-            and(
-              eq(playerAppearances.isRookie, true),
-              inArray(playerAppearances.insertSetId, insertSetIds)
-            )
-          )
-      : [];
-  const rookiePlayerIds = new Set(rookieRows.map((r) => r.playerId));
-
-  function classifyIS(name: string): "base" | "pure_auto" | "mem_auto" | "relic" | "insert" {
-    if (name === "Base Set") return "base";
-    const lower = name.toLowerCase();
-    const isAutoName = /auto|autograph|signature|signed/.test(lower);
-    const isRelic = /relic|memorabilia/.test(lower);
-    if (isAutoName && isRelic) return "mem_auto";
-    if (isAutoName) return "pure_auto";
-    if (isRelic) return "relic";
-    return "insert";
-  }
-
-  const allAppearancesForSheet =
-    insertSetIds.length > 0
-      ? await db
-          .select({ playerId: playerAppearances.playerId, insertSetName: insertSets.name })
-          .from(playerAppearances)
-          .innerJoin(insertSets, eq(playerAppearances.insertSetId, insertSets.id))
-          .where(
-            and(
-              inArray(playerAppearances.insertSetId, insertSetIds),
-              sql`${insertSets.name} != 'Base Set'`
-            )
-          )
-      : [];
-
-  type PlayerBreakAccum = {
-    autoSetNames: Set<string>;
-    hasMemAuto: boolean;
-    hasRelic: boolean;
-    insertSetNamesSet: Set<string>;
-  };
-  const breakMap = new Map<number, PlayerBreakAccum>();
-  for (const p of allPlayers) {
-    breakMap.set(p.id, { autoSetNames: new Set(), hasMemAuto: false, hasRelic: false, insertSetNamesSet: new Set() });
-  }
-  for (const app of allAppearancesForSheet) {
-    const e = breakMap.get(app.playerId);
-    if (!e) continue;
-    const type = classifyIS(app.insertSetName);
-    if (type === "pure_auto") e.autoSetNames.add(app.insertSetName);
-    else if (type === "mem_auto") e.hasMemAuto = true;
-    else if (type === "relic") e.hasRelic = true;
-    else if (type === "insert") e.insertSetNamesSet.add(app.insertSetName);
-  }
-
-  const breakSheetPlayers: BreakSheetPlayer[] = allPlayers.map((p) => {
-    const d = breakMap.get(p.id)!;
-    return {
-      id: p.id,
-      name: p.name,
-      autoCount: d.autoSetNames.size,
-      hasMemAuto: d.hasMemAuto,
-      hasRelic: d.hasRelic,
-      isRookie: rookiePlayerIds.has(p.id),
-      insertSetNames: Array.from(d.insertSetNamesSet),
-    };
-  });
 
   // ── Right sidebar stats ───────────────────────────────────────────────────
   const [cardCountRow] = await db
@@ -538,7 +464,7 @@ export default async function V2AthletePage({
     <div className="flex min-h-screen">
       {/* Left Sidebar — Leaderboard (desktop) */}
       <aside
-        className="hidden lg:flex w-[350px] shrink-0 flex-col sticky top-0 h-screen overflow-hidden"
+        className="hidden lg:flex w-[425px] shrink-0 flex-col sticky top-0 h-screen overflow-y-auto"
         style={{ borderRight: "1px solid var(--v2-border)" }}
       >
         <LeaderboardSidebar entries={leaderboardEntries} hasTeamData={hasTeamData} setId={setId} />
@@ -571,25 +497,28 @@ export default async function V2AthletePage({
           </div>
 
           {/* Player header */}
-          <div className="flex items-start justify-between gap-4">
-            <div>
-              <h1 className="text-3xl font-bold" style={{ color: "var(--v2-text-primary)" }}>
-                {playerData.name}
-              </h1>
+          <div className="flex items-center gap-5">
+            <AthleteHeadshot name={playerData.name} nbaPlayerId={playerData.nbaPlayerId} size="lg" />
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-3">
+                <h1 className="text-3xl font-bold" style={{ color: "var(--v2-text-primary)" }}>
+                  {playerData.name}
+                </h1>
+                {hasRookie && (
+                  <span
+                    className="text-base font-semibold px-3 py-1 rounded shrink-0"
+                    style={{ color: "var(--v2-accent)", background: "var(--v2-accent-light)" }}
+                  >
+                    Rookie
+                  </span>
+                )}
+              </div>
               {teams.length > 0 && (
                 <p className="mt-1.5 text-base" style={{ color: "var(--v2-text-secondary)" }}>
                   {teams.join(" · ")}
                 </p>
               )}
             </div>
-            {hasRookie && (
-              <span
-                className="text-base font-semibold px-3 py-1 rounded mt-1 shrink-0"
-                style={{ color: "var(--v2-accent)", background: "var(--v2-accent-light)" }}
-              >
-                Rookie
-              </span>
-            )}
           </div>
 
           {/* Stat cards */}
@@ -709,10 +638,6 @@ export default async function V2AthletePage({
               hasBoxConfig={hasBoxConfig}
               hasPackOdds={hasPackOdds}
               sampleImageUrl={setRow.sampleImageUrl ?? null}
-              setName={setRow.name}
-              sport={setRow.sport}
-              league={setRow.league ?? null}
-              breakSheetPlayers={breakSheetPlayers}
             />
           </div>
         </div>
@@ -730,10 +655,6 @@ export default async function V2AthletePage({
           hasBoxConfig={hasBoxConfig}
           hasPackOdds={hasPackOdds}
           sampleImageUrl={setRow.sampleImageUrl ?? null}
-          setName={setRow.name}
-          sport={setRow.sport}
-          league={setRow.league ?? null}
-          breakSheetPlayers={breakSheetPlayers}
         />
       </aside>
     </div>

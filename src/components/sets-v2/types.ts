@@ -24,6 +24,7 @@ export interface LeaderboardRow {
   autographs: number;
   inserts: number;
   numberedParallels: number;
+  nbaPlayerId: number | null;
 }
 
 export interface InsertSetDetail {

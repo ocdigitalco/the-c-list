@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import type { LeaderboardRow } from "./types";
+import { getNBAHeadshotUrl } from "@/lib/nba-headshot";
 
 type SortKey = "totalCards" | "autographs" | "inserts" | "numberedParallels";
 
@@ -20,6 +21,43 @@ const SORT_TABS: { key: SortKey; label: string }[] = [
 ];
 
 const DEFAULT_VISIBLE = 50;
+
+function InitialsAvatar({ name }: { name: string }) {
+  const initials = name
+    .split(" ")
+    .map((n) => n[0])
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
+  return (
+    <div
+      className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold flex-shrink-0"
+      style={{ background: "var(--v2-badge-bg)", color: "var(--v2-text-secondary)" }}
+    >
+      {initials}
+    </div>
+  );
+}
+
+function PlayerAvatar({ name, nbaPlayerId }: { name: string; nbaPlayerId: number | null }) {
+  const [imgError, setImgError] = useState(false);
+  const url = getNBAHeadshotUrl(nbaPlayerId);
+
+  if (!url || imgError) {
+    return <InitialsAvatar name={name} />;
+  }
+
+  return (
+    <img
+      src={url}
+      alt={name}
+      loading="lazy"
+      onError={() => setImgError(true)}
+      className="w-10 h-10 rounded-full object-cover flex-shrink-0"
+      style={{ border: "2px solid var(--v2-border)" }}
+    />
+  );
+}
 
 export function LeaderboardSidebar({ entries, hasTeamData, setId }: Props) {
   const [sortKey, setSortKey] = useState<SortKey>("totalCards");
@@ -46,15 +84,11 @@ export function LeaderboardSidebar({ entries, hasTeamData, setId }: Props) {
 
   return (
     <div className="flex flex-col h-full" style={{ background: "var(--v2-sidebar-bg)" }}>
-      {/* Header */}
-      <div className="shrink-0 px-4 pt-4 pb-3" style={{ borderBottom: "1px solid var(--v2-border)" }}>
-        <h2 className="text-base font-semibold" style={{ color: "var(--v2-text-primary)" }}>
+      {/* Header + Controls */}
+      <div className="shrink-0 px-3 pt-4 pb-2 space-y-2" style={{ borderBottom: "1px solid var(--v2-border)" }}>
+        <h2 className="text-base font-semibold px-1" style={{ color: "var(--v2-text-primary)" }}>
           Athlete Leaderboard
         </h2>
-      </div>
-
-      {/* Controls */}
-      <div className="shrink-0 px-3 pt-3 pb-2 space-y-2" style={{ borderBottom: "1px solid var(--v2-border)" }}>
         {/* Sort tabs */}
         <div className="flex gap-0.5 rounded-lg p-0.5" style={{ background: "var(--v2-badge-bg)" }}>
           {SORT_TABS.map((tab) => (
@@ -140,7 +174,7 @@ export function LeaderboardSidebar({ entries, hasTeamData, setId }: Props) {
               <Link
                 key={entry.id}
                 href={`/sets-v2/${setId}/athlete/${entry.id}`}
-                className="grid grid-cols-[auto_1fr_auto] items-center gap-2.5 px-4 py-2.5 transition-colors text-left"
+                className="grid grid-cols-[auto_auto_1fr_auto] items-center gap-2.5 px-4 py-2.5 transition-colors text-left"
                 style={{ borderBottom: "1px solid var(--v2-border)" }}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLElement).style.background = "var(--v2-accent-light)";
@@ -155,6 +189,7 @@ export function LeaderboardSidebar({ entries, hasTeamData, setId }: Props) {
                 >
                   {idx + 1}
                 </span>
+                <PlayerAvatar name={entry.name} nbaPlayerId={entry.nbaPlayerId} />
                 <div className="min-w-0">
                   <div className="flex items-center gap-1.5 min-w-0">
                     <span

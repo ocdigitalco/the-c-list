@@ -217,6 +217,7 @@ export default async function V2SetPage({
     autographs: number;
     inserts: number;
     numberedParallels: number;
+    nbaPlayerId: number | null;
   }>(
     `WITH player_is AS (
        SELECT DISTINCT pa.player_id, pa.insert_set_id
@@ -250,7 +251,8 @@ export default async function V2SetPage({
            AND lower(i.name) NOT LIKE '%signed%'
            AND lower(i.name) NOT LIKE '%autograph%'
          THEN pa.insert_set_id END) AS inserts,
-       COALESCE(n.cnt, 0) AS numberedParallels
+       COALESCE(n.cnt, 0) AS numberedParallels,
+       p.nba_player_id AS nbaPlayerId
      FROM players p
      LEFT JOIN player_appearances pa ON pa.player_id = p.id
      LEFT JOIN insert_sets i ON i.id = pa.insert_set_id
@@ -271,6 +273,7 @@ export default async function V2SetPage({
     autographs: r.autographs,
     inserts: r.inserts,
     numberedParallels: r.numberedParallels,
+    nbaPlayerId: r.nbaPlayerId,
   }));
 
   const hasTeamData = leaderboardEntries.some((e) => e.team != null && e.team !== "");
@@ -279,7 +282,7 @@ export default async function V2SetPage({
     <div className="flex min-h-screen">
       {/* Left Sidebar — Leaderboard (desktop) */}
       <aside
-        className="hidden lg:flex w-[350px] shrink-0 flex-col sticky top-0 h-screen overflow-hidden"
+        className="hidden lg:flex w-[425px] shrink-0 flex-col sticky top-0 h-screen overflow-y-auto"
         style={{ borderRight: "1px solid var(--v2-border)" }}
       >
         <LeaderboardSidebar entries={leaderboardEntries} hasTeamData={hasTeamData} setId={setId} />
@@ -300,8 +303,10 @@ export default async function V2SetPage({
           <SetMetadataBar
             setName={setRow.name}
             sport={setRow.sport}
+            league={setRow.league ?? null}
             tier={setRow.tier}
             athleteCount={athleteCountRow.count}
+            breakSheetPlayers={breakSheetPlayers}
           />
 
           <StatCards
@@ -338,10 +343,6 @@ export default async function V2SetPage({
               hasBoxConfig={!!setRow.boxConfig}
               hasPackOdds={!!setRow.packOdds}
               sampleImageUrl={setRow.sampleImageUrl ?? null}
-              setName={setRow.name}
-              sport={setRow.sport}
-              league={setRow.league ?? null}
-              breakSheetPlayers={breakSheetPlayers}
             />
           </div>
         </div>
@@ -359,10 +360,6 @@ export default async function V2SetPage({
           hasBoxConfig={!!setRow.boxConfig}
           hasPackOdds={!!setRow.packOdds}
           sampleImageUrl={setRow.sampleImageUrl ?? null}
-          setName={setRow.name}
-          sport={setRow.sport}
-          league={setRow.league ?? null}
-          breakSheetPlayers={breakSheetPlayers}
         />
       </aside>
     </div>

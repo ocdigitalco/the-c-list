@@ -1,5 +1,3 @@
-import { BreakSheetModal, type BreakSheetPlayer } from "@/components/BreakSheetModal";
-
 interface Props {
   releaseDate: string | null;
   hasCards: boolean;
@@ -7,10 +5,6 @@ interface Props {
   hasBoxConfig: boolean;
   hasPackOdds: boolean;
   sampleImageUrl: string | null;
-  setName: string;
-  sport: string;
-  league: string | null;
-  breakSheetPlayers: BreakSheetPlayer[];
 }
 
 function formatDate(iso: string): string {
@@ -66,10 +60,6 @@ export function RightSidebar({
   hasBoxConfig,
   hasPackOdds,
   sampleImageUrl,
-  setName,
-  sport,
-  league,
-  breakSheetPlayers,
 }: Props) {
   return (
     <div
@@ -104,8 +94,6 @@ export function RightSidebar({
           <CheckRow label="Pack Odds" complete={hasPackOdds} isLast />
         </div>
       </div>
-
-      <BreakSheetModal setName={setName} sport={sport} league={league} players={breakSheetPlayers} />
     </div>
   );
 }

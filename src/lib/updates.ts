@@ -12,6 +12,26 @@ export interface Update {
 }
 
 export const updates: Update[] = [
+  // ─── April 5, 2026 ───────────────────────────────────────────────────────
+  {
+    id: "091-royalty-ufc-2024",
+    title: "New Set: 2024 Topps Royalty UFC",
+    date: "2026-04-05T12:00:00Z",
+    summary: "Full checklist added for 2024 Topps Royalty UFC with 100 base cards, 27 insert sets, and 213 fighters.",
+    description: `## 2024 Topps Royalty UFC
+
+Complete checklist now available with 100 base cards, 27 insert and autograph sets, and 213 fighters from across the UFC roster.
+
+Highlights include:
+- **Base Set** (100 cards) with 7 parallel levels: /99, Purple /35, Blue /25, Red /15, Gold /10, Green /5, Platinum /1
+- **17 Autograph Sets** including UFC Honors Autographs (/25), Dual Autographs (21 pairings), Triple Autographs (5 trios), and Dual Fighter Relic Autograph Books (8 cards)
+- **Regalia Relic Signatures** (61 cards), **Pursuit of Greatness Signatures** (35 cards), **Royalty Relic Signatures** (35 cards), and **Superior Signatures** (34 cards)
+- **5 Memorabilia/Relic Sets**: Regalia Relics (74 cards), Star Relics (50 cards), Relic Jewels (30 cards), Rookie Jumbo Relics (26 cards), and Prodigious Pairings (20 dual-fighter cards)
+- **4 Insert Sets**: Royal Decree (28), The Coronation (14), The Time Is Now (12), Liquid Silver (10)
+- Notable fighters include Conor McGregor, Islam Makhachev, Alex Pereira, Sean O'Malley, Khabib Nurmagomedov, Jon Jones, and many more`,
+    tags: ["checklist", "odds", "box-config"],
+    setId: 47,
+  },
   // ─── April 3, 2026 ───────────────────────────────────────────────────────
   {
     id: "090-chrome-deadpool-2025",
