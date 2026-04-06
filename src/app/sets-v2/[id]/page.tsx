@@ -200,7 +200,7 @@ export default async function V2SetPage({
     <div className="flex min-h-screen">
       {/* Left Sidebar — Leaderboard (desktop) */}
       <aside
-        className="hidden lg:flex w-[280px] shrink-0 flex-col sticky top-0 h-screen overflow-hidden"
+        className="hidden lg:flex w-[350px] shrink-0 flex-col sticky top-0 h-screen overflow-hidden"
         style={{ borderRight: "1px solid var(--v2-border)" }}
       >
         <LeaderboardSidebar entries={leaderboardEntries} hasTeamData={hasTeamData} setId={setId} />
@@ -272,7 +272,7 @@ export default async function V2SetPage({
 
       {/* Right Sidebar (desktop) */}
       <aside
-        className="hidden xl:block w-[220px] shrink-0 sticky top-0 h-screen overflow-y-auto"
+        className="hidden xl:block w-[300px] shrink-0 sticky top-0 h-screen overflow-y-auto"
         style={{ borderLeft: "1px solid var(--v2-border)" }}
       >
         <RightSidebar
