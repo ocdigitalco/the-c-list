@@ -1,4 +1,4 @@
-import { ThemeToggle } from "./ThemeToggle";
+import { BreakSheetModal, type BreakSheetPlayer } from "@/components/BreakSheetModal";
 
 interface Props {
   releaseDate: string | null;
@@ -6,6 +6,11 @@ interface Props {
   hasNumberedParallels: boolean;
   hasBoxConfig: boolean;
   hasPackOdds: boolean;
+  sampleImageUrl: string | null;
+  setName: string;
+  sport: string;
+  league: string | null;
+  breakSheetPlayers: BreakSheetPlayer[];
 }
 
 function formatDate(iso: string): string {
@@ -24,11 +29,11 @@ function CheckRow({ label, complete, value, isLast }: { label: string; complete:
       className="flex items-center justify-between py-2.5"
       style={isLast ? undefined : { borderBottom: "1px solid var(--v2-border)" }}
     >
-      <span className="text-[14px]" style={{ color: "var(--v2-text-primary)" }}>
+      <span className="text-base" style={{ color: "var(--v2-text-primary)" }}>
         {label}
       </span>
       {value ? (
-        <span className="text-[14px] font-medium" style={{ color: "var(--v2-text-primary)" }}>
+        <span className="text-base font-medium" style={{ color: "var(--v2-text-primary)" }}>
           {value}
         </span>
       ) : complete ? (
@@ -60,15 +65,23 @@ export function RightSidebar({
   hasNumberedParallels,
   hasBoxConfig,
   hasPackOdds,
+  sampleImageUrl,
+  setName,
+  sport,
+  league,
+  breakSheetPlayers,
 }: Props) {
   return (
     <div
       className="h-full overflow-y-auto p-4 space-y-6"
       style={{ background: "var(--v2-sidebar-bg)" }}
     >
+      {sampleImageUrl && (
+        <img src={sampleImageUrl} alt="Set sample" className="w-full rounded-lg object-cover" />
+      )}
       <div>
         <h3
-          className="text-[13px] font-medium uppercase tracking-widest mb-3"
+          className="text-base font-medium uppercase tracking-widest mb-3"
           style={{ color: "var(--v2-text-secondary)" }}
         >
           Set Details
@@ -92,15 +105,7 @@ export function RightSidebar({
         </div>
       </div>
 
-      <div
-        className="rounded-lg p-3"
-        style={{
-          background: "var(--v2-card-bg)",
-          border: "1px solid var(--v2-border)",
-        }}
-      >
-        <ThemeToggle />
-      </div>
+      <BreakSheetModal setName={setName} sport={sport} league={league} players={breakSheetPlayers} />
     </div>
   );
 }

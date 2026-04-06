@@ -16,6 +16,7 @@ import { LeaderboardSidebar } from "@/components/sets-v2/LeaderboardSidebar";
 import { RightSidebar } from "@/components/sets-v2/RightSidebar";
 import { MobileLeaderboardDrawer } from "@/components/sets-v2/MobileLeaderboardDrawer";
 import type { LeaderboardRow } from "@/components/sets-v2/types";
+import type { BreakSheetPlayer } from "@/components/BreakSheetModal";
 
 export const dynamic = "force-dynamic";
 
@@ -128,6 +129,84 @@ export default async function V2SetPage({
         )) ?? { total: 0 })
       : { total: 0 };
 
+  // ── Break Sheet data ───────────────────────────────────────────────────────
+  const allPlayers = await db.query.players.findMany({
+    where: (t, { eq: e }) => e(t.setId, setId),
+    orderBy: (p, { asc: a }) => [a(p.name)],
+  });
+
+  const rookieRows =
+    insertSetIds.length > 0
+      ? await db
+          .selectDistinct({ playerId: playerAppearances.playerId })
+          .from(playerAppearances)
+          .where(
+            and(
+              eq(playerAppearances.isRookie, true),
+              inArray(playerAppearances.insertSetId, insertSetIds)
+            )
+          )
+      : [];
+  const rookiePlayerIds = new Set(rookieRows.map((r) => r.playerId));
+
+  function classifyIS(name: string): "base" | "pure_auto" | "mem_auto" | "relic" | "insert" {
+    if (name === "Base Set") return "base";
+    const lower = name.toLowerCase();
+    const isAuto = /auto|autograph|signature|signed/.test(lower);
+    const isRelic = /relic|memorabilia/.test(lower);
+    if (isAuto && isRelic) return "mem_auto";
+    if (isAuto) return "pure_auto";
+    if (isRelic) return "relic";
+    return "insert";
+  }
+
+  const allAppearancesForSheet =
+    insertSetIds.length > 0
+      ? await db
+          .select({ playerId: playerAppearances.playerId, insertSetName: insertSets.name })
+          .from(playerAppearances)
+          .innerJoin(insertSets, eq(playerAppearances.insertSetId, insertSets.id))
+          .where(
+            and(
+              inArray(playerAppearances.insertSetId, insertSetIds),
+              sql`${insertSets.name} != 'Base Set'`
+            )
+          )
+      : [];
+
+  type PlayerBreakAccum = {
+    autoSetNames: Set<string>;
+    hasMemAuto: boolean;
+    hasRelic: boolean;
+    insertSetNamesSet: Set<string>;
+  };
+  const breakMap = new Map<number, PlayerBreakAccum>();
+  for (const p of allPlayers) {
+    breakMap.set(p.id, { autoSetNames: new Set(), hasMemAuto: false, hasRelic: false, insertSetNamesSet: new Set() });
+  }
+  for (const app of allAppearancesForSheet) {
+    const e = breakMap.get(app.playerId);
+    if (!e) continue;
+    const type = classifyIS(app.insertSetName);
+    if (type === "pure_auto") e.autoSetNames.add(app.insertSetName);
+    else if (type === "mem_auto") e.hasMemAuto = true;
+    else if (type === "relic") e.hasRelic = true;
+    else if (type === "insert") e.insertSetNamesSet.add(app.insertSetName);
+  }
+
+  const breakSheetPlayers: BreakSheetPlayer[] = allPlayers.map((p) => {
+    const d = breakMap.get(p.id)!;
+    return {
+      id: p.id,
+      name: p.name,
+      autoCount: d.autoSetNames.size,
+      hasMemAuto: d.hasMemAuto,
+      hasRelic: d.hasRelic,
+      isRookie: rookiePlayerIds.has(p.id),
+      insertSetNames: Array.from(d.insertSetNamesSet),
+    };
+  });
+
   // ── Leaderboard ─────────────────────────────────────────────────────────────
   const leaderboardRaw = await rawQuery.all<{
     id: number;
@@ -220,16 +299,9 @@ export default async function V2SetPage({
 
           <SetMetadataBar
             setName={setRow.name}
-            season={setRow.season}
-            league={setRow.league ?? null}
+            sport={setRow.sport}
             tier={setRow.tier}
-            athletes={athleteCountRow.count}
-            cards={cardCountRow.count}
-            insertSetCount={insertSetIds.length}
-            parallelTypes={parallelTypesRow.count}
-            totalParallels={totalParallelsResult.total}
-            autographs={autographCountRow.count}
-            autoParallels={autoParallelsResult.total}
+            athleteCount={athleteCountRow.count}
           />
 
           <StatCards
@@ -243,7 +315,7 @@ export default async function V2SetPage({
 
           {/* Box Configuration */}
           <section className="space-y-3">
-            <h2 className="text-[16px] font-semibold" style={{ color: "var(--v2-text-primary)" }}>
+            <h2 className="text-base font-semibold" style={{ color: "var(--v2-text-primary)" }}>
               Box Configuration
             </h2>
             <BoxConfigTable boxConfig={setRow.boxConfig ?? null} />
@@ -251,7 +323,7 @@ export default async function V2SetPage({
 
           {/* Pack Odds */}
           <section className="space-y-3">
-            <h2 className="text-[16px] font-semibold" style={{ color: "var(--v2-text-primary)" }}>
+            <h2 className="text-base font-semibold" style={{ color: "var(--v2-text-primary)" }}>
               Pack Odds
             </h2>
             <PackOddsInline boxConfig={setRow.boxConfig ?? null} packOdds={setRow.packOdds ?? null} />
@@ -265,6 +337,11 @@ export default async function V2SetPage({
               hasNumberedParallels={numberedParallelsResult.total > 0}
               hasBoxConfig={!!setRow.boxConfig}
               hasPackOdds={!!setRow.packOdds}
+              sampleImageUrl={setRow.sampleImageUrl ?? null}
+              setName={setRow.name}
+              sport={setRow.sport}
+              league={setRow.league ?? null}
+              breakSheetPlayers={breakSheetPlayers}
             />
           </div>
         </div>
@@ -281,6 +358,11 @@ export default async function V2SetPage({
           hasNumberedParallels={numberedParallelsResult.total > 0}
           hasBoxConfig={!!setRow.boxConfig}
           hasPackOdds={!!setRow.packOdds}
+          sampleImageUrl={setRow.sampleImageUrl ?? null}
+          setName={setRow.name}
+          sport={setRow.sport}
+          league={setRow.league ?? null}
+          breakSheetPlayers={breakSheetPlayers}
         />
       </aside>
     </div>

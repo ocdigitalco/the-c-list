@@ -45,9 +45,15 @@ function StatCard({ label, value, tooltip }: StatCardData) {
         boxShadow: "var(--v2-card-shadow)",
       }}
     >
-      <div className="flex items-center gap-1">
+      <p
+        className="text-2xl font-bold"
+        style={{ color: "var(--v2-accent)", fontVariantNumeric: "tabular-nums" }}
+      >
+        <AnimatedNumber target={value} />
+      </p>
+      <div className="flex items-center gap-1 mt-1">
         <p
-          className="text-[13px] font-medium"
+          className="text-base font-medium"
           style={{ color: "var(--v2-text-secondary)" }}
         >
           {label}
@@ -77,12 +83,6 @@ function StatCard({ label, value, tooltip }: StatCardData) {
           </span>
         )}
       </div>
-      <p
-        className="text-[26px] font-bold mt-1"
-        style={{ color: "var(--v2-accent)", fontVariantNumeric: "tabular-nums" }}
-      >
-        <AnimatedNumber target={value} />
-      </p>
     </div>
   );
 }
@@ -106,11 +106,11 @@ export function StatCards({
 }: Props) {
   const items: StatCardData[] = [
     { label: "Cards", value: cards, tooltip: "Total unique cards in this set" },
-    { label: "Parallel Types", value: parallelTypes, tooltip: "Count of distinct parallel names" },
-    { label: "Total Parallels", value: totalParallels, tooltip: "Total parallel entries across all insert sets" },
     { label: "Insert Sets", value: insertSets, tooltip: "Distinct insert set groupings" },
+    { label: "Parallel Types", value: parallelTypes, tooltip: "Count of distinct parallel names" },
     { label: "Autographs", value: autographs, tooltip: "Cards in autograph insert sets" },
     { label: "Auto Parallels", value: autoParallels, tooltip: "Parallels on autograph insert sets" },
+    { label: "Total Parallels", value: totalParallels, tooltip: "Total parallel entries across all insert sets" },
   ];
 
   return (

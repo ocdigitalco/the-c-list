@@ -14,6 +14,44 @@ export interface Update {
 export const updates: Update[] = [
   // ─── April 3, 2026 ───────────────────────────────────────────────────────
   {
+    id: "090-chrome-deadpool-2025",
+    title: "New Set: 2025 Topps Chrome Deadpool",
+    date: "2026-04-03T22:00:00Z",
+    summary: "Full checklist added for 2025 Topps Chrome Deadpool with 100 base cards across 3 subsets, 22 insert sets, and 131 characters.",
+    description: `## 2025 Topps Chrome Deadpool
+
+Complete checklist now available with 100 base cards, 22 insert and autograph sets, and 131 characters from the Deadpool and Wolverine universe.
+
+Highlights include:
+- **Base Set** split across Comic Accurate (20), Characters (26), and Multiverse And More (54) with 24 parallel styles
+- **Chrome Autographs** (26 cards) signed by cast members including Ryan Reynolds, Hugh Jackman, Emma Corrin, and Henry Cavill
+- **Best Bubs Autographs** (13 cards) and **Chrome Dual Autographs** (9 cards)
+- **On-Card Dual Inscription Booklet** featuring Wolverine and Deadpool signed by Hugh Jackman and Ryan Reynolds
+- **Marvel Comic Book Artist Autographs** (6 cards) featuring Carlo Barberi, Ed McGuinness, Mark Brooks, and more
+- **Insert sets**: Comic Book Gold (30), Cover Stars (30), Well You Got Nothing To Say Mouth (10), Future Stars (10), The Void (10), Deadpool Icons (10), and more`,
+    tags: ["checklist"],
+    setId: 46,
+  },
+  {
+    id: "089-stadium-club-baseball-2025",
+    title: "New Set: 2025 Topps Stadium Club Baseball",
+    date: "2026-04-03T20:00:00Z",
+    summary: "Full checklist added for 2025 Topps Stadium Club Baseball with 200 base cards, 8 autograph sets, 5 insert sets, and 345 players.",
+    description: `## 2025 Topps Stadium Club Baseball
+
+Complete checklist now available with 200 base cards, 14 insert and autograph sets, and 345 players.
+
+Highlights include:
+- **Base Set** (200 cards) with 15 parallel styles including Sepia, Rainbow Foilboard, and Photographer's Proof
+- **Base Autographs** (161 cards) and **Chrome Autographs** (73 cards) covering legends and current stars
+- **Savage Sluggers Autographs** (18 cards), **Goin' Yard Autographs** (16 cards), **Abstract Autographs** (14 cards), and **Concentration Autographs** (12 cards)
+- **In Case Of Emergency Autographs** (17 cards) and **Dual Autographs** (9 cards) pairing legends with current stars
+- **Insert sets**: Beam Team (20 cards), Savage Sluggers (25), Concentration (25), Yours For The Taking (25), In Case Of Emergency (25)
+- Notable players include Shohei Ohtani, Aaron Judge, Roki Sasaki, Bobby Witt Jr., Juan Soto, Derek Jeter, and many more`,
+    tags: ["checklist"],
+    setId: 45,
+  },
+  {
     id: "088-chrome-uefa-2526-boxconfig-release",
     title: "Box Config & Release Date: Chrome UEFA Club Competitions",
     date: "2026-04-03T18:00:00Z",

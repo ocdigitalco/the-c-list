@@ -88,7 +88,7 @@ export function BoxConfigTable({ boxConfig }: Props) {
   if (!boxConfig) {
     return (
       <div
-        className="rounded-lg px-5 py-8 text-center text-[14px] italic"
+        className="rounded-lg px-5 py-8 text-center text-base italic"
         style={{ background: "var(--v2-card-bg)", border: "1px solid var(--v2-border)", color: "var(--v2-text-secondary)" }}
       >
         Box configuration coming soon
@@ -110,7 +110,7 @@ export function BoxConfigTable({ boxConfig }: Props) {
               (h) => (
                 <th
                   key={h}
-                  className="text-left text-[12px] font-medium uppercase tracking-wide px-4 py-2.5"
+                  className="text-left text-base font-medium uppercase tracking-wide px-4 py-2.5"
                   style={{ color: "var(--v2-text-secondary)", borderBottom: "1px solid var(--v2-border)" }}
                 >
                   {h}
@@ -123,7 +123,7 @@ export function BoxConfigTable({ boxConfig }: Props) {
           {rows.map((row, i) => (
             <tr key={row.label}>
               <td
-                className="px-4 py-2.5 text-[14px] font-medium"
+                className="px-4 py-2.5 text-base font-medium"
                 style={{
                   color: "var(--v2-text-primary)",
                   background: i % 2 === 1 ? "var(--v2-row-alt)" : "var(--v2-card-bg)",
@@ -135,7 +135,7 @@ export function BoxConfigTable({ boxConfig }: Props) {
               {[row.cardsPerPack, row.packsPerBox, row.boxesPerCase].map((val, j) => (
                 <td
                   key={j}
-                  className="px-4 py-2.5 text-[14px] tabular-nums"
+                  className="px-4 py-2.5 text-base tabular-nums"
                   style={{
                     color: "var(--v2-text-primary)",
                     background: i % 2 === 1 ? "var(--v2-row-alt)" : "var(--v2-card-bg)",
@@ -146,7 +146,7 @@ export function BoxConfigTable({ boxConfig }: Props) {
                 </td>
               ))}
               <td
-                className="px-4 py-2.5 text-[14px] tabular-nums"
+                className="px-4 py-2.5 text-base tabular-nums"
                 style={{
                   color: "var(--v2-text-primary)",
                   background: i % 2 === 1 ? "var(--v2-row-alt)" : "var(--v2-card-bg)",
@@ -156,7 +156,7 @@ export function BoxConfigTable({ boxConfig }: Props) {
                 {row.packsPerCase}
               </td>
               <td
-                className="px-4 py-2.5 text-[14px] tabular-nums"
+                className="px-4 py-2.5 text-base tabular-nums"
                 style={{
                   color: "var(--v2-text-primary)",
                   background: i % 2 === 1 ? "var(--v2-row-alt)" : "var(--v2-card-bg)",
@@ -178,7 +178,7 @@ export function BoxConfigTable({ boxConfig }: Props) {
               <tr key={`${row.label}-notes`}>
                 <td
                   colSpan={6}
-                  className="px-4 py-1.5 text-[12px] italic"
+                  className="px-4 py-1.5 text-base italic"
                   style={{
                     color: "var(--v2-text-secondary)",
                     background: "var(--v2-card-bg)",

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, Fragment } from "react";
+import { useState, Fragment } from "react";
 import Link from "next/link";
 import type { InsertSetDetail } from "./types";
 
@@ -132,44 +132,16 @@ function AccordionRow({ setId, is }: { setId: number; is: InsertSetDetail }) {
 }
 
 export function V2Checklist({ setId, insertSets }: Props) {
-  const [search, setSearch] = useState("");
-
-  const filtered = useMemo(() => {
-    if (!search.trim()) return insertSets;
-    const q = search.toLowerCase();
-    return insertSets
-      .map((is) => ({
-        ...is,
-        appearances: is.appearances.filter(
-          (a) =>
-            (a.team?.toLowerCase().includes(q)) ||
-            a.cardNumber.toLowerCase().includes(q) ||
-            a.coPlayers.some((cp) => cp.name.toLowerCase().includes(q))
-        ),
-      }))
-      .filter((is) => is.appearances.length > 0);
-  }, [insertSets, search]);
-
   return (
-    <div className="space-y-4">
-      <div className="flex items-center justify-between gap-4">
-        <h2 className="text-base font-semibold text-white">Checklist</h2>
-        <input
-          type="text"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          placeholder="Filter athletes..."
-          className="text-xs px-3 py-2 rounded-lg bg-zinc-800/60 border border-zinc-700 text-white placeholder-zinc-500 focus:outline-none focus:border-zinc-500 w-48"
-        />
-      </div>
-      <div className="space-y-3">
-        {filtered.map((is) => (
-          <AccordionRow key={is.insertSetId} setId={setId} is={is} />
-        ))}
-        {filtered.length === 0 && (
-          <p className="text-sm text-zinc-500 text-center py-8">No results found</p>
-        )}
-      </div>
+    <div className="space-y-3">
+      {insertSets.map((is) => (
+        <AccordionRow key={is.insertSetId} setId={setId} is={is} />
+      ))}
+      {insertSets.length === 0 && (
+        <p className="text-base text-center py-8" style={{ color: "var(--v2-text-secondary)" }}>
+          No insert sets found
+        </p>
+      )}
     </div>
   );
 }

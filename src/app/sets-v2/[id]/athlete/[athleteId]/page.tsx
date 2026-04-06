@@ -10,12 +10,14 @@ import {
 import { eq, inArray, asc, sql, and } from "drizzle-orm";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { V2StatCard } from "@/components/sets-v2/V2StatCard";
-import { V2Tabs } from "@/components/sets-v2/V2Tabs";
+import { LeaderboardSidebar } from "@/components/sets-v2/LeaderboardSidebar";
+import { RightSidebar } from "@/components/sets-v2/RightSidebar";
+import { MobileLeaderboardDrawer } from "@/components/sets-v2/MobileLeaderboardDrawer";
 import { V2Checklist } from "@/components/sets-v2/V2Checklist";
 import { PackOddsCalculator, type PackOddsSlot, type BoxFormat } from "@/components/PackOddsCalculator";
 import { BreakCalcWarning } from "@/components/BreakCalcWarning";
-import type { InsertSetDetail, BoxConfigSingle, BoxConfigMulti } from "@/components/sets-v2/types";
+import type { LeaderboardRow, InsertSetDetail, BoxConfigSingle, BoxConfigMulti } from "@/components/sets-v2/types";
+import type { BreakSheetPlayer } from "@/components/BreakSheetModal";
 
 export const dynamic = "force-dynamic";
 
@@ -277,7 +279,6 @@ export default async function V2AthletePage({
     const firstVal = Object.values(rawOdds)[0];
     const isNestedOdds = firstVal !== null && typeof firstVal === "object";
 
-    // Total distinct players per insert set
     const totalAppsByIS = new Map<number, number>();
     if (playerInsertSetIds.length > 0) {
       const rows = await rawQuery.all<{ insert_set_id: number; total_apps: number }>(
@@ -369,117 +370,372 @@ export default async function V2AthletePage({
     setId
   );
 
+  // ── Leaderboard ─────────────────────────────────────────────────────────────
+  const leaderboardRaw = await rawQuery.all<{
+    id: number;
+    name: string;
+    totalCards: number;
+    isRookie: number;
+    team: string | null;
+    autographs: number;
+    inserts: number;
+    numberedParallels: number;
+  }>(
+    `WITH player_is AS (
+       SELECT DISTINCT pa.player_id, pa.insert_set_id
+       FROM player_appearances pa
+       INNER JOIN players p ON p.id = pa.player_id
+       WHERE p.set_id = ?
+     ),
+     numbered AS (
+       SELECT pis.player_id, COUNT(*) AS cnt
+       FROM player_is pis
+       INNER JOIN parallels par ON par.insert_set_id = pis.insert_set_id
+       WHERE par.print_run IS NOT NULL
+       GROUP BY pis.player_id
+     )
+     SELECT
+       p.id,
+       p.name,
+       p.unique_cards AS totalCards,
+       CAST(MAX(CASE WHEN pa.is_rookie = 1 THEN 1 ELSE 0 END) AS INTEGER) AS isRookie,
+       MAX(pa.team) AS team,
+       COUNT(DISTINCT CASE
+         WHEN lower(i.name) LIKE '%auto%'
+           OR lower(i.name) LIKE '%signature%'
+           OR lower(i.name) LIKE '%signed%'
+           OR lower(i.name) LIKE '%autograph%'
+         THEN pa.insert_set_id END) AS autographs,
+       COUNT(DISTINCT CASE
+         WHEN i.name != 'Base Set'
+           AND lower(i.name) NOT LIKE '%auto%'
+           AND lower(i.name) NOT LIKE '%signature%'
+           AND lower(i.name) NOT LIKE '%signed%'
+           AND lower(i.name) NOT LIKE '%autograph%'
+         THEN pa.insert_set_id END) AS inserts,
+       COALESCE(n.cnt, 0) AS numberedParallels
+     FROM players p
+     LEFT JOIN player_appearances pa ON pa.player_id = p.id
+     LEFT JOIN insert_sets i ON i.id = pa.insert_set_id
+     LEFT JOIN numbered n ON n.player_id = p.id
+     WHERE p.set_id = ?
+     GROUP BY p.id
+     ORDER BY p.unique_cards DESC`,
+    setId,
+    setId
+  );
+
+  const leaderboardEntries: LeaderboardRow[] = leaderboardRaw.map((r) => ({
+    id: r.id,
+    name: r.name,
+    team: r.team,
+    isRookie: r.isRookie === 1,
+    totalCards: r.totalCards,
+    autographs: r.autographs,
+    inserts: r.inserts,
+    numberedParallels: r.numberedParallels,
+  }));
+
+  const hasTeamData = leaderboardEntries.some((e) => e.team != null && e.team !== "");
+
+  // ── Break Sheet data ──────────────────────────────────────────────────────
+  const allPlayers = await db.query.players.findMany({
+    where: (t, { eq: e }) => e(t.setId, setId),
+    orderBy: (p, { asc: a }) => [a(p.name)],
+  });
+
+  const rookieRows =
+    insertSetIds.length > 0
+      ? await db
+          .selectDistinct({ playerId: playerAppearances.playerId })
+          .from(playerAppearances)
+          .where(
+            and(
+              eq(playerAppearances.isRookie, true),
+              inArray(playerAppearances.insertSetId, insertSetIds)
+            )
+          )
+      : [];
+  const rookiePlayerIds = new Set(rookieRows.map((r) => r.playerId));
+
+  function classifyIS(name: string): "base" | "pure_auto" | "mem_auto" | "relic" | "insert" {
+    if (name === "Base Set") return "base";
+    const lower = name.toLowerCase();
+    const isAutoName = /auto|autograph|signature|signed/.test(lower);
+    const isRelic = /relic|memorabilia/.test(lower);
+    if (isAutoName && isRelic) return "mem_auto";
+    if (isAutoName) return "pure_auto";
+    if (isRelic) return "relic";
+    return "insert";
+  }
+
+  const allAppearancesForSheet =
+    insertSetIds.length > 0
+      ? await db
+          .select({ playerId: playerAppearances.playerId, insertSetName: insertSets.name })
+          .from(playerAppearances)
+          .innerJoin(insertSets, eq(playerAppearances.insertSetId, insertSets.id))
+          .where(
+            and(
+              inArray(playerAppearances.insertSetId, insertSetIds),
+              sql`${insertSets.name} != 'Base Set'`
+            )
+          )
+      : [];
+
+  type PlayerBreakAccum = {
+    autoSetNames: Set<string>;
+    hasMemAuto: boolean;
+    hasRelic: boolean;
+    insertSetNamesSet: Set<string>;
+  };
+  const breakMap = new Map<number, PlayerBreakAccum>();
+  for (const p of allPlayers) {
+    breakMap.set(p.id, { autoSetNames: new Set(), hasMemAuto: false, hasRelic: false, insertSetNamesSet: new Set() });
+  }
+  for (const app of allAppearancesForSheet) {
+    const e = breakMap.get(app.playerId);
+    if (!e) continue;
+    const type = classifyIS(app.insertSetName);
+    if (type === "pure_auto") e.autoSetNames.add(app.insertSetName);
+    else if (type === "mem_auto") e.hasMemAuto = true;
+    else if (type === "relic") e.hasRelic = true;
+    else if (type === "insert") e.insertSetNamesSet.add(app.insertSetName);
+  }
+
+  const breakSheetPlayers: BreakSheetPlayer[] = allPlayers.map((p) => {
+    const d = breakMap.get(p.id)!;
+    return {
+      id: p.id,
+      name: p.name,
+      autoCount: d.autoSetNames.size,
+      hasMemAuto: d.hasMemAuto,
+      hasRelic: d.hasRelic,
+      isRookie: rookiePlayerIds.has(p.id),
+      insertSetNames: Array.from(d.insertSetNamesSet),
+    };
+  });
+
+  // ── Right sidebar stats ───────────────────────────────────────────────────
+  const [cardCountRow] = await db
+    .select({ count: sql<number>`cast(count(*) as integer)` })
+    .from(playerAppearances)
+    .where(
+      insertSetIds.length > 0
+        ? inArray(playerAppearances.insertSetId, insertSetIds)
+        : sql`1 = 0`
+    );
+
+  const numberedParallelsResult =
+    insertSetIds.length > 0
+      ? ((await rawQuery.get<{ total: number }>(
+          `SELECT COUNT(*) AS total FROM parallels WHERE insert_set_id IN (${insertSetIds.map(() => "?").join(",")}) AND print_run IS NOT NULL`,
+          ...insertSetIds
+        )) ?? { total: 0 })
+      : { total: 0 };
+
   return (
-    <div className="max-w-4xl mx-auto px-6 py-8 space-y-8">
-      {/* Breadcrumb */}
-      <div className="flex items-center gap-1.5">
-        <Link
-          href={`/sets-v2/${setId}`}
-          className="flex items-center gap-1 text-xs text-zinc-500 hover:text-zinc-300 transition-colors"
-        >
-          <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-          </svg>
-          Set Overview
-        </Link>
-      </div>
+    <div className="flex min-h-screen">
+      {/* Left Sidebar — Leaderboard (desktop) */}
+      <aside
+        className="hidden lg:flex w-[350px] shrink-0 flex-col sticky top-0 h-screen overflow-hidden"
+        style={{ borderRight: "1px solid var(--v2-border)" }}
+      >
+        <LeaderboardSidebar entries={leaderboardEntries} hasTeamData={hasTeamData} setId={setId} />
+      </aside>
 
-      {/* Player header */}
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <h1 className="text-3xl font-bold text-white tracking-tight">{playerData.name}</h1>
-          {teams.length > 0 && (
-            <p className="text-zinc-400 mt-1.5 text-sm">{teams.join(" · ")}</p>
-          )}
-        </div>
-        {hasRookie && (
-          <span className="text-xs font-semibold text-amber-400 bg-amber-400/10 px-2 py-1 rounded mt-1 shrink-0">
-            Rookie
-          </span>
-        )}
-      </div>
+      {/* Center Main */}
+      <main className="flex-1 min-w-0">
+        <div className="max-w-4xl mx-auto px-6 py-6 space-y-6">
+          {/* Mobile leaderboard toggle */}
+          <div className="lg:hidden">
+            <MobileLeaderboardDrawer
+              entries={leaderboardEntries}
+              hasTeamData={hasTeamData}
+              setId={setId}
+            />
+          </div>
 
-      {/* Stat cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-        <V2StatCard label="Insert Sets" value={playerData.insertSetCount ?? 0} />
-        <V2StatCard label="Unique Cards" value={playerData.uniqueCards ?? 0} />
-        <V2StatCard label="Numbered Parallels" value={playerData.totalPrintRun ?? 0} />
-        <V2StatCard
-          label="1/1s"
-          value={playerData.oneOfOnes ?? 0}
-          subtext={(playerData.oneOfOnes ?? 0) > 0 ? "One-of-ones" : undefined}
-        />
-      </div>
+          {/* Breadcrumb */}
+          <div className="flex items-center gap-1.5">
+            <Link
+              href={`/sets-v2/${setId}`}
+              className="flex items-center gap-1 text-base transition-colors"
+              style={{ color: "var(--v2-text-secondary)" }}
+            >
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+              </svg>
+              {setRow.name}
+            </Link>
+          </div>
 
-      {/* Tabs */}
-      <V2Tabs
-        tabs={[
-          {
-            key: "cards",
-            label: "Cards",
-            content: (
-              <V2Checklist setId={setId} insertSets={playerInsertSets} />
-            ),
-          },
-          {
-            key: "pack-odds",
-            label: "Break Hit Calculator",
-            content: (
-              <div className="pt-2">
-                {!hasBoxConfig || !hasPackOdds ? (
-                  <BreakCalcWarning
-                    missingBoxConfig={!hasBoxConfig}
-                    missingPackOdds={!hasPackOdds}
-                  />
-                ) : Object.keys(packOddsSlotsByFormat).length > 0 ? (
-                  <PackOddsCalculator
-                    slotsByFormat={packOddsSlotsByFormat}
-                    boxFormats={boxFormats}
-                    totalAutoCards={totalAutoCards}
-                    playerAutoCards={playerAutoCards}
-                  />
-                ) : (
-                  <p className="text-sm text-zinc-500 text-center py-8">
-                    No pack odds data available for this player.
-                  </p>
-                )}
-              </div>
-            ),
-          },
-        ]}
-        defaultTab="cards"
-      />
-
-      {/* Other sets */}
-      {otherSetRows.length > 0 && (
-        <div>
-          <h2 className="text-xs font-semibold text-zinc-500 uppercase tracking-widest mb-3">
-            Also appears in
-          </h2>
-          <div className="space-y-2">
-            {otherSetRows.map((s) => (
-              <Link
-                key={s.setId}
-                href={`/sets-v2/${s.setId}`}
-                className="flex items-center justify-between px-4 py-3 rounded-xl border border-zinc-800 bg-zinc-900 hover:bg-zinc-800/50 transition-colors"
+          {/* Player header */}
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <h1 className="text-3xl font-bold" style={{ color: "var(--v2-text-primary)" }}>
+                {playerData.name}
+              </h1>
+              {teams.length > 0 && (
+                <p className="mt-1.5 text-base" style={{ color: "var(--v2-text-secondary)" }}>
+                  {teams.join(" · ")}
+                </p>
+              )}
+            </div>
+            {hasRookie && (
+              <span
+                className="text-base font-semibold px-3 py-1 rounded mt-1 shrink-0"
+                style={{ color: "var(--v2-accent)", background: "var(--v2-accent-light)" }}
               >
-                <div className="flex items-center gap-2.5 min-w-0">
-                  <span className="text-sm font-medium text-zinc-300 truncate">{s.setName}</span>
-                  <span className="text-xs text-zinc-600">{s.season}</span>
-                  {s.tier !== "Standard" && (
-                    <span className="text-[10px] font-medium text-slate-300 bg-slate-800 border border-slate-600/50 px-1.5 py-0.5 rounded">
-                      {s.tier}
-                    </span>
-                  )}
-                </div>
-                <span className="text-xs text-zinc-500 tabular-nums shrink-0 ml-2">
-                  {s.uniqueCards} card{s.uniqueCards !== 1 ? "s" : ""}
-                </span>
-              </Link>
+                Rookie
+              </span>
+            )}
+          </div>
+
+          {/* Stat cards */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {[
+              { label: "Insert Sets", value: playerData.insertSetCount ?? 0 },
+              { label: "Unique Cards", value: playerData.uniqueCards ?? 0 },
+              { label: "Numbered Parallels", value: playerData.totalPrintRun ?? 0 },
+              { label: "1/1s", value: playerData.oneOfOnes ?? 0 },
+            ].map((s) => (
+              <div
+                key={s.label}
+                className="rounded-lg px-4 py-4 transition-shadow hover:shadow-md"
+                style={{
+                  background: "var(--v2-card-bg)",
+                  border: "1px solid var(--v2-border)",
+                  borderLeft: "3px solid var(--v2-accent)",
+                  boxShadow: "var(--v2-card-shadow)",
+                }}
+              >
+                <p
+                  className="text-2xl font-bold"
+                  style={{ color: "var(--v2-accent)", fontVariantNumeric: "tabular-nums" }}
+                >
+                  {s.value.toLocaleString()}
+                </p>
+                <p className="text-base font-medium mt-1" style={{ color: "var(--v2-text-secondary)" }}>
+                  {s.label}
+                </p>
+              </div>
             ))}
           </div>
+
+          {/* Break Hit Calculator */}
+          {(!hasBoxConfig || !hasPackOdds) ? (
+            <section className="space-y-3">
+              <h2 className="text-base font-semibold" style={{ color: "var(--v2-text-primary)" }}>
+                Break Hit Calculator
+              </h2>
+              <BreakCalcWarning
+                missingBoxConfig={!hasBoxConfig}
+                missingPackOdds={!hasPackOdds}
+              />
+            </section>
+          ) : Object.keys(packOddsSlotsByFormat).length > 0 ? (
+            <section className="space-y-3">
+              <h2 className="text-base font-semibold" style={{ color: "var(--v2-text-primary)" }}>
+                Break Hit Calculator
+              </h2>
+              <PackOddsCalculator
+                slotsByFormat={packOddsSlotsByFormat}
+                boxFormats={boxFormats}
+                totalAutoCards={totalAutoCards}
+                playerAutoCards={playerAutoCards}
+              />
+            </section>
+          ) : null}
+
+          {/* Insert Sets / Checklist */}
+          <section className="space-y-3">
+            <h2 className="text-base font-semibold" style={{ color: "var(--v2-text-primary)" }}>
+              Insert Sets
+            </h2>
+            <V2Checklist setId={setId} insertSets={playerInsertSets} />
+          </section>
+
+          {/* Other sets */}
+          {otherSetRows.length > 0 && (
+            <section className="space-y-3">
+              <h2 className="text-base font-semibold" style={{ color: "var(--v2-text-primary)" }}>
+                Also Appears In
+              </h2>
+              <div className="space-y-2">
+                {otherSetRows.map((s) => (
+                  <Link
+                    key={s.setId}
+                    href={`/sets-v2/${s.setId}`}
+                    className="flex items-center justify-between px-4 py-3 rounded-lg transition-colors"
+                    style={{
+                      background: "var(--v2-card-bg)",
+                      border: "1px solid var(--v2-border)",
+                    }}
+                  >
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <span className="text-base font-medium truncate" style={{ color: "var(--v2-text-primary)" }}>
+                        {s.setName}
+                      </span>
+                      <span className="text-base" style={{ color: "var(--v2-text-secondary)" }}>{s.season}</span>
+                      {s.tier !== "Standard" && (
+                        <span
+                          className="text-[10px] font-medium px-1.5 py-0.5 rounded"
+                          style={{
+                            color: "var(--v2-text-primary)",
+                            background: "var(--v2-badge-bg)",
+                            border: "1px solid var(--v2-border)",
+                          }}
+                        >
+                          {s.tier}
+                        </span>
+                      )}
+                    </div>
+                    <span className="text-base tabular-nums shrink-0 ml-2" style={{ color: "var(--v2-text-secondary)" }}>
+                      {s.uniqueCards} card{s.uniqueCards !== 1 ? "s" : ""}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Right sidebar content — mobile only */}
+          <div className="xl:hidden">
+            <RightSidebar
+              releaseDate={setRow.releaseDate ?? null}
+              hasCards={cardCountRow.count > 0}
+              hasNumberedParallels={numberedParallelsResult.total > 0}
+              hasBoxConfig={hasBoxConfig}
+              hasPackOdds={hasPackOdds}
+              sampleImageUrl={setRow.sampleImageUrl ?? null}
+              setName={setRow.name}
+              sport={setRow.sport}
+              league={setRow.league ?? null}
+              breakSheetPlayers={breakSheetPlayers}
+            />
+          </div>
         </div>
-      )}
+      </main>
+
+      {/* Right Sidebar (desktop) */}
+      <aside
+        className="hidden xl:block w-[300px] shrink-0 sticky top-0 h-screen overflow-y-auto"
+        style={{ borderLeft: "1px solid var(--v2-border)" }}
+      >
+        <RightSidebar
+          releaseDate={setRow.releaseDate ?? null}
+          hasCards={cardCountRow.count > 0}
+          hasNumberedParallels={numberedParallelsResult.total > 0}
+          hasBoxConfig={hasBoxConfig}
+          hasPackOdds={hasPackOdds}
+          sampleImageUrl={setRow.sampleImageUrl ?? null}
+          setName={setRow.name}
+          sport={setRow.sport}
+          league={setRow.league ?? null}
+          breakSheetPlayers={breakSheetPlayers}
+        />
+      </aside>
     </div>
   );
 }

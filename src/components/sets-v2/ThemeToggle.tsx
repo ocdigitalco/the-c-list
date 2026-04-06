@@ -86,7 +86,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={toggle}
-      className="flex items-center gap-2 text-[13px] font-medium transition-colors cursor-pointer"
+      className="flex items-center gap-2 text-base font-medium transition-colors cursor-pointer"
       style={{ color: "var(--v2-text-secondary)" }}
     >
       {theme === "light" ? (
