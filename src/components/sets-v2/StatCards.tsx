@@ -78,7 +78,7 @@ function StatCard({ label, value, tooltip }: StatCardData) {
         )}
       </div>
       <p
-        className="text-[28px] font-bold mt-1"
+        className="text-[26px] font-bold mt-1"
         style={{ color: "var(--v2-accent)", fontVariantNumeric: "tabular-nums" }}
       >
         <AnimatedNumber target={value} />

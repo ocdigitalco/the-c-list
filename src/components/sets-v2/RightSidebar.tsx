@@ -21,19 +21,19 @@ function formatDate(iso: string): string {
 function CheckRow({ label, complete, value, isLast }: { label: string; complete: boolean; value?: string; isLast?: boolean }) {
   return (
     <div
-      className="flex items-center justify-between py-2"
+      className="flex items-center justify-between py-2.5"
       style={isLast ? undefined : { borderBottom: "1px solid var(--v2-border)" }}
     >
-      <span className="text-sm" style={{ color: "var(--v2-text-primary)" }}>
+      <span className="text-[14px]" style={{ color: "var(--v2-text-primary)" }}>
         {label}
       </span>
       {value ? (
-        <span className="text-sm font-medium" style={{ color: "var(--v2-text-primary)" }}>
+        <span className="text-[14px] font-medium" style={{ color: "var(--v2-text-primary)" }}>
           {value}
         </span>
       ) : complete ? (
         <span
-          className="flex items-center justify-center w-5 h-5 rounded-full text-white text-xs"
+          className="flex items-center justify-center w-5 h-5 rounded-full text-white"
           style={{ background: "var(--v2-success)" }}
         >
           <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
@@ -42,7 +42,7 @@ function CheckRow({ label, complete, value, isLast }: { label: string; complete:
         </span>
       ) : (
         <span
-          className="flex items-center justify-center w-5 h-5 rounded-full text-xs"
+          className="flex items-center justify-center w-5 h-5 rounded-full"
           style={{ background: "var(--v2-badge-bg)", color: "var(--v2-text-secondary)" }}
         >
           <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -68,7 +68,7 @@ export function RightSidebar({
     >
       <div>
         <h3
-          className="text-[11px] font-semibold uppercase tracking-widest mb-3"
+          className="text-[13px] font-medium uppercase tracking-widest mb-3"
           style={{ color: "var(--v2-text-secondary)" }}
         >
           Set Details

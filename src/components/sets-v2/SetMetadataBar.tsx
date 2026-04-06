@@ -14,8 +14,8 @@ interface Props {
 
 function StatChip({ value, label }: { value: number; label: string }) {
   return (
-    <span className="text-xs" style={{ color: "var(--v2-text-secondary)" }}>
-      <span className="font-semibold" style={{ color: "var(--v2-text-primary)" }}>
+    <span className="text-[13px]" style={{ color: "var(--v2-text-secondary)" }}>
+      <span className="text-[14px] font-bold" style={{ color: "var(--v2-text-primary)" }}>
         {value.toLocaleString()}
       </span>{" "}
       {label}
@@ -39,15 +39,15 @@ export function SetMetadataBar({
   return (
     <div>
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-        <span className="text-xl font-bold" style={{ color: "var(--v2-text-primary)" }}>
+        <span className="text-[18px] font-bold" style={{ color: "var(--v2-text-primary)" }}>
           {setName}
         </span>
-        <span className="text-sm" style={{ color: "var(--v2-text-secondary)" }}>
+        <span className="text-[13px]" style={{ color: "var(--v2-text-secondary)" }}>
           {season}
         </span>
         {league && (
           <span
-            className="text-xs font-medium px-2 py-0.5 rounded-full"
+            className="text-[12px] font-medium px-2 py-0.5 rounded-full"
             style={{ background: "var(--v2-badge-bg)", color: "var(--v2-text-secondary)" }}
           >
             {league}
@@ -55,7 +55,7 @@ export function SetMetadataBar({
         )}
         {tier && tier !== "Standard" && (
           <span
-            className="text-xs font-medium px-2 py-0.5 rounded-full"
+            className="text-[12px] font-medium px-2 py-0.5 rounded-full"
             style={{ background: "var(--v2-accent-light)", color: "var(--v2-accent)" }}
           >
             {tier}

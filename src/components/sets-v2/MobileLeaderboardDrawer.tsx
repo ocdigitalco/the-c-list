@@ -26,7 +26,7 @@ export function MobileLeaderboardDrawer({ entries, hasTeamData, setId }: Props) 
     <>
       <button
         onClick={() => setOpen(true)}
-        className="flex items-center gap-1.5 text-xs font-medium px-3 py-2 rounded-lg transition-colors"
+        className="flex items-center gap-1.5 text-[13px] font-medium px-3 py-2 rounded-lg transition-colors"
         style={{
           background: "var(--v2-card-bg)",
           border: "1px solid var(--v2-border)",

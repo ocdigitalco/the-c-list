@@ -243,7 +243,7 @@ export default async function V2SetPage({
 
           {/* Box Configuration */}
           <section className="space-y-3">
-            <h2 className="text-base font-semibold" style={{ color: "var(--v2-text-primary)" }}>
+            <h2 className="text-[16px] font-semibold" style={{ color: "var(--v2-text-primary)" }}>
               Box Configuration
             </h2>
             <BoxConfigTable boxConfig={setRow.boxConfig ?? null} />
@@ -251,7 +251,7 @@ export default async function V2SetPage({
 
           {/* Pack Odds */}
           <section className="space-y-3">
-            <h2 className="text-base font-semibold" style={{ color: "var(--v2-text-primary)" }}>
+            <h2 className="text-[16px] font-semibold" style={{ color: "var(--v2-text-primary)" }}>
               Pack Odds
             </h2>
             <PackOddsInline boxConfig={setRow.boxConfig ?? null} packOdds={setRow.packOdds ?? null} />

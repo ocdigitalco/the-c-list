@@ -48,10 +48,10 @@ export function LeaderboardSidebar({ entries, hasTeamData, setId }: Props) {
     <div className="flex flex-col h-full" style={{ background: "var(--v2-sidebar-bg)" }}>
       {/* Header */}
       <div className="shrink-0 px-4 pt-4 pb-3" style={{ borderBottom: "1px solid var(--v2-border)" }}>
-        <h2 className="text-sm font-semibold" style={{ color: "var(--v2-text-primary)" }}>
+        <h2 className="text-[15px] font-semibold" style={{ color: "var(--v2-text-primary)" }}>
           Athlete Leaderboard
         </h2>
-        <p className="text-xs mt-0.5" style={{ color: "var(--v2-text-secondary)" }}>
+        <p className="text-[13px] mt-0.5" style={{ color: "var(--v2-text-secondary)" }}>
           {entries.length.toLocaleString()} athletes
         </p>
       </div>
@@ -64,7 +64,7 @@ export function LeaderboardSidebar({ entries, hasTeamData, setId }: Props) {
             <button
               key={tab.key}
               onClick={() => setSortKey(tab.key)}
-              className="flex-1 text-[11px] py-1.5 rounded-md font-medium transition-colors"
+              className="flex-1 text-[12px] py-1.5 rounded-md font-medium transition-colors"
               style={{
                 background: sortKey === tab.key ? "var(--v2-accent)" : "transparent",
                 color: sortKey === tab.key ? "#FFFFFF" : "var(--v2-text-secondary)",
@@ -79,7 +79,7 @@ export function LeaderboardSidebar({ entries, hasTeamData, setId }: Props) {
         <div className="flex items-center gap-2">
           <button
             onClick={() => setRookiesOnly((v) => !v)}
-            className="flex items-center gap-1 text-[11px] px-2 py-1.5 rounded-md font-medium transition-colors"
+            className="flex items-center gap-1 text-[12px] px-2 py-1.5 rounded-md font-medium transition-colors"
             style={{
               background: rookiesOnly ? "var(--v2-accent-light)" : "transparent",
               color: rookiesOnly ? "var(--v2-accent)" : "var(--v2-text-secondary)",
@@ -91,7 +91,7 @@ export function LeaderboardSidebar({ entries, hasTeamData, setId }: Props) {
           {hasTeamData && (
             <div className="flex-1 relative">
               <svg
-                className="absolute left-2 top-1/2 -translate-y-1/2 w-3 h-3 pointer-events-none"
+                className="absolute left-2 top-1/2 -translate-y-1/2 w-3.5 h-3.5 pointer-events-none"
                 style={{ color: "var(--v2-text-secondary)" }}
                 fill="none"
                 viewBox="0 0 24 24"
@@ -105,7 +105,7 @@ export function LeaderboardSidebar({ entries, hasTeamData, setId }: Props) {
                 value={teamQuery}
                 onChange={(e) => setTeamQuery(e.target.value)}
                 placeholder="Filter by team..."
-                className="w-full text-[11px] rounded-md pl-7 pr-2 py-1.5 outline-none transition-colors"
+                className="w-full text-[12px] rounded-md pl-7 pr-2 py-1.5 outline-none transition-colors"
                 style={{
                   background: "var(--v2-card-bg)",
                   border: "1px solid var(--v2-border)",
@@ -119,7 +119,7 @@ export function LeaderboardSidebar({ entries, hasTeamData, setId }: Props) {
 
       {/* Table header */}
       <div
-        className="shrink-0 grid grid-cols-[1fr_auto] px-4 py-1.5 text-[11px] font-semibold uppercase tracking-wider"
+        className="shrink-0 grid grid-cols-[1fr_auto] px-4 py-1.5 text-[12px] font-medium uppercase tracking-wide"
         style={{ color: "var(--v2-text-secondary)", borderBottom: "1px solid var(--v2-border)" }}
       >
         <span>Athlete</span>
@@ -132,7 +132,7 @@ export function LeaderboardSidebar({ entries, hasTeamData, setId }: Props) {
       <div className="flex-1 overflow-y-auto">
         {visible.length === 0 ? (
           <p
-            className="text-xs italic text-center py-8"
+            className="text-[13px] italic text-center py-8"
             style={{ color: "var(--v2-text-secondary)" }}
           >
             No athletes match.
@@ -143,7 +143,7 @@ export function LeaderboardSidebar({ entries, hasTeamData, setId }: Props) {
               <Link
                 key={entry.id}
                 href={`/sets-v2/${setId}/athlete/${entry.id}`}
-                className="grid grid-cols-[auto_1fr_auto] items-center gap-2 px-4 py-2 transition-colors text-left"
+                className="grid grid-cols-[auto_1fr_auto] items-center gap-2.5 px-4 py-2.5 transition-colors text-left"
                 style={{ borderBottom: "1px solid var(--v2-border)" }}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLElement).style.background = "var(--v2-accent-light)";
@@ -153,22 +153,22 @@ export function LeaderboardSidebar({ entries, hasTeamData, setId }: Props) {
                 }}
               >
                 <span
-                  className="text-[11px] tabular-nums w-5 text-right"
+                  className="text-[13px] tabular-nums w-6 text-right"
                   style={{ color: "var(--v2-text-secondary)" }}
                 >
                   {idx + 1}
                 </span>
                 <div className="min-w-0">
-                  <div className="flex items-center gap-1 min-w-0">
+                  <div className="flex items-center gap-1.5 min-w-0">
                     <span
-                      className="text-[13px] font-medium truncate"
+                      className="text-[14px] font-medium truncate"
                       style={{ color: "var(--v2-text-primary)" }}
                     >
                       {entry.name}
                     </span>
                     {entry.isRookie && (
                       <span
-                        className="shrink-0 text-[9px] font-bold px-1 py-0.5 rounded leading-none"
+                        className="shrink-0 text-[10px] font-bold px-1 py-0.5 rounded leading-none"
                         style={{ color: "#F59E0B", background: "rgba(245,158,11,0.1)" }}
                       >
                         RC
@@ -177,7 +177,7 @@ export function LeaderboardSidebar({ entries, hasTeamData, setId }: Props) {
                   </div>
                   {hasTeamData && entry.team && (
                     <p
-                      className="text-[11px] truncate mt-0.5"
+                      className="text-[12px] truncate mt-0.5"
                       style={{ color: "var(--v2-text-secondary)" }}
                     >
                       {entry.team}
@@ -185,7 +185,7 @@ export function LeaderboardSidebar({ entries, hasTeamData, setId }: Props) {
                   )}
                 </div>
                 <span
-                  className="text-[13px] font-bold tabular-nums"
+                  className="text-[14px] font-bold tabular-nums"
                   style={{ color: "var(--v2-accent)" }}
                 >
                   {entry[sortKey].toLocaleString()}
@@ -196,7 +196,7 @@ export function LeaderboardSidebar({ entries, hasTeamData, setId }: Props) {
             {!showAll && hasMore && (
               <button
                 onClick={() => setShowAll(true)}
-                className="w-full py-3 text-xs font-medium transition-colors"
+                className="w-full py-3 text-[13px] font-medium transition-colors"
                 style={{ color: "var(--v2-accent)" }}
               >
                 Show all {filtered.length.toLocaleString()} athletes

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import type { BoxConfigSingle, BoxConfigMulti } from "./types";
 
-// ─── Types ────────────────────────────────────────────────────────────────────
+// ─── Types ────────────────────────────────────────────────���───────────────────
 
 type OddsCategory = "Autographs" | "Base Parallels" | "Inserts";
 
@@ -19,7 +19,7 @@ interface OddsFormat {
   packsPerBox: number;
 }
 
-// ─── Helpers ──────────────────────────────────────────────────────────────────
+// ─── Helpers ───────────��──────────────────────────────────────��───────────────
 
 function categorize(key: string): OddsCategory {
   const lower = key.toLowerCase();
@@ -56,7 +56,7 @@ function isMultiConfig(cfg: BoxConfigSingle | BoxConfigMulti): cfg is BoxConfigM
   return first !== null && typeof first === "object";
 }
 
-// ─── Sub-components ───────────────────────────────────────────────────────────
+// ─── Sub-components ────────────────��──────────────────────────────────────────
 
 const CATEGORY_ORDER: OddsCategory[] = ["Base Parallels", "Inserts", "Autographs"];
 
@@ -79,29 +79,29 @@ function OddsTable({ rows, packsPerBox }: { rows: OddsRow[]; packsPerBox: number
         return (
           <div key={cat}>
             <h3
-              className="text-[11px] font-semibold uppercase tracking-widest mb-2"
+              className="text-[13px] font-medium uppercase tracking-widest mb-2"
               style={{ color: "var(--v2-text-secondary)" }}
             >
               {cat}
             </h3>
             <div className="rounded-lg overflow-hidden" style={{ border: "1px solid var(--v2-border)" }}>
-              <table className="w-full text-sm">
+              <table className="w-full">
                 <thead>
                   <tr style={{ background: "var(--v2-card-bg)" }}>
                     <th
-                      className="text-left text-[12px] font-medium uppercase tracking-wide px-4 py-2"
+                      className="text-left text-[12px] font-medium uppercase tracking-wide px-4 py-2.5"
                       style={{ color: "var(--v2-text-secondary)", borderBottom: "1px solid var(--v2-border)" }}
                     >
                       Parallel / Insert
                     </th>
                     <th
-                      className="text-right text-[12px] font-medium uppercase tracking-wide px-4 py-2"
+                      className="text-right text-[12px] font-medium uppercase tracking-wide px-4 py-2.5"
                       style={{ color: "var(--v2-text-secondary)", borderBottom: "1px solid var(--v2-border)" }}
                     >
                       Pack Odds
                     </th>
                     <th
-                      className="text-right text-[12px] font-medium uppercase tracking-wide px-4 py-2 hidden sm:table-cell"
+                      className="text-right text-[12px] font-medium uppercase tracking-wide px-4 py-2.5 hidden sm:table-cell"
                       style={{ color: "var(--v2-text-secondary)", borderBottom: "1px solid var(--v2-border)" }}
                     >
                       {perBoxLabel}
@@ -118,17 +118,17 @@ function OddsTable({ rows, packsPerBox }: { rows: OddsRow[]; packsPerBox: number
                         borderBottom: "1px solid var(--v2-border)",
                       }}
                     >
-                      <td className="px-4 py-2" style={{ color: "var(--v2-text-primary)" }}>
+                      <td className="px-4 py-2.5 text-[14px]" style={{ color: "var(--v2-text-primary)" }}>
                         {row.key}
                       </td>
                       <td
-                        className="px-4 py-2 font-mono tabular-nums text-right"
+                        className="px-4 py-2.5 text-[14px] font-mono tabular-nums text-right"
                         style={{ color: "var(--v2-text-secondary)" }}
                       >
                         1:{row.denom}
                       </td>
                       <td
-                        className="px-4 py-2 text-xs tabular-nums text-right hidden sm:table-cell"
+                        className="px-4 py-2.5 text-[13px] tabular-nums text-right hidden sm:table-cell"
                         style={{ color: "var(--v2-text-secondary)" }}
                       >
                         {packsPerBox / row.denom >= 1
@@ -160,7 +160,7 @@ export function PackOddsInline({ boxConfig, packOdds }: Props) {
   if (!packOdds) {
     return (
       <div
-        className="rounded-lg px-5 py-8 text-center text-sm italic"
+        className="rounded-lg px-5 py-8 text-center text-[14px] italic"
         style={{ background: "var(--v2-card-bg)", border: "1px solid var(--v2-border)", color: "var(--v2-text-secondary)" }}
       >
         Pack odds coming soon
@@ -219,7 +219,7 @@ export function PackOddsInline({ boxConfig, packOdds }: Props) {
             <button
               key={f.label}
               onClick={() => setActiveIdx(i)}
-              className="px-4 text-xs py-1.5 rounded-md font-semibold transition-colors"
+              className="px-4 text-[12px] py-1.5 rounded-md font-medium transition-colors"
               style={{
                 background: i === activeIdx ? "var(--v2-accent)" : "transparent",
                 color: i === activeIdx ? "#FFFFFF" : "var(--v2-text-secondary)",
@@ -231,7 +231,7 @@ export function PackOddsInline({ boxConfig, packOdds }: Props) {
         </div>
       )}
       <OddsTable rows={active.rows} packsPerBox={active.packsPerBox} />
-      <p className="text-xs leading-relaxed" style={{ color: "var(--v2-text-secondary)" }}>
+      <p className="text-[12px] leading-relaxed" style={{ color: "var(--v2-text-secondary)" }}>
         Odds are per-pack as reported by the manufacturer. Numbered parallels are serialized to the
         print run shown on the card.
       </p>
