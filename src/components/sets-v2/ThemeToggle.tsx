@@ -75,7 +75,8 @@ export function V2ThemeWrapper({ children }: { children: React.ReactNode }) {
           .v2-root {
             background: var(--v2-page-bg);
             color: var(--v2-text-primary);
-            min-height: 100%;
+            height: 100%;
+            overflow-y: auto;
           }
         `}</style>
         {children}

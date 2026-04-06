@@ -67,7 +67,7 @@ export function RightSidebar({
       style={{ background: "var(--v2-sidebar-bg)" }}
     >
       {sampleImageUrl && (
-        <img src={sampleImageUrl} alt="Set sample" className="w-full rounded-lg object-cover" />
+        <img src={sampleImageUrl} alt="Set sample" className="w-full object-cover" />
       )}
       <div>
         <h3
