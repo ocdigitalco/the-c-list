@@ -64,10 +64,15 @@ export function LeaderboardSidebar({ entries, hasTeamData, setId }: Props) {
   const [sortKey, setSortKey] = useState<SortKey>("totalCards");
   const [rookiesOnly, setRookiesOnly] = useState(false);
   const [teamQuery, setTeamQuery] = useState("");
+  const [nameQuery, setNameQuery] = useState("");
   const [showAll, setShowAll] = useState(false);
 
   const filtered = useMemo(() => {
     let list = entries;
+    if (nameQuery.trim()) {
+      const q = nameQuery.trim().toLowerCase();
+      list = list.filter((e) => e.name.toLowerCase().includes(q));
+    }
     if (rookiesOnly) list = list.filter((e) => e.isRookie);
     if (hasTeamData && teamQuery.trim()) {
       const q = teamQuery.trim().toLowerCase();
@@ -78,7 +83,7 @@ export function LeaderboardSidebar({ entries, hasTeamData, setId }: Props) {
       if (diff !== 0) return diff;
       return a.name.localeCompare(b.name);
     });
-  }, [entries, rookiesOnly, teamQuery, sortKey, hasTeamData]);
+  }, [entries, nameQuery, rookiesOnly, teamQuery, sortKey, hasTeamData]);
 
   const visible = showAll ? filtered : filtered.slice(0, DEFAULT_VISIBLE);
   const hasMore = filtered.length > DEFAULT_VISIBLE;
@@ -88,8 +93,47 @@ export function LeaderboardSidebar({ entries, hasTeamData, setId }: Props) {
       {/* Header + Controls */}
       <div className="shrink-0 px-3 pt-4 pb-2 space-y-2" style={{ borderBottom: "1px solid var(--v2-border)" }}>
         <h2 className="text-base font-semibold px-1" style={{ color: "var(--v2-text-primary)" }}>
-          Athlete Leaderboard
+          Athletes in Set
         </h2>
+        {/* Search */}
+        <div className="relative">
+          <svg
+            className="absolute left-2.5 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none"
+            style={{ color: "var(--v2-text-secondary)" }}
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2.5}
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+          </svg>
+          <input
+            type="text"
+            value={nameQuery}
+            onChange={(e) => setNameQuery(e.target.value)}
+            placeholder="Search athletes..."
+            autoComplete="off"
+            spellCheck={false}
+            className="w-full text-base rounded-md pl-8 pr-8 py-2 outline-none transition-colors"
+            style={{
+              background: "var(--v2-card-bg)",
+              border: "1px solid var(--v2-border)",
+              color: "var(--v2-text-primary)",
+              fontSize: "16px",
+            }}
+          />
+          {nameQuery && (
+            <button
+              onClick={() => setNameQuery("")}
+              className="absolute right-2 top-1/2 -translate-y-1/2 w-5 h-5 flex items-center justify-center rounded-full transition-colors"
+              style={{ background: "var(--v2-badge-bg)", color: "var(--v2-text-secondary)" }}
+            >
+              <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          )}
+        </div>
         {/* Sort tabs */}
         <div className="flex gap-0.5 rounded-lg p-0.5" style={{ background: "var(--v2-badge-bg)" }}>
           {SORT_TABS.map((tab) => (
