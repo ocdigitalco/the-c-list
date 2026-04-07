@@ -224,10 +224,10 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
           style={{ background: "rgba(0,0,0,0.75)" }}
           onClick={(e) => { if (e.target === e.currentTarget) setOpen(false); }}
         >
-          <div className="relative bg-zinc-900 border border-zinc-700 rounded-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto shadow-2xl">
+          <div className="relative bg-zinc-900 border border-zinc-700 rounded-2xl w-full max-w-2xl mx-4 max-h-[90vh] overflow-y-auto shadow-2xl">
 
             {/* Header */}
-            <div className="sticky top-0 bg-zinc-900 flex items-center justify-between px-6 py-4 border-b border-zinc-800 rounded-t-2xl">
+            <div className="sticky top-0 bg-zinc-900 flex items-center justify-between px-5 py-3 border-b border-zinc-800 rounded-t-2xl z-10">
               <div>
                 <h2 className="text-base font-semibold text-white">Break Sheet Builder</h2>
                 <p className="text-base text-zinc-500 mt-0.5">{setName} · {players.length.toLocaleString()} athletes</p>
@@ -244,11 +244,11 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
             </div>
 
             {/* Body */}
-            <div className="px-6 py-5 space-y-5">
+            <div className="px-5 py-4 space-y-3">
 
               {/* Break Description */}
               <div>
-                <label className="block text-base font-semibold text-zinc-400 uppercase tracking-widest mb-1.5">
+                <label className="block text-base font-medium text-zinc-400 mb-1">
                   Break Description
                 </label>
                 <input
@@ -256,67 +256,66 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   placeholder={`e.g. "3 Cases! ${setName}"`}
-                  className="w-full bg-zinc-800 border border-zinc-700 text-base text-white placeholder-zinc-600 rounded-lg px-3 py-2 outline-none focus:border-zinc-500 transition-colors"
+                  className="w-full bg-zinc-800 border border-zinc-700 text-base text-white placeholder-zinc-600 rounded-lg px-3 py-1.5 outline-none focus:border-zinc-500 transition-colors"
                 />
-                <p className="text-base text-zinc-600 mt-1">Optional — goes into the Description column for every row.</p>
+                <p className="text-base text-zinc-600 mt-0.5">Optional — goes into the Description column for every row.</p>
               </div>
 
-              {/* Listing Type */}
-              <div>
-                <label className="block text-base font-semibold text-zinc-400 uppercase tracking-widest mb-1.5">
-                  Listing Type
-                </label>
-                <div className="flex rounded-lg border border-zinc-700 overflow-hidden text-base">
-                  {(["Buy it Now", "Auction"] as const).map((type) => (
-                    <button
-                      key={type}
-                      onClick={() => setListingType(type)}
-                      className={`flex-1 py-2 font-medium transition-colors ${
-                        listingType === type
-                          ? "bg-zinc-700 text-white"
-                          : "bg-zinc-800/60 text-zinc-400 hover:text-zinc-200"
-                      }`}
-                    >
-                      {type}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Short / Long Labels Toggle */}
-              <div>
-                <label className="block text-base font-semibold text-zinc-400 uppercase tracking-widest mb-1.5">
-                  Label Format
-                </label>
-                <div className="flex rounded-lg border border-zinc-700 overflow-hidden text-base">
-                  {(["short", "long"] as const).map((mode) => (
-                    <button
-                      key={mode}
-                      onClick={() => setLabelMode(mode)}
-                      className={`flex-1 py-2 font-medium transition-colors ${
-                        labelMode === mode
-                          ? "bg-zinc-700 text-white"
-                          : "bg-zinc-800/60 text-zinc-400 hover:text-zinc-200"
-                      }`}
-                    >
-                      {mode === "short" ? "Short Labels" : "Long Labels"}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Giveaways + Buyers Giveaway */}
-              <div className="grid grid-cols-2 gap-4">
-                {/* Giveaways counter */}
+              {/* Row 1: Listing Type + Label Format */}
+              <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-base font-semibold text-zinc-400 uppercase tracking-widest mb-1.5">
+                  <label className="block text-base font-medium text-zinc-400 mb-1">
+                    Listing Type
+                  </label>
+                  <div className="flex rounded-lg border border-zinc-700 overflow-hidden text-base">
+                    {(["Buy it Now", "Auction"] as const).map((type) => (
+                      <button
+                        key={type}
+                        onClick={() => setListingType(type)}
+                        className={`flex-1 py-1.5 font-medium transition-colors ${
+                          listingType === type
+                            ? "bg-zinc-700 text-white"
+                            : "bg-zinc-800/60 text-zinc-400 hover:text-zinc-200"
+                        }`}
+                      >
+                        {type}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-base font-medium text-zinc-400 mb-1">
+                    Label Format
+                  </label>
+                  <div className="flex rounded-lg border border-zinc-700 overflow-hidden text-base">
+                    {(["short", "long"] as const).map((mode) => (
+                      <button
+                        key={mode}
+                        onClick={() => setLabelMode(mode)}
+                        className={`flex-1 py-1.5 font-medium transition-colors ${
+                          labelMode === mode
+                            ? "bg-zinc-700 text-white"
+                            : "bg-zinc-800/60 text-zinc-400 hover:text-zinc-200"
+                        }`}
+                      >
+                        {mode === "short" ? "Short" : "Long"}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Row 2: Giveaways + Buyers Giveaway */}
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-base font-medium text-zinc-400 mb-1">
                     Giveaways
                   </label>
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => setGiveaways((v) => Math.max(0, v - 1))}
                       disabled={giveaways === 0}
-                      className={`w-9 h-9 flex items-center justify-center rounded-md text-base font-bold transition-colors ${
+                      className={`w-8 h-8 flex items-center justify-center rounded-md text-base font-bold transition-colors ${
                         giveaways === 0
                           ? "bg-zinc-800/40 text-zinc-700 cursor-not-allowed"
                           : "bg-zinc-800 text-zinc-300 hover:bg-zinc-700 hover:text-white"
@@ -329,16 +328,14 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
                     </span>
                     <button
                       onClick={() => setGiveaways((v) => v + 1)}
-                      className="w-9 h-9 flex items-center justify-center rounded-md bg-zinc-800 text-zinc-300 hover:bg-zinc-700 hover:text-white text-base font-bold transition-colors"
+                      className="w-8 h-8 flex items-center justify-center rounded-md bg-zinc-800 text-zinc-300 hover:bg-zinc-700 hover:text-white text-base font-bold transition-colors"
                     >
                       +
                     </button>
                   </div>
                 </div>
-
-                {/* Buyers Giveaway toggle */}
                 <div>
-                  <label className="block text-base font-semibold text-zinc-400 uppercase tracking-widest mb-1.5">
+                  <label className="block text-base font-medium text-zinc-400 mb-1">
                     Buyers Giveaway
                   </label>
                   <button
@@ -365,9 +362,9 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
                 </div>
               </div>
 
-              {/* Tag Labels */}
+              {/* Row 3: Tag Labels — full width */}
               <div>
-                <label className="block text-base font-semibold text-zinc-400 uppercase tracking-widest mb-1.5">
+                <label className="block text-base font-medium text-zinc-400 mb-1">
                   Tag Labels
                 </label>
                 <div className="grid grid-cols-4 gap-2">
@@ -380,43 +377,43 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
                     ] as [string, keyof Labels][]
                   ).map(([display, key]) => (
                     <div key={key} className="text-center">
-                      <p className="text-base text-zinc-600 mb-1 truncate">{display}</p>
+                      <p className="text-base text-zinc-600 mb-0.5 truncate">{display}</p>
                       <input
                         type="text"
                         value={labels[key]}
                         onChange={(e) =>
                           setLabels((l) => ({ ...l, [key]: e.target.value }))
                         }
-                        className="w-full bg-zinc-800 border border-zinc-700 text-base text-white rounded px-1.5 py-1.5 outline-none focus:border-zinc-500 transition-colors text-center font-mono"
+                        className="w-full bg-zinc-800 border border-zinc-700 text-base text-white rounded px-1.5 py-1 outline-none focus:border-zinc-500 transition-colors text-center font-mono"
                       />
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Live Preview */}
+              {/* Row 4: Title Preview */}
               {previewPlayers.length > 0 && (
                 <div>
-                  <label className="block text-base font-semibold text-zinc-400 uppercase tracking-widest mb-1.5">
+                  <label className="block text-base font-medium text-zinc-400 mb-1">
                     Title Preview
                   </label>
                   <div className="rounded-lg border border-zinc-800 bg-zinc-950 divide-y divide-zinc-800 overflow-hidden">
                     {buyersGiveaway && (
-                      <div className="px-3 py-2.5">
+                      <div className="px-3 py-1.5">
                         <p className="text-base font-mono text-amber-400 break-all">
                           Buyers Giveaway
                         </p>
                       </div>
                     )}
                     {previewPlayers.map((p) => (
-                      <div key={p.id} className="px-3 py-2.5">
+                      <div key={p.id} className="px-3 py-1.5">
                         <p className="text-base font-mono text-zinc-300 break-all">
                           {buildTitle(p, labels, labelMode)}
                         </p>
                       </div>
                     ))}
                     {(players.length > PREVIEW_COUNT || giveaways > 0) && (
-                      <div className="px-3 py-2">
+                      <div className="px-3 py-1.5">
                         <p className="text-base text-zinc-600 italic">
                           +{(players.length - PREVIEW_COUNT + giveaways).toLocaleString()} more rows…
                         </p>
@@ -428,18 +425,17 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
             </div>
 
             {/* Footer */}
-            <div className="px-6 py-4 border-t border-zinc-800">
+            <div className="px-5 py-3 border-t border-zinc-800">
               <button
                 onClick={downloadCSV}
-                className="w-full flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-black font-semibold text-base py-2.5 rounded-lg transition-colors"
+                className="w-full flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-black font-semibold text-base py-2 rounded-lg transition-colors"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
                 </svg>
                 Download CSV ({totalRows.toLocaleString()} rows)
               </button>
-              {/* Built for Whatnot */}
-              <div className="flex items-center justify-center gap-1.5 mt-3">
+              <div className="flex items-center justify-center gap-1.5 mt-2">
                 <span className="text-base text-zinc-500">Built for</span>
                 <img
                   src="/logos/whatnot-logo.png"
