@@ -54,7 +54,7 @@ function PlayerAvatar({ name, nbaPlayerId, ufcImageUrl }: { name: string; nbaPla
       alt={name}
       loading="lazy"
       onError={() => setImgError(true)}
-      className="w-10 h-10 rounded-full object-cover flex-shrink-0"
+      className="w-10 h-10 rounded-full object-cover object-top flex-shrink-0"
       style={{ border: "2px solid var(--v2-border)" }}
     />
   );

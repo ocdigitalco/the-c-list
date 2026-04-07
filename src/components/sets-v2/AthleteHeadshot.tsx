@@ -48,7 +48,7 @@ export function AthleteHeadshot({ name, nbaPlayerId, ufcImageUrl, size = "sm" }:
       alt={name}
       loading="lazy"
       onError={() => setImgError(true)}
-      className={`${sizeClass} rounded-full object-cover flex-shrink-0`}
+      className={`${sizeClass} rounded-full object-cover object-top flex-shrink-0`}
       style={{ border: `${borderWidth} solid var(--v2-border)` }}
     />
   );

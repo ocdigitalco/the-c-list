@@ -32,6 +32,8 @@ interface Props {
   players: BreakSheetPlayer[];
 }
 
+type LabelMode = "long" | "short";
+
 // ─── Constants ────────────────────────────────────────────────────────────────
 
 const SPORT_CATEGORY: Record<string, string> = {
@@ -74,26 +76,28 @@ function csvEsc(v: string): string {
   return v;
 }
 
-function buildTitle(player: BreakSheetPlayer, labels: Labels): string {
+function buildTitle(player: BreakSheetPlayer, labels: Labels, labelMode: LabelMode): string {
+  if (labelMode === "short") {
+    return buildShortTitle(player);
+  }
+  return buildLongTitle(player, labels);
+}
+
+function buildLongTitle(player: BreakSheetPlayer, labels: Labels): string {
   const tags: string[] = [];
 
-  // AUTO (pure autographs only — mem-auto is counted separately)
   if (player.autoCount > 0) {
     tags.push(player.autoCount > 1 ? `${labels.auto}x${player.autoCount}` : labels.auto);
   }
-  // MEM AUTO (autograph + memorabilia/relic)
   if (player.hasMemAuto) {
     tags.push(labels.memAuto);
   }
-  // RELIC (memorabilia/relic without auto)
   if (player.hasRelic) {
     tags.push(labels.relic);
   }
-  // RC
   if (player.isRookie) {
     tags.push(labels.rookie);
   }
-  // Generic insert set abbreviations
   for (const name of player.insertSetNames) {
     tags.push(abbreviate(name));
   }
@@ -102,12 +106,35 @@ function buildTitle(player: BreakSheetPlayer, labels: Labels): string {
   return `${player.name} ${tags.map((t) => `(${t})`).join("")}`;
 }
 
+function buildShortTitle(player: BreakSheetPlayer): string {
+  const parts: string[] = [];
+
+  if (player.isRookie) parts.push("RC");
+  if (player.autoCount > 0 || player.hasMemAuto) parts.push("AUTO");
+
+  // Count numbered parallels from insert set names — use relic as proxy for parallels
+  // In short mode: relic → counted as parallel-like
+  const parallelCount = player.insertSetNames.length;
+  if (player.hasRelic && parallelCount === 0) {
+    // Just a relic, show as parallel
+    parts.push("1 PARALLEL");
+  } else if (parallelCount > 0) {
+    parts.push(parallelCount === 1 ? "1 PARALLEL" : `${parallelCount} PARALLELS`);
+  }
+
+  if (parts.length === 0) return player.name;
+  return `${player.name} (${parts.join(" ")})`;
+}
+
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export function BreakSheetModal({ setName, sport, league, players }: Props) {
   const [open, setOpen] = useState(false);
   const [description, setDescription] = useState("");
   const [listingType, setListingType] = useState<"Buy it Now" | "Auction">("Buy it Now");
+  const [labelMode, setLabelMode] = useState<LabelMode>("long");
+  const [giveaways, setGiveaways] = useState(0);
+  const [buyersGiveaway, setBuyersGiveaway] = useState(false);
   const [labels, setLabels] = useState<Labels>({
     auto: "AUTO",
     memAuto: "MEM AUTO",
@@ -118,11 +145,11 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
   const category = SPORT_CATEGORY[sport] ?? `${sport} Breaks`;
   const subCategory = league ?? sport;
 
-  function buildRow(player: BreakSheetPlayer): string {
+  function buildRow(title: string): string {
     const fields = [
       category,
       subCategory,
-      buildTitle(player, labels),
+      title,
       description,
       "1",
       listingType,
@@ -138,9 +165,29 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
     return fields.map(csvEsc).join(",");
   }
 
+  function buildPlayerRow(player: BreakSheetPlayer): string {
+    return buildRow(buildTitle(player, labels, labelMode));
+  }
+
   function downloadCSV() {
-    const rows = [CSV_HEADER, ...players.map(buildRow)];
-    // UTF-8 BOM for Excel compatibility
+    const dataRows: string[] = [];
+
+    // Buyers Giveaway at the top
+    if (buyersGiveaway) {
+      dataRows.push(buildRow("Buyers Giveaway"));
+    }
+
+    // Player rows
+    for (const p of players) {
+      dataRows.push(buildPlayerRow(p));
+    }
+
+    // Giveaway rows at the end
+    for (let i = 0; i < giveaways; i++) {
+      dataRows.push(buildRow("Giveaway"));
+    }
+
+    const rows = [CSV_HEADER, ...dataRows];
     const blob = new Blob(["\uFEFF" + rows.join("\r\n")], {
       type: "text/csv;charset=utf-8;",
     });
@@ -154,6 +201,7 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
     URL.revokeObjectURL(url);
   }
 
+  const totalRows = players.length + giveaways + (buyersGiveaway ? 1 : 0);
   const previewPlayers = players.slice(0, PREVIEW_COUNT);
 
   return (
@@ -161,7 +209,7 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
       {/* ── Trigger button ── */}
       <button
         onClick={() => setOpen(true)}
-        className="flex items-center gap-1.5 shrink-0 text-xs font-medium text-zinc-400 hover:text-white border border-zinc-700 hover:border-zinc-500 bg-zinc-900 hover:bg-zinc-800 px-3 py-1.5 rounded-md transition-colors"
+        className="flex items-center gap-1.5 shrink-0 text-base font-medium text-zinc-400 hover:text-white border border-zinc-700 hover:border-zinc-500 bg-zinc-900 hover:bg-zinc-800 px-3 py-1.5 rounded-md transition-colors"
       >
         <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
@@ -181,8 +229,8 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
             {/* Header */}
             <div className="sticky top-0 bg-zinc-900 flex items-center justify-between px-6 py-4 border-b border-zinc-800 rounded-t-2xl">
               <div>
-                <h2 className="text-sm font-semibold text-white">Download Break Sheet</h2>
-                <p className="text-xs text-zinc-500 mt-0.5">{setName} · {players.length.toLocaleString()} rows</p>
+                <h2 className="text-base font-semibold text-white">Break Sheet Builder</h2>
+                <p className="text-base text-zinc-500 mt-0.5">{setName} · {players.length.toLocaleString()} athletes</p>
               </div>
               <button
                 onClick={() => setOpen(false)}
@@ -200,7 +248,7 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
 
               {/* Break Description */}
               <div>
-                <label className="block text-xs font-semibold text-zinc-400 uppercase tracking-widest mb-1.5">
+                <label className="block text-base font-semibold text-zinc-400 uppercase tracking-widest mb-1.5">
                   Break Description
                 </label>
                 <input
@@ -208,17 +256,17 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   placeholder={`e.g. "3 Cases! ${setName}"`}
-                  className="w-full bg-zinc-800 border border-zinc-700 text-sm text-white placeholder-zinc-600 rounded-lg px-3 py-2 outline-none focus:border-zinc-500 transition-colors"
+                  className="w-full bg-zinc-800 border border-zinc-700 text-base text-white placeholder-zinc-600 rounded-lg px-3 py-2 outline-none focus:border-zinc-500 transition-colors"
                 />
-                <p className="text-xs text-zinc-600 mt-1">Optional — goes into the Description column for every row.</p>
+                <p className="text-base text-zinc-600 mt-1">Optional — goes into the Description column for every row.</p>
               </div>
 
               {/* Listing Type */}
               <div>
-                <label className="block text-xs font-semibold text-zinc-400 uppercase tracking-widest mb-1.5">
+                <label className="block text-base font-semibold text-zinc-400 uppercase tracking-widest mb-1.5">
                   Listing Type
                 </label>
-                <div className="flex rounded-lg border border-zinc-700 overflow-hidden text-sm">
+                <div className="flex rounded-lg border border-zinc-700 overflow-hidden text-base">
                   {(["Buy it Now", "Auction"] as const).map((type) => (
                     <button
                       key={type}
@@ -235,9 +283,91 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
                 </div>
               </div>
 
+              {/* Short / Long Labels Toggle */}
+              <div>
+                <label className="block text-base font-semibold text-zinc-400 uppercase tracking-widest mb-1.5">
+                  Label Format
+                </label>
+                <div className="flex rounded-lg border border-zinc-700 overflow-hidden text-base">
+                  {(["short", "long"] as const).map((mode) => (
+                    <button
+                      key={mode}
+                      onClick={() => setLabelMode(mode)}
+                      className={`flex-1 py-2 font-medium transition-colors ${
+                        labelMode === mode
+                          ? "bg-zinc-700 text-white"
+                          : "bg-zinc-800/60 text-zinc-400 hover:text-zinc-200"
+                      }`}
+                    >
+                      {mode === "short" ? "Short Labels" : "Long Labels"}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Giveaways + Buyers Giveaway */}
+              <div className="grid grid-cols-2 gap-4">
+                {/* Giveaways counter */}
+                <div>
+                  <label className="block text-base font-semibold text-zinc-400 uppercase tracking-widest mb-1.5">
+                    Giveaways
+                  </label>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => setGiveaways((v) => Math.max(0, v - 1))}
+                      disabled={giveaways === 0}
+                      className={`w-9 h-9 flex items-center justify-center rounded-md text-base font-bold transition-colors ${
+                        giveaways === 0
+                          ? "bg-zinc-800/40 text-zinc-700 cursor-not-allowed"
+                          : "bg-zinc-800 text-zinc-300 hover:bg-zinc-700 hover:text-white"
+                      }`}
+                    >
+                      −
+                    </button>
+                    <span className="text-base font-bold text-white tabular-nums w-8 text-center">
+                      {giveaways}
+                    </span>
+                    <button
+                      onClick={() => setGiveaways((v) => v + 1)}
+                      className="w-9 h-9 flex items-center justify-center rounded-md bg-zinc-800 text-zinc-300 hover:bg-zinc-700 hover:text-white text-base font-bold transition-colors"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+
+                {/* Buyers Giveaway toggle */}
+                <div>
+                  <label className="block text-base font-semibold text-zinc-400 uppercase tracking-widest mb-1.5">
+                    Buyers Giveaway
+                  </label>
+                  <button
+                    onClick={() => setBuyersGiveaway((v) => !v)}
+                    className="flex items-center gap-2"
+                  >
+                    <div
+                      className="relative w-11 h-6 rounded-full transition-colors"
+                      style={{
+                        background: buyersGiveaway ? "#f59e0b" : "#3f3f46",
+                      }}
+                    >
+                      <div
+                        className="absolute top-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform"
+                        style={{
+                          transform: buyersGiveaway ? "translateX(22px)" : "translateX(2px)",
+                        }}
+                      />
+                    </div>
+                    <span className="text-base text-zinc-400">
+                      {buyersGiveaway ? "On" : "Off"}
+                    </span>
+                  </button>
+                </div>
+              </div>
+
               {/* Tag Labels */}
               <div>
-                <label className="block text-xs font-semibold text-zinc-400 uppercase tracking-widest mb-1.5">
+                <label className="block text-base font-semibold text-zinc-400 uppercase tracking-widest mb-1.5">
                   Tag Labels
                 </label>
                 <div className="grid grid-cols-4 gap-2">
@@ -250,14 +380,14 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
                     ] as [string, keyof Labels][]
                   ).map(([display, key]) => (
                     <div key={key} className="text-center">
-                      <p className="text-xs text-zinc-600 mb-1 truncate">{display}</p>
+                      <p className="text-base text-zinc-600 mb-1 truncate">{display}</p>
                       <input
                         type="text"
                         value={labels[key]}
                         onChange={(e) =>
                           setLabels((l) => ({ ...l, [key]: e.target.value }))
                         }
-                        className="w-full bg-zinc-800 border border-zinc-700 text-xs text-white rounded px-1.5 py-1.5 outline-none focus:border-zinc-500 transition-colors text-center font-mono"
+                        className="w-full bg-zinc-800 border border-zinc-700 text-base text-white rounded px-1.5 py-1.5 outline-none focus:border-zinc-500 transition-colors text-center font-mono"
                       />
                     </div>
                   ))}
@@ -267,21 +397,28 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
               {/* Live Preview */}
               {previewPlayers.length > 0 && (
                 <div>
-                  <label className="block text-xs font-semibold text-zinc-400 uppercase tracking-widest mb-1.5">
+                  <label className="block text-base font-semibold text-zinc-400 uppercase tracking-widest mb-1.5">
                     Title Preview
                   </label>
                   <div className="rounded-lg border border-zinc-800 bg-zinc-950 divide-y divide-zinc-800 overflow-hidden">
+                    {buyersGiveaway && (
+                      <div className="px-3 py-2.5">
+                        <p className="text-base font-mono text-amber-400 break-all">
+                          Buyers Giveaway
+                        </p>
+                      </div>
+                    )}
                     {previewPlayers.map((p) => (
                       <div key={p.id} className="px-3 py-2.5">
-                        <p className="text-xs font-mono text-zinc-300 break-all">
-                          {buildTitle(p, labels)}
+                        <p className="text-base font-mono text-zinc-300 break-all">
+                          {buildTitle(p, labels, labelMode)}
                         </p>
                       </div>
                     ))}
-                    {players.length > PREVIEW_COUNT && (
+                    {(players.length > PREVIEW_COUNT || giveaways > 0) && (
                       <div className="px-3 py-2">
-                        <p className="text-xs text-zinc-600 italic">
-                          +{(players.length - PREVIEW_COUNT).toLocaleString()} more rows…
+                        <p className="text-base text-zinc-600 italic">
+                          +{(players.length - PREVIEW_COUNT + giveaways).toLocaleString()} more rows…
                         </p>
                       </div>
                     )}
@@ -294,13 +431,22 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
             <div className="px-6 py-4 border-t border-zinc-800">
               <button
                 onClick={downloadCSV}
-                className="w-full flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-black font-semibold text-sm py-2.5 rounded-lg transition-colors"
+                className="w-full flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-black font-semibold text-base py-2.5 rounded-lg transition-colors"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
                 </svg>
-                Download CSV ({players.length.toLocaleString()} rows)
+                Download CSV ({totalRows.toLocaleString()} rows)
               </button>
+              {/* Built for Whatnot */}
+              <div className="flex items-center justify-center gap-1.5 mt-3">
+                <span className="text-base text-zinc-500">Built for</span>
+                <img
+                  src="/logos/whatnot-logo.png"
+                  alt="Whatnot"
+                  className="h-6 object-contain"
+                />
+              </div>
             </div>
           </div>
         </div>
