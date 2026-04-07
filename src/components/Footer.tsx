@@ -41,9 +41,10 @@ export function Footer() {
 
           {/* Wordmark + tagline */}
           <div className="lg:w-64 shrink-0">
-            <Link href="/" className="inline-flex items-center mb-3">
-              <img src="/checklist2-dark.svg" alt="Checklist²" height={50} className="h-[50px] w-auto logo-for-light" />
-              <img src="/checklist2-light.svg" alt="Checklist²" height={50} className="h-[50px] w-auto logo-for-dark" />
+            <Link href="/" className="inline-flex items-center mb-3 text-xl text-white">
+              <span style={{ fontWeight: 800, letterSpacing: '0.05em' }}>
+                CHECKLIST<sup style={{ fontSize: '0.6em', verticalAlign: 'super', fontWeight: 800, color: '#ffb900' }}>2</sup>
+              </span>
             </Link>
             <p className="text-sm text-zinc-500 leading-relaxed">
               The complete sports card checklist platform for collectors and breakers.

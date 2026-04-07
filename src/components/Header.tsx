@@ -3,8 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { ThemeToggle } from "./ThemeToggle";
-
 const navLinks = [
   { href: "/checklists", label: "Checklists" },
   { href: "/sets", label: "Sets" },
@@ -30,11 +28,10 @@ export function Header() {
     <header className="shrink-0 bg-zinc-950 border-b border-zinc-800/80">
       <div className="flex items-center justify-between px-6 h-14">
         {/* Wordmark */}
-        <Link href="/" className="flex items-center">
-          {/* Dark logo (black text) — shown in light mode */}
-          <img src="/checklist2-dark.svg" alt="Checklist²" height={40} className="h-10 w-auto logo-for-light" />
-          {/* Light logo (white text) — shown in dark mode (default) */}
-          <img src="/checklist2-light.svg" alt="Checklist²" height={40} className="h-10 w-auto logo-for-dark" />
+        <Link href="/" className="flex items-center text-xl text-white">
+          <span style={{ fontWeight: 800, letterSpacing: '0.05em' }}>
+            CHECKLIST<sup style={{ fontSize: '0.6em', verticalAlign: 'super', fontWeight: 800, color: '#ffb900' }}>2</sup>
+          </span>
         </Link>
 
         {/* Desktop nav */}
@@ -43,9 +40,9 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className={`px-3 py-1.5 rounded-md text-sm transition-colors ${
+              className={`px-3 py-1.5 rounded-md text-sm font-bold transition-colors ${
                 isActive(link.href)
-                  ? "text-white font-medium bg-zinc-800/60"
+                  ? "text-white bg-zinc-800/60"
                   : "text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/40"
               }`}
             >
@@ -54,10 +51,8 @@ export function Header() {
           ))}
         </nav>
 
-        {/* Right side: theme toggle + hamburger */}
+        {/* Right side: hamburger */}
         <div className="flex items-center gap-1">
-          <ThemeToggle />
-
           {/* Hamburger */}
           <button
             className="md:hidden p-1.5 text-zinc-400 hover:text-white transition-colors rounded-md hover:bg-zinc-800/60"
@@ -85,9 +80,9 @@ export function Header() {
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className={`px-3 py-2.5 rounded-md text-sm transition-colors ${
+              className={`px-3 py-2.5 rounded-md text-sm font-bold transition-colors ${
                 isActive(link.href)
-                  ? "text-white font-medium bg-zinc-800/60"
+                  ? "text-white bg-zinc-800/60"
                   : "text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/40"
               }`}
             >
