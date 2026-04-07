@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { LeaderboardRow } from "./types";
 import { getNBAHeadshotUrl } from "@/lib/nba-headshot";
 import { getUFCHeadshotUrl } from "@/lib/ufc-headshot";
+import { getMLBHeadshotUrl } from "@/lib/mlb-headshot";
 
 type SortKey = "totalCards" | "autographs" | "inserts" | "numberedParallels";
 
@@ -40,9 +41,9 @@ function InitialsAvatar({ name }: { name: string }) {
   );
 }
 
-function PlayerAvatar({ name, nbaPlayerId, ufcImageUrl }: { name: string; nbaPlayerId: number | null; ufcImageUrl: string | null }) {
+function PlayerAvatar({ name, nbaPlayerId, ufcImageUrl, mlbPlayerId }: { name: string; nbaPlayerId: number | null; ufcImageUrl: string | null; mlbPlayerId: number | null }) {
   const [imgError, setImgError] = useState(false);
-  const url = getNBAHeadshotUrl(nbaPlayerId) ?? getUFCHeadshotUrl(ufcImageUrl);
+  const url = getNBAHeadshotUrl(nbaPlayerId) ?? getUFCHeadshotUrl(ufcImageUrl) ?? getMLBHeadshotUrl(mlbPlayerId);
 
   if (!url || imgError) {
     return <InitialsAvatar name={name} />;
@@ -234,7 +235,7 @@ export function LeaderboardSidebar({ entries, hasTeamData, setId }: Props) {
                 >
                   {idx + 1}
                 </span>
-                <PlayerAvatar name={entry.name} nbaPlayerId={entry.nbaPlayerId} ufcImageUrl={entry.ufcImageUrl} />
+                <PlayerAvatar name={entry.name} nbaPlayerId={entry.nbaPlayerId} ufcImageUrl={entry.ufcImageUrl} mlbPlayerId={entry.mlbPlayerId} />
                 <div className="min-w-0">
                   <div className="flex items-center gap-1.5 min-w-0">
                     <span

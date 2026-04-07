@@ -41,6 +41,7 @@ export const players = sqliteTable("players", {
   insertSetCount: integer("insert_set_count").notNull().default(0),
   nbaPlayerId: integer("nba_player_id"),
   ufcImageUrl: text("ufc_image_url"),
+  mlbPlayerId: integer("mlb_player_id"),
 }, (t) => [
   uniqueIndex("players_set_name_unique").on(t.setId, t.name),
 ]);
