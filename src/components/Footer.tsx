@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ThemeToggle } from "./ThemeToggle";
 
 const exploreLinks = [
   { href: "/checklists", label: "Checklists" },
@@ -136,9 +135,14 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-6 border-t border-zinc-800/60 flex items-center justify-between gap-4 flex-wrap">
-          <p className="text-xs text-zinc-600">© 2026 Checklist2. All rights reserved.</p>
-          <ThemeToggle />
+        <div className="mt-12 pt-6 border-t border-zinc-800/60 space-y-3">
+          <div className="flex items-center justify-between gap-4 flex-wrap">
+            <p className="text-base text-zinc-600">© 2026 Checklist2. All rights reserved.</p>
+            <p className="text-base text-zinc-600">Created by Tyler Lawrence</p>
+          </div>
+          <p className="text-base text-zinc-600 leading-relaxed">
+            All third-party trademarks and logos are the property of their respective owners. Checklist2 is not affiliated with, endorsed by, or sponsored by Whatnot, UFC, EPL, NBA, MLS, MLB, NFL, UEFA, WWE, WWF, Cactus Jack, Olympics, Topps, or Panini.
+          </p>
         </div>
 
       </div>
