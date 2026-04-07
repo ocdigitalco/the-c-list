@@ -382,6 +382,7 @@ export default async function V2AthletePage({
     inserts: number;
     numberedParallels: number;
     nbaPlayerId: number | null;
+    ufcImageUrl: string | null;
   }>(
     `WITH player_is AS (
        SELECT DISTINCT pa.player_id, pa.insert_set_id
@@ -416,7 +417,8 @@ export default async function V2AthletePage({
            AND lower(i.name) NOT LIKE '%autograph%'
          THEN pa.insert_set_id END) AS inserts,
        COALESCE(n.cnt, 0) AS numberedParallels,
-       p.nba_player_id AS nbaPlayerId
+       p.nba_player_id AS nbaPlayerId,
+       p.ufc_image_url AS ufcImageUrl
      FROM players p
      LEFT JOIN player_appearances pa ON pa.player_id = p.id
      LEFT JOIN insert_sets i ON i.id = pa.insert_set_id
@@ -438,6 +440,7 @@ export default async function V2AthletePage({
     inserts: r.inserts,
     numberedParallels: r.numberedParallels,
     nbaPlayerId: r.nbaPlayerId,
+    ufcImageUrl: r.ufcImageUrl,
   }));
 
   const hasTeamData = leaderboardEntries.some((e) => e.team != null && e.team !== "");
@@ -498,7 +501,7 @@ export default async function V2AthletePage({
 
           {/* Player header */}
           <div className="flex items-center gap-5">
-            <AthleteHeadshot name={playerData.name} nbaPlayerId={playerData.nbaPlayerId} size="lg" />
+            <AthleteHeadshot name={playerData.name} nbaPlayerId={playerData.nbaPlayerId} ufcImageUrl={playerData.ufcImageUrl} size="lg" />
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-3">
                 <h1 className="text-3xl font-bold" style={{ color: "var(--v2-text-primary)" }}>

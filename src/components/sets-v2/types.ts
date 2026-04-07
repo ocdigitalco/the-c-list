@@ -25,6 +25,7 @@ export interface LeaderboardRow {
   inserts: number;
   numberedParallels: number;
   nbaPlayerId: number | null;
+  ufcImageUrl: string | null;
 }
 
 export interface InsertSetDetail {

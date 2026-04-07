@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import { getNBAHeadshotUrl } from "@/lib/nba-headshot";
+import { getUFCHeadshotUrl } from "@/lib/ufc-headshot";
 
 interface Props {
   name: string;
   nbaPlayerId: number | null | undefined;
+  ufcImageUrl?: string | null;
   size?: "sm" | "lg";
 }
 
@@ -29,9 +31,9 @@ function InitialsAvatar({ name, size }: { name: string; size: "sm" | "lg" }) {
   );
 }
 
-export function AthleteHeadshot({ name, nbaPlayerId, size = "sm" }: Props) {
+export function AthleteHeadshot({ name, nbaPlayerId, ufcImageUrl, size = "sm" }: Props) {
   const [imgError, setImgError] = useState(false);
-  const url = getNBAHeadshotUrl(nbaPlayerId);
+  const url = getNBAHeadshotUrl(nbaPlayerId) ?? getUFCHeadshotUrl(ufcImageUrl);
 
   if (!url || imgError) {
     return <InitialsAvatar name={name} size={size} />;
