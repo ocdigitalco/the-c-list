@@ -14,6 +14,25 @@ export interface Update {
 export const updates: Update[] = [
   // ─── April 6, 2026 ───────────────────────────────────────────────────────
   {
+    id: "093-midnight-basketball-2025-odds",
+    title: "Pack Odds Added: 2025-26 Topps Midnight Basketball",
+    date: "2026-04-06T14:00:00Z",
+    summary: "Pack odds added for 2025-26 Topps Midnight Basketball with 219 odds entries across base parallels, rookie autographs, veteran autographs, inserts, and memorabilia.",
+    description: `## 2025-26 Topps Midnight Basketball — Pack Odds
+
+Pack odds now available for the Hobby box format, covering 219 entries including:
+
+- **Base parallels**: Zodiac (1:2), Morning (1:4), Twilight (1:6), Dusk (1:8), through Black Light (1:549)
+- **Rookie Autographs**: Rookie Jersey Autographs (1:5), Rookie Horizon Signatures (1:5), Stroke of Midnight Autographs Rookies (1:8), Midnight Sun Signatures Rookies (1:9) — each with full parallel breakdowns through Black Light
+- **Rookie Memorabilia**: Dark Marks Rookies (1:23), Dark Matter Autographs Rookies (1:21), Midnight Oil Marks Rookies (1:54)
+- **Veteran Autographs**: Stroke of Midnight Autographs (1:4), Dark Matter Autographs (1:17), Midnight Sun Signatures (1:27), Stroke of Midnight Autographs II
+- **Veteran Memorabilia**: Dark Marks (1:9), Midnight Oil Marks (1:15)
+- **4 Insert Sets**: Night Owls (1:8), Insomnia (1:8), Moonfall (1:7), Daydreamers (1:10) — each with full parallel breakdowns
+- **Short Prints**: Nightshade (1:28), Dreamland (1:28), Night Vision (1:33), Twilight (1:54)`,
+    tags: ["odds"],
+    setId: 24,
+  },
+  {
     id: "092-chrome-mcdonalds-basketball-2025-odds",
     title: "Pack Odds Added: 2025 Topps Chrome McDonald's All-American Basketball",
     date: "2026-04-06T12:00:00Z",
