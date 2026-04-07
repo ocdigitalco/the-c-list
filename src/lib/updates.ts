@@ -12,6 +12,25 @@ export interface Update {
 }
 
 export const updates: Update[] = [
+  // ─── April 6, 2026 ───────────────────────────────────────────────────────
+  {
+    id: "092-chrome-mcdonalds-basketball-2025-odds",
+    title: "Pack Odds Added: 2025 Topps Chrome McDonald's All-American Basketball",
+    date: "2026-04-06T12:00:00Z",
+    summary: "Pack odds added for 2025 Topps Chrome McDonald's All-American Basketball with 73 odds entries across base parallels, inserts, autographs, and relics.",
+    description: `## 2025 Topps Chrome McDonald's All-American Basketball — Pack Odds
+
+Pack odds now available for the Hobby box format, covering 73 entries including:
+
+- **Base parallels**: Refractor (1:1), McFlurry (1:1), Aqua Wave (1:4), Purple (1:5), Red Lava (1:6), Gold (1:15), Tie-Dye (1:30), Orange (1:50), Black (1:75), Red (1:150), Black Wave (1:340), Red Wave (1:678), Superfractor (1:746)
+- **4 Insert Sets**: High Rises (1:3), Top Recruits (1:3), Prospect Paths (1:5), Hype to Legacy (1:9) — each with Refractor, Gold, Tie-Dye, Red, and SuperFractor parallels
+- **BillBoard Ink Autographs**: Refractor (1:9) through SuperFractor (1:1904)
+- **Event Autographs** (1:6), **Golden Patch Autographs**, and **Legends Autographs** with full parallel breakdowns
+- **Winning Tags Autographs**: Refractor (1:9) through SuperFractor (1:1904)
+- **All-American Drip** insert (1:48)`,
+    tags: ["odds"],
+    setId: 39,
+  },
   // ─── April 5, 2026 ───────────────────────────────────────────────────────
   {
     id: "091-royalty-ufc-2024",
