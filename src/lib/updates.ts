@@ -12,6 +12,26 @@ export interface Update {
 }
 
 export const updates: Update[] = [
+  // ─── April 9, 2026 ───────────────────────────────────────────────────────
+  {
+    id: "094-chrome-wwe-2026",
+    title: "New Set: 2026 Topps Chrome WWE",
+    date: "2026-04-09T12:00:00Z",
+    summary: "Full checklist added for 2026 Topps Chrome WWE with 201 base cards, 53 insert sets, and 269 wrestlers.",
+    description: `## 2026 Topps Chrome WWE
+
+Complete checklist now available with box configurations for Hobby, First Day Issue, Value, Mega, and Breaker's Delight formats.
+
+- **201 Base Cards** across Base I (100), Base II (100), and Base Tier III (1) with 44 parallel variations including Refractor, Diamond Plate, Geometric, X-Fractor, Mini Diamond, RayWave, and FrozenFractor exclusives
+- **25 Alternate Personas** and **75 Iconic Imprints** base subsets (Hobby Exclusive, Superfractor /1 only)
+- **Chrome Autographs** (91 cards) plus FDI Exclusives and Tier III, with Red/Blue/NXT Brand Autographs (92 cards combined)
+- **Premium Autographs**: Marks of Champions, Legendary Chrome, Main Event, 1986 Topps, Hall of Fame, and Future Stars
+- **Hobby Exclusive Autographs**: Iconic Imprint Autos (/10), Alternate Personas Autos (/10), Dual Autos, Best In The World, 3D Dual, The People's Champ, Anniversary sets (Austin, Dudley Boyz, CM Punk, Rock, NWO, Lita, Trish), Beast Incarnate, Say His Name
+- **Main Roster Debut Patch Autographs** (all /1): Giulia, JC Mateo, Roxanne Perez, Sol Ruca, Stephanie Vaquer
+- **Insert Sets**: Scope, Viral Shock, Women's Division, Austin 3:16, Rock Diamond Legacy, Platinum Punk, Family Tree, Embedded, Wrestlemania Recall, Eras of Excellence, Focus Reel, Signalz, Gamut, House of Cards, Helix, Let's Go, Feel The Pop!, GPK, and 2025 Chrome Buybacks`,
+    tags: ["checklist", "box-config"],
+    setId: 48,
+  },
   // ─── April 6, 2026 ───────────────────────────────────────────────────────
   {
     id: "093-midnight-basketball-2025-odds",
