@@ -14,6 +14,25 @@ export interface Update {
 export const updates: Update[] = [
   // ─── April 9, 2026 ───────────────────────────────────────────────────────
   {
+    id: "095-pristine-baseball-2025",
+    title: "New Set: 2025 Topps Pristine Baseball",
+    date: "2026-04-09T14:00:00Z",
+    summary: "Full checklist added for 2025 Topps Pristine Baseball with 300 base cards, 18 insert sets, 339 players, and 90 pack odds entries.",
+    description: `## 2025 Topps Pristine Baseball
+
+Complete checklist now available with Hobby box configuration and full pack odds.
+
+- **300 Base Cards** (250 unique players + 50 image variations) with 20 parallel variations including Pristine and standard Refractor lines from Aqua /199 through Pristine Black Refractor /1 and Superfractor /1
+- **Pristine Autographs** (96 cards) with 9 parallels from Green Pristine /150 to Black Pristine /1
+- **Pristine Pair Autographs** (6 dual-signed cards) featuring iconic pairings like McGwire/Pujols, Holliday/Henderson, and Crews/Wood
+- **Plated and Polished Autographs** (20 cards), **Personal Endorsements Autographs** (32 cards), and **Italics Autographs** (15 cards)
+- **Auto Relics**: Popular Demand (35 cards), Pristine Pieces (58 cards), All-Star Game Pristine Pieces (27 cards, all /1), and Rookie Jumbo (19 cards, all /25)
+- **Insert Sets**: Perseverance (25), Plated & Polished (40), Precisionaries (35), Pearlescent (25), Amped (25), Prowlers (15), Monogram (30), Let's Go (5)
+- **90 pack odds entries** covering all base parallels, insert sets, autographs, and auto relics`,
+    tags: ["checklist", "box-config", "odds"],
+    setId: 49,
+  },
+  {
     id: "094-chrome-wwe-2026",
     title: "New Set: 2026 Topps Chrome WWE",
     date: "2026-04-09T12:00:00Z",
