@@ -12,6 +12,26 @@ export interface Update {
 }
 
 export const updates: Update[] = [
+  // ─── April 10, 2026 ──────────────────────────────────────────────────────
+  {
+    id: "096-chrome-wwe-2026-odds",
+    title: "Pack Odds Added: 2026 Topps Chrome WWE",
+    date: "2026-04-10T12:00:00Z",
+    summary: "Pack odds added for 2026 Topps Chrome WWE with 985 odds entries across 7 box types: Breaker's Delight, Hobby, Logofractor, Mega, Sapphire, Value, and First Day Issue.",
+    description: `## 2026 Topps Chrome WWE — Pack Odds
+
+Pack odds now available across all 7 box formats, covering 985 total entries:
+
+- **Breaker's Delight** (7150): Base Geometric and standard parallels, Scope/Viral Shock/Women's Division Geometric variants, all autograph sets with Geometric parallels, GPK, Buybacks, Hidden Gems (Citrine, Alexandrite, Painite)
+- **Hobby** (7151): Full base parallel breakdown (Refractor through Superfractor), Prism/Negative/Sonar/Steel Cage/FrozenFractor exclusives, Alternate Persona & Iconic Imprints Image Variations, all insert sets (Scope, Viral Shock, Women's Division, Austin 3:16, Rock Diamond Legacy, Platinum Punk, Family Tree, Embedded), House of Cards, Feel The Pop!, all autograph tiers, Buyback parallels (X-Fractor through Purple)
+- **Logofractor** (7152): WWE Logofractor base and parallels (Green through Rose Gold), Wrestlemania Recall/Eras of Excellence/Focus Reel Logofractor variants, Logofractor Autographs
+- **Mega Box**: X-Fractor and Mini Diamond base exclusives, Wrestlemania Recall/Eras of Excellence/Focus Reel with full Refractor parallels, all autograph sets
+- **Sapphire** (7156): Sapphire base parallels (Yellow through Padparadscha), Sapphire Selections, Infinite insert, Sapphire autograph variants across all brand/premium sets
+- **Value Box**: Diamond Plate and RayWave base exclusives, retail insert sets with Refractor parallels, all autograph sets
+- **First Day Issue** (7435): FDI Refractor exclusive, Hobby-style parallels, full insert and autograph coverage including FDI-exclusive autos`,
+    tags: ["odds"],
+    setId: 48,
+  },
   // ─── April 9, 2026 ───────────────────────────────────────────────────────
   {
     id: "095-pristine-baseball-2025",
