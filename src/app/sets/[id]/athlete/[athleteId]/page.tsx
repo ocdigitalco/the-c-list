@@ -280,6 +280,26 @@ export default async function V2AthletePage({
     const firstVal = Object.values(rawOdds)[0];
     const isNestedOdds = firstVal !== null && typeof firstVal === "object";
 
+    // Normalize odds values: convert "1:X" strings to numeric X, strip commas.
+    // Older sets store odds as numbers (e.g. 64 = 1:64), newer sets as "1:64".
+    function normalizeOddsObj(obj: Record<string, unknown>): Record<string, number> {
+      const out: Record<string, number> = {};
+      for (const [k, v] of Object.entries(obj)) {
+        if (typeof v === "number") { out[k] = v; continue; }
+        if (typeof v === "string") {
+          const cleaned = v.replace(/,/g, "");
+          if (cleaned.includes(":")) {
+            const parts = cleaned.split(":");
+            const denom = parseFloat(parts[parts.length - 1]);
+            if (!isNaN(denom)) { out[k] = denom; continue; }
+          }
+          const n = parseFloat(cleaned);
+          if (!isNaN(n)) { out[k] = n; continue; }
+        }
+      }
+      return out;
+    }
+
     const totalAppsByIS = new Map<number, number>();
     if (playerInsertSetIds.length > 0) {
       const rows = await rawQuery.all<{ insert_set_id: number; total_apps: number }>(
@@ -302,12 +322,16 @@ export default async function V2AthletePage({
       if (overridden) return overridden;
       // Direct match — use as-is
       if (name in packOddsData) return name;
+      // Case-insensitive fallback (e.g. "Ace Of Trades" vs "Ace of Trades")
+      const ciMatch = Object.keys(packOddsData).find(
+        (k) => k.toLowerCase() === name.toLowerCase()
+      );
+      if (ciMatch) return ciMatch;
       // Base subset variants (e.g. "Base - Comic Accurate", "Base Cards I",
       // "Base Tier III") should map to the common base odds prefix.
-      // Try "Base Cards" first (Deadpool style), then "Base" (WWE Chrome style).
+      // Try "Base Cards" first (Deadpool style), then "Base" (WWE Chrome style / F1 style).
       if (name.startsWith("Base")) {
         if ("Base Cards" in packOddsData) return "Base Cards";
-        // Check if any odds key starts with "Base " (e.g. "Base Refractor")
         const hasBasePrefix = Object.keys(packOddsData).some((k) => k.startsWith("Base "));
         if (hasBasePrefix) return "Base";
       }
@@ -322,6 +346,7 @@ export default async function V2AthletePage({
           packOddsData[prefix] ??
           packOddsData[`${prefix} Geometric`] ??
           packOddsData[`${prefix} Refractor`] ??
+          packOddsData[`${prefix} Refractor Parallel`] ??
           null;
         return {
           insertSetName: is.insertSetName,
@@ -334,19 +359,22 @@ export default async function V2AthletePage({
             .map((p) => ({
               name: p.name,
               printRun: p.printRun!,
-              denom: packOddsData[`${prefix} ${p.name}`] ?? null,
+              denom:
+                packOddsData[`${prefix} ${p.name}`] ??
+                packOddsData[`${prefix} ${p.name} Parallel`] ??
+                null,
             })),
         };
       });
     }
 
     if (isNestedOdds) {
-      for (const [key, data] of Object.entries(rawOdds as Record<string, Record<string, number>>)) {
+      for (const [key, data] of Object.entries(rawOdds as Record<string, Record<string, unknown>>)) {
         const label = ODDS_TO_FORMAT_LABEL[key] ?? formatBoxLabel(key);
-        packOddsSlotsByFormat[label] = buildSlots(data);
+        packOddsSlotsByFormat[label] = buildSlots(normalizeOddsObj(data));
       }
     } else {
-      const slots = buildSlots(rawOdds as Record<string, number>);
+      const slots = buildSlots(normalizeOddsObj(rawOdds as Record<string, unknown>));
       for (const fmt of boxFormats) {
         packOddsSlotsByFormat[fmt.label] = slots;
       }
