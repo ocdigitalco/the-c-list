@@ -46,9 +46,11 @@ export function ArticleLeaderboard({
     return true;
   });
 
-  const sorted = [...filtered].sort((a, b) => b.totalCards - a.totalCards);
+  // Sort by the metric relevant to the active filter
+  const sortKey = filter === "autographs" ? "autographs" : "totalCards";
+  const sorted = [...filtered].sort((a, b) => b[sortKey] - a[sortKey]);
   const top10 = sorted.slice(0, 10);
-  const maxCards = top10[0]?.totalCards ?? 1;
+  const maxValue = top10[0]?.[sortKey] ?? 1;
 
   return (
     <div className="rounded-xl border border-zinc-800 overflow-hidden mb-6">
@@ -68,47 +70,50 @@ export function ArticleLeaderboard({
         ))}
       </div>
       <div className="divide-y divide-zinc-800/60">
-        {top10.map((a, i) => (
-          <div
-            key={a.name}
-            className="flex items-center gap-3 px-4 py-2.5 bg-zinc-900 hover:bg-zinc-800/40 transition-colors"
-          >
-            <span className="text-xs text-zinc-600 font-medium tabular-nums w-5 text-right shrink-0">
-              {i + 1}
-            </span>
+        {top10.map((a, i) => {
+          const displayValue = a[sortKey];
+          return (
             <div
-              className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ${getAvatarColor(a.name)}`}
+              key={a.name}
+              className="flex items-center gap-3 px-4 py-2.5 bg-zinc-900 hover:bg-zinc-800/40 transition-colors"
             >
-              {getInitials(a.name)}
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-1.5">
-                <p className="text-sm font-semibold text-zinc-200 truncate">
-                  {a.name}
-                </p>
-                {a.isRookie && (
-                  <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-green-500/15 text-green-400 border border-green-500/30 shrink-0">
-                    RC
-                  </span>
+              <span className="text-xs text-zinc-600 font-medium tabular-nums w-5 text-right shrink-0">
+                {i + 1}
+              </span>
+              <div
+                className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ${getAvatarColor(a.name)}`}
+              >
+                {getInitials(a.name)}
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-1.5">
+                  <p className="text-sm font-semibold text-zinc-200 truncate">
+                    {a.name}
+                  </p>
+                  {a.isRookie && (
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-green-500/15 text-green-400 border border-green-500/30 shrink-0">
+                      RC
+                    </span>
+                  )}
+                </div>
+                {a.team && (
+                  <p className="text-[11px] text-zinc-600 truncate">{a.team}</p>
                 )}
               </div>
-              {a.team && (
-                <p className="text-[11px] text-zinc-600 truncate">{a.team}</p>
-              )}
-            </div>
-            <div className="flex items-center gap-2 shrink-0 w-32">
-              <div className="flex-1 h-2 bg-zinc-800 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-amber-500/60 rounded-full"
-                  style={{ width: `${(a.totalCards / maxCards) * 100}%` }}
-                />
+              <div className="flex items-center gap-2 shrink-0 w-32">
+                <div className="flex-1 h-2 bg-zinc-800 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-amber-500/60 rounded-full"
+                    style={{ width: `${(displayValue / maxValue) * 100}%` }}
+                  />
+                </div>
+                <span className="text-xs text-zinc-400 tabular-nums w-8 text-right">
+                  {displayValue}
+                </span>
               </div>
-              <span className="text-xs text-zinc-400 tabular-nums w-8 text-right">
-                {a.totalCards}
-              </span>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
