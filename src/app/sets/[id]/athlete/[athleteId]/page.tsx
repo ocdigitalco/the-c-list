@@ -296,13 +296,28 @@ export default async function V2AthletePage({
       breaker: "Breaker's Delight",
     };
 
+    function resolvePrefix(name: string, packOddsData: Record<string, number>): string {
+      if (name === "Base Set") return "Base";
+      const overridden = ODDS_KEY_OVERRIDES[name];
+      if (overridden) return overridden;
+      // Direct match — use as-is
+      if (name in packOddsData) return name;
+      // Base subset variants (e.g. "Base - Comic Accurate", "Base Cards I",
+      // "Base Tier III") should map to the common base odds prefix.
+      // Try "Base Cards" first (Deadpool style), then "Base" (WWE Chrome style).
+      if (name.startsWith("Base")) {
+        if ("Base Cards" in packOddsData) return "Base Cards";
+        // Check if any odds key starts with "Base " (e.g. "Base Refractor")
+        const hasBasePrefix = Object.keys(packOddsData).some((k) => k.startsWith("Base "));
+        if (hasBasePrefix) return "Base";
+      }
+      return name;
+    }
+
     function buildSlots(packOddsData: Record<string, number>): PackOddsSlot[] {
       return playerInsertSets.map((is) => {
         const isAuto = autoKeywords.some((kw) => is.insertSetName.toLowerCase().includes(kw));
-        const prefix =
-          is.insertSetName === "Base Set"
-            ? "Base"
-            : (ODDS_KEY_OVERRIDES[is.insertSetName] ?? is.insertSetName);
+        const prefix = resolvePrefix(is.insertSetName, packOddsData);
         const baseDenom =
           packOddsData[prefix] ??
           packOddsData[`${prefix} Geometric`] ??
