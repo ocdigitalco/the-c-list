@@ -4,6 +4,16 @@ import Link from "next/link";
 import { articles, getArticleById, getAdjacentArticles } from "@/lib/articles";
 import type { ArticleSection } from "@/lib/articles";
 import { PageShell } from "@/components/PageShell";
+import { db } from "@/lib/db";
+import { rawQuery } from "@/lib/db";
+import { sets, insertSets, players, playerAppearances } from "@/lib/schema";
+import { eq, sql, count } from "drizzle-orm";
+import { SetInfoCard } from "@/components/articles/SetInfoCard";
+import { CalloutBlock } from "@/components/articles/CalloutBlock";
+import { ChaseTable } from "@/components/articles/ChaseTable";
+import { ParallelGrid } from "@/components/articles/ParallelGrid";
+import { ArticleCarousel } from "@/components/articles/ArticleCarousel";
+import { ArticleLeaderboard } from "@/components/articles/ArticleLeaderboard";
 
 export async function generateStaticParams() {
   return articles.map((a) => ({ id: a.id }));
@@ -40,7 +50,112 @@ function isYouTube(url: string): string | null {
   return m ? m[1] : null;
 }
 
-function ArticleContent({ section }: { section: ArticleSection }) {
+// ── Fetch helpers for rich blocks ────────────────────────────────────────────
+
+async function fetchSetInfo(setId: number) {
+  const setRow = await db.query.sets.findFirst({
+    where: (t, { eq }) => eq(t.id, setId),
+  });
+  if (!setRow) return null;
+
+  const [cardCountResult] = await db
+    .select({ count: sql<number>`cast(count(*) as integer)` })
+    .from(playerAppearances)
+    .innerJoin(players, eq(players.id, playerAppearances.playerId))
+    .where(eq(players.setId, setId));
+
+  const [insertSetCountResult] = await db
+    .select({ count: sql<number>`cast(count(*) as integer)` })
+    .from(insertSets)
+    .where(eq(insertSets.setId, setId));
+
+  const [athleteCountResult] = await db
+    .select({ count: sql<number>`cast(count(*) as integer)` })
+    .from(players)
+    .where(eq(players.setId, setId));
+
+  const boxConfig = setRow.boxConfig ? JSON.parse(setRow.boxConfig) : {};
+  const boxTypeCount = Object.keys(boxConfig).length;
+
+  return {
+    name: setRow.name,
+    sport: setRow.sport,
+    league: setRow.league,
+    season: setRow.season,
+    tier: setRow.tier,
+    sampleImageUrl: setRow.sampleImageUrl,
+    cardCount: cardCountResult.count,
+    insertSetCount: insertSetCountResult.count,
+    athleteCount: athleteCountResult.count,
+    boxTypeCount,
+  };
+}
+
+async function fetchLeaderboard(setId: number) {
+  const rows = await rawQuery.all<{
+    name: string;
+    team: string | null;
+    isRookie: number;
+    totalCards: number;
+    autographs: number;
+  }>(
+    `SELECT
+      p.name,
+      MAX(pa.team) AS team,
+      CAST(MAX(CASE WHEN pa.is_rookie = 1 THEN 1 ELSE 0 END) AS INTEGER) AS isRookie,
+      p.unique_cards AS totalCards,
+      COUNT(DISTINCT CASE
+        WHEN lower(i.name) LIKE '%auto%'
+          OR lower(i.name) LIKE '%signature%'
+          OR lower(i.name) LIKE '%autograph%'
+        THEN pa.insert_set_id END) AS autographs
+    FROM players p
+    LEFT JOIN player_appearances pa ON pa.player_id = p.id
+    LEFT JOIN insert_sets i ON i.id = pa.insert_set_id
+    WHERE p.set_id = ?
+    GROUP BY p.id
+    ORDER BY p.unique_cards DESC`,
+    setId
+  );
+
+  return rows.map((r) => ({
+    name: r.name,
+    team: r.team,
+    isRookie: !!r.isRookie,
+    totalCards: r.totalCards,
+    autographs: r.autographs,
+  }));
+}
+
+// ── Collect all setIds that need data fetching ───────────────────────────────
+
+async function prefetchArticleData(content: ArticleSection[]) {
+  const setInfoMap = new Map<number, Awaited<ReturnType<typeof fetchSetInfo>>>();
+  const leaderboardMap = new Map<number, Awaited<ReturnType<typeof fetchLeaderboard>>>();
+
+  for (const block of content) {
+    if (block.type === "set-info" && block.setId && !setInfoMap.has(block.setId)) {
+      setInfoMap.set(block.setId, await fetchSetInfo(block.setId));
+    }
+    if (block.type === "leaderboard" && block.setId && !leaderboardMap.has(block.setId)) {
+      leaderboardMap.set(block.setId, await fetchLeaderboard(block.setId));
+    }
+  }
+
+  return { setInfoMap, leaderboardMap };
+}
+
+// ── Block renderer ───────────────────────────────────────────────────────────
+
+function ArticleContent({
+  section,
+  setInfoMap,
+  leaderboardMap,
+}: {
+  section: ArticleSection;
+  setInfoMap: Map<number, Awaited<ReturnType<typeof fetchSetInfo>>>;
+  leaderboardMap: Map<number, Awaited<ReturnType<typeof fetchLeaderboard>>>;
+}) {
   switch (section.type) {
     case "h2":
       return (
@@ -182,6 +297,36 @@ function ArticleContent({ section }: { section: ArticleSection }) {
         </div>
       );
     }
+    // ── Rich block types ───────────────────────────────────────────────────
+    case "set-info": {
+      const data = section.setId ? setInfoMap.get(section.setId) : null;
+      if (!data) return null;
+      return <SetInfoCard data={data} />;
+    }
+    case "callout":
+      return (
+        <CalloutBlock
+          variant={section.variant ?? "info"}
+          label={section.label ?? ""}
+          text={section.text ?? ""}
+        />
+      );
+    case "chase-table":
+      return <ChaseTable cards={section.cards ?? []} />;
+    case "parallel-grid":
+      return <ParallelGrid parallels={section.parallels ?? []} />;
+    case "carousel":
+      return <ArticleCarousel slides={section.slides ?? []} />;
+    case "leaderboard": {
+      const athletes = section.setId ? leaderboardMap.get(section.setId) : null;
+      if (!athletes) return null;
+      return (
+        <ArticleLeaderboard
+          athletes={athletes}
+          defaultFilter={section.defaultFilter ?? "all"}
+        />
+      );
+    }
     default:
       return null;
   }
@@ -197,6 +342,7 @@ export default async function ArticlePage({
   if (!article) notFound();
 
   const { prev, next } = getAdjacentArticles(id);
+  const { setInfoMap, leaderboardMap } = await prefetchArticleData(article.content);
 
   return (
     <PageShell
@@ -254,7 +400,12 @@ export default async function ArticlePage({
         {/* Article body */}
         <div>
           {article.content.map((section, i) => (
-            <ArticleContent key={i} section={section} />
+            <ArticleContent
+              key={i}
+              section={section}
+              setInfoMap={setInfoMap}
+              leaderboardMap={leaderboardMap}
+            />
           ))}
         </div>
 

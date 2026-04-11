@@ -6,7 +6,8 @@
 // - Links use the "link" section type with href and text fields.
 
 export interface ArticleSection {
-  type: "h2" | "h3" | "h4" | "p" | "image" | "video" | "ul" | "ol" | "link" | "table";
+  type: "h2" | "h3" | "h4" | "p" | "image" | "video" | "ul" | "ol" | "link" | "table"
+    | "set-info" | "callout" | "chase-table" | "parallel-grid" | "carousel" | "leaderboard";
   text?: string;
   html?: boolean; // when true, "p" renders with dangerouslySetInnerHTML
   src?: string;
@@ -16,6 +17,37 @@ export interface ArticleSection {
   href?: string;
   headers?: string[];
   rows?: string[][];
+  // set-info
+  setId?: number;
+  // callout
+  variant?: "tip" | "warning" | "exclusive" | "info";
+  label?: string;
+  // chase-table
+  cards?: Array<{
+    rank: number;
+    cardName: string;
+    athlete: string;
+    printRun: string;
+    boxType: string;
+    odds: string;
+  }>;
+  // parallel-grid
+  parallels?: Array<{
+    name: string;
+    printRun: string;
+    boxType: string;
+    odds: string;
+    color: string;
+    formats: string[];
+  }>;
+  // carousel
+  slides?: Array<{
+    src: string;
+    caption: string;
+    subcaption?: string;
+  }>;
+  // leaderboard
+  defaultFilter?: "all" | "autographs" | "rookies";
 }
 
 export interface Article {
@@ -32,6 +64,369 @@ export interface Article {
 }
 
 export const articles: Article[] = [
+  {
+    id: "2026-topps-chrome-wwe-release-guide",
+    title: "2026 Topps Chrome WWE: Complete Release Guide",
+    publishedAt: "2026-04-10",
+    description:
+      "Everything you need to know about the 2026 Topps Chrome WWE release, including seven box formats, parallel ecosystems, autograph highlights, exclusive inserts, and the rarest pulls across Hobby, First Day Issue, Breaker's Delight, Value, Mega, Logofractor, and Sapphire.",
+    heroImage: "/sets/2026-topps-chrome-wwe.jpg",
+    tags: ["topps chrome", "wrestling", "wwe", "release guide", "2026"],
+    setId: 48,
+    tldr: "2026 Topps Chrome WWE releases April 10, 2026 across seven box formats: Hobby, First Day Issue, Breaker's Delight, Value, Mega, Logofractor, and Sapphire. The product features a 301-card base set, 44 base parallel variations with format-exclusive parallels, a massive autograph program spanning Chrome Autographs, Brand Autographs, premium sets, anniversary tributes, and ultra-rare Main Roster Debut Patch Autographs numbered 1/1. Each box type has its own exclusive parallel ecosystem and insert access, making format selection a key part of the collecting strategy.",
+    content: [
+      // ── SET INFO CARD ──────────────────────────────────────────────────────
+      {
+        type: "set-info",
+        setId: 48,
+      },
+
+      // ── INTRO ──────────────────────────────────────────────────────────────
+      {
+        type: "p",
+        html: true,
+        text: '2026 Topps Chrome WWE lands on April 10, 2026, bringing the signature chromium finish of the Topps Chrome brand to the biggest names, rising stars, and all-time legends of sports entertainment. The product spans seven box formats, a 301-card base set, and one of the most complete autograph programs in any wrestling card release. Whether you are chasing a Rey Mysterio Red Brand Autograph, hunting a Stephanie Vaquer Main Roster Debut Patch Auto 1/1, or targeting a Dual Auto of The Miz and Maryse, there is something in this release for every level of collector. <a href="/sets/48">View the full checklist on Checklist\u00b2</a>, check out the <a href="https://ripped.topps.com/2026-topps-chrome-wwe-collector-guide/" target="_blank" rel="noopener noreferrer">Topps Ripped collector guide</a>, or visit the <a href="https://www.topps.com/pages/wwe-chrome" target="_blank" rel="noopener noreferrer">official Topps WWE Chrome page</a> for product details.',
+      },
+      {
+        type: "p",
+        text: "According to Topps Art Director Aaron Masik, the primary inspiration behind the design was to create an authentic WWE experience. The goal was to capture the essence of the WWE brand and the Superstars' personas that are showcased during Raw, SmackDown, NXT, and other programming, with Chrome's reflective finish amplifying those visuals in a way that mirrors the larger-than-life atmosphere of live WWE events.",
+      },
+
+      // ── IMAGE CAROUSEL ─────────────────────────────────────────────────────
+      {
+        type: "carousel",
+        slides: [
+          { src: "/articles/chrome-wwe/26CWWE_4007_FR.jpg", caption: "Helix", subcaption: "Seth Rollins" },
+          { src: "/articles/chrome-wwe/26CWWE_3714_FR.jpg", caption: "Signalz", subcaption: "Jacob Fatu" },
+          { src: "/articles/chrome-wwe/26CWWE_4302_FR.jpg", caption: "Feel the Pop!", subcaption: "Rhea Ripley" },
+          { src: "/articles/chrome-wwe/26CWWE_4205_FR.jpg", caption: "Let's Go", subcaption: "Penta" },
+          { src: "/articles/chrome-wwe/26CWWE_7030_FR.jpg", caption: "Red Brand Autograph", subcaption: "Rey Mysterio" },
+          { src: "/articles/chrome-wwe/26CWWE_5906_FR.jpg", caption: "Dual Autograph", subcaption: "The Miz and Maryse" },
+          { src: "/articles/chrome-wwe/26CWWE_4416_FR.jpg", caption: "Garbage Pail Kids", subcaption: "Popped Roxanne (Roxanne Perez)" },
+          { src: "/articles/chrome-wwe/26CWWE_8006_FR.jpg", caption: "Main Roster Debut Patch Auto 1/1", subcaption: "Stephanie Vaquer" },
+        ],
+      },
+
+      // ── RELEASE DATE AND BOX FORMATS ───────────────────────────────────────
+      {
+        type: "h2",
+        text: "Release Date and Box Formats",
+      },
+      {
+        type: "p",
+        text: "2026 Topps Chrome WWE releases across all formats on April 10, 2026. Seven distinct box types are available, each with its own configuration, exclusive parallels, and targeted insert content. Here is a breakdown of what to expect from each format.",
+      },
+      {
+        type: "callout",
+        variant: "tip",
+        label: "Breaker tip",
+        text: "Breaker's Delight boxes are the only format where Geometric Refractor parallels appear across both base and autograph cards. If you run team breaks, this is your format.",
+      },
+      {
+        type: "h3",
+        text: "Hobby Box: 12 Packs, 2 Autos",
+      },
+      {
+        type: "p",
+        text: "Hobby boxes contain 12 packs per box and 8 cards per pack, with 12 boxes per case. Each box guarantees 2 autographs, 12 base refractors, 12 inserts, and 4 numbered parallels. Hobby is the primary format for insert collectors, featuring Scope, Viral Shock, Women's Division, Austin 3:16, The Rock Diamond Legacy, Platinum Punk, Family Tree, Embedded, House of Cards, Feel the Pop!, and the Garbage Pail Kids crossover. Hobby-exclusive parallels include Prism Refractor, Negative Refractor, Sonar Refractor, Steel Cage Refractor, and the FrozenFractor numbered to 5.",
+      },
+      {
+        type: "h3",
+        text: "First Day Issue Box: FDI Exclusive Parallels",
+      },
+      {
+        type: "p",
+        text: "First Day Issue boxes mirror the Hobby configuration at 12 packs per box and 8 cards per pack, with 12 boxes per case and 2 autographs per box. FDI adds an exclusive First Day Issue parallel found only in this format alongside Hobby parallel types including Prism, Negative, Sonar, and Steel Cage.",
+      },
+      {
+        type: "h3",
+        text: "Breaker's Delight Box: Geometric Refractors Exclusive",
+      },
+      {
+        type: "p",
+        text: "Built for live breaking, the Breaker's Delight box contains 1 pack with 12 cards and 6 boxes per case. This is the only format where Geometric Refractor parallels appear, running across both base cards and autographs in Blue, Gold, Orange, Purple, Red, and Black Geometric tiers. All major Hobby insert sets are available in Breaker's Delight as well.",
+      },
+      {
+        type: "h3",
+        text: "Value Box: RayWave and Diamond Plate Refractors",
+      },
+      {
+        type: "p",
+        text: "Value boxes ship 7 packs per box at 4 cards per pack, with 40 boxes per case. The Value format is built around the RayWave Refractor parallel in Pink, Blue, Purple, Gold, Orange, Black, and Red, alongside the Diamond Plate Refractor available only here. Wrestlemania Recall, Eras of Excellence, and Focus Reel inserts round out the Value content.",
+      },
+      {
+        type: "h3",
+        text: "Mega Box: X-Fractor and Mini Diamond Refractors",
+      },
+      {
+        type: "p",
+        text: "Mega boxes contain 6 packs at 8 cards per pack, with 20 boxes per case. The X-Fractor parallel is exclusive to Mega, alongside Mini Diamond Refractors in Pink, Blue, Purple, Gold, Orange, Black, and Red. Wrestlemania Recall, Eras of Excellence, and Focus Reel are also available here.",
+      },
+      {
+        type: "h3",
+        text: "Logofractor Box: WWE Logo-Embedded Parallels",
+      },
+      {
+        type: "p",
+        text: "Logofractor boxes are built entirely around WWE Logofractor parallels. Logo-embedded base cards and insert parallels are unavailable anywhere else in the product. Tiers include base WWE Logofractor, Green, Gold, Orange, Black, Red, and the rare Rose Gold WWE Logofractor. Wrestlemania Recall and Eras of Excellence carry their own exclusive Logofractor parallel versions.",
+      },
+      {
+        type: "h3",
+        text: "Sapphire Box: Standalone Sapphire Ecosystem",
+      },
+      {
+        type: "p",
+        text: "Sapphire boxes offer 8 packs at 8 cards per pack and 20 boxes per case. The format runs a completely separate parallel line including base Sapphire, Yellow, Gold, Orange, Black, Red, and the ultra-rare Padparadscha Sapphire. Sapphire autograph parallels span all major autograph sets. Sapphire Selections and Infinite inserts are exclusive to this format.",
+      },
+
+      // ── BASE SET AND PARALLELS ─────────────────────────────────────────────
+      {
+        type: "h2",
+        text: "Base Set and Parallels",
+      },
+      {
+        type: "p",
+        text: "The base set spans 301 cards across three tiers. Base Cards I runs numbers 1 through 100 covering current Raw and Smackdown talent alongside Legends. Base Cards II runs 101 through 200, going deeper into NXT and additional legends. Card 301 is a single-card Tier III entry: Joe Hendry, the NXT Rookie of the set. Two Hobby and FDI exclusive image variation subsets appear as well. Alternate Persona Image Variations (numbers 201 through 225) feature alternate character versions like Rocky Maivia, The Prototype, The Demon Finn Balor, and Walter. Iconic Imprints (numbers 226 through 300) offer alternate photography of base set wrestlers.",
+      },
+      {
+        type: "p",
+        html: true,
+        text: 'The standard parallel structure runs across most formats with the following numbered tiers: Magenta /399, Teal /299, Yellow /275, Pink /250, Aqua /199, Blue /150, Green /99, Purple /75, Gold /50, Orange /25, Black /10, Red /5, and Superfractor 1/1. Each box format layers its own exclusive parallels on top of this foundation. For a full breakdown of pull rates by box type, visit the <a href="https://dknetwork.draftkings.com/2026/04/10/2026-topps-chrome-wwe-checklist/" target="_blank" rel="noopener noreferrer">DraftKings Network breakdown</a>.',
+      },
+      {
+        type: "parallel-grid",
+        parallels: [
+          { name: "Refractor", printRun: "Unlimited", boxType: "All formats", odds: "1:3 hobby", color: "#A8A8A8", formats: ["hobby", "fdi", "mega", "value", "sapphire", "breakers"] },
+          { name: "Prism Refractor", printRun: "Unlimited", boxType: "Hobby/FDI only", odds: "1:4 hobby", color: "#B5D4F4", formats: ["hobby", "fdi"] },
+          { name: "X-Fractor", printRun: "Unlimited", boxType: "Mega only", odds: "1:1 mega", color: "#888780", formats: ["mega"] },
+          { name: "RayWave Refractor", printRun: "/150-/5", boxType: "Value only", odds: "1:88 blue", color: "#85B7EB", formats: ["value"] },
+          { name: "Geometric Refractor", printRun: "Unlimited", boxType: "Breaker's Delight only", odds: "1:1 breakers", color: "#7F77DD", formats: ["breakers"] },
+          { name: "Sapphire", printRun: "Unlimited", boxType: "Sapphire only", odds: "1:1 sapphire", color: "#185FA5", formats: ["sapphire"] },
+          { name: "Gold Refractor", printRun: "/50", boxType: "All formats", odds: "1:103 hobby", color: "#C9A84C", formats: ["hobby", "fdi", "mega", "value", "sapphire", "breakers"] },
+          { name: "Red Refractor", printRun: "/5", boxType: "All formats", odds: "1:1028 hobby", color: "#E24B4A", formats: ["hobby", "fdi", "mega", "value", "sapphire", "breakers"] },
+          { name: "FrozenFractor", printRun: "/5", boxType: "Hobby/FDI only", odds: "1:514 hobby", color: "#2C2C2A", formats: ["hobby", "fdi"] },
+          { name: "Padparadscha Sapphire", printRun: "/1", boxType: "Sapphire only", odds: "1:399 sapphire", color: "#D4537E", formats: ["sapphire"] },
+          { name: "WWE Logofractor", printRun: "Unlimited", boxType: "Logofractor only", odds: "1:1 logofractor", color: "#C9A84C", formats: ["logofractor"] },
+        ],
+      },
+
+      // ── EXCLUSIVE INSERTS ──────────────────────────────────────────────────
+      {
+        type: "h2",
+        text: "Exclusive Inserts and Where to Find Them",
+      },
+      {
+        type: "p",
+        text: "A number of inserts are locked to specific formats. Here is what lives where.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Scope, Viral Shock, Women's Division, Austin 3:16, Rock Diamond Legacy, Platinum Punk, Family Tree, Embedded, House of Cards, Feel the Pop!, GPK: Hobby and First Day Issue",
+          "Geometric Refractor parallels (base and autos): Breaker's Delight only",
+          "RayWave and Diamond Plate Refractors: Value only",
+          "X-Fractor and Mini Diamond Refractors: Mega only",
+          "WWE Logofractor parallels: Logofractor only",
+          "Sapphire parallels, Sapphire Selections, Infinite: Sapphire only",
+          "Wrestlemania Recall, Eras of Excellence, Focus Reel: Mega, Value, and Logofractor",
+        ],
+      },
+      {
+        type: "callout",
+        variant: "warning",
+        label: "Heads up",
+        text: "Sapphire, Logofractor, and Mega boxes do not include Scope, Viral Shock, Women's Division, GPK, Austin 3:16, or The Rock Diamond Legacy inserts. Hobby or First Day Issue boxes are the only way to pull those.",
+      },
+
+      // ── FEATURED INSERTS ───────────────────────────────────────────────────
+      {
+        type: "h2",
+        text: "Featured Inserts",
+      },
+      {
+        type: "h3",
+        text: "Austin 3:16",
+      },
+      {
+        type: "p",
+        text: "A 25-card insert dedicated entirely to Stone Cold Steve Austin. Each card captures a different moment or era of Austin's career, with chase parallels in Gold /50, Black /10, Red /5, and Superfractor 1/1. Available in Hobby and First Day Issue.",
+      },
+      {
+        type: "h3",
+        text: "The Rock Diamond Legacy",
+      },
+      {
+        type: "p",
+        text: "A 25-card tribute to Dwayne Johnson across his full WWE career. The set runs the same parallel structure as Austin 3:16 and is available in Hobby and First Day Issue boxes. It sits alongside Platinum Punk, a 20-card CM Punk tribute set with the same format and parallels.",
+      },
+      {
+        type: "h3",
+        text: "House of Cards",
+      },
+      {
+        type: "p",
+        text: "A 20-card Hobby and First Day Issue exclusive featuring WWE legends and current stars against a playing card-inspired background. The checklist includes Jacob Fatu, Tiffany Stratton, Rhea Ripley, Randy Orton, and Brock Lesnar.",
+      },
+      {
+        type: "h3",
+        text: "Family Tree",
+      },
+      {
+        type: "p",
+        text: "A 15-card dual insert featuring WWE pairs connected by real-world family ties. Highlights include Cody Rhodes and Brandi Rhodes, Seth Rollins and Becky Lynch, The Miz and Maryse, and Undertaker and Michelle McCool. Gold /50, Black /10, Red /5, and Superfractor 1/1 parallels are available.",
+      },
+      {
+        type: "h3",
+        text: "Feel the Pop!",
+      },
+      {
+        type: "p",
+        text: "A 5-card Hobby and First Day Issue exclusive capturing the biggest crowd reactions in WWE history. The checklist includes CM Punk, Cody Rhodes, Roman Reigns, Rhea Ripley, and Undertaker.",
+      },
+      {
+        type: "h3",
+        text: "Signalz and Gamut",
+      },
+      {
+        type: "p",
+        text: "Signalz is a 30-card insert running across all major formats, featuring bold graphic compositions of the product's biggest names. Gamut covers 20 cards and is also available broadly. Both sets appear in Hobby, First Day Issue, Breaker's Delight, Mega, Value, and Logofractor boxes.",
+      },
+      {
+        type: "h3",
+        text: "Helix and Let's Go",
+      },
+      {
+        type: "p",
+        text: "Two of the rarest inserts in the product. Helix is a 7-card set featuring Seth Rollins, Jacob Fatu, John Cena, Roman Reigns, Stephanie Vaquer, Brock Lesnar, and Joe Hendry. Let's Go covers 5 cards: Jacob Fatu, LA Knight, Rhea Ripley, Bianca Belair, and Penta. Both carry Superfractor 1/1 parallels exclusive to Hobby and Breaker's Delight. Pull rates for both sets are extremely low.",
+      },
+      {
+        type: "h3",
+        text: "Garbage Pail Kids",
+      },
+      {
+        type: "p",
+        text: "The GPK crossover returns with 25 cards pairing WWE superstars with illustrated Garbage Pail Kids alternate character names. The set includes characters like Potty Mouth Punk for CM Punk, Ripped Rhea for Rhea Ripley, Reptilian Randy for Randy Orton, Roman Empire for Roman Reigns, and Popped Roxanne for Roxanne Perez. GPK autograph parallels run Black /10, Red /5, and Superfractor 1/1. The set is available across all major formats with significantly different pull rates by box type.",
+      },
+      {
+        type: "h3",
+        text: "Wrestlemania Recall, Eras of Excellence, and Focus Reel",
+      },
+      {
+        type: "p",
+        text: "Three retail and Logofractor-targeted insert sets round out the insert program. Wrestlemania Recall is a 15-card nostalgia set featuring legends from WrestleMania history including Don Muraco, British Bulldog, Hulk Hogan, and Jake The Snake Roberts. Eras of Excellence spans 40 cards covering every generation of WWE from Shawn Michaels and Stone Cold to Rhea Ripley and CM Punk. Focus Reel covers 40 current stars and NXT talent including Jordynne Grace, Giulia, Tiffany Stratton, and Bron Breakker.",
+      },
+
+      // ── AUTOGRAPH PROGRAM ──────────────────────────────────────────────────
+      {
+        type: "callout",
+        variant: "exclusive",
+        label: "Box exclusive",
+        text: "Main Roster Debut Patch Autographs are all numbered 1/1 and only available in Hobby and First Day Issue boxes. Five cards total: Giulia, JC Mateo, Roxanne Perez, Sol Ruca, and Stephanie Vaquer.",
+      },
+      {
+        type: "h2",
+        text: "Autograph Program",
+      },
+      {
+        type: "chase-table",
+        cards: [
+          { rank: 1, cardName: "Main Roster Debut Patch Auto", athlete: "Stephanie Vaquer", printRun: "/1", boxType: "Hobby / FDI", odds: "1:495,360" },
+          { rank: 2, cardName: "Chrome Auto Superfractor", athlete: "The Rock", printRun: "/1", boxType: "All formats", odds: "1:9,380" },
+          { rank: 3, cardName: "Dual Auto", athlete: "Cena / The Rock", printRun: "/10", boxType: "Hobby / FDI", odds: "1:95,600" },
+          { rank: 4, cardName: "Red Refractor Auto", athlete: "CM Punk", printRun: "/5", boxType: "All formats", odds: "1:1,872" },
+          { rank: 5, cardName: "Best In The World Auto Superfractor", athlete: "CM Punk", printRun: "/1", boxType: "Hobby / FDI", odds: "1:860,400" },
+        ],
+      },
+      {
+        type: "h3",
+        text: "Chrome Autographs",
+      },
+      {
+        type: "p",
+        text: "The base Chrome Autograph set covers 91 wrestlers from across Raw, Smackdown, NXT, and the Legends category. The checklist spans from John Cena, The Rock, Undertaker, and Shawn Michaels to current stars like Becky Lynch, CM Punk, Seth Rollins, and Rhea Ripley, plus legends like Lita, Trish Stratus, Kevin Nash, and Rikishi. Parallels run from Blue /150 to Superfractor 1/1, with Geometric Refractor variants exclusive to Breaker's Delight and Sapphire variants in the Sapphire box.",
+      },
+      {
+        type: "h3",
+        text: "Brand Autograph Sets",
+      },
+      {
+        type: "p",
+        text: "Three brand-specific sets divide the checklist by show. Red Brand Autographs covers 36 Raw wrestlers, Blue Brand Autographs covers 32 Smackdown wrestlers, and NXT Autographs covers 24 NXT talents. Each carries Refractor, Blue /150, Gold /50, Orange /25, Black /10, Red /5, and Superfractor 1/1 parallels alongside format-exclusive Sapphire and Geometric tiers.",
+      },
+      {
+        type: "h3",
+        text: "Marks of Champions",
+      },
+      {
+        type: "p",
+        text: "A 15-card autograph set dedicated to WWE champions including The Rock, Rhea Ripley, Seth Rollins, Oba Femi, Undertaker, and Tiffany Stratton. Parallels include Gold /50, Orange /25, Black /10, Red /5, and Superfractor 1/1.",
+      },
+      {
+        type: "h3",
+        text: "Hall of Fame, Legendary Chrome, and Main Event Autographs",
+      },
+      {
+        type: "p",
+        text: "Hall of Fame Autographs covers 10 legends including Bret Hit Man Hart, Lex Luger, Michelle McCool, Paul Heyman, and Triple H. Legendary Chrome Autographs highlights 12 beloved legends including Hornswoggle, Hillbilly Jim, Wade Barrett, and Koko B. Ware. Main Event Autographs brings together 14 main event stars from Gunther and CM Punk to Undertaker and Stone Cold Steve Austin.",
+      },
+      {
+        type: "h3",
+        text: "Dual Autographs and Anniversary Sets",
+      },
+      {
+        type: "p",
+        text: "Dual Autographs feature 10 pairings all numbered to 10 and exclusive to Hobby and FDI, with highlights including John Cena and The Rock, Seth Rollins and Becky Lynch, Lita and Trish Stratus, and The Miz and Maryse. Multiple anniversary sets are also exclusive to Hobby and FDI: Stone Cold Steve Austin 30th Anniversary, CM Punk 20th Anniversary, The Rock 30th Anniversary, NWO 30th Anniversary, Lita 25th Anniversary, Trish Stratus 25th Anniversary, and Dudley Boyz 30th Anniversary. Additional one-of-a-kind specialty autographs include Best In The World (CM Punk), The People's Champ (The Rock), Beast Incarnate (Brock Lesnar), and Say His Name (Joe Hendry).",
+      },
+      {
+        type: "h3",
+        text: "Iconic Imprints and Alternate Persona Autographs",
+      },
+      {
+        type: "p",
+        text: "Two Hobby-exclusive autograph variation sets run alongside the image variation base cards. Iconic Imprint Autographs cover 61 wrestlers all numbered to 10, and Alternate Persona Autographs cover all 25 Alternate Persona cards also numbered to 10. Both carry Red /5 and Superfractor 1/1 parallels, making them among the scarcest autographs in the product.",
+      },
+      {
+        type: "h3",
+        text: "Main Roster Debut Patch Autographs",
+      },
+      {
+        type: "p",
+        text: "The rarest cards in the product. Five Main Roster Debut Patch Autographs are each numbered 1/1: Giulia, JC Mateo, Roxanne Perez, Sol Ruca, and Stephanie Vaquer. Each card pairs an autograph with an authentic match-used patch from the wrestler's main roster debut. These are the defining grail cards of the 2026 Chrome WWE release.",
+      },
+
+      // ── BUYBACKS ───────────────────────────────────────────────────────────
+      {
+        type: "h2",
+        text: "Buybacks",
+      },
+      {
+        type: "p",
+        text: "Two 2025 Topps Chrome WWE buyback cards are included in the product: Jey Uso (card 106) and Tiffany Stratton (card 182). Buyback parallels run from X-Fractor through Prism, Sepia, Refractor, Pink Shimmer, Neon Green and Black, Red and Blue, Purple, and include autograph buybacks as extremely rare pulls.",
+      },
+
+      // ── ATHLETE LEADERBOARD ────────────────────────────────────────────────
+      {
+        type: "h2",
+        text: "Athlete Leaderboard",
+      },
+      {
+        type: "leaderboard",
+        setId: 48,
+        defaultFilter: "all",
+      },
+
+      // ── FINAL THOUGHTS ─────────────────────────────────────────────────────
+      {
+        type: "h2",
+        text: "Final Thoughts",
+      },
+      {
+        type: "p",
+        html: true,
+        text: '2026 Topps Chrome WWE is a comprehensive release that rewards collectors at every budget and format preference. The combination of a 301-card base set, seven box formats with exclusive parallel ecosystems, legendary and current star autograph programs, anniversary tribute sets, and the ultra-rare Main Roster Debut Patch Autographs makes it one of the most layered wrestling card products in recent memory. <a href="/sets/48">View the complete checklist on Checklist\u00b2</a> and find full product details on the <a href="https://www.topps.com/pages/wwe-chrome" target="_blank" rel="noopener noreferrer">official Topps WWE Chrome page</a>.',
+      },
+    ],
+  },
   {
     id: "2025-26-topps-chrome-ucc-release-guide",
     title: "2025-26 Topps Chrome UEFA Club Competitions: Complete Release Guide",
