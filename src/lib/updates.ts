@@ -12,6 +12,27 @@ export interface Update {
 }
 
 export const updates: Update[] = [
+  // ─── April 11, 2026 ──────────────────────────────────────────────────────
+  {
+    id: "097-disneyland-70th-2025",
+    title: "New Set: 2025 Topps Disneyland 70th Anniversary",
+    date: "2026-04-11T12:00:00Z",
+    summary: "Full checklist added for 2025 Topps Disneyland 70th Anniversary with 498 cards across 23 insert sets, 480 unique subjects, and pack odds for Hobby, Value, and Disneyland Exclusive formats.",
+    description: `## 2025 Topps Disneyland 70th Anniversary
+
+Complete checklist now available with box configurations and pack odds across three formats.
+
+- **150 Base Cards** across four subsets: Then And Now (82), Timeline (17), Snack Time (18), and Concept Art (33) with Rainbow Foil, Green /199, Aqua Electric Dots /150, Blue /99, 70th Anniversary /70, Gold /50, Orange /25, Black /10, Red /5, and Foilfractor /1
+- **Attraction Autographs** (19 cards) featuring voice actors including Bret Iwan (Mickey Mouse), Tim Allen (Buzz Lightyear), and Margaret Kerry (Tinker Bell)
+- **1955 Topps Disneyland Icons Autographs** (18 cards) with the same voice actor roster in retro design
+- **Enchanted Relics** (56 cards) featuring authentic Disney memorabilia including Disney Dollars, vintage tickets, cast member costumes, and park banners
+- **Chrome Insert Sets**: 1977 Star Tours (/87), Eighth Wonder (/55), Tomorrowland Cosmic (/77), It's A Small World, A Pirate's Life, Entrance To Magic, Welcome Foolish Mortals, Greetings From The Tiki Room
+- **Additional Inserts**: 1954 Disneyland On Wheels, 1955 Disneyland Icons, From Silver Screen To Main Street, Posters, The Lands, Character Nametags (/70)
+- **Sketch Cards** (77 artists), Collector's Pin Relic Redemption
+- **Pack odds** across Hobby (91 entries), Value (87 entries), and Disneyland Exclusive (104 entries)`,
+    tags: ["checklist", "box-config", "odds"],
+    setId: 50,
+  },
   // ─── April 10, 2026 ──────────────────────────────────────────────────────
   {
     id: "096-chrome-wwe-2026-odds",
