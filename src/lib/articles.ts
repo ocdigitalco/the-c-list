@@ -442,11 +442,11 @@ export const articles: Article[] = [
     title: "2025-26 Topps Chrome UEFA Club Competitions: Complete Release Guide",
     publishedAt: "2026-04-03",
     description:
-      "Everything you need to know about the 2025-26 Topps Chrome UEFA Club Competitions release, including box formats, parallel styles, autograph highlights, and exclusive inserts across six box types.",
+      "Full odds analysis, production numbers, cost-per-hit breakdown, and format guide for the 2025-26 Topps Chrome UEFA Club Competitions release across all ten box types.",
     heroImage: "/articles/chrome-ucc/2025-26-Topps-Chrome-UEFA-Club-Competitions-Soccer.jpg",
-    tags: ["topps chrome", "soccer", "uefa", "release guide", "2026"],
+    tags: ["topps chrome", "soccer", "uefa", "release guide", "odds analysis", "2026"],
     setId: 43,
-    tldr: "The 2025-26 Topps Chrome UEFA Club Competitions rolls out across six box formats from May 5 to May 25, 2026. The product features a 200-card base set, a deep autograph program including Dual, Triple, and Quad Autographs, format-exclusive inserts and parallels, and ultra-rare hits like The Grail (only 2 Zlatan Ibrahimovic cards exist in the entire production run). Each box type has its own parallel ecosystem and exclusive inserts, making format selection a key part of the collecting strategy.",
+    tldr: "The 2025-26 Topps Chrome UEFA Club Competitions rolls out across ten box formats from May 5 to May 25, 2026. Total production: 27.7 million cards. The product features a 200-card base set, the deepest autograph program in any soccer release, format-exclusive parallels and inserts, and ultra-rare hits like The Grail. At entry price, almost every format is worth considering. The only one to avoid is Hangers if you care about significant hit potential. Full odds analysis by u/bigfootsquatch_cards on Reddit.",
     content: [
       // ── SET INFO CARD ──────────────────────────────────────────────────────
       {
@@ -458,11 +458,13 @@ export const articles: Article[] = [
       {
         type: "p",
         html: true,
-        text: 'The 2025-26 Topps Chrome UEFA Club Competitions is one of the most anticipated soccer card releases of 2026. Staggered across six box formats between May 5 and May 25, the product features a 200-card base set spanning current stars and legends, a massive autograph program, and a parallel system that varies by box type. Whether you are chasing a Jobe Bellingham Radiating Rookie, hunting a Lionel Messi Superior Signatures 1/1, or targeting a Piece of Club History booklet, this is a release with something for every level of collector. <a href="/sets/43">View the full checklist for this set on Checklist\u00b2</a>, check out the <a href="https://www.checklistinsider.com/2025-26-topps-chrome-uefa" target="_blank" rel="noopener noreferrer">full checklist at Checklist Insider</a>, and find product details on the <a href="https://www.topps.com/pages/topps-chrome-uefa-club-competitions" target="_blank" rel="noopener noreferrer">official Topps product page</a>.',
+        text: 'This is one of the most analytically complete soccer card releases in recent memory. Full odds sheet. No missing chunks. Real production numbers. Real math. The 2025-26 Topps Chrome UEFA Club Competitions is Topps\' flagship Chrome soccer release of the year, and the numbers back up the hype. <a href="/sets/43">View the full checklist on Checklist\u00b2</a>. Full odds analysis originally published by u/bigfootsquatch_cards on Reddit, <a href="https://www.reddit.com/r/sportscards/comments/1sefhug/202526_topps_chrome_uefa_club_competitions/" target="_blank" rel="noopener noreferrer">read the original post here</a>.',
       },
       {
-        type: "p",
-        text: "This guide covers every box format, the full parallel system, exclusive inserts by box type, and the standout autograph hits you should be looking for. If you are planning your purchasing strategy or just want to understand the product before ripping, this is the place to start.",
+        type: "callout",
+        variant: "tip",
+        label: "The bottom line",
+        text: "Soccer releases from Topps are on a heater right now. Paper UCC Flagship Hobby is sitting around $200/box on the secondary market, a less desirable product. Chrome isn't staying at $210 for long. At entry price, almost every format is worth considering. The only one to avoid is Hangers if you care about significant hit potential.",
       },
 
       // ── IMAGE CAROUSEL ─────────────────────────────────────────────────────
@@ -482,80 +484,34 @@ export const articles: Article[] = [
         ],
       },
 
-      // ── RELEASE DATES AND BOX FORMATS ──────────────────────────────────────
+      // ── PRODUCTION NUMBERS ─────────────────────────────────────────────────
       {
         type: "h2",
-        text: "Release Dates and Box Formats",
+        text: "Production Numbers",
       },
       {
         type: "p",
-        text: "The release is staggered across six formats. First Day Issue boxes are the first available on May 5, 2026, followed by Hobby, Jumbo, and Breaker's Delight boxes on May 7. Logofractor boxes release May 18 and Sapphire boxes close out the window on May 25. Beyond the hobby and premium boxes, retail options include Value Boxes, Hanger Packs, and Mega Boxes, each with their own exclusive parallel styles.",
+        text: "Total cards produced across all formats: 27,741,961. Total Sapphire production: 328,800 cards. For context, 2025/26 Topps UCC Flagship (non-chrome) produced 57.67 million cards. 2026 Topps Chrome Premier League produced 16.46 million. 2024/25 Topps Merlin UCC produced 11.37 million. 2026 Topps Chrome MLS produced 6.8 million. As the flagship Chrome soccer release of the year, production sits at roughly half of its corresponding flagship paper release but well ahead of other recent Chrome drops.",
       },
       {
-        type: "table",
-        headers: ["Box Type", "Release Date"],
-        rows: [
-          ["First Day Issue", "May 5, 2026"],
-          ["Hobby", "May 7, 2026"],
-          ["Jumbo", "May 7, 2026"],
-          ["Breaker's Delight", "May 7, 2026"],
-          ["Logofractor", "May 18, 2026"],
-          ["Sapphire", "May 25, 2026"],
-        ],
+        type: "p",
+        text: "Total production by format: Hobby: 110,364 boxes (9,197 cases). Jumbo: 26,360 boxes (3,295 cases). Value: 272,640 boxes (6,816 cases). Breaker's Delight: 16,074 boxes (2,679 cases). Hangers: 99,200 boxes (1,550 cases). Mega: 132,270 boxes (6,614 cases). First Day Issue: 1,068 boxes (89 cases). Fanatics Fest NYC: 2,700 boxes (225 cases). Logofractor: 30,200 boxes (1,510 cases). Sapphire: 10,275 boxes (1,028 cases).",
+      },
+
+      // ── WHAT'S IN THE BOX ──────────────────────────────────────────────────
+      {
+        type: "h2",
+        text: "What's in the Box",
+      },
+      {
+        type: "p",
+        text: "Hit rates by format, calculated directly from the published odds sheet:",
       },
       {
         type: "callout",
-        variant: "tip",
-        label: "Box guide",
-        text: "Black Lazer Autographs are exclusive to Jumbo boxes. Global Attraction Autographs are exclusive to Breaker's Delight boxes with one guaranteed per case. The First 11 insert is only in First Day Issue boxes.",
-      },
-      {
-        type: "h3",
-        text: "Hobby Box: 20 Packs, 1 Auto Guaranteed",
-      },
-      {
-        type: "p",
-        text: "Hobby boxes contain 20 packs per box across 12 boxes per case. Each box guarantees one autograph, and each case guarantees one Road to Glory autograph. Hobby is also the only format where collectors have a shot at The Grail, a pair of ultra-rare Zlatan Ibrahimovic cards. Only two exist in the entire hobby production run.",
-      },
-      {
-        type: "h3",
-        text: "Jumbo Box: 12 Packs, 3 Autos Guaranteed",
-      },
-      {
-        type: "p",
-        text: "Jumbo boxes offer 12 packs per box across 8 boxes per case, with three autographs guaranteed per box. Jumbo is the only format where Black Lazer Autographs can be found.",
-      },
-      {
-        type: "h3",
-        text: "Breaker's Delight: 1 Pack, 2 Autos Guaranteed",
-      },
-      {
-        type: "p",
-        text: "Breaker's Delight boxes are designed for live breaking, with 1 pack per box and 6 boxes per case. Each box guarantees two autographs and each case guarantees one Global Attraction Autograph. Global Attraction Autographs are exclusive to this format.",
-      },
-      {
-        type: "h3",
-        text: "First Day Issue: FDI Exclusive Autos and Parallels",
-      },
-      {
-        type: "p",
-        text: "First Day Issue boxes contain 4 cards per pack, 20 packs per box, and 12 boxes per case. Each FDI box guarantees one autograph and two FDI exclusive parallels, and each case guarantees one Road to Glory autograph. The First 11 insert set is also exclusive to this format.",
-      },
-      {
-        type: "h3",
-        text: "Logofractor: 7 Packs, Starball Universe",
-      },
-      {
-        type: "p",
-        text: "Logofractor boxes contain 7 packs per box across 20 boxes per case. The entire format is built around the Logofractor and Starball Refractor parallel ecosystem, featuring logo-embedded variations unavailable anywhere else in the product.",
-      },
-      {
-        type: "h3",
-        text: "Sapphire: 8 Packs, 1 Auto Guaranteed",
-      },
-      {
-        type: "p",
-        text: "Sapphire boxes contain 8 packs per box across 10 boxes per case with one autograph guaranteed per box. The Sapphire format features its own dedicated parallel line including Green, Purple, Gold, Orange, Black, Red Sapphire, and the ultra-rare Padparadscha.",
+        variant: "info",
+        label: "Hit rates by format",
+        text: "Hobby: 1 auto, 13.9 parallels, 9.5 inserts, 3 numbered cards | Jumbo: 3 autos, 17 parallels, 11.2 inserts, 4.2 numbered cards | Value: 1 auto per 19 boxes, 5.5 parallels, 3 inserts, 1 numbered card | Breaker's Delight: 2 autos, 8.5 parallels, 1.4 inserts, 2.7 numbered cards | Hanger: 1 auto per 62 boxes, 2.4 parallels, 1.5 inserts, 0.4 numbered cards | Mega: 1 auto per 7.5 boxes, 13 parallels, 5.9 inserts, 1.3 numbered cards | First Day Issue: 1.34 autos, 16.8 parallels, 9.5 inserts, 6 numbered cards | Fanatics Fest NYC: 1 auto, 19.6 parallels, 10.5 inserts, 3.8 numbered cards | Logofractor: 1 auto per 2 boxes, 2.45 parallels, 3.7 inserts, 2.15 numbered cards | Sapphire: 1.1 autos, 4.7 parallels, 0.4 inserts, 4.7 numbered cards (all Green /99 or better)",
       },
 
       // ── BASE SET AND PARALLELS ─────────────────────────────────────────────
@@ -565,7 +521,7 @@ export const articles: Article[] = [
       },
       {
         type: "p",
-        text: "The base set spans 200 cards covering current stars and legends across UEFA club competitions. The parallel system is one of the most varied in recent soccer card history, with each box format carrying its own identity.",
+        text: "The 200-card base set spans current stars and legends across the UEFA Club Competitions ecosystem. The parallel structure varies significantly by box type, with each format carrying its own exclusive parallel identity.",
       },
       {
         type: "parallel-grid",
@@ -584,9 +540,73 @@ export const articles: Article[] = [
           { name: "Rose Gold Starball", printRun: "/1", boxType: "Logofractor only", odds: "1:302 logofractor", color: "#E8A8B0", formats: ["logofractor"] },
         ],
       },
+
+      // ── COST PER HIT ───────────────────────────────────────────────────────
+      {
+        type: "h2",
+        text: "Cost Per Hit by Format",
+      },
       {
         type: "p",
-        text: "Standard colored Refractors including Teal, Pink, Aqua, Blue, Green, Purple, Gold, Orange, White, Black, and Red run through Hobby, Jumbo, Value, First Day Issue, and Fanatics Fest boxes. Lava Refractors share the same color spectrum but feature a distinctive lava texture and are available in Hobby, Jumbo, First Day Issue, and Fanatics Fest boxes. Mini Diamond Refractors are exclusive to Value Boxes and Hanger Packs. X-Fractors are a Mega Box exclusive. Geometric Refractors run through Breaker's Delight across base cards and autographs. Sapphire parallels include Green through Padparadscha, and Logofractor and Starball Refractors run Night Vision through Rose Gold.",
+        text: "Based on estimated box prices: Hobby $209, Jumbo $400, Value $30, Hanger $20, Mega $60, Logofractor $150, Fanatics Fest $300:",
+      },
+      {
+        type: "callout",
+        variant: "info",
+        label: "Cost per card type",
+        text: "$/parallel: Mega $4.62 | Value $5.49 | Hanger $8.47 | Hobby $15.09 | Jumbo $23.53. $/auto: Jumbo $133 | Hobby $209 | Logofractor $283 | Fanatics Fest $300 | Mega $448 | Value $567. $/numbered card: Value $30 | Mega $46 | Hanger $51 | Hobby $70 | Logofractor $70.",
+      },
+
+      // ── FORMAT BREAKDOWN ───────────────────────────────────────────────────
+      {
+        type: "h2",
+        text: "Format Breakdown",
+      },
+      {
+        type: "h3",
+        text: "Hobby and Jumbo",
+      },
+      {
+        type: "p",
+        text: "Hobby is the best format for chasing parallels and certain autos. Nearly 14 parallels per box is solid, though roughly 11 of those will be base Refractors and Prisms. Jumbo yields around 17 parallels per box with about 12 being base Refractors and Prisms, leaving 4 to 5 numbered parallels per box. Where Jumbo truly shines is autograph chasing, at the lowest cost per auto of any format at $133.",
+      },
+      {
+        type: "h3",
+        text: "Value and Mega",
+      },
+      {
+        type: "p",
+        text: "UCC Chrome does not leave retail buyers stranded. Value Boxes produce around 5.5 parallels per box with roughly 4.5 being base Refractors or RayWaves, leaving about 1 numbered card per box. Strong for chasing insert parallels. Mega boxes push harder at around 13 parallels per box, with 10 of those being X-Fractors exclusive to Megas. A full rainbow of X-Fractor variants is only available here, and Mega boxes hold their own on insert parallels.",
+      },
+      {
+        type: "callout",
+        variant: "warning",
+        label: "Avoid Hangers for hit chasing",
+        text: "Hangers are the only format worth skipping if you care about hit potential. There is zero chance to pull any of the desirable rare inserts from Hangers: no Helix, no Budapest At Night, no Veni Vidi Vici, no Grail. Even Value and Mega give you a shot at most of these. Hangers may increase in price due to casual buyers not knowing this. Don't fall for it.",
+      },
+      {
+        type: "h3",
+        text: "Fanatics Fest NYC",
+      },
+      {
+        type: "p",
+        text: "These Chrome boxes feature the Big Apple parallels alongside Shooting for the Stars inserts. Around 6 extra parallels per box compared to standard Hobby due to the Big Apple parallels, which have surprisingly low print runs. Shooting for the Stars autos appear here for the first time: base versions fall one per box but only come in Red /5 and Superfractor parallels, making them tough pulls. Expected pricing around $300 to $350 behind a raffle with strict limits. At that price, these should be highly flippable even if soccer is not your lane.",
+      },
+      {
+        type: "h3",
+        text: "Logofractor",
+      },
+      {
+        type: "p",
+        text: "On paper UCC Chrome Logofractor looks more like the earlier Logofractor releases, back when it was actually good. Averaging 2 to 3 parallels per box, an abnormal number of Logo-exclusive inserts per box, and autographs (branded as Starballs) falling roughly every other box: a more favorable rate than typical Logofractor. Note one oddity: Chrome Legends Starball autos show roughly 104 Rose Gold 1/1s despite the Legends checklist being only 65 subjects in other formats. Worth watching as data surfaces.",
+      },
+      {
+        type: "h3",
+        text: "Sapphire",
+      },
+      {
+        type: "p",
+        text: "Sapphire is Sapphire. An auto per box, a SP insert in every third box, and 4.6 parallels per box all numbered Green /99 or better. The only concern is pricing: if it releases at a friendly price point like MLS Chrome Sapphire did, there is nothing to dislike about this format.",
       },
 
       // ── EXCLUSIVE INSERTS BY BOX TYPE ──────────────────────────────────────
@@ -596,121 +616,13 @@ export const articles: Article[] = [
       },
       {
         type: "p",
-        text: "Several inserts are locked to specific formats. Knowing where to look is half the battle.",
-      },
-      {
-        type: "ul",
-        items: [
-          "Black Lazer Autographs: Jumbo boxes only",
-          "Global Attraction Autographs: Breaker's Delight boxes only",
-          "Metaverse inserts: Mega boxes only",
-          "Bionic inserts: Value boxes only (extremely rare)",
-          "Chrome Youthquake: Breaker's Delight boxes only",
-          "First 11: First Day Issue boxes only",
-          "Logofractor and Starball Refractor parallels: Logofractor boxes only",
-          "Sapphire parallels: Sapphire boxes only",
-        ],
-      },
-      {
-        type: "callout",
-        variant: "warning",
-        label: "Heads up",
-        text: "Metaverse inserts are only available in Mega boxes. Bionic inserts are only in Value boxes and are extremely rare. Sapphire parallels, Sapphire Selections, and Infinite inserts are only in Sapphire boxes. Logofractor and Starball Refractor parallels are exclusive to Logofractor boxes.",
-      },
-      {
-        type: "p",
-        text: "Additional inserts available across multiple formats include Helix, Shadow Etch, Veni Vidi Vici, Budapest at Night, Ultra Violet, Silenced, Power Players, Wonderkids, Last Dance, Bowman UEFA Youth League, Chrome Anime, and Champion Refractors. The Grail is a Hobby exclusive featuring only two Zlatan Ibrahimovic cards in the entire production run, one from his time at AFC Ajax and one from FC Internazionale Milano.",
+        text: "Several of the most desirable inserts are locked to specific formats. Knowing where to look matters:",
       },
       {
         type: "callout",
         variant: "exclusive",
-        label: "Jumbo exclusive",
-        text: "Black Lazer Autographs are only available in Jumbo boxes. The checklist includes Lionel Messi, Erling Haaland, Lamine Yamal, Jude Bellingham, Neymar Jr., Ronaldinho, and Zinedine Zidane among others.",
-      },
-
-      // ── AUTOGRAPH HIGHLIGHTS ───────────────────────────────────────────────
-      {
-        type: "h2",
-        text: "Autograph Highlights",
-      },
-      {
-        type: "p",
-        html: true,
-        text: 'The autograph program in this product is one of the deepest in any soccer release, spanning base Chrome Autos, Chrome Legends Autos, Black Lazer, Global Attraction, Road to Glory, Superior Signatures, Dual, Triple, and Quad Autographs, and Piece of Club History book cards. For a full breakdown, check out <a href="https://www.beckett.com/news/2025-26-topps-chrome-uefa-club-competitions-soccer-cards/" target="_blank" rel="noopener noreferrer">Beckett\'s coverage</a>.',
-      },
-      {
-        type: "h3",
-        text: "Chrome Autograph Cards",
-      },
-      {
-        type: "p",
-        text: "The base autograph set covers more than 100 players ranging from active stars like Jude Bellingham, Lamine Yamal, Erling Haaland, Florian Wirtz, and Mohamed Salah to legends including Lionel Messi, Ronaldo, Ronaldinho, Zinedine Zidane, and Thierry Henry.",
-      },
-      {
-        type: "h3",
-        text: "Chrome Legends Autographs",
-      },
-      {
-        type: "p",
-        text: "The Legends autograph set is entirely dedicated to historic players. The checklist includes Andres Iniesta, Paolo Maldini, Kaka, Ronaldinho, Zinedine Zidane, Luka Modric, Gareth Bale, Sergio Busquets, Ryan Giggs, Sadio Mane, and more.",
-      },
-      {
-        type: "h3",
-        text: "Black Lazer, Global Attraction, and Road to Glory Autographs",
-      },
-      {
-        type: "p",
-        text: "Black Lazer Autographs are one of the most visually striking sets in the product and are only available in Jumbo boxes. Global Attraction Autographs feature 24 of the game's biggest names and are exclusive to Breaker's Delight boxes, with one guaranteed per case. Road to Glory Autographs are available in Hobby and First Day Issue boxes with one per case guaranteed, spanning more than 70 legends across European clubs including Paolo Maldini, Frank Lampard, Gareth Bale, Toni Kroos, Raul, and many more.",
-      },
-      {
-        type: "h3",
-        text: "Superior Signatures",
-      },
-      {
-        type: "p",
-        text: "Chrome Superior Signatures are split into Veterans and Rookies, and a separate Legends tier. These are among the most premium single-autograph cards in the product, with SuperFractors numbered 1/1.",
-      },
-      {
-        type: "h3",
-        text: "Dual, Triple, and Quad Autographs",
-      },
-      {
-        type: "p",
-        text: "Multi-autograph cards are among the biggest hits in the product. Dual Autographs pair legends and current stars like Lamine Yamal and Lionel Messi, Erling Haaland and Phil Foden, and Ronaldo and Adriano. Triple Autographs include iconic trios like the MSN Barcelona combination of Messi, Suarez, and Neymar Jr., the SFM Liverpool trio of Salah, Firmino, and Mane, and the Arsenal defensive trio of William Saliba, Gabriel, and Declan Rice. Quad Autographs cover four-player groupings including the 2024 Real Madrid Champions League winners and the FC Barcelona La Masia group of Messi, Xavi, Iniesta, and Busquets.",
-      },
-      {
-        type: "h3",
-        text: "Piece of Club History Autograph Book Cards",
-      },
-      {
-        type: "p",
-        text: "The Piece of Club History Autograph Book Cards are six-autograph booklets representing five clubs: FC Bayern Munchen, FC Barcelona, Arsenal FC, AC Milan, and Liverpool FC. Each booklet spans the full arc of a club's history from icons to current stars. The Liverpool booklet for example includes Kevin Keegan, Kenny Dalglish, Jamie Carragher, Steven Gerrard, Virgil van Dijk, and Mohamed Salah on a single card.",
-      },
-
-      // ── ADDITIONAL CHASES ──────────────────────────────────────────────────
-      {
-        type: "h3",
-        text: "Ballon d'Or Buyback Autographs",
-      },
-      {
-        type: "p",
-        text: "Authenticated original Topps cards signed by past Ballon d'Or winners. These are among the most historically significant cards in the release and are numbered based on the original card's print run.",
-      },
-      {
-        type: "h3",
-        text: "Bowman 1st Edition Autographs",
-      },
-      {
-        type: "p",
-        text: "Bowman 1st Edition Autographs bring early career cards of major stars into the Chrome ecosystem. A popular crossover target for both Topps Chrome and Bowman collectors.",
-      },
-      {
-        type: "h3",
-        text: "Trophy SuperFractors",
-      },
-      {
-        type: "p",
-        text: "UCL, UEL, and UECL Trophy SuperFractors are tied to specific box types. The UCL Trophy SuperFractor is a Hobby exclusive, the UEL Trophy SuperFractor is a Jumbo exclusive, and the UECL Trophy SuperFractor is a Breaker's Delight exclusive. Each is a true 1/1.",
+        label: "Format-exclusive inserts",
+        text: "Helix (10 cards, ~95 copies each): Hobby formats only | Budapest At Night (10 cards, ~50 copies each): Hobby only | Black Lazer Autos (~310 copies each): Jumbo only | Global Attraction Autos (~50 copies each): Breaker's Delight only | Bionic inserts (~20 copies each): Value only | Metaverse (14 cards, ~475 copies each): Mega only | Youthquake (~1,075 copies each): Breaker's Delight only | Shooting for the Stars: Fanatics Fest NYC only | Logofractor and Starball parallels: Logofractor only | Sapphire parallels and Infinite inserts: Sapphire only",
       },
 
       // ── LONGSHOT ODDS ──────────────────────────────────────────────────────
@@ -720,17 +632,37 @@ export const articles: Article[] = [
       },
       {
         type: "p",
-        text: "These are the hardest cards to pull in the entire product, ranked by official pack odds from highest to lowest out of a Hobby box.",
+        text: "The rarest pulls in the product ranked by scarcity. These numbers are calculated directly from the published odds sheet:",
       },
       {
         type: "chase-table",
         cards: [
-          { rank: 1, cardName: "Chrome Quad Auto SuperFractor", athlete: "Real Madrid 2024", printRun: "/1", boxType: "Hobby / Jumbo", odds: "1:2,207,280" },
-          { rank: 2, cardName: "Piece of Club History Auto Book SuperFractor", athlete: "FC Barcelona MSN", printRun: "/1", boxType: "Hobby / Jumbo", odds: "1:1,103,640" },
-          { rank: 3, cardName: "Superior Signatures Legends SuperFractor", athlete: "Lionel Messi", printRun: "/1", boxType: "Hobby / Jumbo", odds: "1:551,820" },
-          { rank: 4, cardName: "Chrome Triple Auto SuperFractor", athlete: "Saliba / Gabriel / Rice", printRun: "/1", boxType: "Hobby / Jumbo", odds: "1:315,326" },
-          { rank: 5, cardName: "UCL Trophy SuperFractor", athlete: "Trophy Card", printRun: "/1", boxType: "Hobby", odds: "1:2,207,280" },
+          { rank: 1, cardName: "Piece of Club History Auto Book SuperFractor", athlete: "FC Barcelona MSN", printRun: "/1", boxType: "Hobby / Jumbo", odds: "1:1,103,640" },
+          { rank: 2, cardName: "Chrome Quad Auto SuperFractor", athlete: "Real Madrid 2024 Champions", printRun: "/1", boxType: "Hobby / Jumbo", odds: "1:315,326" },
+          { rank: 3, cardName: "Chrome Triple Auto SuperFractor", athlete: "Saliba / Gabriel / Rice", printRun: "/1", boxType: "Hobby / Jumbo", odds: "1:315,326" },
+          { rank: 4, cardName: "Superior Signatures Legends SuperFractor", athlete: "Lionel Messi", printRun: "/1", boxType: "Hobby / Jumbo", odds: "1:551,820" },
+          { rank: 5, cardName: "The Grail G1", athlete: "Zlatan Ibrahimovic (AFC Ajax)", printRun: "/1", boxType: "Hobby", odds: "1:2,207,280" },
         ],
+      },
+
+      // ── HIDDEN VALUES ──────────────────────────────────────────────────────
+      {
+        type: "h2",
+        text: "Hidden Values and Print Run Analysis",
+      },
+      {
+        type: "callout",
+        variant: "tip",
+        label: "Things the market will miss early",
+        text: "Base Logofractor: ~500 copies each, sneaky low. Bionic inserts (Value only): ~20 copies each, will fly completely under the radar. Geometric Autos: pop counts will stay abnormally low despite serial numbers. Sapphire Legends Autos: Golds are tracking ~5 copies each (not /50) and Oranges ~11 each (not /25). Chrome Dual Autos base versions: ~6 copies each, insanely scarce. Road to Glory Green /99 autos: ~30 copies inserted, harder to hit than Purples /75 and Golds /50. Sapphire Selections Autos base and Black /10 show identical odds: the base version is effectively as rare as the /10.",
+      },
+      {
+        type: "p",
+        text: "Key print run reference for unnumbered cards: Base Chrome: ~102,550 each | Base Logofractor: ~500 each | Base Sapphire: ~1,335 each | Base Refractors: ~7,360 each | Negative (Hobby): ~370 each | RayWave (Value): ~4,770 each | Pulsar (Hanger): ~1,000 each | X-Fractor (Mega): ~6,615 each | Geometric (Delight): ~245 each | Prism (Hobby): ~3,075 each | Logofractor Night Vision Starball: ~200 each | Big Apple FFNYC Variation: ~270 each.",
+      },
+      {
+        type: "p",
+        text: "Key print run reference for inserts: Bionic (Value, 5 cards): ~20 each | Budapest At Night (Hobby, 10 cards): ~50 each | Helix (Hobby, 10 cards): ~95 each | Infinite (Sapphire, 10 cards): ~105 each | Shooting for the Stars (FFNYC, 25 cards): ~110 each | Anime (Hobby/Value/Mega, 7 cards): ~190 each | Sapphire Selections (15 cards): ~140 each | Veni Vidi Vici (Hobby/Value/Mega, 5 cards): ~210 each | Base Chrome Dual Autos (26 cards): ~6 each | Sapphire Selections Autos (15 cards): ~7 each | Base Sapphire Autos (85 cards): ~14 each | Base Chrome Autos Geometric (Delight): ~14 each | Base Chrome Triple Autos (14 cards): ~12 each | Global Attraction Autos (24 cards, Delight): ~50 each | The Grail G1 (2 cards, Hobby): ~17 each | The Grail G3 (2 cards, Hobby): ~37 each.",
       },
 
       // ── ATHLETE LEADERBOARD ────────────────────────────────────────────────
@@ -740,7 +672,7 @@ export const articles: Article[] = [
       },
       {
         type: "p",
-        text: "The athletes with the most cards across the entire set checklist.",
+        text: "Top athletes by total card appearances across the full 2025-26 Topps Chrome UEFA Club Competitions checklist:",
       },
       {
         type: "leaderboard",
@@ -756,7 +688,7 @@ export const articles: Article[] = [
       {
         type: "p",
         html: true,
-        text: 'The 2025-26 Topps Chrome UEFA Club Competitions is a comprehensive release that rewards collectors across every budget and format preference. The staggered release schedule gives collectors multiple entry points throughout May 2026, and the format-exclusive parallel and insert ecosystem means there is always a reason to come back. Whether you are opening a single Value Box or going case-deep on Hobby, the product has depth at every level. View the complete checklist on <a href="/sets/43">Checklist\u00b2</a>, and check out the <a href="https://www.topps.com/pages/topps-chrome-uefa-club-competitions" target="_blank" rel="noopener noreferrer">official Topps product page</a> for more details.',
+        text: 'This is one of those rare releases where the math, the checklist, and the market are all pointing the same direction. No matter what your angle: ripping, flipping, or sitting on sealed product, it is hard to miss with this one at entry price. Paper UCC Flagship Hobby is already around $200 on the secondary market. Chrome will not stay at $210 for long. The only format to avoid if you care about hit potential is Hangers. Everything else has a clear case. View the complete checklist on <a href="/sets/43">Checklist\u00b2</a> and find full product details on the <a href="https://www.topps.com/pages/topps-chrome-uefa-club-competitions" target="_blank" rel="noopener noreferrer">official Topps product page</a>. Full odds analysis by u/bigfootsquatch_cards, <a href="https://www.reddit.com/r/sportscards/comments/1sefhug/202526_topps_chrome_uefa_club_competitions/" target="_blank" rel="noopener noreferrer">read the original Reddit post</a>.',
       },
     ],
   },
