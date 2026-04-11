@@ -14,6 +14,25 @@ export interface Update {
 export const updates: Update[] = [
   // ─── April 11, 2026 ──────────────────────────────────────────────────────
   {
+    id: "098-chrome-f1-2025",
+    title: "New Set: 2025 Topps Chrome Formula 1",
+    date: "2026-04-11T14:00:00Z",
+    summary: "Box configuration and pack odds added for 2025 Topps Chrome Formula 1 with 314 odds entries across 5 box types: Hobby, Sapphire, Value, Logofractor, and Diamond Anniversary.",
+    description: `## 2025 Topps Chrome Formula 1
+
+Box configuration and full pack odds now available across five formats.
+
+- **Hobby Box**: 4 cards per pack, 8 packs per box, 10 boxes per case, 4 parallels or short prints per box
+- **Pack Odds** across Hobby (121 entries), Sapphire (45 entries), Value (91 entries), Logofractor (42 entries), and Diamond Anniversary (9 entries)
+- **Base parallels**: Refractor, Checker Flag, B&W Lazer, Teal through Superfractor with format-exclusive variants (RayWave for Value, Logofractor parallels, Sapphire parallels, Mini Diamond for Diamond Anniversary)
+- **Insert Sets**: 1975 Speed Wheels, Ace of Trades, F1 Chrome Diamond Drives, Floor It, Helmet Collection, Speed Demons, Futuro, Helix, Neon Nations, The Chain, The Grid, Ultrasonic, Vegas At Night, The Grail, Four & More, Top Speed
+- **Autograph Sets**: Chrome Autographs, 1975 Speed Wheel Signatures, Circuit Masters Signatures, Futuro Chrome Autographs, On-Card Chrome Autographs, F1 Debut Patch Autographs
+- **Relic Sets**: F1/F2/F3 Diamond Anniversary Base Relic Cards
+- **Special**: F175 Anniversary Logo insert`,
+    tags: ["box-config", "odds"],
+    setId: 51,
+  },
+  {
     id: "097-disneyland-70th-2025",
     title: "New Set: 2025 Topps Disneyland 70th Anniversary",
     date: "2026-04-11T12:00:00Z",
