@@ -324,28 +324,6 @@ export const articles: Article[] = [
         text: "Main Roster Debut Patch Autographs are all numbered 1/1 and only available in Hobby and First Day Issue boxes. Five cards total: Giulia, JC Mateo, Roxanne Perez, Sol Ruca, and Stephanie Vaquer.",
       },
       {
-        type: "h2",
-        text: "Autograph Program",
-      },
-      {
-        type: "p",
-        text: "The autograph program in 2026 Topps Chrome WWE spans nine distinct signed sets covering current stars, legends, NXT talent, and specialty anniversary cards. Below are the top chase autographs in the product ranked by scarcity and collector demand.",
-      },
-      {
-        type: "chase-table",
-        cards: [
-          { rank: 1, cardName: "Main Roster Debut Patch Auto", athlete: "Stephanie Vaquer", printRun: "/1", boxType: "Hobby / FDI", odds: "1:495,360" },
-          { rank: 2, cardName: "Chrome Auto Superfractor", athlete: "The Rock", printRun: "/1", boxType: "All formats", odds: "1:9,380" },
-          { rank: 3, cardName: "Dual Auto", athlete: "Cena / The Rock", printRun: "/10", boxType: "Hobby / FDI", odds: "1:95,600" },
-          { rank: 4, cardName: "Red Refractor Auto", athlete: "CM Punk", printRun: "/5", boxType: "All formats", odds: "1:1,872" },
-          { rank: 5, cardName: "Best In The World Auto Superfractor", athlete: "CM Punk", printRun: "/1", boxType: "Hobby / FDI", odds: "1:860,400" },
-        ],
-      },
-      {
-        type: "p",
-        text: "Here is a breakdown of every autograph set in the product and what to expect from each.",
-      },
-      {
         type: "h3",
         text: "Chrome Autographs",
       },
@@ -421,6 +399,26 @@ export const articles: Article[] = [
         type: "leaderboard",
         setId: 48,
         defaultFilter: "all",
+      },
+
+      // ── LONGSHOT ODDS ─────────────────────────────────────────────────────
+      {
+        type: "h2",
+        text: "Longshot Odds",
+      },
+      {
+        type: "p",
+        text: "These are the hardest cards to pull in the entire product. Ranked by official pack odds from highest to lowest, number one is the card you are least likely to ever see come out of a pack.",
+      },
+      {
+        type: "chase-table",
+        cards: [
+          { rank: 1, cardName: "Best In The World Auto Superfractor", athlete: "CM Punk", printRun: "/1", boxType: "Hobby / FDI", odds: "1:860,400" },
+          { rank: 2, cardName: "Main Roster Debut Patch Auto", athlete: "Stephanie Vaquer", printRun: "/1", boxType: "Hobby / FDI", odds: "1:495,360" },
+          { rank: 3, cardName: "Dual Auto Superfractor", athlete: "Cena / The Rock", printRun: "/1", boxType: "Hobby / FDI", odds: "1:95,600" },
+          { rank: 4, cardName: "Chrome Auto Superfractor", athlete: "The Rock", printRun: "/1", boxType: "All formats", odds: "1:9,380" },
+          { rank: 5, cardName: "Red Refractor Auto", athlete: "CM Punk", printRun: "/5", boxType: "All formats", odds: "1:1,872" },
+        ],
       },
 
       // ── FINAL THOUGHTS ─────────────────────────────────────────────────────
