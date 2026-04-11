@@ -328,6 +328,10 @@ export const articles: Article[] = [
         text: "Autograph Program",
       },
       {
+        type: "p",
+        text: "The autograph program in 2026 Topps Chrome WWE spans nine distinct signed sets covering current stars, legends, NXT talent, and specialty anniversary cards. Below are the top chase autographs in the product ranked by scarcity and collector demand.",
+      },
+      {
         type: "chase-table",
         cards: [
           { rank: 1, cardName: "Main Roster Debut Patch Auto", athlete: "Stephanie Vaquer", printRun: "/1", boxType: "Hobby / FDI", odds: "1:495,360" },
@@ -336,6 +340,10 @@ export const articles: Article[] = [
           { rank: 4, cardName: "Red Refractor Auto", athlete: "CM Punk", printRun: "/5", boxType: "All formats", odds: "1:1,872" },
           { rank: 5, cardName: "Best In The World Auto Superfractor", athlete: "CM Punk", printRun: "/1", boxType: "Hobby / FDI", odds: "1:860,400" },
         ],
+      },
+      {
+        type: "p",
+        text: "Here is a breakdown of every autograph set in the product and what to expect from each.",
       },
       {
         type: "h3",
