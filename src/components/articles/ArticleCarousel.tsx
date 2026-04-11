@@ -1,10 +1,8 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const GAP = 12;
-
-type Orientation = "portrait" | "landscape";
 
 export function ArticleCarousel({
   slides,
@@ -16,15 +14,11 @@ export function ArticleCarousel({
   }>;
 }) {
   const [currentIdx, setCurrentIdx] = useState(0);
-  const [orientations, setOrientations] = useState<Orientation[]>(
-    () => slides.map(() => "portrait")
-  );
   const [containerWidth, setContainerWidth] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [failedSet, setFailedSet] = useState<Set<number>>(() => new Set());
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Measure container and detect mobile
   useEffect(() => {
     function measure() {
       if (containerRef.current) {
@@ -37,51 +31,14 @@ export function ArticleCarousel({
     return () => window.removeEventListener("resize", measure);
   }, []);
 
-  const getSlideWidth = useCallback(
-    (idx: number): number => {
-      if (isMobile || containerWidth === 0) return containerWidth;
-      return orientations[idx] === "landscape"
-        ? containerWidth
-        : (containerWidth - GAP) / 2;
-    },
-    [orientations, containerWidth, isMobile]
-  );
-
-  const getOffsetForSlide = useCallback(
-    (idx: number): number => {
-      let offset = 0;
-      for (let i = 0; i < idx; i++) {
-        offset += getSlideWidth(i) + GAP;
-      }
-      return offset;
-    },
-    [getSlideWidth]
-  );
-
+  const slideWidth = isMobile
+    ? containerWidth
+    : (containerWidth - GAP) / 2;
+  const offset = currentIdx * (slideWidth + GAP);
   const safeIdx = Math.min(currentIdx, slides.length - 1);
-  const offset = containerWidth > 0 ? getOffsetForSlide(safeIdx) : 0;
 
   const prev = () => setCurrentIdx((i) => Math.max(0, i - 1));
   const next = () => setCurrentIdx((i) => Math.min(slides.length - 1, i + 1));
-
-  const handleLoad = (idx: number, e: React.SyntheticEvent<HTMLImageElement>) => {
-    const img = e.currentTarget;
-    const isLandscape = img.naturalWidth > img.naturalHeight;
-    setOrientations((prev) => {
-      const next = [...prev];
-      next[idx] = isLandscape ? "landscape" : "portrait";
-      return next;
-    });
-  };
-
-  const handleError = (idx: number, src: string) => {
-    console.error(`[ArticleCarousel] Failed to load: ${src}`);
-    setFailedSet((prev) => {
-      const next = new Set(prev);
-      next.add(idx);
-      return next;
-    });
-  };
 
   return (
     <div className="mb-6">
@@ -93,7 +50,7 @@ export function ArticleCarousel({
           <div
             className="flex transition-transform duration-300 ease-out"
             style={{
-              transform: `translateX(-${offset}px)`,
+              transform: containerWidth > 0 ? `translateX(-${offset}px)` : undefined,
               gap: `${GAP}px`,
             }}
           >
@@ -101,41 +58,30 @@ export function ArticleCarousel({
               <div
                 key={i}
                 style={{
-                  width: containerWidth > 0 ? `${getSlideWidth(i)}px` : "50%",
+                  width: containerWidth > 0 ? `${slideWidth}px` : "50%",
                   flexShrink: 0,
-                  transition: "width 0.2s ease",
                 }}
               >
-                <div
-                  className="rounded-lg overflow-hidden bg-[#2C2C2A]"
-                  style={{
-                    aspectRatio:
-                      orientations[i] === "landscape" ? "4/3" : "3/4",
-                  }}
-                >
+                <div className="rounded-lg overflow-hidden bg-[#2C2C2A]" style={{ aspectRatio: "2/3" }}>
                   {failedSet.has(i) ? (
                     <div className="w-full h-full flex items-center justify-center px-4">
-                      <p className="text-xs text-zinc-400 text-center">
-                        {slide.caption}
-                      </p>
+                      <p className="text-xs text-zinc-400 text-center">{slide.caption}</p>
                     </div>
                   ) : (
                     <img
                       src={slide.src}
                       alt={slide.caption}
                       className="w-full h-full object-cover"
-                      onLoad={(e) => handleLoad(i, e)}
-                      onError={() => handleError(i, slide.src)}
+                      onError={() => {
+                        console.error(`[ArticleCarousel] Failed to load: ${slide.src}`);
+                        setFailedSet((prev) => new Set(prev).add(i));
+                      }}
                     />
                   )}
                 </div>
-                <p className="text-xs text-zinc-400 mt-2 text-center">
-                  {slide.caption}
-                </p>
+                <p className="text-xs text-zinc-400 mt-2 text-center">{slide.caption}</p>
                 {slide.subcaption && (
-                  <p className="text-[11px] text-zinc-600 text-center">
-                    {slide.subcaption}
-                  </p>
+                  <p className="text-[11px] text-zinc-600 text-center">{slide.subcaption}</p>
                 )}
               </div>
             ))}
@@ -164,7 +110,6 @@ export function ArticleCarousel({
           </button>
         )}
       </div>
-      {/* Dot indicators — one per slide */}
       <div className="flex justify-center gap-1.5 mt-3">
         {slides.map((_, i) => (
           <button
