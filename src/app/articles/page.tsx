@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { articles, getAllTags } from "@/lib/articles";
-import { PageShell } from "@/components/PageShell";
+import { Footer } from "@/components/Footer";
 import { ArticleTagFilter } from "./ArticleTagFilter";
 
 export const metadata: Metadata = {
@@ -18,6 +18,12 @@ function formatDate(iso: string) {
   });
 }
 
+function estimateReadTime(description: string): string {
+  const words = description.split(/\s+/).length;
+  const mins = Math.max(3, Math.ceil(words / 40));
+  return `${mins} min read`;
+}
+
 export default async function ArticlesPage({
   searchParams,
 }: {
@@ -29,93 +35,231 @@ export default async function ArticlesPage({
     ? articles.filter((a) => a.tags.includes(activeTag))
     : articles;
 
+  const [hero, second, ...remaining] = filtered;
+
   return (
-    <PageShell
-      breadcrumb={{ label: "Home", href: "/checklists" }}
-      title="Articles"
-      description="Guides, insights, and how-tos for collectors and breakers"
-    >
+    <div className="h-full overflow-y-auto" style={{ background: "#FFFFFF" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
+        {/* Header */}
+        <div style={{ paddingTop: 40, paddingBottom: 12, borderBottom: "1px solid #E5E5E5" }}>
+          <h1
+            style={{
+              fontSize: 13,
+              fontWeight: 700,
+              letterSpacing: "0.12em",
+              textTransform: "uppercase" as const,
+              color: "#1A1A1A",
+              margin: 0,
+            }}
+          >
+            Articles
+          </h1>
+        </div>
+
         {/* Tag filter */}
-        <ArticleTagFilter tags={allTags} current={activeTag ?? null} />
+        <div style={{ padding: "12px 0 20px" }}>
+          <ArticleTagFilter tags={allTags} current={activeTag ?? null} />
+        </div>
 
-        {/* Article cards */}
-        {filtered.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {filtered.map((article) => (
-              <Link
-                key={article.id}
-                href={`/articles/${article.id}`}
-                className="group block rounded-xl border border-zinc-800 bg-zinc-900 overflow-hidden hover:border-zinc-600 hover:bg-zinc-800/60 transition-colors"
-              >
-                {/* Hero thumbnail */}
-                <div className="aspect-[16/9] bg-zinc-800 overflow-hidden">
-                  {article.heroImage && !article.heroImage.includes("placeholder") ? (
-                    <img
-                      src={article.heroImage}
-                      alt={article.title}
-                      className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center">
-                      <svg
-                        className="w-10 h-10 text-zinc-700"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={1.5}
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z"
-                        />
-                      </svg>
-                    </div>
-                  )}
-                </div>
-
-                {/* Card body */}
-                <div className="px-5 py-4 space-y-3">
-                  <h2 className="text-base font-semibold text-white leading-snug group-hover:text-amber-400 transition-colors">
-                    {article.title}
-                  </h2>
-                  <p className="text-sm text-zinc-400 leading-relaxed line-clamp-2">
-                    {article.description}
-                  </p>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-1.5">
-                    {article.tags.slice(0, 4).map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-zinc-800 text-zinc-400 border border-zinc-700"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                    {article.tags.length > 4 && (
-                      <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-zinc-800 text-zinc-500">
-                        +{article.tags.length - 4}
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Date + Read more */}
-                  <div className="flex items-center justify-between pt-1">
-                    <time className="text-xs text-zinc-600">{formatDate(article.publishedAt)}</time>
-                    <span className="text-xs font-medium text-zinc-500 group-hover:text-amber-400 transition-colors">
-                      Read more &rarr;
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            ))}
+        {filtered.length === 0 ? (
+          <div style={{ textAlign: "center", padding: "80px 0", color: "#6B6B6B", fontSize: 14 }}>
+            No articles found for this tag.
           </div>
         ) : (
-          <div className="text-center py-16">
-            <p className="text-sm text-zinc-500">No articles found for this tag.</p>
-          </div>
+          <>
+            {/* Two-column layout: hero left, list right */}
+            <div className="flex flex-col lg:flex-row" style={{ gap: 0 }}>
+              {/* ── Left column: Hero article ── */}
+              {hero && (
+                <Link
+                  href={`/articles/${hero.id}`}
+                  className="group block lg:flex-[65] lg:border-r"
+                  style={{
+                    textDecoration: "none",
+                    borderColor: "#E5E5E5",
+                  }}
+                >
+                  <div className="lg:mr-6">
+                    {/* Hero image */}
+                    <div style={{ background: "#F5F5F5" }}>
+                      {hero.heroImage && !hero.heroImage.includes("placeholder") ? (
+                        <img
+                          src={hero.heroImage}
+                          alt={hero.title}
+                          className="w-full transition-transform duration-500 group-hover:scale-[1.02]"
+                          style={{ display: "block" }}
+                        />
+                      ) : (
+                        <div
+                          className="flex items-center justify-center"
+                          style={{ background: "#2C2C2A", aspectRatio: "16/9" }}
+                        >
+                          <span style={{ color: "#6B6B6B", fontSize: 18, fontWeight: 700 }}>
+                            Checklist{"\u00b2"}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                    {/* Title below image */}
+                    <div style={{ paddingTop: 16 }}>
+                      <h2
+                        className="group-hover:underline"
+                        style={{
+                          fontSize: 28,
+                          fontWeight: 700,
+                          lineHeight: 1.22,
+                          color: "#1A1A1A",
+                          margin: "0 0 8px 0",
+                          fontFamily: "Georgia, 'Times New Roman', serif",
+                        }}
+                      >
+                        {hero.title}
+                      </h2>
+                      <span
+                        style={{
+                          fontSize: 11,
+                          fontWeight: 600,
+                          letterSpacing: "0.06em",
+                          textTransform: "uppercase" as const,
+                          color: "#999999",
+                        }}
+                      >
+                        {estimateReadTime(hero.description)}
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              )}
+
+              {/* ── Right column: Stacked articles ── */}
+              <div className="lg:flex-[35] lg:pl-6 pt-6 lg:pt-0">
+                {/* First right article — with image */}
+                {second && (
+                  <Link
+                    href={`/articles/${second.id}`}
+                    className="group block"
+                    style={{
+                      textDecoration: "none",
+                      paddingBottom: 20,
+                      borderBottom: "1px solid #E5E5E5",
+                      marginBottom: 16,
+                    }}
+                  >
+                    {second.heroImage && !second.heroImage.includes("placeholder") && (
+                      <div
+                        style={{
+                          overflow: "hidden",
+                          marginBottom: 14,
+                          aspectRatio: "16/9",
+                        }}
+                      >
+                        <img
+                          src={second.heroImage}
+                          alt={second.title}
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                        />
+                      </div>
+                    )}
+                    <h3
+                      className="group-hover:underline"
+                      style={{
+                        fontSize: 18,
+                        fontWeight: 700,
+                        lineHeight: 1.3,
+                        color: "#1A1A1A",
+                        margin: "0 0 6px 0",
+                        fontFamily: "Georgia, 'Times New Roman', serif",
+                      }}
+                    >
+                      {second.title}
+                    </h3>
+                    <span
+                      style={{
+                        fontSize: 11,
+                        fontWeight: 600,
+                        letterSpacing: "0.06em",
+                        textTransform: "uppercase" as const,
+                        color: "#999999",
+                      }}
+                    >
+                      {estimateReadTime(second.description)}
+                    </span>
+                  </Link>
+                )}
+
+                {/* Remaining articles — horizontal row: headline left, thumbnail right */}
+                {remaining.map((article) => (
+                  <Link
+                    key={article.id}
+                    href={`/articles/${article.id}`}
+                    className="group flex items-start gap-4"
+                    style={{
+                      textDecoration: "none",
+                      paddingBottom: 16,
+                      borderBottom: "1px solid #E5E5E5",
+                      marginBottom: 16,
+                    }}
+                  >
+                    {/* Text */}
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <h3
+                        className="group-hover:underline"
+                        style={{
+                          fontSize: 16,
+                          fontWeight: 700,
+                          lineHeight: 1.3,
+                          color: "#1A1A1A",
+                          margin: "0 0 6px 0",
+                          fontFamily: "Georgia, 'Times New Roman', serif",
+                          display: "-webkit-box",
+                          WebkitLineClamp: 3,
+                          WebkitBoxOrient: "vertical" as const,
+                          overflow: "hidden",
+                        }}
+                      >
+                        {article.title}
+                      </h3>
+                      <span
+                        style={{
+                          fontSize: 11,
+                          fontWeight: 600,
+                          letterSpacing: "0.06em",
+                          textTransform: "uppercase" as const,
+                          color: "#999999",
+                        }}
+                      >
+                        {estimateReadTime(article.description)}
+                      </span>
+                    </div>
+
+                    {/* Small square thumbnail */}
+                    {article.heroImage && !article.heroImage.includes("placeholder") && (
+                      <div
+                        className="shrink-0"
+                        style={{
+                          width: 100,
+                          height: 100,
+                          overflow: "hidden",
+                        }}
+                      >
+                        <img
+                          src={article.heroImage}
+                          alt={article.title}
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                        />
+                      </div>
+                    )}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Bottom spacer */}
+            <div style={{ height: 64 }} />
+          </>
         )}
-    </PageShell>
+      </div>
+      <Footer />
+    </div>
   );
 }

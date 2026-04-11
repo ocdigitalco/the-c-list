@@ -12,11 +12,17 @@ function TagFilterInner({ tags, current }: { tags: string[]; current: string | n
     <div className="flex flex-wrap gap-1.5">
       <Link
         href="/articles"
-        className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
-          !activeTag
-            ? "bg-zinc-700 text-white"
-            : "text-zinc-500 hover:text-zinc-300 hover:bg-zinc-800/60"
-        }`}
+        style={{
+          padding: "5px 12px",
+          borderRadius: 4,
+          fontSize: 12,
+          fontWeight: 600,
+          textDecoration: "none",
+          transition: "background 0.15s, color 0.15s",
+          background: !activeTag ? "#1A1A1A" : "transparent",
+          color: !activeTag ? "#FFFFFF" : "#6B6B6B",
+          border: !activeTag ? "none" : "1px solid #E5E5E5",
+        }}
       >
         All
       </Link>
@@ -24,11 +30,17 @@ function TagFilterInner({ tags, current }: { tags: string[]; current: string | n
         <Link
           key={tag}
           href={`/articles?tag=${encodeURIComponent(tag)}`}
-          className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
-            activeTag === tag
-              ? "bg-zinc-700 text-white"
-              : "text-zinc-500 hover:text-zinc-300 hover:bg-zinc-800/60"
-          }`}
+          style={{
+            padding: "5px 12px",
+            borderRadius: 4,
+            fontSize: 12,
+            fontWeight: 600,
+            textDecoration: "none",
+            transition: "background 0.15s, color 0.15s",
+            background: activeTag === tag ? "#1A1A1A" : "transparent",
+            color: activeTag === tag ? "#FFFFFF" : "#6B6B6B",
+            border: activeTag === tag ? "none" : "1px solid #E5E5E5",
+          }}
         >
           {tag}
         </Link>
