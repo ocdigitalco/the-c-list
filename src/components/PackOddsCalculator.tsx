@@ -39,6 +39,7 @@ interface Props {
   boxFormats: BoxFormat[];
   totalAutoCards: number;
   playerAutoCards: number;
+  setId?: number;
 }
 
 // ─── Probability model ───────────────────────────────────────────────────────
@@ -302,6 +303,7 @@ export function PackOddsCalculator({
   boxFormats,
   totalAutoCards,
   playerAutoCards,
+  setId,
 }: Props) {
   const [boxes, setBoxes] = useState(1);
   const [fmtIdx, setFmtIdx] = useState(0);
@@ -384,12 +386,22 @@ export function PackOddsCalculator({
           <span className="text-xs font-semibold text-zinc-400 uppercase tracking-widest">
             Break Hit Calculator
           </span>
-          <a
-            href="/resources/break-hit-calculator"
-            className="block text-[12px] text-zinc-600 hover:text-zinc-400 hover:underline transition-colors mt-0.5"
-          >
-            How is this calculated?
-          </a>
+          <div className="flex items-center gap-3 mt-0.5">
+            <a
+              href="/resources/break-hit-calculator"
+              className="text-[12px] text-zinc-600 hover:text-zinc-400 hover:underline transition-colors"
+            >
+              How is this calculated?
+            </a>
+            {setId && (
+              <a
+                href={`/resources/break-simulator?setId=${setId}&boxType=${fmt.label.toLowerCase().replace(/['\s]+/g, "_")}`}
+                className="text-[12px] text-zinc-600 hover:text-zinc-400 hover:underline transition-colors"
+              >
+                Run a simulation &rarr;
+              </a>
+            )}
+          </div>
         </div>
 
         {/* Box stepper */}
