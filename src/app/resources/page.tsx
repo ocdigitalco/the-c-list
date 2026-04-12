@@ -25,6 +25,12 @@ const resources = [
     description:
       "How the Break Sheet Builder generates Whatnot-ready CSVs and what each column contains.",
   },
+  {
+    href: "/resources/break-simulator",
+    title: "Box Break Simulator",
+    description:
+      "Run 10,000 simulated breaks for any set and see realistic outcome distributions based on official pack odds.",
+  },
 ];
 
 export default function ResourcesPage() {

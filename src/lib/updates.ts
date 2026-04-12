@@ -14,6 +14,22 @@ export interface Update {
 export const updates: Update[] = [
   // ─── April 11, 2026 ──────────────────────────────────────────────────────
   {
+    id: "099-box-break-simulator",
+    title: "Box Break Simulator",
+    date: "2026-04-11T16:00:00Z",
+    summary: "Run 10,000 simulated breaks for any set. See realistic outcome distributions, top athletes by auto frequency, and a randomly generated pull list.",
+    description: `## Box Break Simulator
+
+A new Monte Carlo simulation tool is now available at [/resources/break-simulator](/resources/break-simulator). Select any set with pack odds and box configuration, choose a box type and count, and run 10,000 simulated breaks.
+
+- **Summary cards** showing typical, best (top 10%), and worst (bottom 10%) break outcomes
+- **Distribution charts** for autographs and numbered parallels across all simulated breaks
+- **Top auto athletes** ranked by frequency across 10,000 trials
+- **One simulated break** showing a realistic pull list with re-simulate capability
+- Linked from every athlete page's Break Hit Calculator via "Run a simulation"`,
+    tags: ["feature"],
+  },
+  {
     id: "098-chrome-f1-2025",
     title: "New Set: 2025 Topps Chrome Formula 1",
     date: "2026-04-11T14:00:00Z",

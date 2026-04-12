@@ -9,6 +9,7 @@ const exploreLinks = [
 
 const toolLinks = [
   { href: "/resources/break-hit-calculator", label: "Break Hit Calculator" },
+  { href: "/resources/break-simulator", label: "Box Break Simulator" },
   { href: "/checklists", label: "Break Sheet Builder" },
   { href: "/resources/glossary", label: "Glossary" },
 ];
