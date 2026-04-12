@@ -1,279 +1,130 @@
 import type { Metadata } from "next";
-import { PageShell } from "@/components/PageShell";
+import Link from "next/link";
+import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Break Hit Calculator — Checklist2",
+  title: "How the Break Hit Calculator Works — Checklist2",
   description:
-    "Learn how the break hit calculator works and what it means for your breaks",
+    "Learn how the Break Hit Calculator computes per-athlete hit probabilities using official pack odds, box guarantees, and weighted card pools.",
 };
-
-const includes = [
-  "All numbered (serialized) parallel cards with a known print run",
-  "All autograph insert set appearances and their serialized parallels",
-  "Official pack odds as published by the manufacturer (Topps, Panini, etc.)",
-  "Confirmed box and case configuration (cards per pack, packs per box, boxes per case)",
-  "Multi-player cards (dual, triple autos): the athlete's appearance is counted individually",
-];
-
-const excludes = [
-  {
-    item: "Unnumbered / base cards",
-    reason:
-      "Cards without a print run cannot be accurately calculated because total production quantities are not publicly disclosed by manufacturers.",
-  },
-  {
-    item: "Unnumbered parallels",
-    reason:
-      "Same reason as above, e.g. standard Refractors, Silver Prizms.",
-  },
-  {
-    item: "Sets without confirmed box configuration",
-    reason:
-      "If a set does not have verified pack/box/case data, the calculator will not appear.",
-  },
-  {
-    item: "Secondary market supply",
-    reason:
-      "The calculator reflects original production odds, not current market availability or how many copies have already been graded, sold, or destroyed.",
-  },
-  {
-    item: "Pack distribution variance",
-    reason:
-      "Real-world breaks can deviate from statistical expectations. The calculator reflects mathematical probability, not a guarantee.",
-  },
-];
 
 export default function BreakHitCalculatorPage() {
   return (
-    <PageShell
-      breadcrumb={{ label: "Resources", href: "/resources" }}
-      title="Break Hit Calculator"
-      description="Calculate your odds of hitting any card across a case or box"
-    >
-        {/* What is it */}
-        <Section title="What is the Break Hit Calculator?">
-          <p>
-            The Break Hit Calculator is a tool built into each athlete&apos;s card panel on set
-            pages. It estimates the statistical probability of pulling a specific athlete&apos;s
-            card during a hobby break, based on real checklist data, official pack odds, and
-            box configuration.
-          </p>
-        </Section>
+    <div className="h-full overflow-y-auto">
+      <div style={{ maxWidth: 680, margin: "0 auto", padding: "48px 24px 80px" }}>
+        {/* Back link */}
+        <Link
+          href="/sets"
+          className="inline-flex items-center gap-1 text-xs text-zinc-500 hover:text-zinc-300 transition-colors mb-8"
+        >
+          <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+          </svg>
+          Back
+        </Link>
 
-        {/* Where does it appear */}
-        <Section title="Where does it appear?">
-          <p>
-            The calculator appears at the top of every athlete&apos;s card panel on a set page,
-            provided that set has confirmed box configuration data. It is scoped to the
-            specific set you are viewing: the odds shown are for that set only.
-          </p>
-        </Section>
+        <h1 className="text-2xl font-bold text-white tracking-tight mb-4">
+          How the Break Hit Calculator Works
+        </h1>
+        <p className="text-[16px] text-zinc-400 leading-[1.75] mb-10">
+          The Break Hit Calculator gives you the most accurate per-athlete hit
+          probabilities available for any set on Checklist2. Here is what goes
+          into it.
+        </p>
 
-        {/* Formula */}
-        <Section title="How is the percentage calculated?">
-          <p className="mb-4">
-            The calculator uses the following formula:
-          </p>
+        {/* Three Types of Odds */}
+        <h2 className="text-lg font-bold text-white mt-12 mb-4">
+          Three Types of Odds
+        </h2>
 
-          <div className="rounded-lg border border-zinc-700 bg-zinc-950 px-5 py-4 font-mono text-sm text-zinc-200 leading-relaxed mb-4">
-            <div className="text-zinc-500 text-xs mb-2 font-sans uppercase tracking-widest">Formula</div>
-            <div>P = 1 − (1 − player_share / denom)^total_packs</div>
-          </div>
+        <h3 className="text-base font-semibold text-zinc-300 mt-8 mb-2">
+          Any Card
+        </h3>
+        <p className="text-[16px] text-zinc-400 leading-[1.75] mb-6">
+          The probability of pulling any card featuring this athlete in a single
+          box. This includes base cards, inserts, numbered parallels, and
+          autographs, every card in the checklist weighted by its official pack
+          odds.
+        </p>
 
-          <div className="rounded-lg border border-zinc-800 bg-zinc-900 px-5 py-4 space-y-2 text-sm text-zinc-400 mb-4">
-            <div className="flex gap-3">
-              <span className="font-mono text-zinc-300 shrink-0">player_share</span>
-              <span>= 1 ÷ total players appearing in that insert set</span>
-            </div>
-            <div className="flex gap-3">
-              <span className="font-mono text-zinc-300 shrink-0">denom</span>
-              <span>= the pack odds denominator for that specific parallel or auto insert set (e.g. for 1:10 odds, denom = 10)</span>
-            </div>
-            <div className="flex gap-3">
-              <span className="font-mono text-zinc-300 shrink-0">total_packs</span>
-              <span>= cases × boxes per case × packs per box</span>
-            </div>
-          </div>
+        <h3 className="text-base font-semibold text-zinc-300 mt-8 mb-2">
+          Numbered Parallel
+        </h3>
+        <p className="text-[16px] text-zinc-400 leading-[1.75] mb-6">
+          The probability of pulling a numbered card for this athlete. Each
+          numbered parallel tier (/299, /199, /99, /50, /25, /10, /5, /1)
+          carries its own weight based on official pack odds. Athletes with more
+          numbered cards across more tiers have a higher combined probability.
+        </p>
 
-          <p>
-            For each card type (parallels, autographs), the pack odds provided by the
-            manufacturer are used alongside the athlete&apos;s share of that insert set to
-            determine their individual probability. Each parallel type and auto insert set is
-            calculated independently, then combined using:
-          </p>
+        <h3 className="text-base font-semibold text-zinc-300 mt-8 mb-2">
+          Autograph
+        </h3>
+        <p className="text-[16px] text-zinc-400 leading-[1.75] mb-6">
+          The probability of pulling an autograph for this athlete. If a box
+          guarantees one or more autographs, that guarantee is used as the pull
+          floor. The percentage then reflects this athlete&apos;s share of the full
+          autograph pool, weighted by the odds of each auto insert set they
+          appear in.
+        </p>
 
-          <div className="rounded-lg border border-zinc-700 bg-zinc-950 px-5 py-4 font-mono text-sm text-zinc-200 mt-4">
-            <div className="text-zinc-500 text-xs mb-2 font-sans uppercase tracking-widest">Combined probability</div>
-            <div>P_total = 1 − Π(1 − P_i)</div>
-          </div>
+        {/* How the Math Works */}
+        <h2 className="text-lg font-bold text-white mt-12 mb-4">
+          How the Math Works
+        </h2>
+        <p className="text-[16px] text-zinc-400 leading-[1.75] mb-6">
+          Every card in the checklist is assigned a weight based on its official
+          pack odds. A card at 1:10 packs carries more weight than a card at
+          1:500 packs. An athlete&apos;s hit percentage is their share of the total
+          pool weight for that card type, adjusted for the number of packs in a
+          box and any box guarantees.
+        </p>
+        <p className="text-[16px] text-zinc-400 leading-[1.75] mb-6">
+          This means two things matter beyond just the odds number: how many
+          cards an athlete has in the set, and how those cards are distributed
+          across insert sets and parallel tiers. An athlete with one autograph
+          at 1:26 and another at 1:500 has a higher combined auto probability
+          than an athlete with only the 1:26 entry.
+        </p>
 
-          <p className="mt-4">
-            This gives the probability of hitting <span className="text-white font-medium">at least one</span> of
-            the athlete&apos;s cards across the entire break, not just in a single pack.
-          </p>
-        </Section>
+        {/* Box Guarantees */}
+        <h2 className="text-lg font-bold text-white mt-12 mb-4">
+          Box Guarantees
+        </h2>
+        <p className="text-[16px] text-zinc-400 leading-[1.75] mb-6">
+          When a box guarantees autographs or numbered cards, those guarantees
+          are factored in as the minimum number of pulls from that pool. The
+          athlete percentage then reflects their likelihood of being the one you
+          pull from that guaranteed slot, not a 100% chance across all athletes.
+        </p>
 
-        {/* Result rows */}
-        <Section title="What does each result row mean?">
-          <div className="space-y-4">
-            <ResultRow
-              label="Any Card"
-              color="text-amber-400"
-              dot="bg-amber-500"
-            >
-              A combined probability that factors in both serialized parallels and autographs.
-              This represents the broadest possible chance of pulling any serialized card of
-              this athlete in the break.
-            </ResultRow>
+        {/* Why It Doesn't Appear */}
+        <h2 className="text-lg font-bold text-white mt-12 mb-4">
+          Why the Calculator Sometimes Does Not Appear
+        </h2>
+        <p className="text-[16px] text-zinc-400 leading-[1.75] mb-6">
+          The calculator requires three things to generate reliable results: a
+          complete checklist, official pack odds, and a box configuration. If any
+          of these are missing or incomplete for a set, the calculator will not
+          display rather than show numbers that could be misleading.
+        </p>
+        <p className="text-[16px] text-zinc-400 leading-[1.75] mb-6">
+          As checklists and odds are added and verified, the calculator becomes
+          available automatically.
+        </p>
 
-            <ResultRow
-              label="Numbered Parallels"
-              color="text-amber-400"
-              dot="bg-amber-500"
-            >
-              The probability of pulling any numbered parallel card of this athlete.
-              This includes all numbered (serialized) parallel versions across all insert sets and
-              the base set (e.g. /199, /99, /25, /10, /5, /3, /1). Each parallel version is
-              counted individually using its known print run.
-            </ResultRow>
-
-            <ResultRow
-              label="Autographs"
-              color="text-amber-400"
-              dot="bg-amber-500"
-            >
-              The probability of pulling any autograph card of this athlete. This includes all
-              autograph insert sets (e.g. Stroke of Midnight Autographs, Horizon Signatures,
-              Relic Autographs) and their serialized parallel versions. The pack odds for each
-              auto insert set are used to determine expected auto pulls per case.
-            </ResultRow>
-          </div>
-        </Section>
-
-        {/* Includes / Excludes */}
-        <Section title="What the calculator includes and excludes">
-          <div className="space-y-3 mb-6">
-            {includes.map((item) => (
-              <div key={item} className="flex items-start gap-3">
-                <span className="shrink-0 w-4 h-4 rounded-full bg-emerald-500/15 border border-emerald-500/40 flex items-center justify-center mt-0.5">
-                  <svg className="w-2.5 h-2.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                  </svg>
-                </span>
-                <span className="text-sm text-zinc-300">{item}</span>
-              </div>
-            ))}
-          </div>
-
-          <div className="space-y-3">
-            {excludes.map((item) => (
-              <div key={item.item} className="flex items-start gap-3">
-                <span className="shrink-0 w-4 h-4 rounded-full bg-red-500/15 border border-red-500/40 flex items-center justify-center mt-0.5">
-                  <svg className="w-2.5 h-2.5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </span>
-                <div>
-                  <span className="text-sm font-medium text-zinc-300">{item.item}:</span>
-                  {" "}
-                  <span className="text-sm text-zinc-500">{item.reason}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Section>
-
-        {/* Color coding */}
-        <Section title="Color coding">
-          <div className="space-y-3">
-            <div className="flex items-start gap-4 rounded-lg border border-zinc-800 bg-zinc-900 px-4 py-3">
-              <span className="shrink-0 w-2.5 h-2.5 rounded-full bg-emerald-500 mt-1" />
-              <div>
-                <span className="text-sm font-semibold text-emerald-400">Green: 60% or higher</span>
-                <p className="text-sm text-zinc-400 mt-0.5">
-                  Strong chance. You would statistically expect to hit this athlete more often
-                  than not across breaks of this size.
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4 rounded-lg border border-zinc-800 bg-zinc-900 px-4 py-3">
-              <span className="shrink-0 w-2.5 h-2.5 rounded-full bg-amber-500 mt-1" />
-              <div>
-                <span className="text-sm font-semibold text-amber-400">Yellow: 10% to 59%</span>
-                <p className="text-sm text-zinc-400 mt-0.5">
-                  Moderate chance. Realistic but not guaranteed.
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4 rounded-lg border border-zinc-800 bg-zinc-900 px-4 py-3">
-              <span className="shrink-0 w-2.5 h-2.5 rounded-full bg-red-500 mt-1" />
-              <div>
-                <span className="text-sm font-semibold text-red-400">Red: below 10%</span>
-                <p className="text-sm text-zinc-400 mt-0.5">
-                  Low chance. This athlete is rare in this configuration, and a hit would be a
-                  notable pull.
-                </p>
-              </div>
-            </div>
-          </div>
-        </Section>
-
-        {/* Disclaimers */}
-        <Section title="Important disclaimers">
-          <ul className="space-y-2 text-sm text-zinc-400">
-            {[
-              "Odds are based on serialized print runs and official pack ratios only.",
-              "Unnumbered cards are excluded from all calculations.",
-              "Results are statistical estimates, not guarantees.",
-              "Box configuration data is verified per set: if configuration data changes or is corrected, odds will update automatically.",
-              "The calculator is intended as a planning and reference tool for break buyers, not a guarantee of results.",
-            ].map((d) => (
-              <li key={d} className="flex items-start gap-2">
-                <span className="shrink-0 text-zinc-600 mt-0.5">–</span>
-                {d}
-              </li>
-            ))}
-          </ul>
-        </Section>
-    </PageShell>
-  );
-}
-
-function Section({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <section>
-      <h2 className="text-base font-semibold text-white mb-3 pb-2 border-b border-zinc-800">
-        {title}
-      </h2>
-      <div className="text-sm text-zinc-400 leading-relaxed space-y-3">{children}</div>
-    </section>
-  );
-}
-
-function ResultRow({
-  label,
-  color,
-  dot,
-  children,
-}: {
-  label: string;
-  color: string;
-  dot: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className="rounded-lg border border-zinc-800 bg-zinc-900 px-4 py-3">
-      <div className="flex items-center gap-2 mb-1.5">
-        <span className={`shrink-0 w-2 h-2 rounded-full ${dot}`} />
-        <span className={`text-sm font-semibold ${color}`}>{label}</span>
+        {/* Box Type Selector */}
+        <h2 className="text-lg font-bold text-white mt-12 mb-4">
+          Box Type Selector
+        </h2>
+        <p className="text-[16px] text-zinc-400 leading-[1.75] mb-6">
+          Different box types (Hobby, Value, Sapphire, Blaster, etc.) have
+          different pack counts, odds sheets, and guarantees. Switching box types
+          recalculates all three probabilities using the configuration and odds
+          for that specific format.
+        </p>
       </div>
-      <p className="text-sm text-zinc-400 leading-relaxed">{children}</p>
+      <Footer />
     </div>
   );
 }

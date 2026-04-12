@@ -380,9 +380,17 @@ export function PackOddsCalculator({
 
       {/* Header */}
       <div className="flex items-center justify-between mb-1">
-        <span className="text-xs font-semibold text-zinc-400 uppercase tracking-widest">
-          Break Hit Calculator
-        </span>
+        <div>
+          <span className="text-xs font-semibold text-zinc-400 uppercase tracking-widest">
+            Break Hit Calculator
+          </span>
+          <a
+            href="/resources/break-hit-calculator"
+            className="block text-[12px] text-zinc-600 hover:text-zinc-400 hover:underline transition-colors mt-0.5"
+          >
+            How is this calculated?
+          </a>
+        </div>
 
         {/* Box stepper */}
         <div className="flex flex-col items-end gap-1">
