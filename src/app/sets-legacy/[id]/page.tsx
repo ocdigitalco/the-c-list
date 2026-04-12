@@ -842,6 +842,7 @@ export default async function SetPage({
                   boxFormats={boxFormats}
                   totalAutoCards={totalAutoCards}
                   playerAutoCards={playerAutoCards}
+                  setId={setId}
                 />
               ) : null}
 
