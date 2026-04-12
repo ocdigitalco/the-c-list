@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import type { SimConfig, SimulationResult, BreakTrial, PackPull } from "@/lib/breakSimulator";
-import { runSimulation } from "@/lib/breakSimulator";
+import type { SimConfig, SimulationResult, BreakTrial, PackPull } from "@/lib/breakSimulatorClient";
+import { runSimulation } from "@/lib/breakSimulatorClient";
 
 // ─── Sub-components ──────────────────────────────────────────────────────────
 
