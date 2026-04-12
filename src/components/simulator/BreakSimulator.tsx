@@ -228,9 +228,17 @@ export function BreakSimulator({
             <SummaryCard label="Rough Break (bottom 10%)" trial={result.worstTrial} accent="#EF4444" />
           </div>
 
-          <p className="text-[11px] text-zinc-600 text-center">
-            Based on {result.config.trials.toLocaleString()} simulated breaks
-          </p>
+          <div className="text-center space-y-0.5">
+            <p className="text-[11px] text-zinc-500">
+              {result.config.totalCards.toLocaleString()} cards total
+              {result.config.guaranteedAutos > 0 && (
+                <> &middot; {result.config.guaranteedAutos} guaranteed auto{result.config.guaranteedAutos !== 1 ? "s" : ""}</>
+              )}
+            </p>
+            <p className="text-[11px] text-zinc-600">
+              Based on {result.config.trials.toLocaleString()} simulated breaks
+            </p>
+          </div>
 
           {/* Auto distribution */}
           <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-4">

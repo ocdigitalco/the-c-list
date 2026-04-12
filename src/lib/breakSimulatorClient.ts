@@ -2,9 +2,12 @@
  * Client-side Monte Carlo simulation engine.
  * NO database imports — runs entirely in the browser.
  * Receives pre-fetched pool data from the API.
+ *
+ * Structurally accurate: respects box guarantees, fixed card counts,
+ * and pack-level slot distribution.
  */
 
-// ─── Types (shared with server) ──────────────────────────────────────────────
+// ─── Types ───────────────────────────────────────────────────────────────────
 
 export interface SimPoolCard {
   insertSetId: number;
@@ -32,6 +35,8 @@ export interface SimConfig {
   boxConfig: BoxFormatConfig;
   pool: SimPoolCard[];
   cardsPerPack: number;
+  numberedPerBox?: number;
+  insertsPerBox?: number;
 }
 
 export interface PackPull {
@@ -52,7 +57,14 @@ export interface BreakTrial {
 }
 
 export interface SimulationResult {
-  config: { setName: string; boxType: string; boxCount: number; trials: number };
+  config: {
+    setName: string;
+    boxType: string;
+    boxCount: number;
+    trials: number;
+    totalCards: number;
+    guaranteedAutos: number;
+  };
   medianTrial: BreakTrial;
   bestTrial: BreakTrial;
   worstTrial: BreakTrial;
@@ -70,75 +82,164 @@ export interface SimulationResult {
 
 // ─── Sampling ────────────────────────────────────────────────────────────────
 
-function weightedSampleAthlete(
-  card: SimPoolCard
-): { name: string; id: number } {
+function weightedSampleAthlete(card: SimPoolCard): string {
   const athletes = card.athletes;
-  if (athletes.length === 0) return { name: "Unknown", id: 0 };
+  if (athletes.length === 0) return "Unknown";
   const totalApps = athletes.reduce((s, a) => s + a.apps, 0);
   let r = Math.random() * totalApps;
   for (const a of athletes) {
     r -= a.apps;
-    if (r <= 0) return { name: a.name, id: a.id };
+    if (r <= 0) return a.name;
   }
-  return { name: athletes[athletes.length - 1].name, id: athletes[athletes.length - 1].id };
+  return athletes[athletes.length - 1].name;
 }
 
-function weightedSampleCard(pool: SimPoolCard[]): SimPoolCard {
-  const totalWeight = pool.reduce((s, c) => s + c.weight, 0);
-  let r = Math.random() * totalWeight;
-  for (const c of pool) {
-    r -= c.weight;
-    if (r <= 0) return c;
-  }
-  return pool[pool.length - 1];
+// Pre-compute cumulative weights for faster sampling
+interface WeightedPool {
+  cards: SimPoolCard[];
+  cumWeights: number[];
+  totalWeight: number;
 }
+
+function buildWeightedPool(cards: SimPoolCard[]): WeightedPool {
+  const cumWeights: number[] = [];
+  let total = 0;
+  for (const c of cards) {
+    total += c.weight;
+    cumWeights.push(total);
+  }
+  return { cards, cumWeights, totalWeight: total };
+}
+
+function sampleFrom(wp: WeightedPool): SimPoolCard {
+  const r = Math.random() * wp.totalWeight;
+  // Binary search for the right card
+  let lo = 0;
+  let hi = wp.cumWeights.length - 1;
+  while (lo < hi) {
+    const mid = (lo + hi) >>> 1;
+    if (wp.cumWeights[mid] <= r) lo = mid + 1;
+    else hi = mid;
+  }
+  return wp.cards[lo];
+}
+
+function makePull(card: SimPoolCard, packNum: number): PackPull {
+  return {
+    packNumber: packNum,
+    athleteName: weightedSampleAthlete(card),
+    insertSetName: card.insertSetName,
+    parallelName: card.parallelName,
+    printRun: null,
+    isAuto: card.isAuto,
+    isNumbered: card.isNumbered,
+  };
+}
+
+// ─── Guarantee distribution ──────────────────────────────────────────────────
+
+interface PackSlots {
+  autos: number;
+  numbered: number;
+  inserts: number;
+}
+
+function distributeGuarantees(
+  totalPacks: number,
+  autos: number,
+  numbered: number,
+  inserts: number,
+  cardsPerPack: number
+): PackSlots[] {
+  const slots: PackSlots[] = Array.from({ length: totalPacks }, () => ({
+    autos: 0,
+    numbered: 0,
+    inserts: 0,
+  }));
+
+  // Spread each guarantee type evenly across packs
+  function spread(count: number, field: keyof PackSlots) {
+    if (count <= 0 || totalPacks === 0) return;
+    const interval = totalPacks / count;
+    for (let i = 0; i < count; i++) {
+      let packIdx = Math.min(Math.floor(i * interval), totalPacks - 1);
+      // If this pack is already full, find the next available
+      while (
+        packIdx < totalPacks &&
+        slots[packIdx].autos + slots[packIdx].numbered + slots[packIdx].inserts >= cardsPerPack
+      ) {
+        packIdx++;
+      }
+      if (packIdx < totalPacks) {
+        slots[packIdx][field]++;
+      }
+    }
+  }
+
+  spread(autos, "autos");
+  spread(numbered, "numbered");
+  spread(inserts, "inserts");
+
+  return slots;
+}
+
+// ─── Single trial ────────────────────────────────────────────────────────────
 
 function simulateOneTrial(
-  config: SimConfig,
-  boxCount: number
+  fullWP: WeightedPool,
+  autoWP: WeightedPool | null,
+  numberedWP: WeightedPool | null,
+  insertWP: WeightedPool | null,
+  packSlots: PackSlots[],
+  cardsPerPack: number,
+  totalPacks: number
 ): BreakTrial {
-  const { pool, boxConfig, cardsPerPack } = config;
-  const { packsPerBox, guaranteedAutos } = boxConfig;
-
-  const autoPool = pool.filter((c) => c.isAuto);
-  const fullPool = pool;
-
   const pulls: PackPull[] = [];
   let autoCount = 0;
   let numberedCount = 0;
 
-  for (let box = 0; box < boxCount; box++) {
-    let autosRemaining = guaranteedAutos;
+  for (let pack = 0; pack < totalPacks; pack++) {
+    const packNum = pack + 1;
+    const gs = packSlots[pack];
 
-    for (let pack = 0; pack < packsPerBox; pack++) {
-      const packNum = box * packsPerBox + pack + 1;
-
-      for (let card = 0; card < cardsPerPack; card++) {
-        let sampled: SimPoolCard;
-
-        if (autosRemaining > 0 && autoPool.length > 0 && card === 0) {
-          sampled = weightedSampleCard(autoPool);
-          autosRemaining--;
-        } else {
-          sampled = weightedSampleCard(fullPool);
-        }
-
-        const athlete = weightedSampleAthlete(sampled);
-
-        pulls.push({
-          packNumber: packNum,
-          athleteName: athlete.name,
-          insertSetName: sampled.insertSetName,
-          parallelName: sampled.parallelName,
-          printRun: null,
-          isAuto: sampled.isAuto,
-          isNumbered: sampled.isNumbered,
-        });
-
-        if (sampled.isAuto) autoCount++;
-        if (sampled.isNumbered) numberedCount++;
+    // Guaranteed auto slots
+    for (let i = 0; i < gs.autos; i++) {
+      if (autoWP && autoWP.cards.length > 0) {
+        const pull = makePull(sampleFrom(autoWP), packNum);
+        pulls.push(pull);
+        if (pull.isAuto) autoCount++;
+        if (pull.isNumbered) numberedCount++;
       }
+    }
+
+    // Guaranteed numbered slots
+    for (let i = 0; i < gs.numbered; i++) {
+      if (numberedWP && numberedWP.cards.length > 0) {
+        const pull = makePull(sampleFrom(numberedWP), packNum);
+        pulls.push(pull);
+        if (pull.isAuto) autoCount++;
+        if (pull.isNumbered) numberedCount++;
+      }
+    }
+
+    // Guaranteed insert slots
+    for (let i = 0; i < gs.inserts; i++) {
+      if (insertWP && insertWP.cards.length > 0) {
+        const pull = makePull(sampleFrom(insertWP), packNum);
+        pulls.push(pull);
+        if (pull.isAuto) autoCount++;
+        if (pull.isNumbered) numberedCount++;
+      }
+    }
+
+    // Remaining slots from full weighted pool
+    const guaranteed = gs.autos + gs.numbered + gs.inserts;
+    const remaining = cardsPerPack - guaranteed;
+    for (let i = 0; i < remaining; i++) {
+      const pull = makePull(sampleFrom(fullWP), packNum);
+      pulls.push(pull);
+      if (pull.isAuto) autoCount++;
+      if (pull.isNumbered) numberedCount++;
     }
   }
 
@@ -152,18 +253,58 @@ export function runSimulation(
   boxCount: number = 1,
   trialCount: number = 10000
 ): SimulationResult {
-  const trials: BreakTrial[] = [];
+  const { pool, boxConfig, cardsPerPack } = config;
+  const { packsPerBox, guaranteedAutos } = boxConfig;
+  const numberedPerBox = config.numberedPerBox ?? 0;
+  const insertsPerBox = config.insertsPerBox ?? 0;
 
+  const totalPacks = packsPerBox * boxCount;
+  const totalCards = cardsPerPack * totalPacks;
+  const totalGuaranteedAutos = guaranteedAutos * boxCount;
+  const totalGuaranteedNumbered = numberedPerBox * boxCount;
+  const totalGuaranteedInserts = insertsPerBox * boxCount;
+
+  // Build sub-pools
+  const autoCards = pool.filter((c) => c.isAuto);
+  const numberedCards = pool.filter((c) => c.isNumbered && !c.isAuto);
+  // Insert pool: non-base, non-auto, non-numbered cards
+  const insertCards = pool.filter(
+    (c) =>
+      !c.isAuto &&
+      !c.isNumbered &&
+      !c.insertSetName.startsWith("Base")
+  );
+
+  const fullWP = buildWeightedPool(pool);
+  const autoWP = autoCards.length > 0 ? buildWeightedPool(autoCards) : null;
+  const numberedWP = numberedCards.length > 0 ? buildWeightedPool(numberedCards) : null;
+  const insertWP = insertCards.length > 0 ? buildWeightedPool(insertCards) : null;
+
+  // Distribute guarantees across packs
+  const packSlots = distributeGuarantees(
+    totalPacks,
+    totalGuaranteedAutos,
+    totalGuaranteedNumbered,
+    totalGuaranteedInserts,
+    cardsPerPack
+  );
+
+  // Run trials
+  const trials: BreakTrial[] = [];
   for (let i = 0; i < trialCount; i++) {
-    trials.push(simulateOneTrial(config, boxCount));
+    trials.push(
+      simulateOneTrial(fullWP, autoWP, numberedWP, insertWP, packSlots, cardsPerPack, totalPacks)
+    );
   }
 
+  // Sort by autoCount for percentile selection
   const sorted = [...trials].sort((a, b) => a.autoCount - b.autoCount);
   const p10 = sorted[Math.floor(trialCount * 0.1)];
   const p50 = sorted[Math.floor(trialCount * 0.5)];
   const p90 = sorted[Math.floor(trialCount * 0.9)];
   const randomIdx = Math.floor(Math.random() * trialCount);
 
+  // Distribution histograms
   const autoDist: Record<number, number> = {};
   const numberedDist: Record<number, number> = {};
   const autoAthleteCount = new Map<string, number>();
@@ -176,7 +317,10 @@ export function runSimulation(
     for (const pull of trial.pulls) {
       if (pull.isAuto && !seenAuto.has(pull.athleteName)) {
         seenAuto.add(pull.athleteName);
-        autoAthleteCount.set(pull.athleteName, (autoAthleteCount.get(pull.athleteName) ?? 0) + 1);
+        autoAthleteCount.set(
+          pull.athleteName,
+          (autoAthleteCount.get(pull.athleteName) ?? 0) + 1
+        );
       }
     }
   }
@@ -199,6 +343,8 @@ export function runSimulation(
       boxType: config.boxType,
       boxCount,
       trials: trialCount,
+      totalCards,
+      guaranteedAutos: totalGuaranteedAutos,
     },
     medianTrial: p50,
     bestTrial: p90,

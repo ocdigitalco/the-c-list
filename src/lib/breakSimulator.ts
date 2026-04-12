@@ -32,6 +32,8 @@ export interface SimConfig {
   boxConfig: BoxFormatConfig;
   pool: SimPoolCard[];
   cardsPerPack: number;
+  numberedPerBox?: number;
+  insertsPerBox?: number;
 }
 
 export interface PackPull {
@@ -136,6 +138,13 @@ export async function buildSimPool(
     athletes: athletesByIS.get(entry.insertSetId) ?? [],
   }));
 
+  // Extract additional guarantee counts from raw box config
+  const numberedPerBox =
+    fmt?.numbered_parallels_per_box ??
+    fmt?.numbered_cards_per_box ??
+    0;
+  const insertsPerBox = fmt?.inserts_per_box ?? 0;
+
   return {
     setId,
     setName: setRow.name,
@@ -143,6 +152,8 @@ export async function buildSimPool(
     boxConfig,
     pool: simPool,
     cardsPerPack,
+    numberedPerBox,
+    insertsPerBox,
   };
 }
 
