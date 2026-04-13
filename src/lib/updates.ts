@@ -12,6 +12,25 @@ export interface Update {
 }
 
 export const updates: Update[] = [
+  // ─── April 12, 2026 ──────────────────────────────────────────────────────
+  {
+    id: "100-bowman-basketball-2025-config",
+    title: "2025-26 Topps Bowman Basketball",
+    date: "2026-04-12T12:00:00Z",
+    summary: "Box configuration, release date, and 382 parallels added for 2025-26 Topps Bowman Basketball. Releases April 22, 2026 across Hobby, Jumbo, Mega, Value, and Breaker's Delight formats.",
+    description: `## 2025-26 Topps Bowman Basketball
+
+Box configuration and release date now available. Releases April 22, 2026.
+
+- **Hobby**: 8 cards/pack, 20 packs/box, 12 boxes/case. 1 NBA auto + 1 NCAA auto, 12 inserts, 1 Mini-Diamond Chrome Refractor, 6 additional base parallels per box
+- **Jumbo**: 24 cards/pack, 12 packs/box, 8 boxes/case. 2 NBA autos + 2 NCAA autos, 18 inserts, 12 base parallels per box
+- **Mega**: 7 cards/pack, 6 packs/box, 20 boxes/case. 11 Mojo parallels, 1 insert, 1 Mega Rookies/Prospects insert per box
+- **Value**: 10 cards/pack, 6 packs/box, 40 boxes/case. 4 inserts per box
+- **Breaker's Delight**: 10 cards/pack, 1 pack/box, 6 boxes/case. 2 NBA autos + 1 NCAA auto, 3 Geometric Chrome cards per box
+- **382 parallels** added across 31 insert sets including Base, Chrome, Prospects, Chrome Prospects, and all autograph and insert sets`,
+    tags: ["checklist", "box-config"],
+    setId: 34,
+  },
   // ─── April 11, 2026 ──────────────────────────────────────────────────────
   {
     id: "099-box-break-simulator",
