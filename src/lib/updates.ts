@@ -12,6 +12,26 @@ export interface Update {
 }
 
 export const updates: Update[] = [
+  // ─── April 13, 2026 ──────────────────────────────────────────────────────
+  {
+    id: "101-set-catalogue-expanded",
+    title: "Set Catalogue Expanded",
+    date: "2026-04-13T12:00:00Z",
+    summary: "Added 780+ set reference entries spanning 2018 through 2026 across Baseball, Basketball, Football, Soccer, Wrestling, MMA, Racing, and Entertainment.",
+    description: `## Set Catalogue Expanded
+
+Added 780+ set reference entries spanning 2018 through 2026 across all major sports and entertainment categories. Sets without full checklists appear as reference entries on the sets page, giving collectors a comprehensive view of the Topps product landscape.
+
+- **Baseball**: Series 1/2, Chrome, Bowman, Heritage, Finest, Dynasty, Transcendent, and more
+- **Basketball**: Chrome, Bowman, Finest, Midnight, Cosmic Chrome
+- **Football**: Chrome, Bowman University Chrome, Inception, Finest
+- **Soccer**: UEFA Chrome, Bundesliga, MLS, Premier League, Merlin, Museum Collection
+- **Wrestling**: WWE Chrome, Heritage, Finest, Transcendent
+- **MMA**: UFC Chrome, Midnight, Knockout, Museum
+- **Racing**: Formula 1 Chrome, Dynasty, Finest
+- **Entertainment**: Star Wars, Disney, Marvel, Garbage Pail Kids across Chrome, Sapphire, and Standard tiers`,
+    tags: ["checklist"],
+  },
   // ─── April 12, 2026 ──────────────────────────────────────────────────────
   {
     id: "100-bowman-basketball-2025-config",
