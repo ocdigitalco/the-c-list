@@ -7,7 +7,7 @@ import {
   playerAppearances,
 } from "@/lib/schema";
 import { eq, inArray, sql, and } from "drizzle-orm";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { SetMetadataBar } from "@/components/sets/SetMetadataBar";
 import { StatCards } from "@/components/sets/StatCards";
 import { BoxConfigTable } from "@/components/sets/BoxConfigTable";
@@ -25,14 +25,39 @@ export default async function V2SetPage({
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const { id } = await params;
-  const setId = parseInt(id, 10);
-  if (isNaN(setId)) notFound();
+  const { id: rawParam } = await params;
+  const isNumeric = /^\d+$/.test(rawParam);
 
-  const setRow = await db.query.sets.findFirst({
-    where: (t, { eq }) => eq(t.id, setId),
-  });
+  let setRow;
+  if (isNumeric) {
+    setRow = await db.query.sets.findFirst({
+      where: (t, { eq }) => eq(t.id, parseInt(rawParam, 10)),
+    });
+    // Redirect numeric ID to slug URL if slug exists
+    if (setRow) {
+      try {
+        const slugRow = await rawQuery.get<{ slug: string | null }>(
+          "SELECT slug FROM sets WHERE id = ?", setRow.id
+        );
+        if (slugRow?.slug) redirect(`/sets/${slugRow.slug}`);
+      } catch { /* slug column may not exist yet */ }
+    }
+  } else {
+    // Try slug lookup
+    try {
+      const slugRow = await rawQuery.get<{ id: number }>(
+        "SELECT id FROM sets WHERE slug = ?", rawParam
+      );
+      if (slugRow) {
+        setRow = await db.query.sets.findFirst({
+          where: (t, { eq }) => eq(t.id, slugRow.id),
+        });
+      }
+    } catch { /* slug column may not exist yet */ }
+  }
   if (!setRow) notFound();
+
+  const setId = setRow.id;
 
   // Insert set IDs
   const insertSetIdRows = await db

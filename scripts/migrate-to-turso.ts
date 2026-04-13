@@ -104,6 +104,21 @@ async function createSchema() {
     }
   }
 
+  // Ensure new columns exist on existing tables (handles schema evolution)
+  const alterStmts = [
+    "ALTER TABLE sets ADD COLUMN slug TEXT",
+    "ALTER TABLE players ADD COLUMN slug TEXT",
+  ];
+  for (const stmt of alterStmts) {
+    try {
+      await exec(stmt);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      if (msg.includes("duplicate column") || msg.includes("already exists")) continue;
+      // Ignore if column already exists
+    }
+  }
+
   // Create indexes
   for (const { sql } of indexes) {
     try {

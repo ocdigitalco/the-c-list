@@ -8,7 +8,7 @@ import {
   appearanceCoPlayers,
 } from "@/lib/schema";
 import { eq, inArray, asc, sql, and } from "drizzle-orm";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
 import { LeaderboardSidebar } from "@/components/sets/LeaderboardSidebar";
 import { RightSidebar } from "@/components/sets/RightSidebar";
@@ -94,20 +94,67 @@ export default async function V2AthletePage({
 }: {
   params: Promise<{ id: string; athleteId: string }>;
 }) {
-  const { id, athleteId: athleteIdStr } = await params;
-  const setId = parseInt(id, 10);
-  const athleteId = parseInt(athleteIdStr, 10);
-  if (isNaN(setId) || isNaN(athleteId)) notFound();
+  const { id: rawSetParam, athleteId: rawAthleteParam } = await params;
+  const setIsNumeric = /^\d+$/.test(rawSetParam);
+  const athleteIsNumeric = /^\d+$/.test(rawAthleteParam);
 
-  const setRow = await db.query.sets.findFirst({
-    where: (t, { eq }) => eq(t.id, setId),
-  });
+  // Resolve set
+  let setRow;
+  if (setIsNumeric) {
+    setRow = await db.query.sets.findFirst({
+      where: (t, { eq }) => eq(t.id, parseInt(rawSetParam, 10)),
+    });
+  } else {
+    try {
+      const slugRow = await rawQuery.get<{ id: number }>(
+        "SELECT id FROM sets WHERE slug = ?", rawSetParam
+      );
+      if (slugRow) {
+        setRow = await db.query.sets.findFirst({
+          where: (t, { eq }) => eq(t.id, slugRow.id),
+        });
+      }
+    } catch { /* slug column may not exist yet */ }
+  }
   if (!setRow) notFound();
+  const setId = setRow.id;
 
-  const playerData = await db.query.players.findFirst({
-    where: (t, { eq }) => eq(t.id, athleteId),
-  });
+  // Resolve athlete
+  let playerData;
+  if (athleteIsNumeric) {
+    playerData = await db.query.players.findFirst({
+      where: (t, { eq }) => eq(t.id, parseInt(rawAthleteParam, 10)),
+    });
+  } else {
+    try {
+      const slugRow = await rawQuery.get<{ id: number }>(
+        "SELECT id FROM players WHERE slug = ? AND set_id = ?", rawAthleteParam, setId
+      );
+      if (slugRow) {
+        playerData = await db.query.players.findFirst({
+          where: (t, { eq }) => eq(t.id, slugRow.id),
+        });
+      }
+    } catch { /* slug column may not exist yet */ }
+  }
   if (!playerData || playerData.setId !== setId) notFound();
+
+  // Redirect numeric URLs to slug URLs
+  if (setIsNumeric || athleteIsNumeric) {
+    try {
+      const setSlugRow = await rawQuery.get<{ slug: string | null }>(
+        "SELECT slug FROM sets WHERE id = ?", setId
+      );
+      const athleteSlugRow = await rawQuery.get<{ slug: string | null }>(
+        "SELECT slug FROM players WHERE id = ?", playerData.id
+      );
+      if (setSlugRow?.slug && athleteSlugRow?.slug) {
+        redirect(`/sets/${setSlugRow.slug}/athlete/${athleteSlugRow.slug}`);
+      }
+    } catch { /* slug column may not exist yet */ }
+  }
+
+  const athleteId = playerData.id;
 
   // Insert set IDs for this set
   const insertSetIdRows = await db

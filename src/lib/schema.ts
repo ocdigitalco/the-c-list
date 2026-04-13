@@ -12,6 +12,7 @@ export const sets = sqliteTable("sets", {
   packOdds: text("pack_odds"),
   boxConfig: text("box_config"),
   releaseDate: text("release_date"),
+  // slug: text("slug"), // Added via ALTER TABLE, not in Drizzle schema to avoid query errors on Turso pre-migration
 });
 
 export const insertSets = sqliteTable("insert_sets", {
@@ -42,6 +43,7 @@ export const players = sqliteTable("players", {
   nbaPlayerId: integer("nba_player_id"),
   ufcImageUrl: text("ufc_image_url"),
   mlbPlayerId: integer("mlb_player_id"),
+  // slug: text("slug"), // Added via ALTER TABLE, not in Drizzle schema to avoid query errors on Turso pre-migration
 }, (t) => [
   uniqueIndex("players_set_name_unique").on(t.setId, t.name),
 ]);
