@@ -236,6 +236,7 @@ export default async function V2SetPage({
   const leaderboardRaw = await rawQuery.all<{
     id: number;
     name: string;
+    slug: string | null;
     totalCards: number;
     isRookie: number;
     team: string | null;
@@ -262,6 +263,7 @@ export default async function V2SetPage({
      SELECT
        p.id,
        p.name,
+       p.slug,
        p.unique_cards AS totalCards,
        CAST(MAX(CASE WHEN pa.is_rookie = 1 THEN 1 ELSE 0 END) AS INTEGER) AS isRookie,
        MAX(pa.team) AS team,
@@ -296,6 +298,7 @@ export default async function V2SetPage({
   const leaderboardEntries: LeaderboardRow[] = leaderboardRaw.map((r) => ({
     id: r.id,
     name: r.name,
+    slug: r.slug,
     team: r.team,
     isRookie: r.isRookie === 1,
     totalCards: r.totalCards,

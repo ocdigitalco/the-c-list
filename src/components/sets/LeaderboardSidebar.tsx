@@ -13,6 +13,7 @@ interface Props {
   entries: LeaderboardRow[];
   hasTeamData: boolean;
   setId: number;
+  setSlug?: string | null;
 }
 
 const SORT_TABS: { key: SortKey; label: string }[] = [
@@ -61,7 +62,7 @@ function PlayerAvatar({ name, nbaPlayerId, ufcImageUrl, mlbPlayerId }: { name: s
   );
 }
 
-export function LeaderboardSidebar({ entries, hasTeamData, setId }: Props) {
+export function LeaderboardSidebar({ entries, hasTeamData, setId, setSlug }: Props) {
   const [sortKey, setSortKey] = useState<SortKey>("totalCards");
   const [rookiesOnly, setRookiesOnly] = useState(false);
   const [teamQuery, setTeamQuery] = useState("");
@@ -219,7 +220,7 @@ export function LeaderboardSidebar({ entries, hasTeamData, setId }: Props) {
             {visible.map((entry, idx) => (
               <Link
                 key={entry.id}
-                href={`/sets/${setId}/athlete/${entry.id}`}
+                href={`/sets/${setSlug || setId}/athlete/${entry.slug || entry.id}`}
                 className="grid grid-cols-[auto_auto_1fr_auto] items-center gap-2.5 px-4 py-2.5 transition-colors text-left"
                 style={{ borderBottom: "1px solid var(--v2-border)" }}
                 onMouseEnter={(e) => {

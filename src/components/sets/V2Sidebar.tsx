@@ -8,6 +8,7 @@ import type { SidebarPlayer, BoxFormatSummary } from "./types";
 
 interface Props {
   setId: number;
+  setSlug?: string | null;
   setName: string;
   sport: string;
   league: string | null;
@@ -41,6 +42,7 @@ function MetaRow({ label, value }: { label: string; value: string }) {
 
 export function V2Sidebar({
   setId,
+  setSlug,
   setName,
   sport,
   league,
@@ -71,7 +73,7 @@ export function V2Sidebar({
       {/* Set info */}
       <div className="px-4 pt-4 pb-3 space-y-3 border-b border-zinc-800">
         <Link
-          href={`/sets/${setId}`}
+          href={`/sets/${setSlug || setId}`}
           className="block text-base font-bold text-white leading-tight hover:text-amber-400 transition-colors"
           onClick={onNavigate}
         >
@@ -135,7 +137,7 @@ export function V2Sidebar({
             <Link
               key={p.id}
               ref={isActive ? selectedRef : undefined}
-              href={`/sets/${setId}/athlete/${p.id}`}
+              href={`/sets/${setSlug || setId}/athlete/${p.slug || p.id}`}
               onClick={onNavigate}
               className={`flex items-center justify-between px-4 py-2 text-xs transition-colors ${
                 isActive

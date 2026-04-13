@@ -3,6 +3,7 @@ export type V2Theme = "light" | "dark";
 export interface SidebarPlayer {
   id: number;
   name: string;
+  slug: string | null;
   totalCards: number;
   hasRookie: boolean;
 }
@@ -18,6 +19,7 @@ export interface SetStats {
 export interface LeaderboardRow {
   id: number;
   name: string;
+  slug: string | null;
   team: string | null;
   isRookie: boolean;
   totalCards: number;

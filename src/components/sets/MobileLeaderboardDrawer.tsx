@@ -8,9 +8,10 @@ interface Props {
   entries: LeaderboardRow[];
   hasTeamData: boolean;
   setId: number;
+  setSlug?: string | null;
 }
 
-export function MobileLeaderboardDrawer({ entries, hasTeamData, setId }: Props) {
+export function MobileLeaderboardDrawer({ entries, hasTeamData, setId, setSlug }: Props) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -59,7 +60,7 @@ export function MobileLeaderboardDrawer({ entries, hasTeamData, setId }: Props) 
               </button>
             </div>
             <div className="h-[calc(100%-44px)]">
-              <LeaderboardSidebar entries={entries} hasTeamData={hasTeamData} setId={setId} />
+              <LeaderboardSidebar entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug} />
             </div>
           </div>
         </div>

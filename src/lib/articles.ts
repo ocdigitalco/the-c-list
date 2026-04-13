@@ -85,7 +85,7 @@ export const articles: Article[] = [
       {
         type: "p",
         html: true,
-        text: '2026 Topps Chrome WWE lands on April 10, 2026, bringing the signature chromium finish of the Topps Chrome brand to the biggest names, rising stars, and all-time legends of sports entertainment. The product spans seven box formats, a 301-card base set, and one of the most complete autograph programs in any wrestling card release. Whether you are chasing a Rey Mysterio Red Brand Autograph, hunting a Stephanie Vaquer Main Roster Debut Patch Auto 1/1, or targeting a Dual Auto of The Miz and Maryse, there is something in this release for every level of collector. <a href="/sets/48">View the full checklist on Checklist\u00b2</a>, check out the <a href="https://ripped.topps.com/2026-topps-chrome-wwe-collector-guide/" target="_blank" rel="noopener noreferrer">Topps Ripped collector guide</a>, or visit the <a href="https://www.topps.com/pages/wwe-chrome" target="_blank" rel="noopener noreferrer">official Topps WWE Chrome page</a> for product details.',
+        text: '2026 Topps Chrome WWE lands on April 10, 2026, bringing the signature chromium finish of the Topps Chrome brand to the biggest names, rising stars, and all-time legends of sports entertainment. The product spans seven box formats, a 301-card base set, and one of the most complete autograph programs in any wrestling card release. Whether you are chasing a Rey Mysterio Red Brand Autograph, hunting a Stephanie Vaquer Main Roster Debut Patch Auto 1/1, or targeting a Dual Auto of The Miz and Maryse, there is something in this release for every level of collector. <a href="/sets/2026-topps-chrome-wwe">View the full checklist on Checklist\u00b2</a>, check out the <a href="https://ripped.topps.com/2026-topps-chrome-wwe-collector-guide/" target="_blank" rel="noopener noreferrer">Topps Ripped collector guide</a>, or visit the <a href="https://www.topps.com/pages/wwe-chrome" target="_blank" rel="noopener noreferrer">official Topps WWE Chrome page</a> for product details.',
       },
       {
         type: "p",
@@ -433,7 +433,7 @@ export const articles: Article[] = [
       {
         type: "p",
         html: true,
-        text: '2026 Topps Chrome WWE is a comprehensive release that rewards collectors at every budget and format preference. The combination of a 301-card base set, seven box formats with exclusive parallel ecosystems, legendary and current star autograph programs, anniversary tribute sets, and the ultra-rare Main Roster Debut Patch Autographs makes it one of the most layered wrestling card products in recent memory. <a href="/sets/48">View the complete checklist on Checklist\u00b2</a> and find full product details on the <a href="https://www.topps.com/pages/wwe-chrome" target="_blank" rel="noopener noreferrer">official Topps WWE Chrome page</a>.',
+        text: '2026 Topps Chrome WWE is a comprehensive release that rewards collectors at every budget and format preference. The combination of a 301-card base set, seven box formats with exclusive parallel ecosystems, legendary and current star autograph programs, anniversary tribute sets, and the ultra-rare Main Roster Debut Patch Autographs makes it one of the most layered wrestling card products in recent memory. <a href="/sets/2026-topps-chrome-wwe">View the complete checklist on Checklist\u00b2</a> and find full product details on the <a href="https://www.topps.com/pages/wwe-chrome" target="_blank" rel="noopener noreferrer">official Topps WWE Chrome page</a>.',
       },
     ],
   },
@@ -458,7 +458,7 @@ export const articles: Article[] = [
       {
         type: "p",
         html: true,
-        text: 'This is one of the most analytically complete soccer card releases in recent memory. Full odds sheet. No missing chunks. Real production numbers. Real math. The 2025-26 Topps Chrome UEFA Club Competitions is Topps\' flagship Chrome soccer release of the year, and the numbers back up the hype. <a href="/sets/43">View the full checklist on Checklist\u00b2</a>. Full odds analysis originally published by u/bigfootsquatch_cards on Reddit, <a href="https://www.reddit.com/r/sportscards/comments/1sefhug/202526_topps_chrome_uefa_club_competitions/" target="_blank" rel="noopener noreferrer">read the original post here</a>.',
+        text: 'This is one of the most analytically complete soccer card releases in recent memory. Full odds sheet. No missing chunks. Real production numbers. Real math. The 2025-26 Topps Chrome UEFA Club Competitions is Topps\' flagship Chrome soccer release of the year, and the numbers back up the hype. <a href="/sets/2025-26-topps-chrome-uefa-club-competitions">View the full checklist on Checklist\u00b2</a>. Full odds analysis originally published by u/bigfootsquatch_cards on Reddit, <a href="https://www.reddit.com/r/sportscards/comments/1sefhug/202526_topps_chrome_uefa_club_competitions/" target="_blank" rel="noopener noreferrer">read the original post here</a>.',
       },
       {
         type: "callout",
@@ -688,7 +688,7 @@ export const articles: Article[] = [
       {
         type: "p",
         html: true,
-        text: 'This is one of those rare releases where the math, the checklist, and the market are all pointing the same direction. No matter what your angle: ripping, flipping, or sitting on sealed product, it is hard to miss with this one at entry price. Paper UCC Flagship Hobby is already around $200 on the secondary market. Chrome will not stay at $210 for long. The only format to avoid if you care about hit potential is Hangers. Everything else has a clear case. View the complete checklist on <a href="/sets/43">Checklist\u00b2</a> and find full product details on the <a href="https://www.topps.com/pages/topps-chrome-uefa-club-competitions" target="_blank" rel="noopener noreferrer">official Topps product page</a>. Full odds analysis by u/bigfootsquatch_cards, <a href="https://www.reddit.com/r/sportscards/comments/1sefhug/202526_topps_chrome_uefa_club_competitions/" target="_blank" rel="noopener noreferrer">read the original Reddit post</a>.',
+        text: 'This is one of those rare releases where the math, the checklist, and the market are all pointing the same direction. No matter what your angle: ripping, flipping, or sitting on sealed product, it is hard to miss with this one at entry price. Paper UCC Flagship Hobby is already around $200 on the secondary market. Chrome will not stay at $210 for long. The only format to avoid if you care about hit potential is Hangers. Everything else has a clear case. View the complete checklist on <a href="/sets/2025-26-topps-chrome-uefa-club-competitions">Checklist\u00b2</a> and find full product details on the <a href="https://www.topps.com/pages/topps-chrome-uefa-club-competitions" target="_blank" rel="noopener noreferrer">official Topps product page</a>. Full odds analysis by u/bigfootsquatch_cards, <a href="https://www.reddit.com/r/sportscards/comments/1sefhug/202526_topps_chrome_uefa_club_competitions/" target="_blank" rel="noopener noreferrer">read the original Reddit post</a>.',
       },
     ],
   },

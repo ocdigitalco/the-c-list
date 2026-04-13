@@ -6,6 +6,7 @@ import type { InsertSetDetail } from "./types";
 
 interface Props {
   setId: number;
+  setSlug?: string | null;
   insertSets: InsertSetDetail[];
 }
 
@@ -26,7 +27,7 @@ function PrintRun({ printRun }: { printRun: number | null }) {
   return <span className="font-mono opacity-75">/{printRun}</span>;
 }
 
-function AccordionRow({ setId, is }: { setId: number; is: InsertSetDetail }) {
+function AccordionRow({ setId, setSlug, is }: { setId: number; setSlug?: string | null; is: InsertSetDetail }) {
   const [expanded, setExpanded] = useState(false);
   const hasRookie = is.appearances.some((a) => a.isRookie);
 
@@ -71,7 +72,7 @@ function AccordionRow({ setId, is }: { setId: number; is: InsertSetDetail }) {
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
                   <span className="font-mono text-zinc-500 text-xs">#{a.cardNumber}</span>
                   <Link
-                    href={`/sets/${setId}/athlete/${0}`}
+                    href={`/sets/${setSlug || setId}/athlete/${0}`}
                     className="text-zinc-300 hover:text-indigo-400 transition-colors"
                   >
                     {a.team}
@@ -94,7 +95,7 @@ function AccordionRow({ setId, is }: { setId: number; is: InsertSetDetail }) {
                       <Fragment key={cp.id}>
                         {j > 0 && <span className="text-zinc-700">,</span>}
                         <Link
-                          href={`/sets/${setId}/athlete/${cp.id}`}
+                          href={`/sets/${setSlug || setId}/athlete/${cp.id}`}
                           className="text-zinc-400 hover:text-indigo-400 transition-colors"
                         >
                           {cp.name}
@@ -131,11 +132,11 @@ function AccordionRow({ setId, is }: { setId: number; is: InsertSetDetail }) {
   );
 }
 
-export function V2Checklist({ setId, insertSets }: Props) {
+export function V2Checklist({ setId, setSlug, insertSets }: Props) {
   return (
     <div className="space-y-3">
       {insertSets.map((is) => (
-        <AccordionRow key={is.insertSetId} setId={setId} is={is} />
+        <AccordionRow key={is.insertSetId} setId={setId} setSlug={setSlug} is={is} />
       ))}
       {insertSets.length === 0 && (
         <p className="text-base text-center py-8" style={{ color: "var(--v2-text-secondary)" }}>

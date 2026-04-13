@@ -465,6 +465,7 @@ export default async function V2AthletePage({
   const leaderboardRaw = await rawQuery.all<{
     id: number;
     name: string;
+    slug: string | null;
     totalCards: number;
     isRookie: number;
     team: string | null;
@@ -491,6 +492,7 @@ export default async function V2AthletePage({
      SELECT
        p.id,
        p.name,
+       p.slug,
        p.unique_cards AS totalCards,
        CAST(MAX(CASE WHEN pa.is_rookie = 1 THEN 1 ELSE 0 END) AS INTEGER) AS isRookie,
        MAX(pa.team) AS team,
@@ -525,6 +527,7 @@ export default async function V2AthletePage({
   const leaderboardEntries: LeaderboardRow[] = leaderboardRaw.map((r) => ({
     id: r.id,
     name: r.name,
+    slug: r.slug,
     team: r.team,
     isRookie: r.isRookie === 1,
     totalCards: r.totalCards,
@@ -581,7 +584,7 @@ export default async function V2AthletePage({
           {/* Breadcrumb */}
           <div className="flex items-center gap-1.5">
             <Link
-              href={`/sets/${setId}`}
+              href={`/sets/${rawSetParam}`}
               className="flex items-center gap-1 text-base transition-colors"
               style={{ color: "var(--v2-text-secondary)" }}
             >

@@ -10,6 +10,7 @@ interface Props {
   entries: LeaderboardRow[];
   hasTeamData: boolean;
   setId: number;
+  setSlug?: string | null;
 }
 
 const SORT_TABS: { key: SortKey; label: string }[] = [
@@ -21,7 +22,7 @@ const SORT_TABS: { key: SortKey; label: string }[] = [
 
 const DEFAULT_VISIBLE = 25;
 
-export function V2Leaderboard({ entries, hasTeamData, setId }: Props) {
+export function V2Leaderboard({ entries, hasTeamData, setId, setSlug }: Props) {
   const [sortKey, setSortKey] = useState<SortKey>("totalCards");
   const [showAll, setShowAll] = useState(false);
 
@@ -77,7 +78,7 @@ export function V2Leaderboard({ entries, hasTeamData, setId }: Props) {
                 <td className="px-4 py-2 text-xs text-zinc-600 tabular-nums">{i + 1}</td>
                 <td className="px-4 py-2">
                   <Link
-                    href={`/sets/${setId}/athlete/${entry.id}`}
+                    href={`/sets/${setSlug || setId}/athlete/${entry.slug || entry.id}`}
                     className="text-zinc-300 hover:text-indigo-400 transition-colors font-medium"
                   >
                     {entry.name}

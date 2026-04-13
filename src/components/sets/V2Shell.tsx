@@ -9,6 +9,7 @@ import type { SidebarPlayer, BoxFormatSummary } from "./types";
 
 interface Props {
   setId: number;
+  setSlug?: string | null;
   setName: string;
   sport: string;
   league: string | null;
@@ -23,6 +24,7 @@ interface Props {
 
 export function V2Shell({
   setId,
+  setSlug,
   setName,
   sport,
   league,
@@ -48,6 +50,7 @@ export function V2Shell({
           <aside className="hidden md:flex md:w-60 lg:w-72 shrink-0 border-r border-zinc-800 overflow-y-auto bg-zinc-900">
             <V2Sidebar
               setId={setId}
+              setSlug={setSlug}
               setName={setName}
               sport={sport}
               league={league}
@@ -65,6 +68,7 @@ export function V2Shell({
             <V2SidebarDrawer onClose={closeDrawer}>
               <V2Sidebar
                 setId={setId}
+                setSlug={setSlug}
                 setName={setName}
                 sport={sport}
                 league={league}
