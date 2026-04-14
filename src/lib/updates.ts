@@ -14,6 +14,28 @@ export interface Update {
 export const updates: Update[] = [
   // ─── April 13, 2026 ──────────────────────────────────────────────────────
   {
+    id: "113-chrome-ufc-config",
+    title: "2025 Topps Chrome UFC — Box Config Added",
+    date: "2026-04-13T23:30:00Z",
+    summary: "Added box configuration and release date (June 27, 2025) for 2025 Topps Chrome UFC across Hobby, Mega Box, and Value Blaster formats.",
+    description: `## 2025 Topps Chrome UFC
+
+Box configuration and release date now available. Releases June 27, 2025 across Hobby (12 packs, 2 autos, 4 numbered parallels, 20 total parallels), Mega (6 packs), and Value Blaster (6 packs).`,
+    tags: ["box-config"],
+    setId: 28,
+  },
+  {
+    id: "112-chrome-premier-league-config",
+    title: "2026 Topps Chrome Premier League — Box Config Added",
+    date: "2026-04-13T23:00:00Z",
+    summary: "Added box configuration and release date (February 5, 2026) for 2026 Topps Chrome Premier League across Hobby, Value Blaster, and Breaker's Delight formats.",
+    description: `## 2026 Topps Chrome Premier League
+
+Box configuration and release date now available. Releases February 5, 2026 across Hobby (20 packs, 1 auto, 10 inserts, 4 Prism Refractors, 6 base Refractors), Value Blaster (7 packs, 4 RayWave parallels), and Breaker's Delight (1 pack, 2 autos, 3 Geometric parallels).`,
+    tags: ["box-config"],
+    setId: 13,
+  },
+  {
     id: "111-ucc-2025-config-odds",
     title: "2025-26 Topps UEFA Club Competitions — Box Config and Odds Added",
     date: "2026-04-13T22:00:00Z",
