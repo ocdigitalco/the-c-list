@@ -141,6 +141,8 @@ export default async function V2AthletePage({
 
   // Redirect numeric URLs to slug URLs
   if (setIsNumeric || athleteIsNumeric) {
+    let setSlug: string | null = null;
+    let athleteSlug: string | null = null;
     try {
       const setSlugRow = await rawQuery.get<{ slug: string | null }>(
         "SELECT slug FROM sets WHERE id = ?", setId
@@ -148,10 +150,12 @@ export default async function V2AthletePage({
       const athleteSlugRow = await rawQuery.get<{ slug: string | null }>(
         "SELECT slug FROM players WHERE id = ?", playerData.id
       );
-      if (setSlugRow?.slug && athleteSlugRow?.slug) {
-        redirect(`/sets/${setSlugRow.slug}/athlete/${athleteSlugRow.slug}`);
-      }
+      setSlug = setSlugRow?.slug ?? null;
+      athleteSlug = athleteSlugRow?.slug ?? null;
     } catch { /* slug column may not exist yet */ }
+    if (setSlug && athleteSlug) {
+      redirect(`/sets/${setSlug}/athlete/${athleteSlug}`);
+    }
   }
 
   const athleteId = playerData.id;
@@ -451,8 +455,9 @@ export default async function V2AthletePage({
     season: string;
     tier: string;
     uniqueCards: number;
+    setSlug: string | null;
   }>(
-    `SELECT s.id AS setId, s.name AS setName, s.season, s.tier, p.unique_cards AS uniqueCards
+    `SELECT s.id AS setId, s.name AS setName, s.season, s.tier, s.slug AS setSlug, p.unique_cards AS uniqueCards
      FROM players p
      JOIN sets s ON s.id = p.set_id
      WHERE p.name = ? AND p.set_id != ?
@@ -566,7 +571,7 @@ export default async function V2AthletePage({
         className="hidden lg:flex w-[425px] shrink-0 flex-col sticky top-0 h-screen overflow-y-auto"
         style={{ borderRight: "1px solid var(--v2-border)" }}
       >
-        <LeaderboardSidebar entries={leaderboardEntries} hasTeamData={hasTeamData} setId={setId} />
+        <LeaderboardSidebar entries={leaderboardEntries} hasTeamData={hasTeamData} setId={setId} setSlug={rawSetParam} />
       </aside>
 
       {/* Center Main */}
@@ -695,7 +700,7 @@ export default async function V2AthletePage({
                 {otherSetRows.map((s) => (
                   <Link
                     key={s.setId}
-                    href={`/sets/${s.setId}`}
+                    href={`/sets/${s.setSlug ?? s.setId}`}
                     className="flex items-center justify-between px-4 py-3 rounded-lg transition-colors"
                     style={{
                       background: "var(--v2-card-bg)",

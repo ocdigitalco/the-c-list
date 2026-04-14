@@ -35,12 +35,14 @@ export default async function V2SetPage({
     });
     // Redirect numeric ID to slug URL if slug exists
     if (setRow) {
+      let slug: string | null = null;
       try {
         const slugRow = await rawQuery.get<{ slug: string | null }>(
           "SELECT slug FROM sets WHERE id = ?", setRow.id
         );
-        if (slugRow?.slug) redirect(`/sets/${slugRow.slug}`);
+        slug = slugRow?.slug ?? null;
       } catch { /* slug column may not exist yet */ }
+      if (slug) redirect(`/sets/${slug}`);
     }
   } else {
     // Try slug lookup
@@ -319,7 +321,7 @@ export default async function V2SetPage({
         className="hidden lg:flex w-[425px] shrink-0 flex-col sticky top-0 h-screen overflow-y-auto"
         style={{ borderRight: "1px solid var(--v2-border)" }}
       >
-        <LeaderboardSidebar entries={leaderboardEntries} hasTeamData={hasTeamData} setId={setId} />
+        <LeaderboardSidebar entries={leaderboardEntries} hasTeamData={hasTeamData} setId={setId} setSlug={rawParam} />
       </aside>
 
       {/* Center Main */}

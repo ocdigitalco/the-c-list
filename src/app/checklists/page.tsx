@@ -1,4 +1,4 @@
-import { db } from "@/lib/db";
+import { db, rawQuery } from "@/lib/db";
 import { sets, players, playerAppearances } from "@/lib/schema";
 import { eq, sql } from "drizzle-orm";
 import Link from "next/link";
@@ -131,8 +131,18 @@ export default async function ChecklistsPage({
 
   const statsMap = new Map(statsRows.map((r) => [r.setId, r]));
 
+  // Fetch slugs via rawQuery (slug column not in Drizzle schema)
+  let slugMap = new Map<number, string>();
+  try {
+    const slugRows = await rawQuery.all<{ id: number; slug: string }>(
+      "SELECT id, slug FROM sets WHERE slug IS NOT NULL"
+    );
+    slugMap = new Map(slugRows.map((r) => [r.id, r.slug]));
+  } catch { /* slug column may not exist yet */ }
+
   const setCards = setRows.map((s) => ({
     ...s,
+    slug: slugMap.get(s.id) ?? null,
     athleteCount: statsMap.get(s.id)?.athleteCount ?? 0,
     cardCount: statsMap.get(s.id)?.cardCount ?? 0,
   }));
@@ -191,7 +201,7 @@ export default async function ChecklistsPage({
               {setCards.map((s) => (
                 <Link
                   key={s.id}
-                  href={`/sets/${s.id}`}
+                  href={`/sets/${s.slug ?? s.id}`}
                   className="group border border-zinc-800 bg-zinc-900 hover:border-zinc-600 hover:bg-zinc-800/60 transition-colors flex overflow-hidden"
                 >
                   {s.sampleImageUrl && (
