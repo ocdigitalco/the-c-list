@@ -14,6 +14,17 @@ export interface Update {
 export const updates: Update[] = [
   // ─── April 13, 2026 ──────────────────────────────────────────────────────
   {
+    id: "115-disney-neon-2026",
+    title: "2026 Topps Disney Neon — Added",
+    date: "2026-04-13T23:50:00Z",
+    summary: "Full checklist seeded including 200 base cards, 10 autograph sets, and 15 insert sets with parallels, pack odds, box configuration, and set image. Releases April 10, 2026.",
+    description: `## 2026 Topps Disney Neon
+
+Complete checklist now available with 753 card appearances across 23 insert sets and 339 characters from 50+ Disney, Pixar, and Muppets properties. Includes Topps Neon Autographs (30 cards), Chrome Neon Etch Autographs (60 cards), Phineas and Ferb Auto Variations, A Goofy Movie 30th Anniversary Autos, Mickey Shorts Dual Autos, Triple Booklet Superfractors (all /1), Chrome Neon Etch (100 cards), Family First (35 dual cards), and Neon Villains. 273 pack odds entries across Hobby, Value, and Mega formats.`,
+    tags: ["checklist", "box-config", "odds"],
+    setId: 59,
+  },
+  {
     id: "114-batch-config-updates",
     title: "Box Configs and Release Dates — Batch Update",
     date: "2026-04-13T23:45:00Z",

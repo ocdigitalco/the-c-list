@@ -10,6 +10,7 @@ interface Props {
   nbaPlayerId: number | null | undefined;
   ufcImageUrl?: string | null;
   mlbPlayerId?: number | null;
+  imageUrl?: string | null;
   size?: "sm" | "lg";
 }
 
@@ -33,9 +34,9 @@ function InitialsAvatar({ name, size }: { name: string; size: "sm" | "lg" }) {
   );
 }
 
-export function AthleteHeadshot({ name, nbaPlayerId, ufcImageUrl, mlbPlayerId, size = "sm" }: Props) {
+export function AthleteHeadshot({ name, nbaPlayerId, ufcImageUrl, mlbPlayerId, imageUrl, size = "sm" }: Props) {
   const [imgError, setImgError] = useState(false);
-  const url = getNBAHeadshotUrl(nbaPlayerId) ?? getUFCHeadshotUrl(ufcImageUrl) ?? getMLBHeadshotUrl(mlbPlayerId);
+  const url = getNBAHeadshotUrl(nbaPlayerId) ?? getUFCHeadshotUrl(ufcImageUrl) ?? getMLBHeadshotUrl(mlbPlayerId) ?? (imageUrl || null);
 
   if (!url || imgError) {
     return <InitialsAvatar name={name} size={size} />;

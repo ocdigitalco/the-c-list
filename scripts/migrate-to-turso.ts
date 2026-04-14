@@ -108,6 +108,7 @@ async function createSchema() {
   const alterStmts = [
     "ALTER TABLE sets ADD COLUMN slug TEXT",
     "ALTER TABLE players ADD COLUMN slug TEXT",
+    "ALTER TABLE players ADD COLUMN image_url TEXT",
   ];
   for (const stmt of alterStmts) {
     try {
