@@ -14,6 +14,92 @@ export interface Update {
 export const updates: Update[] = [
   // ─── April 13, 2026 ──────────────────────────────────────────────────────
   {
+    id: "109-checklists-search",
+    title: "Checklists Page Search",
+    date: "2026-04-13T20:00:00Z",
+    summary: "Added live search bar to the checklists page. Filter by name, sport, league, or tier. Works in combination with the sport filter tiles.",
+    description: `## Checklists Page Search
+
+A live search bar has been added to the /checklists page. Type to filter sets instantly by name, sport, league, or tier. The search works in combination with the sport filter tiles, so you can narrow results like "Basketball Chrome" or "UEFA Sapphire" in real time.`,
+    tags: ["feature"],
+  },
+  {
+    id: "108-seo-slug-urls",
+    title: "SEO Slug URLs",
+    date: "2026-04-13T19:00:00Z",
+    summary: "All set and athlete pages now use descriptive slug-based URLs. Numeric ID URLs redirect to the canonical slug.",
+    description: `## SEO Slug URLs
+
+All set and athlete pages now use descriptive, SEO-friendly URLs. For example, /sets/2025-26-topps-finest-basketball instead of /sets/25. Old numeric ID URLs automatically redirect to the canonical slug URL. Internal links across the site have been updated to use slugs directly.`,
+    tags: ["feature"],
+  },
+  {
+    id: "107-chrome-mls-config",
+    title: "2025 Topps Chrome MLS — Box Config Added",
+    date: "2026-04-13T18:00:00Z",
+    summary: "Added box configuration and release date (February 19, 2026) for 2025 Topps Chrome MLS across Hobby, Blaster, and Mania formats.",
+    description: `## 2025 Topps Chrome MLS
+
+Box configuration and release date now available. Releases February 19, 2026 across Hobby (21 packs, 2 autos), Blaster (7 packs, Mini Diamond and RayWave parallels), and Mania (1 pack, 4 encased autos, 6 Mania parallels).`,
+    tags: ["box-config"],
+    setId: 6,
+  },
+  {
+    id: "106-midnight-ufc-config",
+    title: "2024 Topps Midnight UFC — Box Config Added",
+    date: "2026-04-13T17:00:00Z",
+    summary: "Added box configuration and release date (May 15, 2024) for 2024 Topps Midnight UFC.",
+    description: `## 2024 Topps Midnight UFC
+
+Box configuration and release date now available. Hobby box contains 7 cards per pack, 1 pack per box, 12 boxes per case with 3 autographs, 3 inserts or parallels, and 1 base card per box.`,
+    tags: ["box-config"],
+    setId: 9,
+  },
+  {
+    id: "105-finest-euro-2024",
+    title: "2023 Topps Finest Road to UEFA EURO 2024 — Added",
+    date: "2026-04-13T16:00:00Z",
+    summary: "Full checklist seeded including 100 base cards, 8 autograph sets, and 7 insert sets with parallels, odds, and box configuration.",
+    description: `## 2023 Topps Finest Road to UEFA EURO 2024
+
+Complete checklist now available with 240 card appearances across 14 insert sets, 125 players, box configuration, and 76 pack odds entries. Includes Base Autographs, Euro Masters Autographs, Finest Dual Autographs, Prized Footballers Autographs, and Prized Footballers Fusion Variations.`,
+    tags: ["checklist", "box-config", "odds"],
+    setId: 297,
+  },
+  {
+    id: "104-pristine-euro-2024",
+    title: "2023 Topps Pristine Road to Euro 2024 — Added",
+    date: "2026-04-13T15:00:00Z",
+    summary: "Full checklist seeded including 200 base cards, 9 autograph sets, and 8 insert sets with parallels, odds, and box configuration.",
+    description: `## 2023 Topps Pristine Road to Euro 2024
+
+Complete checklist now available with 411 card appearances across 15 insert sets, 235 players, box configuration, and pack odds. Includes Pristine Autographs (64 cards), Pristine Pair Dual Autographs, Pristine Borders Autographs, and Pristine Prodigies Autographs.`,
+    tags: ["checklist", "box-config", "odds"],
+    setId: 833,
+  },
+  {
+    id: "103-bowman-basketball-parallels",
+    title: "2025-26 Topps Bowman Basketball — Parallels Added",
+    date: "2026-04-13T14:00:00Z",
+    summary: "Added full parallel structure across all insert sets including Base, Chrome, Prospects, Chrome Prospects, autograph sets, and all insert sets.",
+    description: `## 2025-26 Topps Bowman Basketball — Parallels
+
+382 parallels added across 31 insert sets covering Base Set, Base Chrome Variation, Base Prospects, Chrome Prospects, Chrome Prospect Autographs, Chrome Autographs, Retrofractor Autographs, and all insert sets including Talent Tracker, Gen Next, Bowman Spotlights, Crystallized, Anime, and GPK.`,
+    tags: ["checklist"],
+    setId: 34,
+  },
+  {
+    id: "102-bowman-basketball-config",
+    title: "2025-26 Topps Bowman Basketball — Box Config Added",
+    date: "2026-04-13T13:00:00Z",
+    summary: "Added box configuration and release date (April 22, 2026) across Hobby, Jumbo, Mega, Value, and Breaker's Delight formats.",
+    description: `## 2025-26 Topps Bowman Basketball — Box Config
+
+Box configuration and release date now available. Releases April 22, 2026 across five formats: Hobby (20 packs, 2 autos), Jumbo (12 packs, 4 autos), Mega (6 packs, 11 Mojo parallels), Value (6 packs, 4 inserts), and Breaker's Delight (1 pack, 3 autos, Geometric exclusives).`,
+    tags: ["box-config"],
+    setId: 34,
+  },
+  {
     id: "101-set-catalogue-expanded",
     title: "Set Catalogue Expanded",
     date: "2026-04-13T12:00:00Z",
