@@ -14,6 +14,22 @@ export interface Update {
 export const updates: Update[] = [
   // ─── April 13, 2026 ──────────────────────────────────────────────────────
   {
+    id: "114-batch-config-updates",
+    title: "Box Configs and Release Dates — Batch Update",
+    date: "2026-04-13T23:45:00Z",
+    summary: "Added box configurations and/or release dates for 2025 Topps Royalty UFC, 2025 Topps Midnight UFC, 2025-26 Topps Midnight Basketball, 2026 Topps Heritage Baseball, 2026 Topps Series 1 Baseball, 2026 Topps Chrome U.S. Winter Olympic and Paralympic Hopefuls, and 2025 Bowman's Best Baseball.",
+    description: `## Box Configs and Release Dates — Batch Update
+
+- **2025 Topps Royalty UFC** — Feb 6, 2026. Hobby: 10 cards/pack, 1 pack/box, 5 autos, 3 memorabilia
+- **2025 Topps Midnight UFC** — Aug 8, 2025. Hobby: 7 cards/pack, 1 pack/box, 3 autos
+- **2025-26 Topps Midnight Basketball** — Jan 29, 2026. Hobby: 7 cards/pack, 1 pack/box, 3 autos
+- **2026 Topps Heritage Baseball** — Mar 18, 2026
+- **2026 Topps Series 1 Baseball** — Feb 11, 2026
+- **2026 Topps Chrome U.S. Winter Olympic and Paralympic Hopefuls** — Jan 15, 2026. Hobby + Value Blaster
+- **2025 Bowman's Best Baseball** — Mar 11, 2026`,
+    tags: ["box-config"],
+  },
+  {
     id: "113-chrome-ufc-config",
     title: "2025 Topps Chrome UFC — Box Config Added",
     date: "2026-04-13T23:30:00Z",
