@@ -331,25 +331,8 @@ export default async function V2AthletePage({
     const firstVal = Object.values(rawOdds)[0];
     const isNestedOdds = firstVal !== null && typeof firstVal === "object";
 
-    // Normalize odds values: convert "1:X" strings to numeric X, strip commas.
-    // Older sets store odds as numbers (e.g. 64 = 1:64), newer sets as "1:64".
-    function normalizeOddsObj(obj: Record<string, unknown>): Record<string, number> {
-      const out: Record<string, number> = {};
-      for (const [k, v] of Object.entries(obj)) {
-        if (typeof v === "number") { out[k] = v; continue; }
-        if (typeof v === "string") {
-          const cleaned = v.replace(/,/g, "");
-          if (cleaned.includes(":")) {
-            const parts = cleaned.split(":");
-            const denom = parseFloat(parts[parts.length - 1]);
-            if (!isNaN(denom)) { out[k] = denom; continue; }
-          }
-          const n = parseFloat(cleaned);
-          if (!isNaN(n)) { out[k] = n; continue; }
-        }
-      }
-      return out;
-    }
+    // Normalize odds values using shared parser
+    const { normalizeOddsObj } = await import("@/lib/parseOdds");
 
     const totalAppsByIS = new Map<number, number>();
     if (playerInsertSetIds.length > 0) {

@@ -57,28 +57,8 @@ interface AthletePoolEntry extends PoolEntry {
 
 // ─── Odds normalization ──────────────────────────────────────────────────────
 
-function parseOddsValue(v: unknown): number | null {
-  if (typeof v === "number" && v > 0) return v;
-  if (typeof v === "string") {
-    const cleaned = v.replace(/,/g, "");
-    if (cleaned.includes(":")) {
-      const denom = parseFloat(cleaned.split(":").pop()!);
-      if (!isNaN(denom) && denom > 0) return denom;
-    }
-    const n = parseFloat(cleaned);
-    if (!isNaN(n) && n > 0) return n;
-  }
-  return null;
-}
-
-function normalizeOddsObj(obj: Record<string, unknown>): Record<string, number> {
-  const out: Record<string, number> = {};
-  for (const [k, v] of Object.entries(obj)) {
-    const n = parseOddsValue(v);
-    if (n !== null) out[k] = n;
-  }
-  return out;
-}
+import { normalizeOddsObj } from "./parseOdds";
+export { normalizeOddsObj };
 
 // ─── Insert set name → odds key prefix resolution ───────────────────────────
 
