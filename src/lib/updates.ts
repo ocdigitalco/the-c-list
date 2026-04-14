@@ -14,6 +14,17 @@ export interface Update {
 export const updates: Update[] = [
   // ─── April 13, 2026 ──────────────────────────────────────────────────────
   {
+    id: "110-chrome-mls-mania-fix",
+    title: "2025 Topps Chrome MLS — Mania Box Config Fixed",
+    date: "2026-04-13T21:00:00Z",
+    summary: "Fixed Mania box configuration to correctly display 4 autographs per box.",
+    description: `## 2025 Topps Chrome MLS — Mania Fix
+
+Updated the Mania box configuration to use the standard \`autos_per_box\` field so the Break Hit Calculator and box config display correctly show 4 autographs per box.`,
+    tags: ["box-config"],
+    setId: 6,
+  },
+  {
     id: "109-checklists-search",
     title: "Checklists Page Search",
     date: "2026-04-13T20:00:00Z",
