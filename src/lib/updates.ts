@@ -14,6 +14,17 @@ export interface Update {
 export const updates: Update[] = [
   // ─── April 13, 2026 ──────────────────────────────────────────────────────
   {
+    id: "111-ucc-2025-config-odds",
+    title: "2025-26 Topps UEFA Club Competitions — Box Config and Odds Added",
+    date: "2026-04-13T22:00:00Z",
+    summary: "Added box configuration, release date (January 15, 2026), and full pack odds across Hobby, Value, Hanger, London Store, Carnaval, Japan Hobby, Japan Retail, and Spring Tin formats.",
+    description: `## 2025-26 Topps UEFA Club Competitions
+
+Box configuration and 621 pack odds entries now available across 8 formats: Hobby (24 packs, 1 auto/memorabilia), Value Blaster (7 packs), Hanger, London Store (Regency Chrome exclusives), Carnaval (Samba parallels), Japan Hobby (Sunflower parallels), Japan Retail (Diamond Plaid parallels), and Spring Tin (seasonal parallels). Releases January 15, 2026.`,
+    tags: ["box-config", "odds"],
+    setId: 36,
+  },
+  {
     id: "110-chrome-mls-mania-fix",
     title: "2025 Topps Chrome MLS — Mania Box Config Fixed",
     date: "2026-04-13T21:00:00Z",
