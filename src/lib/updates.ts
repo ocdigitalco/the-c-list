@@ -13,6 +13,16 @@ export interface Update {
 
 export const updates: Update[] = [
   // ─── April 13, 2026 ──────────────────────────────────────────────────────
+  // ─── April 14, 2026 ──────────────────────────────────────────────────────
+  {
+    id: "116-disneyland-70th-image",
+    title: "2025 Topps Disneyland 70th Anniversary — Image Added",
+    date: "2026-04-14T12:00:00Z",
+    summary: "Added set image for 2025 Topps Disneyland 70th Anniversary.",
+    description: `Added sample set image for 2025 Topps Disneyland 70th Anniversary.`,
+    tags: ["checklist"],
+    setId: 50,
+  },
   {
     id: "115-disney-neon-2026",
     title: "2026 Topps Disney Neon — Added",
