@@ -15,6 +15,16 @@ export const updates: Update[] = [
   // ─── April 13, 2026 ──────────────────────────────────────────────────────
   // ─── April 15, 2026 ──────────────────────────────────────────────────────
   {
+    id: "118-nfl-player-thumbnails",
+    title: "NFL Player Thumbnails Added",
+    date: "2026-04-15T14:00:00Z",
+    summary: "NFL player headshots now display using the Sleeper CDN. 461 players matched by name across all NFL sets.",
+    description: `## NFL Player Thumbnails
+
+461 NFL player headshots now display on athlete pages and leaderboard sidebars using the Sleeper CDN. Images are matched by player name from the Sleeper API database of 10,000+ NFL players. Combined with existing NBA, UFC, MLB, and Disney character images, the majority of athletes across the site now have visual headshots.`,
+    tags: ["feature"],
+  },
+  {
     id: "117-chrome-football-parallels-odds",
     title: "2025 Topps Chrome Football — Parallels and Odds Added",
     date: "2026-04-15T12:00:00Z",
