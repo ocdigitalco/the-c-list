@@ -13,6 +13,18 @@ export interface Update {
 
 export const updates: Update[] = [
   // ─── April 13, 2026 ──────────────────────────────────────────────────────
+  // ─── April 15, 2026 ──────────────────────────────────────────────────────
+  {
+    id: "117-chrome-football-parallels-odds",
+    title: "2025 Topps Chrome Football — Parallels and Odds Added",
+    date: "2026-04-15T12:00:00Z",
+    summary: "Added full parallel structure across all insert sets and complete pack odds across 14 box formats including Hobby, FDI, Jumbo, Breaker's Delight, Sapphire, Value, Mega, Hanger, and Fanatics for 2025 Topps Chrome Football.",
+    description: `## 2025 Topps Chrome Football
+
+355 parallels added across all insert sets and 421 pack odds entries across 14 box formats. Covers base parallels (Refractor, Wave, Lava, Geometric, Football Leather, X-Fractor, RayWave), all autograph sets (Chrome Autos, Rookies, Legends, Hall of Chrome, 1990 Topps, Chromographs, Future Stars, Dual, Rookie Patch), insert sets (1975 Topps, Power Players, Fortune 15, Legends of the Gridiron, etc.), and format exclusives (Sapphire Selections, Radiating Rookies, Helix, Game Genies, Kaiju, Let's Go, Tecmo, Urban Legends, Fanatical).`,
+    tags: ["checklist", "odds"],
+    setId: 44,
+  },
   // ─── April 14, 2026 ──────────────────────────────────────────────────────
   {
     id: "116-disneyland-70th-image",
