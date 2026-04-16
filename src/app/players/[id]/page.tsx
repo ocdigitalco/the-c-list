@@ -58,9 +58,9 @@ export default async function PlayerPage({ params }: Props) {
 
       {/* Stats */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-        <StatCard label="Unique Cards" value={player.uniqueCards} />
+        <StatCard label="Total Cards" value={player.uniqueCards} />
         <StatCard label="Total Print Run" value={player.totalPrintRun} />
-        <StatCard label="Insert Sets" value={player.insertSetCount} />
+        <StatCard label="Card Types" value={player.insertSetCount} />
         <StatCard
           label="1/1s"
           value={player.oneOfOnes}

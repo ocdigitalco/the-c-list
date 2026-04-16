@@ -93,7 +93,7 @@ const terms: { term: string; definition: string }[] = [
       "A Topps Chrome box type featuring exclusive foil parallels, typically released in conjunction with Lunar New Year celebrations. Hongbao boxes contain unique parallel variants such as Hongbao Green Foil and Hongbao Red Foil that are not available in any other box format.",
   },
   {
-    term: "Insert Sets",
+    term: "Card Types",
     definition:
       "Named subsets within a product that are separate from the base set, such as autograph collections, memorabilia cards, or themed insert series. Found across all sports and entertainment sets. Examples include Stroke of Midnight Autographs, Constellations, Horizon Signatures, and Arrivals.",
   },

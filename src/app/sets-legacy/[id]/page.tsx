@@ -756,7 +756,7 @@ export default async function SetPage({
             <div className="flex items-center gap-4 text-xs text-zinc-500">
               <StatChip value={setStats.athletes} label="athletes" />
               <StatChip value={setStats.cards} label="cards" />
-              <StatChip value={setStats.insertSets} label="insert sets" />
+              <StatChip value={setStats.insertSets} label="card types" />
               <StatChip value={setStats.parallelTypes} label="parallel types" />
               <StatChip value={setStats.totalParallels} label="total parallels" />
               <StatChip value={setStats.autographs} label="autographs" />
@@ -820,8 +820,8 @@ export default async function SetPage({
               </div>
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                <StatCard label="Insert Sets" value={playerView.insertSetCount ?? 0} />
-                <StatCard label="Unique Cards" value={playerView.uniqueCards ?? 0} />
+                <StatCard label="Card Types" value={playerView.insertSetCount ?? 0} />
+                <StatCard label="Total Cards" value={playerView.uniqueCards ?? 0} />
                 <StatCard label="Numbered Parallels" value={playerView.totalPrintRun ?? 0} />
                 <StatCard
                   label="1/1s"

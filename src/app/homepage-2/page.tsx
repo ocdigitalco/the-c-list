@@ -43,8 +43,8 @@ const FEATURES = [
     desc: "Find any athlete across every set instantly. Filter by sport, team, or rookie status. Jump straight to full card breakdowns with a single click.",
     cta: { label: "Search Athletes", href: "/checklists" },
     stats: [
-      { value: "159", label: "Unique Cards" },
-      { value: "46", label: "Insert Sets" },
+      { value: "159", label: "Total Cards" },
+      { value: "46", label: "Card Types" },
       { value: "6,140", label: "Numbered" },
       { value: "19", label: "SuperFractors" },
     ] as StatModal[],

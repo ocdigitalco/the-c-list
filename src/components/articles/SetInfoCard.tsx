@@ -28,7 +28,7 @@ export function SetInfoCard({ data }: { data: SetInfoData }) {
 
   const stats = [
     { label: "Cards", value: data.cardCount },
-    { label: "Insert Sets", value: data.insertSetCount },
+    { label: "Card Types", value: data.insertSetCount },
     { label: "Athletes", value: data.athleteCount },
     { label: "Box Types", value: data.boxTypeCount },
   ];

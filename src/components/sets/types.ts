@@ -29,6 +29,7 @@ export interface LeaderboardRow {
   nbaPlayerId: number | null;
   ufcImageUrl: string | null;
   mlbPlayerId: number | null;
+  imageUrl: string | null;
 }
 
 export interface InsertSetDetail {

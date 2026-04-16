@@ -106,7 +106,7 @@ export function StatCards({
 }: Props) {
   const items: StatCardData[] = [
     { label: "Cards", value: cards, tooltip: "Total unique cards in this set" },
-    { label: "Insert Sets", value: insertSets, tooltip: "Distinct insert set groupings" },
+    { label: "Card Types", value: insertSets, tooltip: "Distinct insert set groupings" },
     { label: "Parallel Types", value: parallelTypes, tooltip: "Count of distinct parallel names" },
     { label: "Autographs", value: autographs, tooltip: "Cards in autograph insert sets" },
     { label: "Auto Parallels", value: autoParallels, tooltip: "Parallels on autograph insert sets" },

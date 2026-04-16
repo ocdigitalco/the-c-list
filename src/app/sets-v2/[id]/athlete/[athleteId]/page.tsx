@@ -530,8 +530,8 @@ export default async function V2AthletePage({
           {/* Stat cards */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {[
-              { label: "Insert Sets", value: playerData.insertSetCount ?? 0 },
-              { label: "Unique Cards", value: playerData.uniqueCards ?? 0 },
+              { label: "Card Types", value: playerData.insertSetCount ?? 0 },
+              { label: "Total Cards", value: playerData.uniqueCards ?? 0 },
               { label: "Numbered Parallels", value: playerData.totalPrintRun ?? 0 },
               { label: "1/1s", value: playerData.oneOfOnes ?? 0 },
             ].map((s) => (

@@ -146,8 +146,8 @@ export default async function OverviewPage({
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <StatCard label="Total Sets" value={stats.totalSets} />
           <StatCard label="Total Athletes" value={stats.totalPlayers} />
-          <StatCard label="Unique Cards" value={stats.totalCards} />
-          <StatCard label="Insert Sets" value={stats.totalInsertSets} />
+          <StatCard label="Total Cards" value={stats.totalCards} />
+          <StatCard label="Card Types" value={stats.totalInsertSets} />
           <StatCard label="Autographs" value={stats.totalAutographs} />
           <StatCard label="Parallel Types" value={stats.totalParallelTypes} />
           <StatCard label="Total Parallels" value={stats.totalParallels} />

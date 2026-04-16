@@ -160,6 +160,15 @@ export default async function V2AthletePage({
 
   const athleteId = playerData.id;
 
+  // Fetch image_url (not in Drizzle schema)
+  let playerImageUrl: string | null = null;
+  try {
+    const imgRow = await rawQuery.get<{ image_url: string | null }>(
+      "SELECT image_url FROM players WHERE id = ?", athleteId
+    );
+    playerImageUrl = imgRow?.image_url ?? null;
+  } catch { /* column may not exist */ }
+
   // Insert set IDs for this set
   const insertSetIdRows = await db
     .select({ id: insertSets.id })
@@ -463,6 +472,7 @@ export default async function V2AthletePage({
     nbaPlayerId: number | null;
     ufcImageUrl: string | null;
     mlbPlayerId: number | null;
+    imageUrl: string | null;
   }>(
     `WITH player_is AS (
        SELECT DISTINCT pa.player_id, pa.insert_set_id
@@ -500,7 +510,8 @@ export default async function V2AthletePage({
        COALESCE(n.cnt, 0) AS numberedParallels,
        p.nba_player_id AS nbaPlayerId,
        p.ufc_image_url AS ufcImageUrl,
-       p.mlb_player_id AS mlbPlayerId
+       p.mlb_player_id AS mlbPlayerId,
+       p.image_url AS imageUrl
      FROM players p
      LEFT JOIN player_appearances pa ON pa.player_id = p.id
      LEFT JOIN insert_sets i ON i.id = pa.insert_set_id
@@ -525,6 +536,7 @@ export default async function V2AthletePage({
     nbaPlayerId: r.nbaPlayerId,
     ufcImageUrl: r.ufcImageUrl,
     mlbPlayerId: r.mlbPlayerId,
+    imageUrl: r.imageUrl,
   }));
 
   const hasTeamData = leaderboardEntries.some((e) => e.team != null && e.team !== "");
@@ -585,7 +597,7 @@ export default async function V2AthletePage({
 
           {/* Player header */}
           <div className="flex items-center gap-5">
-            <AthleteHeadshot name={playerData.name} nbaPlayerId={playerData.nbaPlayerId} ufcImageUrl={playerData.ufcImageUrl} mlbPlayerId={playerData.mlbPlayerId} size="lg" />
+            <AthleteHeadshot name={playerData.name} nbaPlayerId={playerData.nbaPlayerId} ufcImageUrl={playerData.ufcImageUrl} mlbPlayerId={playerData.mlbPlayerId} imageUrl={playerImageUrl} size="lg" />
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-3">
                 <h1 className="text-3xl font-bold" style={{ color: "var(--v2-text-primary)" }}>
@@ -611,8 +623,8 @@ export default async function V2AthletePage({
           {/* Stat cards */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {[
-              { label: "Insert Sets", value: playerData.insertSetCount ?? 0 },
-              { label: "Unique Cards", value: playerData.uniqueCards ?? 0 },
+              { label: "Card Types", value: playerData.insertSetCount ?? 0 },
+              { label: "Total Cards", value: playerData.uniqueCards ?? 0 },
               { label: "Numbered Parallels", value: playerData.totalPrintRun ?? 0 },
               { label: "1/1s", value: playerData.oneOfOnes ?? 0 },
             ].map((s) => (

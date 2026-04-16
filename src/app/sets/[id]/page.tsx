@@ -248,6 +248,7 @@ export default async function V2SetPage({
     nbaPlayerId: number | null;
     ufcImageUrl: string | null;
     mlbPlayerId: number | null;
+    imageUrl: string | null;
   }>(
     `WITH player_is AS (
        SELECT DISTINCT pa.player_id, pa.insert_set_id
@@ -285,7 +286,8 @@ export default async function V2SetPage({
        COALESCE(n.cnt, 0) AS numberedParallels,
        p.nba_player_id AS nbaPlayerId,
        p.ufc_image_url AS ufcImageUrl,
-       p.mlb_player_id AS mlbPlayerId
+       p.mlb_player_id AS mlbPlayerId,
+       p.image_url AS imageUrl
      FROM players p
      LEFT JOIN player_appearances pa ON pa.player_id = p.id
      LEFT JOIN insert_sets i ON i.id = pa.insert_set_id
@@ -310,6 +312,7 @@ export default async function V2SetPage({
     nbaPlayerId: r.nbaPlayerId,
     ufcImageUrl: r.ufcImageUrl,
     mlbPlayerId: r.mlbPlayerId,
+    imageUrl: r.imageUrl,
   }));
 
   const hasTeamData = leaderboardEntries.some((e) => e.team != null && e.team !== "");
