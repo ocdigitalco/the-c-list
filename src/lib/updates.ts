@@ -15,6 +15,16 @@ export const updates: Update[] = [
   // ─── April 13, 2026 ──────────────────────────────────────────────────────
   // ─── April 15, 2026 ──────────────────────────────────────────────────────
   {
+    id: "120-mobile-athlete-ui-refinements",
+    title: "Athlete Page — Mobile UI Refinements",
+    date: "2026-04-15T18:00:00Z",
+    summary: "Relocated Leaderboard button to breadcrumb row on mobile, converted section pills to a proper sliding tab bar with active underline indicator, and updated Break Hit Calculator box format tabs with active purple fill state.",
+    description: `## Athlete Page — Mobile UI Refinements
+
+Relocated the Leaderboard button to sit inline on the breadcrumb row (left: back link, right: Leaderboard button) on mobile. Replaced the old pill-style section tabs with a proper full-width sliding tab bar — active tab shows bold text with a sliding purple underline indicator (CSS transform transition). Tapping a tab now switches visible content inline instead of anchor-scrolling. Break Hit Calculator box format tabs (Hobby/Jumbo/Value/etc.) now use a purple filled background with white text for the active state. Desktop layout unchanged.`,
+    tags: ["feature"],
+  },
+  {
     id: "119-recompute-unique-cards",
     title: "Total Cards Recomputed",
     date: "2026-04-15T16:00:00Z",

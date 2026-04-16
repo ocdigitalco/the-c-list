@@ -35,6 +35,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* ─── Hide scrollbar utility ───────────────────────────────────────────── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
 /* ─── Logo ──────────────────────────────────────────────────────────────── */
 .logo-for-light { display: block; }
 .logo-for-dark  { display: none; }

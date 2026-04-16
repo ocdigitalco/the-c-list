@@ -27,7 +27,7 @@ export function MobileLeaderboardDrawer({ entries, hasTeamData, setId, setSlug }
     <>
       <button
         onClick={() => setOpen(true)}
-        className="flex items-center gap-1.5 text-base font-medium px-3 py-2 rounded-lg transition-colors"
+        className="flex items-center gap-1.5 text-sm font-medium px-2.5 py-1.5 rounded-lg transition-colors shrink-0"
         style={{
           background: "var(--v2-card-bg)",
           border: "1px solid var(--v2-border)",
@@ -44,7 +44,7 @@ export function MobileLeaderboardDrawer({ entries, hasTeamData, setId, setSlug }
         <div className="fixed inset-0 z-50">
           <div className="absolute inset-0 bg-black/50" onClick={() => setOpen(false)} />
           <div
-            className="absolute top-0 left-0 h-full w-[320px] max-w-[85vw] shadow-2xl"
+            className="absolute top-0 left-0 h-full w-full md:w-[320px] md:max-w-[85vw] shadow-2xl"
             style={{ background: "var(--v2-sidebar-bg)" }}
           >
             <div className="flex items-center justify-end px-3 pt-3">

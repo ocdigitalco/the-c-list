@@ -368,11 +368,12 @@ export function PackOddsCalculator({
             <button
               key={f.label}
               onClick={() => { setFmtIdx(i); setBoxes(1); }}
-              className={`shrink-0 flex-1 text-xs py-1.5 px-2 rounded-md font-semibold transition-colors ${
+              className="shrink-0 flex-1 text-xs py-1.5 px-2 rounded-md font-semibold transition-colors"
+              style={
                 i === fmtIdx
-                  ? "bg-zinc-700 text-white"
-                  : "text-zinc-500 hover:text-zinc-300"
-              }`}
+                  ? { background: "#6366f1", color: "#fff" }
+                  : { color: "#71717a" }
+              }
             >
               {f.label}
             </button>
@@ -393,14 +394,6 @@ export function PackOddsCalculator({
             >
               How is this calculated?
             </a>
-            {setId && (
-              <a
-                href={`/resources/break-simulator?setId=${setId}&boxType=${fmt.label.toLowerCase().replace(/['\s]+/g, "_")}`}
-                className="text-[12px] text-zinc-600 hover:text-zinc-400 hover:underline transition-colors"
-              >
-                Run a simulation &rarr;
-              </a>
-            )}
           </div>
         </div>
 
