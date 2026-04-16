@@ -25,15 +25,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        {/* Blocking script: set data-theme before first paint to prevent FOUC */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light'){document.documentElement.dataset.theme=t;}else if(window.matchMedia('(prefers-color-scheme: light)').matches){document.documentElement.dataset.theme='light';}else{document.documentElement.dataset.theme='dark';}}catch(e){}})();`,
-          }}
-        />
-      </head>
+    <html lang="en" data-theme="light">
+      <head />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-zinc-950 text-zinc-100 h-screen flex flex-col overflow-hidden`}
       >
