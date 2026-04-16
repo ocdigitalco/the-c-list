@@ -15,6 +15,16 @@ export const updates: Update[] = [
   // ─── April 13, 2026 ──────────────────────────────────────────────────────
   // ─── April 15, 2026 ──────────────────────────────────────────────────────
   {
+    id: "119-recompute-unique-cards",
+    title: "Total Cards Recomputed",
+    date: "2026-04-15T16:00:00Z",
+    summary: "Recomputed Total Cards count for all 10,727 athletes to correctly include parallels. Added reusable recompute script.",
+    description: `## Total Cards Recomputed
+
+All athlete card counts have been recomputed to correctly include base cards plus all parallel tiers. The new \`scripts/recompute-unique-cards.ts\` script can be run after adding parallels to any set to ensure counts stay accurate. Cooper Flagg in Cosmic Chrome now shows 99 total cards (was 14), Cam Ward in Chrome Football shows 214.`,
+    tags: ["feature"],
+  },
+  {
     id: "118-nfl-player-thumbnails",
     title: "NFL Player Thumbnails Added",
     date: "2026-04-15T14:00:00Z",
