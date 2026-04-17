@@ -768,6 +768,7 @@ export default async function V2AthletePage({
                   totalAutoCards={totalAutoCards}
                   playerAutoCards={playerAutoCards}
                   setId={setId}
+                  setName={setRow.name}
                 />
               </section>
             ) : null}
