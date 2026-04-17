@@ -10,7 +10,7 @@
 
 /* ─── Light theme (only theme) ──────────────────────────────────────────── */
 :root {
-  --background: #fafafa;
+  --background: #ffffff;
   --foreground: #0f0f10;
   color-scheme: light;
 

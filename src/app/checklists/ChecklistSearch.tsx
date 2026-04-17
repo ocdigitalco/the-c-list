@@ -274,7 +274,7 @@ export function ChecklistSearch({
             </div>
           ) : (
             /* ── List view (vertical TikTok-style cards) ── */
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-px bg-zinc-800">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
               {filtered.map((s) => (
                 <Link
                   key={s.id}
