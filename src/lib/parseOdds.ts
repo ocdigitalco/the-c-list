@@ -65,3 +65,22 @@ export function normalizeOddsObj(
   }
   return out;
 }
+
+/**
+ * Format a denominator as a display string.
+ *
+ * Examples:
+ *   4      → "1:4"
+ *   0.333  → "3:1"  (multiple cards per pack)
+ *   1      → "1:1"
+ *   1441   → "1:1,441"
+ */
+export function denomToDisplay(denom: number): string {
+  if (denom >= 1) {
+    const rounded = Math.round(denom);
+    return `1:${rounded.toLocaleString()}`;
+  }
+  // denom < 1 means multiple cards per pack (e.g. "3:1" → denom = 0.333)
+  const cardsPerPack = Math.round(1 / denom);
+  return `${cardsPerPack}:1`;
+}

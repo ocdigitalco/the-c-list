@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { denomToDisplay } from "@/lib/parseOdds";
 
 type OddsCategory = "Autographs" | "Base Parallels" | "Inserts";
 
@@ -61,7 +62,7 @@ function OddsTable({ rows, packsPerBox }: { rows: OddsRow[]; packsPerBox: number
                     <tr key={row.key} className="bg-zinc-900 hover:bg-zinc-800/40 transition-colors">
                       <td className="px-4 py-2.5 text-sm text-zinc-300">{row.key}</td>
                       <td className="px-4 py-2.5 text-sm font-mono tabular-nums text-zinc-400 text-right">
-                        1:{row.denom}
+                        {denomToDisplay(row.denom)}
                       </td>
                       <td className="px-4 py-2.5 text-xs text-zinc-600 text-right tabular-nums hidden sm:table-cell">
                         {(packsPerBox / row.denom) >= 1

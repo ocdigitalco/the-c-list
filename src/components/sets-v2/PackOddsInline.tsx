@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { BoxConfigSingle, BoxConfigMulti } from "./types";
+import { normalizeOddsObj, denomToDisplay } from "@/lib/parseOdds";
 
 // ─── Types ────────────────────────────────────────────────���───────────────────
 
@@ -125,7 +126,7 @@ function OddsTable({ rows, packsPerBox }: { rows: OddsRow[]; packsPerBox: number
                         className="px-4 py-2.5 text-base font-mono tabular-nums text-right"
                         style={{ color: "var(--v2-text-secondary)" }}
                       >
-                        1:{row.denom}
+                        {denomToDisplay(row.denom)}
                       </td>
                       <td
                         className="px-4 py-2.5 text-base tabular-nums text-right hidden sm:table-cell"
@@ -197,13 +198,13 @@ export function PackOddsInline({ boxConfig, packOdds }: Props) {
 
   const oddsFormats: OddsFormat[] = [];
   if (isNestedOdds) {
-    for (const [key, data] of Object.entries(rawOdds as Record<string, Record<string, number>>)) {
+    for (const [key, data] of Object.entries(rawOdds as Record<string, Record<string, unknown>>)) {
       const label = formatBoxLabel(key);
-      oddsFormats.push({ label, rows: buildOddsRows(data), packsPerBox: packsPerBoxFor(label) });
+      oddsFormats.push({ label, rows: buildOddsRows(normalizeOddsObj(data)), packsPerBox: packsPerBoxFor(label) });
     }
   } else {
     const label = boxFormats.length === 1 ? boxFormats[0].label : "Box";
-    oddsFormats.push({ label, rows: buildOddsRows(rawOdds as Record<string, number>), packsPerBox: packsPerBoxFor(label) });
+    oddsFormats.push({ label, rows: buildOddsRows(normalizeOddsObj(rawOdds as Record<string, unknown>)), packsPerBox: packsPerBoxFor(label) });
   }
 
   const active = oddsFormats[activeIdx] ?? oddsFormats[0];

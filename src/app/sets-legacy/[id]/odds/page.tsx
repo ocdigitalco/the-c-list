@@ -2,6 +2,7 @@ import { db } from "@/lib/db";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { OddsTabView } from "./OddsTabView";
+import { normalizeOddsObj, denomToDisplay } from "@/lib/parseOdds";
 
 export const dynamic = "force-dynamic";
 
@@ -150,7 +151,7 @@ function OddsTable({ rows, packsPerBox }: { rows: OddsRow[]; packsPerBox: number
                     <tr key={row.key} className="bg-zinc-900 hover:bg-zinc-800/40 transition-colors">
                       <td className="px-4 py-2.5 text-sm text-zinc-300">{row.key}</td>
                       <td className="px-4 py-2.5 text-sm font-mono tabular-nums text-zinc-400 text-right">
-                        1:{row.denom}
+                        {denomToDisplay(row.denom)}
                       </td>
                       <td className="px-4 py-2.5 text-xs text-zinc-600 text-right tabular-nums hidden sm:table-cell">
                         {(packsPerBox / row.denom) >= 1
@@ -232,13 +233,13 @@ export default async function OddsPage({
     const isNestedOdds = firstVal !== null && typeof firstVal === "object";
 
     if (isNestedOdds) {
-      for (const [key, data] of Object.entries(rawOdds as Record<string, Record<string, number>>)) {
+      for (const [key, data] of Object.entries(rawOdds as Record<string, Record<string, unknown>>)) {
         const label = formatBoxLabel(key);
-        oddsFormats.push({ label, rows: buildOddsRows(data), packsPerBox: packsPerBoxFor(label) });
+        oddsFormats.push({ label, rows: buildOddsRows(normalizeOddsObj(data)), packsPerBox: packsPerBoxFor(label) });
       }
     } else {
       const label = boxFormats.length === 1 ? boxFormats[0].label : "Box";
-      oddsFormats.push({ label, rows: buildOddsRows(rawOdds as Record<string, number>), packsPerBox: packsPerBoxFor(label) });
+      oddsFormats.push({ label, rows: buildOddsRows(normalizeOddsObj(rawOdds as Record<string, unknown>)), packsPerBox: packsPerBoxFor(label) });
     }
   }
 
