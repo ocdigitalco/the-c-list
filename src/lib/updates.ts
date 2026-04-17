@@ -12,6 +12,18 @@ export interface Update {
 }
 
 export const updates: Update[] = [
+  // ─── April 17, 2026 ──────────────────────────────────────────────────────
+  {
+    id: "122-hoops-basketball-image",
+    title: "2025-26 Topps Hoops Basketball — Image Added",
+    date: "2026-04-17T12:00:00Z",
+    summary: "Added set image for 2025-26 Topps Hoops Basketball.",
+    description: `## 2025-26 Topps Hoops Basketball — Image Added
+
+Added set image for 2025-26 Topps Hoops Basketball.`,
+    tags: ["feature"],
+    setId: 834,
+  },
   // ─── April 16, 2026 ──────────────────────────────────────────────────────
   {
     id: "121-hoops-basketball-2025-26",
