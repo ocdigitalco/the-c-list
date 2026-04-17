@@ -843,6 +843,7 @@ export default async function SetPage({
                   totalAutoCards={totalAutoCards}
                   playerAutoCards={playerAutoCards}
                   setId={setId}
+                  setName={setRow.name}
                 />
               ) : null}
 

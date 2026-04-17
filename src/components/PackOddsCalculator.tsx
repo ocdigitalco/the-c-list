@@ -40,6 +40,67 @@ interface Props {
   totalAutoCards: number;
   playerAutoCards: number;
   setId?: number;
+  setName?: string;
+}
+
+// ─── SP/SSP configuration ────────────────────────────────────────────────────
+// Insert sets designated as short-print / super-short-print chase inserts.
+// Scoped per set name — only sets listed here will show the SP/SSP row.
+
+const SP_SSP_CONFIG: Record<string, string[]> = {
+  "2025 Topps Chrome Football": [
+    "Helix",
+    "Game Genies",
+    "Kaiju",
+    "Let's Go",
+    "Ultra Violet",
+    "Lightning Leaders",
+  ],
+};
+
+interface SpSspResult {
+  hasSpSsp: boolean;
+  pSpSsp: number;
+  insertSetNames: string[];
+  availableInBoxType: boolean;
+}
+
+function computeSpSsp(
+  slots: PackOddsSlot[],
+  spSspNames: string[],
+  boxes: number,
+  packsPerBox: number,
+): SpSspResult {
+  const nameSet = new Set(spSspNames.map((n) => n.toLowerCase()));
+  const matchingSlots = slots.filter((s) =>
+    nameSet.has(s.insertSetName.toLowerCase())
+  );
+
+  const insertSetNames = matchingSlots.map((s) => s.insertSetName);
+  if (matchingSlots.length === 0) {
+    return { hasSpSsp: false, pSpSsp: 0, insertSetNames: [], availableInBoxType: false };
+  }
+
+  // Check if any matching slot has pack odds for this box type
+  const hasOdds = matchingSlots.some((s) => s.baseOddsDenom !== null);
+  if (!hasOdds) {
+    return { hasSpSsp: true, pSpSsp: 0, insertSetNames, availableInBoxType: false };
+  }
+
+  // Compute per-pack probability across all SP/SSP insert sets
+  let pPerPack = 0;
+  for (const slot of matchingSlots) {
+    if (slot.totalApps === 0 || slot.baseOddsDenom === null) continue;
+    const share = slot.playerApps / slot.totalApps;
+    pPerPack += share / slot.baseOddsDenom;
+  }
+
+  const totalPacks = boxes * packsPerBox;
+  const pSpSsp = totalPacks > 0 && pPerPack > 0
+    ? 1 - Math.pow(1 - Math.min(pPerPack, 1), totalPacks)
+    : 0;
+
+  return { hasSpSsp: true, pSpSsp, insertSetNames, availableInBoxType: true };
 }
 
 // ─── Probability model ───────────────────────────────────────────────────────
@@ -304,6 +365,7 @@ export function PackOddsCalculator({
   totalAutoCards,
   playerAutoCards,
   setId,
+  setName,
 }: Props) {
   const [boxes, setBoxes] = useState(1);
   const [fmtIdx, setFmtIdx] = useState(0);
@@ -340,6 +402,12 @@ export function PackOddsCalculator({
       }
     }
   }
+
+  // ── SP/SSP ──
+  const spSspNames = setName ? SP_SSP_CONFIG[setName] : undefined;
+  const spSsp = spSspNames
+    ? computeSpSsp(slots, spSspNames, boxes, packsPerBox)
+    : { hasSpSsp: false, pSpSsp: 0, insertSetNames: [] as string[], availableInBoxType: false };
 
   const hasAny = pAny > 0;
   const hasNumbered = pNumbered > 0;
@@ -470,6 +538,33 @@ export function PackOddsCalculator({
             breakdown={autoBreakdown}
             unit={unit}
           />
+
+          {/* SP/SSP row — only for sets with configured SP/SSP insert sets */}
+          {spSsp.hasSpSsp && (
+            <>
+              <div className="border-t border-zinc-800/60" />
+              {spSsp.availableInBoxType ? (
+                <OddsRow
+                  label="SP/SSP"
+                  p={spSsp.pSpSsp > 0 ? spSsp.pSpSsp : null}
+                  greyed={spSsp.pSpSsp <= 0}
+                  breakdown={spSsp.insertSetNames.join(" · ")}
+                  unit={unit}
+                />
+              ) : (
+                <div className="py-2.5">
+                  <div className="flex items-center gap-3">
+                    <span className="shrink-0 w-2 h-2 rounded-full bg-zinc-700" />
+                    <span className="flex-1 text-sm font-medium text-zinc-300">SP/SSP</span>
+                    <span className="text-xs text-zinc-700 italic">Unavailable in this box type</span>
+                  </div>
+                  <p className="mt-0.5 ml-5 text-xs text-zinc-600 leading-snug">
+                    {spSsp.insertSetNames.join(" · ")}
+                  </p>
+                </div>
+              )}
+            </>
+          )}
         </>
       )}
 
