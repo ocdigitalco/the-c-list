@@ -14,6 +14,17 @@ export interface Update {
 export const updates: Update[] = [
   // ─── April 17, 2026 ──────────────────────────────────────────────────────
   {
+    id: "123-chrome-football-superfractor-odds",
+    title: "2025 Topps Chrome Football — Superfractor Odds Added",
+    date: "2026-04-17T14:00:00Z",
+    summary: "Added insert-specific Superfractor odds for Kaiju, Game Genies, Tecmo, Helix, Let's Go, Shadow Etch, and all autograph sets to the pack odds display.",
+    description: `## 2025 Topps Chrome Football — Superfractor Odds Added
+
+Added 30 insert-specific Superfractor (1/1) odds entries to the Hobby pack odds for 2025 Topps Chrome Football. Covers all SP/SSP inserts (Kaiju, Game Genies, Tecmo, Helix, Let's Go, Ultraviolet, Lightning Leaders, Shadow Etch), base/rookie variations, all autograph sets, and standard inserts. Superfractors now appear in their own visually distinct section in the pack odds table.`,
+    tags: ["odds"],
+    setId: 44,
+  },
+  {
     id: "122-hoops-basketball-image",
     title: "2025-26 Topps Hoops Basketball — Image Added",
     date: "2026-04-17T12:00:00Z",

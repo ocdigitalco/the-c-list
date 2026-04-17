@@ -61,89 +61,121 @@ function isMultiConfig(cfg: BoxConfigSingle | BoxConfigMulti): cfg is BoxConfigM
 
 const CATEGORY_ORDER: OddsCategory[] = ["Base Parallels", "Inserts", "Autographs"];
 
+function isSuperfractor(key: string): boolean {
+  return key.toLowerCase().includes("superfractor");
+}
+
+function OddsTableSection({
+  title,
+  rows,
+  packsPerBox,
+  accent,
+}: {
+  title: string;
+  rows: OddsRow[];
+  packsPerBox: number;
+  accent?: boolean;
+}) {
+  if (rows.length === 0) return null;
+  return (
+    <div>
+      <h3
+        className="text-base font-medium uppercase tracking-widest mb-2"
+        style={{ color: accent ? "#d97706" : "var(--v2-text-secondary)" }}
+      >
+        {title}
+      </h3>
+      <div className="rounded-lg overflow-hidden" style={{ border: `1px solid ${accent ? "#d9770633" : "var(--v2-border)"}` }}>
+        <table className="w-full">
+          <thead>
+            <tr style={{ background: "var(--v2-card-bg)" }}>
+              <th
+                className="text-left text-base font-medium uppercase tracking-wide px-4 py-2.5"
+                style={{ color: "var(--v2-text-secondary)", borderBottom: "1px solid var(--v2-border)" }}
+              >
+                Parallel / Insert
+              </th>
+              <th
+                className="text-right text-base font-medium uppercase tracking-wide px-4 py-2.5"
+                style={{ color: "var(--v2-text-secondary)", borderBottom: "1px solid var(--v2-border)" }}
+              >
+                Pack Odds
+              </th>
+              <th
+                className="text-right text-base font-medium uppercase tracking-wide px-4 py-2.5 hidden sm:table-cell"
+                style={{ color: "var(--v2-text-secondary)", borderBottom: "1px solid var(--v2-border)" }}
+              >
+                Per Box ({packsPerBox} packs)
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row, i) => (
+              <tr
+                key={row.key}
+                className="transition-colors"
+                style={{
+                  background: i % 2 === 1 ? "var(--v2-row-alt)" : "var(--v2-card-bg)",
+                  borderBottom: "1px solid var(--v2-border)",
+                }}
+              >
+                <td className="px-4 py-2.5 text-base" style={{ color: "var(--v2-text-primary)" }}>
+                  {row.key}
+                </td>
+                <td
+                  className="px-4 py-2.5 text-base font-mono tabular-nums text-right"
+                  style={{ color: "var(--v2-text-secondary)" }}
+                >
+                  {denomToDisplay(row.denom)}
+                </td>
+                <td
+                  className="px-4 py-2.5 text-base tabular-nums text-right hidden sm:table-cell"
+                  style={{ color: "var(--v2-text-secondary)" }}
+                >
+                  {packsPerBox / row.denom >= 1
+                    ? `~${(packsPerBox / row.denom).toFixed(1)}×`
+                    : `1 in ~${(row.denom / packsPerBox).toFixed(1)} boxes`}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
 function OddsTable({ rows, packsPerBox }: { rows: OddsRow[]; packsPerBox: number }) {
+  // Split Superfractors into their own section
+  const regularRows = rows.filter((r) => !isSuperfractor(r.key));
+  const superfractorRows = rows.filter((r) => isSuperfractor(r.key)).sort((a, b) => a.denom - b.denom);
+
   const grouped = CATEGORY_ORDER.reduce(
     (acc, cat) => {
-      acc[cat] = rows.filter((r) => r.category === cat).sort((a, b) => a.denom - b.denom);
+      acc[cat] = regularRows.filter((r) => r.category === cat).sort((a, b) => a.denom - b.denom);
       return acc;
     },
     {} as Record<OddsCategory, OddsRow[]>
   );
 
-  const perBoxLabel = `Per Box (${packsPerBox} packs)`;
-
   return (
     <div className="space-y-5">
-      {CATEGORY_ORDER.map((cat) => {
-        const catRows = grouped[cat];
-        if (catRows.length === 0) return null;
-        return (
-          <div key={cat}>
-            <h3
-              className="text-base font-medium uppercase tracking-widest mb-2"
-              style={{ color: "var(--v2-text-secondary)" }}
-            >
-              {cat}
-            </h3>
-            <div className="rounded-lg overflow-hidden" style={{ border: "1px solid var(--v2-border)" }}>
-              <table className="w-full">
-                <thead>
-                  <tr style={{ background: "var(--v2-card-bg)" }}>
-                    <th
-                      className="text-left text-base font-medium uppercase tracking-wide px-4 py-2.5"
-                      style={{ color: "var(--v2-text-secondary)", borderBottom: "1px solid var(--v2-border)" }}
-                    >
-                      Parallel / Insert
-                    </th>
-                    <th
-                      className="text-right text-base font-medium uppercase tracking-wide px-4 py-2.5"
-                      style={{ color: "var(--v2-text-secondary)", borderBottom: "1px solid var(--v2-border)" }}
-                    >
-                      Pack Odds
-                    </th>
-                    <th
-                      className="text-right text-base font-medium uppercase tracking-wide px-4 py-2.5 hidden sm:table-cell"
-                      style={{ color: "var(--v2-text-secondary)", borderBottom: "1px solid var(--v2-border)" }}
-                    >
-                      {perBoxLabel}
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {catRows.map((row, i) => (
-                    <tr
-                      key={row.key}
-                      className="transition-colors"
-                      style={{
-                        background: i % 2 === 1 ? "var(--v2-row-alt)" : "var(--v2-card-bg)",
-                        borderBottom: "1px solid var(--v2-border)",
-                      }}
-                    >
-                      <td className="px-4 py-2.5 text-base" style={{ color: "var(--v2-text-primary)" }}>
-                        {row.key}
-                      </td>
-                      <td
-                        className="px-4 py-2.5 text-base font-mono tabular-nums text-right"
-                        style={{ color: "var(--v2-text-secondary)" }}
-                      >
-                        {denomToDisplay(row.denom)}
-                      </td>
-                      <td
-                        className="px-4 py-2.5 text-base tabular-nums text-right hidden sm:table-cell"
-                        style={{ color: "var(--v2-text-secondary)" }}
-                      >
-                        {packsPerBox / row.denom >= 1
-                          ? `~${(packsPerBox / row.denom).toFixed(1)}×`
-                          : `1 in ~${(row.denom / packsPerBox).toFixed(1)} boxes`}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        );
-      })}
+      {CATEGORY_ORDER.map((cat) => (
+        <OddsTableSection
+          key={cat}
+          title={cat}
+          rows={grouped[cat]}
+          packsPerBox={packsPerBox}
+        />
+      ))}
+      {superfractorRows.length > 0 && (
+        <OddsTableSection
+          title="Superfractors (1/1)"
+          rows={superfractorRows}
+          packsPerBox={packsPerBox}
+          accent
+        />
+      )}
     </div>
   );
 }
