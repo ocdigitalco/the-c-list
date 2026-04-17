@@ -12,6 +12,18 @@ export interface Update {
 }
 
 export const updates: Update[] = [
+  // ─── April 16, 2026 ──────────────────────────────────────────────────────
+  {
+    id: "121-hoops-basketball-2025-26",
+    title: "2025-26 Topps Hoops Basketball — Full Checklist and Odds Added",
+    date: "2026-04-16T12:00:00Z",
+    summary: "Added 2025-26 Topps Hoops Basketball with complete checklist across all sub-categories including base set (300 cards), 8 autograph sets, and 14 insert sets. Full pack odds loaded for Hobby, Jumbo, Value, Hanger, and Fanatics box formats.",
+    description: `## 2025-26 Topps Hoops Basketball
+
+Complete checklist added with 338 athletes across 27 insert sets and 172 parallels. Includes Base Set (260 cards), Base Highlights (10), Base All-Stars (30), plus 8 autograph sets (Hoops Rookie Signatures, Hoops Signs, Hoops Rookie Duals, Hoops Rookie Triples, Hoops Rookie/Veteran Duals, Hoops 1989 Signatures, Hoops Rookie First Signs, Hoops Hyper Signatures) and 14 insert sets (Bounce House, Next Episode, Dunkumentory, Pay Attention, Hoopers, Finals Pursuit, Oasis, Joy, Checkmate, Hoopnotic, Hardwired, The Buzz, Net to Net, Jam-Packed, Block by Block, Boombastic). Full pack odds for Hobby, Jumbo, Value, Hanger, and Fanatics box formats.`,
+    tags: ["checklist", "odds", "box-config"],
+    setId: 834,
+  },
   // ─── April 13, 2026 ──────────────────────────────────────────────────────
   // ─── April 15, 2026 ──────────────────────────────────────────────────────
   {
