@@ -78,6 +78,17 @@ const BOX_LABEL_MAP: Record<string, string> = {
   hongbao: "Hongbao",
   logofractor: "Logofractor",
   ffnyc: "FFNYC",
+  fdi: "First Day Issue",
+  // Retail exclusive variants (SE/EA/CEE) map to their base box type
+  value_se: "Value",
+  value_ea: "Value",
+  value_cee: "Value",
+  mega_se: "Mega",
+  mega_ea: "Mega",
+  mega_cee: "Mega",
+  hanger_se: "Hanger",
+  hanger_ea: "Hanger",
+  hanger_cee: "Hanger",
 };
 
 function formatBoxLabel(key: string): string {
@@ -328,7 +339,10 @@ export default async function V2AthletePage({
     if (isNestedOdds) {
       for (const [key, data] of Object.entries(rawOdds as Record<string, Record<string, number>>)) {
         const label = ODDS_TO_FORMAT_LABEL[key] ?? formatBoxLabel(key);
-        packOddsSlotsByFormat[label] = buildSlots(data);
+        // First pack_odds key for a given label wins (e.g. value before value_se)
+        if (!(label in packOddsSlotsByFormat)) {
+          packOddsSlotsByFormat[label] = buildSlots(data);
+        }
       }
     } else {
       const slots = buildSlots(rawOdds as Record<string, number>);
