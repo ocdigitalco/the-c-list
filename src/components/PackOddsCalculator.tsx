@@ -600,6 +600,15 @@ export function PackOddsCalculator({
             breakdown={anyBreakdown}
             unit={unit}
           />
+
+          {/* SP row */}
+          {spResult.has && (
+            <>
+              <div className="border-t border-zinc-800/60" />
+              <SpSspRow label="Short Print (SP)" result={spResult} unit={unit} />
+            </>
+          )}
+
           <div className="border-t border-zinc-800/60" />
 
           <OddsRow
@@ -620,19 +629,11 @@ export function PackOddsCalculator({
             unit={unit}
           />
 
-          {/* SP row */}
-          {spResult.has && (
-            <>
-              <div className="border-t border-zinc-800/60" />
-              <SpSspRow label="SP" result={spResult} unit={unit} />
-            </>
-          )}
-
           {/* SSP row */}
           {sspResult.has && (
             <>
               <div className="border-t border-zinc-800/60" />
-              <SpSspRow label="SSP" result={sspResult} unit={unit} />
+              <SpSspRow label="Super Short Print (SSP)" result={sspResult} unit={unit} />
             </>
           )}
         </>
