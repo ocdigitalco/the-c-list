@@ -44,50 +44,65 @@ interface Props {
 }
 
 // ─── SP/SSP configuration ────────────────────────────────────────────────────
-// Insert sets designated as short-print / super-short-print chase inserts.
-// Scoped per set name — only sets listed here will show the SP/SSP row.
+// Short-print (SP) and super-short-print (SSP) insert sets, scoped per set.
 
-const SP_SSP_CONFIG: Record<string, string[]> = {
-  "2025 Topps Chrome Football": [
-    "Helix",
-    "Game Genies",
-    "Kaiju",
-    "Let's Go",
-    "Ultra Violet",
-    "Lightning Leaders",
-  ],
+const SP_SSP_CONFIG: Record<string, { sp: string[]; ssp: string[] }> = {
+  "2025 Topps Chrome Football": {
+    sp: [
+      "Base - Image Variation",
+      "Base - Rookies Image Variation",
+      "Base - Team Camo Variation",
+      "Base - Lightboard Logo Variation",
+      "Base - Chrome Base Etch Variation",
+      "Base - Chrome Rookies Etch Variation",
+    ],
+    ssp: [
+      "Helix",
+      "Game Genies",
+      "Kaiju",
+      "Let's Go",
+      "Ultra Violet",
+      "Lightning Leaders",
+      "Fanatical",
+      "Shadow Etch",
+    ],
+  },
 };
 
-interface SpSspResult {
-  hasSpSsp: boolean;
-  pSpSsp: number;
-  insertSetNames: string[];
+interface SpSspInsert {
+  name: string;
+  availableInBox: boolean;
+}
+
+interface SpOrSspResult {
+  has: boolean;
+  p: number;
+  inserts: SpSspInsert[];
   availableInBoxType: boolean;
 }
 
-function computeSpSsp(
+function computeSpOrSsp(
   slots: PackOddsSlot[],
-  spSspNames: string[],
+  names: string[],
   boxes: number,
   packsPerBox: number,
-): SpSspResult {
-  const nameSet = new Set(spSspNames.map((n) => n.toLowerCase()));
+): SpOrSspResult {
+  const nameSet = new Set(names.map((n) => n.toLowerCase()));
   const matchingSlots = slots.filter((s) =>
     nameSet.has(s.insertSetName.toLowerCase())
   );
 
-  const insertSetNames = matchingSlots.map((s) => s.insertSetName);
   if (matchingSlots.length === 0) {
-    return { hasSpSsp: false, pSpSsp: 0, insertSetNames: [], availableInBoxType: false };
+    return { has: false, p: 0, inserts: [], availableInBoxType: false };
   }
 
-  // Check if any matching slot has pack odds for this box type
-  const hasOdds = matchingSlots.some((s) => s.baseOddsDenom !== null);
-  if (!hasOdds) {
-    return { hasSpSsp: true, pSpSsp: 0, insertSetNames, availableInBoxType: false };
-  }
+  const inserts: SpSspInsert[] = matchingSlots.map((s) => ({
+    name: s.insertSetName,
+    availableInBox: s.baseOddsDenom !== null,
+  }));
 
-  // Compute per-pack probability across all SP/SSP insert sets
+  const hasOdds = inserts.some((i) => i.availableInBox);
+
   let pPerPack = 0;
   for (const slot of matchingSlots) {
     if (slot.totalApps === 0 || slot.baseOddsDenom === null) continue;
@@ -96,11 +111,11 @@ function computeSpSsp(
   }
 
   const totalPacks = boxes * packsPerBox;
-  const pSpSsp = totalPacks > 0 && pPerPack > 0
+  const prob = totalPacks > 0 && pPerPack > 0
     ? 1 - Math.pow(1 - Math.min(pPerPack, 1), totalPacks)
     : 0;
 
-  return { hasSpSsp: true, pSpSsp, insertSetNames, availableInBoxType: true };
+  return { has: true, p: prob, inserts, availableInBoxType: hasOdds };
 }
 
 // ─── Probability model ───────────────────────────────────────────────────────
@@ -357,6 +372,69 @@ function OddsRow({
   );
 }
 
+// ─── SP/SSP Row ──────────────────────────────────────────────────────────────
+
+function SpSspRow({
+  label,
+  result,
+  unit,
+}: {
+  label: string;
+  result: SpOrSspResult;
+  unit: string;
+}) {
+  const active = result.availableInBoxType && result.p > 0;
+
+  return (
+    <div className="py-2.5">
+      <div className="flex items-center gap-3">
+        <span
+          className={`shrink-0 w-2 h-2 rounded-full ${
+            active ? dotColor(result.p) : "bg-zinc-700"
+          }`}
+        />
+        <span className="flex-1 text-sm font-medium text-zinc-300">
+          {label}
+        </span>
+        {active ? (
+          <>
+            <span className={`text-sm font-bold tabular-nums ${oddsColor(result.p)}`}>
+              {formatPct(result.p)}
+            </span>
+            <span className="text-xs text-zinc-500 tabular-nums min-w-[8rem] text-right">
+              {formatOneIn(result.p, unit)}
+            </span>
+          </>
+        ) : (
+          <span className="text-xs text-zinc-700 italic">
+            {result.inserts.length > 0 ? "Unavailable in this box type" : "Pack odds not available"}
+          </span>
+        )}
+      </div>
+      {result.inserts.length > 0 && (
+        <div className="mt-1 ml-5 flex flex-wrap gap-x-1.5 gap-y-0.5">
+          {result.inserts.map((ins) => (
+            <span
+              key={ins.name}
+              className="text-[11px] leading-snug"
+              style={{
+                color: ins.availableInBox ? "#9ca3af" : "#52525b",
+                opacity: ins.availableInBox ? 1 : 0.5,
+                textDecoration: ins.availableInBox ? "none" : "line-through",
+              }}
+            >
+              {ins.name}
+              {ins !== result.inserts[result.inserts.length - 1] && (
+                <span style={{ color: "#3f3f46", textDecoration: "none" }}> · </span>
+              )}
+            </span>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ─── Main component ───────────────────────────────────────────────────────────
 
 export function PackOddsCalculator({
@@ -403,11 +481,14 @@ export function PackOddsCalculator({
     }
   }
 
-  // ── SP/SSP ──
-  const spSspNames = setName ? SP_SSP_CONFIG[setName] : undefined;
-  const spSsp = spSspNames
-    ? computeSpSsp(slots, spSspNames, boxes, packsPerBox)
-    : { hasSpSsp: false, pSpSsp: 0, insertSetNames: [] as string[], availableInBoxType: false };
+  // ── SP / SSP ──
+  const spSspCfg = setName ? SP_SSP_CONFIG[setName] : undefined;
+  const spResult = spSspCfg
+    ? computeSpOrSsp(slots, spSspCfg.sp, boxes, packsPerBox)
+    : { has: false, p: 0, inserts: [], availableInBoxType: false };
+  const sspResult = spSspCfg
+    ? computeSpOrSsp(slots, spSspCfg.ssp, boxes, packsPerBox)
+    : { has: false, p: 0, inserts: [], availableInBoxType: false };
 
   const hasAny = pAny > 0;
   const hasNumbered = pNumbered > 0;
@@ -539,30 +620,19 @@ export function PackOddsCalculator({
             unit={unit}
           />
 
-          {/* SP/SSP row — only for sets with configured SP/SSP insert sets */}
-          {spSsp.hasSpSsp && (
+          {/* SP row */}
+          {spResult.has && (
             <>
               <div className="border-t border-zinc-800/60" />
-              {spSsp.availableInBoxType ? (
-                <OddsRow
-                  label="SP/SSP"
-                  p={spSsp.pSpSsp > 0 ? spSsp.pSpSsp : null}
-                  greyed={spSsp.pSpSsp <= 0}
-                  breakdown={spSsp.insertSetNames.join(" · ")}
-                  unit={unit}
-                />
-              ) : (
-                <div className="py-2.5">
-                  <div className="flex items-center gap-3">
-                    <span className="shrink-0 w-2 h-2 rounded-full bg-zinc-700" />
-                    <span className="flex-1 text-sm font-medium text-zinc-300">SP/SSP</span>
-                    <span className="text-xs text-zinc-700 italic">Unavailable in this box type</span>
-                  </div>
-                  <p className="mt-0.5 ml-5 text-xs text-zinc-600 leading-snug">
-                    {spSsp.insertSetNames.join(" · ")}
-                  </p>
-                </div>
-              )}
+              <SpSspRow label="SP" result={spResult} unit={unit} />
+            </>
+          )}
+
+          {/* SSP row */}
+          {sspResult.has && (
+            <>
+              <div className="border-t border-zinc-800/60" />
+              <SpSspRow label="SSP" result={sspResult} unit={unit} />
             </>
           )}
         </>
@@ -576,6 +646,11 @@ export function PackOddsCalculator({
       </p>
       {note && (
         <p className="mt-1.5 text-xs text-zinc-600 leading-relaxed">{note}</p>
+      )}
+      {(spResult.has || sspResult.has) && (
+        <p className="mt-1.5 text-xs text-zinc-700 leading-relaxed">
+          <span style={{ textDecoration: "line-through", opacity: 0.5 }}>Strikethrough</span> inserts not available in this box type.
+        </p>
       )}
     </div>
   );
