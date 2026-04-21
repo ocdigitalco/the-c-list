@@ -4,6 +4,10 @@
  * Analyzes pack odds ratios for all sets in the DB and suggests
  * SP/SSP classifications for insert sets.
  *
+ * Uses dynamic per-set percentile thresholds based on each set's own
+ * base insert odds distribution. Focuses on base insert pull rates only,
+ * excluding parallels, SuperFractors, and autograph sets.
+ *
  * Usage: npx tsx scripts/detect-sp-ssp.ts
  * Optional: npx tsx scripts/detect-sp-ssp.ts --set "2025 Topps Chrome Football"
  *
@@ -17,11 +21,11 @@ import Database from "better-sqlite3";
 
 const db = new Database("the-c-list.db");
 
-// ─── Thresholds ───────────────────────────────────────────────
-const SSP_RATIO_THRESHOLD = 400; // X times rarer than anchor = SSP
-const SP_RATIO_THRESHOLD = 50; // X times rarer than anchor = SP
-const MAX_SSP_CHECKLIST = 35; // max athletes in insert for SSP
-const MAX_SP_CHECKLIST = 75; // max athletes in insert for SP
+// ─── Fixed fallback thresholds (used when < MIN_SAMPLE_SIZE inserts) ──
+const FALLBACK_SP_RATIO = 50;
+const FALLBACK_SSP_RATIO = 400;
+const MAX_SP_CHECKLIST = 75;
+const MIN_SAMPLE_SIZE = 8;
 
 // ─── Anchor odds fallback hierarchy ───────────────────────────
 const ANCHOR_KEYS = [
@@ -39,6 +43,7 @@ const ANCHOR_KEY_OVERRIDES: Record<string, string> = {
   "Midnight": "Base Zodiac",
   "Hoops": "Base",
   "Pristine": "Base Refractor",
+  "Bowman": "Base Chrome Refractor",
 };
 
 function getAnchorKeyOverride(setName: string): string | null {
@@ -50,19 +55,24 @@ function getAnchorKeyOverride(setName: string): string | null {
 
 // ─── Exclusion keywords ────────────────────────────────────────
 const EXCLUDED_KEYWORDS = [
-  "disney",
-  "disneyland",
-  "muppets",
-  "phineas",
-  "goofy movie",
-  "wwe",
-  "deadpool",
-  "marvel",
-  "neon",
+  "disney", "disneyland", "muppets", "phineas",
+  "goofy movie", "wwe", "deadpool", "marvel", "neon",
 ];
 
 // ─── Auto keywords (to skip autograph insert sets) ─────────────
 const AUTO_KEYWORDS = ["auto", "signature", "graph", "relic", "redemption"];
+
+// ─── Parallel qualifier words ──────────────────────────────────
+const PARALLEL_QUALIFIERS = [
+  "gold", "silver", "red", "blue", "green", "orange", "black", "white",
+  "purple", "pink", "aqua", "teal", "yellow", "fuchsia", "rose",
+  "superfractor", "firefractor", "lava", "wave", "shimmer", "speckle",
+  "x-fractor", "xfractor", "geometric", "mojo", "crystal", "mini-diamond",
+  "reptilian", "padparadscha", "sapphire", "prizm", "daybreak", "midnight",
+  "moonrise", "moon beam", "dusk", "black light", "twilight parallel",
+  "retrofractor", "etched", "floorboard", "steel", "burgundy", "navy",
+  "pattern", "border",
+];
 
 // ─── Types ────────────────────────────────────────────────────
 interface InsertSetResult {
@@ -81,9 +91,20 @@ interface SetResult {
   setName: string;
   anchorKey: string;
   anchorOdds: string;
+  spThreshold: number;
+  sspThreshold: number;
+  sampleSize: number;
+  usedFallback: boolean;
   sp: InsertSetResult[];
   ssp: InsertSetResult[];
   skipped: { name: string; reason: string }[];
+}
+
+interface DynamicThresholds {
+  spThreshold: number;
+  sspThreshold: number;
+  sampleSize: number;
+  usedFallback: boolean;
 }
 
 // ─── Utilities ────────────────────────────────────────────────
@@ -98,7 +119,7 @@ function parseOdds(oddsStr: unknown): number | null {
     const num = parseFloat(parts[0]);
     const den = parseFloat(parts[1]);
     if (isNaN(num) || isNaN(den) || num === 0) return null;
-    return den / num; // "1:26" → 26, "3:1" → 0.333
+    return den / num;
   }
   const n = parseFloat(cleaned);
   return !isNaN(n) && n > 0 ? n : null;
@@ -109,13 +130,91 @@ function isAutoInsert(name: string): boolean {
   return AUTO_KEYWORDS.some((kw) => lower.includes(kw));
 }
 
+function normalizeForMatch(s: string): string {
+  return s
+    .toLowerCase()
+    .replace(/\s*-\s*/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function findOddsKey(
+  boxOdds: Record<string, unknown>,
+  insertName: string
+): { key: string; raw: unknown } | null {
+  if (boxOdds[insertName] !== undefined)
+    return { key: insertName, raw: boxOdds[insertName] };
+
+  const normName = normalizeForMatch(insertName);
+  for (const [k, v] of Object.entries(boxOdds)) {
+    if (normalizeForMatch(k) === normName) return { key: k, raw: v };
+  }
+
+  const collapsed = normName.replace(/\s/g, "");
+  for (const [k, v] of Object.entries(boxOdds)) {
+    if (normalizeForMatch(k).replace(/\s/g, "") === collapsed) return { key: k, raw: v };
+  }
+
+  return null;
+}
+
+/**
+ * Returns true if the odds key represents the BASE insert odds
+ * (not a parallel variant).
+ */
+function isBaseInsertKey(oddsKey: string, insertName: string): boolean {
+  const key = normalizeForMatch(oddsKey);
+  const name = normalizeForMatch(insertName);
+
+  if (key === name) return true;
+  if (key === name + " refractor") return true;
+
+  if (key.startsWith(name)) {
+    const suffix = key.slice(name.length).trim();
+    if (suffix === "" || suffix === "refractor") return true;
+    const hasParallelQualifier = PARALLEL_QUALIFIERS.some((q) => suffix.includes(q));
+    if (hasParallelQualifier) return false;
+  }
+
+  // Collapsed match
+  const keyCollapsed = key.replace(/\s/g, "");
+  const nameCollapsed = name.replace(/\s/g, "");
+  if (keyCollapsed === nameCollapsed) return true;
+  if (keyCollapsed === nameCollapsed + "refractor") return true;
+
+  return false;
+}
+
+/**
+ * Find the base insert odds for a given insert set name from pack_odds.
+ */
+function getBaseInsertOdds(
+  packOdds: Record<string, Record<string, unknown>>,
+  insertName: string,
+  boxTypes: string[] = [
+    "hobby", "jumbo", "fdi", "breakers_delight", "sapphire",
+    "value_se", "mega_se", "hanger_se", "fanatics",
+  ]
+): { odds: string; value: number; boxType: string } | null {
+  for (const bt of boxTypes) {
+    const box = packOdds[bt];
+    if (!box) continue;
+    for (const [key, raw] of Object.entries(box)) {
+      if (isBaseInsertKey(key, insertName)) {
+        const value = parseOdds(raw);
+        if (value && value > 0) return { odds: String(raw), value, boxType: bt };
+      }
+    }
+  }
+  return null;
+}
+
 function findAnchorOdds(
   packOdds: Record<string, Record<string, unknown>>,
   setName: string = "",
 ): { key: string; odds: string; value: number } | null {
   const hobbyOdds = packOdds["hobby"] ?? {};
 
-  // Check per-set override first
   const overrideKey = getAnchorKeyOverride(setName);
   if (overrideKey) {
     const match = findOddsKey(hobbyOdds, overrideKey);
@@ -125,7 +224,6 @@ function findAnchorOdds(
     }
   }
 
-  // Try named anchors
   for (const anchorKey of ANCHOR_KEYS) {
     const match = findOddsKey(hobbyOdds, anchorKey);
     if (match) {
@@ -134,7 +232,6 @@ function findAnchorOdds(
     }
   }
 
-  // Fallback: find cheapest parallel-sounding key
   const parallelEntries = Object.entries(hobbyOdds)
     .filter(([k]) => /teal|pink|aqua|prism|neon pulse/i.test(k))
     .map(([k, v]) => ({ key: k, odds: String(v), value: parseOdds(v) }))
@@ -149,79 +246,35 @@ function findAnchorOdds(
   return null;
 }
 
-function normalizeForMatch(s: string): string {
-  return s
-    .toLowerCase()
-    .replace(/\s*-\s*/g, " ")  // "Base - Image Variation" → "Base Image Variation"
-    .replace(/\s+/g, " ")
-    .trim();
-}
+/**
+ * Compute dynamic SP/SSP thresholds based on the set's own
+ * base insert odds distribution.
+ */
+function computeDynamicThresholds(
+  baseInsertOddsValues: number[],
+  anchorOddsValue: number,
+): DynamicThresholds {
+  const sorted = [...baseInsertOddsValues].sort((a, b) => a - b);
+  const n = sorted.length;
 
-function findOddsKey(
-  boxOdds: Record<string, unknown>,
-  insertName: string
-): { key: string; raw: unknown } | null {
-  // Direct match
-  if (boxOdds[insertName] !== undefined) {
-    return { key: insertName, raw: boxOdds[insertName] };
+  if (n < MIN_SAMPLE_SIZE) {
+    return {
+      spThreshold: anchorOddsValue * FALLBACK_SP_RATIO,
+      sspThreshold: anchorOddsValue * FALLBACK_SSP_RATIO,
+      sampleSize: n,
+      usedFallback: true,
+    };
   }
 
-  // Normalized match (handles "Base - Image Variation" vs "Base Image Variation")
-  const normName = normalizeForMatch(insertName);
-  for (const [k, v] of Object.entries(boxOdds)) {
-    if (normalizeForMatch(k) === normName) return { key: k, raw: v };
-  }
+  const p85index = Math.floor(n * 0.85);
+  const p95index = Math.floor(n * 0.95);
 
-  // Collapsed match (handles "Ultra Violet" vs "Ultraviolet")
-  const collapsed = normName.replace(/\s/g, "");
-  for (const [k, v] of Object.entries(boxOdds)) {
-    if (normalizeForMatch(k).replace(/\s/g, "") === collapsed) return { key: k, raw: v };
-  }
-
-  return null;
-}
-
-function getOddsForInsert(
-  packOdds: Record<string, Record<string, unknown>>,
-  insertName: string,
-  boxTypes: string[] = [
-    "hobby",
-    "jumbo",
-    "fdi",
-    "breakers_delight",
-    "sapphire",
-    "value_se",
-    "mega_se",
-    "hanger_se",
-    "fanatics",
-  ]
-): { odds: string; value: number; boxType: string } | null {
-  for (const bt of boxTypes) {
-    const box = packOdds[bt];
-    if (!box) continue;
-    const match = findOddsKey(box, insertName);
-    if (match) {
-      const value = parseOdds(match.raw);
-      if (value && value > 0) return { odds: String(match.raw), value, boxType: bt };
-    }
-  }
-  return null;
-}
-
-function getConfidence(
-  ratio: number,
-  checklistSize: number,
-  classification: "sp" | "ssp"
-): "high" | "medium" | "low" {
-  if (classification === "ssp") {
-    if (ratio > SSP_RATIO_THRESHOLD * 1.5 && checklistSize <= 20) return "high";
-    if (ratio > SSP_RATIO_THRESHOLD * 1.2 || checklistSize <= 25) return "medium";
-    return "low";
-  } else {
-    if (ratio > SP_RATIO_THRESHOLD * 1.5 && checklistSize <= 50) return "high";
-    if (ratio > SP_RATIO_THRESHOLD * 1.2 || checklistSize <= 60) return "medium";
-    return "low";
-  }
+  return {
+    spThreshold: sorted[Math.min(p85index, n - 1)],
+    sspThreshold: sorted[Math.min(p95index, n - 1)],
+    sampleSize: n,
+    usedFallback: false,
+  };
 }
 
 // ─── Main ─────────────────────────────────────────────────────
@@ -266,11 +319,9 @@ for (const set of sets) {
     continue;
   }
 
-  // Detect flat vs nested odds
   const firstVal = Object.values(packOdds)[0];
   const isNested = firstVal !== null && typeof firstVal === "object" && !Array.isArray(firstVal);
   if (!isNested) {
-    // Flat odds — wrap in a "hobby" key for uniform processing
     packOdds = { hobby: packOdds as unknown as Record<string, unknown> };
   }
 
@@ -280,7 +331,7 @@ for (const set of sets) {
     continue;
   }
 
-  // Get all non-auto insert sets with their checklist sizes
+  // Get all non-auto insert sets with checklist sizes
   const insertSets = db
     .prepare(
       `SELECT ins.id, ins.name,
@@ -294,98 +345,149 @@ for (const set of sets) {
     )
     .all(set.id) as { id: number; name: string; checklist_size: number }[];
 
-  const result: SetResult = {
-    setId: set.id,
-    setName: set.name,
-    anchorKey: anchor.key,
-    anchorOdds: anchor.odds,
-    sp: [],
-    ssp: [],
-    skipped: [],
-  };
+  const skipped: { name: string; reason: string }[] = [];
+
+  // ── Pass 1: collect base insert odds for all non-auto inserts ──
+  interface InsertBaseOdds {
+    id: number;
+    name: string;
+    checklistSize: number;
+    baseOdds: string;
+    baseOddsValue: number;
+    boxTypeUsed: string;
+  }
+
+  const insertsWithBaseOdds: InsertBaseOdds[] = [];
 
   for (const insertSet of insertSets) {
-    // Skip base sets (unless they're variations/etch)
     const lower = insertSet.name.toLowerCase();
+    // Skip base set rows (unless variations/etch/chrome/prospect)
     if (
-      (lower === "base set" || lower === "base cards" || lower.startsWith("base -") && !lower.includes("variation") && !lower.includes("etch"))
+      lower === "base set" ||
+      lower === "base cards" ||
+      (lower.startsWith("base") &&
+        !lower.includes("variation") &&
+        !lower.includes("etch") &&
+        !lower.includes("chrome") &&
+        !lower.includes("prospect") &&
+        !lower.includes("paper"))
     ) {
       continue;
     }
 
-    // Skip autograph insert sets
     if (isAutoInsert(insertSet.name)) continue;
 
-    // Try to find odds — use the insert set name directly
-    const oddsResult = getOddsForInsert(packOdds, insertSet.name);
-    if (!oddsResult) {
-      result.skipped.push({
-        name: insertSet.name,
-        reason: "no odds found in any box type",
+    const baseOdds = getBaseInsertOdds(packOdds, insertSet.name);
+    if (!baseOdds) {
+      skipped.push({ name: insertSet.name, reason: "no base insert odds found" });
+      continue;
+    }
+
+    insertsWithBaseOdds.push({
+      id: insertSet.id,
+      name: insertSet.name,
+      checklistSize: insertSet.checklist_size,
+      baseOdds: baseOdds.odds,
+      baseOddsValue: baseOdds.value,
+      boxTypeUsed: baseOdds.boxType,
+    });
+  }
+
+  // ── Pass 2: compute dynamic thresholds ──
+  const allBaseOddsValues = insertsWithBaseOdds.map((i) => i.baseOddsValue);
+  const thresholds = computeDynamicThresholds(allBaseOddsValues, anchor.value);
+
+  // ── Pass 3: classify each insert ──
+  const spResults: InsertSetResult[] = [];
+  const sspResults: InsertSetResult[] = [];
+
+  for (const insert of insertsWithBaseOdds) {
+    const ratio = insert.baseOddsValue / anchor.value;
+
+    if (insert.checklistSize > MAX_SP_CHECKLIST && insert.baseOddsValue < thresholds.sspThreshold) {
+      skipped.push({
+        name: insert.name,
+        reason: `checklist too large (${insert.checklistSize}) for SP`,
       });
       continue;
     }
 
-    const ratio = oddsResult.value / anchor.value;
-
     let classification: "sp" | "ssp" | "none" = "none";
-    if (
-      ratio >= SSP_RATIO_THRESHOLD &&
-      insertSet.checklist_size <= MAX_SSP_CHECKLIST
-    ) {
+
+    if (insert.baseOddsValue >= thresholds.sspThreshold) {
       classification = "ssp";
-    } else if (
-      ratio >= SSP_RATIO_THRESHOLD &&
-      insertSet.checklist_size <= MAX_SP_CHECKLIST
-    ) {
-      classification = "sp";
-    } else if (
-      ratio >= SP_RATIO_THRESHOLD &&
-      insertSet.checklist_size <= MAX_SP_CHECKLIST
-    ) {
+    } else if (insert.baseOddsValue >= thresholds.spThreshold) {
       classification = "sp";
     }
 
-    // Check if insert has only extremely limited parallels (≤ /5) — upgrade to SSP
+    // Limited parallel structure signal — upgrade to SSP
     if (classification !== "ssp") {
       const limitedPars = db
         .prepare(
           "SELECT print_run FROM parallels WHERE insert_set_id = ? AND print_run IS NOT NULL"
         )
-        .all(insertSet.id) as { print_run: number }[];
-      if (
-        limitedPars.length > 0 &&
-        limitedPars.every((p) => p.print_run <= 5)
-      ) {
+        .all(insert.id) as { print_run: number }[];
+      if (limitedPars.length > 0 && limitedPars.every((p) => p.print_run <= 5)) {
         classification = "ssp";
       }
     }
 
     if (classification === "none") continue;
 
-    const confidence = getConfidence(
-      ratio,
-      insertSet.checklist_size,
-      classification
-    );
+    // Confidence based on margin beyond threshold
+    let confidence: "high" | "medium" | "low";
+    if (classification === "ssp") {
+      const margin = insert.baseOddsValue / thresholds.sspThreshold;
+      confidence = margin > 2 ? "high" : margin > 1.3 ? "medium" : "low";
+    } else {
+      const margin = insert.baseOddsValue / thresholds.spThreshold;
+      confidence = margin > 2 ? "high" : margin > 1.3 ? "medium" : "low";
+    }
 
     const entry: InsertSetResult = {
-      name: insertSet.name,
+      name: insert.name,
       ratio: Math.round(ratio),
-      checklistSize: insertSet.checklist_size,
-      odds: oddsResult.odds,
+      checklistSize: insert.checklistSize,
+      odds: insert.baseOdds,
       anchorOdds: anchor.odds,
       classification,
       confidence,
-      boxTypeUsed: oddsResult.boxType,
+      boxTypeUsed: insert.boxTypeUsed,
     };
 
-    if (classification === "ssp") result.ssp.push(entry);
-    else result.sp.push(entry);
+    if (classification === "ssp") sspResults.push(entry);
+    else spResults.push(entry);
   }
 
-  if (result.sp.length > 0 || result.ssp.length > 0) {
-    results.push(result);
+  if (spResults.length > 0 || sspResults.length > 0) {
+    results.push({
+      setId: set.id,
+      setName: set.name,
+      anchorKey: anchor.key,
+      anchorOdds: anchor.odds,
+      spThreshold: thresholds.spThreshold,
+      sspThreshold: thresholds.sspThreshold,
+      sampleSize: thresholds.sampleSize,
+      usedFallback: thresholds.usedFallback,
+      sp: spResults,
+      ssp: sspResults,
+      skipped,
+    });
+  } else if (skipped.length > 0) {
+    // Still show sets with skipped inserts but no results
+    results.push({
+      setId: set.id,
+      setName: set.name,
+      anchorKey: anchor.key,
+      anchorOdds: anchor.odds,
+      spThreshold: thresholds.spThreshold,
+      sspThreshold: thresholds.sspThreshold,
+      sampleSize: thresholds.sampleSize,
+      usedFallback: thresholds.usedFallback,
+      sp: [],
+      ssp: [],
+      skipped,
+    });
   }
 }
 
@@ -396,18 +498,23 @@ console.log("  SP/SSP DETECTION RESULTS");
 console.log("=".repeat(70));
 
 for (const result of results) {
+  if (result.sp.length === 0 && result.ssp.length === 0) continue;
+
   console.log(`\n  ${result.setName}`);
   console.log(`  Anchor: ${result.anchorKey} (${result.anchorOdds})`);
+  console.log(
+    `  Thresholds: SP > 1:${Math.round(result.spThreshold)} | SSP > 1:${Math.round(result.sspThreshold)} | ${
+      result.usedFallback
+        ? "fixed ratio fallback"
+        : `${result.sampleSize} inserts sampled`
+    }`
+  );
 
   if (result.sp.length > 0) {
     console.log(`\n  SHORT PRINTS (SP):`);
     for (const entry of result.sp) {
       const conf =
-        entry.confidence === "high"
-          ? "[high]"
-          : entry.confidence === "medium"
-          ? "[med] "
-          : "[low] ";
+        entry.confidence === "high" ? "[high]" : entry.confidence === "medium" ? "[med] " : "[low] ";
       console.log(`    ${conf} ${entry.name}`);
       console.log(
         `           Ratio: ${entry.ratio}x | Odds: ${entry.odds} | Checklist: ${entry.checklistSize} | Box: ${entry.boxTypeUsed}`
@@ -419,11 +526,7 @@ for (const result of results) {
     console.log(`\n  SUPER SHORT PRINTS (SSP):`);
     for (const entry of result.ssp) {
       const conf =
-        entry.confidence === "high"
-          ? "[high]"
-          : entry.confidence === "medium"
-          ? "[med] "
-          : "[low] ";
+        entry.confidence === "high" ? "[high]" : entry.confidence === "medium" ? "[med] " : "[low] ";
       console.log(`    ${conf} ${entry.name}`);
       console.log(
         `           Ratio: ${entry.ratio}x | Checklist: ${entry.checklistSize} | Odds: ${entry.odds} | Box: ${entry.boxTypeUsed}`
@@ -451,19 +554,15 @@ console.log("=".repeat(70));
 console.log();
 
 for (const result of results) {
+  if (result.sp.length === 0 && result.ssp.length === 0) continue;
+
   console.log(`  "${result.setName}": {`);
 
   if (result.sp.length > 0) {
     console.log(`    sp: [`);
     for (const entry of result.sp) {
-      const flag =
-        entry.confidence !== "high"
-          ? ` // ${entry.confidence} confidence`
-          : "";
-      const name = entry.name.includes("'")
-        ? `"${entry.name}"`
-        : `"${entry.name}"`;
-      console.log(`      ${name},${flag}`);
+      const flag = entry.confidence !== "high" ? ` // ${entry.confidence} confidence` : "";
+      console.log(`      "${entry.name}",${flag}`);
     }
     console.log(`    ],`);
   } else {
@@ -473,14 +572,8 @@ for (const result of results) {
   if (result.ssp.length > 0) {
     console.log(`    ssp: [`);
     for (const entry of result.ssp) {
-      const flag =
-        entry.confidence !== "high"
-          ? ` // ${entry.confidence} confidence`
-          : "";
-      const name = entry.name.includes("'")
-        ? `"${entry.name}"`
-        : `"${entry.name}"`;
-      console.log(`      ${name},${flag}`);
+      const flag = entry.confidence !== "high" ? ` // ${entry.confidence} confidence` : "";
+      console.log(`      "${entry.name}",${flag}`);
     }
     console.log(`    ],`);
   } else {
@@ -497,7 +590,7 @@ console.log("=".repeat(70));
 console.log("  SUMMARY");
 console.log("=".repeat(70));
 console.log(`  Sets analyzed:     ${sets.length}`);
-console.log(`  Sets with results: ${results.length}`);
+console.log(`  Sets with results: ${results.filter((r) => r.sp.length > 0 || r.ssp.length > 0).length}`);
 console.log(`  Sets excluded:     ${excludedLog.length}`);
 console.log(`  Sets skipped:      ${noOddsLog.length}`);
 console.log();

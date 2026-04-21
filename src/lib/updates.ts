@@ -14,6 +14,49 @@ export interface Update {
 export const updates: Update[] = [
   // ─── April 20, 2026 ──────────────────────────────────────────────────────
   {
+    id: "133-fix-crystallized-keys",
+    title: "Fix Crystallized Key Mismatch — Bowman Basketball Odds",
+    date: "2026-04-20T23:59:30Z",
+    summary: "Corrected spelling of Crystallized NBA/NIL odds keys from single-l to double-l to match DB insert set names.",
+    description: `## Fix Crystallized Key Mismatch — Bowman Basketball Odds
+
+Corrected spelling of Crystallized NBA/NIL odds keys from single-l ("Crystalized") to double-l ("Crystallized") across all box types (Hobby, Jumbo, Breaker's Delight, Value) to match the DB insert set names. 24 odds keys renamed total.`,
+    tags: ["odds"],
+    setId: 34,
+  },
+  {
+    id: "132-detect-dynamic-thresholds",
+    title: "SP/SSP Detection Engine — Dynamic Percentile Thresholds",
+    date: "2026-04-20T23:59:00Z",
+    summary: "Updated detect-sp-ssp.ts to use per-set dynamic thresholds based on each set's own base insert odds distribution.",
+    description: `## SP/SSP Detection Engine — Dynamic Percentile Thresholds
+
+Updated \`detect-sp-ssp.ts\` to use per-set dynamic thresholds based on each set's own base insert odds distribution. Engine now focuses exclusively on base insert pull rates (excluding parallels, SuperFractors, and autograph sets). Uses 85th percentile for SP threshold and 95th percentile for SSP threshold, with a minimum sample size of 8 inserts before falling back to fixed ratio thresholds. Existing approved configs in \`spSspConfig.ts\` are unchanged.`,
+    tags: ["feature"],
+  },
+  {
+    id: "131-bowman-basketball-ssp",
+    title: "2025-26 Topps Bowman Basketball — SSP Classifications Added",
+    date: "2026-04-20T23:45:00Z",
+    summary: "Added SSP classifications for Crystallized, Anime, and Bowman Spotlights insert sets (NBA and NIL variants). Updated detect-sp-ssp.ts anchor override for Bowman sets.",
+    description: `## 2025-26 Topps Bowman Basketball — SSP Classifications Added
+
+Added SSP classifications for Crystallized, Anime, and Bowman Spotlights insert sets (NBA and NIL variants). No SP row — Bowman inserts are generally common pulls with rarity expressed through parallels. Updated \`detect-sp-ssp.ts\` anchor override to use Base Chrome Refractor as anchor for all Bowman sets.`,
+    tags: ["feature"],
+    setId: 34,
+  },
+  {
+    id: "130-bowman-basketball-odds",
+    title: "2025-26 Topps Bowman Basketball — Pack Odds Added",
+    date: "2026-04-20T23:30:00Z",
+    summary: "Added full pack odds for 2025-26 Topps Bowman Basketball across Hobby, Jumbo, Breaker's Delight, Value, Mega, and Bulk box formats. 1,050 total odds entries.",
+    description: `## 2025-26 Topps Bowman Basketball — Pack Odds Added
+
+Added 1,050 pack odds entries across 6 box formats: Hobby (440), Jumbo (271), Breaker's Delight (67), Value (169), Mega (22), and Bulk (81). Covers base Chrome and paper parallels, Chrome Prospect parallels, all insert sets (Talent Tracker, Gen Next, Very Important Prospects, Bowman Verified, ROY Favorites, Hobby Stars, Young Kings, Rockstar Rookies, Greatness Loading), special inserts (Anime, Bowman GPK, Crystalized, Retrofractor, Etched-In Glass, Bowman Spotlights), and all autograph sets.`,
+    tags: ["odds"],
+    setId: 34,
+  },
+  {
     id: "129-midnight-ufc-2025-spssp",
     title: "2025 Topps Midnight UFC — SP/SSP Classifications Added",
     date: "2026-04-20T23:00:00Z",

@@ -136,6 +136,18 @@ export const SP_SSP_CONFIG: Record<string, SpSspSetConfig> = {
       "Dream Chasers",
     ],
   },
+
+  "2025-26 Topps Bowman Basketball": {
+    sp: [],
+    ssp: [
+      "Crystallized NBA",
+      "Crystallized NIL",
+      "Anime NBA",
+      "Anime NIL",
+      "Bowman Spotlights NBA",
+      "Bowman Spotlights NIL",
+    ],
+  },
 };
 
 /**
