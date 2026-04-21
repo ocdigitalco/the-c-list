@@ -423,13 +423,26 @@ export function PackOddsCalculator({
   setId,
   setName,
 }: Props) {
-  const [boxes, setBoxes] = useState(1);
   const [fmtIdx, setFmtIdx] = useState(0);
+  const initialBoxes = boxFormats[0]?.boxesPerCase || 1;
+  const [boxes, setBoxes] = useState(initialBoxes);
 
   const fmt = boxFormats[fmtIdx] ?? boxFormats[0];
   const { boxesPerCase, packsPerBox, guaranteedAutos, autoRowLabel, note, totalPacksProduced } = fmt;
   const showToggle = boxFormats.length > 1;
   const unit = boxes === 1 ? "box" : "box";
+  const hasCaseData = boxesPerCase > 0;
+  const cases = hasCaseData ? boxes / boxesPerCase : 0;
+
+  function handleCaseChange(delta: number) {
+    if (!hasCaseData) return;
+    const newCases = Math.max(1, Math.round(cases) + delta);
+    setBoxes(newCases * boxesPerCase);
+  }
+
+  function handleBoxChange(delta: number) {
+    setBoxes((b) => Math.max(1, b + delta));
+  }
 
   const slots = slotsByFormat[fmt.label] ?? [];
 
@@ -494,7 +507,7 @@ export function PackOddsCalculator({
           {boxFormats.map((f, i) => (
             <button
               key={f.label}
-              onClick={() => { setFmtIdx(i); setBoxes(1); }}
+              onClick={() => { setFmtIdx(i); setBoxes(boxFormats[i]?.boxesPerCase || 1); }}
               className="shrink-0 flex-1 text-xs py-1.5 px-2 rounded-md font-semibold transition-colors"
               style={
                 i === fmtIdx
@@ -524,39 +537,68 @@ export function PackOddsCalculator({
           </div>
         </div>
 
-        {/* Box stepper */}
-        <div className="flex flex-col items-end gap-1">
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => setBoxes((b) => Math.max(1, b - 1))}
-              disabled={boxes <= 1}
-              className="w-6 h-6 flex items-center justify-center rounded border border-zinc-700 text-zinc-400 hover:border-zinc-500 hover:text-zinc-200 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm leading-none"
-              aria-label="Decrease boxes"
-            >
-              −
-            </button>
-            <span className="text-sm font-semibold text-white tabular-nums w-16 text-center">
-              {boxes === 1 ? "1 box" : `${boxes} boxes`}
+        {/* Quantity steppers */}
+        <div className="flex items-center gap-3">
+          {/* Cases stepper */}
+          {hasCaseData && (
+            <>
+              <div className="flex flex-col items-center gap-0.5">
+                <span className="text-[10px] font-medium text-zinc-500 uppercase tracking-wide">Cases</span>
+                <div className="flex items-center gap-1.5">
+                  <button
+                    onClick={() => handleCaseChange(-1)}
+                    disabled={cases <= 1}
+                    className="w-6 h-6 flex items-center justify-center rounded border border-zinc-700 text-zinc-400 hover:border-zinc-500 hover:text-zinc-200 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm leading-none"
+                    aria-label="Decrease cases"
+                  >
+                    −
+                  </button>
+                  <span className="text-sm font-semibold text-white tabular-nums w-6 text-center">
+                    {cases % 1 === 0 ? cases : cases.toFixed(1)}
+                  </span>
+                  <button
+                    onClick={() => handleCaseChange(1)}
+                    disabled={cases >= 5}
+                    className="w-6 h-6 flex items-center justify-center rounded border border-zinc-700 text-zinc-400 hover:border-zinc-500 hover:text-zinc-200 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm leading-none"
+                    aria-label="Increase cases"
+                  >
+                    +
+                  </button>
+                </div>
+                <span className="text-[10px] text-zinc-600 tabular-nums">{boxesPerCase}/case</span>
+              </div>
+              <div className="h-8 w-px bg-zinc-800" />
+            </>
+          )}
+
+          {/* Boxes stepper */}
+          <div className="flex flex-col items-center gap-0.5">
+            <span className="text-[10px] font-medium text-zinc-500 uppercase tracking-wide">Boxes</span>
+            <div className="flex items-center gap-1.5">
+              <button
+                onClick={() => handleBoxChange(-1)}
+                disabled={boxes <= 1}
+                className="w-6 h-6 flex items-center justify-center rounded border border-zinc-700 text-zinc-400 hover:border-zinc-500 hover:text-zinc-200 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm leading-none"
+                aria-label="Decrease boxes"
+              >
+                −
+              </button>
+              <span className="text-sm font-semibold text-white tabular-nums w-8 text-center">
+                {boxes}
+              </span>
+              <button
+                onClick={() => handleBoxChange(1)}
+                disabled={boxes >= (hasCaseData ? boxesPerCase * 5 : 60)}
+                className="w-6 h-6 flex items-center justify-center rounded border border-zinc-700 text-zinc-400 hover:border-zinc-500 hover:text-zinc-200 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm leading-none"
+                aria-label="Increase boxes"
+              >
+                +
+              </button>
+            </div>
+            <span className="text-[10px] text-zinc-600 tabular-nums">
+              {(boxes * packsPerBox).toLocaleString()} packs
             </span>
-            <button
-              onClick={() => setBoxes((b) => Math.min(boxesPerCase * 5, b + 1))}
-              disabled={boxes >= boxesPerCase * 5}
-              className="w-6 h-6 flex items-center justify-center rounded border border-zinc-700 text-zinc-400 hover:border-zinc-500 hover:text-zinc-200 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm leading-none"
-              aria-label="Increase boxes"
-            >
-              +
-            </button>
           </div>
-          <p className="text-xs text-zinc-600 tabular-nums">
-            {boxes * packsPerBox === 1 ? "1 pack" : `${(boxes * packsPerBox).toLocaleString()} packs`}
-            {boxes >= boxesPerCase && (
-              <> · {Math.floor(boxes / boxesPerCase) === 1
-                ? "1 case"
-                : `${Math.floor(boxes / boxesPerCase)} cases`}
-                {boxes % boxesPerCase > 0 && ` + ${boxes % boxesPerCase}`}
-              </>
-            )}
-          </p>
         </div>
       </div>
 
