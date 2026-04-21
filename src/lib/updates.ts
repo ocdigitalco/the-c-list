@@ -14,6 +14,16 @@ export interface Update {
 export const updates: Update[] = [
   // ─── April 20, 2026 ──────────────────────────────────────────────────────
   {
+    id: "125-sp-ssp-detection-engine",
+    title: "SP/SSP Auto-Detection Engine — Phase 2",
+    date: "2026-04-20T16:00:00Z",
+    summary: "Added scripts/detect-sp-ssp.ts, an automated classification engine that analyzes insert sets across all sets using a ratio-based approach.",
+    description: `## SP/SSP Auto-Detection Engine — Phase 2
+
+Added \`scripts/detect-sp-ssp.ts\`, an automated classification engine that analyzes insert sets across all sets using a ratio-based approach. The script compares insert odds against each set's anchor parallel to suggest SP and Super Short Print classifications. Includes confidence scoring (high/medium/low), fuzzy name matching for odds key resolution, fallback anchor hierarchy for non-standard sets, and exclusion list for entertainment sets. Detected SP/SSP candidates across 10 sets spanning Football, Basketball, Baseball, Soccer, UFC, F1, and Olympics. Run after seeding any new set to generate suggested \`spSspConfig.ts\` entries for review.`,
+    tags: ["feature"],
+  },
+  {
     id: "124-sp-ssp-config-system",
     title: "SP/SSP Classification System — Phase 1",
     date: "2026-04-20T12:00:00Z",
