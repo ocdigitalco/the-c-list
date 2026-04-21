@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { getSpSspConfig } from "@/lib/spSspConfig";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -44,30 +45,7 @@ interface Props {
 }
 
 // ─── SP/SSP configuration ────────────────────────────────────────────────────
-// Short-print (SP) and super-short-print (SSP) insert sets, scoped per set.
-
-const SP_SSP_CONFIG: Record<string, { sp: string[]; ssp: string[] }> = {
-  "2025 Topps Chrome Football": {
-    sp: [
-      "Base - Image Variation",
-      "Base - Rookies Image Variation",
-      "Base - Team Camo Variation",
-      "Base - Lightboard Logo Variation",
-      "Base - Chrome Base Etch Variation",
-      "Base - Chrome Rookies Etch Variation",
-    ],
-    ssp: [
-      "Helix",
-      "Game Genies",
-      "Kaiju",
-      "Let's Go",
-      "Ultra Violet",
-      "Lightning Leaders",
-      "Fanatical",
-      "Shadow Etch",
-    ],
-  },
-};
+// Loaded from src/lib/spSspConfig.ts — central config for all sets.
 
 interface SpSspInsert {
   name: string;
@@ -482,7 +460,7 @@ export function PackOddsCalculator({
   }
 
   // ── SP / SSP ──
-  const spSspCfg = setName ? SP_SSP_CONFIG[setName] : undefined;
+  const spSspCfg = setName ? getSpSspConfig(setName) : null;
   const spResult = spSspCfg
     ? computeSpOrSsp(slots, spSspCfg.sp, boxes, packsPerBox)
     : { has: false, p: 0, inserts: [], availableInBoxType: false };

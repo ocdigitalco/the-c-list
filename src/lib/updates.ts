@@ -12,6 +12,17 @@ export interface Update {
 }
 
 export const updates: Update[] = [
+  // ─── April 20, 2026 ──────────────────────────────────────────────────────
+  {
+    id: "124-sp-ssp-config-system",
+    title: "SP/SSP Classification System — Phase 1",
+    date: "2026-04-20T12:00:00Z",
+    summary: "Introduced a central SP/SSP config file that drives Short Print and Super Short Print rows in the Break Hit Calculator.",
+    description: `## SP/SSP Classification System — Phase 1
+
+Introduced a central SP/SSP config file (\`src/lib/spSspConfig.ts\`) that drives Short Print and Super Short Print rows in the Break Hit Calculator. Classifications are defined per set and reviewed before publishing. Entertainment and non-sport sets are automatically excluded. Currently configured for 2025 Topps Chrome Football with 6 SP insert sets (image variations, team camo, etch variations) and 8 SSP insert sets (Helix, Game Genies, Kaiju, Let's Go, Ultra Violet, Lightning Leaders, Fanatical, Shadow Etch).`,
+    tags: ["feature"],
+  },
   // ─── April 17, 2026 ──────────────────────────────────────────────────────
   {
     id: "123-chrome-football-superfractor-odds",
