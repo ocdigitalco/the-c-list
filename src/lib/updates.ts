@@ -14,6 +14,17 @@ export interface Update {
 export const updates: Update[] = [
   // ─── April 20, 2026 ──────────────────────────────────────────────────────
   {
+    id: "127-midnight-ufc-2026",
+    title: "2026 Topps Midnight UFC — Added",
+    date: "2026-04-20T20:00:00Z",
+    summary: "Full checklist seeded: 100 base cards, 9 insert sets, and 5 autograph sets including Rookie Relic Autographs, Fight Glove Relic Autographs, and Horizon Signatures. Releases May 22, 2026.",
+    description: `## 2026 Topps Midnight UFC
+
+Full checklist seeded with 178 athletes across 15 insert sets. Includes Base Set (100 cards), 9 insert sets (Night Watch, Zero Hour, Celestial Combos, Lunar Apex, Insomnia, Last One Standing, Neon Apex, Twilight, Cemented), and 5 autograph sets (Rookie Relic Autographs, Relic Autographs, Fight Glove Relic Autographs, Autograph Variation, Horizon Signatures). Releases May 22, 2026.`,
+    tags: ["checklist"],
+    setId: 835,
+  },
+  {
     id: "126-sp-ssp-global-rollout",
     title: "SP/SSP Classifications — Global Rollout",
     date: "2026-04-20T18:00:00Z",
