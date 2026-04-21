@@ -34,6 +34,20 @@ const ANCHOR_KEYS = [
   "Base",
 ];
 
+// ─── Per-set anchor overrides ─────────────────────────────────
+const ANCHOR_KEY_OVERRIDES: Record<string, string> = {
+  "Midnight": "Base Zodiac",
+  "Hoops": "Base",
+  "Pristine": "Base Refractor",
+};
+
+function getAnchorKeyOverride(setName: string): string | null {
+  for (const [keyword, anchorKey] of Object.entries(ANCHOR_KEY_OVERRIDES)) {
+    if (setName.toLowerCase().includes(keyword.toLowerCase())) return anchorKey;
+  }
+  return null;
+}
+
 // ─── Exclusion keywords ────────────────────────────────────────
 const EXCLUDED_KEYWORDS = [
   "disney",
@@ -96,11 +110,22 @@ function isAutoInsert(name: string): boolean {
 }
 
 function findAnchorOdds(
-  packOdds: Record<string, Record<string, unknown>>
+  packOdds: Record<string, Record<string, unknown>>,
+  setName: string = "",
 ): { key: string; odds: string; value: number } | null {
   const hobbyOdds = packOdds["hobby"] ?? {};
 
-  // Try named anchors first
+  // Check per-set override first
+  const overrideKey = getAnchorKeyOverride(setName);
+  if (overrideKey) {
+    const match = findOddsKey(hobbyOdds, overrideKey);
+    if (match) {
+      const value = parseOdds(match.raw);
+      if (value && value > 0) return { key: match.key, odds: String(match.raw), value };
+    }
+  }
+
+  // Try named anchors
   for (const anchorKey of ANCHOR_KEYS) {
     const match = findOddsKey(hobbyOdds, anchorKey);
     if (match) {
@@ -249,7 +274,7 @@ for (const set of sets) {
     packOdds = { hobby: packOdds as unknown as Record<string, unknown> };
   }
 
-  const anchor = findAnchorOdds(packOdds);
+  const anchor = findAnchorOdds(packOdds, set.name);
   if (!anchor) {
     noOddsLog.push(`${set.name} — no anchor odds found`);
     continue;
@@ -319,6 +344,21 @@ for (const set of sets) {
       insertSet.checklist_size <= MAX_SP_CHECKLIST
     ) {
       classification = "sp";
+    }
+
+    // Check if insert has only extremely limited parallels (≤ /5) — upgrade to SSP
+    if (classification !== "ssp") {
+      const limitedPars = db
+        .prepare(
+          "SELECT print_run FROM parallels WHERE insert_set_id = ? AND print_run IS NOT NULL"
+        )
+        .all(insertSet.id) as { print_run: number }[];
+      if (
+        limitedPars.length > 0 &&
+        limitedPars.every((p) => p.print_run <= 5)
+      ) {
+        classification = "ssp";
+      }
     }
 
     if (classification === "none") continue;

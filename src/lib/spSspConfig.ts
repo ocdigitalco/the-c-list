@@ -125,6 +125,17 @@ export const SP_SSP_CONFIG: Record<string, SpSspSetConfig> = {
       "Exposé",
     ],
   },
+
+  "2025 Topps Midnight UFC": {
+    sp: [
+      "Greetings From",
+      "Night Vision",
+    ],
+    ssp: [
+      "Twilight",
+      "Dream Chasers",
+    ],
+  },
 };
 
 /**

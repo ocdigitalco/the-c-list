@@ -14,6 +14,28 @@ export interface Update {
 export const updates: Update[] = [
   // ─── April 20, 2026 ──────────────────────────────────────────────────────
   {
+    id: "129-midnight-ufc-2025-spssp",
+    title: "2025 Topps Midnight UFC — SP/SSP Classifications Added",
+    date: "2026-04-20T23:00:00Z",
+    summary: "Added SP/SSP config for 2025 Topps Midnight UFC. Updated detection engine with per-set anchor overrides and limited parallel structure signal.",
+    description: `## 2025 Topps Midnight UFC — SP/SSP Classifications Added
+
+Added SP/SSP config: Greetings From and Night Vision classified as Short Print, Twilight and Dream Chasers classified as Super Short Print. Updated \`detect-sp-ssp.ts\` with per-set anchor key overrides (Midnight → Base Zodiac, Hoops → Base) and limited parallel structure detection signal that upgrades inserts with only /5 or 1/1 parallels to SSP.`,
+    tags: ["feature"],
+    setId: 8,
+  },
+  {
+    id: "128-midnight-ufc-2025-odds",
+    title: "2025 Topps Midnight UFC — Pack Odds Added",
+    date: "2026-04-20T22:00:00Z",
+    summary: "Added full hobby pack odds for 2025 Topps Midnight UFC including base parallels and all insert/autograph set odds.",
+    description: `## 2025 Topps Midnight UFC — Pack Odds Added
+
+Added 91 hobby pack odds entries covering base parallels (Zodiac, Morning, Twilight, Dusk, Moon Beam, Moonrise, Midnight, Daybreak, Black Light) and all insert sets (Nightfall, Lunar Tide, Constellations, The One and Only, Insomnia, Dream Chasers, Greetings From, Twilight, Night Vision) plus autograph sets (Rookie Relic Autographs, Relic Autographs, Stroke of Midnight Autographs, Glimmer Graphs, Horizon Signatures). Also added parallel tiers to all insert sets.`,
+    tags: ["odds"],
+    setId: 8,
+  },
+  {
     id: "127-midnight-ufc-2026",
     title: "2026 Topps Midnight UFC — Added",
     date: "2026-04-20T20:00:00Z",
