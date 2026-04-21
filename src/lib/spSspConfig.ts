@@ -21,6 +21,7 @@ export const SP_SSP_CONFIG: Record<string, SpSspSetConfig> = {
       "Base - Lightboard Logo Variation",
       "Base - Chrome Base Etch Variation",
       "Base - Chrome Rookies Etch Variation",
+      "Shadow Etch",
     ],
     ssp: [
       "Helix",
@@ -30,10 +31,100 @@ export const SP_SSP_CONFIG: Record<string, SpSspSetConfig> = {
       "Ultra Violet",
       "Lightning Leaders",
       "Fanatical",
-      "Shadow Etch",
     ],
   },
-  // Additional sets added here after review
+
+  "2025 Topps Chrome Formula 1": {
+    sp: [
+      "The Grail",
+      "Vegas At Night",
+      "The Grid",
+    ],
+    ssp: [],
+  },
+
+  "2025 Topps Chrome UFC": {
+    sp: [
+      "Hidden Gems",
+      "Spitting Venom",
+    ],
+    ssp: [],
+  },
+
+  "2025 Topps Pristine Baseball": {
+    sp: [
+      "Prowlers",
+      "Pearlescent",
+      "Amped",
+      "Monogram",
+    ],
+    ssp: [
+      "Let's Go",
+    ],
+  },
+
+  "2025-26 Topps Cosmic Chrome Basketball": {
+    sp: [
+      "Cosmic Dust",
+      "Geocentric",
+      "First Light",
+      "Re Entry",
+      "Starfractor",
+    ],
+    ssp: [],
+  },
+
+  "2025-26 Topps Hoops Basketball": {
+    sp: [
+      "Dunkumentory",
+      "Jam-Packed",
+      "Next Episode",
+      "Pay Attention",
+      "Hoopers",
+      "Bounce House",
+      "Hardwired",
+      "The Buzz",
+      "Net to Net",
+    ],
+    ssp: [
+      "Hoops Rookie/Veteran Duals",
+      "Joy",
+      "Boombastic",
+      "Hoops Rookie Duals",
+      "Block by Block",
+      "Hoops Rookie Triples",
+      "Oasis",
+      "Checkmate",
+      "Hoopnotic",
+    ],
+  },
+
+  "2025-26 Topps Midnight Basketball": {
+    sp: [
+      "Twilight",
+    ],
+    ssp: [],
+  },
+
+  "2025-26 Topps UEFA Club Competitions": {
+    sp: [
+      "Murals",
+      "Mindgame",
+    ],
+    ssp: [
+      "Jigsaw",
+    ],
+  },
+
+  "2024 Topps Chrome U.S. Olympic & Paralympic Team Hopefuls": {
+    sp: [
+      "Chasing the Rings",
+      "Athlete Nouveau",
+    ],
+    ssp: [
+      "Exposé",
+    ],
+  },
 };
 
 /**
@@ -61,12 +152,15 @@ export function getSpSspConfig(setName: string): SpSspSetConfig | null {
   );
   if (isExcluded) return null;
 
+  // Exact match
   if (SP_SSP_CONFIG[setName]) return SP_SSP_CONFIG[setName];
 
-  const partialMatch = Object.keys(SP_SSP_CONFIG).find(
+  // Strict partial match — return the longest (most specific) matching key
+  const matches = Object.keys(SP_SSP_CONFIG).filter(
     (key) => setName.includes(key) || key.includes(setName)
   );
-  if (partialMatch) return SP_SSP_CONFIG[partialMatch];
+  if (matches.length === 0) return null;
 
-  return null;
+  const bestMatch = matches.sort((a, b) => b.length - a.length)[0];
+  return SP_SSP_CONFIG[bestMatch];
 }

@@ -14,6 +14,16 @@ export interface Update {
 export const updates: Update[] = [
   // ─── April 20, 2026 ──────────────────────────────────────────────────────
   {
+    id: "126-sp-ssp-global-rollout",
+    title: "SP/SSP Classifications — Global Rollout",
+    date: "2026-04-20T18:00:00Z",
+    summary: "Added Short Print and Super Short Print classifications to the Break Hit Calculator for 9 sets across Football, Basketball, Baseball, Soccer, UFC, F1, and Olympics.",
+    description: `## SP/SSP Classifications — Global Rollout
+
+Added Short Print and Super Short Print classifications to the Break Hit Calculator for 9 sets: Chrome Football, Chrome F1, Chrome UFC, Pristine Baseball, Cosmic Chrome Basketball, Hoops Basketball, Midnight Basketball, UEFA Club Competitions, and U.S. Olympic Team Hopefuls. Classifications were generated using the automated detection engine and reviewed before publishing.`,
+    tags: ["feature"],
+  },
+  {
     id: "125-sp-ssp-detection-engine",
     title: "SP/SSP Auto-Detection Engine — Phase 2",
     date: "2026-04-20T16:00:00Z",
