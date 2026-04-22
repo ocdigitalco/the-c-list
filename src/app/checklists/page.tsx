@@ -1,7 +1,6 @@
 import { db, rawQuery } from "@/lib/db";
 import { sets, players, playerAppearances } from "@/lib/schema";
 import { eq, sql } from "drizzle-orm";
-import { PageShell } from "@/components/PageShell";
 import { ChecklistSearch } from "./ChecklistSearch";
 
 export const dynamic = "force-dynamic";
@@ -34,7 +33,6 @@ export default async function ChecklistsPage() {
 
   const statsMap = new Map(statsRows.map((r) => [r.setId, r]));
 
-  // Fetch slugs via rawQuery (slug column not in Drizzle schema)
   let slugMap = new Map<number, string>();
   try {
     const slugRows = await rawQuery.all<{ id: number; slug: string }>(
@@ -43,20 +41,73 @@ export default async function ChecklistsPage() {
     slugMap = new Map(slugRows.map((r) => [r.id, r.slug]));
   } catch { /* slug column may not exist yet */ }
 
-  const setCards = setRows.map((s) => ({
-    ...s,
-    slug: slugMap.get(s.id) ?? null,
-    athleteCount: statsMap.get(s.id)?.athleteCount ?? 0,
-    cardCount: statsMap.get(s.id)?.cardCount ?? 0,
-  }));
+  // Determine "recently added" — sets with release_date in last 30 days or added recently
+  const now = new Date();
+  const thirtyDaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+
+  const setCards = setRows.map((s) => {
+    const rd = s.releaseDate ? new Date(s.releaseDate) : null;
+    const isRecent = rd && rd >= thirtyDaysAgo && rd <= new Date(now.getTime() + 90 * 24 * 60 * 60 * 1000);
+    return {
+      ...s,
+      slug: slugMap.get(s.id) ?? null,
+      athleteCount: statsMap.get(s.id)?.athleteCount ?? 0,
+      cardCount: statsMap.get(s.id)?.cardCount ?? 0,
+      featured: !!isRecent,
+    };
+  });
 
   return (
-    <PageShell
-      breadcrumb={{ label: "Home", href: "/checklists" }}
-      title="Checklists"
-      description="Browse all sports card sets in the app"
+    <div
+      className="h-full overflow-y-auto"
+      style={{ background: "var(--cl-bg-page)" }}
     >
+      <div
+        className="mx-auto cl-container"
+        style={{ maxWidth: 1440, padding: "40px 56px 80px" }}
+      >
+        {/* Breadcrumb */}
+        <a
+          href="/"
+          style={{
+            fontSize: 13,
+            color: "var(--cl-text-tertiary)",
+            textDecoration: "none",
+            fontFamily: "var(--cl-font-display)",
+          }}
+        >
+          &lsaquo; Home
+        </a>
+
+        {/* Title */}
+        <h1
+          className="cl-title"
+          style={{
+            fontFamily: "var(--cl-font-display)",
+            fontSize: 48,
+            fontWeight: 600,
+            letterSpacing: "-1.2px",
+            color: "var(--cl-text-primary)",
+            margin: "12px 0 0",
+            lineHeight: 1.1,
+          }}
+        >
+          Checklists
+        </h1>
+
+        {/* Subtitle */}
+        <p
+          style={{
+            fontSize: 14,
+            color: "var(--cl-text-tertiary)",
+            margin: "6px 0 0",
+          }}
+        >
+          Browse all sports card sets in the app
+        </p>
+
         <ChecklistSearch sets={setCards} allSports={allSports} />
-    </PageShell>
+      </div>
+    </div>
   );
 }

@@ -13,6 +13,40 @@ export interface Update {
 
 export const updates: Update[] = [
   // ─── April 20, 2026 ──────────────────────────────────────────────────────
+  // ─── April 21, 2026 ──────────────────────────────────────────────────────
+  {
+    id: "136-donruss-fifa-part3",
+    title: "2025-26 Donruss Road to FIFA World Cup 26 — Part 3",
+    date: "2026-04-21T20:00:00Z",
+    summary: "Seeded all autograph sets: Beautiful Game Autographs (41 cards), Beautiful Game Dual Autographs (9 dual cards), and Signature Series (44 cards). 393 total athletes, 1,001 total appearances.",
+    description: `## 2025-26 Donruss Road to FIFA World Cup 26 — Part 3
+
+Seeded all 3 autograph sets: Beautiful Game Autographs (41 players including legends Ronaldo, Luis Figo, Manuel Neuer, Angel Di Maria), Beautiful Game Dual Autographs (9 dual cards with co-player relationships — Harry Kane/Kyle Walker, Buffon/Donnarumma, etc.), and Signature Series (44 players including Lionel Messi, Kylian Mbappe, Harry Kane). Set now has 393 athletes across 1,001 total appearances. Per-player print run data documented in seed script for parallel reference.`,
+    tags: ["checklist"],
+    setId: 836,
+  },
+  {
+    id: "135-donruss-fifa-part2",
+    title: "2025-26 Donruss Road to FIFA World Cup 26 — Part 2",
+    date: "2026-04-21T16:00:00Z",
+    summary: "Seeded all 12 insert sets and 2 memorabilia sets — 398 total cards added. 348 athletes, 898 total appearances across 18 populated insert sets.",
+    description: `## 2025-26 Donruss Road to FIFA World Cup 26 — Part 2
+
+Seeded all 12 insert sets (Animation, Craftsmen, Dominators, Elite Series, Kaboom, Kaboom Oversize, Magicians, Net Marvels, Night Moves, Pitch Kings, Rookie Kings, Zero Gravity) and 2 memorabilia sets (Kit Kings, Kit Series). 398 new cards added bringing the total to 898 appearances across 348 athletes. Includes legends (Pele, Maradona, Beckenbauer, Ronaldo, Neymar) alongside current stars. Autograph sets coming in Part 3.`,
+    tags: ["checklist"],
+    setId: 836,
+  },
+  {
+    id: "134-donruss-fifa-part1",
+    title: "2025-26 Donruss Road to FIFA World Cup 26 — Part 1",
+    date: "2026-04-21T12:00:00Z",
+    summary: "Set created with box config, all 21 insert sets, 199 parallels, and 500 base cards seeded (250 Donruss + 250 Optic including Rated Rookies). Releases April 22, 2026.",
+    description: `## 2025-26 Donruss Road to FIFA World Cup 26 — Part 1
+
+Set created with 4 box formats (Hobby, Hobby International, Blaster, Fat Pack), 21 insert sets, and 199 parallel tiers. 500 base cards seeded: Base (200 veterans), Base - Rated Rookies (50 rookies), Base Optic (200), Base Optic - Rated Rookies (50). Covers 250 athletes across 25+ national teams. Insert and autograph cards coming in Part 2.`,
+    tags: ["checklist"],
+    setId: 836,
+  },
   {
     id: "133-fix-crystallized-keys",
     title: "Fix Crystallized Key Mismatch — Bowman Basketball Odds",

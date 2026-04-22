@@ -3,6 +3,8 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import Link from "next/link";
 
+// ─── Types ────────────────────────────────────────────────────────────────────
+
 interface SetCard {
   id: number;
   name: string;
@@ -15,37 +17,86 @@ interface SetCard {
   sampleImageUrl: string | null;
   athleteCount: number;
   cardCount: number;
+  featured: boolean;
 }
 
-function TierBadge({ tier }: { tier: string }) {
-  if (tier === "Prizm") return <span className="shrink-0 text-xs font-semibold px-2 py-0.5 rounded bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-500 text-white">Prizm</span>;
-  if (tier === "Premium") return <span className="shrink-0 text-xs font-semibold px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-700/60">Premium</span>;
-  if (tier === "Sapphire") return <span className="shrink-0 text-xs font-semibold px-2 py-0.5 rounded bg-blue-950 text-blue-300 border border-blue-700/60">Sapphire</span>;
-  if (tier === "Chrome") return <span className="shrink-0 text-xs font-semibold px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-600/50">Chrome</span>;
-  return null;
+// ─── Design atoms ─────────────────────────────────────────────────────────────
+
+function Chip({ label, tone = "default" }: { label: string; tone?: "default" | "dark" | "accent" }) {
+  const styles: Record<string, React.CSSProperties> = {
+    default: {
+      background: "#F1EFE9",
+      color: "#3A372F",
+      border: "1px solid #E6E3D9",
+    },
+    dark: {
+      background: "#151412",
+      color: "#F6F3EA",
+      border: "1px solid #151412",
+    },
+    accent: {
+      background: "oklch(0.55 0.17 25)",
+      color: "#FFF8F1",
+      border: "1px solid oklch(0.5 0.17 25)",
+    },
+  };
+  return (
+    <span
+      style={{
+        ...styles[tone],
+        padding: "3px 9px",
+        borderRadius: 4,
+        fontSize: 11,
+        fontWeight: 500,
+        letterSpacing: "0.2px",
+        lineHeight: "1.4",
+        whiteSpace: "nowrap",
+      }}
+    >
+      {label}
+    </span>
+  );
 }
 
-// Ordered sport pills — canonical order, extras appended
+function Ribbon({ size = "gallery" }: { size?: "gallery" | "compact" | "compact-mobile" }) {
+  const s = size === "gallery"
+    ? { top: 10, left: -4, padding: "4px 8px 4px 10px", fontSize: 9, letterSpacing: 1.5, clipOff: 4 }
+    : size === "compact"
+    ? { top: 6, left: -3, padding: "2px 5px 2px 6px", fontSize: 7, letterSpacing: 1, clipOff: 3 }
+    : { top: 4, left: -2, padding: "2px 4px 2px 5px", fontSize: 7, letterSpacing: 0.8, clipOff: 2 };
+
+  return (
+    <div
+      style={{
+        position: "absolute",
+        top: s.top,
+        left: s.left,
+        background: "oklch(0.55 0.17 25)",
+        color: "#FFF8F1",
+        fontFamily: "var(--cl-font-mono)",
+        fontSize: s.fontSize,
+        fontWeight: 700,
+        letterSpacing: s.letterSpacing,
+        padding: s.padding,
+        clipPath: `polygon(0 0, 100% 0, 100% 100%, 0 100%, ${s.clipOff}px 50%)`,
+        boxShadow: "0 2px 6px rgba(0,0,0,0.18)",
+        zIndex: 2,
+        lineHeight: "1.4",
+      }}
+    >
+      RECENTLY ADDED
+    </div>
+  );
+}
+
+// ─── Constants ────────────────────────────────────────────────────────────────
+
 const SPORT_ORDER = [
-  "Basketball", "Baseball", "Soccer", "MMA", "Wrestling",
-  "Racing", "Football", "Entertainment",
+  "All", "Basketball", "Baseball", "Soccer", "MMA", "Wrestling",
+  "Racing", "Football", "Entertainment", "Boxing", "Hockey", "Olympics",
 ];
 
-function GridIcon() {
-  return (
-    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25a2.25 2.25 0 0 1-2.25-2.25v-2.25Z" />
-    </svg>
-  );
-}
-
-function ListIcon() {
-  return (
-    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-    </svg>
-  );
-}
+// ─── Component ────────────────────────────────────────────────────────────────
 
 export function ChecklistSearch({
   sets,
@@ -56,8 +107,17 @@ export function ChecklistSearch({
 }) {
   const [query, setQuery] = useState("");
   const [activeSport, setActiveSport] = useState<string | null>(null);
-  const [view, setView] = useState<"grid" | "list">("grid");
+  const [view, setView] = useState<"gallery" | "compact">("gallery");
   const inputRef = useRef<HTMLInputElement>(null);
+
+  // Persist view to localStorage
+  useEffect(() => {
+    const saved = localStorage.getItem("cl_view");
+    if (saved === "gallery" || saved === "compact") setView(saved);
+  }, []);
+  useEffect(() => {
+    localStorage.setItem("cl_view", view);
+  }, [view]);
 
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
@@ -70,17 +130,15 @@ export function ChecklistSearch({
     return () => window.removeEventListener("keydown", onKeyDown);
   }, []);
 
-  // Build ordered sport list
   const orderedSports = useMemo(() => {
     const sportSet = new Set(allSports);
     const ordered: string[] = [];
     for (const s of SPORT_ORDER) {
-      if (sportSet.has(s)) {
+      if (s === "All" || sportSet.has(s)) {
         ordered.push(s);
         sportSet.delete(s);
       }
     }
-    // Append any remaining sports not in the canonical order
     for (const s of allSports) {
       if (sportSet.has(s)) ordered.push(s);
     }
@@ -89,11 +147,9 @@ export function ChecklistSearch({
 
   const filtered = useMemo(() => {
     let results = sets;
-
     if (activeSport) {
       results = results.filter((s) => s.sport === activeSport);
     }
-
     if (query.trim()) {
       const q = query.toLowerCase();
       results = results.filter(
@@ -105,7 +161,6 @@ export function ChecklistSearch({
           s.season?.toLowerCase().includes(q)
       );
     }
-
     return [...results].sort((a, b) => {
       if (!a.releaseDate && !b.releaseDate) return a.name.localeCompare(b.name);
       if (!a.releaseDate) return 1;
@@ -114,62 +169,75 @@ export function ChecklistSearch({
     });
   }, [sets, query, activeSport]);
 
-  const label = activeSport ? `${activeSport} Sets` : "All Sets";
-  const countLabel = query.trim()
-    ? `${filtered.length} set${filtered.length !== 1 ? "s" : ""} matching "${query}"`
-    : `${filtered.length} set${filtered.length !== 1 ? "s" : ""}`;
+  const resultLabel = query.trim()
+    ? `${filtered.length} SETS MATCHING "${query.toUpperCase()}"`
+    : activeSport
+    ? `${activeSport.toUpperCase()} SETS`
+    : "ALL SETS";
+  const countLabel = `${filtered.length} SET${filtered.length !== 1 ? "S" : ""}`;
 
   return (
     <>
-      {/* Sport pill filter */}
-      <div className="flex items-center gap-3 overflow-x-auto no-scrollbar">
-        <span className="hidden sm:block shrink-0 text-[10px] font-semibold uppercase tracking-widest text-zinc-500">
-          Sport
+      {/* ── Sport filter chips ── */}
+      <div
+        className="flex items-center gap-3 overflow-x-auto no-scrollbar"
+        style={{ marginTop: 32 }}
+      >
+        <span
+          className="hidden sm:block shrink-0"
+          style={{
+            fontFamily: "var(--cl-font-mono)",
+            fontSize: 10,
+            fontWeight: 600,
+            letterSpacing: 2,
+            color: "var(--cl-text-muted)",
+          }}
+        >
+          SPORT
         </span>
         <div className="flex gap-1.5 shrink-0">
-          <button
-            onClick={() => setActiveSport(null)}
-            className="shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-colors"
-            style={
-              activeSport === null
-                ? { background: "#18181b", color: "#fff" }
-                : { color: "#71717a" }
-            }
-          >
-            All
-          </button>
-          {orderedSports.map((sport) => (
-            <button
-              key={sport}
-              onClick={() => setActiveSport(activeSport === sport ? null : sport)}
-              className="shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-colors"
-              style={
-                activeSport === sport
-                  ? { background: "#18181b", color: "#fff" }
-                  : { color: "#71717a" }
-              }
-            >
-              {sport}
-            </button>
-          ))}
+          {orderedSports.map((sport) => {
+            const isAll = sport === "All";
+            const isActive = isAll ? activeSport === null : activeSport === sport;
+            return (
+              <button
+                key={sport}
+                onClick={() => setActiveSport(isAll ? null : sport)}
+                className="shrink-0 transition-all"
+                style={{
+                  padding: isActive ? "8px 16px" : "8px 14px",
+                  borderRadius: 999,
+                  fontSize: 13,
+                  fontWeight: isActive ? 500 : 400,
+                  color: isActive ? "#FAFAF7" : "#3A372F",
+                  background: isActive ? "#0F0F0E" : "transparent",
+                  border: isActive ? "1px solid #0F0F0E" : "1px solid transparent",
+                  cursor: "pointer",
+                  transitionDuration: "0.15s",
+                }}
+                onMouseEnter={(e) => {
+                  if (!isActive) (e.currentTarget as HTMLElement).style.background = "#F1EFE9";
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive) (e.currentTarget as HTMLElement).style.background = "transparent";
+                }}
+              >
+                {sport}
+              </button>
+            );
+          })}
         </div>
       </div>
 
-      {/* Search bar + view toggle */}
-      <div className="flex items-center gap-2">
+      {/* ── Search + view toggle ── */}
+      <div className="flex items-center gap-3" style={{ marginTop: 20 }}>
         <div className="relative flex-1">
           <svg
-            className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-600 pointer-events-none"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
+            className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none"
+            width={16} height={16} fill="none" viewBox="0 0 24 24"
+            stroke="#A19D90" strokeWidth={2}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
           </svg>
           <input
             ref={inputRef}
@@ -177,15 +245,27 @@ export function ChecklistSearch({
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search by name, sport, league, or tier..."
-            className="w-full rounded-lg border border-zinc-800 bg-zinc-900 text-sm text-zinc-200 placeholder-zinc-600 pl-10 pr-9 py-2.5 focus:outline-none focus:border-zinc-600 transition-colors"
+            style={{
+              width: "100%",
+              height: 48,
+              background: "#F1EFE9",
+              borderRadius: 10,
+              border: "none",
+              paddingLeft: 44,
+              paddingRight: 40,
+              fontSize: 14,
+              color: "#0F0F0E",
+              outline: "none",
+            }}
           />
           {query && (
             <button
               onClick={() => setQuery("")}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-600 hover:text-zinc-400 transition-colors"
+              className="absolute right-4 top-1/2 -translate-y-1/2"
+              style={{ color: "#A19D90", cursor: "pointer", background: "none", border: "none" }}
               aria-label="Clear search"
             >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <svg width={16} height={16} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
@@ -193,147 +273,340 @@ export function ChecklistSearch({
         </div>
 
         {/* View toggle */}
-        <div className="flex rounded-lg border border-zinc-800 overflow-hidden shrink-0">
+        <div className="flex shrink-0" style={{ background: "#F1EFE9", borderRadius: 10, padding: 4 }}>
           <button
-            onClick={() => setView("grid")}
-            className="p-2 transition-colors"
-            style={
-              view === "grid"
-                ? { background: "#27272a", color: "#fff" }
-                : { color: "#71717a" }
-            }
-            aria-label="Grid view"
+            onClick={() => setView("gallery")}
+            style={{
+              width: 40,
+              height: 40,
+              borderRadius: 8,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              background: view === "gallery" ? "#0F0F0E" : "transparent",
+              color: view === "gallery" ? "#FAFAF7" : "#1A1916",
+              border: "none",
+              cursor: "pointer",
+              transition: "all 0.15s",
+            }}
+            aria-label="Gallery view"
           >
-            <GridIcon />
+            <svg width={18} height={18} viewBox="0 0 18 18" fill="currentColor">
+              <rect x="0" y="0" width="8" height="8" rx="1.5" />
+              <rect x="10" y="0" width="8" height="8" rx="1.5" />
+              <rect x="0" y="10" width="8" height="8" rx="1.5" />
+              <rect x="10" y="10" width="8" height="8" rx="1.5" />
+            </svg>
           </button>
           <button
-            onClick={() => setView("list")}
-            className="p-2 transition-colors"
-            style={
-              view === "list"
-                ? { background: "#27272a", color: "#fff" }
-                : { color: "#71717a" }
-            }
-            aria-label="List view"
+            onClick={() => setView("compact")}
+            style={{
+              width: 40,
+              height: 40,
+              borderRadius: 8,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              background: view === "compact" ? "#0F0F0E" : "transparent",
+              color: view === "compact" ? "#FAFAF7" : "#1A1916",
+              border: "none",
+              cursor: "pointer",
+              transition: "all 0.15s",
+            }}
+            aria-label="Compact view"
           >
-            <ListIcon />
+            <svg width={18} height={18} viewBox="0 0 18 18" fill="currentColor">
+              <rect x="0" y="1" width="18" height="4" rx="1" />
+              <rect x="0" y="7" width="18" height="4" rx="1" />
+              <rect x="0" y="13" width="18" height="4" rx="1" />
+            </svg>
           </button>
         </div>
       </div>
 
-      {/* Results */}
-      {filtered.length > 0 ? (
-        <section>
-          <h2 className="text-xs font-semibold text-zinc-500 uppercase tracking-widest mb-4">
-            {label}{" "}
-            <span className="normal-case font-normal text-zinc-700">
-              · {countLabel}
-            </span>
-          </h2>
+      {/* ── Results header ── */}
+      <div style={{ marginTop: 36 }}>
+        <span
+          style={{
+            fontFamily: "var(--cl-font-mono)",
+            fontSize: 10,
+            fontWeight: 600,
+            letterSpacing: 2,
+            color: "var(--cl-text-primary)",
+          }}
+        >
+          {query.trim() ? resultLabel : (activeSport ? `${activeSport.toUpperCase()} SETS` : "ALL SETS")}
+        </span>
+        {!query.trim() && (
+          <span
+            style={{
+              fontFamily: "var(--cl-font-mono)",
+              fontSize: 10,
+              fontWeight: 600,
+              letterSpacing: 2,
+              color: "var(--cl-text-faint)",
+              marginLeft: 8,
+            }}
+          >
+            {countLabel}
+          </span>
+        )}
+      </div>
 
-          {view === "grid" ? (
-            /* ── Grid view (original horizontal cards) ── */
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {filtered.map((s) => (
-                <Link
-                  key={s.id}
-                  href={`/sets/${s.slug ?? s.id}`}
-                  className="group border border-zinc-800 bg-zinc-900 hover:border-zinc-600 hover:bg-zinc-800/60 transition-colors flex overflow-hidden"
-                >
-                  {s.sampleImageUrl && (
-                    <div className="shrink-0 w-20 sm:w-24 self-stretch overflow-hidden bg-zinc-800">
-                      <img
-                        src={s.sampleImageUrl}
-                        alt={s.name}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  )}
-                  <div className="flex-1 min-w-0 p-4 flex flex-col justify-between gap-3">
-                    <p className="font-semibold text-white text-sm leading-snug group-hover:text-amber-400 transition-colors">
-                      {s.name}
-                    </p>
-                    <div className="flex items-center gap-1.5 flex-wrap">
-                      <span className="text-xs font-medium text-zinc-400 bg-zinc-800 border border-zinc-700 px-2 py-0.5 rounded">
-                        {s.league ?? s.sport}
-                      </span>
-                      <TierBadge tier={s.tier} />
-                    </div>
-                    <div className="flex items-center gap-3 text-xs text-zinc-500">
-                      <span>
-                        <span className="font-semibold text-zinc-300">{s.athleteCount.toLocaleString()}</span> athletes
-                      </span>
-                      <span className="text-zinc-700">·</span>
-                      <span>
-                        <span className="font-semibold text-zinc-300">{s.cardCount.toLocaleString()}</span> cards
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
+      {/* ── Grid / List ── */}
+      {filtered.length > 0 ? (
+        <div style={{ marginTop: 18 }}>
+          {view === "gallery" ? (
+            <GalleryView sets={filtered} />
           ) : (
-            /* ── List view (vertical TikTok-style cards) ── */
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-              {filtered.map((s) => (
-                <Link
-                  key={s.id}
-                  href={`/sets/${s.slug ?? s.id}`}
-                  className="group bg-zinc-900 hover:bg-zinc-800/60 transition-colors flex flex-col"
-                >
-                  <div className="aspect-[3/4] overflow-hidden bg-zinc-800">
-                    {s.sampleImageUrl ? (
-                      <img
-                        src={s.sampleImageUrl}
-                        alt={s.name}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center text-zinc-700">
-                        <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0 0 22.5 18.75V5.25A2.25 2.25 0 0 0 20.25 3H3.75A2.25 2.25 0 0 0 1.5 5.25v13.5A2.25 2.25 0 0 0 3.75 21Z" />
-                        </svg>
-                      </div>
-                    )}
-                  </div>
-                  <div className="px-2.5 py-2.5 flex flex-col gap-1.5">
-                    <p className="font-semibold text-white text-xs leading-snug line-clamp-2 group-hover:text-amber-400 transition-colors">
-                      {s.name}
-                    </p>
-                    <div className="flex items-center gap-1 flex-wrap">
-                      <span className="text-[10px] font-medium text-zinc-400 bg-zinc-800 border border-zinc-700 px-1.5 py-0.5 rounded">
-                        {s.league ?? s.sport}
-                      </span>
-                      <TierBadge tier={s.tier} />
-                    </div>
-                    <div className="flex items-center gap-2 text-[10px] text-zinc-500">
-                      <span>
-                        <span className="font-semibold text-zinc-300">{s.athleteCount.toLocaleString()}</span> athletes
-                      </span>
-                      <span className="text-zinc-700">·</span>
-                      <span>
-                        <span className="font-semibold text-zinc-300">{s.cardCount.toLocaleString()}</span> cards
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
+            <CompactView sets={filtered} />
           )}
-        </section>
+        </div>
       ) : (
-        <div className="text-center py-16">
-          <p className="text-zinc-500 mb-3">
-            No checklists found{query ? <> for &ldquo;{query}&rdquo;</> : activeSport ? <> for {activeSport}</> : null}
+        <div style={{ textAlign: "center", padding: "64px 0", color: "var(--cl-text-tertiary)" }}>
+          <p style={{ fontSize: 14, marginBottom: 12 }}>
+            No checklists found{query ? ` for "${query}"` : activeSport ? ` for ${activeSport}` : ""}
           </p>
           <button
             onClick={() => { setQuery(""); setActiveSport(null); }}
-            className="text-sm text-amber-400 hover:text-amber-300 transition-colors"
+            style={{
+              fontSize: 13,
+              fontWeight: 500,
+              color: "oklch(0.55 0.17 25)",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+            }}
           >
             Clear filters
           </button>
         </div>
       )}
     </>
+  );
+}
+
+// ─── Gallery View ─────────────────────────────────────────────────────────────
+
+function GalleryView({ sets }: { sets: SetCard[] }) {
+  return (
+    <div className="cl-gallery-grid">
+      {sets.map((s) => (
+        <GalleryCard key={s.id} set={s} />
+      ))}
+    </div>
+  );
+}
+
+function GalleryCard({ set: s }: { set: SetCard }) {
+  return (
+    <Link
+      href={`/sets/${s.slug ?? s.id}`}
+      className="group block"
+      style={{ textDecoration: "none" }}
+    >
+      {/* Card image */}
+      <div
+        className="relative overflow-hidden"
+        style={{
+          aspectRatio: "2/2.8",
+          background: "#EAE6D9",
+          borderRadius: 0,
+          boxShadow: "0 1px 2px rgba(15,15,14,0.06)",
+          transition: "all 0.2s ease",
+        }}
+        onMouseEnter={(e) => {
+          const el = e.currentTarget;
+          el.style.boxShadow = "0 12px 28px rgba(15,15,14,0.16)";
+          el.style.transform = "translateY(-2px)";
+        }}
+        onMouseLeave={(e) => {
+          const el = e.currentTarget;
+          el.style.boxShadow = "0 1px 2px rgba(15,15,14,0.06)";
+          el.style.transform = "translateY(0)";
+        }}
+      >
+        {s.sampleImageUrl ? (
+          <img src={s.sampleImageUrl} alt={s.name} className="w-full h-full object-cover" />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center" style={{ color: "#B7B2A3" }}>
+            <svg width={32} height={32} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0 0 22.5 18.75V5.25A2.25 2.25 0 0 0 20.25 3H3.75A2.25 2.25 0 0 0 1.5 5.25v13.5A2.25 2.25 0 0 0 3.75 21Z" />
+            </svg>
+          </div>
+        )}
+
+        {s.featured && <Ribbon size="gallery" />}
+
+        {/* Hover overlay */}
+        <div
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"
+          style={{
+            background: "linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 50%)",
+            display: "flex",
+            alignItems: "flex-end",
+            padding: 12,
+          }}
+        >
+          <span
+            style={{
+              fontFamily: "var(--cl-font-mono)",
+              fontSize: 11,
+              fontWeight: 600,
+              color: "#fff",
+              letterSpacing: 0.5,
+            }}
+          >
+            OPEN CHECKLIST &rarr;
+          </span>
+        </div>
+      </div>
+
+      {/* Metadata */}
+      <div style={{ paddingTop: 12 }}>
+        <p
+          style={{
+            fontFamily: "var(--cl-font-display)",
+            fontSize: 14,
+            fontWeight: 600,
+            letterSpacing: "-0.2px",
+            color: "var(--cl-text-primary)",
+            lineHeight: 1.3,
+          }}
+        >
+          {s.name}
+        </p>
+        <div className="flex flex-wrap gap-[5px]" style={{ marginTop: 8 }}>
+          <Chip label={s.league ?? s.sport} />
+          {s.tier !== "Standard" && <Chip label={s.tier} tone="dark" />}
+        </div>
+        <div className="flex gap-[14px]" style={{ marginTop: 10 }}>
+          <span style={{ fontFamily: "var(--cl-font-mono)", fontSize: 11, color: "var(--cl-text-primary)", fontWeight: 600 }}>
+            {s.athleteCount.toLocaleString()}
+            <span style={{ color: "var(--cl-text-faint)", fontWeight: 400 }}> athletes</span>
+          </span>
+          <span style={{ fontFamily: "var(--cl-font-mono)", fontSize: 11, color: "var(--cl-text-primary)", fontWeight: 600 }}>
+            {s.cardCount.toLocaleString()}
+            <span style={{ color: "var(--cl-text-faint)", fontWeight: 400 }}> cards</span>
+          </span>
+        </div>
+      </div>
+    </Link>
+  );
+}
+
+// ─── Compact View ─────────────────────────────────────────────────────────────
+
+function CompactView({ sets }: { sets: SetCard[] }) {
+  return (
+    <div className="flex flex-col gap-2">
+      {sets.map((s) => (
+        <CompactRow key={s.id} set={s} />
+      ))}
+    </div>
+  );
+}
+
+function CompactRow({ set: s }: { set: SetCard }) {
+  return (
+    <Link
+      href={`/sets/${s.slug ?? s.id}`}
+      className="flex items-center gap-[18px] transition-all"
+      style={{
+        padding: "14px 16px",
+        background: "#FFFFFF",
+        border: "1px solid #EDEAE0",
+        borderRadius: 10,
+        textDecoration: "none",
+        transitionDuration: "0.15s",
+      }}
+      onMouseEnter={(e) => {
+        const el = e.currentTarget;
+        el.style.background = "#FDFCF8";
+        el.style.boxShadow = "0 4px 14px rgba(15,15,14,0.06)";
+      }}
+      onMouseLeave={(e) => {
+        const el = e.currentTarget;
+        el.style.background = "#FFFFFF";
+        el.style.boxShadow = "none";
+      }}
+    >
+      {/* Thumbnail */}
+      <div
+        className="relative shrink-0"
+        style={{
+          width: 80,
+          height: 112,
+          borderRadius: 0,
+          overflow: "hidden",
+          background: "#EAE6D9",
+          boxShadow: "0 1px 2px rgba(15,15,14,0.08)",
+        }}
+      >
+        {s.sampleImageUrl ? (
+          <img src={s.sampleImageUrl} alt={s.name} className="w-full h-full object-cover" />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center" style={{ color: "#B7B2A3" }}>
+            <svg width={20} height={20} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0 0 22.5 18.75V5.25A2.25 2.25 0 0 0 20.25 3H3.75A2.25 2.25 0 0 0 1.5 5.25v13.5A2.25 2.25 0 0 0 3.75 21Z" />
+            </svg>
+          </div>
+        )}
+        {s.featured && <Ribbon size="compact" />}
+      </div>
+
+      {/* Title + chips */}
+      <div className="flex-1 min-w-0">
+        <p
+          style={{
+            fontFamily: "var(--cl-font-display)",
+            fontSize: 15,
+            fontWeight: 600,
+            letterSpacing: "-0.2px",
+            color: "var(--cl-text-primary)",
+            lineHeight: 1.3,
+          }}
+        >
+          {s.name}
+        </p>
+        <div className="flex flex-wrap gap-[5px]" style={{ marginTop: 8 }}>
+          <Chip label={s.league ?? s.sport} />
+          {s.tier !== "Standard" && <Chip label={s.tier} tone="dark" />}
+        </div>
+      </div>
+
+      {/* Stats */}
+      <div className="hidden md:flex items-center gap-0">
+        <div style={{ width: 110, textAlign: "right" }}>
+          <p style={{ fontFamily: "var(--cl-font-mono)", fontSize: 12, fontWeight: 600, color: "var(--cl-text-primary)" }}>
+            {s.athleteCount.toLocaleString()}
+          </p>
+          <p style={{ fontFamily: "var(--cl-font-mono)", fontSize: 10, fontWeight: 500, color: "var(--cl-text-faint)", letterSpacing: 1 }}>
+            ATHLETES
+          </p>
+        </div>
+        <div style={{ width: 110, textAlign: "right" }}>
+          <p style={{ fontFamily: "var(--cl-font-mono)", fontSize: 12, fontWeight: 600, color: "var(--cl-text-primary)" }}>
+            {s.cardCount.toLocaleString()}
+          </p>
+          <p style={{ fontFamily: "var(--cl-font-mono)", fontSize: 10, fontWeight: 500, color: "var(--cl-text-faint)", letterSpacing: 1 }}>
+            CARDS
+          </p>
+        </div>
+        <div style={{ width: 60, textAlign: "right" }}>
+          <p style={{ fontFamily: "var(--cl-font-mono)", fontSize: 12, fontWeight: 600, color: "var(--cl-text-primary)" }}>
+            {s.season}
+          </p>
+          <p style={{ fontFamily: "var(--cl-font-mono)", fontSize: 10, fontWeight: 500, color: "var(--cl-text-faint)", letterSpacing: 1 }}>
+            YEAR
+          </p>
+        </div>
+      </div>
+
+      {/* Chevron */}
+      <svg width={14} height={14} fill="none" viewBox="0 0 24 24" stroke="#B7B2A3" strokeWidth={2.5} className="shrink-0 hidden md:block">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+      </svg>
+    </Link>
   );
 }

@@ -39,6 +39,52 @@ body {
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
+/* ─── Design tokens (checklists redesign) ──────────────────────────────── */
+:root {
+  --cl-bg-page: #FAFAF7;
+  --cl-bg-surface: #FFFFFF;
+  --cl-bg-raised: #FDFCF8;
+  --cl-bg-muted: #F1EFE9;
+  --cl-bg-subtle: #F4F1E8;
+  --cl-bg-placeholder: #EAE6D9;
+  --cl-text-primary: #0F0F0E;
+  --cl-text-secondary: #3A372F;
+  --cl-text-tertiary: #6B6757;
+  --cl-text-muted: #8A8677;
+  --cl-text-faint: #B7B2A3;
+  --cl-border-default: #EDEAE0;
+  --cl-border-strong: #E6E3D9;
+  --cl-border-subtle: #F4F1E8;
+  --cl-accent: oklch(0.55 0.17 25);
+  --cl-accent-fg: #FFF8F1;
+  --cl-font-display: var(--font-inter-tight), 'Inter Tight', -apple-system, system-ui, sans-serif;
+  --cl-font-mono: var(--font-jetbrains), 'JetBrains Mono', monospace;
+}
+
+/* ─── Checklists gallery responsive grid ───────────────────────────────── */
+.cl-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  column-gap: 14px;
+  row-gap: 28px;
+}
+@media (max-width: 1200px) { .cl-gallery-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 900px)  { .cl-gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 600px)  { .cl-gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 22px; } }
+
+/* ─── Checklists mobile container override ─────────────────────────────── */
+@media (max-width: 640px) {
+  .cl-container { padding-left: 20px !important; padding-right: 20px !important; padding-top: 24px !important; }
+  .cl-title { font-size: 34px !important; font-weight: 700 !important; letter-spacing: -0.9px !important; }
+}
+
+/* ─── Checklists page animation ────────────────────────────────────────── */
+@keyframes cl-fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.cl-fade-in { animation: cl-fadeInUp 0.3s ease; }
+
 /* ─── Logo ──────────────────────────────────────────────────────────────── */
 .logo-for-light { display: block; }
 .logo-for-dark  { display: none; }
