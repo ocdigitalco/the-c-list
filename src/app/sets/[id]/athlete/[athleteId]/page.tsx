@@ -219,12 +219,28 @@ export default async function V2AthletePage({
           .where(inArray(appearanceCoPlayers.appearanceId, appearanceIds))
       : [];
 
-  const coPlayersByAppearance = new Map<number, { id: number; name: string }[]>();
+  // Look up slugs for co-players
+  const coPlayerIds = [...new Set(coPlayerRows.map((r) => r.coPlayerId))];
+  const coPlayerSlugMap = new Map<number, string>();
+  if (coPlayerIds.length > 0) {
+    try {
+      const placeholders = coPlayerIds.map(() => "?").join(",");
+      const slugRows = await rawQuery.all<{ id: number; slug: string | null }>(
+        `SELECT id, slug FROM players WHERE id IN (${placeholders})`,
+        ...coPlayerIds
+      );
+      for (const row of slugRows) {
+        if (row.slug) coPlayerSlugMap.set(row.id, row.slug);
+      }
+    } catch { /* slug column may not exist yet */ }
+  }
+
+  const coPlayersByAppearance = new Map<number, { id: number; name: string; slug: string | null }[]>();
   for (const row of coPlayerRows) {
     if (!coPlayersByAppearance.has(row.appearanceId)) {
       coPlayersByAppearance.set(row.appearanceId, []);
     }
-    coPlayersByAppearance.get(row.appearanceId)!.push({ id: row.coPlayerId, name: row.coPlayerName });
+    coPlayersByAppearance.get(row.appearanceId)!.push({ id: row.coPlayerId, name: row.coPlayerName, slug: coPlayerSlugMap.get(row.coPlayerId) ?? null });
   }
 
   // Parallels per insert set
@@ -625,7 +641,7 @@ export default async function V2AthletePage({
           ),
           "card-types": (
             <section className="space-y-3">
-              <V2Checklist setId={setId} insertSets={playerInsertSets} />
+              <V2Checklist setId={setId} setSlug={rawSetParam} athleteSlug={rawAthleteParam} insertSets={playerInsertSets} />
             </section>
           ),
           "other-sets": otherSetRows.length > 0 ? (
@@ -792,7 +808,7 @@ export default async function V2AthletePage({
               <h2 className="text-base font-semibold" style={{ color: "var(--v2-text-primary)" }}>
                 Insert Sets
               </h2>
-              <V2Checklist setId={setId} insertSets={playerInsertSets} />
+              <V2Checklist setId={setId} setSlug={rawSetParam} athleteSlug={rawAthleteParam} insertSets={playerInsertSets} />
             </section>
 
             {/* Other sets */}

@@ -302,7 +302,7 @@ function SetsCoverageInner({ rows }: { rows: CoverageRow[] }) {
                           return inApp ? (
                             <Link
                               key={i}
-                              href={`/sets/${row.matchedSetId}`}
+                              href={`/sets/${row.matchedSetSlug ?? row.matchedSetId}`}
                               className="flex items-center justify-between px-5 py-3.5 hover:bg-zinc-800/50 transition-colors group/row"
                             >
                               <div className="flex items-center gap-2.5 min-w-0">

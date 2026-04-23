@@ -7,6 +7,7 @@ import type { InsertSetDetail } from "./types";
 interface Props {
   setId: number;
   setSlug?: string | null;
+  athleteSlug?: string | null;
   insertSets: InsertSetDetail[];
 }
 
@@ -27,7 +28,7 @@ function PrintRun({ printRun }: { printRun: number | null }) {
   return <span className="font-mono opacity-75">/{printRun}</span>;
 }
 
-function AccordionRow({ setId, setSlug, is }: { setId: number; setSlug?: string | null; is: InsertSetDetail }) {
+function AccordionRow({ setId, setSlug, athleteSlug, is }: { setId: number; setSlug?: string | null; athleteSlug?: string | null; is: InsertSetDetail }) {
   const [expanded, setExpanded] = useState(false);
   const hasRookie = is.appearances.some((a) => a.isRookie);
 
@@ -71,12 +72,16 @@ function AccordionRow({ setId, setSlug, is }: { setId: number; setSlug?: string 
               <div key={i} className="space-y-1">
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
                   <span className="font-mono text-zinc-500 text-xs">#{a.cardNumber}</span>
-                  <Link
-                    href={`/sets/${setSlug || setId}/athlete/${0}`}
-                    className="text-zinc-300 hover:text-indigo-400 transition-colors"
-                  >
-                    {a.team}
-                  </Link>
+                  {athleteSlug ? (
+                    <Link
+                      href={`/sets/${setSlug || setId}/athlete/${athleteSlug}`}
+                      className="text-zinc-300 hover:text-indigo-400 transition-colors"
+                    >
+                      {a.team}
+                    </Link>
+                  ) : (
+                    <span className="text-zinc-300">{a.team}</span>
+                  )}
                   {a.isRookie && (
                     <span className="text-xs font-bold text-amber-400 bg-amber-400/10 border border-amber-400/20 px-1.5 py-0.5 rounded">
                       Rookie
@@ -95,7 +100,7 @@ function AccordionRow({ setId, setSlug, is }: { setId: number; setSlug?: string 
                       <Fragment key={cp.id}>
                         {j > 0 && <span className="text-zinc-700">,</span>}
                         <Link
-                          href={`/sets/${setSlug || setId}/athlete/${cp.id}`}
+                          href={`/sets/${setSlug || setId}/athlete/${cp.slug ?? cp.id}`}
                           className="text-zinc-400 hover:text-indigo-400 transition-colors"
                         >
                           {cp.name}
@@ -132,11 +137,11 @@ function AccordionRow({ setId, setSlug, is }: { setId: number; setSlug?: string 
   );
 }
 
-export function V2Checklist({ setId, setSlug, insertSets }: Props) {
+export function V2Checklist({ setId, setSlug, athleteSlug, insertSets }: Props) {
   return (
     <div className="space-y-3">
       {insertSets.map((is) => (
-        <AccordionRow key={is.insertSetId} setId={setId} setSlug={setSlug} is={is} />
+        <AccordionRow key={is.insertSetId} setId={setId} setSlug={setSlug} athleteSlug={athleteSlug} is={is} />
       ))}
       {insertSets.length === 0 && (
         <p className="text-base text-center py-8" style={{ color: "var(--v2-text-secondary)" }}>

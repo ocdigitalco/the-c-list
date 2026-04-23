@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { updates, getUpdateById, getAdjacentUpdates } from "@/lib/updates";
+import { rawQuery } from "@/lib/db";
 import { MarkdownContent } from "@/components/MarkdownContent";
 import { PageShell } from "@/components/PageShell";
 
@@ -63,6 +64,17 @@ export default async function UpdatePage({ params }: { params: Promise<{ id: str
 
   const { prev, next } = getAdjacentUpdates(id);
 
+  // Look up set slug if update references a set
+  let setSlug: string | null = null;
+  if (update.setId) {
+    try {
+      const slugRow = await rawQuery.get<{ slug: string | null }>(
+        "SELECT slug FROM sets WHERE id = ?", update.setId
+      );
+      setSlug = slugRow?.slug ?? null;
+    } catch { /* slug column may not exist yet */ }
+  }
+
   return (
     <PageShell
       breadcrumb={{ label: "Updates", href: "/updates" }}
@@ -81,7 +93,7 @@ export default async function UpdatePage({ params }: { params: Promise<{ id: str
 
         {update.setId && (
           <Link
-            href={`/sets/${update.setId}`}
+            href={`/sets/${setSlug ?? update.setId}`}
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-800 text-sm font-medium text-zinc-300 hover:bg-zinc-700 hover:text-white transition-colors"
           >
             &rarr; View Checklist

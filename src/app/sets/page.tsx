@@ -367,6 +367,7 @@ export interface CoverageRow {
   sport: string;
   manufacturer: "Topps" | "Panini" | "Other";
   matchedSetId: number | null;
+  matchedSetSlug: string | null;
   hasBoxConfig: boolean;
   hasPackOdds: boolean;
   hasParallels: boolean;
@@ -387,6 +388,17 @@ export default async function SetsCoveragePage() {
      JOIN parallels p ON p.insert_set_id = i.id`
   );
   const setsWithParallels = new Set(setsWithParallelsRows.map((r) => r.id));
+
+  // Query slugs for all sets (slug not in Drizzle schema)
+  const setSlugMap = new Map<number, string>();
+  try {
+    const slugRows = await rawQuery.all<{ id: number; slug: string | null }>(
+      "SELECT id, slug FROM sets"
+    );
+    for (const row of slugRows) {
+      if (row.slug) setSlugMap.set(row.id, row.slug);
+    }
+  } catch { /* slug column may not exist yet */ }
 
   // Build normalized name → set row map
   const setsNormMap = new Map<string, typeof allSets[0]>();
@@ -447,6 +459,7 @@ export default async function SetsCoveragePage() {
       ...entry,
       manufacturer: inferManufacturer(entry.name),
       matchedSetId: matchedSet?.id ?? null,
+      matchedSetSlug: matchedSet ? (setSlugMap.get(matchedSet.id) ?? null) : null,
       hasBoxConfig: status.hasBoxConfig,
       hasPackOdds: status.hasPackOdds,
       hasParallels: status.hasParallels,
@@ -475,6 +488,7 @@ export default async function SetsCoveragePage() {
       sport: s.sport,
       manufacturer: inferManufacturer(s.name),
       matchedSetId: s.id,
+      matchedSetSlug: setSlugMap.get(s.id) ?? null,
       hasBoxConfig: status.hasBoxConfig,
       hasPackOdds: status.hasPackOdds,
       hasParallels: status.hasParallels,

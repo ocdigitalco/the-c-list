@@ -40,7 +40,7 @@ export interface InsertSetDetail {
     team: string | null;
     isRookie: boolean;
     subsetTag: string | null;
-    coPlayers: { id: number; name: string }[];
+    coPlayers: { id: number; name: string; slug: string | null }[];
   }[];
   parallels: { id: number; name: string; printRun: number | null }[];
 }

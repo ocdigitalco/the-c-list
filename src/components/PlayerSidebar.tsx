@@ -14,9 +14,10 @@ interface Props {
   players: SidebarPlayer[];
   selectedPlayerId: number | null;
   setId: number;
+  setSlug?: string | null;
 }
 
-export function PlayerSidebar({ players, selectedPlayerId, setId }: Props) {
+export function PlayerSidebar({ players, selectedPlayerId, setId, setSlug }: Props) {
   const [query, setQuery] = useState("");
   const selectedRef = useRef<HTMLAnchorElement>(null);
 
@@ -97,7 +98,7 @@ export function PlayerSidebar({ players, selectedPlayerId, setId }: Props) {
             return (
               <Link
                 key={player.id}
-                href={`/sets/${setId}?player=${player.id}`}
+                href={`/sets/${setSlug ?? setId}?player=${player.id}`}
                 ref={isSelected ? selectedRef : null}
                 onClick={() => trackSearch(player.id)}
                 className={`flex items-center justify-between gap-2 px-4 py-3 border-b border-zinc-800/40 hover:bg-zinc-900 transition-colors ${

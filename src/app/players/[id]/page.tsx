@@ -1,4 +1,4 @@
-import { db } from "@/lib/db";
+import { db, rawQuery } from "@/lib/db";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 
@@ -30,6 +30,22 @@ export default async function PlayerPage({ params }: Props) {
   });
 
   if (!player) notFound();
+
+  // Look up set slugs for all parent sets (slug not in Drizzle schema)
+  const parentSetIds = [...new Set(player.appearances.map((a) => a.insertSet.setId))];
+  const setSlugMap = new Map<number, string>();
+  if (parentSetIds.length > 0) {
+    try {
+      const placeholders = parentSetIds.map(() => "?").join(",");
+      const slugRows = await rawQuery.all<{ id: number; slug: string | null }>(
+        `SELECT id, slug FROM sets WHERE id IN (${placeholders})`,
+        ...parentSetIds
+      );
+      for (const row of slugRows) {
+        if (row.slug) setSlugMap.set(row.id, row.slug);
+      }
+    } catch { /* slug column may not exist yet */ }
+  }
 
   return (
     <div className="space-y-6">
@@ -82,7 +98,7 @@ export default async function PlayerPage({ params }: Props) {
             <div className="flex items-start justify-between gap-4">
               <div>
                 <Link
-                  href={`/sets/${appearance.insertSet.id}`}
+                  href={`/sets/${setSlugMap.get(appearance.insertSet.setId) ?? appearance.insertSet.setId}`}
                   className="font-semibold text-white hover:underline"
                 >
                   {appearance.insertSet.name}
