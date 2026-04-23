@@ -379,7 +379,14 @@ export interface CoverageRow {
 // ---------------------------------------------------------------------------
 
 export default async function SetsCoveragePage() {
-  const allSets = await db.select().from(sets);
+  // Fetch hidden set IDs (is_visible column may not exist on Turso yet)
+  let hiddenSetIds = new Set<number>();
+  try {
+    const hidden = await rawQuery.all<{ id: number }>("SELECT id FROM sets WHERE is_visible = 0");
+    hiddenSetIds = new Set(hidden.map((r) => r.id));
+  } catch { /* is_visible column may not exist yet */ }
+
+  const allSets = (await db.select().from(sets)).filter((s) => !hiddenSetIds.has(s.id));
 
   // Query which sets have at least one parallel
   const setsWithParallelsRows = await rawQuery.all<{ id: number }>(

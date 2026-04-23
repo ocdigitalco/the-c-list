@@ -6,13 +6,20 @@ import { ChecklistSearch } from "./ChecklistSearch";
 export const dynamic = "force-dynamic";
 
 export default async function ChecklistsPage() {
+  // Fetch hidden set IDs (is_visible column may not exist on Turso yet)
+  let hiddenIds = new Set<number>();
+  try {
+    const hidden = await rawQuery.all<{ id: number }>("SELECT id FROM sets WHERE is_visible = 0");
+    hiddenIds = new Set(hidden.map((r) => r.id));
+  } catch { /* is_visible column may not exist yet */ }
+
   const sportRows = await db
     .selectDistinct({ sport: sets.sport })
     .from(sets)
     .orderBy(sets.sport);
   const allSports = sportRows.map((r) => r.sport);
 
-  const setRows = await db
+  const allSetRows = await db
     .select()
     .from(sets)
     .orderBy(
@@ -20,6 +27,7 @@ export default async function ChecklistsPage() {
       sql`${sets.releaseDate} DESC`,
       sets.name
     );
+  const setRows = allSetRows.filter((s) => !hiddenIds.has(s.id));
 
   const statsRows = await db
     .select({

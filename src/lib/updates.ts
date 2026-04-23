@@ -16,6 +16,16 @@ export const updates: Update[] = [
   // ─── April 21, 2026 ──────────────────────────────────────────────────────
   // ─── April 22, 2026 ──────────────────────────────────────────────────────
   {
+    id: "139-sets-visibility",
+    title: "Sets Visibility — Hidden Duplicate Sets",
+    date: "2026-04-22T16:00:00Z",
+    summary: "Added is_visible column to sets table. Hidden 2025 Bowman Draft Baseball Sapphire Edition (duplicate of 2025 Bowman Draft Sapphire Baseball) from listing pages. Sets remain accessible via direct URL.",
+    description: `## Sets Visibility — Hidden Duplicate Sets
+
+Added \`is_visible\` column to the sets table (default 1). Hidden the duplicate stub "2025 Bowman Draft Baseball Sapphire Edition" (set 54) from checklists, sets coverage, and break simulator listing pages. The set remains accessible via its direct URL. Listing queries now filter by \`is_visible = 1\`.`,
+    tags: ["feature"],
+  },
+  {
     id: "138-bowman-basketball-rename",
     title: "2025-26 Bowman Basketball — Renamed",
     date: "2026-04-22T14:00:00Z",
