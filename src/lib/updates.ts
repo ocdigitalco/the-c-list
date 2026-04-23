@@ -14,6 +14,18 @@ export interface Update {
 export const updates: Update[] = [
   // ─── April 20, 2026 ──────────────────────────────────────────────────────
   // ─── April 21, 2026 ──────────────────────────────────────────────────────
+  // ─── April 22, 2026 ──────────────────────────────────────────────────────
+  {
+    id: "137-bowman-draft-sapphire",
+    title: "2025 Bowman Draft Sapphire Baseball Edition — Verified",
+    date: "2026-04-22T12:00:00Z",
+    summary: "Verified full checklist: 200 base prospects, 30 Chrome Prospect Autographs, 15 Sapphire Selections Autographs, and 18 Sapphire Selections inserts. 19 parallel tiers, pack odds, and box config confirmed.",
+    description: `## 2025 Bowman Draft Sapphire Baseball Edition
+
+Full checklist verified with 263 total cards across 4 insert sets: Base (200 prospects), Chrome Prospect Autographs (30), Sapphire Selections Autographs (15), and Sapphire Selections (18 inserts). 19 parallel tiers including Padparadscha /1 and Superfractor /1. Pack odds and Hobby box config included.`,
+    tags: ["checklist", "odds"],
+    setId: 41,
+  },
   {
     id: "136-donruss-fifa-part3",
     title: "2025-26 Donruss Road to FIFA World Cup 26 — Part 3",
