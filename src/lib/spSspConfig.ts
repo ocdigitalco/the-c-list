@@ -137,7 +137,7 @@ export const SP_SSP_CONFIG: Record<string, SpSspSetConfig> = {
     ],
   },
 
-  "2025-26 Topps Bowman Basketball": {
+  "2025-26 Bowman Basketball": {
     sp: [],
     ssp: [
       "Crystallized NBA",

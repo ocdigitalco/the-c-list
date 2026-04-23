@@ -16,6 +16,17 @@ export const updates: Update[] = [
   // ─── April 21, 2026 ──────────────────────────────────────────────────────
   // ─── April 22, 2026 ──────────────────────────────────────────────────────
   {
+    id: "138-bowman-basketball-rename",
+    title: "2025-26 Bowman Basketball — Renamed",
+    date: "2026-04-22T14:00:00Z",
+    summary: "Removed 'Topps' from set name and slug. URL updated from /sets/2025-26-topps-bowman-basketball to /sets/2025-26-bowman-basketball. Empty duplicate stub deleted.",
+    description: `## 2025-26 Bowman Basketball — Renamed
+
+Removed "Topps" from the set name and slug to match official product branding. URL updated from \`/sets/2025-26-topps-bowman-basketball\` to \`/sets/2025-26-bowman-basketball\`. The old numeric URL still redirects. Empty duplicate stub set deleted. SP/SSP config and catalog entry updated to match.`,
+    tags: ["feature"],
+    setId: 34,
+  },
+  {
     id: "137-bowman-draft-sapphire",
     title: "2025 Bowman Draft Sapphire Baseball Edition — Verified",
     date: "2026-04-22T12:00:00Z",

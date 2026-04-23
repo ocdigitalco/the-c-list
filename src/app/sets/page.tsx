@@ -57,7 +57,7 @@ function inferManufacturer(name: string): "Topps" | "Panini" | "Other" {
 // ---------------------------------------------------------------------------
 const CATALOG: Array<{ name: string; year: number; sport: string }> = [
   // ── 2026 ──────────────────────────────────────────────────────────────────
-  { name: "2025-26 Topps Bowman Basketball",                               year: 2026, sport: "Basketball" },
+  { name: "2025-26 Bowman Basketball",                                     year: 2026, sport: "Basketball" },
   { name: "2025-26 Topps Cosmic Chrome Basketball",                        year: 2026, sport: "Basketball" },
   { name: "2025 Bowman's Best Baseball",                                   year: 2026, sport: "Baseball" },
   { name: "2025 Bowman Draft Baseball Sapphire Edition",                   year: 2026, sport: "Baseball" },
