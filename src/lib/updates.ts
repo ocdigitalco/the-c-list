@@ -16,6 +16,17 @@ export const updates: Update[] = [
   // ─── April 21, 2026 ──────────────────────────────────────────────────────
   // ─── April 22, 2026 ──────────────────────────────────────────────────────
   {
+    id: "140-stadium-club-baseball-odds",
+    title: "2025 Topps Stadium Club Baseball — Parallels and Odds Added",
+    date: "2026-04-22T18:00:00Z",
+    summary: "Added complete pack odds across Hobby, Value SE/EA, Mega SE/EA, and Fat Pack SE/EA (488 total entries). Box config and set image updated.",
+    description: `## 2025 Topps Stadium Club Baseball — Parallels and Odds Added
+
+Added 488 pack odds entries across 7 box formats: Hobby (74), Value SE (69), Value EA (69), Mega SE (69), Mega EA (69), Fat Pack SE (69), Fat Pack EA (69). Covers base parallels, all insert parallels, and complete autograph set odds. Box config updated with Hobby, Mega, Blaster, Value, and Fat Pack configurations. Releases February 18, 2026.`,
+    tags: ["odds", "box-config"],
+    setId: 45,
+  },
+  {
     id: "139-sets-visibility",
     title: "Sets Visibility — Hidden Duplicate Sets",
     date: "2026-04-22T16:00:00Z",
