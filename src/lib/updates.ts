@@ -15,6 +15,38 @@ export const updates: Update[] = [
   // ─── April 20, 2026 ──────────────────────────────────────────────────────
   // ─── April 21, 2026 ──────────────────────────────────────────────────────
   // ─── April 22, 2026 ──────────────────────────────────────────────────────
+  // ─── April 23, 2026 ──────────────────────────────────────────────────────
+  {
+    id: "143-minimum-ratio-guard",
+    title: "SP/SSP Detection Engine — Minimum Ratio Guard",
+    date: "2026-04-23T23:00:00Z",
+    summary: "Fixed detect-sp-ssp.ts to exclude inserts easier than the anchor from classification and threshold computation. Added per-tier checklist guards.",
+    description: `## SP/SSP Detection Engine — Minimum Ratio Guard
+
+Fixed \`detect-sp-ssp.ts\` to exclude inserts easier to pull than the anchor from SP/SSP classification and threshold computation. Added per-tier checklist size guards (SP: >50, SSP: >75). Threshold percentiles now computed only from ratio-eligible inserts, producing cleaner classifications for sets like 2026 Bowman Baseball where common inserts (1:6) coexist with rare inserts (1:5,000+). Eliminated the 0x ratio bug.`,
+    tags: ["feature"],
+  },
+  {
+    id: "142-dynamic-anchor-detection",
+    title: "SP/SSP Detection Engine — Dynamic Anchor Detection",
+    date: "2026-04-23T22:00:00Z",
+    summary: "Updated anchor system with ordered fallback patterns and dynamic auto-detection. Now detects 13 sets (up from 12). Bowman anchor correctly resolves to Chrome Prospects Refractor.",
+    description: `## SP/SSP Detection Engine — Dynamic Anchor Detection
+
+Updated \`detect-sp-ssp.ts\` anchor system to use three tiers: (1) ordered pattern overrides per set name fragment, (2) global fallback hierarchy, (3) dynamic auto-detection finding the median chrome-type refractor key within 1:10 to 1:300 hobby odds range. Anchor source (override/global/dynamic) is logged for each set. Added Chrome Prospects Refractor as primary Bowman anchor pattern. Dynamic detection now finds anchors for Chrome F1, Chrome UFC, Finest Basketball, and Finest Premier League.`,
+    tags: ["feature"],
+  },
+  {
+    id: "141-bowman-baseball-2026",
+    title: "2026 Bowman Baseball — Full Checklist and Odds",
+    date: "2026-04-23T20:00:00Z",
+    summary: "Complete set with 31 insert sets, 232 parallels, 1,281 appearances across 344 athletes, and 368 pack odds entries across 9 box formats. Releases May 13, 2026.",
+    description: `## 2026 Bowman Baseball — Full Checklist and Odds
+
+Complete set across 4 parts: 31 insert sets, 232 parallel tiers, 1,281 appearances across 344 athletes. Base (100), variations (53), Base Prospects (150), Chrome Prospects (150+150+11). 13 autograph sets (361 entries). 11 insert sets including Bowman Scouts Top 100, Patchwork (30), Electric Sluggers (25), Anime (29+7 Kanji), Final Draft (20), Crystallized (20), Bowman Spotlights (15). 368 pack odds entries across Hobby, Jumbo, Breaker's Delight, Mega SE/EA/CEE, and Value SE/EA/CEE. SP/SSP classifications: Anime, Patchwork, Final Draft as SP; Bowman Spotlights and Crystallized as SSP. Releases May 13, 2026.`,
+    tags: ["checklist", "odds"],
+    setId: 52,
+  },
   {
     id: "140-stadium-club-baseball-odds",
     title: "2025 Topps Stadium Club Baseball — Parallels and Odds Added",

@@ -27,7 +27,20 @@ const FALLBACK_SSP_RATIO = 400;
 const MAX_SP_CHECKLIST = 75;
 const MIN_SAMPLE_SIZE = 8;
 
-// ─── Anchor odds fallback hierarchy ───────────────────────────
+// ─── Anchor key patterns (ordered fallback per set name fragment) ──
+const ANCHOR_KEY_PATTERNS: Record<string, string[]> = {
+  "Bowman": [
+    "Chrome Prospects Refractor",
+    "Chrome Prospect Refractor",
+    "Base Chrome Refractor",
+    "Chrome Refractor",
+  ],
+  "Midnight": ["Base Zodiac", "Base"],
+  "Hoops": ["Base"],
+  "Pristine": ["Base Refractor"],
+};
+
+// ─── Global anchor fallback hierarchy ─────────────────────────
 const ANCHOR_KEYS = [
   "Base Refractor",
   "Refractor",
@@ -38,20 +51,23 @@ const ANCHOR_KEYS = [
   "Base",
 ];
 
-// ─── Per-set anchor overrides ─────────────────────────────────
-const ANCHOR_KEY_OVERRIDES: Record<string, string> = {
-  "Midnight": "Base Zodiac",
-  "Hoops": "Base",
-  "Pristine": "Base Refractor",
-  "Bowman": "Base Chrome Refractor",
-};
+// ─── Dynamic anchor detection constants ───────────────────────
+const MIN_ANCHOR_ODDS = 10;
+const MAX_ANCHOR_ODDS = 300;
 
-function getAnchorKeyOverride(setName: string): string | null {
-  for (const [keyword, anchorKey] of Object.entries(ANCHOR_KEY_OVERRIDES)) {
-    if (setName.toLowerCase().includes(keyword.toLowerCase())) return anchorKey;
-  }
-  return null;
-}
+const DYNAMIC_CHROME_KEYWORDS = [
+  "refractor", "x-fractor", "shimmer", "logofractor", "prizm",
+  "lava", "wave", "speckle", "mojo", "raywave", "fractor",
+];
+
+const DYNAMIC_EXCLUDE_KEYWORDS = [
+  "gold", "silver", "red", "blue", "green", "orange", "black",
+  "purple", "pink", "aqua", "teal", "yellow", "fuchsia", "rose",
+  "reptilian", "superfractor", "firefractor", "printing plates",
+  "autograph", "auto", "geometric", "mini", "league",
+  "bowman logo", "lazer", "gum ball", "sunflower", "peanuts", "pop corn",
+  "steel", "grass", "packfractor", "image variation", "etched",
+];
 
 // ─── Exclusion keywords ────────────────────────────────────────
 const EXCLUDED_KEYWORDS = [
@@ -91,6 +107,7 @@ interface SetResult {
   setName: string;
   anchorKey: string;
   anchorOdds: string;
+  anchorSource: "override" | "global" | "dynamic";
   spThreshold: number;
   sspThreshold: number;
   sampleSize: number;
@@ -212,35 +229,47 @@ function getBaseInsertOdds(
 function findAnchorOdds(
   packOdds: Record<string, Record<string, unknown>>,
   setName: string = "",
-): { key: string; odds: string; value: number } | null {
+): { key: string; odds: string; value: number; source: "override" | "global" | "dynamic" } | null {
   const hobbyOdds = packOdds["hobby"] ?? {};
 
-  const overrideKey = getAnchorKeyOverride(setName);
-  if (overrideKey) {
-    const match = findOddsKey(hobbyOdds, overrideKey);
-    if (match) {
-      const value = parseOdds(match.raw);
-      if (value && value > 0) return { key: match.key, odds: String(match.raw), value };
+  // 1. Pattern overrides — try each pattern in order for matching set name
+  for (const [fragment, patterns] of Object.entries(ANCHOR_KEY_PATTERNS)) {
+    if (!setName.toLowerCase().includes(fragment.toLowerCase())) continue;
+    for (const pattern of patterns) {
+      const match = findOddsKey(hobbyOdds, pattern);
+      if (match) {
+        const value = parseOdds(match.raw);
+        if (value && value > 0) return { key: match.key, odds: String(match.raw), value, source: "override" };
+      }
     }
   }
 
+  // 2. Global fallback hierarchy
   for (const anchorKey of ANCHOR_KEYS) {
     const match = findOddsKey(hobbyOdds, anchorKey);
     if (match) {
       const value = parseOdds(match.raw);
-      if (value && value > 0) return { key: match.key, odds: String(match.raw), value };
+      if (value && value > 0) return { key: match.key, odds: String(match.raw), value, source: "global" };
     }
   }
 
-  const parallelEntries = Object.entries(hobbyOdds)
-    .filter(([k]) => /teal|pink|aqua|prism|neon pulse/i.test(k))
-    .map(([k, v]) => ({ key: k, odds: String(v), value: parseOdds(v) }))
-    .filter((p) => p.value !== null && p.value > 0)
-    .sort((a, b) => (a.value ?? 0) - (b.value ?? 0));
+  // 3. Dynamic auto-detection — find median chrome-type refractor in valid range
+  const candidates: { key: string; odds: string; value: number }[] = [];
+  for (const [key, raw] of Object.entries(hobbyOdds)) {
+    const kl = key.toLowerCase();
+    const isChrome = DYNAMIC_CHROME_KEYWORDS.some((kw) => kl.includes(kw));
+    if (!isChrome) continue;
+    const isExcluded = DYNAMIC_EXCLUDE_KEYWORDS.some((q) => kl.includes(q));
+    if (isExcluded) continue;
+    const value = parseOdds(raw);
+    if (value === null || value < MIN_ANCHOR_ODDS || value > MAX_ANCHOR_ODDS) continue;
+    candidates.push({ key, odds: String(raw), value });
+  }
 
-  if (parallelEntries.length > 0) {
-    const best = parallelEntries[0];
-    return { key: best.key, odds: best.odds, value: best.value! };
+  if (candidates.length > 0) {
+    candidates.sort((a, b) => a.value - b.value);
+    const chosen = candidates[Math.floor(candidates.length / 2)];
+    return { key: chosen.key, odds: chosen.odds, value: chosen.value, source: "dynamic" };
   }
 
   return null;
@@ -348,6 +377,8 @@ for (const set of sets) {
   const skipped: { name: string; reason: string }[] = [];
 
   // ── Pass 1: collect base insert odds for all non-auto inserts ──
+  const MAX_SSP_CHECKLIST = 75;
+
   interface InsertBaseOdds {
     id: number;
     name: string;
@@ -361,7 +392,6 @@ for (const set of sets) {
 
   for (const insertSet of insertSets) {
     const lower = insertSet.name.toLowerCase();
-    // Skip base set rows (unless variations/etch/chrome/prospect)
     if (
       lower === "base set" ||
       lower === "base cards" ||
@@ -393,9 +423,11 @@ for (const set of sets) {
     });
   }
 
-  // ── Pass 2: compute dynamic thresholds ──
-  const allBaseOddsValues = insertsWithBaseOdds.map((i) => i.baseOddsValue);
-  const thresholds = computeDynamicThresholds(allBaseOddsValues, anchor.value);
+  // ── Pass 2: compute dynamic thresholds (only from ratio-eligible inserts) ──
+  const thresholdEligibleOdds = insertsWithBaseOdds
+    .filter((i) => i.baseOddsValue > anchor.value)
+    .map((i) => i.baseOddsValue);
+  const thresholds = computeDynamicThresholds(thresholdEligibleOdds, anchor.value);
 
   // ── Pass 3: classify each insert ──
   const spResults: InsertSetResult[] = [];
@@ -404,10 +436,11 @@ for (const set of sets) {
   for (const insert of insertsWithBaseOdds) {
     const ratio = insert.baseOddsValue / anchor.value;
 
-    if (insert.checklistSize > MAX_SP_CHECKLIST && insert.baseOddsValue < thresholds.sspThreshold) {
+    // Skip inserts easier to pull than the anchor — can never be SP/SSP
+    if (insert.baseOddsValue <= anchor.value) {
       skipped.push({
         name: insert.name,
-        reason: `checklist too large (${insert.checklistSize}) for SP`,
+        reason: `easier than anchor (${insert.baseOdds} vs anchor ${anchor.odds})`,
       });
       continue;
     }
@@ -433,6 +466,16 @@ for (const set of sets) {
     }
 
     if (classification === "none") continue;
+
+    // Per-tier checklist size guard
+    if (classification === "sp" && insert.checklistSize > MAX_SP_CHECKLIST) {
+      skipped.push({ name: insert.name, reason: `checklist too large for SP (${insert.checklistSize})` });
+      continue;
+    }
+    if (classification === "ssp" && insert.checklistSize > MAX_SSP_CHECKLIST) {
+      skipped.push({ name: insert.name, reason: `checklist too large for SSP (${insert.checklistSize})` });
+      continue;
+    }
 
     // Confidence based on margin beyond threshold
     let confidence: "high" | "medium" | "low";
@@ -465,6 +508,7 @@ for (const set of sets) {
       setName: set.name,
       anchorKey: anchor.key,
       anchorOdds: anchor.odds,
+      anchorSource: anchor.source,
       spThreshold: thresholds.spThreshold,
       sspThreshold: thresholds.sspThreshold,
       sampleSize: thresholds.sampleSize,
@@ -480,6 +524,7 @@ for (const set of sets) {
       setName: set.name,
       anchorKey: anchor.key,
       anchorOdds: anchor.odds,
+      anchorSource: anchor.source,
       spThreshold: thresholds.spThreshold,
       sspThreshold: thresholds.sspThreshold,
       sampleSize: thresholds.sampleSize,
@@ -501,7 +546,7 @@ for (const result of results) {
   if (result.sp.length === 0 && result.ssp.length === 0) continue;
 
   console.log(`\n  ${result.setName}`);
-  console.log(`  Anchor: ${result.anchorKey} (${result.anchorOdds})`);
+  console.log(`  Anchor: ${result.anchorKey} (${result.anchorOdds}) [${result.anchorSource}]`);
   console.log(
     `  Thresholds: SP > 1:${Math.round(result.spThreshold)} | SSP > 1:${Math.round(result.sspThreshold)} | ${
       result.usedFallback

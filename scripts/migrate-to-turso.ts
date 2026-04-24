@@ -107,6 +107,7 @@ async function createSchema() {
   // Ensure new columns exist on existing tables (handles schema evolution)
   const alterStmts = [
     "ALTER TABLE sets ADD COLUMN slug TEXT",
+    "ALTER TABLE sets ADD COLUMN is_visible INTEGER NOT NULL DEFAULT 1",
     "ALTER TABLE players ADD COLUMN slug TEXT",
     "ALTER TABLE players ADD COLUMN image_url TEXT",
     "ALTER TABLE players ADD COLUMN sleeper_id TEXT",

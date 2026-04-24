@@ -148,6 +148,18 @@ export const SP_SSP_CONFIG: Record<string, SpSspSetConfig> = {
       "Bowman Spotlights NIL",
     ],
   },
+
+  "2026 Bowman Baseball": {
+    sp: [
+      "Anime",
+      "Patchwork",
+      "Final Draft",
+    ],
+    ssp: [
+      "Bowman Spotlights",
+      "Crystallized",
+    ],
+  },
 };
 
 /**
