@@ -368,6 +368,7 @@ export interface CoverageRow {
   manufacturer: "Topps" | "Panini" | "Other";
   matchedSetId: number | null;
   matchedSetSlug: string | null;
+  hasChecklist: boolean;
   hasBoxConfig: boolean;
   hasPackOdds: boolean;
   hasParallels: boolean;
@@ -395,6 +396,14 @@ export default async function SetsCoveragePage() {
      JOIN parallels p ON p.insert_set_id = i.id`
   );
   const setsWithParallels = new Set(setsWithParallelsRows.map((r) => r.id));
+
+  // Query which sets have at least one player appearance (checklist)
+  const setsWithChecklistRows = await rawQuery.all<{ id: number }>(
+    `SELECT DISTINCT s.id FROM sets s
+     JOIN insert_sets i ON i.set_id = s.id
+     JOIN player_appearances pa ON pa.insert_set_id = i.id`
+  );
+  const setsWithChecklist = new Set(setsWithChecklistRows.map((r) => r.id));
 
   // Query slugs for all sets (slug not in Drizzle schema)
   const setSlugMap = new Map<number, string>();
@@ -451,7 +460,8 @@ export default async function SetsCoveragePage() {
       } catch {}
     }
     const hasParallels = setsWithParallels.has(s.id);
-    return { hasBoxConfig, hasPackOdds, hasParallels };
+    const hasChecklist = setsWithChecklist.has(s.id);
+    return { hasBoxConfig, hasPackOdds, hasParallels, hasChecklist };
   }
 
   // Track which DB sets are matched by catalog entries
@@ -461,12 +471,13 @@ export default async function SetsCoveragePage() {
   const rows: CoverageRow[] = CATALOG.map((entry) => {
     const matchedSet = findMatch(entry.name);
     if (matchedSet) matchedDbIds.add(matchedSet.id);
-    const status = matchedSet ? getSetStatus(matchedSet) : { hasBoxConfig: false, hasPackOdds: false, hasParallels: false };
+    const status = matchedSet ? getSetStatus(matchedSet) : { hasBoxConfig: false, hasPackOdds: false, hasParallels: false, hasChecklist: false };
     return {
       ...entry,
       manufacturer: inferManufacturer(entry.name),
       matchedSetId: matchedSet?.id ?? null,
       matchedSetSlug: matchedSet ? (setSlugMap.get(matchedSet.id) ?? null) : null,
+      hasChecklist: status.hasChecklist,
       hasBoxConfig: status.hasBoxConfig,
       hasPackOdds: status.hasPackOdds,
       hasParallels: status.hasParallels,
@@ -496,6 +507,7 @@ export default async function SetsCoveragePage() {
       manufacturer: inferManufacturer(s.name),
       matchedSetId: s.id,
       matchedSetSlug: setSlugMap.get(s.id) ?? null,
+      hasChecklist: status.hasChecklist,
       hasBoxConfig: status.hasBoxConfig,
       hasPackOdds: status.hasPackOdds,
       hasParallels: status.hasParallels,
