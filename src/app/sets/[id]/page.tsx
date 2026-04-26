@@ -18,7 +18,7 @@ import { MobileLeaderboardDrawer } from "@/components/sets/MobileLeaderboardDraw
 import type { LeaderboardRow } from "@/components/sets/types";
 import type { BreakSheetPlayer } from "@/components/BreakSheetModal";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 export default async function V2SetPage({
   params,

@@ -3,7 +3,7 @@ import { sets } from "@/lib/schema";
 import type { Metadata } from "next";
 import { SetsCoverageClient } from "./SetsCoverageClient";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Sets Coverage — Checklist2",

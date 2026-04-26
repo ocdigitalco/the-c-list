@@ -3,7 +3,7 @@ import { sets, players, playerAppearances } from "@/lib/schema";
 import { eq, sql } from "drizzle-orm";
 import { ChecklistSearch } from "./ChecklistSearch";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 export default async function ChecklistsPage() {
   // Fetch hidden set IDs (is_visible column may not exist on Turso yet)

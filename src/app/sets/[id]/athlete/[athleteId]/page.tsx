@@ -21,7 +21,7 @@ import { AthleteHeadshot } from "@/components/sets/AthleteHeadshot";
 import { MobileAthleteLayout } from "@/components/sets/MobileAthleteLayout";
 
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 const ODDS_KEY_OVERRIDES: Record<string, string> = {
   "Base Chrome": "Base Chrome Variations",
