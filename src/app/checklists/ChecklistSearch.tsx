@@ -84,7 +84,8 @@ function Ribbon({ size = "gallery" }: { size?: "gallery" | "compact" | "compact-
         lineHeight: "1.4",
       }}
     >
-      RECENTLY ADDED
+      <span className="hidden sm:inline">RECENTLY ADDED</span>
+      <span className="sm:hidden">NEW</span>
     </div>
   );
 }

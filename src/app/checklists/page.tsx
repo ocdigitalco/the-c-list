@@ -49,13 +49,13 @@ export default async function ChecklistsPage() {
     slugMap = new Map(slugRows.map((r) => [r.id, r.slug]));
   } catch { /* slug column may not exist yet */ }
 
-  // Determine "recently added" — sets with release_date in last 30 days or added recently
+  // Determine "recently added" — sets with release_date within last 7 days
   const now = new Date();
-  const thirtyDaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+  const sevenDaysAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
 
   const setCards = setRows.map((s) => {
     const rd = s.releaseDate ? new Date(s.releaseDate) : null;
-    const isRecent = rd && rd >= thirtyDaysAgo && rd <= new Date(now.getTime() + 90 * 24 * 60 * 60 * 1000);
+    const isRecent = rd && rd >= sevenDaysAgo && rd <= now;
     return {
       ...s,
       slug: slugMap.get(s.id) ?? null,
