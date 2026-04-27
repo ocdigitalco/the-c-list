@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import Link from "next/link";
 import type { LeaderboardRow } from "./types";
 import { getNBAHeadshotUrl } from "@/lib/nba-headshot";
 import { getUFCHeadshotUrl } from "@/lib/ufc-headshot";
 import { getMLBHeadshotUrl } from "@/lib/mlb-headshot";
+import { trackEvent } from "@/lib/trackEvent";
 
 type SortKey = "totalCards" | "autographs" | "inserts" | "numberedParallels";
 
@@ -68,6 +69,11 @@ export function LeaderboardSidebar({ entries, hasTeamData, setId, setSlug }: Pro
   const [teamQuery, setTeamQuery] = useState("");
   const [nameQuery, setNameQuery] = useState("");
   const [showAll, setShowAll] = useState(false);
+  const searchDebounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => { if (searchDebounceRef.current) clearTimeout(searchDebounceRef.current); };
+  }, []);
 
   const filtered = useMemo(() => {
     let list = entries;
@@ -112,7 +118,17 @@ export function LeaderboardSidebar({ entries, hasTeamData, setId, setSlug }: Pro
           <input
             type="text"
             value={nameQuery}
-            onChange={(e) => setNameQuery(e.target.value)}
+            onChange={(e) => {
+              const q = e.target.value;
+              setNameQuery(q);
+              if (searchDebounceRef.current) clearTimeout(searchDebounceRef.current);
+              if (q.trim().length >= 2) {
+                searchDebounceRef.current = setTimeout(() => {
+                  const matches = entries.filter((a) => a.name.toLowerCase().includes(q.toLowerCase()));
+                  matches.slice(0, 3).forEach((a) => trackEvent(a.id, "search"));
+                }, 600);
+              }
+            }}
             placeholder="Search athletes..."
             autoComplete="off"
             spellCheck={false}
@@ -221,6 +237,7 @@ export function LeaderboardSidebar({ entries, hasTeamData, setId, setSlug }: Pro
               <Link
                 key={entry.id}
                 href={`/sets/${setSlug || setId}/athlete/${entry.slug || entry.id}`}
+                onClick={() => trackEvent(entry.id, "view")}
                 className="grid grid-cols-[auto_auto_1fr_auto] items-center gap-2.5 px-4 py-2.5 transition-colors text-left"
                 style={{ borderBottom: "1px solid var(--v2-border)" }}
                 onMouseEnter={(e) => {

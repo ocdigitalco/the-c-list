@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import type { LeaderboardRow } from "./types";
+import { trackEvent } from "@/lib/trackEvent";
 
 type SortKey = "totalCards" | "autographs" | "inserts" | "numberedParallels";
 
@@ -79,6 +80,7 @@ export function V2Leaderboard({ entries, hasTeamData, setId, setSlug }: Props) {
                 <td className="px-4 py-2">
                   <Link
                     href={`/sets/${setSlug || setId}/athlete/${entry.slug || entry.id}`}
+                    onClick={() => trackEvent(entry.id, "view")}
                     className="text-zinc-300 hover:text-indigo-400 transition-colors font-medium"
                   >
                     {entry.name}

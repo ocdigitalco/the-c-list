@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
+import { trackEvent } from "@/lib/trackEvent";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -57,6 +58,7 @@ export function LeaderboardPanel({ entries, hasTeamData, setId }: Props) {
   const hasMore = filtered.length > DEFAULT_VISIBLE;
 
   function handleRowClick(id: number) {
+    trackEvent(id, "view");
     setOpen(false);
     router.push(`/sets/${setId}?player=${id}`);
   }
