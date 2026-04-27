@@ -1,9 +1,13 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export function PlayerViewTracker({ playerId }: { playerId: number }) {
+  const hasFired = useRef(false);
+
   useEffect(() => {
+    if (hasFired.current) return;
+    hasFired.current = true;
     fetch("/api/events", {
       method: "POST",
       headers: { "Content-Type": "application/json" },

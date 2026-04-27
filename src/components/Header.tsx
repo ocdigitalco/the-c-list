@@ -7,7 +7,7 @@ const navLinks = [
   { href: "/checklists", label: "Checklists" },
   { href: "/sets", label: "Sets" },
   { href: "/overview", label: "Overview" },
-  { href: "/admin/analytics", label: "Searches" },
+  { href: "/searches", label: "Searches" },
   { href: "/resources", label: "Resources" },
   { href: "/articles", label: "Articles" },
   { href: "/updates", label: "Updates" },

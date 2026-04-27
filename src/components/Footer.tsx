@@ -4,7 +4,7 @@ const exploreLinks = [
   { href: "/checklists", label: "Checklists" },
   { href: "/sets", label: "Sets" },
   { href: "/overview", label: "Overview" },
-  { href: "/admin/analytics", label: "Searches" },
+  { href: "/searches", label: "Searches" },
 ];
 
 const toolLinks = [
