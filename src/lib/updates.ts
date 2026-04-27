@@ -12,6 +12,18 @@ export interface Update {
 }
 
 export const updates: Update[] = [
+  // ─── April 26, 2026 ──────────────────────────────────────────────────────
+  {
+    id: "144-museum-collection-parallels",
+    title: "2025 Topps Museum Collection Baseball — Numbered Parallels Added",
+    date: "2026-04-26T12:00:00Z",
+    summary: "Added 95 numbered parallels across 24 insert sets including Base (Bronze /35 through Emerald /1), autograph sets, relic sets, and multi-player sets.",
+    description: `## 2025 Topps Museum Collection Baseball — Numbered Parallels Added
+
+Added 95 numbered parallels across all 24 insert sets. Base Set (Bronze /35, Blue Topaz /25, Black Diamond /10, Diamond /5, Emerald /1, Printing Plates /1). Relic sets use Gold/Sapphire/Amethyst/Ruby/Emerald tiers. Autograph sets include Archival Autographs, Showpieces, Retrospective Signatures, Framed Autographs, Dual/Triple On Card Autographs, and Signature Swatches series. Book cards and cut signatures also included.`,
+    tags: ["checklist"],
+    setId: 42,
+  },
   // ─── April 20, 2026 ──────────────────────────────────────────────────────
   // ─── April 21, 2026 ──────────────────────────────────────────────────────
   // ─── April 22, 2026 ──────────────────────────────────────────────────────
