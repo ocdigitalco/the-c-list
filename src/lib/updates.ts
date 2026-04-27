@@ -12,6 +12,18 @@ export interface Update {
 }
 
 export const updates: Update[] = [
+  // ─── April 29, 2026 ──────────────────────────────────────────────────────
+  {
+    id: "145-chrome-black-2026",
+    title: "2026 Topps Chrome Black Baseball — Full Checklist",
+    date: "2026-04-29T18:00:00Z",
+    summary: "Complete set with 11 insert sets, 57 numbered parallels, and 556 card appearances across 264 athletes. Releases April 29, 2026.",
+    description: `## 2026 Topps Chrome Black Baseball — Full Checklist
+
+Complete set with hobby box config (2 packs + 1 encased auto per box). 11 insert sets with 57 numbered parallel tiers. Base (200), Rookie Design Variations (30), Chrome Black Autographs (111), Ivory Autographs (36 /50 base), Pitch Black Pairings (14 dual cards /30), Super Futures Autographs (22 /99), Paint It (19 /10), Damascus (30), Nocturnal (40), Depth Of Darkness (20), Home Field (20). 264 athletes, 556 appearances. No pack odds yet. Releases April 29, 2026.`,
+    tags: ["checklist"],
+    setId: 837,
+  },
   // ─── April 26, 2026 ──────────────────────────────────────────────────────
   {
     id: "144-museum-collection-parallels",
