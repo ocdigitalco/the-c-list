@@ -194,21 +194,28 @@ function buildBoxRows(boxConfig: string): BoxRow[] {
 }
 
 function matchPrintRun(oddsKey: string, parallelsList: ParallelInfo[]): number | null | undefined {
-  const keyLower = oddsKey.toLowerCase();
-  // Exact match first
-  for (const p of parallelsList) {
-    if (p.name.toLowerCase() === keyLower) return p.printRun;
+  const key = oddsKey.toLowerCase().trim();
+
+  // Step 1 — Exact match (entire key equals parallel name)
+  const exact = parallelsList.find(p => p.name.toLowerCase().trim() === key);
+  if (exact) return exact.printRun;
+
+  // Step 2 — Suffix match: odds key ends with the parallel name
+  // e.g. "Base Gold Refractor" ends with "Gold Refractor" → /50
+  // e.g. "Rookie Variation Autographs Superfractor" ends with "Superfractor" → /1
+  // Pick the LONGEST parallel name that matches as a suffix (most specific)
+  const suffixMatches = parallelsList.filter(p => {
+    const pName = p.name.toLowerCase().trim();
+    return key.endsWith(pName) || key.endsWith(" " + pName);
+  });
+
+  if (suffixMatches.length > 0) {
+    suffixMatches.sort((a, b) => b.name.length - a.name.length);
+    return suffixMatches[0].printRun;
   }
-  // Substring match: parallel name contained in odds key or vice versa
-  let best: ParallelInfo | null = null;
-  for (const p of parallelsList) {
-    const pLower = p.name.toLowerCase();
-    if (keyLower.includes(pLower) || pLower.includes(keyLower)) {
-      if (!best || p.name.length > best.name.length) best = p;
-    }
-  }
-  if (best) return best.printRun;
-  return undefined; // no match found
+
+  // Step 3 — No match found (unnumbered base insert)
+  return undefined;
 }
 
 function buildOddsFormats(packOdds: string, boxConfig: string | null, parallelsList: ParallelInfo[]): OddsFormat[] {
