@@ -12,6 +12,18 @@ export interface Update {
 }
 
 export const updates: Update[] = [
+  // ─── April 27, 2026 ──────────────────────────────────────────────────────
+  {
+    id: "146-signature-class-basketball",
+    title: "2025-26 Topps Signature Class Basketball — Full Checklist",
+    date: "2026-04-27T18:00:00Z",
+    summary: "Complete checklist with 45 insert sets, 561 pack odds, and 1,097 card appearances across 259 athletes. Includes 14 autograph sets with dual and triple autos.",
+    description: `## 2025-26 Topps Signature Class Basketball — Full Checklist
+
+Set created with 4 box formats and 45 insert sets. 561 pack odds entries. Base I (99), Base II (49), Base I Chrome (100), Base II Chrome (50). 13 insert sets including After Image, High Fidelity, Pure, Unfazed, Star Cast, Algorithm, Roses, Aristocrats, Monarchs of the Game, Fluidity, Leviathans, Odyssey, and Pressure Points. 14 autograph sets: Veteran Class Autographs (46), Veteran Class Chrome Autographs (46), Veteran Class Crystal Clear Autographs (37), Rookie Class Autographs (46), Rookie Class Chrome Autographs (46), Rookie Class Crystal Clear Autographs (45), Legends of Their Class Crystal Clear Autographs (10), Signature Blend (25), Shadow Scripts (25), Penstroke Signatures (29), Eternal Marks (19), Manuscripts (70), Dual Autographs (15), Triple Autographs (10). 259 athletes, 1,097 appearances. SP: Eternal Marks. SSP: Pressure Points.`,
+    tags: ["checklist", "odds"],
+    setId: 838,
+  },
   // ─── April 29, 2026 ──────────────────────────────────────────────────────
   {
     id: "145-chrome-black-2026",

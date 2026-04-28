@@ -160,6 +160,15 @@ export const SP_SSP_CONFIG: Record<string, SpSspSetConfig> = {
       "Crystallized",
     ],
   },
+
+  "2025-26 Topps Signature Class Basketball": {
+    sp: [
+      "Eternal Marks",
+    ],
+    ssp: [
+      "Pressure Points",
+    ],
+  },
 };
 
 /**
