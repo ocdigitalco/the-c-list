@@ -12,6 +12,18 @@ export interface Update {
 }
 
 export const updates: Update[] = [
+  // ─── April 28, 2026 ──────────────────────────────────────────────────────
+  {
+    id: "147-chrome-football-complete-odds",
+    title: "2025 Topps Chrome Football — Complete Pack Odds",
+    date: "2026-04-28T12:00:00Z",
+    summary: "Replaced partial pack odds with complete odds across all 14 box formats. 505 unique odds entries covering every parallel pull rate.",
+    description: `## 2025 Topps Chrome Football — Complete Pack Odds
+
+Replaced partial pack odds with complete odds across all 14 box formats (hobby, fdi, jumbo, breakers_delight, sapphire, value_se/ea/cee, mega_se/ea/cee, hanger_se/ea, fanatics). Now includes all parallel pull rates for base, rookie, insert, and autograph sets. 505 unique odds entries with per-format breakdowns.`,
+    tags: ["odds"],
+    setId: 44,
+  },
   // ─── April 27, 2026 ──────────────────────────────────────────────────────
   {
     id: "146-signature-class-basketball",
