@@ -732,7 +732,7 @@ function PackOddsContent({ formats }: { formats: OddsFormat[] }) {
       {rows.length === 0 ? (
         <EmptyTab label={`No base parallel odds for ${active.label}`} />
       ) : (
-        <OddsTable rows={rows} ppb={ppb} headers={["BASE PARALLELS", "PACK ODDS", `PER BOX (${ppb} PACKS)`]} />
+        <OddsTable rows={rows} ppb={ppb} headers={["BASE PARALLELS", "PACK ODDS", `PER BOX (${ppb} PACKS)`]} showNumbered />
       )}
     </div>
   );
@@ -746,7 +746,7 @@ function InsertsContent({ formats }: { formats: OddsFormat[] }) {
   const rows = active.inserts;
   const ppb = active.packsPerBox;
   if (rows.length === 0) return <EmptyTab label="No insert odds available" />;
-  return <OddsTable rows={rows} ppb={ppb} headers={["INSERT", "PACK ODDS", `PER BOX (${ppb} PACKS)`]} />;
+  return <OddsTable rows={rows} ppb={ppb} headers={["INSERT", "PACK ODDS", `PER BOX (${ppb} PACKS)`]} showNumbered />;
 }
 
 // ─── Tab: Autographs ────────────────────────────────────────────────────────────
@@ -780,7 +780,7 @@ function AutosContent({ formats }: { formats: OddsFormat[] }) {
               <tr key={row.name} style={{ borderBottom: "1px solid #F4F1E8" }}>
                 <td style={{ padding: "12px 10px", color: row.rare ? "#9A2B14" : "#0F0F0E" }}>{row.name}</td>
                 <td style={{ padding: "12px 10px", textAlign: "right", fontFamily: FONT_MONO, color: "#B7B2A3" }}>
-                  {row.printRun === null ? "—" : row.printRun === 1 ? "1/1" : row.printRun !== undefined ? `/${row.printRun}` : "—"}
+                  {printRunDisplay(row.printRun)}
                 </td>
                 <td style={{ padding: "12px 10px", textAlign: "right", fontFamily: FONT_MONO, color: "#0F0F0E" }}>
                   {denomToDisplay(row.denom)}
@@ -806,8 +806,8 @@ function AutosContent({ formats }: { formats: OddsFormat[] }) {
               </span>
             </div>
             <div className="flex items-center justify-between">
-              <span style={{ fontFamily: FONT_MONO, fontSize: 11, color: "#6B6757" }}>
-                {row.printRun === null ? "—" : row.printRun === 1 ? "1/1" : row.printRun !== undefined ? `/${row.printRun}` : "—"}
+              <span style={{ fontFamily: FONT_MONO, fontSize: 11, color: "#B7B2A3" }}>
+                {printRunDisplay(row.printRun)}
               </span>
               <span style={{ fontFamily: FONT_MONO, fontSize: 11, color: "#6B6757", width: 90, textAlign: "right" }}>
                 {perBoxStr(row.denom, ppb)}
@@ -822,7 +822,15 @@ function AutosContent({ formats }: { formats: OddsFormat[] }) {
 
 // ─── Shared Odds Table ──────────────────────────────────────────────────────────
 
-function OddsTable({ rows, ppb, headers }: { rows: OddsRow[]; ppb: number; headers: [string, string, string] }) {
+function printRunDisplay(pr: number | null | undefined): string {
+  if (pr === undefined || pr === null) return "—";
+  if (pr === 1) return "1/1";
+  return `/${pr}`;
+}
+
+function OddsTable({ rows, ppb, headers, showNumbered = false }: {
+  rows: OddsRow[]; ppb: number; headers: [string, string, string]; showNumbered?: boolean;
+}) {
   return (
     <>
       {/* Desktop */}
@@ -830,20 +838,42 @@ function OddsTable({ rows, ppb, headers }: { rows: OddsRow[]; ppb: number; heade
         <table className="w-full" style={{ fontSize: 13 }}>
           <thead>
             <tr>
-              {headers.map((h, i) => (
-                <th key={h} style={{
-                  textAlign: i === 0 ? "left" : "right", padding: "10px 10px",
+              <th style={{
+                textAlign: "left", padding: "10px 10px",
+                fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6,
+                color: "#6B6757", borderBottom: "1px solid #EDEAE0", textTransform: "uppercase",
+              }}>{headers[0]}</th>
+              {showNumbered && (
+                <th style={{
+                  textAlign: "right", padding: "10px 10px",
                   fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6,
                   color: "#6B6757", borderBottom: "1px solid #EDEAE0", textTransform: "uppercase",
-                  width: i === 0 ? undefined : i === 1 ? 100 : 160,
-                }}>{h}</th>
-              ))}
+                  width: 70,
+                }}>NUMBERED</th>
+              )}
+              <th style={{
+                textAlign: "right", padding: "10px 10px",
+                fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6,
+                color: "#6B6757", borderBottom: "1px solid #EDEAE0", textTransform: "uppercase",
+                width: 100,
+              }}>{headers[1]}</th>
+              <th style={{
+                textAlign: "right", padding: "10px 10px",
+                fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6,
+                color: "#6B6757", borderBottom: "1px solid #EDEAE0", textTransform: "uppercase",
+                width: 160,
+              }}>{headers[2]}</th>
             </tr>
           </thead>
           <tbody>
             {rows.map((row) => (
               <tr key={row.name} style={{ borderBottom: "1px solid #F4F1E8" }}>
                 <td style={{ padding: "12px 10px", color: row.rare ? "#9A2B14" : "#0F0F0E" }}>{row.name}</td>
+                {showNumbered && (
+                  <td style={{ padding: "12px 10px", textAlign: "right", fontFamily: FONT_MONO, color: "#B7B2A3" }}>
+                    {printRunDisplay(row.printRun)}
+                  </td>
+                )}
                 <td style={{ padding: "12px 10px", textAlign: "right", fontFamily: FONT_MONO, color: row.rare ? "#9A2B14" : "#0F0F0E" }}>
                   {denomToDisplay(row.denom)}
                 </td>
@@ -858,16 +888,25 @@ function OddsTable({ rows, ppb, headers }: { rows: OddsRow[]; ppb: number; heade
       {/* Mobile */}
       <div className="min-[1180px]:hidden space-y-0">
         {rows.map((row) => (
-          <div key={row.name} className="flex items-center" style={{
+          <div key={row.name} className="flex flex-col gap-0.5" style={{
             padding: "10px 0", borderBottom: "1px solid #F4F1E8",
           }}>
-            <span style={{ flex: 1, fontSize: 13, color: row.rare ? "#9A2B14" : "#0F0F0E" }}>{row.name}</span>
-            <span style={{ fontFamily: FONT_MONO, fontSize: 12, fontWeight: 500, color: row.rare ? "#9A2B14" : "#0F0F0E" }}>
-              {denomToDisplay(row.denom)}
-            </span>
-            <span style={{ fontFamily: FONT_MONO, fontSize: 11, color: "#6B6757", width: 90, textAlign: "right" }}>
-              {perBoxStr(row.denom, ppb)}
-            </span>
+            <div className="flex items-center">
+              <span style={{ flex: 1, fontSize: 13, color: row.rare ? "#9A2B14" : "#0F0F0E" }}>{row.name}</span>
+              <span style={{ fontFamily: FONT_MONO, fontSize: 12, fontWeight: 500, color: row.rare ? "#9A2B14" : "#0F0F0E" }}>
+                {denomToDisplay(row.denom)}
+              </span>
+            </div>
+            <div className="flex items-center justify-between">
+              {showNumbered && (
+                <span style={{ fontFamily: FONT_MONO, fontSize: 11, color: "#B7B2A3" }}>
+                  {printRunDisplay(row.printRun)}
+                </span>
+              )}
+              <span style={{ fontFamily: FONT_MONO, fontSize: 11, color: "#6B6757", width: 90, textAlign: "right", marginLeft: "auto" }}>
+                {perBoxStr(row.denom, ppb)}
+              </span>
+            </div>
           </div>
         ))}
       </div>
