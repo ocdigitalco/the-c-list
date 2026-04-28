@@ -142,13 +142,14 @@ export default async function V2SetPage({
       : { total: 0 };
 
   // All parallels (name + print_run) for odds matching
-  const allParallels =
+  const allParallelsRaw =
     insertSetIds.length > 0
       ? await rawQuery.all<{ name: string; printRun: number | null }>(
           `SELECT DISTINCT name, print_run AS printRun FROM parallels WHERE insert_set_id IN (${insertSetIds.map(() => "?").join(",")})`,
           ...insertSetIds
         )
       : [];
+  const allParallels = allParallelsRaw.map((p) => ({ name: p.name, printRun: p.printRun ?? null }));
 
   // Numbered parallels
   const numberedParallelsResult =
