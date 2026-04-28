@@ -31,6 +31,12 @@ interface OddsRow {
   name: string;
   denom: number;
   rare: boolean;
+  printRun?: number | null;
+}
+
+interface ParallelInfo {
+  name: string;
+  printRun: number | null;
 }
 
 interface OddsFormat {
@@ -77,6 +83,7 @@ export interface SetDetailClientProps {
   entries: LeaderboardRow[];
   hasTeamData: boolean;
   breakSheetPlayers: BreakSheetPlayer[];
+  parallelsList: ParallelInfo[];
 }
 
 // ─── Helpers ────────────────────────────────────────────────────────────────────
@@ -186,7 +193,25 @@ function buildBoxRows(boxConfig: string): BoxRow[] {
   }];
 }
 
-function buildOddsFormats(packOdds: string, boxConfig: string | null): OddsFormat[] {
+function matchPrintRun(oddsKey: string, parallelsList: ParallelInfo[]): number | null | undefined {
+  const keyLower = oddsKey.toLowerCase();
+  // Exact match first
+  for (const p of parallelsList) {
+    if (p.name.toLowerCase() === keyLower) return p.printRun;
+  }
+  // Substring match: parallel name contained in odds key or vice versa
+  let best: ParallelInfo | null = null;
+  for (const p of parallelsList) {
+    const pLower = p.name.toLowerCase();
+    if (keyLower.includes(pLower) || pLower.includes(keyLower)) {
+      if (!best || p.name.length > best.name.length) best = p;
+    }
+  }
+  if (best) return best.printRun;
+  return undefined; // no match found
+}
+
+function buildOddsFormats(packOdds: string, boxConfig: string | null, parallelsList: ParallelInfo[]): OddsFormat[] {
   const rawOdds = JSON.parse(packOdds);
   const firstVal = Object.values(rawOdds)[0];
   const isNested = firstVal !== null && typeof firstVal === "object";
@@ -214,7 +239,8 @@ function buildOddsFormats(packOdds: string, boxConfig: string | null): OddsForma
     const ins: OddsRow[] = [];
     const auto: OddsRow[] = [];
     for (const [key, denom] of Object.entries(normalized)) {
-      const row = { name: key, denom, rare: isRare(key, denom) };
+      const printRun = matchPrintRun(key, parallelsList);
+      const row = { name: key, denom, rare: isRare(key, denom), printRun };
       const cat = categorize(key);
       if (cat === "base") base.push(row);
       else if (cat === "auto") auto.push(row);
@@ -753,7 +779,9 @@ function AutosContent({ formats }: { formats: OddsFormat[] }) {
             {rows.map((row) => (
               <tr key={row.name} style={{ borderBottom: "1px solid #F4F1E8" }}>
                 <td style={{ padding: "12px 10px", color: row.rare ? "#9A2B14" : "#0F0F0E" }}>{row.name}</td>
-                <td style={{ padding: "12px 10px", textAlign: "right", fontFamily: FONT_MONO, color: "#B7B2A3" }}>—</td>
+                <td style={{ padding: "12px 10px", textAlign: "right", fontFamily: FONT_MONO, color: "#B7B2A3" }}>
+                  {row.printRun === null ? "—" : row.printRun === 1 ? "1/1" : row.printRun !== undefined ? `/${row.printRun}` : "—"}
+                </td>
                 <td style={{ padding: "12px 10px", textAlign: "right", fontFamily: FONT_MONO, color: "#0F0F0E" }}>
                   {denomToDisplay(row.denom)}
                 </td>
@@ -778,7 +806,9 @@ function AutosContent({ formats }: { formats: OddsFormat[] }) {
               </span>
             </div>
             <div className="flex items-center justify-between">
-              <span style={{ fontFamily: FONT_MONO, fontSize: 11, color: "#6B6757" }}>—</span>
+              <span style={{ fontFamily: FONT_MONO, fontSize: 11, color: "#6B6757" }}>
+                {row.printRun === null ? "—" : row.printRun === 1 ? "1/1" : row.printRun !== undefined ? `/${row.printRun}` : "—"}
+              </span>
               <span style={{ fontFamily: FONT_MONO, fontSize: 11, color: "#6B6757", width: 90, textAlign: "right" }}>
                 {perBoxStr(row.denom, ppb)}
               </span>
@@ -860,15 +890,15 @@ export function SetDetailClient({
   setName, sport, league, tier, releaseDate, setId, setSlug, sampleImageUrl,
   cards, cardTypes, parallelTypes, autographs, autoParallels, totalParallels, athleteCount,
   hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds,
-  boxConfig, packOdds, entries, hasTeamData, breakSheetPlayers,
+  boxConfig, packOdds, entries, hasTeamData, breakSheetPlayers, parallelsList,
 }: SetDetailClientProps) {
   const [tab, setTab] = useState<Tab>("Box Config");
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const meta = useMemo(() => extractMeta(setName, sport), [setName, sport]);
   const oddsFormats = useMemo(
-    () => packOdds ? buildOddsFormats(packOdds, boxConfig) : [],
-    [packOdds, boxConfig]
+    () => packOdds ? buildOddsFormats(packOdds, boxConfig, parallelsList) : [],
+    [packOdds, boxConfig, parallelsList]
   );
 
   const statItems = [

@@ -141,6 +141,15 @@ export default async function V2SetPage({
         )) ?? { total: 0 })
       : { total: 0 };
 
+  // All parallels (name + print_run) for odds matching
+  const allParallels =
+    insertSetIds.length > 0
+      ? await rawQuery.all<{ name: string; printRun: number | null }>(
+          `SELECT DISTINCT name, print_run AS printRun FROM parallels WHERE insert_set_id IN (${insertSetIds.map(() => "?").join(",")})`,
+          ...insertSetIds
+        )
+      : [];
+
   // Numbered parallels
   const numberedParallelsResult =
     insertSetIds.length > 0
@@ -337,6 +346,7 @@ export default async function V2SetPage({
       entries={leaderboardEntries}
       hasTeamData={hasTeamData}
       breakSheetPlayers={breakSheetPlayers}
+      parallelsList={allParallels}
     />
   );
 }
