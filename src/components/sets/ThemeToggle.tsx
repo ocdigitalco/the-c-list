@@ -20,21 +20,26 @@ export function V2ThemeWrapper({ children }: { children: React.ReactNode }) {
       <div className="v2-root">
         <style>{`
           .v2-root {
-            --v2-page-bg: #F4F6F9;
+            --v2-page-bg: #FAFAF7;
             --v2-card-bg: #FFFFFF;
             --v2-sidebar-bg: #FFFFFF;
-            --v2-border: #E5E7EB;
-            --v2-text-primary: #111827;
-            --v2-text-secondary: #6B7280;
-            --v2-accent: #6366F1;
-            --v2-accent-light: #EEF2FF;
-            --v2-success: #10B981;
-            --v2-badge-bg: #F3F4F6;
-            --v2-row-alt: #F9FAFB;
+            --v2-border: #EDEAE0;
+            --v2-text-primary: #0F0F0E;
+            --v2-text-secondary: #6B6757;
+            --v2-text-muted: #8A8677;
+            --v2-text-disabled: #B7B2A3;
+            --v2-text-rare: #9A2B14;
+            --v2-accent: #0F0F0E;
+            --v2-accent-light: #F1EFE9;
+            --v2-success: #0E8A4F;
+            --v2-badge-bg: #F1EFE9;
+            --v2-row-alt: #FAFAF7;
+            --v2-border-subtle: #F4F1E8;
+            --v2-border-chip: #E6E3D9;
             --v2-hover-shadow: 0 2px 8px rgba(0,0,0,0.06);
             --v2-card-shadow: 0 1px 3px rgba(0,0,0,0.04);
-            --v2-break-sheet-bg: #111827;
-            --v2-break-sheet-hover-bg: #1F2937;
+            --v2-break-sheet-bg: #0F0F0E;
+            --v2-break-sheet-hover-bg: #1A1A19;
             background: var(--v2-page-bg);
             color: var(--v2-text-primary);
             height: 100%;

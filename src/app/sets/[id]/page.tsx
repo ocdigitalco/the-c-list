@@ -8,13 +8,7 @@ import {
 } from "@/lib/schema";
 import { eq, inArray, sql, and } from "drizzle-orm";
 import { notFound, redirect } from "next/navigation";
-import { SetMetadataBar } from "@/components/sets/SetMetadataBar";
-import { StatCards } from "@/components/sets/StatCards";
-import { BoxConfigTable } from "@/components/sets/BoxConfigTable";
-import { PackOddsInline } from "@/components/sets/PackOddsInline";
-import { LeaderboardSidebar } from "@/components/sets/LeaderboardSidebar";
-import { RightSidebar } from "@/components/sets/RightSidebar";
-import { MobileLeaderboardDrawer } from "@/components/sets/MobileLeaderboardDrawer";
+import { SetDetailClient } from "@/components/sets/SetDetailClient";
 import type { LeaderboardRow } from "@/components/sets/types";
 import type { BreakSheetPlayer } from "@/components/BreakSheetModal";
 
@@ -147,7 +141,7 @@ export default async function V2SetPage({
         )) ?? { total: 0 })
       : { total: 0 };
 
-  // Numbered parallels for right sidebar
+  // Numbered parallels
   const numberedParallelsResult =
     insertSetIds.length > 0
       ? ((await rawQuery.get<{ total: number }>(
@@ -318,89 +312,31 @@ export default async function V2SetPage({
   const hasTeamData = leaderboardEntries.some((e) => e.team != null && e.team !== "");
 
   return (
-    <div className="flex min-h-screen">
-      {/* Left Sidebar — Leaderboard (desktop) */}
-      <aside
-        className="hidden lg:flex w-[425px] shrink-0 flex-col sticky top-0 h-screen overflow-y-auto"
-        style={{ borderRight: "1px solid var(--v2-border)" }}
-      >
-        <LeaderboardSidebar entries={leaderboardEntries} hasTeamData={hasTeamData} setId={setId} setSlug={rawParam} />
-      </aside>
-
-      {/* Center Main */}
-      <main className="flex-1 min-w-0">
-        <div className="max-w-4xl mx-auto px-6 py-6 space-y-6">
-          {/* Mobile leaderboard toggle */}
-          <div className="lg:hidden">
-            <MobileLeaderboardDrawer
-              entries={leaderboardEntries}
-              hasTeamData={hasTeamData}
-              setId={setId}
-            />
-          </div>
-
-          <SetMetadataBar
-            setName={setRow.name}
-            sport={setRow.sport}
-            league={setRow.league ?? null}
-            tier={setRow.tier}
-            athleteCount={athleteCountRow.count}
-            breakSheetPlayers={breakSheetPlayers}
-          />
-
-          <StatCards
-            cards={cardCountRow.count}
-            parallelTypes={parallelTypesRow.count}
-            totalParallels={totalParallelsResult.total}
-            insertSets={insertSetIds.length}
-            autographs={autographCountRow.count}
-            autoParallels={autoParallelsResult.total}
-          />
-
-          {/* Box Configuration */}
-          <section className="space-y-3">
-            <h2 className="text-base font-semibold" style={{ color: "var(--v2-text-primary)" }}>
-              Box Configuration
-            </h2>
-            <BoxConfigTable boxConfig={setRow.boxConfig ?? null} />
-          </section>
-
-          {/* Pack Odds */}
-          <section className="space-y-3">
-            <h2 className="text-base font-semibold" style={{ color: "var(--v2-text-primary)" }}>
-              Pack Odds
-            </h2>
-            <PackOddsInline boxConfig={setRow.boxConfig ?? null} packOdds={setRow.packOdds ?? null} />
-          </section>
-
-          {/* Right sidebar content — mobile only */}
-          <div className="xl:hidden">
-            <RightSidebar
-              releaseDate={setRow.releaseDate ?? null}
-              hasCards={cardCountRow.count > 0}
-              hasNumberedParallels={numberedParallelsResult.total > 0}
-              hasBoxConfig={!!setRow.boxConfig}
-              hasPackOdds={!!setRow.packOdds}
-              sampleImageUrl={setRow.sampleImageUrl ?? null}
-            />
-          </div>
-        </div>
-      </main>
-
-      {/* Right Sidebar (desktop) */}
-      <aside
-        className="hidden xl:block w-[300px] shrink-0 sticky top-0 h-screen overflow-y-auto"
-        style={{ borderLeft: "1px solid var(--v2-border)" }}
-      >
-        <RightSidebar
-          releaseDate={setRow.releaseDate ?? null}
-          hasCards={cardCountRow.count > 0}
-          hasNumberedParallels={numberedParallelsResult.total > 0}
-          hasBoxConfig={!!setRow.boxConfig}
-          hasPackOdds={!!setRow.packOdds}
-          sampleImageUrl={setRow.sampleImageUrl ?? null}
-        />
-      </aside>
-    </div>
+    <SetDetailClient
+      setName={setRow.name}
+      sport={setRow.sport}
+      league={setRow.league ?? null}
+      tier={setRow.tier}
+      releaseDate={setRow.releaseDate ?? null}
+      setId={setId}
+      setSlug={rawParam}
+      sampleImageUrl={setRow.sampleImageUrl ?? null}
+      cards={cardCountRow.count}
+      cardTypes={insertSetIds.length}
+      parallelTypes={parallelTypesRow.count}
+      autographs={autographCountRow.count}
+      autoParallels={autoParallelsResult.total}
+      totalParallels={totalParallelsResult.total}
+      athleteCount={athleteCountRow.count}
+      hasChecklist={cardCountRow.count > 0}
+      hasNumberedParallels={numberedParallelsResult.total > 0}
+      hasBoxConfig={!!setRow.boxConfig}
+      hasPackOdds={!!setRow.packOdds}
+      boxConfig={setRow.boxConfig ?? null}
+      packOdds={setRow.packOdds ?? null}
+      entries={leaderboardEntries}
+      hasTeamData={hasTeamData}
+      breakSheetPlayers={breakSheetPlayers}
+    />
   );
 }
