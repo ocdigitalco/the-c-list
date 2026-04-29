@@ -345,7 +345,7 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false }
     <div className="flex flex-col h-full" style={{ background: "#FFFFFF" }}>
       <div className="shrink-0 space-y-3" style={{ padding: isMobile ? "14px 16px 12px" : "22px 18px 12px" }}>
         {!isMobile && (
-          <h2 style={{ fontFamily: FONT_DISPLAY, fontWeight: 600, fontSize: 15, letterSpacing: -0.2, color: "#0F0F0E", marginBottom: 12 }}>
+          <h2 style={{ fontFamily: FONT_DISPLAY, fontWeight: 600, fontSize: 16, letterSpacing: -0.2, color: "#0F0F0E", marginBottom: 12 }}>
             Athletes in Set
           </h2>
         )}
@@ -373,7 +373,7 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false }
             className="w-full outline-none"
             style={{
               background: "#F1EFE9", borderRadius: 8, padding: "7px 10px 7px 30px",
-              fontSize: isMobile ? 14 : 13, border: "none", color: "#0F0F0E",
+              fontSize: 16, border: "none", color: "#0F0F0E",
             }}
           />
         </div>
@@ -383,7 +383,7 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false }
             <button key={chip.key} onClick={() => setSortKey(chip.key)}
               style={{
                 borderRadius: isMobile ? 999 : 4, padding: "4px 9px",
-                fontSize: 11, fontWeight: 500,
+                fontSize: 16, fontWeight: 500,
                 background: sortKey === chip.key ? "#0F0F0E" : "transparent",
                 color: sortKey === chip.key ? "#FAFAF7" : "#3A372F",
                 border: sortKey === chip.key ? "1px solid #0F0F0E" : "1px solid #E6E3D9",
@@ -393,7 +393,7 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false }
           ))}
         </div>
         {/* Rookies only */}
-        <label className="flex items-center gap-1.5 cursor-pointer" style={{ fontSize: 11, color: "#3A372F" }}>
+        <label className="flex items-center gap-1.5 cursor-pointer" style={{ fontSize: 16, color: "#3A372F" }}>
           <input type="checkbox" checked={rookiesOnly} onChange={() => setRookiesOnly((v) => !v)}
             style={{ accentColor: "#0F0F0E" }} />
           Rookies only
@@ -412,7 +412,7 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false }
       {/* Rows */}
       <div className="flex-1 overflow-y-auto">
         {visible.length === 0 ? (
-          <p className="text-center py-8" style={{ fontSize: 13, color: "#8A8677", fontStyle: "italic" }}>No athletes match.</p>
+          <p className="text-center py-8" style={{ fontSize: 16, color: "#8A8677", fontStyle: "italic" }}>No athletes match.</p>
         ) : (
           <>
             {visible.map((entry, idx) => (
@@ -423,34 +423,34 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false }
                 style={{ padding: rowPy, paddingLeft: 18, paddingRight: 18, borderBottom: "1px solid #F4F1E8" }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#F1EFE9"; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}>
-                <span style={{ fontFamily: FONT_MONO, fontSize: 11, color: "#8A8677", width: 18, textAlign: "right", flexShrink: 0 }}>
+                <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677", width: 18, textAlign: "right", flexShrink: 0 }}>
                   {idx + 1}
                 </span>
                 <PlayerAvatar name={entry.name} nbaPlayerId={entry.nbaPlayerId} ufcImageUrl={entry.ufcImageUrl}
                   mlbPlayerId={entry.mlbPlayerId} imageUrl={entry.imageUrl} size={avatarSize} />
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-1.5 min-w-0">
-                    <span className="truncate" style={{ fontSize: 13, fontWeight: 500, color: "#0F0F0E" }}>{entry.name}</span>
+                    <span className="truncate" style={{ fontSize: 16, fontWeight: 500, color: "#0F0F0E" }}>{entry.name}</span>
                     {entry.isRookie && (
                       <span className="shrink-0" style={{
                         background: "oklch(0.55 0.17 25)", color: "#FFF8F1",
-                        fontSize: 8, fontWeight: 700, letterSpacing: 0.6,
+                        fontSize: 14, fontWeight: 700, letterSpacing: 0.6,
                         padding: "1px 4px", borderRadius: 2, lineHeight: 1.2,
                       }}>RC</span>
                     )}
                   </div>
                   {hasTeamData && entry.team && (
-                    <p className="truncate" style={{ fontSize: 11, color: "#6B6757", marginTop: 1 }}>{entry.team}</p>
+                    <p className="truncate" style={{ fontSize: 16, color: "#6B6757", marginTop: 1 }}>{entry.team}</p>
                   )}
                 </div>
-                <span style={{ fontFamily: FONT_MONO, fontSize: 13, fontWeight: 600, color: "#0F0F0E", flexShrink: 0 }}>
+                <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: "#0F0F0E", flexShrink: 0 }}>
                   {entry[sortKey].toLocaleString()}
                 </span>
               </Link>
             ))}
             {!showAll && filtered.length > 50 && (
               <button onClick={() => setShowAll(true)}
-                className="w-full py-3" style={{ fontSize: 13, fontWeight: 600, color: "#0F0F0E" }}>
+                className="w-full py-3" style={{ fontSize: 16, fontWeight: 600, color: "#0F0F0E" }}>
                 Show all {filtered.length.toLocaleString()} athletes
               </button>
             )}
@@ -502,7 +502,7 @@ function MobileAthletesDrawer({ open, onClose, entries, hasTeamData, setId, setS
         <span style={{ fontFamily: FONT_DISPLAY, fontSize: 17, fontWeight: 600, letterSpacing: -0.3, color: "#0F0F0E" }}>
           Athletes in Set
         </span>
-        <span style={{ fontFamily: FONT_MONO, fontSize: 12, color: "#8A8677" }}>{athleteCount}</span>
+        <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677" }}>{athleteCount}</span>
       </div>
       {/* Drawer body */}
       <div className="flex-1" style={{ height: "calc(100% - 56px)", overflowY: "auto" }}>
@@ -549,7 +549,7 @@ function CoverageCard({ hasChecklist, hasNumberedParallels, hasBoxConfig, hasPac
       <div className="space-y-2">
         {rows.map((r) => (
           <div key={r.label} className="flex items-center justify-between">
-            <span style={{ fontSize: 12, color: "#3A372F" }}>{r.label}</span>
+            <span style={{ fontSize: 16, color: "#3A372F" }}>{r.label}</span>
             <span
               aria-label={r.ok ? "Present" : "Missing"}
               style={{
@@ -620,7 +620,7 @@ function BoxConfigContent({ boxConfig }: { boxConfig: string | null }) {
     <>
       {/* Desktop table */}
       <div className="hidden min-[1180px]:block">
-        <table className="w-full" style={{ fontSize: 13 }}>
+        <table className="w-full" style={{ fontSize: 16 }}>
           <thead>
             <tr>
               {["BOX TYPE", "CARDS/PACK", "PACKS/BOX", "BOXES/CASE", "PACKS/CASE", "AUTOS/BOX"].map((h, i) => (
@@ -659,7 +659,7 @@ function BoxConfigContent({ boxConfig }: { boxConfig: string | null }) {
                 {row.notes && (
                   <tr>
                     <td colSpan={6} style={{
-                      padding: "4px 10px 12px", fontStyle: "italic", fontSize: 12,
+                      padding: "4px 10px 12px", fontStyle: "italic", fontSize: 16,
                       color: "#6B6757", borderBottom: "1px solid #F4F1E8",
                     }}>{row.notes}</td>
                   </tr>
@@ -675,7 +675,7 @@ function BoxConfigContent({ boxConfig }: { boxConfig: string | null }) {
           <div key={row.label} style={{
             background: "#FFFFFF", border: "1px solid #EDEAE0", borderRadius: 10, padding: "12px 14px",
           }}>
-            <div style={{ fontFamily: FONT_DISPLAY, fontSize: 15, fontWeight: 600, color: "#0F0F0E", marginBottom: 10 }}>
+            <div style={{ fontFamily: FONT_DISPLAY, fontSize: 16, fontWeight: 600, color: "#0F0F0E", marginBottom: 10 }}>
               {row.label}
             </div>
             <div className="grid grid-cols-5 gap-2">
@@ -690,14 +690,14 @@ function BoxConfigContent({ boxConfig }: { boxConfig: string | null }) {
                   <div style={{ fontFamily: FONT_MONO, fontSize: 7, fontWeight: 600, letterSpacing: 1, color: "#8A8677", textTransform: "uppercase" }}>
                     {s.l}
                   </div>
-                  <div style={{ fontFamily: FONT_MONO, fontSize: 14, fontWeight: 600, color: s.v != null ? "#0F0F0E" : "#B7B2A3", marginTop: 2 }}>
+                  <div style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: s.v != null ? "#0F0F0E" : "#B7B2A3", marginTop: 2 }}>
                     {s.v ?? "—"}
                   </div>
                 </div>
               ))}
             </div>
             {row.notes && (
-              <div style={{ borderTop: "1px solid #F4F1E8", marginTop: 10, paddingTop: 8, fontSize: 11, fontStyle: "italic", color: "#6B6757" }}>
+              <div style={{ borderTop: "1px solid #F4F1E8", marginTop: 10, paddingTop: 8, fontSize: 16, fontStyle: "italic", color: "#6B6757" }}>
                 {row.notes}
               </div>
             )}
@@ -726,7 +726,7 @@ function PackOddsContent({ formats }: { formats: OddsFormat[] }) {
             <button key={f.key} onClick={() => setActiveIdx(i)}
               className="min-[1180px]:rounded-md"
               style={{
-                borderRadius: 999, padding: "7px 12px", fontSize: 12, fontWeight: 600,
+                borderRadius: 999, padding: "7px 12px", fontSize: 16, fontWeight: 600,
                 background: i === activeIdx ? "#0F0F0E" : "#FFFFFF",
                 color: i === activeIdx ? "#FAFAF7" : "#3A372F",
                 border: i === activeIdx ? "1px solid #0F0F0E" : "1px solid #EDEAE0",
@@ -769,7 +769,7 @@ function AutosContent({ formats }: { formats: OddsFormat[] }) {
     <>
       {/* Desktop */}
       <div className="hidden min-[1180px]:block">
-        <table className="w-full" style={{ fontSize: 13 }}>
+        <table className="w-full" style={{ fontSize: 16 }}>
           <thead>
             <tr>
               {["AUTOGRAPH", "NUMBERED", "PACK ODDS", `PER BOX (${ppb} PACKS)`].map((h, i) => (
@@ -807,16 +807,16 @@ function AutosContent({ formats }: { formats: OddsFormat[] }) {
             padding: "10px 0", borderBottom: "1px solid #F4F1E8",
           }}>
             <div className="flex items-center justify-between">
-              <span style={{ fontSize: 13, color: row.rare ? "#9A2B14" : "#0F0F0E", flex: 1 }}>{row.name}</span>
-              <span style={{ fontFamily: FONT_MONO, fontSize: 12, fontWeight: 500, color: "#0F0F0E" }}>
+              <span style={{ fontSize: 16, color: row.rare ? "#9A2B14" : "#0F0F0E", flex: 1 }}>{row.name}</span>
+              <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 500, color: "#0F0F0E" }}>
                 {denomToDisplay(row.denom)}
               </span>
             </div>
             <div className="flex items-center justify-between">
-              <span style={{ fontFamily: FONT_MONO, fontSize: 11, color: "#B7B2A3" }}>
+              <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#B7B2A3" }}>
                 {printRunDisplay(row.printRun)}
               </span>
-              <span style={{ fontFamily: FONT_MONO, fontSize: 11, color: "#6B6757", width: 90, textAlign: "right" }}>
+              <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#6B6757", width: 90, textAlign: "right" }}>
                 {perBoxStr(row.denom, ppb)}
               </span>
             </div>
@@ -842,7 +842,7 @@ function OddsTable({ rows, ppb, headers, showNumbered = false }: {
     <>
       {/* Desktop */}
       <div className="hidden min-[1180px]:block">
-        <table className="w-full" style={{ fontSize: 13 }}>
+        <table className="w-full" style={{ fontSize: 16 }}>
           <thead>
             <tr>
               <th style={{
@@ -899,18 +899,18 @@ function OddsTable({ rows, ppb, headers, showNumbered = false }: {
             padding: "10px 0", borderBottom: "1px solid #F4F1E8",
           }}>
             <div className="flex items-center">
-              <span style={{ flex: 1, fontSize: 13, color: row.rare ? "#9A2B14" : "#0F0F0E" }}>{row.name}</span>
-              <span style={{ fontFamily: FONT_MONO, fontSize: 12, fontWeight: 500, color: row.rare ? "#9A2B14" : "#0F0F0E" }}>
+              <span style={{ flex: 1, fontSize: 16, color: row.rare ? "#9A2B14" : "#0F0F0E" }}>{row.name}</span>
+              <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 500, color: row.rare ? "#9A2B14" : "#0F0F0E" }}>
                 {denomToDisplay(row.denom)}
               </span>
             </div>
             <div className="flex items-center justify-between">
               {showNumbered && (
-                <span style={{ fontFamily: FONT_MONO, fontSize: 11, color: "#B7B2A3" }}>
+                <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#B7B2A3" }}>
                   {printRunDisplay(row.printRun)}
                 </span>
               )}
-              <span style={{ fontFamily: FONT_MONO, fontSize: 11, color: "#6B6757", width: 90, textAlign: "right", marginLeft: "auto" }}>
+              <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#6B6757", width: 90, textAlign: "right", marginLeft: "auto" }}>
                 {perBoxStr(row.denom, ppb)}
               </span>
             </div>
@@ -924,7 +924,7 @@ function OddsTable({ rows, ppb, headers, showNumbered = false }: {
 function EmptyTab({ label }: { label: string }) {
   return (
     <div style={{
-      padding: "40px 20px", textAlign: "center", fontSize: 13,
+      padding: "40px 20px", textAlign: "center", fontSize: 16,
       fontStyle: "italic", color: "#8A8677",
     }}>{label}</div>
   );
@@ -999,18 +999,18 @@ export function SetDetailClient({
                   letterSpacing: -1.2, lineHeight: 1.02, color: "#0F0F0E", margin: "8px 0 12px",
                 }}>{setName}</h1>
                 <div className="flex flex-wrap items-center gap-2">
-                  <span style={{ fontSize: 12, fontWeight: 500, padding: "4px 9px", borderRadius: 4, border: "1px solid #E6E3D9", color: "#3A372F" }}>
+                  <span style={{ fontSize: 16, fontWeight: 500, padding: "4px 9px", borderRadius: 4, border: "1px solid #E6E3D9", color: "#3A372F" }}>
                     {sport}
                   </span>
                   {league && (
-                    <span style={{ fontSize: 12, fontWeight: 500, padding: "4px 9px", borderRadius: 4, border: "1px solid #E6E3D9", color: "#3A372F" }}>
+                    <span style={{ fontSize: 16, fontWeight: 500, padding: "4px 9px", borderRadius: 4, border: "1px solid #E6E3D9", color: "#3A372F" }}>
                       {league}
                     </span>
                   )}
-                  <span style={{ fontSize: 12, fontWeight: 600, padding: "4px 9px", borderRadius: 4, background: "#0F0F0E", color: "#FAFAF7" }}>
+                  <span style={{ fontSize: 16, fontWeight: 600, padding: "4px 9px", borderRadius: 4, background: "#0F0F0E", color: "#FAFAF7" }}>
                     {meta.manufacturer || "Topps"}
                   </span>
-                  <span style={{ fontSize: 12, color: "#6B6757" }}>
+                  <span style={{ fontSize: 16, color: "#6B6757" }}>
                     {athleteCount.toLocaleString()} athletes tracked
                   </span>
                 </div>
@@ -1038,7 +1038,7 @@ export function SetDetailClient({
                 style={{
                   padding: "14px 20px",
                   fontFamily: FONT_DISPLAY,
-                  fontSize: 14, fontWeight: tab === t ? 600 : 500,
+                  fontSize: 16, fontWeight: tab === t ? 600 : 500,
                   color: tab === t ? "#0F0F0E" : "#8A8677",
                   borderBottom: tab === t ? "2px solid #0F0F0E" : "2px solid transparent",
                   marginBottom: -1, background: "transparent", cursor: "pointer",
@@ -1071,7 +1071,7 @@ export function SetDetailClient({
             style={{
               display: "flex", alignItems: "center", gap: 6,
               background: "#FFFFFF", border: "1px solid #E6E3D9", borderRadius: 8,
-              padding: "8px 12px", fontSize: 12, fontWeight: 500, color: "#0F0F0E",
+              padding: "8px 12px", fontSize: 16, fontWeight: 500, color: "#0F0F0E",
             }}>
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128H5.228A2 2 0 0 1 3 17.208V5.792A2 2 0 0 1 5.228 3.872h13.544A2 2 0 0 1 21 5.792v6.625M12 10.5a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Z" />
@@ -1105,15 +1105,15 @@ export function SetDetailClient({
                 letterSpacing: -0.6, lineHeight: 1.1, color: "#0F0F0E", margin: "6px 0 8px",
               }}>{setName}</h1>
               <div className="flex flex-wrap items-center gap-1.5">
-                <span style={{ fontSize: 11, fontWeight: 500, padding: "3px 7px", borderRadius: 4, border: "1px solid #E6E3D9", color: "#3A372F" }}>
+                <span style={{ fontSize: 16, fontWeight: 500, padding: "3px 7px", borderRadius: 4, border: "1px solid #E6E3D9", color: "#3A372F" }}>
                   {sport}
                 </span>
                 {league && (
-                  <span style={{ fontSize: 11, fontWeight: 500, padding: "3px 7px", borderRadius: 4, border: "1px solid #E6E3D9", color: "#3A372F" }}>
+                  <span style={{ fontSize: 16, fontWeight: 500, padding: "3px 7px", borderRadius: 4, border: "1px solid #E6E3D9", color: "#3A372F" }}>
                     {league}
                   </span>
                 )}
-                <span style={{ fontSize: 11, color: "#6B6757" }}>
+                <span style={{ fontSize: 16, color: "#6B6757" }}>
                   {athleteCount.toLocaleString()} athletes
                 </span>
               </div>
@@ -1136,7 +1136,7 @@ export function SetDetailClient({
               style={{
                 padding: "12px 14px", flexShrink: 0,
                 fontFamily: FONT_DISPLAY,
-                fontSize: 14, fontWeight: tab === t ? 600 : 500,
+                fontSize: 16, fontWeight: tab === t ? 600 : 500,
                 color: tab === t ? "#0F0F0E" : "#8A8677",
                 borderBottom: tab === t ? "2px solid #0F0F0E" : "2px solid transparent",
                 marginBottom: -1, background: "transparent", cursor: "pointer",
