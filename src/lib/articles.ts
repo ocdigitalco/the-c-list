@@ -65,6 +65,221 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    id: "2025-topps-chrome-football",
+    title: "2025 Topps Chrome Football: Chrome Is Back, and the NFL Will Never Be the Same",
+    publishedAt: "2026-04-29",
+    description:
+      "Ten years is a long time to wait. Chrome is back in the NFL, and this is not a soft relaunch. A complete look at the first fully licensed Topps Chrome Football since 2015.",
+    heroImage: "/articles/chrome-nfl-25/2025-topps-chrome-football-hero.png",
+    tags: ["football", "nfl", "chrome", "topps", "2025", "release guide"],
+    setId: 44,
+    tldr: "Ten years is a long time to wait. Chrome is back in the NFL, and this is not a soft relaunch.",
+    content: [
+      {
+        type: "set-info",
+        setId: 44,
+      },
+      {
+        type: "p",
+        text: "Ten years is a long time to wait. For a decade, NFL collectors watched Chrome light up baseball diamonds and basketball courts while football sat on the sidelines. That wait is over. 2025 Topps Chrome Football dropped on April 15, 2026, and it did not arrive quietly.",
+      },
+      {
+        type: "p",
+        text: "This is not a soft relaunch. This is a statement.",
+      },
+      {
+        type: "image",
+        src: "/articles/chrome-nfl-25/2025-topps-chrome-football-1.png",
+        alt: "2025 Topps Chrome Football 1",
+      },
+      {
+        type: "h2",
+        text: "Why This Release Matters",
+      },
+      {
+        type: "p",
+        text: "Topps Chrome debuted in 1996 and ran for 20 years before Panini locked up exclusive NFL rights in 2016. After years of unlicensed sets and workarounds, 2025 Topps Chrome Football is the first fully licensed version since 2015. That alone would have made it significant. But Topps and Fanatics went further, using Chrome as the vehicle to introduce two entirely new premium programs to football collecting: the Rookie PREM1ERE Patch Autograph and the NFL Honors Gold Shield Autograph.",
+      },
+      {
+        type: "p",
+        text: "The PREM1ERE patches were worn by players during their NFL debut. After the game, the patches are removed and authenticated for use in 1/1 cards that can never be replicated. Think about that. A piece of fabric from a player's first NFL game, encased in a card. No two will ever exist. It is the football version of a moment frozen in time.",
+      },
+      {
+        type: "image",
+        src: "/articles/chrome-nfl-25/nfl-dbut-patch.jpg",
+        alt: "NFL Rookie PREM1ERE Debut Patch Autograph",
+      },
+      {
+        type: "p",
+        text: "The Gold Shield program works on the same principle but from the opposite end of a career. Only major award winners from the previous season wear Gold NFL Shield patches. Like the PREM1ERE patches, some of these golden shields were removed from jerseys and authenticated for use in the product.",
+      },
+      {
+        type: "image",
+        src: "/articles/chrome-nfl-25/nfl-gold-shield-patch.jpg",
+        alt: "NFL Honors Gold Shield Patch Autograph",
+      },
+      {
+        type: "h2",
+        text: "What Is Inside",
+      },
+      {
+        type: "p",
+        text: "Hobby boxes carry 4 cards per pack across 20 packs, with one autograph guaranteed per box. Jumbo boxes run 12 packs of 11 cards with two autographs. The base set covers 400 cards spanning veterans, legends, and the 2025 rookie class.",
+      },
+      {
+        type: "p",
+        text: "The autograph checklist reads like a who's-who across four decades of the NFL. Signers include Tom Brady and Barry Sanders among the legends, Josh Allen and Jahmyr Gibbs among current stars, and Jaxson Dart and Tetairoa McMillan among the 2025 rookies.",
+      },
+      {
+        type: "p",
+        text: "On the insert side, returning favorites like Helix, Ultraviolet, and Radiating Rookies share space with brand-new football debuts. Game Genies, Kaiju, and Lightning Leaders are each entirely new concepts for the hobby. Kaiju in particular draws from Japanese monster film culture, depicting star players as larger-than-life forces of nature. Each card incorporates local detail around the player: D.C. monuments surround Jayden Daniels, a Philly cheesesteak frames Jalen Hurts. The Tecmo inserts, styled after the classic 1989 Nintendo game, carry the same energy. Both Kaiju and Tecmo are hobby-exclusive.",
+      },
+      {
+        type: "image",
+        src: "/articles/chrome-nfl-25/2025-topps-chrome-football-2.png",
+        alt: "2025 Topps Chrome Football 2",
+      },
+      {
+        type: "h2",
+        text: "Hobby vs. Jumbo: Which Format Fits Your Break?",
+      },
+      {
+        type: "table",
+        headers: ["Format", "Cards/Box", "Autos", "Exclusives"],
+        rows: [
+          ["Hobby", "80", "1", "Prism, Neon Pulse, Radiating Rookies, Helix, Kaiju, Tecmo, Game Genies"],
+          ["Jumbo", "132", "2", "All Hobby content + First Day Issue parallels"],
+          ["Breaker's Delight", "Single pack", "2+", "Geometric Refractors, heavy numbered content"],
+          ["Mega", "42", "1 per ~9 boxes", "X-Fractor exclusive parallels"],
+          ["Value", "28", "1 per ~18 boxes", "RayWave, Football Leather, Red White and Blue"],
+        ],
+      },
+      {
+        type: "image",
+        src: "/articles/chrome-nfl-25/2025-topps-chrome-football-3.png",
+        alt: "2025 Topps Chrome Football 3",
+      },
+      {
+        type: "p",
+        text: "For collectors chasing autographs and premium inserts, Hobby and Jumbo are the only real options. Retail formats can still yield Ultraviolet, Lightning Leaders, Shadow Etch, Rookie Variation Autos, and Base Variation Autos, but the biggest hobby-exclusive content lives strictly in the sealed hobby configurations.",
+      },
+      {
+        type: "h2",
+        text: "What the Break Calculator Says",
+      },
+      {
+        type: "p",
+        text: "Using the odds from our Break Hit Calculator, here is what collectors can realistically expect across common break scenarios.",
+      },
+      {
+        type: "h3",
+        text: "1 Hobby Box (20 packs)",
+      },
+      {
+        type: "table",
+        headers: ["Card", "Odds", "Probability"],
+        rows: [
+          ["Any Rookie Variation Auto", "1:109", "17%"],
+          ["Any Helix", "1:2,559", "0.78%"],
+          ["Any Kaiju", "1:2,319", "0.86%"],
+          ["Rookie Variation Auto Superfractor", "1:83,004", "0.024%"],
+        ],
+      },
+      {
+        type: "h3",
+        text: "1 Hobby Case (12 boxes / 240 packs)",
+      },
+      {
+        type: "table",
+        headers: ["Card", "Odds", "Probability"],
+        rows: [
+          ["Any Rookie Variation Auto", "1:109", "89%"],
+          ["Any Helix", "1:2,559", "9.1%"],
+          ["Any Kaiju", "1:2,319", "10%"],
+          ["Rookie Variation Auto Superfractor", "1:83,004", "0.29%"],
+        ],
+      },
+      {
+        type: "h3",
+        text: "2 Hobby Cases (24 boxes / 480 packs)",
+      },
+      {
+        type: "table",
+        headers: ["Card", "Odds", "Probability"],
+        rows: [
+          ["Any Rookie Variation Auto", "1:109", "~99%"],
+          ["Any Helix", "1:2,559", "17.2%"],
+          ["Any Kaiju", "1:2,319", "18.9%"],
+          ["Rookie Variation Auto Superfractor", "1:83,004", "0.58%"],
+        ],
+      },
+      {
+        type: "p",
+        text: "A breaker running 2 hobby cases has roughly a 1-in-5 shot at pulling a Kaiju and similar odds on a Helix. Rookie Variation Autos are essentially guaranteed across that volume. The Superfractor remains an extreme outlier at any quantity, appearing on average once across roughly 173 hobby cases.",
+      },
+      {
+        type: "p",
+        text: "For breakers who want to maximize Kaiju exposure specifically, the Breaker's Delight format is worth examining. The odds compress significantly in that configuration, though the format sacrifices overall volume and variety.",
+      },
+      {
+        type: "h2",
+        text: "The Rookies to Know",
+      },
+      {
+        type: "p",
+        text: "The 2025 class arrives in Chrome with legitimate star power at the top. Jaxson Dart and Cam Ward headline the quarterback group, with Travis Hunter, Tetairoa McMillan, and Ashton Jeanty adding depth across skill positions. There is also a specially inscribed Dart version of the Rookie Patch Autograph Superfractor, making it one of the most unique 1/1s in the entire product.",
+      },
+      {
+        type: "image",
+        src: "/articles/chrome-nfl-25/jeanty-black-refractor-parallel.jpg",
+        alt: "Ashton Jeanty Black Refractor /10",
+        caption: "Ashton Jeanty Black Refractor /10",
+      },
+      {
+        type: "p",
+        text: "Image Variations return to Chrome Football for the first time since 2015, and they carry their own parallel rainbow down to the Superfractor. For set builders, these add a meaningful secondary chase layer on top of the base refractor run.",
+      },
+      {
+        type: "h2",
+        text: "SP and SSP: The Cards Worth Chasing",
+      },
+      {
+        type: "p",
+        text: "Helix functions as the set's marquee SSP insert. With a print run estimated around 100 total copies across all hobby configurations, finding one in a box is an event. Kaiju runs similarly scarce at roughly 200 total copies across just 10 subjects, meaning approximately 20 copies per player exist in the hobby universe. Radiating Rookies and Game Genies occupy a similar tier of scarcity.",
+      },
+      {
+        type: "p",
+        text: "For base parallels, the numbered rainbow runs from the Refractor all the way down to the 1/1 Superfractor, with Frozenfractors sharing the same print run as Red Refractors at the bottom of the color spectrum.",
+      },
+      {
+        type: "image",
+        src: "/articles/chrome-nfl-25/2025-topps-chrome-football-4.png",
+        alt: "2025 Topps Chrome Football 4",
+      },
+      {
+        type: "image",
+        src: "/articles/chrome-nfl-25/2025-topps-chrome-football-5.png",
+        alt: "2025 Topps Chrome Football 5",
+      },
+      {
+        type: "h2",
+        text: "The Bigger Picture",
+      },
+      {
+        type: "p",
+        text: "This release is not just a product drop. It is the beginning of a new era for NFL collecting. Topps Chrome originally debuted in 1996 and defined modern collecting across multiple sports. Bringing it back to football under a full license gives collectors something they have not had in over a decade: a true Chrome rainbow to chase for every NFL player, rookie, and legend.",
+      },
+      {
+        type: "p",
+        text: "The secondary market responded immediately. Hobby boxes that opened at $350 on the EQL lottery were trading hands for nearly three times that within hours of release. Jumbo boxes followed a similar trajectory. Whether those prices hold as supply settles is a separate conversation. What is not debatable is that the hobby treated this like the marquee event it is.",
+      },
+      {
+        type: "p",
+        text: "Chrome is back. The NFL is in it. And there are a lot of Superfractors that are not going to find themselves.",
+      },
+    ],
+  },
+  {
     id: "2026-topps-chrome-wwe-release-guide",
     title: "2026 Topps Chrome WWE: Complete Release Guide",
     publishedAt: "2026-04-10",
