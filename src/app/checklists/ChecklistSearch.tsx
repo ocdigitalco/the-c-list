@@ -46,7 +46,7 @@ function Chip({ label, tone = "default" }: { label: string; tone?: "default" | "
         ...styles[tone],
         padding: "3px 9px",
         borderRadius: 4,
-        fontSize: 11,
+        fontSize: 16,
         fontWeight: 500,
         letterSpacing: "0.2px",
         lineHeight: "1.4",
@@ -60,10 +60,10 @@ function Chip({ label, tone = "default" }: { label: string; tone?: "default" | "
 
 function Ribbon({ size = "gallery" }: { size?: "gallery" | "compact" | "compact-mobile" }) {
   const s = size === "gallery"
-    ? { top: 10, left: -4, padding: "4px 8px 4px 10px", fontSize: 9, letterSpacing: 1.5, clipOff: 4 }
+    ? { top: 10, left: -4, padding: "4px 8px 4px 10px", fontSize: 16, letterSpacing: 1.5, clipOff: 4 }
     : size === "compact"
-    ? { top: 6, left: -3, padding: "2px 5px 2px 6px", fontSize: 7, letterSpacing: 1, clipOff: 3 }
-    : { top: 4, left: -2, padding: "2px 4px 2px 5px", fontSize: 7, letterSpacing: 0.8, clipOff: 2 };
+    ? { top: 6, left: -3, padding: "2px 5px 2px 6px", fontSize: 16, letterSpacing: 1, clipOff: 3 }
+    : { top: 4, left: -2, padding: "2px 4px 2px 5px", fontSize: 16, letterSpacing: 0.8, clipOff: 2 };
 
   return (
     <div
@@ -188,7 +188,7 @@ export function ChecklistSearch({
           className="hidden sm:block shrink-0"
           style={{
             fontFamily: "var(--cl-font-mono)",
-            fontSize: 10,
+            fontSize: 16,
             fontWeight: 600,
             letterSpacing: 2,
             color: "var(--cl-text-muted)",
@@ -208,7 +208,7 @@ export function ChecklistSearch({
                 style={{
                   padding: isActive ? "8px 16px" : "8px 14px",
                   borderRadius: 999,
-                  fontSize: 13,
+                  fontSize: 16,
                   fontWeight: isActive ? 500 : 400,
                   color: isActive ? "#FAFAF7" : "#3A372F",
                   background: isActive ? "#0F0F0E" : "transparent",
@@ -254,7 +254,7 @@ export function ChecklistSearch({
               border: "none",
               paddingLeft: 44,
               paddingRight: 40,
-              fontSize: 14,
+              fontSize: 16,
               color: "#0F0F0E",
               outline: "none",
             }}
@@ -330,7 +330,7 @@ export function ChecklistSearch({
         <span
           style={{
             fontFamily: "var(--cl-font-mono)",
-            fontSize: 10,
+            fontSize: 16,
             fontWeight: 600,
             letterSpacing: 2,
             color: "var(--cl-text-primary)",
@@ -342,7 +342,7 @@ export function ChecklistSearch({
           <span
             style={{
               fontFamily: "var(--cl-font-mono)",
-              fontSize: 10,
+              fontSize: 16,
               fontWeight: 600,
               letterSpacing: 2,
               color: "var(--cl-text-faint)",
@@ -365,13 +365,13 @@ export function ChecklistSearch({
         </div>
       ) : (
         <div style={{ textAlign: "center", padding: "64px 0", color: "var(--cl-text-tertiary)" }}>
-          <p style={{ fontSize: 14, marginBottom: 12 }}>
+          <p style={{ fontSize: 16, marginBottom: 12 }}>
             No checklists found{query ? ` for "${query}"` : activeSport ? ` for ${activeSport}` : ""}
           </p>
           <button
             onClick={() => { setQuery(""); setActiveSport(null); }}
             style={{
-              fontSize: 13,
+              fontSize: 16,
               fontWeight: 500,
               color: "oklch(0.55 0.17 25)",
               background: "none",
@@ -452,7 +452,7 @@ function GalleryCard({ set: s }: { set: SetCard }) {
           <span
             style={{
               fontFamily: "var(--cl-font-mono)",
-              fontSize: 11,
+              fontSize: 16,
               fontWeight: 600,
               color: "#fff",
               letterSpacing: 0.5,
@@ -468,7 +468,7 @@ function GalleryCard({ set: s }: { set: SetCard }) {
         <p
           style={{
             fontFamily: "var(--cl-font-display)",
-            fontSize: 14,
+            fontSize: 16,
             fontWeight: 600,
             letterSpacing: "-0.2px",
             color: "var(--cl-text-primary)",
@@ -482,11 +482,11 @@ function GalleryCard({ set: s }: { set: SetCard }) {
           {s.tier !== "Standard" && <Chip label={s.tier} tone="dark" />}
         </div>
         <div className="flex gap-[14px]" style={{ marginTop: 10 }}>
-          <span style={{ fontFamily: "var(--cl-font-mono)", fontSize: 11, color: "var(--cl-text-primary)", fontWeight: 600 }}>
+          <span style={{ fontFamily: "var(--cl-font-mono)", fontSize: 16, color: "var(--cl-text-primary)", fontWeight: 600 }}>
             {s.athleteCount.toLocaleString()}
             <span style={{ color: "var(--cl-text-faint)", fontWeight: 400 }}> athletes</span>
           </span>
-          <span style={{ fontFamily: "var(--cl-font-mono)", fontSize: 11, color: "var(--cl-text-primary)", fontWeight: 600 }}>
+          <span style={{ fontFamily: "var(--cl-font-mono)", fontSize: 16, color: "var(--cl-text-primary)", fontWeight: 600 }}>
             {s.cardCount.toLocaleString()}
             <span style={{ color: "var(--cl-text-faint)", fontWeight: 400 }}> cards</span>
           </span>
@@ -561,7 +561,7 @@ function CompactRow({ set: s }: { set: SetCard }) {
         <p
           style={{
             fontFamily: "var(--cl-font-display)",
-            fontSize: 15,
+            fontSize: 16,
             fontWeight: 600,
             letterSpacing: "-0.2px",
             color: "var(--cl-text-primary)",
@@ -579,26 +579,26 @@ function CompactRow({ set: s }: { set: SetCard }) {
       {/* Stats */}
       <div className="hidden md:flex items-center gap-0">
         <div style={{ width: 110, textAlign: "right" }}>
-          <p style={{ fontFamily: "var(--cl-font-mono)", fontSize: 12, fontWeight: 600, color: "var(--cl-text-primary)" }}>
+          <p style={{ fontFamily: "var(--cl-font-mono)", fontSize: 16, fontWeight: 600, color: "var(--cl-text-primary)" }}>
             {s.athleteCount.toLocaleString()}
           </p>
-          <p style={{ fontFamily: "var(--cl-font-mono)", fontSize: 10, fontWeight: 500, color: "var(--cl-text-faint)", letterSpacing: 1 }}>
+          <p style={{ fontFamily: "var(--cl-font-mono)", fontSize: 16, fontWeight: 500, color: "var(--cl-text-faint)", letterSpacing: 1 }}>
             ATHLETES
           </p>
         </div>
         <div style={{ width: 110, textAlign: "right" }}>
-          <p style={{ fontFamily: "var(--cl-font-mono)", fontSize: 12, fontWeight: 600, color: "var(--cl-text-primary)" }}>
+          <p style={{ fontFamily: "var(--cl-font-mono)", fontSize: 16, fontWeight: 600, color: "var(--cl-text-primary)" }}>
             {s.cardCount.toLocaleString()}
           </p>
-          <p style={{ fontFamily: "var(--cl-font-mono)", fontSize: 10, fontWeight: 500, color: "var(--cl-text-faint)", letterSpacing: 1 }}>
+          <p style={{ fontFamily: "var(--cl-font-mono)", fontSize: 16, fontWeight: 500, color: "var(--cl-text-faint)", letterSpacing: 1 }}>
             CARDS
           </p>
         </div>
         <div style={{ width: 60, textAlign: "right" }}>
-          <p style={{ fontFamily: "var(--cl-font-mono)", fontSize: 12, fontWeight: 600, color: "var(--cl-text-primary)" }}>
+          <p style={{ fontFamily: "var(--cl-font-mono)", fontSize: 16, fontWeight: 600, color: "var(--cl-text-primary)" }}>
             {s.season}
           </p>
-          <p style={{ fontFamily: "var(--cl-font-mono)", fontSize: 10, fontWeight: 500, color: "var(--cl-text-faint)", letterSpacing: 1 }}>
+          <p style={{ fontFamily: "var(--cl-font-mono)", fontSize: 16, fontWeight: 500, color: "var(--cl-text-faint)", letterSpacing: 1 }}>
             YEAR
           </p>
         </div>
