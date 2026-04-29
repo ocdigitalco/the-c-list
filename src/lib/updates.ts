@@ -12,6 +12,18 @@ export interface Update {
 }
 
 export const updates: Update[] = [
+  // ─── April 29, 2026 ──────────────────────────────────────────────────────
+  {
+    id: "148-toy-story-full",
+    title: "2025 Topps 30 Years of Toy Story — Full Checklist",
+    date: "2026-04-29T12:00:00Z",
+    summary: "Complete checklist with 24 insert sets, 78 parallels, full hobby pack odds. 481 card appearances across 241 characters, actors, and sketch artists.",
+    description: `## 2025 Topps 30 Years of Toy Story — Full Checklist
+
+Complete checklist with hobby box config and full pack odds. Base (100), Image Variations (17), Pizza Planet Variation (27), Cone Variation (5), Pixar Ball Variation (31), 30 Years And Beyond (35), You've Got A Friend In Me (15 dual inserts), Falling With Style (10), So Play Nice (10), Topps 1995 (26), Al's Toy Barn (5), To Infinity… (2), …And Beyond (2), Toy Taaffeite (10), Art Of Toy Story (20), Sid Has Your Cards (10), Andy's Cards Shadowbox (10), The Claw Shadowbox (10), You. Are. A. Toy... Story Autographs (29), You've Got A Friend In Me Dual Autographs (13 dual), Golden Toys Shadowbox Autographs (10 /20), Toy Story Sketch Cards (74 artists), Studio Creations Sketch Cards (8), Executive Studio Creations Sketch Cards (2). 241 players, 481 appearances. Releases May 6, 2026.`,
+    tags: ["checklist", "odds"],
+    setId: 66,
+  },
   // ─── April 28, 2026 ──────────────────────────────────────────────────────
   {
     id: "147-chrome-football-complete-odds",
