@@ -78,7 +78,7 @@ export default async function ChecklistsPage() {
         <a
           href="/"
           style={{
-            fontSize: 16,
+            fontSize: 13,
             color: "var(--cl-text-tertiary)",
             textDecoration: "none",
             fontFamily: "var(--cl-font-display)",
@@ -106,7 +106,7 @@ export default async function ChecklistsPage() {
         {/* Subtitle */}
         <p
           style={{
-            fontSize: 16,
+            fontSize: 14,
             color: "var(--cl-text-tertiary)",
             margin: "6px 0 0",
           }}
