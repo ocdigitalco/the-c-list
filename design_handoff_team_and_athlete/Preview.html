@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Team Detail & Athlete Detail — Design Reference</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  html, body { margin:0; padding:0; background:#E8E5DC; font-family: Inter, system-ui, sans-serif; color:#0F0F0E; }
+  .wrap { max-width: 1320px; margin: 0 auto; padding: 32px 16px 80px; }
+  h1 { font-family: "Inter Tight", Inter, sans-serif; font-size: 28px; font-weight: 600; letter-spacing:-0.6px; margin: 0 0 6px; }
+  .lede { color:#6B6757; font-size: 14px; margin: 0 0 28px; }
+  .group { margin: 40px 0 16px; padding: 8px 0; border-bottom: 1px solid #D7D2C3; }
+  .group h2 { font-family:"Inter Tight"; font-weight:600; font-size:18px; margin:0; letter-spacing:-0.3px; }
+  .row { display:flex; gap:24px; align-items:flex-start; flex-wrap:wrap; margin-top:18px; }
+  .frame { background:#fff; border:1px solid #D7D2C3; }
+  .label { font-family: ui-monospace, "JetBrains Mono", Menlo, monospace; font-size:10px; letter-spacing:1.6px; color:#8A8677; font-weight:600; margin: 0 0 6px; text-transform: uppercase; }
+  .desktop { width:1280px; max-width:100%; overflow:auto; }
+  .mobile { width: 402px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<!-- Shared stub for ATHLETES (used by athlete-detail-D rail).
+     Real app should swap in a query against the set's checklist. -->
+<script>
+  window.ATHLETES = [
+    { rank: 1,  name: 'Cam Ward',           team: 'Tennessee Titans',     pos: 'QB', rookie: true,  totalCards: 214 },
+    { rank: 2,  name: 'Drake Maye',         team: 'New England Patriots', pos: 'QB', rookie: false, totalCards: 196 },
+    { rank: 3,  name: 'Ashton Jeanty',      team: 'Las Vegas Raiders',    pos: 'RB', rookie: true,  totalCards: 210 },
+    { rank: 4,  name: 'Caleb Williams',     team: 'Chicago Bears',        pos: 'QB', rookie: false, totalCards: 188 },
+    { rank: 5,  name: 'Marvin Harrison Jr', team: 'Arizona Cardinals',    pos: 'WR', rookie: false, totalCards: 184 },
+    { rank: 6,  name: 'Jayden Daniels',     team: 'Washington Commanders',pos: 'QB', rookie: false, totalCards: 182 },
+    { rank: 7,  name: 'Bo Nix',             team: 'Denver Broncos',       pos: 'QB', rookie: false, totalCards: 176 },
+    { rank: 8,  name: 'Malik Nabers',       team: 'New York Giants',      pos: 'WR', rookie: false, totalCards: 172 },
+  ];
+  // Stubs that the athlete-detail-D file references but aren't critical for layout review.
+  window.BASE_PARALLELS = [
+    { name: 'Refractor',       run: '/199', odds: '1:8',    per: '~2.5 per box', rare:false },
+    { name: 'Prism Refractor', run: '/99',  odds: '1:16',   per: '~1.25 per box', rare:false },
+    { name: 'Aqua Refractor',  run: '/50',  odds: '1:48',   per: '~1 in 2.4 boxes', rare:false },
+    { name: 'Blue Refractor',  run: '/35',  odds: '1:96',   per: '~1 in 4.8 boxes', rare:false },
+    { name: 'Green Refractor', run: '/15',  odds: '1:240',  per: '~1 in 12 boxes', rare:false },
+    { name: 'Red Refractor',   run: '/5',   odds: '1:720',  per: '~1 in 36 boxes', rare:true },
+    { name: 'Superfractor',    run: '1/1',  odds: '1:3,600',per: '~1 in 180 boxes', rare:true },
+  ];
+</script>
+
+<script src="design/athlete-detail-data.js"></script>
+<script src="design/team-detail-data.js"></script>
+
+<script type="text/babel" src="design/ui-atoms.jsx"></script>
+<script type="text/babel" src="design/ios-frame.jsx"></script>
+<script type="text/babel" src="design/team-detail-D.jsx"></script>
+<script type="text/babel" src="design/team-detail-D-mobile.jsx"></script>
+<script type="text/babel" src="design/athlete-detail-D.jsx"></script>
+<script type="text/babel" src="design/athlete-detail-D-mobile.jsx"></script>
+
+<script type="text/babel" data-presets="react">
+function Preview() {
+  return (
+    <div className="wrap">
+      <h1>Team & Athlete Detail — Design Reference</h1>
+      <p className="lede">
+        High-fidelity HTML mockups. Recreate these in the target codebase using its component
+        library and design tokens. See README.md for full spec.
+      </p>
+
+      <div className="group"><h2>Team Detail · Desktop (1280w)</h2></div>
+      <div className="row">
+        <div>
+          <div className="label">team-d</div>
+          <div className="frame desktop"><window.TeamDetailD/></div>
+        </div>
+      </div>
+
+      <div className="group"><h2>Team Detail · Mobile (iOS, 402w)</h2></div>
+      <div className="row">
+        <div>
+          <div className="label">team-d-mobile</div>
+          <div className="frame mobile" style={{height: 874}}>
+            <window.IOSDevice><window.TeamDetailDMobile/></window.IOSDevice>
+          </div>
+        </div>
+        <div>
+          <div className="label">team-d-mobile · drawer open</div>
+          <div className="frame mobile" style={{height: 874}}>
+            <window.IOSDevice><window.TeamDetailDMobileOpen/></window.IOSDevice>
+          </div>
+        </div>
+      </div>
+
+      <div className="group"><h2>Athlete Detail · Desktop (1280w)</h2></div>
+      <div className="row">
+        <div>
+          <div className="label">athlete-d</div>
+          <div className="frame desktop"><window.AthleteDetailD/></div>
+        </div>
+      </div>
+
+      <div className="group"><h2>Athlete Detail · Mobile (iOS, 402w)</h2></div>
+      <div className="row">
+        <div>
+          <div className="label">athlete-d-mobile</div>
+          <div className="frame mobile" style={{height: 874}}>
+            <window.IOSDevice><window.AthleteDetailDMobile/></window.IOSDevice>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Preview/>);
+</script>
+</body>
+</html>

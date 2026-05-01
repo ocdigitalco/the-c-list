@@ -9,16 +9,9 @@ import {
 } from "@/lib/schema";
 import { eq, inArray, asc, sql, and } from "drizzle-orm";
 import { notFound, redirect } from "next/navigation";
-import Link from "next/link";
-import { LeaderboardSidebar } from "@/components/sets/LeaderboardSidebar";
-import { RightSidebar } from "@/components/sets/RightSidebar";
-import { MobileLeaderboardDrawer } from "@/components/sets/MobileLeaderboardDrawer";
-import { V2Checklist } from "@/components/sets/V2Checklist";
-import { PackOddsCalculator, type PackOddsSlot, type BoxFormat } from "@/components/PackOddsCalculator";
-import { BreakCalcWarning } from "@/components/BreakCalcWarning";
-import type { LeaderboardRow, InsertSetDetail, BoxConfigSingle, BoxConfigMulti } from "@/components/sets/types";
-import { AthleteHeadshot } from "@/components/sets/AthleteHeadshot";
-import { MobileAthleteLayout } from "@/components/sets/MobileAthleteLayout";
+import type { LeaderboardRow, InsertSetDetail, BoxConfigSingle, BoxConfigMulti, BoxFormatSummary } from "@/components/sets/types";
+import type { PackOddsSlot, BoxFormat } from "@/components/PackOddsCalculator";
+import { AthleteDetailClient } from "@/components/sets/AthleteDetailClient";
 
 
 export const revalidate = 3600;
@@ -597,293 +590,61 @@ export default async function V2AthletePage({
     { label: "1/1s", value: playerData.oneOfOnes ?? 0 },
   ];
 
-  const hasBreakCalc = hasBoxConfig && hasPackOdds && Object.keys(packOddsSlotsByFormat).length > 0;
-  const mobileTabs = [
-    ...(hasBreakCalc ? [{ id: "break-calc", label: "Break Calc" }] : []),
-    { id: "card-types", label: "Card Types" },
-    ...(otherSetRows.length > 0 ? [{ id: "other-sets", label: "Other Sets" }] : []),
-  ];
+  // Build other sets data for the client
+  const otherSetsForClient = otherSetRows.map((s) => ({
+    id: s.setId,
+    name: s.setName,
+    slug: s.setSlug,
+    sport: setRow.sport,
+    totalCards: s.uniqueCards,
+    autographs: 0,
+    parallels: 0,
+  }));
+
+  // Serialize insert sets to plain objects for client
+  const plainInsertSets = playerInsertSets.map((is) => ({
+    insertSetId: is.insertSetId,
+    insertSetName: is.insertSetName,
+    appearances: is.appearances.map((a) => ({
+      cardNumber: a.cardNumber,
+      team: a.team,
+      isRookie: a.isRookie,
+      subsetTag: a.subsetTag,
+      coPlayers: a.coPlayers.map((c) => ({ id: c.id, name: c.name, slug: c.slug })),
+    })),
+    parallels: is.parallels.map((p) => ({ id: p.id, name: p.name, printRun: p.printRun })),
+  }));
 
   return (
-    <>
-      {/* ── Mobile layout ── */}
-      <MobileAthleteLayout
-        playerName={playerData.name}
-        teams={teams}
-        hasRookie={hasRookie}
-        nbaPlayerId={playerData.nbaPlayerId}
-        ufcImageUrl={playerData.ufcImageUrl}
-        mlbPlayerId={playerData.mlbPlayerId}
-        imageUrl={playerImageUrl}
-        stats={statItems}
-        setName={setRow.name}
-        setHref={`/sets/${rawSetParam}`}
-        tabs={mobileTabs}
-        leaderboardButton={
-          <MobileLeaderboardDrawer
-            entries={leaderboardEntries}
-            hasTeamData={hasTeamData}
-            setId={setId}
-          />
-        }
-        tabContent={{
-          "break-calc": (
-            <section className="space-y-3">
-              <PackOddsCalculator
-                slotsByFormat={packOddsSlotsByFormat}
-                boxFormats={boxFormats}
-                totalAutoCards={totalAutoCards}
-                playerAutoCards={playerAutoCards}
-                setId={setId}
-                setName={setRow.name}
-              />
-            </section>
-          ),
-          "card-types": (
-            <section className="space-y-3">
-              <V2Checklist setId={setId} setSlug={rawSetParam} athleteSlug={rawAthleteParam} insertSets={playerInsertSets} />
-            </section>
-          ),
-          "other-sets": otherSetRows.length > 0 ? (
-            <section className="space-y-3">
-              <div className="space-y-2">
-                {otherSetRows.map((s) => (
-                  <Link
-                    key={s.setId}
-                    href={`/sets/${s.setSlug ?? s.setId}`}
-                    className="flex items-center justify-between px-3 py-2.5 rounded-lg"
-                    style={{
-                      background: "var(--v2-card-bg)",
-                      border: "1px solid var(--v2-border)",
-                    }}
-                  >
-                    <div className="flex items-center gap-2 min-w-0">
-                      <span className="text-sm font-medium truncate" style={{ color: "var(--v2-text-primary)" }}>
-                        {s.setName}
-                      </span>
-                      <span className="text-xs" style={{ color: "var(--v2-text-secondary)" }}>{s.season}</span>
-                    </div>
-                    <span className="text-xs tabular-nums shrink-0 ml-2" style={{ color: "var(--v2-text-secondary)" }}>
-                      {s.uniqueCards} cards
-                    </span>
-                  </Link>
-                ))}
-              </div>
-            </section>
-          ) : undefined,
-        }}
-      >
-        {/* Always-visible content below tabs */}
-        <RightSidebar
-          releaseDate={setRow.releaseDate ?? null}
-          hasCards={cardCountRow.count > 0}
-          hasNumberedParallels={numberedParallelsResult.total > 0}
-          hasBoxConfig={hasBoxConfig}
-          hasPackOdds={hasPackOdds}
-          sampleImageUrl={setRow.sampleImageUrl ?? null}
-        />
-      </MobileAthleteLayout>
-
-      {/* ── Desktop layout (md and up) ── */}
-      <div className="hidden md:flex min-h-screen">
-        {/* Left Sidebar — Leaderboard (desktop) */}
-        <aside
-          className="hidden lg:flex w-[425px] shrink-0 flex-col sticky top-0 h-screen overflow-y-auto"
-          style={{ borderRight: "1px solid var(--v2-border)" }}
-        >
-          <LeaderboardSidebar entries={leaderboardEntries} hasTeamData={hasTeamData} setId={setId} setSlug={rawSetParam} />
-        </aside>
-
-        {/* Center Main */}
-        <main className="flex-1 min-w-0">
-          <div className="max-w-4xl mx-auto px-6 py-6 space-y-6">
-            {/* Mobile leaderboard toggle */}
-            <div className="lg:hidden">
-              <MobileLeaderboardDrawer
-                entries={leaderboardEntries}
-                hasTeamData={hasTeamData}
-                setId={setId}
-              />
-            </div>
-
-            {/* Breadcrumb */}
-            <div className="flex items-center gap-1.5">
-              <Link
-                href={`/sets/${rawSetParam}`}
-                className="flex items-center gap-1 text-base transition-colors"
-                style={{ color: "var(--v2-text-secondary)" }}
-              >
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                </svg>
-                {setRow.name}
-              </Link>
-            </div>
-
-            {/* Player header */}
-            <div className="flex items-center gap-5">
-              <AthleteHeadshot name={playerData.name} nbaPlayerId={playerData.nbaPlayerId} ufcImageUrl={playerData.ufcImageUrl} mlbPlayerId={playerData.mlbPlayerId} imageUrl={playerImageUrl} size="lg" />
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-3">
-                  <h1 className="text-3xl font-bold" style={{ color: "var(--v2-text-primary)" }}>
-                    {playerData.name}
-                  </h1>
-                  {hasRookie && (
-                    <span
-                      className="text-base font-semibold px-3 py-1 rounded shrink-0"
-                      style={{ color: "var(--v2-accent)", background: "var(--v2-accent-light)" }}
-                    >
-                      Rookie
-                    </span>
-                  )}
-                </div>
-                {teams.length > 0 && (
-                  <p className="mt-1.5 text-base" style={{ color: "var(--v2-text-secondary)" }}>
-                    {teams.join(" · ")}
-                  </p>
-                )}
-              </div>
-            </div>
-
-            {/* Stat cards */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              {[
-                { label: "Card Types", value: playerData.insertSetCount ?? 0 },
-                { label: "Total Cards", value: playerData.uniqueCards ?? 0 },
-                { label: "Numbered Parallels", value: playerData.totalPrintRun ?? 0 },
-                { label: "1/1s", value: playerData.oneOfOnes ?? 0 },
-              ].map((s) => (
-                <div
-                  key={s.label}
-                  className="rounded-lg px-4 py-4 transition-shadow hover:shadow-md"
-                  style={{
-                    background: "var(--v2-card-bg)",
-                    border: "1px solid var(--v2-border)",
-                    borderLeft: "3px solid var(--v2-accent)",
-                    boxShadow: "var(--v2-card-shadow)",
-                  }}
-                >
-                  <p
-                    className="text-2xl font-bold"
-                    style={{ color: "var(--v2-accent)", fontVariantNumeric: "tabular-nums" }}
-                  >
-                    {s.value.toLocaleString()}
-                  </p>
-                  <p className="text-base font-medium mt-1" style={{ color: "var(--v2-text-secondary)" }}>
-                    {s.label}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            {/* Break Hit Calculator */}
-            {(!hasBoxConfig || !hasPackOdds) ? (
-              <section className="space-y-3">
-                <h2 className="text-base font-semibold" style={{ color: "var(--v2-text-primary)" }}>
-                  Break Hit Calculator
-                </h2>
-                <BreakCalcWarning
-                  missingBoxConfig={!hasBoxConfig}
-                  missingPackOdds={!hasPackOdds}
-                />
-              </section>
-            ) : Object.keys(packOddsSlotsByFormat).length > 0 ? (
-              <section className="space-y-3">
-                <h2 className="text-base font-semibold" style={{ color: "var(--v2-text-primary)" }}>
-                  Break Hit Calculator
-                </h2>
-                <PackOddsCalculator
-                  slotsByFormat={packOddsSlotsByFormat}
-                  boxFormats={boxFormats}
-                  totalAutoCards={totalAutoCards}
-                  playerAutoCards={playerAutoCards}
-                  setId={setId}
-                  setName={setRow.name}
-                />
-              </section>
-            ) : null}
-
-            {/* Insert Sets / Checklist */}
-            <section className="space-y-3">
-              <h2 className="text-base font-semibold" style={{ color: "var(--v2-text-primary)" }}>
-                Insert Sets
-              </h2>
-              <V2Checklist setId={setId} setSlug={rawSetParam} athleteSlug={rawAthleteParam} insertSets={playerInsertSets} />
-            </section>
-
-            {/* Other sets */}
-            {otherSetRows.length > 0 && (
-              <section className="space-y-3">
-                <h2 className="text-base font-semibold" style={{ color: "var(--v2-text-primary)" }}>
-                  Also Appears In
-                </h2>
-                <div className="space-y-2">
-                  {otherSetRows.map((s) => (
-                    <Link
-                      key={s.setId}
-                      href={`/sets/${s.setSlug ?? s.setId}`}
-                      className="flex items-center justify-between px-4 py-3 rounded-lg transition-colors"
-                      style={{
-                        background: "var(--v2-card-bg)",
-                        border: "1px solid var(--v2-border)",
-                      }}
-                    >
-                      <div className="flex items-center gap-2.5 min-w-0">
-                        <span className="text-base font-medium truncate" style={{ color: "var(--v2-text-primary)" }}>
-                          {s.setName}
-                        </span>
-                        <span className="text-base" style={{ color: "var(--v2-text-secondary)" }}>{s.season}</span>
-                        {s.tier !== "Standard" && (
-                          <span
-                            className="text-[10px] font-medium px-1.5 py-0.5 rounded"
-                            style={{
-                              color: "var(--v2-text-primary)",
-                              background: "var(--v2-badge-bg)",
-                              border: "1px solid var(--v2-border)",
-                            }}
-                          >
-                            {s.tier}
-                          </span>
-                        )}
-                      </div>
-                      <span className="text-base tabular-nums shrink-0 ml-2" style={{ color: "var(--v2-text-secondary)" }}>
-                        {s.uniqueCards} card{s.uniqueCards !== 1 ? "s" : ""}
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              </section>
-            )}
-
-            {/* Right sidebar content — tablet only */}
-            <div className="xl:hidden">
-              <RightSidebar
-                releaseDate={setRow.releaseDate ?? null}
-                hasCards={cardCountRow.count > 0}
-                hasNumberedParallels={numberedParallelsResult.total > 0}
-                hasBoxConfig={hasBoxConfig}
-                hasPackOdds={hasPackOdds}
-                sampleImageUrl={setRow.sampleImageUrl ?? null}
-              />
-            </div>
-          </div>
-        </main>
-
-        {/* Right Sidebar (desktop) */}
-        <aside
-          className="hidden xl:block w-[300px] shrink-0 sticky top-0 h-screen overflow-y-auto"
-          style={{ borderLeft: "1px solid var(--v2-border)" }}
-        >
-          <RightSidebar
-            releaseDate={setRow.releaseDate ?? null}
-            hasCards={cardCountRow.count > 0}
-            hasNumberedParallels={numberedParallelsResult.total > 0}
-            hasBoxConfig={hasBoxConfig}
-            hasPackOdds={hasPackOdds}
-            sampleImageUrl={setRow.sampleImageUrl ?? null}
-          />
-        </aside>
-      </div>
-    </>
+    <AthleteDetailClient
+      athleteName={playerData.name}
+      athleteId={athleteId}
+      athleteSlug={rawAthleteParam}
+      teams={teams}
+      hasRookie={hasRookie}
+      nbaPlayerId={playerData.nbaPlayerId}
+      ufcImageUrl={playerData.ufcImageUrl}
+      mlbPlayerId={playerData.mlbPlayerId}
+      imageUrl={playerImageUrl}
+      setName={setRow.name}
+      setSlug={rawSetParam}
+      setId={setId}
+      sport={setRow.sport}
+      league={setRow.league ?? null}
+      cardTypes={playerData.insertSetCount ?? 0}
+      totalCards={playerData.uniqueCards ?? 0}
+      numberedParallels={playerData.totalPrintRun ?? 0}
+      oneOfOnes={playerData.oneOfOnes ?? 0}
+      insertSets={plainInsertSets}
+      otherSets={otherSetsForClient}
+      packOddsJson={setRow.packOdds ?? null}
+      packOddsSlotsByFormat={packOddsSlotsByFormat}
+      boxFormats={boxFormats}
+      totalAutoCards={totalAutoCards}
+      playerAutoCards={playerAutoCards}
+      hasBreakCalc={hasBoxConfig && hasPackOdds && Object.keys(packOddsSlotsByFormat).length > 0}
+      entries={leaderboardEntries}
+      hasTeamData={hasTeamData}
+    />
   );
 }
