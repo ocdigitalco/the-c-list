@@ -68,12 +68,12 @@ export default function AboutPage() {
         {/* ── The Problem ───────────────────────────────────────────────────────── */}
         <section>
           <div className="flex items-center gap-3 mb-6">
-            <span className="shrink-0 w-7 h-7 rounded-lg bg-[#748efe]/10 border border-[#748efe]/20 flex items-center justify-center">
-              <svg className="w-3.5 h-3.5 text-[#748efe]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <span className="shrink-0 w-7 h-7 rounded-lg bg-[#D63A20]/10 border border-[#D63A20]/20 flex items-center justify-center">
+              <svg className="w-3.5 h-3.5 text-[#D63A20]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
               </svg>
             </span>
-            <h2 className="text-xs font-semibold text-[#748efe] uppercase tracking-widest">The Problem</h2>
+            <h2 className="text-xs font-semibold text-[#D63A20] uppercase tracking-widest">The Problem</h2>
           </div>
           <p className="text-base text-zinc-400 leading-relaxed">
             Navigating box configurations, new release checklists, and pull odds is difficult and time-consuming — even for experienced hobby enthusiasts. Without a way to combine the odds of a set with its full checklist, collectors are left sifting through PDFs and building their own spreadsheets just to understand what's available and what their chances are.
@@ -85,12 +85,12 @@ export default function AboutPage() {
         {/* ── What We Built ─────────────────────────────────────────────────────── */}
         <section>
           <div className="flex items-center gap-3 mb-6">
-            <span className="shrink-0 w-7 h-7 rounded-lg bg-[#748efe]/10 border border-[#748efe]/20 flex items-center justify-center">
-              <svg className="w-3.5 h-3.5 text-[#748efe]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <span className="shrink-0 w-7 h-7 rounded-lg bg-[#D63A20]/10 border border-[#D63A20]/20 flex items-center justify-center">
+              <svg className="w-3.5 h-3.5 text-[#D63A20]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
               </svg>
             </span>
-            <h2 className="text-xs font-semibold text-[#748efe] uppercase tracking-widest">What We Built</h2>
+            <h2 className="text-xs font-semibold text-[#D63A20] uppercase tracking-widest">What We Built</h2>
           </div>
           <p className="text-base text-zinc-400 leading-relaxed">
             Checklist² combines set checklists, box configurations, and pack odds into a single easy lookup. Search for any athlete, browse any set, and instantly understand what cards exist and how likely you are to pull them. No spreadsheets. No PDFs. Just answers.
@@ -102,18 +102,18 @@ export default function AboutPage() {
         {/* ── Who It's For ──────────────────────────────────────────────────────── */}
         <section>
           <div className="flex items-center gap-3 mb-8">
-            <span className="shrink-0 w-7 h-7 rounded-lg bg-[#748efe]/10 border border-[#748efe]/20 flex items-center justify-center">
-              <svg className="w-3.5 h-3.5 text-[#748efe]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <span className="shrink-0 w-7 h-7 rounded-lg bg-[#D63A20]/10 border border-[#D63A20]/20 flex items-center justify-center">
+              <svg className="w-3.5 h-3.5 text-[#D63A20]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
               </svg>
             </span>
-            <h2 className="text-xs font-semibold text-[#748efe] uppercase tracking-widest">Who It's For</h2>
+            <h2 className="text-xs font-semibold text-[#D63A20] uppercase tracking-widest">Who It's For</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Collectors */}
             <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
-              <div className="w-9 h-9 rounded-xl bg-[#748efe]/10 border border-[#748efe]/20 flex items-center justify-center mb-4">
-                <svg className="w-4.5 h-4.5 text-[#748efe]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <div className="w-9 h-9 rounded-xl bg-[#D63A20]/10 border border-[#D63A20]/20 flex items-center justify-center mb-4">
+                <svg className="w-4.5 h-4.5 text-[#D63A20]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                 </svg>
               </div>
@@ -124,8 +124,8 @@ export default function AboutPage() {
             </div>
             {/* Breakers */}
             <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
-              <div className="w-9 h-9 rounded-xl bg-[#748efe]/10 border border-[#748efe]/20 flex items-center justify-center mb-4">
-                <svg className="w-4.5 h-4.5 text-[#748efe]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <div className="w-9 h-9 rounded-xl bg-[#D63A20]/10 border border-[#D63A20]/20 flex items-center justify-center mb-4">
+                <svg className="w-4.5 h-4.5 text-[#D63A20]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" />
                 </svg>
               </div>
@@ -141,16 +141,16 @@ export default function AboutPage() {
 
         {/* ── Mission Pull Quote ─────────────────────────────────────────────────── */}
         <section>
-          <blockquote className="relative rounded-2xl border border-[#748efe]/20 bg-[#748efe]/5 px-8 py-10 text-center">
+          <blockquote className="relative rounded-2xl border border-[#D63A20]/20 bg-[#D63A20]/5 px-8 py-10 text-center">
             {/* Decorative quote mark */}
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-zinc-900 border border-[#748efe]/30 flex items-center justify-center">
-              <svg className="w-4 h-4 text-[#748efe]" fill="currentColor" viewBox="0 0 24 24">
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-zinc-900 border border-[#D63A20]/30 flex items-center justify-center">
+              <svg className="w-4 h-4 text-[#D63A20]" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
               </svg>
             </div>
             <p className="text-lg sm:text-xl font-medium text-white leading-relaxed">
               Checklist² believes that finding a card or athlete shouldn't mean sifting through PDFs. It should be easier than that.{" "}
-              <span className="text-[#748efe]">Straightforward. Built for everyone in the hobby.</span>
+              <span className="text-[#D63A20]">Straightforward. Built for everyone in the hobby.</span>
             </p>
           </blockquote>
         </section>
@@ -160,12 +160,12 @@ export default function AboutPage() {
         {/* ── Feature Highlights ────────────────────────────────────────────────── */}
         <section>
           <div className="flex items-center gap-3 mb-8">
-            <span className="shrink-0 w-7 h-7 rounded-lg bg-[#748efe]/10 border border-[#748efe]/20 flex items-center justify-center">
-              <svg className="w-3.5 h-3.5 text-[#748efe]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <span className="shrink-0 w-7 h-7 rounded-lg bg-[#D63A20]/10 border border-[#D63A20]/20 flex items-center justify-center">
+              <svg className="w-3.5 h-3.5 text-[#D63A20]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
               </svg>
             </span>
-            <h2 className="text-xs font-semibold text-[#748efe] uppercase tracking-widest">Features</h2>
+            <h2 className="text-xs font-semibold text-[#D63A20] uppercase tracking-widest">Features</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {FEATURES.map((f) => (
@@ -173,7 +173,7 @@ export default function AboutPage() {
                 key={f.label}
                 className="flex items-start gap-3 rounded-xl border border-zinc-800 bg-zinc-900 px-4 py-4"
               >
-                <span className="shrink-0 w-8 h-8 rounded-lg bg-[#748efe]/10 border border-[#748efe]/20 flex items-center justify-center text-[#748efe]">
+                <span className="shrink-0 w-8 h-8 rounded-lg bg-[#D63A20]/10 border border-[#D63A20]/20 flex items-center justify-center text-[#D63A20]">
                   {f.icon}
                 </span>
                 <div>
@@ -189,7 +189,7 @@ export default function AboutPage() {
         <section className="text-center pt-4">
           <Link
             href="/checklists"
-            className="inline-flex items-center gap-2 bg-[#748efe] hover:bg-[#8fa3ff] text-white font-bold text-base px-8 py-3.5 rounded-xl transition-colors shadow-lg shadow-[#748efe]/20"
+            className="inline-flex items-center gap-2 bg-[#D63A20] hover:bg-[#B12C18] text-white font-bold text-base px-8 py-3.5 rounded-xl transition-colors shadow-lg shadow-[#D63A20]/20"
           >
             Browse Checklists
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>

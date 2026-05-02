@@ -638,6 +638,7 @@ export default async function V2AthletePage({
       insertSets={plainInsertSets}
       otherSets={otherSetsForClient}
       packOddsJson={setRow.packOdds ?? null}
+      boxConfigJson={setRow.boxConfig ?? null}
       packOddsSlotsByFormat={packOddsSlotsByFormat}
       boxFormats={boxFormats}
       totalAutoCards={totalAutoCards}

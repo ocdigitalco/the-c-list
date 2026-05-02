@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { CL2Wordmark, CL2 } from "@/components/brand";
 const navLinks = [
   { href: "/checklists", label: "Checklists" },
   { href: "/sets", label: "Sets" },
@@ -25,13 +26,11 @@ export function Header() {
   };
 
   return (
-    <header className="shrink-0 bg-zinc-950 border-b border-zinc-800/80">
+    <header className="shrink-0 border-b" style={{ background: CL2.paper, borderColor: CL2.fog }}>
       <div className="flex items-center justify-between px-6 h-14">
         {/* Wordmark */}
-        <Link href="/" className="flex items-center text-xl text-white">
-          <span style={{ fontWeight: 800, letterSpacing: '0.05em' }}>
-            CHECKLIST<sup style={{ fontSize: '0.6em', verticalAlign: 'super', fontWeight: 800, color: '#ffb900' }}>2</sup>
-          </span>
+        <Link href="/" className="flex items-center" style={{ textDecoration: "none" }}>
+          <CL2Wordmark size={44} supSize={34} ink={CL2.ink} accent={CL2.accent} />
         </Link>
 
         {/* Desktop nav */}
@@ -40,11 +39,11 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className={`px-3 py-1.5 rounded-md text-sm font-bold transition-colors ${
-                isActive(link.href)
-                  ? "text-white bg-zinc-800/60"
-                  : "text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/40"
-              }`}
+              className="px-3 py-1.5 rounded-md text-sm font-bold transition-colors"
+              style={{
+                color: isActive(link.href) ? CL2.ink : CL2.slate,
+                background: isActive(link.href) ? CL2.paperDeep : "transparent",
+              }}
             >
               {link.label}
             </Link>
@@ -55,7 +54,8 @@ export function Header() {
         <div className="flex items-center gap-1">
           {/* Hamburger */}
           <button
-            className="md:hidden p-1.5 text-zinc-400 hover:text-white transition-colors rounded-md hover:bg-zinc-800/60"
+            className="md:hidden p-1.5 transition-colors rounded-md"
+            style={{ color: CL2.slate }}
             onClick={() => setMenuOpen((o) => !o)}
             aria-label="Toggle menu"
           >
@@ -74,17 +74,17 @@ export function Header() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <nav className="md:hidden border-t border-zinc-800/80 px-4 py-2 flex flex-col">
+        <nav className="md:hidden px-4 py-2 flex flex-col" style={{ borderTop: `1px solid ${CL2.fog}` }}>
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className={`px-3 py-2.5 rounded-md text-sm font-bold transition-colors ${
-                isActive(link.href)
-                  ? "text-white bg-zinc-800/60"
-                  : "text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/40"
-              }`}
+              className="px-3 py-2.5 rounded-md text-sm font-bold transition-colors"
+              style={{
+                color: isActive(link.href) ? CL2.ink : CL2.slate,
+                background: isActive(link.href) ? CL2.paperDeep : "transparent",
+              }}
             >
               {link.label}
             </Link>
