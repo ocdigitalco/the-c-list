@@ -290,9 +290,8 @@ function InsertSetsAccordion({ insertSets, setSlug, setId }: {
   );
 }
 
-// ─── Base Parallels Table ────────────────────────────────────────────────────────
+// ─── Shared Odds Helpers ─────────────────────────────────────────────────────────
 
-// Box format label map for Base Parallels selector
 const BOX_LABEL_MAP: Record<string, string> = {
   hobby: "Hobby", jumbo: "Jumbo", breakers_delight: "Breaker's Delight",
   fdi: "First Day Issue", sapphire: "Sapphire", fanatics: "Fanatics",
@@ -301,8 +300,92 @@ const BOX_LABEL_MAP: Record<string, string> = {
   hanger_se: "Hanger", hanger_ea: "Hanger", hanger: "Hanger",
 };
 
-function BaseParallelsTable({ insertSets, packOddsJson, boxConfigJson }: {
-  insertSets: InsertSetDetail[]; packOddsJson: string | null; boxConfigJson: string | null;
+const BOX_FORMAT_ORDER = [
+  { key: "hobby", label: "Hobby" },
+  { key: "fdi", label: "FDI" },
+  { key: "jumbo", label: "Jumbo" },
+  { key: "breakers_delight", label: "Breaker's" },
+  { key: "value_se", label: "Value" }, { key: "value_ea", label: "Value" },
+  { key: "value_cee", label: "Value" }, { key: "value", label: "Value" },
+  { key: "mega_se", label: "Mega" }, { key: "mega_ea", label: "Mega" },
+  { key: "mega_cee", label: "Mega" }, { key: "mega", label: "Mega" },
+  { key: "hanger_se", label: "Hanger" }, { key: "hanger_ea", label: "Hanger" },
+  { key: "hanger", label: "Hanger" },
+  { key: "fanatics", label: "Fanatics" },
+  { key: "sapphire", label: "Sapphire" },
+];
+
+// Sets that get the multi-column odds layout
+const MULTI_COLUMN_SETS = new Set(["2025-topps-chrome-football"]);
+
+function parseAllFormats(packOddsJson: string | null): Record<string, Record<string, string | number>> {
+  if (!packOddsJson) return {};
+  try {
+    const raw = JSON.parse(packOddsJson);
+    const firstVal = Object.values(raw)[0];
+    if (typeof firstVal === "object" && firstVal !== null) return raw;
+    return { hobby: raw };
+  } catch { return {}; }
+}
+
+function getActiveColumns(allFormats: Record<string, Record<string, string | number>>): { key: string; label: string }[] {
+  const seen = new Set<string>();
+  const cols: { key: string; label: string }[] = [];
+  for (const fmt of BOX_FORMAT_ORDER) {
+    if (!allFormats[fmt.key]) continue;
+    if (seen.has(fmt.label)) continue;
+    seen.add(fmt.label);
+    cols.push(fmt);
+  }
+  return cols;
+}
+
+function lookupInFormat(
+  allFormats: Record<string, Record<string, string | number>>,
+  fmtKey: string, keys: string[]
+): string | number | null {
+  const boxOdds = allFormats[fmtKey];
+  if (!boxOdds) return null;
+  for (const key of keys) {
+    if (boxOdds[key] != null) return boxOdds[key];
+    const ciKey = Object.keys(boxOdds).find((k) => k.toLowerCase() === key.toLowerCase());
+    if (ciKey && boxOdds[ciKey] != null) return boxOdds[ciKey];
+  }
+  return null;
+}
+
+function normalizeParallelNameShared(name: string): string[] {
+  const candidates = [name];
+  if (name.endsWith(" Refractor")) candidates.push(name.replace(/ Refractor$/, ""));
+  candidates.push(name.replace("RayWave", "Ray Wave"));
+  // X-Fractor (hyphen) → Xfractor (no hyphen) and vice versa
+  if (name.includes("X-Fractor")) {
+    candidates.push(name.replace(/X-Fractor/g, "Xfractor"));
+    if (!name.includes("X-Fractor Refractor"))
+      candidates.push(name.replace("X-Fractor", "X-Fractor Refractor"));
+  }
+  if (name.includes("Xfractor") && !name.includes("X-Fractor")) {
+    candidates.push(name.replace(/Xfractor/g, "X-Fractor"));
+    if (!name.includes("Xfractor Refractor"))
+      candidates.push(name.replace("Xfractor", "Xfractor Refractor"));
+  }
+  return [...new Set(candidates)];
+}
+
+function buildLookupKeys(cardType: string, parallelName: string | null): string[] {
+  if (!parallelName) return [cardType, `${cardType} Cards`];
+  const names = normalizeParallelNameShared(parallelName);
+  return names.flatMap((n) => [
+    `${cardType} ${n}`, `${cardType} ${n} Parallel`,
+    `${cardType} Cards ${n}`, `${cardType} Cards ${n} Parallel`,
+    n, `Base ${n}`, `Base Cards ${n}`, `Base Cards ${n} Parallel`,
+  ]);
+}
+
+// ─── Base Parallels Table ────────────────────────────────────────────────────────
+
+function BaseParallelsTable({ insertSets, packOddsJson, boxConfigJson, setSlug }: {
+  insertSets: InsertSetDetail[]; packOddsJson: string | null; boxConfigJson: string | null; setSlug: string;
 }) {
   const baseInserts = insertSets.filter((is) => is.insertSetName.toLowerCase().includes("base"));
   const [activeIdx, setActiveIdx] = useState(0);
@@ -429,7 +512,38 @@ function BaseParallelsTable({ insertSets, packOddsJson, boxConfigJson }: {
     }
   }
 
-  if (rows.length === 0) return (
+  // Multi-column mode for specific sets
+  const useMultiCol = MULTI_COLUMN_SETS.has(setSlug);
+  const allFmts = useMemo(() => parseAllFormats(packOddsJson), [packOddsJson]);
+  const activeCols = useMemo(() => getActiveColumns(allFmts), [allFmts]);
+
+  interface MultiRow {
+    cardNumber: string; parallelName: string; printRun: number | null;
+    oddsPerFormat: Record<string, string | number | null>; key: string;
+  }
+  const multiRows: MultiRow[] = useMemo(() => {
+    if (!useMultiCol) return [];
+    const result: MultiRow[] = [];
+    for (const is of baseInserts) {
+      for (const app of is.appearances) {
+        const baseKeys = buildLookupKeys(is.insertSetName, "Base");
+        const baseOdds: Record<string, string | number | null> = {};
+        for (const col of activeCols) baseOdds[col.key] = lookupInFormat(allFmts, col.key, baseKeys);
+        result.push({ cardNumber: app.cardNumber, parallelName: "Base", printRun: null, oddsPerFormat: baseOdds, key: `${is.insertSetId}-${app.cardNumber}-base` });
+        for (const p of is.parallels) {
+          const pKeys = buildLookupKeys(is.insertSetName, p.name);
+          const pOdds: Record<string, string | number | null> = {};
+          for (const col of activeCols) pOdds[col.key] = lookupInFormat(allFmts, col.key, pKeys);
+          result.push({ cardNumber: app.cardNumber, parallelName: p.name, printRun: p.printRun, oddsPerFormat: pOdds, key: `${is.insertSetId}-${app.cardNumber}-${p.id}` });
+        }
+      }
+    }
+    return result;
+  }, [useMultiCol, baseInserts, activeCols, allFmts]);
+
+  const hobbyPpb = activeFormat ? (ppbMap[activeFormat.key] ?? ppbMap["hobby"] ?? 12) : 12;
+
+  if (rows.length === 0 && multiRows.length === 0) return (
     <div style={{ padding: "40px 20px", textAlign: "center", fontSize: 16, fontStyle: "italic", color: "#8A8677" }}>
       No base parallels found
     </div>
@@ -440,6 +554,119 @@ function BaseParallelsTable({ insertSets, packOddsJson, boxConfigJson }: {
     fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6,
     color: "#8A8677", borderBottom: "1px solid #EDEAE0", textTransform: "uppercase",
   };
+
+  function perBoxHobby(odds: string | number | null): string {
+    if (odds == null) return "—";
+    let denom: number;
+    if (typeof odds === "number") { denom = odds; }
+    else {
+      const m = odds.match(/(\d[\d,]*)\s*:\s*(\d[\d,]*)/);
+      if (!m) return "";
+      denom = parseInt(m[2].replace(/,/g, ""), 10) / parseInt(m[1].replace(/,/g, ""), 10);
+    }
+    if (isNaN(denom) || denom === 0) return "";
+    const v = hobbyPpb / denom;
+    if (v >= 10) return `~${Math.round(v)}×`;
+    if (v >= 1) return `~${v.toFixed(1)}×`;
+    return `~${v.toFixed(2)}×`;
+  }
+
+  // Multi-column desktop table for Chrome Football
+  if (useMultiCol && multiRows.length > 0) {
+    return (
+      <div className="space-y-4">
+        {/* Desktop multi-column */}
+        <div className="hidden min-[1180px]:block" style={{ overflowX: "auto" }}>
+          <table style={{ width: "100%", fontSize: 16, borderCollapse: "collapse" }}>
+            <thead>
+              <tr>
+                <th rowSpan={2} style={{ ...thStyle, textAlign: "left", width: 70 }}>CARD #</th>
+                <th rowSpan={2} style={{ ...thStyle, textAlign: "left" }}>PARALLEL TYPE</th>
+                <th rowSpan={2} style={{ ...thStyle, width: 70 }}>NUMBERED</th>
+                <th colSpan={activeCols.length} style={{ ...thStyle, textAlign: "center", borderBottom: "1px solid #EDEAE0" }}>PACK ODDS</th>
+                <th rowSpan={2} style={{ ...thStyle, width: 100 }}>{`PER BOX`}</th>
+              </tr>
+              <tr>
+                {activeCols.map((col) => (
+                  <th key={col.key} style={{ ...thStyle, fontSize: 8, letterSpacing: 1.2 }}>{col.label}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {multiRows.map((row) => (
+                <tr key={row.key} style={{ borderBottom: "1px solid #F4F1E8" }}>
+                  <td style={{ padding: "10px 12px", fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677" }}>#{row.cardNumber}</td>
+                  <td style={{ padding: "10px 12px" }}>
+                    <span style={{
+                      fontSize: 16, fontWeight: 500, padding: "3px 8px", borderRadius: 4,
+                      background: parallelTone(row.parallelName) + "18",
+                      color: parallelTone(row.parallelName),
+                      border: `1px solid ${parallelTone(row.parallelName)}30`,
+                      whiteSpace: "nowrap",
+                    }}>{row.parallelName}</span>
+                  </td>
+                  <td style={{ padding: "10px 12px", textAlign: "right", fontFamily: FONT_MONO, fontWeight: 600,
+                    color: row.printRun != null ? "#0F0F0E" : "#B7B2A3" }}>
+                    {row.printRun == null ? "—" : row.printRun === 1 ? "1/1" : `/${row.printRun}`}
+                  </td>
+                  {activeCols.map((col) => {
+                    const v = row.oddsPerFormat[col.key];
+                    return (
+                      <td key={col.key} style={{ padding: "10px 8px", textAlign: "right", fontFamily: FONT_MONO,
+                        whiteSpace: "nowrap", color: v != null ? "#0F0F0E" : "#B7B2A3", fontSize: 14 }}>
+                        {v != null ? displayOdds(v) : "—"}
+                      </td>
+                    );
+                  })}
+                  <td style={{ padding: "10px 12px", textAlign: "right", fontFamily: FONT_MONO, color: "#6B6757", fontSize: 14 }}>
+                    {perBoxHobby(row.oddsPerFormat["hobby"])}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        {/* Mobile: fallback to format selector UI */}
+        <div className="min-[1180px]:hidden space-y-4">
+          {formats.length > 1 && (
+            <div className="flex flex-wrap gap-1.5">
+              {formats.map((f, i) => (
+                <button key={f.key} onClick={() => setActiveIdx(i)}
+                  style={{
+                    borderRadius: 999, padding: "7px 12px", fontSize: 16, fontWeight: 600,
+                    background: i === activeIdx ? "#0F0F0E" : "#FFFFFF",
+                    color: i === activeIdx ? "#FAFAF7" : "#3A372F",
+                    border: i === activeIdx ? "1px solid #0F0F0E" : "1px solid #EDEAE0",
+                  }}>{f.label}</button>
+              ))}
+            </div>
+          )}
+          <div className="space-y-0">
+            {rows.map((row) => (
+              <div key={row.key} style={{ padding: "10px 0", borderBottom: "1px solid #F4F1E8" }}>
+                <div className="flex items-center gap-2">
+                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677" }}>#{row.cardNumber}</span>
+                  <span style={{
+                    fontSize: 16, fontWeight: 500, padding: "3px 8px", borderRadius: 4,
+                    background: parallelTone(row.parallelName) + "18",
+                    color: parallelTone(row.parallelName),
+                    border: `1px solid ${parallelTone(row.parallelName)}30`,
+                  }}>{row.parallelName}</span>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: row.printRun != null ? "#0F0F0E" : "#B7B2A3", marginLeft: "auto" }}>
+                    {row.printRun == null ? "—" : row.printRun === 1 ? "1/1" : `/${row.printRun}`}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 mt-1">
+                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: row.odds ? "#0F0F0E" : "#B7B2A3" }}>{displayOdds(row.odds)}</span>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#6B6757", marginLeft: "auto" }}>{row.odds != null ? perBoxStr(row.odds) : "—"}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-4">
@@ -544,8 +771,8 @@ function BaseParallelsTable({ insertSets, packOddsJson, boxConfigJson }: {
 
 // ─── Inserts / Autographs Odds Table ─────────────────────────────────────────
 
-function InsertAutoOddsTable({ headerLabel, insertSets, packOddsJson, boxConfigJson }: {
-  headerLabel: string; insertSets: InsertSetDetail[]; packOddsJson: string | null; boxConfigJson: string | null;
+function InsertAutoOddsTable({ headerLabel, insertSets, packOddsJson, boxConfigJson, setSlug }: {
+  headerLabel: string; insertSets: InsertSetDetail[]; packOddsJson: string | null; boxConfigJson: string | null; setSlug: string;
 }) {
   const [activeIdx, setActiveIdx] = useState(0);
 
@@ -668,7 +895,66 @@ function InsertAutoOddsTable({ headerLabel, insertSets, packOddsJson, boxConfigJ
     }
   }
 
-  if (rows.length === 0) return (
+  // Multi-column mode
+  const useMultiCol = MULTI_COLUMN_SETS.has(setSlug);
+  const allFmts = useMemo(() => parseAllFormats(packOddsJson), [packOddsJson]);
+  const activeCols = useMemo(() => getActiveColumns(allFmts), [allFmts]);
+
+  interface MultiOddsRow {
+    name: string; printRun: number | null; rare: boolean;
+    oddsPerFormat: Record<string, string | number | null>; key: string;
+  }
+  const multiRows: MultiOddsRow[] = useMemo(() => {
+    if (!useMultiCol) return [];
+    const result: MultiOddsRow[] = [];
+    for (const is of insertSets) {
+      const baseKeys = buildLookupKeys(is.insertSetName, null);
+      const baseOdds: Record<string, string | number | null> = {};
+      for (const col of activeCols) baseOdds[col.key] = lookupInFormat(allFmts, col.key, baseKeys);
+      result.push({ name: is.insertSetName, printRun: null, rare: false, oddsPerFormat: baseOdds, key: `${is.insertSetId}-base` });
+      for (const p of is.parallels) {
+        const pKeys = buildLookupKeys(is.insertSetName, p.name);
+        const pOdds: Record<string, string | number | null> = {};
+        for (const col of activeCols) pOdds[col.key] = lookupInFormat(allFmts, col.key, pKeys);
+        result.push({
+          name: `${is.insertSetName} ${p.name}`, printRun: p.printRun,
+          rare: p.name.toLowerCase().includes("superfractor") || (p.printRun != null && p.printRun <= 5),
+          oddsPerFormat: pOdds, key: `${is.insertSetId}-${p.id}`,
+        });
+      }
+    }
+    return result;
+  }, [useMultiCol, insertSets, activeCols, allFmts]);
+
+  const hobbyPpb2 = (() => {
+    if (!boxConfigJson) return 12;
+    try {
+      const raw = JSON.parse(boxConfigJson);
+      const firstVal = Object.values(raw)[0];
+      if (typeof firstVal === "object" && firstVal !== null) {
+        return (raw as Record<string, Record<string, number>>)["hobby"]?.packs_per_box ?? 12;
+      }
+      return (raw as Record<string, number>).packs_per_box ?? 12;
+    } catch { return 12; }
+  })();
+
+  function perBoxHobby2(odds: string | number | null): string {
+    if (odds == null) return "—";
+    let denom: number;
+    if (typeof odds === "number") { denom = odds; }
+    else {
+      const m = odds.match(/(\d[\d,]*)\s*:\s*(\d[\d,]*)/);
+      if (!m) return "";
+      denom = parseInt(m[2].replace(/,/g, ""), 10) / parseInt(m[1].replace(/,/g, ""), 10);
+    }
+    if (isNaN(denom) || denom === 0) return "";
+    const v = hobbyPpb2 / denom;
+    if (v >= 10) return `~${Math.round(v)}×`;
+    if (v >= 1) return `~${v.toFixed(1)}×`;
+    return `~${v.toFixed(2)}×`;
+  }
+
+  if (rows.length === 0 && multiRows.length === 0) return (
     <div style={{ padding: "40px 20px", textAlign: "center", fontSize: 16, fontStyle: "italic", color: "#8A8677" }}>
       No {headerLabel.toLowerCase()} found
     </div>
@@ -679,6 +965,79 @@ function InsertAutoOddsTable({ headerLabel, insertSets, packOddsJson, boxConfigJ
     fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6,
     color: "#8A8677", borderBottom: "1px solid #EDEAE0", textTransform: "uppercase",
   };
+
+  // Multi-column desktop for Chrome Football
+  if (useMultiCol && multiRows.length > 0) {
+    return (
+      <div className="space-y-4">
+        <div className="hidden min-[1180px]:block" style={{ overflowX: "auto" }}>
+          <table style={{ width: "100%", fontSize: 16, borderCollapse: "collapse" }}>
+            <thead>
+              <tr>
+                <th rowSpan={2} style={{ ...thStyle, textAlign: "left" }}>{headerLabel}</th>
+                <th rowSpan={2} style={{ ...thStyle, width: 70 }}>NUMBERED</th>
+                <th colSpan={activeCols.length} style={{ ...thStyle, textAlign: "center", borderBottom: "1px solid #EDEAE0" }}>PACK ODDS</th>
+                <th rowSpan={2} style={{ ...thStyle, width: 100 }}>PER BOX</th>
+              </tr>
+              <tr>
+                {activeCols.map((col) => (
+                  <th key={col.key} style={{ ...thStyle, fontSize: 8, letterSpacing: 1.2 }}>{col.label}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {multiRows.map((row) => (
+                <tr key={row.key} style={{ borderBottom: "1px solid #F4F1E8" }}>
+                  <td style={{ padding: "10px 12px", color: row.rare ? "#9A2B14" : "#0F0F0E" }}>{row.name}</td>
+                  <td style={{ padding: "10px 12px", textAlign: "right", fontFamily: FONT_MONO, fontWeight: 600,
+                    color: row.printRun != null ? "#0F0F0E" : "#B7B2A3" }}>
+                    {row.printRun == null ? "—" : row.printRun === 1 ? "1/1" : `/${row.printRun}`}
+                  </td>
+                  {activeCols.map((col) => {
+                    const v = row.oddsPerFormat[col.key];
+                    return (
+                      <td key={col.key} style={{ padding: "10px 8px", textAlign: "right", fontFamily: FONT_MONO,
+                        whiteSpace: "nowrap", color: v != null ? (row.rare ? "#9A2B14" : "#0F0F0E") : "#B7B2A3", fontSize: 14 }}>
+                        {v != null ? displayOdds(v) : "—"}
+                      </td>
+                    );
+                  })}
+                  <td style={{ padding: "10px 12px", textAlign: "right", fontFamily: FONT_MONO, color: "#6B6757", fontSize: 14 }}>
+                    {perBoxHobby2(row.oddsPerFormat["hobby"])}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        {/* Mobile: fallback to format selector */}
+        <div className="min-[1180px]:hidden space-y-4">
+          {formats.length > 1 && (
+            <div className="flex flex-wrap gap-1.5">
+              {formats.map((f, i) => (
+                <button key={f.key} onClick={() => setActiveIdx(i)}
+                  style={{
+                    borderRadius: 999, padding: "7px 12px", fontSize: 16, fontWeight: 600,
+                    background: i === activeIdx ? "#0F0F0E" : "#FFFFFF",
+                    color: i === activeIdx ? "#FAFAF7" : "#3A372F",
+                    border: i === activeIdx ? "1px solid #0F0F0E" : "1px solid #EDEAE0",
+                  }}>{f.label}</button>
+              ))}
+            </div>
+          )}
+          <div className="space-y-0">
+            {rows.map((row) => (
+              <div key={row.key} className="flex items-center" style={{ padding: "10px 0", borderBottom: "1px solid #F4F1E8" }}>
+                <span style={{ flex: 1, fontSize: 16, color: row.rare ? "#9A2B14" : "#0F0F0E" }}>{row.name}</span>
+                <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 500, color: row.odds ? "#0F0F0E" : "#B7B2A3", marginLeft: 8 }}>{displayOdds(row.odds)}</span>
+                <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#6B6757", width: 90, textAlign: "right", marginLeft: "auto" }}>{row.odds != null ? perBoxStr(row.odds) : "—"}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-4">
@@ -1023,7 +1382,7 @@ export function AthleteDetailClient({
               <InsertSetsAccordion insertSets={insertSets} setSlug={setSlug} setId={setId} />
             )}
             {tab === "Base Parallels" && (
-              <BaseParallelsTable insertSets={insertSets} packOddsJson={packOddsJson} boxConfigJson={boxConfigJson} />
+              <BaseParallelsTable insertSets={insertSets} packOddsJson={packOddsJson} boxConfigJson={boxConfigJson} setSlug={setSlug} />
             )}
             {tab === "Inserts" && (
               <InsertAutoOddsTable
@@ -1032,7 +1391,7 @@ export function AthleteDetailClient({
                   const l = is.insertSetName.toLowerCase();
                   return !l.includes("base") && !l.includes("auto") && !l.includes("signature");
                 })}
-                packOddsJson={packOddsJson} boxConfigJson={boxConfigJson}
+                packOddsJson={packOddsJson} boxConfigJson={boxConfigJson} setSlug={setSlug}
               />
             )}
             {tab === "Autographs" && (
@@ -1042,7 +1401,7 @@ export function AthleteDetailClient({
                   const l = is.insertSetName.toLowerCase();
                   return l.includes("auto") || l.includes("signature");
                 })}
-                packOddsJson={packOddsJson} boxConfigJson={boxConfigJson}
+                packOddsJson={packOddsJson} boxConfigJson={boxConfigJson} setSlug={setSlug}
               />
             )}
             {tab === "Also Featured In" && <AlsoFeaturedIn otherSets={otherSets} />}
@@ -1185,7 +1544,7 @@ export function AthleteDetailClient({
                 const l = is.insertSetName.toLowerCase();
                 return !l.includes("base") && !l.includes("auto") && !l.includes("signature");
               })}
-              packOddsJson={packOddsJson} boxConfigJson={boxConfigJson}
+              packOddsJson={packOddsJson} boxConfigJson={boxConfigJson} setSlug={setSlug}
             />
           )}
           {tab === "Autographs" && (
@@ -1195,7 +1554,7 @@ export function AthleteDetailClient({
                 const l = is.insertSetName.toLowerCase();
                 return l.includes("auto") || l.includes("signature");
               })}
-              packOddsJson={packOddsJson} boxConfigJson={boxConfigJson}
+              packOddsJson={packOddsJson} boxConfigJson={boxConfigJson} setSlug={setSlug}
             />
           )}
           {tab === "Also Featured In" && <AlsoFeaturedIn otherSets={otherSets} />}
