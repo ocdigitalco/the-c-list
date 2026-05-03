@@ -897,10 +897,10 @@ export function AthleteDetailClient({
             <Link href={`/sets/${setSlug || setId}`} style={{ fontSize: 16, color: "#6B6757", textDecoration: "none", fontFamily: FONT_DISPLAY }}>
               &lsaquo; {setName}
             </Link>
-            <div className="grid items-center gap-8 mt-4" style={{ gridTemplateColumns: "180px 1fr 300px" }}>
+            <div className="grid items-center gap-8 mt-4" style={{ gridTemplateColumns: "140px 1fr 300px" }}>
               {/* Photo */}
               <div className="flex items-center justify-center" style={{
-                width: 180, height: 180, background: "#EAE6D9", borderRadius: 12, overflow: "hidden",
+                width: 140, height: 140, background: "#EAE6D9", borderRadius: 12, overflow: "hidden",
               }}>
                 {(() => {
                   const url = getNBAHeadshotUrl(nbaPlayerId) ?? getUFCHeadshotUrl(ufcImageUrl) ?? getMLBHeadshotUrl(mlbPlayerId) ?? (imageUrl || null);
