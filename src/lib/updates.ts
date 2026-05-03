@@ -12,6 +12,18 @@ export interface Update {
 }
 
 export const updates: Update[] = [
+  // ─── May 2, 2026 ────────────────────────────────────────────────────────
+  {
+    id: "149-mls-chrome-odds",
+    title: "2025 Topps Chrome MLS — Pack Odds Added",
+    date: "2026-05-02T12:00:00Z",
+    summary: "Full pack odds added across 5 box formats (Hobby, Value, Hanger, Mania, Sapphire) covering base parallels, inserts, and autographs.",
+    description: `## 2025 Topps Chrome MLS — Pack Odds Added
+
+Full pack odds added across 5 box formats: Hobby (125 entries), Value (69), Hanger (64), Mania (43), Sapphire (29). 186 total odds entries covering base parallels, inserts (Big City Strikers, Class of Their Own, Elimination, Fast Lane, Pearlers, Helix, MVP, The Grail), and autographs (Chrome Autographs, MLS Renaissance, Dual Autographs, Topps 1995, MLS All-Timers, Mania, Sapphire Selections).`,
+    tags: ["odds"],
+    setId: 6,
+  },
   // ─── April 29, 2026 ──────────────────────────────────────────────────────
   {
     id: "148-toy-story-full",
