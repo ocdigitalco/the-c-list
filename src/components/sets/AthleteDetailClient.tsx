@@ -409,19 +409,19 @@ function BaseParallelsTable({ insertSets, packOddsJson, boxConfigJson }: {
 
   // Build rows
   interface ParallelRow {
-    parallelName: string; printRun: number | null; odds: string | number | null; key: string;
+    cardNumber: string; parallelName: string; printRun: number | null; odds: string | number | null; key: string;
   }
   const rows: ParallelRow[] = [];
   for (const is of baseInserts) {
     for (const app of is.appearances) {
       rows.push({
-        parallelName: "Base", printRun: null,
+        cardNumber: app.cardNumber, parallelName: "Base", printRun: null,
         odds: lookupOdds(is.insertSetName, "Base") ?? lookupOdds("Base Cards", "Base"),
         key: `${is.insertSetId}-${app.cardNumber}-base`,
       });
       for (const p of is.parallels) {
         rows.push({
-          parallelName: p.name, printRun: p.printRun,
+          cardNumber: app.cardNumber, parallelName: p.name, printRun: p.printRun,
           odds: lookupOdds(is.insertSetName, p.name),
           key: `${is.insertSetId}-${app.cardNumber}-${p.id}`,
         });
@@ -466,7 +466,8 @@ function BaseParallelsTable({ insertSets, packOddsJson, boxConfigJson }: {
         <table className="w-full" style={{ fontSize: 16 }}>
           <thead>
             <tr>
-              <th style={{ ...thStyle, textAlign: "left" }}>BASE PARALLELS</th>
+              <th style={{ ...thStyle, textAlign: "left", width: 70 }}>CARD #</th>
+              <th style={{ ...thStyle, textAlign: "left" }}>PARALLEL TYPE</th>
               <th style={{ ...thStyle, width: 70 }}>NUMBERED</th>
               <th style={{ ...thStyle, width: 100 }}>PACK ODDS</th>
               <th style={{ ...thStyle, width: 160 }}>{`PER BOX (${packsPerBox} PACKS)`}</th>
@@ -475,6 +476,9 @@ function BaseParallelsTable({ insertSets, packOddsJson, boxConfigJson }: {
           <tbody>
             {rows.map((row) => (
               <tr key={row.key} style={{ borderBottom: "1px solid #F4F1E8" }}>
+                <td style={{ padding: "12px 12px", fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677" }}>
+                  #{row.cardNumber}
+                </td>
                 <td style={{ padding: "12px 12px" }}>
                   <span style={{
                     fontSize: 16, fontWeight: 500, padding: "3px 8px", borderRadius: 4,
@@ -506,22 +510,29 @@ function BaseParallelsTable({ insertSets, packOddsJson, boxConfigJson }: {
       {/* Mobile */}
       <div className="min-[1180px]:hidden space-y-0">
         {rows.map((row) => (
-          <div key={row.key} className="flex items-center" style={{ padding: "10px 0", borderBottom: "1px solid #F4F1E8" }}>
-            <span style={{
-              flex: 1, fontSize: 16, fontWeight: 500, padding: "3px 8px", borderRadius: 4,
-              background: parallelTone(row.parallelName) + "18",
-              color: parallelTone(row.parallelName),
-              border: `1px solid ${parallelTone(row.parallelName)}30`,
-              whiteSpace: "nowrap", width: "fit-content",
-            }}>
-              {row.parallelName}
-            </span>
-            <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 500, color: row.odds ? "#0F0F0E" : "#B7B2A3", marginLeft: 8 }}>
-              {displayOdds(row.odds)}
-            </span>
-            <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#6B6757", width: 90, textAlign: "right", marginLeft: "auto" }}>
-              {row.odds != null ? perBoxStr(row.odds) : "—"}
-            </span>
+          <div key={row.key} style={{ padding: "10px 0", borderBottom: "1px solid #F4F1E8" }}>
+            <div className="flex items-center gap-2">
+              <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677" }}>#{row.cardNumber}</span>
+              <span style={{
+                fontSize: 16, fontWeight: 500, padding: "3px 8px", borderRadius: 4,
+                background: parallelTone(row.parallelName) + "18",
+                color: parallelTone(row.parallelName),
+                border: `1px solid ${parallelTone(row.parallelName)}30`,
+              }}>
+                {row.parallelName}
+              </span>
+              <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: row.printRun != null ? "#0F0F0E" : "#B7B2A3", marginLeft: "auto" }}>
+                {row.printRun == null ? "—" : row.printRun === 1 ? "1/1" : `/${row.printRun}`}
+              </span>
+            </div>
+            <div className="flex items-center gap-2 mt-1">
+              <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: row.odds ? "#0F0F0E" : "#B7B2A3" }}>
+                {displayOdds(row.odds)}
+              </span>
+              <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#6B6757", marginLeft: "auto" }}>
+                {row.odds != null ? perBoxStr(row.odds) : "—"}
+              </span>
+            </div>
           </div>
         ))}
       </div>
@@ -592,11 +603,18 @@ function InsertAutoOddsTable({ headerLabel, insertSets, packOddsJson, boxConfigJ
     : 12;
 
   function lookupOdds(insertSetName: string, parallelName: string | null): string | number | null {
+    const base = insertSetName.trim();
+    const suffix = parallelName?.trim() || null;
     const keyAttempts: string[] = [];
-    if (parallelName) {
-      keyAttempts.push(`${insertSetName} ${parallelName}`, `${insertSetName} ${parallelName} Parallel`);
+    if (suffix) {
+      keyAttempts.push(
+        `${base} ${suffix}`,
+        `${base} ${suffix} Parallel`,
+        `${base} Cards ${suffix}`,
+        `${base} Cards ${suffix} Parallel`,
+      );
     }
-    keyAttempts.push(insertSetName);
+    keyAttempts.push(base, `${base} Cards`);
     for (const key of keyAttempts) {
       if (activeOdds[key] != null) return activeOdds[key];
       const ciKey = Object.keys(activeOdds).find((k) => k.toLowerCase() === key.toLowerCase());
@@ -698,7 +716,7 @@ function InsertAutoOddsTable({ headerLabel, insertSets, packOddsJson, boxConfigJ
                 <td style={{ padding: "12px 12px", color: row.rare ? "#9A2B14" : "#0F0F0E" }}>{row.name}</td>
                 <td style={{ padding: "12px 12px", textAlign: "right", fontFamily: FONT_MONO, fontWeight: 600,
                   color: row.printRun != null ? "#0F0F0E" : "#B7B2A3" }}>
-                  {row.printRun == null ? "���" : row.printRun === 1 ? "1/1" : `/${row.printRun}`}
+                  {row.printRun == null ? "—" : row.printRun === 1 ? "1/1" : `/${row.printRun}`}
                 </td>
                 <td style={{ padding: "12px 12px", textAlign: "right", fontFamily: FONT_MONO,
                   color: row.odds ? (row.rare ? "#9A2B14" : "#0F0F0E") : "#B7B2A3" }}>
