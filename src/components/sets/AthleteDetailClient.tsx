@@ -8,6 +8,7 @@ import { getNBAHeadshotUrl } from "@/lib/nba-headshot";
 import { getUFCHeadshotUrl } from "@/lib/ufc-headshot";
 import { getMLBHeadshotUrl } from "@/lib/mlb-headshot";
 import { trackEvent } from "@/lib/trackEvent";
+import { findOddsKey, lookupOddsValue } from "@/lib/oddsUtils";
 
 // ─── Constants ──────────────────────────────────────────────────────────────────
 
@@ -373,13 +374,33 @@ function normalizeParallelNameShared(name: string): string[] {
 }
 
 function buildLookupKeys(cardType: string, parallelName: string | null): string[] {
-  if (!parallelName) return [cardType, `${cardType} Cards`];
+  // Generate base name variations (singular/plural/"Cards" suffix)
+  const baseNames = [cardType];
+  if (cardType.endsWith("s")) baseNames.push(cardType.slice(0, -1));
+  else baseNames.push(cardType + "s");
+  if (!cardType.endsWith(" Cards") && !cardType.endsWith(" Card")) {
+    if (cardType.endsWith("s")) baseNames.push(cardType.slice(0, -1) + " Cards");
+    baseNames.push(cardType + " Cards");
+    baseNames.push(cardType + " Card");
+  }
+  if (cardType.endsWith(" Autographs")) {
+    baseNames.push(cardType.replace(/ Autographs$/, " Autograph Card"));
+    baseNames.push(cardType.replace(/ Autographs$/, " Autograph Cards"));
+  }
+  const uniqueBases = [...new Set(baseNames)];
+
+  if (!parallelName) return [...uniqueBases, "Base", "Base Cards"];
   const names = normalizeParallelNameShared(parallelName);
-  return names.flatMap((n) => [
-    `${cardType} ${n}`, `${cardType} ${n} Parallel`,
-    `${cardType} Cards ${n}`, `${cardType} Cards ${n} Parallel`,
-    n, `Base ${n}`, `Base Cards ${n}`, `Base Cards ${n} Parallel`,
-  ]);
+  const keys: string[] = [];
+  for (const base of uniqueBases) {
+    for (const n of names) {
+      keys.push(`${base} ${n}`, `${base} ${n} Parallel`);
+    }
+  }
+  for (const n of names) {
+    keys.push(n, `Base ${n}`, `Base Cards ${n}`, `Base Cards ${n} Parallel`);
+  }
+  return [...new Set(keys)];
 }
 
 // ─── Base Parallels Table ────────────────────────────────────────────────────────
@@ -458,14 +479,16 @@ function BaseParallelsTable({ insertSets, packOddsJson, boxConfigJson, setSlug }
 
   function lookupOdds(cardType: string, parallelName: string): string | number | null {
     const normalizedNames = normalizeParallelName(parallelName);
-    const keyAttempts = normalizedNames.flatMap((n) => [
-      `${cardType} ${n}`, `${cardType} ${n} Parallel`, n,
-      `Base ${n}`, `Base Cards ${n}`, `Base Cards ${n} Parallel`,
-    ]);
-    for (const key of keyAttempts) {
-      if (activeOdds[key] != null) return activeOdds[key];
-      const ciKey = Object.keys(activeOdds).find((k) => k.toLowerCase() === key.toLowerCase());
-      if (ciKey && activeOdds[ciKey] != null) return activeOdds[ciKey];
+    for (const n of normalizedNames) {
+      // Try with the card type prefix
+      const result = lookupOddsValue(activeOdds as Record<string, string | number>, cardType, n);
+      if (result != null) return result;
+      // Try with "Base" prefix
+      const baseResult = lookupOddsValue(activeOdds as Record<string, string | number>, "Base", n);
+      if (baseResult != null) return baseResult;
+      // Try parallel name alone
+      const foundKey = findOddsKey(n, Object.keys(activeOdds));
+      if (foundKey && activeOdds[foundKey] != null) return activeOdds[foundKey];
     }
     return null;
   }
@@ -830,24 +853,7 @@ function InsertAutoOddsTable({ headerLabel, insertSets, packOddsJson, boxConfigJ
     : 12;
 
   function lookupOdds(insertSetName: string, parallelName: string | null): string | number | null {
-    const base = insertSetName.trim();
-    const suffix = parallelName?.trim() || null;
-    const keyAttempts: string[] = [];
-    if (suffix) {
-      keyAttempts.push(
-        `${base} ${suffix}`,
-        `${base} ${suffix} Parallel`,
-        `${base} Cards ${suffix}`,
-        `${base} Cards ${suffix} Parallel`,
-      );
-    }
-    keyAttempts.push(base, `${base} Cards`);
-    for (const key of keyAttempts) {
-      if (activeOdds[key] != null) return activeOdds[key];
-      const ciKey = Object.keys(activeOdds).find((k) => k.toLowerCase() === key.toLowerCase());
-      if (ciKey && activeOdds[ciKey] != null) return activeOdds[ciKey];
-    }
-    return null;
+    return lookupOddsValue(activeOdds as Record<string, string | number>, insertSetName, parallelName);
   }
 
   function perBoxStr(oddsStr: string | number): string {

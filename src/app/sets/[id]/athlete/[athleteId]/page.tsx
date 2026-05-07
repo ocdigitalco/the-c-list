@@ -10,6 +10,7 @@ import {
 import { eq, inArray, asc, sql, and } from "drizzle-orm";
 import { notFound, redirect } from "next/navigation";
 import type { LeaderboardRow, InsertSetDetail, BoxConfigSingle, BoxConfigMulti, BoxFormatSummary } from "@/components/sets/types";
+import { findOddsKey } from "@/lib/oddsUtils";
 import type { PackOddsSlot, BoxFormat } from "@/components/PackOddsCalculator";
 import { AthleteDetailClient } from "@/components/sets/AthleteDetailClient";
 
@@ -381,19 +382,12 @@ export default async function V2AthletePage({
     };
 
     function resolvePrefix(name: string, packOddsData: Record<string, number>): string {
-      if (name === "Base Set") return "Base";
+      if (name === "Base Set") return findOddsKey("Base Set", Object.keys(packOddsData)) ?? "Base";
       const overridden = ODDS_KEY_OVERRIDES[name];
       if (overridden) return overridden;
-      // Direct match — use as-is
-      if (name in packOddsData) return name;
-      // Case-insensitive fallback (e.g. "Ace Of Trades" vs "Ace of Trades")
-      const ciMatch = Object.keys(packOddsData).find(
-        (k) => k.toLowerCase() === name.toLowerCase()
-      );
-      if (ciMatch) return ciMatch;
-      // Base subset variants (e.g. "Base - Comic Accurate", "Base Cards I",
-      // "Base Tier III") should map to the common base odds prefix.
-      // Try "Base Cards" first (Deadpool style), then "Base" (WWE Chrome style / F1 style).
+      const found = findOddsKey(name, Object.keys(packOddsData));
+      if (found) return found;
+      // Base subset fallback
       if (name.startsWith("Base")) {
         if ("Base Cards" in packOddsData) return "Base Cards";
         const hasBasePrefix = Object.keys(packOddsData).some((k) => k.startsWith("Base "));
