@@ -14,15 +14,15 @@ export interface Update {
 export const updates: Update[] = [
   // ─── May 6, 2026 ────────────────────────────────────────────────────────
   {
-    id: "151-ucc-2026",
-    title: "2026 Topps UEFA Club Competitions",
+    id: "151-ucc-chrome-parallels",
+    title: "2025-26 Topps Chrome UEFA Club Competitions — Numbered Parallels Added",
     date: "2026-05-06T14:00:00Z",
-    summary: "New set added with 30 insert sets and 122 parallels covering base, inserts, chase cards, autographs, relics, and silver packs.",
-    description: `## 2026 Topps UEFA Club Competitions
+    summary: "Added 122 numbered parallels across 27 new insert sets including base, inserts, autographs, relics, and silver packs.",
+    description: `## 2025-26 Topps Chrome UEFA Club Competitions — Numbered Parallels Added
 
-New set created for the 2025/26 UEFA season. 30 insert sets with 122 total parallels. Includes 200-card base set with 26 parallel variations (Raindrops, FlowFractors, Foils down to 1/1 FoilFractor), 5 standard inserts (Roots, Trophy Chasers, Best of the Best, Born Champ, 8Bit Shots), 8 chase inserts (Home Pitch Advantage, Mindgame, Murals, JIGSAW, HYPE, The Grail, UCL Sketch Cards, Messi Anniversary Sketch Cards), 8 autograph sets, 4 relic/auto-relic sets, and Ultimate Stage Chrome silver pack cards.`,
+Added numbered parallels across all insert sets including base (26 parallels: Raindrops, FlowFractors, Foils down to 1/1 FoilFractor), 5 standard inserts (Roots, Trophy Chasers, Best of the Best, Born Champ, 8Bit Shots), 8 chase inserts, 8 autograph sets (Base Card/Future Stars/Teammates Dual/Roots/Legendary Numbers/1955/Marks of Excellence), 4 relic sets, and Ultimate Stage Chrome silver pack cards.`,
     tags: ["checklist"],
-    setId: 839,
+    setId: 43,
   },
   {
     id: "150-athlete-6-stat-strip",
