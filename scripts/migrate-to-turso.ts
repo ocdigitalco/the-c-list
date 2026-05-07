@@ -139,8 +139,10 @@ async function createSchema() {
 // ── Data migration ───────────────────────────────────────────────────────────
 
 async function migrateData() {
+  // Disable foreign key checks for bulk migration
+  await exec("PRAGMA foreign_keys = OFF");
+
   console.log("\nClearing Turso tables...");
-  // Delete in reverse dependency order to respect foreign keys
   const clearOrder = [
     "player_events", "appearance_co_players", "player_appearances",
     "parallels", "players", "insert_sets", "topps_sets", "sets",
@@ -181,6 +183,9 @@ async function migrateData() {
 
   // 8. player_events (depends on players) — optional analytics data
   await batchInsert("player_events", readAll("player_events"));
+
+  // Re-enable foreign key checks
+  await exec("PRAGMA foreign_keys = ON");
 }
 
 // ── Verification ─────────────────────────────────────────────────────────────
