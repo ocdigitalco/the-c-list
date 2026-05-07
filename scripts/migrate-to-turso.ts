@@ -139,6 +139,22 @@ async function createSchema() {
 // ── Data migration ───────────────────────────────────────────────────────────
 
 async function migrateData() {
+  console.log("\nClearing Turso tables...");
+  // Delete in reverse dependency order to respect foreign keys
+  const clearOrder = [
+    "player_events", "appearance_co_players", "player_appearances",
+    "parallels", "players", "insert_sets", "topps_sets", "sets",
+  ];
+  for (const table of clearOrder) {
+    try {
+      await exec(`DELETE FROM "${table}"`);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      console.warn(`  Warning clearing ${table}: ${msg}`);
+    }
+  }
+  console.log("  Cleared all tables.");
+
   console.log("\nMigrating data...");
 
   // Order matters: parent tables before children (foreign key dependencies)
