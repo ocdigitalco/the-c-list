@@ -609,6 +609,15 @@ export default async function V2AthletePage({
     parallels: is.parallels.map((p) => ({ id: p.id, name: p.name, printRun: p.printRun })),
   }));
 
+  // Compute autograph stats for the stat strip
+  const autoInsertSets = playerInsertSets.filter((is) =>
+    autoKeywords.some((kw) => is.insertSetName.toLowerCase().includes(kw))
+  );
+  const athleteAutographs = autoInsertSets.reduce((sum, is) => sum + is.appearances.length, 0);
+  const athleteAutoParallels = autoInsertSets.reduce((sum, is) =>
+    sum + is.appearances.length * is.parallels.filter((p) => p.printRun !== null).length, 0
+  );
+
   return (
     <AthleteDetailClient
       athleteName={playerData.name}
@@ -627,6 +636,8 @@ export default async function V2AthletePage({
       league={setRow.league ?? null}
       cardTypes={playerData.insertSetCount ?? 0}
       totalCards={playerData.uniqueCards ?? 0}
+      autographs={athleteAutographs}
+      autoParallels={athleteAutoParallels}
       numberedParallels={playerData.totalPrintRun ?? 0}
       oneOfOnes={playerData.oneOfOnes ?? 0}
       insertSets={plainInsertSets}

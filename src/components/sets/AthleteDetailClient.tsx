@@ -57,6 +57,8 @@ export interface AthleteDetailClientProps {
   // Stats
   cardTypes: number;
   totalCards: number;
+  autographs: number;
+  autoParallels: number;
   numberedParallels: number;
   oneOfOnes: number;
   // Data
@@ -1230,7 +1232,7 @@ export function AthleteDetailClient({
   athleteName, athleteId, athleteSlug, teams, hasRookie,
   nbaPlayerId, ufcImageUrl, mlbPlayerId, imageUrl,
   setName, setSlug, setId, sport, league,
-  cardTypes, totalCards, numberedParallels, oneOfOnes,
+  cardTypes, totalCards, autographs, autoParallels, numberedParallels, oneOfOnes,
   insertSets, otherSets, packOddsJson, boxConfigJson,
   packOddsSlotsByFormat, boxFormats, totalAutoCards, playerAutoCards, hasBreakCalc,
   entries, hasTeamData,
@@ -1241,7 +1243,9 @@ export function AthleteDetailClient({
   const statItems = [
     { label: "Card Types", value: cardTypes },
     { label: "Total Cards", value: totalCards },
-    { label: "Numbered Parallels", value: numberedParallels },
+    { label: "Autographs", value: autographs },
+    { label: "Auto Parallels", value: autoParallels },
+    { label: "Numbered", value: numberedParallels },
     { label: "1/1s", value: oneOfOnes },
   ];
 
@@ -1330,11 +1334,11 @@ export function AthleteDetailClient({
 
           {/* Stat strip */}
           <div className="grid" style={{
-            gridTemplateColumns: "repeat(4, 1fr)", borderBottom: "1px solid #EDEAE0", background: "#FFFFFF",
+            gridTemplateColumns: "repeat(6, 1fr)", borderBottom: "1px solid #EDEAE0", background: "#FFFFFF",
           }}>
             {statItems.map((item, i) => (
               <div key={item.label} style={{
-                padding: "18px 22px", borderRight: i < statItems.length - 1 ? "1px solid #EDEAE0" : "none",
+                padding: "18px 16px", borderRight: i < statItems.length - 1 ? "1px solid #EDEAE0" : "none",
               }}>
                 <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase" }}>
                   {item.label}
@@ -1478,17 +1482,18 @@ export function AthleteDetailClient({
         </div>
 
         {/* Stat grid */}
-        <div className="grid" style={{
-          gridTemplateColumns: "repeat(4, 1fr)", borderBottom: "1px solid #EDEAE0", background: "#FFFFFF",
+        <div className="flex overflow-x-auto no-scrollbar" style={{
+          borderBottom: "1px solid #EDEAE0", background: "#FFFFFF",
         }}>
           {statItems.map((item, i) => (
             <div key={item.label} style={{
               padding: "12px 10px", borderRight: i < statItems.length - 1 ? "1px solid #EDEAE0" : "none",
+              minWidth: "16.67%", flex: "1 0 auto",
             }}>
-              <div style={{ fontFamily: FONT_MONO, fontSize: 8, fontWeight: 600, letterSpacing: 1.2, color: "#8A8677", textTransform: "uppercase" }}>
+              <div style={{ fontFamily: FONT_MONO, fontSize: 7, fontWeight: 600, letterSpacing: 1, color: "#8A8677", textTransform: "uppercase" }}>
                 {item.label}
               </div>
-              <div style={{ fontFamily: FONT_DISPLAY, fontSize: 18, fontWeight: 600, letterSpacing: -0.5, color: "#0F0F0E", marginTop: 4 }}>
+              <div style={{ fontFamily: FONT_DISPLAY, fontSize: 16, fontWeight: 600, letterSpacing: -0.5, color: "#0F0F0E", marginTop: 4 }}>
                 {item.value.toLocaleString()}
               </div>
             </div>

@@ -12,6 +12,28 @@ export interface Update {
 }
 
 export const updates: Update[] = [
+  // ─── May 6, 2026 ────────────────────────────────────────────────────────
+  {
+    id: "151-ucc-2026",
+    title: "2026 Topps UEFA Club Competitions",
+    date: "2026-05-06T14:00:00Z",
+    summary: "New set added with 30 insert sets and 122 parallels covering base, inserts, chase cards, autographs, relics, and silver packs.",
+    description: `## 2026 Topps UEFA Club Competitions
+
+New set created for the 2025/26 UEFA season. 30 insert sets with 122 total parallels. Includes 200-card base set with 26 parallel variations (Raindrops, FlowFractors, Foils down to 1/1 FoilFractor), 5 standard inserts (Roots, Trophy Chasers, Best of the Best, Born Champ, 8Bit Shots), 8 chase inserts (Home Pitch Advantage, Mindgame, Murals, JIGSAW, HYPE, The Grail, UCL Sketch Cards, Messi Anniversary Sketch Cards), 8 autograph sets, 4 relic/auto-relic sets, and Ultimate Stage Chrome silver pack cards.`,
+    tags: ["checklist"],
+    setId: 839,
+  },
+  {
+    id: "150-athlete-6-stat-strip",
+    title: "Athlete Page — Expanded 6-Stat Strip",
+    date: "2026-05-06T12:00:00Z",
+    summary: "Expanded the athlete page stat strip from 4 to 6 stats, adding Autographs and Autograph Parallels counts.",
+    description: `## Athlete Page — Expanded 6-Stat Strip
+
+Expanded the athlete page stat strip from 4 to 6 stats, adding Autographs and Autograph Parallels counts alongside the existing Card Types, Total Cards, Numbered, and 1/1s. Mobile stat strip now scrolls horizontally to fit all 6 values.`,
+    tags: ["feature"],
+  },
   // ─── May 2, 2026 ────────────────────────────────────────────────────────
   {
     id: "149-mls-chrome-odds",
