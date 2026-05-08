@@ -14,6 +14,17 @@ export interface Update {
 export const updates: Update[] = [
   // ─── May 8, 2026 ────────────────────────────────────────────────────────
   {
+    id: "153-chrome-ufc-parallels-fix",
+    title: "2026 Topps Chrome UFC — Corrected Parallels & Box Config",
+    date: "2026-05-08T14:00:00Z",
+    summary: "Replaced auto-generated parallels with correct per-subset parallel ladders. 234 parallels across base, inserts, and autos with box-exclusive variants (Hobby/Mega/Value/Delight). Box config added for 3 formats.",
+    description: `## 2026 Topps Chrome UFC — Corrected Parallels & Box Config
+
+Replaced 176 auto-generated parallels with 234 correct parallels matching the official sell sheet. Base set has 39 parallels including box-exclusive variants: Hobby (Refractor, Prism, OctaFractor, FrozenFractor), Mega (X-Fractor, Mini Diamonds), Value (UFC Glove, RayWave), Delight (Geometric). Insert parallels organized by group: Standard (12 per set), Hobby-exclusive (4 per set), Retail-exclusive (9 per set). Autograph parallels include Geometric Refractor variants for Delight. Box config added for Hobby (8x12, 2 autos), Mega (8x6), Value (4x6). Pack odds pending.`,
+    tags: ["checklist"],
+    setId: 840,
+  },
+  {
     id: "152-chrome-ufc-2026",
     title: "2026 Topps Chrome UFC — Full Checklist",
     date: "2026-05-08T12:00:00Z",
