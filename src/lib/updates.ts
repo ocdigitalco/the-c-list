@@ -12,6 +12,18 @@ export interface Update {
 }
 
 export const updates: Update[] = [
+  // ─── May 8, 2026 ────────────────────────────────────────────────────────
+  {
+    id: "152-chrome-ufc-2026",
+    title: "2026 Topps Chrome UFC — Full Checklist",
+    date: "2026-05-08T12:00:00Z",
+    summary: "Complete checklist with 200 base cards, 21 insert sets, 10 autograph sets, 25 dual Split Decision cards, and 176 parallels across 240 athletes.",
+    description: `## 2026 Topps Chrome UFC — Full Checklist
+
+200-card base set with 17 parallel variations. 21 insert sets: Sapphire Selections (15), Infinite (10), All Action (50), 1986 Topps (20), Striking Distance (30), Big Ticket (25), Split Decision (25 dual cards), Fight Night Flashback (20), Pulse Check (15), Youthquake (15), Global Warriors (25), Allen and Ginter (30), Manifesting Moments (10), In Your Face (15), Impact Point (20), Immortal Force (30), Radiating Rookies (20), Kings and Queens (20), Helix (10), Hidden Gems (5), Let's Go (5). 10 autograph sets: Base Cards Autograph Variations (89), 1986 Topps Signatures (30), Chrome Lineage Autographs (29), Marks of Champions (10), Octagon Legends (10), Future Stars (20), Quoted Autographs (20), Topps 2009 Variation Signatures (28), Vanquisher Ink (44). 240 athletes, 895 appearances.`,
+    tags: ["checklist"],
+    setId: 840,
+  },
   // ─── May 6, 2026 ────────────────────────────────────────────────────────
   {
     id: "151-ucc-chrome-parallels",
