@@ -14,6 +14,16 @@ export interface Update {
 export const updates: Update[] = [
   // ─── May 8, 2026 ────────────────────────────────────────────────────────
   {
+    id: "154-overview-tab",
+    title: "Set Detail Pages — Overview Tab",
+    date: "2026-05-08T16:00:00Z",
+    summary: "Added Overview tab as the default landing view on set detail pages. Shows at-a-glance stats, coverage status, release date, and box configuration.",
+    description: `## Set Detail Pages — Overview Tab
+
+New Overview tab added as the first and default tab on all set detail pages. Includes at-a-glance stats (athletes, total cards, card types, autographs, parallel types, total parallels), coverage status dots (checklist, numbered parallels, box config, pack odds), release date, and box configuration cards showing per-format details (cards/pack, packs/box, boxes/case, autos/box, notes).`,
+    tags: ["feature"],
+  },
+  {
     id: "153-chrome-ufc-parallels-fix",
     title: "2026 Topps Chrome UFC — Corrected Parallels & Box Config",
     date: "2026-05-08T14:00:00Z",

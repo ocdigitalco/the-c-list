@@ -13,10 +13,10 @@ import { BreakSheetModal, type BreakSheetPlayer } from "@/components/BreakSheetM
 
 // ─── Types & Constants ─────────────────────────────────────────────────────────
 
-type Tab = "Box Config" | "Pack Odds" | "Inserts" | "Autographs";
+type Tab = "Overview" | "Box Config" | "Pack Odds" | "Inserts" | "Autographs";
 type SortKey = "totalCards" | "autographs" | "inserts" | "numberedParallels";
 
-const TABS: Tab[] = ["Box Config", "Pack Odds", "Inserts", "Autographs"];
+const TABS: Tab[] = ["Overview", "Box Config", "Pack Odds", "Inserts", "Autographs"];
 const SORT_CHIPS: { key: SortKey; label: string }[] = [
   { key: "totalCards", label: "Total Cards" },
   { key: "autographs", label: "Autographs" },
@@ -612,6 +612,163 @@ function StatStrip({ items }: { items: { label: string; value: number }[] }) {
 
 // ─── Tab: Box Config ────────────────────────────────────────────────────────────
 
+// ─── Tab: Overview ──────────────────────────────────────────────────────────
+
+function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autographs, autoParallels, totalParallels, athleteCount, releaseDate, hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds }: {
+  boxConfig: string | null; cards: number; cardTypes: number; parallelTypes: number;
+  autographs: number; autoParallels: number; totalParallels: number; athleteCount: number;
+  releaseDate: string | null; hasChecklist: boolean; hasNumberedParallels: boolean;
+  hasBoxConfig: boolean; hasPackOdds: boolean;
+}) {
+  const boxRows = boxConfig ? buildBoxRows(boxConfig) : [];
+
+  return (
+    <div className="space-y-8">
+      {/* Quick Stats */}
+      <div>
+        <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase", marginBottom: 12 }}>
+          At a Glance
+        </div>
+        <div className="grid grid-cols-2 min-[1180px]:grid-cols-3 gap-3">
+          {[
+            { label: "Athletes", value: athleteCount, show: athleteCount > 0 },
+            { label: "Total Cards", value: cards, show: cards > 0 },
+            { label: "Card Types", value: cardTypes, show: cardTypes > 0 },
+            { label: "Autographs", value: autographs, show: autographs > 0 },
+            { label: "Parallel Types", value: parallelTypes, show: parallelTypes > 0 },
+            { label: "Total Parallels", value: totalParallels, show: totalParallels > 0 },
+          ].filter(s => s.show).map((s) => (
+            <div key={s.label} style={{
+              background: "#FFFFFF", border: "1px solid #EDEAE0", borderRadius: 8, padding: "14px 16px",
+            }}>
+              <div style={{ fontFamily: FONT_DISPLAY, fontSize: 26, fontWeight: 600, letterSpacing: -0.6, color: "#0F0F0E" }}>
+                {s.value.toLocaleString()}
+              </div>
+              <div style={{ fontSize: 16, color: "#6B6757", marginTop: 2 }}>{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Coverage Status */}
+      <div>
+        <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase", marginBottom: 12 }}>
+          Coverage
+        </div>
+        <div style={{ background: "#FFFFFF", border: "1px solid #EDEAE0", borderRadius: 8, padding: "14px 16px" }}>
+          <div className="grid grid-cols-2 min-[1180px]:grid-cols-4 gap-3">
+            {[
+              { label: "Athlete Checklist", ok: hasChecklist },
+              { label: "Numbered Parallels", ok: hasNumberedParallels },
+              { label: "Box Configuration", ok: hasBoxConfig },
+              { label: "Pack Odds", ok: hasPackOdds },
+            ].map((r) => (
+              <div key={r.label} className="flex items-center gap-2">
+                <span aria-label={r.ok ? "Present" : "Missing"} style={{
+                  width: 8, height: 8, borderRadius: "50%", flexShrink: 0,
+                  background: r.ok ? "#0E8A4F" : "#B7B2A3",
+                }} />
+                <span style={{ fontSize: 16, color: "#3A372F" }}>{r.label}</span>
+              </div>
+            ))}
+          </div>
+          {releaseDate && (
+            <div className="mt-3 pt-3" style={{ borderTop: "1px solid #F4F1E8" }}>
+              <span style={{ fontSize: 16, color: "#6B6757" }}>Release Date: </span>
+              <span style={{ fontSize: 16, fontWeight: 600, color: "#0F0F0E" }}>
+                {new Date(releaseDate + "T00:00:00Z").toLocaleDateString("en-US", {
+                  month: "long", day: "numeric", year: "numeric", timeZone: "UTC",
+                })}
+              </span>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Box Configuration */}
+      {boxRows.length > 0 && (
+        <div>
+          <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase", marginBottom: 12 }}>
+            Box Configuration
+          </div>
+          {/* Desktop */}
+          <div className="hidden min-[1180px]:block">
+            <div className="grid gap-3" style={{ gridTemplateColumns: `repeat(${Math.min(boxRows.length, 3)}, 1fr)` }}>
+              {boxRows.map((row) => (
+                <div key={row.label} style={{
+                  background: "#FFFFFF", border: "1px solid #EDEAE0", borderRadius: 8, padding: "16px",
+                }}>
+                  <div style={{ fontFamily: FONT_DISPLAY, fontSize: 16, fontWeight: 600, color: "#0F0F0E", marginBottom: 12 }}>
+                    {row.label}
+                  </div>
+                  <div className="space-y-1.5">
+                    {row.cardsPerPack != null && (
+                      <div style={{ fontSize: 16, color: "#3A372F" }}>
+                        <span style={{ fontFamily: FONT_MONO, fontWeight: 600, color: "#0F0F0E" }}>{row.cardsPerPack}</span> cards/pack
+                      </div>
+                    )}
+                    {row.packsPerBox != null && (
+                      <div style={{ fontSize: 16, color: "#3A372F" }}>
+                        <span style={{ fontFamily: FONT_MONO, fontWeight: 600, color: "#0F0F0E" }}>{row.packsPerBox}</span> packs/box
+                      </div>
+                    )}
+                    {row.boxesPerCase != null && (
+                      <div style={{ fontSize: 16, color: "#3A372F" }}>
+                        <span style={{ fontFamily: FONT_MONO, fontWeight: 600, color: "#0F0F0E" }}>{row.boxesPerCase}</span> boxes/case
+                      </div>
+                    )}
+                    {row.autosPerBox != null && (
+                      <div style={{ fontSize: 16, color: "#3A372F" }}>
+                        <span style={{ fontFamily: FONT_MONO, fontWeight: 600, color: "#0F0F0E" }}>{row.autosPerBox}</span> auto{row.autosPerBox !== 1 ? "s" : ""}/box
+                      </div>
+                    )}
+                  </div>
+                  {row.notes && (
+                    <div style={{ borderTop: "1px solid #F4F1E8", marginTop: 10, paddingTop: 8, fontSize: 16, fontStyle: "italic", color: "#6B6757" }}>
+                      {row.notes}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* Mobile */}
+          <div className="min-[1180px]:hidden space-y-2">
+            {boxRows.map((row) => (
+              <div key={row.label} style={{
+                background: "#FFFFFF", border: "1px solid #EDEAE0", borderRadius: 10, padding: "12px 14px",
+              }}>
+                <div style={{ fontFamily: FONT_DISPLAY, fontSize: 16, fontWeight: 600, color: "#0F0F0E", marginBottom: 8 }}>
+                  {row.label}
+                </div>
+                <div className="grid grid-cols-3 gap-2">
+                  {[
+                    { l: "CARDS/PK", v: row.cardsPerPack },
+                    { l: "PKS/BOX", v: row.packsPerBox },
+                    { l: "BXS/CASE", v: row.boxesPerCase },
+                  ].map((s) => (
+                    <div key={s.l}>
+                      <div style={{ fontFamily: FONT_MONO, fontSize: 7, fontWeight: 600, letterSpacing: 1, color: "#8A8677", textTransform: "uppercase" }}>{s.l}</div>
+                      <div style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: s.v != null ? "#0F0F0E" : "#B7B2A3", marginTop: 2 }}>{s.v ?? "—"}</div>
+                    </div>
+                  ))}
+                </div>
+                {row.notes && (
+                  <div style={{ borderTop: "1px solid #F4F1E8", marginTop: 8, paddingTop: 6, fontSize: 16, fontStyle: "italic", color: "#6B6757" }}>
+                    {row.notes}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── Tab: Box Config ────────────────────────────────────────────────────────
+
 function BoxConfigContent({ boxConfig }: { boxConfig: string | null }) {
   if (!boxConfig) return <EmptyTab label="Box configuration coming soon" />;
   const rows = buildBoxRows(boxConfig);
@@ -938,7 +1095,7 @@ export function SetDetailClient({
   hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds,
   boxConfig, packOdds, entries, hasTeamData, breakSheetPlayers, parallelsList,
 }: SetDetailClientProps) {
-  const [tab, setTab] = useState<Tab>("Box Config");
+  const [tab, setTab] = useState<Tab>("Overview");
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const meta = useMemo(() => extractMeta(setName, sport), [setName, sport]);
@@ -1051,6 +1208,13 @@ export function SetDetailClient({
 
           {/* Content area */}
           <div style={{ padding: "28px 36px 60px" }}>
+            {tab === "Overview" && (
+              <OverviewContent boxConfig={boxConfig} cards={cards} cardTypes={cardTypes}
+                parallelTypes={parallelTypes} autographs={autographs} autoParallels={autoParallels}
+                totalParallels={totalParallels} athleteCount={athleteCount} releaseDate={releaseDate}
+                hasChecklist={hasChecklist} hasNumberedParallels={hasNumberedParallels}
+                hasBoxConfig={hasBoxConfig} hasPackOdds={hasPackOdds} />
+            )}
             {tab === "Box Config" && <BoxConfigContent boxConfig={boxConfig} />}
             {tab === "Pack Odds" && <PackOddsContent formats={oddsFormats} />}
             {tab === "Inserts" && <InsertsContent formats={oddsFormats} />}
