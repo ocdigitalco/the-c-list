@@ -466,8 +466,24 @@ export default async function V2AthletePage({
     tier: string;
     uniqueCards: number;
     setSlug: string | null;
+    autographs: number;
+    numberedParallels: number;
   }>(
-    `SELECT s.id AS setId, s.name AS setName, s.season, s.tier, s.slug AS setSlug, p.unique_cards AS uniqueCards
+    `SELECT
+       s.id AS setId, s.name AS setName, s.season, s.tier, s.slug AS setSlug,
+       p.unique_cards AS uniqueCards,
+       (SELECT COUNT(DISTINCT pa2.id)
+        FROM player_appearances pa2
+        JOIN insert_sets i2 ON i2.id = pa2.insert_set_id
+        WHERE pa2.player_id = p.id
+        AND (lower(i2.name) LIKE '%auto%' OR lower(i2.name) LIKE '%signature%'
+             OR lower(i2.name) LIKE '%signed%' OR lower(i2.name) LIKE '%dual%'
+             OR lower(i2.name) LIKE '%triple%')
+       ) AS autographs,
+       (SELECT COALESCE(SUM(par_cnt), 0) FROM (
+         SELECT (SELECT COUNT(*) FROM parallels par WHERE par.insert_set_id = pa3.insert_set_id AND par.print_run IS NOT NULL) AS par_cnt
+         FROM player_appearances pa3 WHERE pa3.player_id = p.id
+       )) AS numberedParallels
      FROM players p
      JOIN sets s ON s.id = p.set_id
      WHERE p.name = ? AND p.set_id != ?
@@ -591,8 +607,8 @@ export default async function V2AthletePage({
     slug: s.setSlug,
     sport: setRow.sport,
     totalCards: s.uniqueCards,
-    autographs: 0,
-    parallels: 0,
+    autographs: s.autographs,
+    parallels: s.numberedParallels,
   }));
 
   // Serialize insert sets to plain objects for client
