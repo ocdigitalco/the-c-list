@@ -76,6 +76,8 @@ export interface AthleteDetailClientProps {
   // Leaderboard
   entries: LeaderboardRow[];
   hasTeamData: boolean;
+  subjectLabel?: string;
+  subjectRole?: string;
 }
 
 // ─── Helpers ────────────────────────────────────────────────────────────────────
@@ -124,8 +126,8 @@ function parallelTone(name: string): string {
 
 // ─── Athletes Rail ──────────────────────────────────────────────────────────────
 
-function AthletesRail({ entries, hasTeamData, setId, setSlug, currentAthleteId }: {
-  entries: LeaderboardRow[]; hasTeamData: boolean; setId: number; setSlug: string; currentAthleteId: number;
+function AthletesRail({ entries, hasTeamData, setId, setSlug, currentAthleteId, subjectLabel = "Athletes" }: {
+  entries: LeaderboardRow[]; hasTeamData: boolean; setId: number; setSlug: string; currentAthleteId: number; subjectLabel?: string;
 }) {
   const [sortKey, setSortKey] = useState<SortKey>("totalCards");
   const [rookiesOnly, setRookiesOnly] = useState(false);
@@ -148,7 +150,7 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, currentAthleteId }
     <div className="flex flex-col h-full" style={{ background: "#FFFFFF" }}>
       <div className="shrink-0 space-y-3" style={{ padding: "22px 18px 12px" }}>
         <h2 style={{ fontFamily: FONT_DISPLAY, fontWeight: 600, fontSize: 16, letterSpacing: -0.2, color: "#0F0F0E", marginBottom: 12 }}>
-          Athletes in Set
+          {subjectLabel} in Set
         </h2>
         <div className="relative">
           <svg className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 pointer-events-none" style={{ color: "#8A8677" }}
@@ -1190,9 +1192,9 @@ function AlsoFeaturedIn({ otherSets }: { otherSets: OtherSet[] }) {
 
 // ─── Mobile Drawer ──────────────────────────────────────────────────────────────
 
-function MobileAthletesDrawer({ open, onClose, entries, hasTeamData, setId, setSlug, currentAthleteId, athleteCount }: {
+function MobileAthletesDrawer({ open, onClose, entries, hasTeamData, setId, setSlug, currentAthleteId, athleteCount, subjectLabel = "Athletes" }: {
   open: boolean; onClose: () => void; entries: LeaderboardRow[]; hasTeamData: boolean;
-  setId: number; setSlug: string; currentAthleteId: number; athleteCount: number;
+  setId: number; setSlug: string; currentAthleteId: number; athleteCount: number; subjectLabel?: string;
 }) {
   useEffect(() => {
     if (!open) return;
@@ -1215,12 +1217,12 @@ function MobileAthletesDrawer({ open, onClose, entries, hasTeamData, setId, setS
           </svg>
         </button>
         <span style={{ fontFamily: FONT_DISPLAY, fontSize: 17, fontWeight: 600, letterSpacing: -0.3, color: "#0F0F0E" }}>
-          Athletes in Set
+          {subjectLabel} in Set
         </span>
         <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677" }}>{athleteCount}</span>
       </div>
       <div style={{ height: "calc(100% - 56px)", overflowY: "auto" }}>
-        <AthletesRail entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug} currentAthleteId={currentAthleteId} />
+        <AthletesRail entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug} currentAthleteId={currentAthleteId} subjectLabel={subjectLabel} />
       </div>
     </div>
   );
@@ -1235,8 +1237,9 @@ export function AthleteDetailClient({
   cardTypes, totalCards, autographs, autoParallels, numberedParallels, oneOfOnes,
   insertSets, otherSets, packOddsJson, boxConfigJson,
   packOddsSlotsByFormat, boxFormats, totalAutoCards, playerAutoCards, hasBreakCalc,
-  entries, hasTeamData,
+  entries, hasTeamData, subjectLabel: subjectLabelProp, subjectRole,
 }: AthleteDetailClientProps) {
+  const subjectLabel = subjectLabelProp ?? "Athletes";
   const [tab, setTab] = useState<Tab>("Overview");
   const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -1257,7 +1260,7 @@ export function AthleteDetailClient({
       {/* ═══ DESKTOP ═══ */}
       <div className="hidden min-[1180px]:grid" style={{ gridTemplateColumns: "425px 1fr", minHeight: "100vh" }}>
         <aside className="sticky top-0 h-screen overflow-y-auto" style={{ borderRight: "1px solid #EDEAE0" }}>
-          <AthletesRail entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug} currentAthleteId={athleteId} />
+          <AthletesRail entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug} currentAthleteId={athleteId} subjectLabel={subjectLabel} />
         </aside>
 
         <div className="flex flex-col">
@@ -1573,7 +1576,7 @@ export function AthleteDetailClient({
 
         <MobileAthletesDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)}
           entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug}
-          currentAthleteId={athleteId} athleteCount={entries.length} />
+          currentAthleteId={athleteId} athleteCount={entries.length} subjectLabel={subjectLabel} />
       </div>
     </div>
   );

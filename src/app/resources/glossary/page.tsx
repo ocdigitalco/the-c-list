@@ -173,6 +173,11 @@ const terms: { term: string; definition: string }[] = [
       "The rarest parallel in Topps products, existing as a true 1/1. Different product lines use different names for this tier — SuperFractor in Chrome products, Padparadscha Sapphire in Sapphire editions. The equivalent in Panini products is typically the Black Prizm /1.",
   },
   {
+    term: "Subject Role",
+    definition:
+      "A classification of who or what is featured on a card. Each subject in the database is tagged as one of: Athlete (real athletes in their sport), Coach (coaches and bench staff), Celebrity (public figures appearing due to recognition rather than athletic performance, such as entertainers, athletes from other sports appearing as fans, or content creators), or Character (fictional or animated characters from entertainment sets). This affects how subjects are displayed and filtered — for example, an NFL set page labels its sidebar 'Athletes' while a VeeFriends set labels it 'Characters'.",
+  },
+  {
     term: "Tier",
     definition:
       "The card quality level of a set. Checklist2 uses the following tiers: Standard (base cardstock), Chrome (glossy refractor technology by Topps), Prizm (glossy technology by Panini), Sapphire (premium elevated design), and Premium (thick high-end cardstock such as Topps Midnight and Topps Royalty).",

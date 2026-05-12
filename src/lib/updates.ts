@@ -12,6 +12,49 @@ export interface Update {
 }
 
 export const updates: Update[] = [
+  {
+    id: "163-fix-recently-added-badge",
+    title: "Fix Recently Added Badge and Unify Data Loaders",
+    date: "2026-05-12T22:00:00Z",
+    summary: "Recently Added badge now derives from created_at (5-day window) instead of release_date. Unified homepage and /checklists on shared listSets() query helper.",
+    description: `## Fix Recently Added Badge
+
+The "Recently Added" badge was based on release_date within 7 days of today, which missed sets with future release dates (e.g., Finest Football releasing May 15 but added to the database on May 11). Now uses a new \`created_at\` column on the sets table with a 5-day window. Badge appears automatically when a set is added and ages off without manual intervention. Both homepage and /checklists now use a shared \`listSets()\` query helper to guarantee identical data.`,
+    tags: ["feature"],
+  },
+  {
+    id: "162-bowman-uni-best-2025",
+    title: "2025-26 Bowman University Best Basketball — Full Checklist",
+    date: "2026-05-12T20:00:00Z",
+    summary: "Added 2025-26 Bowman University Best Basketball with 100 base cards, 6 insert subsets, 6 autograph subsets, 4 auto-relic subsets. 618 total cards across 116 athletes and 5 coaches.",
+    description: `## 2025-26 Bowman University Best Basketball
+
+Full college basketball / NIL prospect checklist. 100 base cards, insert subsets (Tone Setters, Bowman Masterpieces, Breaking Barriers), 3 case hit subsets (Let's Go, Top Billing, Big Energy), autograph subsets (Best of 2025, Greatness Awaits, Iso Signatures, Coaches Ink, Dual/Triple Autographs Refractor), and 4 auto-relic subsets (Prospect Jumbo/Dual Relic, Let It Rain, Game Graphs with patch variants at /2). First set with coach subjects (Cori Close, Jon Scheyer, Kelvin Sampson, Lindsay Gottlieb, Todd Golden).`,
+    tags: ["checklist"],
+    setId: 843,
+  },
+  {
+    id: "161-signature-class-parallels",
+    title: "2025-26 Topps Signature Class Basketball — Release Date + Parallel Matrix",
+    date: "2026-05-12T18:00:00Z",
+    summary: "Set release date to May 28, 2026. Attached 159 parallels across 21 subsets with Hobby, Retail, and Hobby/Retail exclusivity tags.",
+    description: `## 2025-26 Topps Signature Class Basketball
+
+Release date set to May 28, 2026. Full parallel matrix attached: 4 base subsets (Veteran Class, Rookie Class, Veteran Class Chrome, Rookie Class Chrome) with distinct ladders, 8 insert subsets with shared 5-parallel ladder, 5 case hit subsets (Hobby and Retail exclusive), and 4 autograph subsets (paper and chrome ladders). 159 total parallels: 122 Hobby/Retail, 27 Retail exclusive, 10 Hobby exclusive.`,
+    tags: ["checklist"],
+    setId: 838,
+  },
+  // ─── May 12, 2026 ───────────────────────────────────────────────────────
+  {
+    id: "160-subject-role",
+    title: "Add Subject Role Classification",
+    date: "2026-05-12T12:00:00Z",
+    summary: "Added subject_role field to distinguish athletes, coaches, celebrities, and characters. VeeFriends characters, Finest Fans celebrities, Content Condors creators, and Dana White backfilled. Set pages now use dynamic labels (e.g., 'Characters in Set' for VeeFriends).",
+    description: `## Subject Role Classification
+
+New \`subject_role\` column on the players table classifies each subject as athlete (default), coach, celebrity, or character. Backfilled 321 VeeFriends characters, 9 Finest Fans celebrities, 9 Content Condors creators, and 4 Dana White entries. Set detail and athlete detail pages now derive their sidebar and stat labels from the dominant role in the set — VeeFriends shows "Characters in Set" instead of "Athletes in Set". Added glossary entry for Subject Role.`,
+    tags: ["feature"],
+  },
   // ─── May 15, 2026 ───────────────────────────────────────────────────────
   {
     id: "159-finest-football-2025-parallels",

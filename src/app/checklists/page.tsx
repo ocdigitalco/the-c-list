@@ -1,69 +1,10 @@
-import { db, rawQuery } from "@/lib/db";
-import { sets, players, playerAppearances } from "@/lib/schema";
-import { eq, sql } from "drizzle-orm";
+import { listSets } from "@/lib/queries/listSets";
 import { ChecklistSearch } from "./ChecklistSearch";
 
 export const revalidate = 3600;
 
 export default async function ChecklistsPage() {
-  // Fetch hidden set IDs (is_visible column may not exist on Turso yet)
-  let hiddenIds = new Set<number>();
-  try {
-    const hidden = await rawQuery.all<{ id: number }>("SELECT id FROM sets WHERE is_visible = 0");
-    hiddenIds = new Set(hidden.map((r) => r.id));
-  } catch { /* is_visible column may not exist yet */ }
-
-  const sportRows = await db
-    .selectDistinct({ sport: sets.sport })
-    .from(sets)
-    .orderBy(sets.sport);
-  const allSports = sportRows.map((r) => r.sport);
-
-  const allSetRows = await db
-    .select()
-    .from(sets)
-    .orderBy(
-      sql`CASE WHEN ${sets.releaseDate} IS NULL THEN 1 ELSE 0 END`,
-      sql`${sets.releaseDate} DESC`,
-      sets.name
-    );
-  const setRows = allSetRows.filter((s) => !hiddenIds.has(s.id));
-
-  const statsRows = await db
-    .select({
-      setId: players.setId,
-      athleteCount: sql<number>`cast(count(distinct ${players.id}) as integer)`,
-      cardCount: sql<number>`cast(count(${playerAppearances.id}) as integer)`,
-    })
-    .from(players)
-    .leftJoin(playerAppearances, eq(playerAppearances.playerId, players.id))
-    .groupBy(players.setId);
-
-  const statsMap = new Map(statsRows.map((r) => [r.setId, r]));
-
-  let slugMap = new Map<number, string>();
-  try {
-    const slugRows = await rawQuery.all<{ id: number; slug: string }>(
-      "SELECT id, slug FROM sets WHERE slug IS NOT NULL"
-    );
-    slugMap = new Map(slugRows.map((r) => [r.id, r.slug]));
-  } catch { /* slug column may not exist yet */ }
-
-  // Determine "recently added" — sets with release_date within last 7 days
-  const now = new Date();
-  const sevenDaysAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-
-  const setCards = setRows.map((s) => {
-    const rd = s.releaseDate ? new Date(s.releaseDate) : null;
-    const isRecent = rd && rd >= sevenDaysAgo && rd <= now;
-    return {
-      ...s,
-      slug: slugMap.get(s.id) ?? null,
-      athleteCount: statsMap.get(s.id)?.athleteCount ?? 0,
-      cardCount: statsMap.get(s.id)?.cardCount ?? 0,
-      featured: !!isRecent,
-    };
-  });
+  const { sets, allSports } = await listSets();
 
   return (
     <div
@@ -114,7 +55,7 @@ export default async function ChecklistsPage() {
           Browse all sports card sets in the app
         </p>
 
-        <ChecklistSearch sets={setCards} allSports={allSports} />
+        <ChecklistSearch sets={sets} allSports={allSports} />
       </div>
     </div>
   );

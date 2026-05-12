@@ -74,6 +74,7 @@ export interface SetDetailClientProps {
   autoParallels: number;
   totalParallels: number;
   athleteCount: number;
+  subjectLabel?: string;
   hasChecklist: boolean;
   hasNumberedParallels: boolean;
   hasBoxConfig: boolean;
@@ -313,8 +314,8 @@ function PlayerAvatar({ name, nbaPlayerId, ufcImageUrl, mlbPlayerId, imageUrl, s
 
 // ─── Athletes Rail ──────────────────────────────────────────────────────────────
 
-function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false }: {
-  entries: LeaderboardRow[]; hasTeamData: boolean; setId: number; setSlug: string; isMobile?: boolean;
+function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, subjectLabel = "Athletes" }: {
+  entries: LeaderboardRow[]; hasTeamData: boolean; setId: number; setSlug: string; isMobile?: boolean; subjectLabel?: string;
 }) {
   const [sortKey, setSortKey] = useState<SortKey>("totalCards");
   const [rookiesOnly, setRookiesOnly] = useState(false);
@@ -346,7 +347,7 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false }
       <div className="shrink-0 space-y-3" style={{ padding: isMobile ? "14px 16px 12px" : "22px 18px 12px" }}>
         {!isMobile && (
           <h2 style={{ fontFamily: FONT_DISPLAY, fontWeight: 600, fontSize: 16, letterSpacing: -0.2, color: "#0F0F0E", marginBottom: 12 }}>
-            Athletes in Set
+            {subjectLabel} in Set
           </h2>
         )}
         {/* Search */}
@@ -368,7 +369,7 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false }
                 }, 100);
               }
             }}
-            placeholder="Search athletes…"
+            placeholder={`Search ${subjectLabel.toLowerCase()}…`}
             autoComplete="off" spellCheck={false}
             className="w-full outline-none"
             style={{
@@ -412,7 +413,7 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false }
       {/* Rows */}
       <div className="flex-1 overflow-y-auto">
         {visible.length === 0 ? (
-          <p className="text-center py-8" style={{ fontSize: 16, color: "#8A8677", fontStyle: "italic" }}>No athletes match.</p>
+          <p className="text-center py-8" style={{ fontSize: 16, color: "#8A8677", fontStyle: "italic" }}>No {subjectLabel.toLowerCase()} match.</p>
         ) : (
           <>
             {visible.map((entry, idx) => (
@@ -451,7 +452,7 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false }
             {!showAll && filtered.length > 50 && (
               <button onClick={() => setShowAll(true)}
                 className="w-full py-3" style={{ fontSize: 16, fontWeight: 600, color: "#0F0F0E" }}>
-                Show all {filtered.length.toLocaleString()} athletes
+                Show all {filtered.length.toLocaleString()} {subjectLabel.toLowerCase()}
               </button>
             )}
           </>
@@ -463,9 +464,9 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false }
 
 // ─── Mobile Drawer ──────────────────────────────────────────────────────────────
 
-function MobileAthletesDrawer({ open, onClose, entries, hasTeamData, setId, setSlug, athleteCount }: {
+function MobileAthletesDrawer({ open, onClose, entries, hasTeamData, setId, setSlug, athleteCount, subjectLabel = "Athletes" }: {
   open: boolean; onClose: () => void;
-  entries: LeaderboardRow[]; hasTeamData: boolean; setId: number; setSlug: string; athleteCount: number;
+  entries: LeaderboardRow[]; hasTeamData: boolean; setId: number; setSlug: string; athleteCount: number; subjectLabel?: string;
 }) {
   const triggerRef = useRef<HTMLElement | null>(null);
 
@@ -482,7 +483,7 @@ function MobileAthletesDrawer({ open, onClose, entries, hasTeamData, setId, setS
 
   return (
     <div
-      role="dialog" aria-modal="true" aria-label="Athletes in Set"
+      role="dialog" aria-modal="true" aria-label={`${subjectLabel} in Set`}
       className="fixed inset-0 z-[100]"
       style={{
         background: "#FFFFFF",
@@ -500,13 +501,13 @@ function MobileAthletesDrawer({ open, onClose, entries, hasTeamData, setId, setS
           </svg>
         </button>
         <span style={{ fontFamily: FONT_DISPLAY, fontSize: 17, fontWeight: 600, letterSpacing: -0.3, color: "#0F0F0E" }}>
-          Athletes in Set
+          {subjectLabel} in Set
         </span>
         <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677" }}>{athleteCount}</span>
       </div>
       {/* Drawer body */}
       <div className="flex-1" style={{ height: "calc(100% - 56px)", overflowY: "auto" }}>
-        <AthletesRail entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug} isMobile />
+        <AthletesRail entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug} isMobile subjectLabel={subjectLabel} />
       </div>
     </div>
   );
@@ -614,11 +615,11 @@ function StatStrip({ items }: { items: { label: string; value: number }[] }) {
 
 // ─── Tab: Overview ──────────────────────────────────────────────────────────
 
-function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autographs, autoParallels, totalParallels, athleteCount, releaseDate, hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds }: {
+function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autographs, autoParallels, totalParallels, athleteCount, releaseDate, hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds, subjectLabel = "Athletes" }: {
   boxConfig: string | null; cards: number; cardTypes: number; parallelTypes: number;
   autographs: number; autoParallels: number; totalParallels: number; athleteCount: number;
   releaseDate: string | null; hasChecklist: boolean; hasNumberedParallels: boolean;
-  hasBoxConfig: boolean; hasPackOdds: boolean;
+  hasBoxConfig: boolean; hasPackOdds: boolean; subjectLabel?: string;
 }) {
   const boxRows = boxConfig ? buildBoxRows(boxConfig) : [];
 
@@ -631,7 +632,7 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
         </div>
         <div className="grid grid-cols-2 min-[1180px]:grid-cols-3 gap-3">
           {[
-            { label: "Athletes", value: athleteCount, show: athleteCount > 0 },
+            { label: subjectLabel, value: athleteCount, show: athleteCount > 0 },
             { label: "Total Cards", value: cards, show: cards > 0 },
             { label: "Card Types", value: cardTypes, show: cardTypes > 0 },
             { label: "Autographs", value: autographs, show: autographs > 0 },
@@ -1092,9 +1093,11 @@ function EmptyTab({ label }: { label: string }) {
 export function SetDetailClient({
   setName, sport, league, tier, releaseDate, setId, setSlug, sampleImageUrl,
   cards, cardTypes, parallelTypes, autographs, autoParallels, totalParallels, athleteCount,
+  subjectLabel: subjectLabelProp,
   hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds,
   boxConfig, packOdds, entries, hasTeamData, breakSheetPlayers, parallelsList,
 }: SetDetailClientProps) {
+  const subjectLabel = subjectLabelProp ?? "Athletes";
   const [tab, setTab] = useState<Tab>("Overview");
   const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -1126,7 +1129,7 @@ export function SetDetailClient({
       <div className="hidden min-[1180px]:grid" style={{ gridTemplateColumns: "425px 1fr", minHeight: "100vh" }}>
         {/* Left rail */}
         <aside className="sticky top-0 h-screen overflow-y-auto" style={{ borderRight: "1px solid #EDEAE0" }}>
-          <AthletesRail entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug} />
+          <AthletesRail entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug} subjectLabel={subjectLabel} />
         </aside>
         {/* Right column */}
         <div className="flex flex-col">
@@ -1168,7 +1171,7 @@ export function SetDetailClient({
                     {meta.manufacturer || "Topps"}
                   </span>
                   <span style={{ fontSize: 16, color: "#6B6757" }}>
-                    {athleteCount.toLocaleString()} athletes tracked
+                    {athleteCount.toLocaleString()} {subjectLabel.toLowerCase()} tracked
                   </span>
                 </div>
               </div>
@@ -1213,7 +1216,7 @@ export function SetDetailClient({
                 parallelTypes={parallelTypes} autographs={autographs} autoParallels={autoParallels}
                 totalParallels={totalParallels} athleteCount={athleteCount} releaseDate={releaseDate}
                 hasChecklist={hasChecklist} hasNumberedParallels={hasNumberedParallels}
-                hasBoxConfig={hasBoxConfig} hasPackOdds={hasPackOdds} />
+                hasBoxConfig={hasBoxConfig} hasPackOdds={hasPackOdds} subjectLabel={subjectLabel} />
             )}
             {tab === "Box Config" && <BoxConfigContent boxConfig={boxConfig} />}
             {tab === "Base Odds" && <PackOddsContent formats={oddsFormats} />}
@@ -1240,7 +1243,7 @@ export function SetDetailClient({
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128H5.228A2 2 0 0 1 3 17.208V5.792A2 2 0 0 1 5.228 3.872h13.544A2 2 0 0 1 21 5.792v6.625M12 10.5a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Z" />
             </svg>
-            Athletes <span style={{ color: "#8A8677" }}>· {athleteCount}</span>
+            {subjectLabel} <span style={{ color: "#8A8677" }}>· {athleteCount}</span>
           </button>
           <div className="v2-break-sheet-pill">
             <BreakSheetModal setName={setName} sport={sport} league={league} players={breakSheetPlayers} />
@@ -1278,7 +1281,7 @@ export function SetDetailClient({
                   </span>
                 )}
                 <span style={{ fontSize: 16, color: "#6B6757" }}>
-                  {athleteCount.toLocaleString()} athletes
+                  {athleteCount.toLocaleString()} {subjectLabel.toLowerCase()}
                 </span>
               </div>
             </div>
@@ -1322,7 +1325,7 @@ export function SetDetailClient({
         <MobileAthletesDrawer
           open={drawerOpen} onClose={() => setDrawerOpen(false)}
           entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug}
-          athleteCount={athleteCount}
+          athleteCount={athleteCount} subjectLabel={subjectLabel}
         />
       </div>
     </div>

@@ -166,6 +166,23 @@ export default async function V2AthletePage({
 
   const athleteId = playerData.id;
 
+  // Subject role and label
+  let subjectRole = "athlete";
+  try {
+    const roleRow = await rawQuery.get<{ subject_role: string }>(
+      "SELECT subject_role FROM players WHERE id = ?", athleteId
+    );
+    subjectRole = roleRow?.subject_role ?? "athlete";
+  } catch { /* column may not exist yet */ }
+
+  const dominantRoleRow = await rawQuery.get<{ role: string }>(
+    `SELECT subject_role as role FROM players WHERE set_id = ? GROUP BY subject_role ORDER BY COUNT(*) DESC LIMIT 1`,
+    setId
+  );
+  const subjectLabel = dominantRoleRow?.role === "character" ? "Characters"
+    : dominantRoleRow?.role === "coach" ? "Coaches"
+    : "Athletes";
+
   // Fetch image_url (not in Drizzle schema)
   let playerImageUrl: string | null = null;
   try {
@@ -667,6 +684,8 @@ export default async function V2AthletePage({
       hasBreakCalc={hasBoxConfig && hasPackOdds && Object.keys(packOddsSlotsByFormat).length > 0}
       entries={leaderboardEntries}
       hasTeamData={hasTeamData}
+      subjectLabel={subjectLabel}
+      subjectRole={subjectRole}
     />
   );
 }

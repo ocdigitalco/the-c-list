@@ -112,6 +112,8 @@ async function createSchema() {
     "ALTER TABLE players ADD COLUMN image_url TEXT",
     "ALTER TABLE players ADD COLUMN sleeper_id TEXT",
     "ALTER TABLE parallels ADD COLUMN exclusivity TEXT",
+    "ALTER TABLE players ADD COLUMN subject_role TEXT NOT NULL DEFAULT 'athlete'",
+    "ALTER TABLE sets ADD COLUMN created_at TEXT",
   ];
   for (const stmt of alterStmts) {
     try {

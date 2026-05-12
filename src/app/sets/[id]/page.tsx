@@ -68,6 +68,15 @@ export default async function V2SetPage({
     .from(players)
     .where(eq(players.setId, setId));
 
+  // Determine the dominant subject role for display labels
+  const dominantRoleRow = await rawQuery.get<{ role: string }>(
+    `SELECT subject_role as role FROM players WHERE set_id = ? GROUP BY subject_role ORDER BY COUNT(*) DESC LIMIT 1`,
+    setId
+  );
+  const subjectLabel = dominantRoleRow?.role === "character" ? "Characters"
+    : dominantRoleRow?.role === "coach" ? "Coaches"
+    : "Athletes";
+
   const [cardCountRow] = await db
     .select({ count: sql<number>`cast(count(*) as integer)` })
     .from(playerAppearances)
@@ -338,6 +347,7 @@ export default async function V2SetPage({
       autoParallels={autoParallelsResult.total}
       totalParallels={totalParallelsResult.total}
       athleteCount={athleteCountRow.count}
+      subjectLabel={subjectLabel}
       hasChecklist={cardCountRow.count > 0}
       hasNumberedParallels={numberedParallelsResult.total > 0}
       hasBoxConfig={!!setRow.boxConfig}
