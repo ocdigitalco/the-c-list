@@ -47,7 +47,7 @@ const updateTx = db.transaction(() => {
       for (const par of pars) {
         uniqueCards += 1;
         if (par.print_run !== null) {
-          totalPrintRun += par.print_run;
+          totalPrintRun += 1; // count of numbered parallels (not sum of print runs)
           if (par.print_run === 1) oneOfOnes += 1;
         }
       }

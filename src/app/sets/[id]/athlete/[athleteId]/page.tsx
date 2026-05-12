@@ -281,7 +281,7 @@ export default async function V2AthletePage({
   // ── Pack Odds ───────────────────────────────────────────────────────────────
   const hasBoxConfig = !!setRow.boxConfig;
   const hasPackOdds = !!setRow.packOdds;
-  const autoKeywords = ["auto", "signature", "graph", "relic"];
+  const autoKeywords = ["auto", "signature", "graph", "relic", "dual", "triple"];
 
   function singleToBoxFormat(
     label: string,

@@ -14,6 +14,16 @@ export interface Update {
 export const updates: Update[] = [
   // ─── May 8, 2026 ────────────────────────────────────────────────────────
   {
+    id: "157-fix-athlete-counts",
+    title: "Fix Athlete Page Card Count Aggregation",
+    date: "2026-05-11T16:00:00Z",
+    summary: "Fixed recompute script to count numbered parallels instead of summing print run values. Fixed missing print runs on Hoops insert parallels. Broadened autograph detection to include dual/triple subsets.",
+    description: `## Fix Athlete Page Card Count Aggregation
+
+Fixed the recompute-unique-cards script: the "Numbered" stat was incorrectly summing print run values (e.g., 275+249+199+...) instead of counting the number of numbered parallels. Fixed missing print_run values on Hoops Hobby insert parallels (Pixel Burst Purple through Platinum, Light Burst Purple through Platinum). Added "dual" and "triple" to autograph detection keywords so Hoops Rookie Duals/Triples count as autographs.`,
+    tags: ["feature"],
+  },
+  {
     id: "156-hoops-parallels",
     title: "2025-26 Topps Hoops Basketball — Full Parallel Matrix",
     date: "2026-05-11T14:00:00Z",
