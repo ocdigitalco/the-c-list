@@ -14,6 +14,17 @@ export interface Update {
 export const updates: Update[] = [
   // ─── May 8, 2026 ────────────────────────────────────────────────────────
   {
+    id: "155-chrome-veefriends-2026",
+    title: "2026 Topps Chrome VeeFriends — Full Checklist",
+    date: "2026-05-11T12:00:00Z",
+    summary: "Complete checklist with 200 base cards, 21 insert sets, 83 parallels, 78 pack odds entries. 330 characters/subjects including VeeFriends characters, content creators, and sketch artists.",
+    description: `## 2026 Topps Chrome VeeFriends — Full Checklist
+
+200-card base set with 31 parallel variations (Refractor, Sapphire, Mega Mini-Diamonds, Value Yellow/Blast Off). 21 insert sets: Topps 1986 (25), Manga Speckle (100), Chalkboard (20), Content Condors (6), Original Sketch Selections (5), Neon Lights (20), Infinite Sapphire (5), VeeFriends Variants (12), Stellar Haze (20), Balance Battles (10 dual), Iconics (20), Erupt! (20), MegaHeads (25 Mega exclusive), Hidden Gems (5), Comic Clippings (10 relics), Content Condors Autographs (8), Blank Canvas (1), Sketch Cards (111 artists). Gary Vee Autograph Parallel modeled as base parallel. 78 hobby pack odds entries.`,
+    tags: ["checklist", "odds"],
+    setId: 841,
+  },
+  {
     id: "154-overview-tab",
     title: "Set Detail Pages — Overview Tab",
     date: "2026-05-08T16:00:00Z",
