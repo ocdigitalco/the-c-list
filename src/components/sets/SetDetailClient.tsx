@@ -13,10 +13,10 @@ import { BreakSheetModal, type BreakSheetPlayer } from "@/components/BreakSheetM
 
 // ─── Types & Constants ─────────────────────────────────────────────────────────
 
-type Tab = "Overview" | "Box Config" | "Pack Odds" | "Inserts" | "Autographs";
+type Tab = "Overview" | "Box Config" | "Base Odds" | "Insert Odds" | "Autograph Odds";
 type SortKey = "totalCards" | "autographs" | "inserts" | "numberedParallels";
 
-const TABS: Tab[] = ["Overview", "Box Config", "Pack Odds", "Inserts", "Autographs"];
+const TABS: Tab[] = ["Overview", "Box Config", "Base Odds", "Insert Odds", "Autograph Odds"];
 const SORT_CHIPS: { key: SortKey; label: string }[] = [
   { key: "totalCards", label: "Total Cards" },
   { key: "autographs", label: "Autographs" },
@@ -1216,9 +1216,9 @@ export function SetDetailClient({
                 hasBoxConfig={hasBoxConfig} hasPackOdds={hasPackOdds} />
             )}
             {tab === "Box Config" && <BoxConfigContent boxConfig={boxConfig} />}
-            {tab === "Pack Odds" && <PackOddsContent formats={oddsFormats} />}
-            {tab === "Inserts" && <InsertsContent formats={oddsFormats} />}
-            {tab === "Autographs" && <AutosContent formats={oddsFormats} />}
+            {tab === "Base Odds" && <PackOddsContent formats={oddsFormats} />}
+            {tab === "Insert Odds" && <InsertsContent formats={oddsFormats} />}
+            {tab === "Autograph Odds" && <AutosContent formats={oddsFormats} />}
           </div>
         </div>
       </div>
@@ -1313,9 +1313,9 @@ export function SetDetailClient({
         {/* Content */}
         <div style={{ padding: 16 }}>
           {tab === "Box Config" && <BoxConfigContent boxConfig={boxConfig} />}
-          {tab === "Pack Odds" && <PackOddsContent formats={oddsFormats} />}
-          {tab === "Inserts" && <InsertsContent formats={oddsFormats} />}
-          {tab === "Autographs" && <AutosContent formats={oddsFormats} />}
+          {tab === "Base Odds" && <PackOddsContent formats={oddsFormats} />}
+          {tab === "Insert Odds" && <InsertsContent formats={oddsFormats} />}
+          {tab === "Autograph Odds" && <AutosContent formats={oddsFormats} />}
         </div>
 
         {/* Athletes drawer */}
