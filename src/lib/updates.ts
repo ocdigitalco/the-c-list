@@ -12,6 +12,29 @@ export interface Update {
 }
 
 export const updates: Update[] = [
+  // ─── May 15, 2026 ───────────────────────────────────────────────────────
+  {
+    id: "159-finest-football-2025-parallels",
+    title: "2025 Topps Finest Football — Parallel Matrix + Breaker's Delight",
+    date: "2026-05-15T14:00:00Z",
+    summary: "Attached 192 parallels across Hobby and Breaker's Delight products. Added exclusivity column to parallels table. Tiered base ladders (Common/Uncommon/Rare) with Geometric Delight exclusives.",
+    description: `## 2025 Topps Finest Football — Parallel Matrix
+
+Attached the full parallel matrix with product exclusivity tags. 134 Hobby parallels and 58 Delight (Breaker's Delight) parallels across base, insert, and autograph subsets. Tiered base ladders: Common (21), Uncommon (20), Rare (19). Five auto subsets share a 12-parallel ladder. Insert Ladder A (Reflash, Torchers, Power Kings, Creators, Team Finest) has 14 parallels each. 92 Finest and Headliners have Superfractor only. Added Breaker's Delight box config (1 pack/box, 3 autos + 2 case inserts + 5 geometric parallels). New \`exclusivity\` column on parallels table supports per-product filtering.`,
+    tags: ["checklist"],
+    setId: 842,
+  },
+  {
+    id: "158-finest-football-2025",
+    title: "2025 Topps Finest Football — Full Checklist",
+    date: "2026-05-15T12:00:00Z",
+    summary: "Added 2025 Topps Finest Football with 300 tiered base cards (Common/Uncommon/Rare), 16 insert subsets, and 7 autograph subsets. 788 total card appearances across 261 athletes.",
+    description: `## 2025 Topps Finest Football
+
+Full checklist added with tiered base set structure: 100 Common, 100 Uncommon, 100 Rare. 16 insert subsets including Reflash, Torchers, Creators, 92 Finest, Nightmare Fuel, and Landmark Metal Series. 7 autograph subsets including Finest Autographs, Rookie Finest Autographs (52 cards), Flashback Autographs, Finest Greats Autographs, and Finest Fans Autographs (celebrity fans). Parallel ladder mirrors 2025-26 Topps Finest Basketball with Refractor, X-Fractor, Geometric, and numbered variants. Historical team names preserved (Washington Redskins, Oakland Raiders, San Diego Chargers, Los Angeles Raiders).`,
+    tags: ["checklist"],
+    setId: 842,
+  },
   // ─── May 8, 2026 ────────────────────────────────────────────────────────
   {
     id: "157-fix-athlete-counts",

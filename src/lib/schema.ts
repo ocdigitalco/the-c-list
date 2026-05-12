@@ -30,6 +30,7 @@ export const parallels = sqliteTable("parallels", {
     .references(() => insertSets.id),
   name: text("name").notNull(),
   printRun: integer("print_run"), // null = unlimited
+  exclusivity: text("exclusivity"), // null = all products; e.g. "Hobby", "Delight"
 });
 
 export const players = sqliteTable("players", {
