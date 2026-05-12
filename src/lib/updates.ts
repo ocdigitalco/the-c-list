@@ -14,6 +14,17 @@ export interface Update {
 export const updates: Update[] = [
   // ─── May 8, 2026 ────────────────────────────────────────────────────────
   {
+    id: "156-hoops-parallels",
+    title: "2025-26 Topps Hoops Basketball — Full Parallel Matrix",
+    date: "2026-05-11T14:00:00Z",
+    summary: "Added Retail parallel ladders (Light Burst, Rainbow, Green Hoops, Orange Hoops) alongside existing Hobby parallels. 215 total parallels across 28 insert sets.",
+    description: `## 2025-26 Topps Hoops Basketball — Full Parallel Matrix
+
+Added 43 Retail parallels across base sets and insert subsets. Base cards now have both Hobby (Rainbow, Pixel Burst) and Retail (Light Burst, Green Hoops, Orange Hoops) ladders. Retail inserts (Hardwired, The Buzz, Net to Net, Jam-Packed) have Light Burst ladder. Created Boom Shaka Laka retail case hit subset. Corrected Dunkumentory spelling to Dunk-Umentory per sell sheet. 215 total parallels.`,
+    tags: ["checklist"],
+    setId: 834,
+  },
+  {
     id: "155-chrome-veefriends-2026",
     title: "2026 Topps Chrome VeeFriends — Full Checklist",
     date: "2026-05-11T12:00:00Z",
