@@ -13,6 +13,29 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "166-exalted-odds-slug-backfill",
+    title: "Attach Pack Odds to Exalted WWE + Backfill Missing Player Slugs",
+    date: "2026-05-13T20:00:00Z",
+    summary: "Attached per-subset pack odds to 2025 Topps Exalted WWE. Backfilled 1,023 missing player slugs across 5 sets (Exalted WWE, Pristine Euro, Finest Football, Bowman Uni Best, Cosmic Chrome Football).",
+    description: `## Pack Odds + Slug Backfill
+
+**Pack Odds:** Attached full per-subset pack odds JSON to 2025 Topps Exalted WWE (set 60) covering all 20 subsets. Odds now render in the set detail page tabs.
+
+**Slug Backfill:** Root cause: recent Python seed scripts (Finest Football, Bowman Uni Best, Cosmic Chrome Football, Exalted WWE) used a \`get_or_create()\` helper that didn't generate slugs. Older scripts included a slugify step at the end. Backfilled 1,023 player slugs across 5 affected sets. Slugify now handles diacritics (Bálor→balor) via unicode normalization. All future seed scripts must include the slug generation step.`,
+    tags: ["feature"],
+  },
+  {
+    id: "165-exalted-wwe-2025",
+    title: "2025 Topps Exalted WWE — Full Checklist",
+    date: "2026-05-13T14:00:00Z",
+    summary: "Added 2025 Topps Exalted WWE with 100 base cards, 13 autograph subsets, 6 memorabilia subsets. 390 total cards, 182 wrestlers. Multi-subject cards for rivalries, tag teams, and quad relics.",
+    description: `## 2025 Topps Exalted WWE
+
+Full WWE checklist with 100 base cards, 7 main auto subsets (Exalted Autographs, Streamline Signatures, Ambient Autographs, Insignia Ink, Elevated Ink, Black and White Signatures, Apparition Autographs), 6 special auto subsets (John Cena: The Last Time Is Now, Celebrating Cena, Rock Retrospective, Triple H Tribute, Superstar Rivalry Signatures, Superstar Rivalry Variation Signatures), and 6 memorabilia subsets (Exalted Relics, Mega Materials, Rivaled Relics, Tag Team Relics, Quad Relics, John Cena: The Last Time Is Now Relic). 96 parallels attached with pack odds. Stage-name quotes preserved (Cody Rhodes, Steve Austin, Bret Hart, etc.). Historical franchise names preserved (Houston Oilers for Earl Campbell).`,
+    tags: ["checklist"],
+    setId: 60,
+  },
+  {
     id: "164-cosmic-chrome-football-2025",
     title: "2025 Topps Cosmic Chrome Football — Checklist (Parallels Pending)",
     date: "2026-05-13T12:00:00Z",
