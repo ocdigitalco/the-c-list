@@ -523,12 +523,15 @@ function BaseParallelsTable({ insertSets, packOddsJson, boxConfigJson, setSlug }
   }
   const rows: ParallelRow[] = [];
   for (const is of baseInserts) {
+    const hasBaseParallel = is.parallels.some((p) => p.name.toLowerCase() === "base");
     for (const app of is.appearances) {
-      rows.push({
-        cardNumber: app.cardNumber, parallelName: "Base", printRun: null,
-        odds: lookupOdds(is.insertSetName, "Base") ?? lookupOdds("Base Cards", "Base"),
-        key: `${is.insertSetId}-${app.cardNumber}-base`,
-      });
+      if (!hasBaseParallel) {
+        rows.push({
+          cardNumber: app.cardNumber, parallelName: "Base", printRun: null,
+          odds: lookupOdds(is.insertSetName, "Base") ?? lookupOdds("Base Cards", "Base"),
+          key: `${is.insertSetId}-${app.cardNumber}-base`,
+        });
+      }
       for (const p of is.parallels) {
         rows.push({
           cardNumber: app.cardNumber, parallelName: p.name, printRun: p.printRun,
@@ -552,11 +555,14 @@ function BaseParallelsTable({ insertSets, packOddsJson, boxConfigJson, setSlug }
     if (!useMultiCol) return [];
     const result: MultiRow[] = [];
     for (const is of baseInserts) {
+      const hasBaseParallel = is.parallels.some((p) => p.name.toLowerCase() === "base");
       for (const app of is.appearances) {
-        const baseKeys = buildLookupKeys(is.insertSetName, "Base");
-        const baseOdds: Record<string, string | number | null> = {};
-        for (const col of activeCols) baseOdds[col.key] = lookupInFormat(allFmts, col.key, baseKeys);
-        result.push({ cardNumber: app.cardNumber, parallelName: "Base", printRun: null, oddsPerFormat: baseOdds, key: `${is.insertSetId}-${app.cardNumber}-base` });
+        if (!hasBaseParallel) {
+          const baseKeys = buildLookupKeys(is.insertSetName, "Base");
+          const baseOdds: Record<string, string | number | null> = {};
+          for (const col of activeCols) baseOdds[col.key] = lookupInFormat(allFmts, col.key, baseKeys);
+          result.push({ cardNumber: app.cardNumber, parallelName: "Base", printRun: null, oddsPerFormat: baseOdds, key: `${is.insertSetId}-${app.cardNumber}-base` });
+        }
         for (const p of is.parallels) {
           const pKeys = buildLookupKeys(is.insertSetName, p.name);
           const pOdds: Record<string, string | number | null> = {};
@@ -880,18 +886,21 @@ function InsertAutoOddsTable({ headerLabel, insertSets, packOddsJson, boxConfigJ
     return `~${v.toFixed(2)}×`;
   }
 
-  // Build rows: one row per insert set (base), plus one row per parallel
+  // Build rows: one row per insert set (base if no "Base" parallel exists), plus one row per parallel
   interface OddsRow { name: string; printRun: number | null; odds: string | number | null; rare: boolean; key: string }
   const rows: OddsRow[] = [];
   for (const is of insertSets) {
-    // Base insert row
-    rows.push({
-      name: is.insertSetName,
-      printRun: null,
-      odds: lookupOdds(is.insertSetName, null),
-      rare: false,
-      key: `${is.insertSetId}-base`,
-    });
+    const hasBaseParallel = is.parallels.some((p) => p.name.toLowerCase() === "base");
+    if (!hasBaseParallel) {
+      // Base insert row (only if parallels don't already include a "Base" entry)
+      rows.push({
+        name: is.insertSetName,
+        printRun: null,
+        odds: lookupOdds(is.insertSetName, null),
+        rare: false,
+        key: `${is.insertSetId}-base`,
+      });
+    }
     // Parallel rows
     for (const p of is.parallels) {
       const odds = lookupOdds(is.insertSetName, p.name);

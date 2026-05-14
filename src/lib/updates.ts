@@ -13,6 +13,16 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "167-fix-duplicate-base-rows",
+    title: "Fix Duplicate Base Rows in Parallel Ladder Display",
+    date: "2026-05-13T22:00:00Z",
+    summary: "Removed redundant Base/subset-header rows from athlete page parallel tables. Sets with an explicit 'Base' parallel no longer render a duplicate row.",
+    description: `## Fix Duplicate Parallel Rows
+
+Base Parallels tab and Inserts/Autographs tabs on athlete pages were rendering duplicate rows when a subset's parallel list included an explicit "Base" parallel entry. The code pushed a standalone "Base" row AND iterated the parallels list (which also contained "Base"), producing two identical rows. Now skips the standalone row when the parallels list already includes a Base entry.`,
+    tags: ["feature"],
+  },
+  {
     id: "166-exalted-odds-slug-backfill",
     title: "Attach Pack Odds to Exalted WWE + Backfill Missing Player Slugs",
     date: "2026-05-13T20:00:00Z",
