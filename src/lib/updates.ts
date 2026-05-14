@@ -13,6 +13,17 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "164-cosmic-chrome-football-2025",
+    title: "2025 Topps Cosmic Chrome Football — Checklist (Parallels Pending)",
+    date: "2026-05-13T12:00:00Z",
+    summary: "Added 2025 Topps Cosmic Chrome Football with 200 base cards, 22 insert subsets (incl. 10 Planetary Pursuit planets), and 4 autograph subset shells. 715 cards, 229 athletes. Parallels, box config, and pack odds pending sell sheet.",
+    description: `## 2025 Topps Cosmic Chrome Football
+
+Full checklist (non-auto) with 200 base cards (100 veterans + 100 rookies), Light Speed, Extraterrestrial Talent, Stars in the Night, Star Clusters (15 dual-subject), Light Years (legends), Cosmic Dust, Cos Play, Supernova, 10 Planetary Pursuit subsets (Sun through Pluto, same 10 players each), Base Cards Constellation Variation (100), Starfractor (100), and Planetarium (25). Four autograph subset shells created (Cosmic Chrome Autograph Variation, Solar Flares Signatures, Equinox Autographs, First Flight Signatures) pending checklist data. Parallels, box config, and pack odds deferred until sell sheet arrives.`,
+    tags: ["checklist"],
+    setId: 844,
+  },
+  {
     id: "163-fix-recently-added-badge",
     title: "Fix Recently Added Badge and Unify Data Loaders",
     date: "2026-05-12T22:00:00Z",
