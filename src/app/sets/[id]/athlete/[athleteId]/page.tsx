@@ -209,6 +209,7 @@ export default async function V2AthletePage({
       subsetTag: playerAppearances.subsetTag,
       insertSetId: playerAppearances.insertSetId,
       insertSetName: insertSets.name,
+      isAutograph: insertSets.isAutograph,
     })
     .from(playerAppearances)
     .innerJoin(insertSets, eq(playerAppearances.insertSetId, insertSets.id))
@@ -281,6 +282,7 @@ export default async function V2AthletePage({
       insertSetMap.set(key, {
         insertSetId: key,
         insertSetName: appearance.insertSetName,
+        isAutograph: !!appearance.isAutograph,
         appearances: [],
         parallels: parallelsByIS.get(key) ?? [],
       });
@@ -298,7 +300,8 @@ export default async function V2AthletePage({
   // ── Pack Odds ───────────────────────────────────────────────────────────────
   const hasBoxConfig = !!setRow.boxConfig;
   const hasPackOdds = !!setRow.packOdds;
-  const autoKeywords = ["auto", "signature", "graph", "relic", "dual", "triple"];
+  // autoKeywords kept as fallback for pack odds slot detection where is_autograph flag isn't available
+  const autoKeywords = ["auto", "signature", "graph", "relic", "dual", "triple", "ink", "script", "mark"];
 
   function singleToBoxFormat(
     label: string,
@@ -415,7 +418,7 @@ export default async function V2AthletePage({
 
     function buildSlots(packOddsData: Record<string, number>): PackOddsSlot[] {
       return playerInsertSets.map((is) => {
-        const isAuto = autoKeywords.some((kw) => is.insertSetName.toLowerCase().includes(kw));
+        const isAuto = is.isAutograph || autoKeywords.some((kw) => is.insertSetName.toLowerCase().includes(kw));
         const prefix = resolvePrefix(is.insertSetName, packOddsData);
         const baseDenom =
           packOddsData[prefix] ??
@@ -472,7 +475,7 @@ export default async function V2AthletePage({
     ))?.n ?? 0;
 
   const playerAutoCards = playerInsertSets
-    .filter((is) => autoKeywords.some((kw) => is.insertSetName.toLowerCase().includes(kw)))
+    .filter((is) => is.isAutograph || autoKeywords.some((kw) => is.insertSetName.toLowerCase().includes(kw)))
     .reduce((sum, is) => sum + is.appearances.length, 0);
 
   // ── Other sets this player appears in ───────────────────────────────────────
@@ -632,6 +635,7 @@ export default async function V2AthletePage({
   const plainInsertSets = playerInsertSets.map((is) => ({
     insertSetId: is.insertSetId,
     insertSetName: is.insertSetName,
+    isAutograph: is.isAutograph,
     appearances: is.appearances.map((a) => ({
       cardNumber: a.cardNumber,
       team: a.team,
@@ -644,7 +648,7 @@ export default async function V2AthletePage({
 
   // Compute autograph stats for the stat strip
   const autoInsertSets = playerInsertSets.filter((is) =>
-    autoKeywords.some((kw) => is.insertSetName.toLowerCase().includes(kw))
+    is.isAutograph || autoKeywords.some((kw) => is.insertSetName.toLowerCase().includes(kw))
   );
   const athleteAutographs = autoInsertSets.reduce((sum, is) => sum + is.appearances.length, 0);
   const athleteAutoParallels = autoInsertSets.reduce((sum, is) =>

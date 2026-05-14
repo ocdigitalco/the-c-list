@@ -116,12 +116,7 @@ export default async function V2SetPage({
             .where(
               and(
                 inArray(insertSets.id, insertSetIds),
-                sql`(
-                  lower(${insertSets.name}) like '%auto%' or
-                  lower(${insertSets.name}) like '%signature%' or
-                  lower(${insertSets.name}) like '%signed%' or
-                  lower(${insertSets.name}) like '%autograph%'
-                )`
+                eq(insertSets.isAutograph, true)
               )
             )
         ).map((r) => r.id)
@@ -189,10 +184,10 @@ export default async function V2SetPage({
       : [];
   const rookiePlayerIds = new Set(rookieRows.map((r) => r.playerId));
 
-  function classifyIS(name: string): "base" | "pure_auto" | "mem_auto" | "relic" | "insert" {
+  function classifyIS(name: string, isAutoFlag?: boolean): "base" | "pure_auto" | "mem_auto" | "relic" | "insert" {
     if (name === "Base Set") return "base";
     const lower = name.toLowerCase();
-    const isAuto = /auto|autograph|signature|signed/.test(lower);
+    const isAuto = isAutoFlag || /auto|autograph|signature|signed|ink|script|mark/.test(lower);
     const isRelic = /relic|memorabilia/.test(lower);
     if (isAuto && isRelic) return "mem_auto";
     if (isAuto) return "pure_auto";
@@ -203,7 +198,7 @@ export default async function V2SetPage({
   const allAppearancesForSheet =
     insertSetIds.length > 0
       ? await db
-          .select({ playerId: playerAppearances.playerId, insertSetName: insertSets.name })
+          .select({ playerId: playerAppearances.playerId, insertSetName: insertSets.name, isAutograph: insertSets.isAutograph })
           .from(playerAppearances)
           .innerJoin(insertSets, eq(playerAppearances.insertSetId, insertSets.id))
           .where(
@@ -227,7 +222,7 @@ export default async function V2SetPage({
   for (const app of allAppearancesForSheet) {
     const e = breakMap.get(app.playerId);
     if (!e) continue;
-    const type = classifyIS(app.insertSetName);
+    const type = classifyIS(app.insertSetName, !!app.isAutograph);
     if (type === "pure_auto") e.autoSetNames.add(app.insertSetName);
     else if (type === "mem_auto") e.hasMemAuto = true;
     else if (type === "relic") e.hasRelic = true;

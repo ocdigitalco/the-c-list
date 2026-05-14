@@ -35,6 +35,7 @@ export interface LeaderboardRow {
 export interface InsertSetDetail {
   insertSetId: number;
   insertSetName: string;
+  isAutograph: boolean;
   appearances: {
     cardNumber: string;
     team: string | null;

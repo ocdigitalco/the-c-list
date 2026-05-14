@@ -13,6 +13,16 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "168-autograph-structural-flag",
+    title: "Fix Autograph Tab Filtering with Structural is_autograph Flag",
+    date: "2026-05-13T23:00:00Z",
+    summary: "Added is_autograph column to insert_sets table. Autograph tab now uses structural flag instead of name matching, fixing Insignia Ink, Elevated Ink, Coaches Ink, and other branded auto subsets that were missing from autograph displays.",
+    description: `## Structural Autograph Flag
+
+Added \`is_autograph\` boolean column to insert_sets table, backfilled across 462 subsets. Athlete page Autographs tab, set detail page autograph counts, and break hit calculator now use the flag instead of keyword matching on subset names. Fixes branded auto subsets like Insignia Ink, Elevated Ink, Coaches Ink, Shadow Scripts, and Manuscripts that weren't being classified as autographs because their names didn't contain "auto" or "signature".`,
+    tags: ["feature"],
+  },
+  {
     id: "167-fix-duplicate-base-rows",
     title: "Fix Duplicate Base Rows in Parallel Ladder Display",
     date: "2026-05-13T22:00:00Z",

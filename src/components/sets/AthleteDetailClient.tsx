@@ -1411,7 +1411,7 @@ export function AthleteDetailClient({
                 headerLabel="INSERT"
                 insertSets={insertSets.filter((is) => {
                   const l = is.insertSetName.toLowerCase();
-                  return !l.includes("base") && !l.includes("auto") && !l.includes("signature");
+                  return !l.includes("base") && !is.isAutograph;
                 })}
                 packOddsJson={packOddsJson} boxConfigJson={boxConfigJson} setSlug={setSlug}
               />
@@ -1420,8 +1420,7 @@ export function AthleteDetailClient({
               <InsertAutoOddsTable
                 headerLabel="AUTOGRAPH"
                 insertSets={insertSets.filter((is) => {
-                  const l = is.insertSetName.toLowerCase();
-                  return l.includes("auto") || l.includes("signature");
+                  return is.isAutograph;
                 })}
                 packOddsJson={packOddsJson} boxConfigJson={boxConfigJson} setSlug={setSlug}
               />
@@ -1565,7 +1564,7 @@ export function AthleteDetailClient({
               headerLabel="INSERT"
               insertSets={insertSets.filter((is) => {
                 const l = is.insertSetName.toLowerCase();
-                return !l.includes("base") && !l.includes("auto") && !l.includes("signature");
+                return !l.includes("base") && !is.isAutograph;
               })}
               packOddsJson={packOddsJson} boxConfigJson={boxConfigJson} setSlug={setSlug}
             />
@@ -1574,8 +1573,7 @@ export function AthleteDetailClient({
             <InsertAutoOddsTable
               headerLabel="AUTOGRAPH"
               insertSets={insertSets.filter((is) => {
-                const l = is.insertSetName.toLowerCase();
-                return l.includes("auto") || l.includes("signature");
+                return is.isAutograph;
               })}
               packOddsJson={packOddsJson} boxConfigJson={boxConfigJson} setSlug={setSlug}
             />
