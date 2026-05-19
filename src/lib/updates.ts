@@ -13,6 +13,17 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "169-chrome-uwcl-2025",
+    title: "2025-26 Topps Chrome UEFA Women's Champions League — Full Checklist",
+    date: "2026-05-19T12:00:00Z",
+    summary: "Added 2025-26 Topps Chrome UEFA Women's Champions League with 100 base cards (95 vets/rookies + 5 Future Stars), 10 insert subsets, 5 autograph subsets, 2 auto-relic subsets. 372 total cards across 117 players. Parallels pending sell sheet.",
+    description: `## 2025-26 Topps Chrome UEFA Women's Champions League
+
+Full women's soccer checklist with 14 clubs (FC Barcelona, Chelsea FC, Arsenal FC, OL Lyonnes, FC Bayern München, Manchester United, Real Madrid C.F., Paris Saint-Germain, VfL Wolfsburg, Juventus, F.C. Twente, Oud-Heverlee Leuven, AS Roma, Paris FC). Insert subsets: Poetic Precision, Finals Destination, Queens of Football, Inside Look, Dreamballer, Helix, Arise, Noble One, Oslo at Night, UWCL Chrome Trophy. Autograph subsets include Chrome Dual (10 same-team pairs) and Chrome Triple (6 same-team trios). Auto-relic subsets: Official Draw Card and Chrome Premium. Parallels pending sell sheet.`,
+    tags: ["checklist"],
+    setId: 845,
+  },
+  {
     id: "168-autograph-structural-flag",
     title: "Fix Autograph Tab Filtering with Structural is_autograph Flag",
     date: "2026-05-13T23:00:00Z",
