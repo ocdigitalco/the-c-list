@@ -13,6 +13,17 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "171-chrome-disney-2026",
+    title: "2026 Topps Chrome Disney — Full Checklist",
+    date: "2026-05-20T12:00:00Z",
+    summary: "Added 2026 Topps Chrome Disney with 200 base cards, 10 image variations, 27 insert subsets, 4 facsimile auto subsets, and MLB Home Jersey Set. 476 total cards across 348 characters. Parallels/odds pending.",
+    description: `## 2026 Topps Chrome Disney
+
+Full entertainment checklist spanning 50+ Disney properties. 200 base cards with [RC] tags for debut characters. 10 Base Card Image Variations deduped to existing characters (Maui/Mini Maui, Jack Sparrow/Captain Jack Sparrow, Agent P/Perry the Platypus, etc.). Anniversary subsets: Moana 10th, HSM 20th, Cars 20th, Monsters Inc 25th, Darkwing Duck 35th, Alice in Wonderland 75th, Dumbo 85th, Winnie the Pooh 100th. Scene/quote subsets: Iconic Moments, TRON TEK, Cars 20th. Facsimile autographs including dual (6), triple (5), and quad (3) multi-subject cards. Mickey/Donald/Goofy MLB Home Jersey Set (30 cards). Walt Disney tagged as celebrity. Parallels and pack odds pending sell sheet.`,
+    tags: ["checklist"],
+    setId: 846,
+  },
+  {
     id: "170-mobile-scroll-optimization",
     title: "Optimize Mobile Scroll Performance",
     date: "2026-05-19T16:00:00Z",
