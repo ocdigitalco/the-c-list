@@ -390,11 +390,31 @@ export function ChecklistSearch({
 // ─── Gallery View ─────────────────────────────────────────────────────────────
 
 function GalleryView({ sets }: { sets: SetCard[] }) {
+  const INITIAL_BATCH = 48;
+  const LOAD_MORE = 48;
+  const [visible, setVisible] = useState(INITIAL_BATCH);
+  const sentinelRef = useRef<HTMLDivElement>(null);
+
+  // Reset visible count when sets change (filter/search)
+  useEffect(() => { setVisible(INITIAL_BATCH); }, [sets]);
+
+  useEffect(() => {
+    const el = sentinelRef.current;
+    if (!el || visible >= sets.length) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible((v) => Math.min(v + LOAD_MORE, sets.length)); },
+      { rootMargin: "400px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [visible, sets.length]);
+
   return (
     <div className="cl-gallery-grid">
-      {sets.map((s) => (
+      {sets.slice(0, visible).map((s) => (
         <GalleryCard key={s.id} set={s} />
       ))}
+      {visible < sets.length && <div ref={sentinelRef} style={{ height: 1 }} />}
     </div>
   );
 }
@@ -428,7 +448,7 @@ function GalleryCard({ set: s }: { set: SetCard }) {
         }}
       >
         {s.sampleImageUrl ? (
-          <img src={s.sampleImageUrl} alt={s.name} className="w-full h-full object-cover" />
+          <img src={s.sampleImageUrl} alt={s.name} width={400} height={560} loading="lazy" decoding="async" className="w-full h-full object-cover" />
         ) : (
           <div className="w-full h-full flex items-center justify-center" style={{ color: "#B7B2A3" }}>
             <svg width={32} height={32} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
@@ -499,11 +519,30 @@ function GalleryCard({ set: s }: { set: SetCard }) {
 // ─── Compact View ─────────────────────────────────────────────────────────────
 
 function CompactView({ sets }: { sets: SetCard[] }) {
+  const INITIAL_BATCH = 60;
+  const LOAD_MORE = 60;
+  const [visible, setVisible] = useState(INITIAL_BATCH);
+  const sentinelRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => { setVisible(INITIAL_BATCH); }, [sets]);
+
+  useEffect(() => {
+    const el = sentinelRef.current;
+    if (!el || visible >= sets.length) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible((v) => Math.min(v + LOAD_MORE, sets.length)); },
+      { rootMargin: "400px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [visible, sets.length]);
+
   return (
     <div className="flex flex-col gap-2">
-      {sets.map((s) => (
+      {sets.slice(0, visible).map((s) => (
         <CompactRow key={s.id} set={s} />
       ))}
+      {visible < sets.length && <div ref={sentinelRef} style={{ height: 1 }} />}
     </div>
   );
 }
@@ -545,7 +584,7 @@ function CompactRow({ set: s }: { set: SetCard }) {
         }}
       >
         {s.sampleImageUrl ? (
-          <img src={s.sampleImageUrl} alt={s.name} className="w-full h-full object-cover" />
+          <img src={s.sampleImageUrl} alt={s.name} width={80} height={112} loading="lazy" decoding="async" className="w-full h-full object-cover" />
         ) : (
           <div className="w-full h-full flex items-center justify-center" style={{ color: "#B7B2A3" }}>
             <svg width={20} height={20} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>

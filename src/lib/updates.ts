@@ -13,6 +13,16 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "170-mobile-scroll-optimization",
+    title: "Optimize Mobile Scroll Performance",
+    date: "2026-05-19T16:00:00Z",
+    summary: "Progressive rendering for set list (48 cards initially, loads more on scroll). Lazy-loaded images with explicit dimensions. Resized oversized set thumbnails.",
+    description: `## Mobile Scroll Optimization
+
+Replaced rendering all ~830 sets at once with progressive loading via IntersectionObserver (48 cards initially in gallery, 60 in compact, loads more as user scrolls). Added lazy loading and explicit width/height to all set thumbnail images to prevent layout reflow. Resized oversized set images (several were 2-3MB, now 200-400KB after resize to 800px max width).`,
+    tags: ["feature"],
+  },
+  {
     id: "169-chrome-uwcl-2025",
     title: "2025-26 Topps Chrome UEFA Women's Champions League — Full Checklist",
     date: "2026-05-19T12:00:00Z",
