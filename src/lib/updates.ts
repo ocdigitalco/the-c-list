@@ -13,6 +13,17 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "173-cactus-jack-parallels",
+    title: "2025-26 Topps Chrome Cactus Jack Basketball — Parallel Matrix + Pack Odds",
+    date: "2026-05-20T18:00:00Z",
+    summary: "Attached 74 parallels and 60 pack odds keys to Cactus Jack Basketball. 19-tier base ladder (Base through SuperFractor 1/1), 9-tier insert ladder, 2-tier case hits, 5-tier auto ladder. Created empty shells for 6 new subsets pending card data.",
+    description: `## 2025-26 Topps Chrome Cactus Jack Basketball — Parallel Matrix
+
+Replaced old parallels with correct sell sheet data. 19-tier base ladder including Cactus Jack Refractor /41 and Red Mini-Diamond Refractor /5. Standard insert ladder (9 tiers) for Utopia Highlights, Jacked Up, LA Flame Legends, and existing Sicko Stars. Case hit ladder (Base + SuperFractor only) for Astrovision and Cactus Mode. Auto ladder (5 tiers) for Base Autograph Variation, Cactus Ink, and existing All-Star Game Autographs. 6 new subset shells created pending card checklist data. Base parallel odds use "4:1" format (4 base cards per pack).`,
+    tags: ["checklist"],
+    setId: 23,
+  },
+  {
     id: "172-midnight-ufc-parallels",
     title: "2026 Topps Midnight UFC — Parallel Matrix + Pack Odds",
     date: "2026-05-20T16:00:00Z",
