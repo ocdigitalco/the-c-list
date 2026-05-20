@@ -13,6 +13,17 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "172-midnight-ufc-parallels",
+    title: "2026 Topps Midnight UFC — Parallel Matrix + Pack Odds",
+    date: "2026-05-20T16:00:00Z",
+    summary: "Attached 86 parallels and full pack odds to 2026 Topps Midnight UFC. 10-tier base ladder (Base through Black Light 1/1), 5 standard insert subsets, 4 case hit subsets, 4 auto subsets, and Fight Glove Relic Autographs with unique Daybreak /8.",
+    description: `## 2026 Topps Midnight UFC — Parallel Matrix
+
+86 parallel rows attached across 15 subsets with full pack odds (86 odds keys). Base ladder: Base, Zodiac, Morning /125, Twilight /99, Dusk /75, Moon Beam, Moonrise /25, Midnight /12, Daybreak /5, Black Light 1/1. Fight Glove Relic Autographs uses Daybreak /8 (not /5) — only subset with non-standard Daybreak print run. Source pack odds typo corrected: "Fight Glove Midnight 1:825" → "Fight Glove Black Light 1:825" per actual parallel ladder. Twilight name collision handled correctly — both a /99 parallel tier and a case hit insert subset coexist.`,
+    tags: ["checklist"],
+    setId: 835,
+  },
+  {
     id: "171-chrome-disney-2026",
     title: "2026 Topps Chrome Disney — Full Checklist",
     date: "2026-05-20T12:00:00Z",
