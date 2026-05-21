@@ -11,6 +11,7 @@ import { notFound, redirect } from "next/navigation";
 import { SetDetailClient } from "@/components/sets/SetDetailClient";
 import type { LeaderboardRow } from "@/components/sets/types";
 import type { BreakSheetPlayer } from "@/components/BreakSheetModal";
+import { articles } from "@/lib/articles";
 
 export const revalidate = 3600;
 
@@ -353,6 +354,12 @@ export default async function V2SetPage({
       hasTeamData={hasTeamData}
       breakSheetPlayers={breakSheetPlayers}
       parallelsList={allParallels}
+      featuredArticle={articles.find((a) => a.setId === setId) ? {
+        slug: articles.find((a) => a.setId === setId)!.id,
+        title: articles.find((a) => a.setId === setId)!.title,
+        description: articles.find((a) => a.setId === setId)!.description,
+        heroImage: articles.find((a) => a.setId === setId)!.heroImage,
+      } : null}
     />
   );
 }

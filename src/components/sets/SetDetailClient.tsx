@@ -85,6 +85,7 @@ export interface SetDetailClientProps {
   hasTeamData: boolean;
   breakSheetPlayers: BreakSheetPlayer[];
   parallelsList: ParallelInfo[];
+  featuredArticle?: { slug: string; title: string; description: string; heroImage: string } | null;
 }
 
 // ─── Helpers ────────────────────────────────────────────────────────────────────
@@ -615,11 +616,12 @@ function StatStrip({ items }: { items: { label: string; value: number }[] }) {
 
 // ─── Tab: Overview ──────────────────────────────────────────────────────────
 
-function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autographs, autoParallels, totalParallels, athleteCount, releaseDate, hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds, subjectLabel = "Athletes" }: {
+function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autographs, autoParallels, totalParallels, athleteCount, releaseDate, hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds, subjectLabel = "Athletes", featuredArticle }: {
   boxConfig: string | null; cards: number; cardTypes: number; parallelTypes: number;
   autographs: number; autoParallels: number; totalParallels: number; athleteCount: number;
   releaseDate: string | null; hasChecklist: boolean; hasNumberedParallels: boolean;
   hasBoxConfig: boolean; hasPackOdds: boolean; subjectLabel?: string;
+  featuredArticle?: { slug: string; title: string; description: string; heroImage: string } | null;
 }) {
   const boxRows = boxConfig ? buildBoxRows(boxConfig) : [];
 
@@ -762,6 +764,40 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
               </div>
             ))}
           </div>
+        </div>
+      )}
+
+      {/* Featured Article */}
+      {featuredArticle && (
+        <div>
+          <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase", marginBottom: 12 }}>
+            Featured Article
+          </div>
+          <a
+            href={`/articles/${featuredArticle.slug}`}
+            style={{
+              display: "flex", gap: 16, background: "#FFFFFF", border: "1px solid #EDEAE0",
+              borderRadius: 8, padding: 16, textDecoration: "none", transition: "box-shadow 0.15s",
+            }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 14px rgba(15,15,14,0.08)"; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "none"; }}
+          >
+            {featuredArticle.heroImage && (
+              <img src={featuredArticle.heroImage} alt="" width={100} height={140}
+                style={{ width: 100, height: 140, objectFit: "cover", borderRadius: 4, flexShrink: 0 }} />
+            )}
+            <div style={{ minWidth: 0 }}>
+              <div style={{ fontFamily: FONT_DISPLAY, fontSize: 16, fontWeight: 600, color: "#0F0F0E", lineHeight: 1.3 }}>
+                {featuredArticle.title}
+              </div>
+              <div style={{ fontSize: 14, color: "#6B6757", marginTop: 6, lineHeight: 1.5, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
+                {featuredArticle.description}
+              </div>
+              <div style={{ fontFamily: FONT_MONO, fontSize: 11, fontWeight: 600, color: "oklch(0.55 0.17 25)", marginTop: 10 }}>
+                READ FULL ARTICLE &rarr;
+              </div>
+            </div>
+          </a>
         </div>
       )}
     </div>
@@ -1095,7 +1131,7 @@ export function SetDetailClient({
   cards, cardTypes, parallelTypes, autographs, autoParallels, totalParallels, athleteCount,
   subjectLabel: subjectLabelProp,
   hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds,
-  boxConfig, packOdds, entries, hasTeamData, breakSheetPlayers, parallelsList,
+  boxConfig, packOdds, entries, hasTeamData, breakSheetPlayers, parallelsList, featuredArticle,
 }: SetDetailClientProps) {
   const subjectLabel = subjectLabelProp ?? "Athletes";
   const [tab, setTab] = useState<Tab>("Overview");
@@ -1216,7 +1252,7 @@ export function SetDetailClient({
                 parallelTypes={parallelTypes} autographs={autographs} autoParallels={autoParallels}
                 totalParallels={totalParallels} athleteCount={athleteCount} releaseDate={releaseDate}
                 hasChecklist={hasChecklist} hasNumberedParallels={hasNumberedParallels}
-                hasBoxConfig={hasBoxConfig} hasPackOdds={hasPackOdds} subjectLabel={subjectLabel} />
+                hasBoxConfig={hasBoxConfig} hasPackOdds={hasPackOdds} subjectLabel={subjectLabel} featuredArticle={featuredArticle} />
             )}
             {tab === "Box Config" && <BoxConfigContent boxConfig={boxConfig} />}
             {tab === "Base Odds" && <PackOddsContent formats={oddsFormats} />}

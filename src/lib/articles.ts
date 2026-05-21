@@ -65,6 +65,294 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    id: "2025-26-topps-chrome-cactus-jack-basketball",
+    title: "2025-26 Topps Chrome Cactus Jack Basketball: Complete Release Guide",
+    publishedAt: "2026-06-19",
+    description:
+      "Travis Scott's Cactus Jack brand returns to the NBA with a culture-driven Chrome release. A complete look at the 100-card base set, 18-tier parallel rainbow, two on-card autograph subsets, five inserts, and what makes this product different.",
+    heroImage: "/sets/2025-26-topps-chrome-cactus-jack-basketball.jpg",
+    tags: ["basketball", "nba", "chrome", "topps", "2025-26", "release guide"],
+    setId: 23,
+    tldr: "2025-26 Topps Chrome Cactus Jack Basketball is a culture-driven Chrome release built around Travis Scott's Cactus Jack brand. The product features a 100-card base set, 18 base parallel tiers including the unique Cactus Jack Refractor /41, two on-card autograph subsets, and five inserts split between three common and two ultra-rare chase concepts. Hobby-only release with one autograph per four boxes.",
+    content: [
+      {
+        type: "set-info",
+        setId: 23,
+      },
+      {
+        type: "p",
+        text: "2025-26 Topps Chrome Cactus Jack Basketball launched on June 19, 2026, marking the second NBA collaboration between Travis Scott's Cactus Jack brand and Fanatics/Topps. Where the earlier Cactus Jack x NBA All-Star Game release leaned into extreme scarcity with 8-card boxes, this version takes a more conventional production approach. The result is a Chrome product with a distinct visual identity, a deliberately limited print run, and a hit structure that asks collectors to think carefully about what they're buying.",
+      },
+      {
+        type: "link",
+        text: "View the full checklist on Checklist\u00B2",
+        href: "https://www.checklist2.com/sets/2025-26-topps-chrome-cactus-jack-basketball",
+      },
+      {
+        type: "h2",
+        text: "Why This Release Stands Out",
+      },
+      {
+        type: "p",
+        text: "Cactus Jack as a brand sits at the intersection of music, streetwear, and counterculture. Travis Scott has spent years building that identity through sneaker drops, festival tours, and crossover collaborations. Translating that into a trading card product is harder than it sounds. A 2025 Cactus Jack WWE release tried it and stalled, with boxes that launched at $400 now moving on the secondary market closer to $260.",
+      },
+      {
+        type: "p",
+        text: "Cactus Jack Basketball avoids that trap by leaning into design rather than restraint. The base cards lean into street-ball energy with chain net and brick wall backgrounds. The parallel rainbow is dense and visually varied. The inserts (Utopia Highlights, Jacked Up, LA Flame Legends, Astrovision, Cactus Mode) are built with distinct visual concepts rather than recycled Chrome treatments. Whether the product earns a place in long-term collecting depends on the design landing with collectors who weren't already in the Cactus Jack orbit, but the work is there in the cards.",
+      },
+      {
+        type: "h2",
+        text: "What Is Inside",
+      },
+      {
+        type: "p",
+        text: "Hobby boxes contain 20 packs of 4 cards each, with 12 boxes per case. Pre-order pricing landed at $490 per box through the EQL lottery system on May 19, 2026.",
+      },
+      {
+        type: "p",
+        text: "The base set runs 100 cards split between 60 veterans and 40 rookies. Cooper Flagg, Kon Knueppel, and Dylan Harper anchor the 2025 rookie class. Veteran cards span the league's biggest names, including LeBron James, Stephen Curry, Anthony Edwards, Victor Wembanyama, and the rest of the top tier.",
+      },
+      {
+        type: "p",
+        text: "Per-box breakdown (estimated): approximately 10 parallels per box, 5 numbered cards per box (4 numbered base + 1 numbered insert on average), 7-8 inserts per box (mostly common tier), Astrovision or Cactus Mode rare inserts roughly 1 per case, and 0.25 autographs per box (1 auto every 4 boxes, or 3 per case).",
+      },
+      {
+        type: "p",
+        text: "The autograph rate is the most discussed structural choice in the product. At $490 per box with one autograph every four boxes on average, single-box rippers are statistically more likely to miss than hit. Case breakers fare better, with three autographs guaranteed across a 12-box case.",
+      },
+      {
+        type: "h2",
+        text: "The Parallel Rainbow",
+      },
+      {
+        type: "p",
+        text: "The base parallel ladder runs 18 tiers deep, mixing standard Chrome refractors with brand-specific entries:",
+      },
+      {
+        type: "table",
+        headers: ["Parallel", "Print Run", "Pack Odds"],
+        rows: [
+          ["White", "Unnumbered", "1:7"],
+          ["Refractor", "Unnumbered", "1:10"],
+          ["LogoFractor", "Unnumbered", "1:20"],
+          ["Teal Speckle Refractor", "/299", "1:26"],
+          ["Pink Refractor", "/250", "1:31"],
+          ["Aqua Shimmer", "/199", "1:38"],
+          ["Lasers", "/175", "1:44"],
+          ["Blue Refractor", "/150", "1:51"],
+          ["Sonar", "/125", "1:61"],
+          ["Green Refractor", "/99", "1:77"],
+          ["Purple Mini-Diamond", "/75", "1:101"],
+          ["Gold Refractor", "/50", "1:151"],
+          ["Cactus Jack Refractor", "/41", "1:184"],
+          ["Orange Refractor", "/25", "1:302"],
+          ["Black Refractor", "/10", "1:754"],
+          ["Red Refractor", "/5", "1:1,509"],
+          ["Red Mini-Diamond Refractor", "/5", "1:1,509"],
+          ["SuperFractor", "1/1", "1:7,575"],
+        ],
+      },
+      {
+        type: "p",
+        text: "The Cactus Jack Refractor at /41 is the standout. It is the brand-specific parallel of the set, a print run chosen for thematic reasons rather than fitting the standard /50 tier. The Red Mini-Diamond Refractor sits at the same /5 print run as Red Refractor but functions as a separate parallel with its own pull odds.",
+      },
+      {
+        type: "callout",
+        variant: "tip",
+        label: "Breaker tip",
+        text: "The /5 tier in this product is doubled. Red Refractor and Red Mini-Diamond Refractor share the same /5 print run, giving each base card two distinct /5 parallels rather than one.",
+      },
+      {
+        type: "h2",
+        text: "The Inserts",
+      },
+      {
+        type: "p",
+        text: "Five insert subsets divide between three common tiers and two short-printed chase concepts.",
+      },
+      {
+        type: "h3",
+        text: "Utopia Highlights (1:8 packs)",
+      },
+      {
+        type: "p",
+        text: "40-card insert split 20 veterans and 20 rookies. Visually the cleanest of the three common inserts, with a Chrome treatment that lets the player photography lead. Parallels: Blue Refractor /150, Green Refractor /99, Purple Mini-Diamond /75, Gold Refractor /50, Orange Refractor /25, Black Refractor /10, Red Refractor /5, SuperFractor 1/1.",
+      },
+      {
+        type: "h3",
+        text: "Jacked Up (1:8 packs)",
+      },
+      {
+        type: "p",
+        text: "40-card insert with broader checklist coverage: 23 veterans, 10 rookies, and 7 legends. Design leans into the distorted, high-voltage aesthetic that matches the louder Cactus Jack visual language. Same parallel ladder as Utopia Highlights.",
+      },
+      {
+        type: "h3",
+        text: "LA Flame Legends (1:15 packs)",
+      },
+      {
+        type: "p",
+        text: "20-card insert exclusively featuring retired legends. Pulls at roughly half the rate of the other common inserts, with pack odds doubling across every parallel tier. Same parallel ladder as Utopia Highlights and Jacked Up.",
+      },
+      {
+        type: "h3",
+        text: "Astrovision (1:305 packs)",
+      },
+      {
+        type: "p",
+        text: "20-card insert split evenly between veterans and rookies. The cosmic, lens-distorted visual signature of the set. Two parallel tiers only: Base and SuperFractor 1/1.",
+      },
+      {
+        type: "h3",
+        text: "Cactus Mode (1:1,200 packs)",
+      },
+      {
+        type: "p",
+        text: "20-card chase insert. Rarest insert in the product by pack odds. Two parallel tiers: Base (approximately 32 copies each) and SuperFractor 1/1.",
+      },
+      {
+        type: "callout",
+        variant: "info",
+        label: "Heads up",
+        text: "Astrovision and Cactus Mode skip every intermediate refractor tier. The only parallels for these chase inserts are Base and SuperFractor. There is no Blue, Green, Orange, Black, or Red Refractor version of either insert.",
+      },
+      {
+        type: "h2",
+        text: "The Autographs",
+      },
+      {
+        type: "p",
+        text: "Two on-card autograph subsets, both at 1:208 pack odds.",
+      },
+      {
+        type: "h3",
+        text: "Base Autograph Variations (1:208 packs)",
+      },
+      {
+        type: "p",
+        text: "49-card subset featuring variation art of base card subjects with on-card signatures. Estimated print run of approximately 75 copies per player on the unnumbered base tier.",
+      },
+      {
+        type: "h3",
+        text: "Cactus Ink (1:208 packs)",
+      },
+      {
+        type: "p",
+        text: "49-card subset with a streetwear-influenced design pairing player photography with the Cactus Jack brand identity. Same estimated print run as Base Autograph Variations.",
+      },
+      {
+        type: "p",
+        text: "Both autograph subsets share an identical 5-tier parallel ladder: Orange Refractor /25, Black Refractor /10, Red Refractor /5, SuperFractor 1/1. The autograph ladder deliberately skips the lower-rarity tiers (no White, Refractor, LogoFractor, Blue, Green, Purple Mini-Diamond, or Gold versions). Every autograph parallel is /25 or rarer.",
+      },
+      {
+        type: "h2",
+        text: "What the Break Hit Calculator Says",
+      },
+      {
+        type: "p",
+        text: "Expected pulls using the official pack odds across common break scenarios.",
+      },
+      {
+        type: "h3",
+        text: "1 Hobby Box (20 packs)",
+      },
+      {
+        type: "table",
+        headers: ["Card", "Odds", "Probability"],
+        rows: [
+          ["Any Base Autograph", "1:208", "9.2%"],
+          ["Any Astrovision", "1:305", "6.4%"],
+          ["Any Cactus Mode", "1:1,200", "1.6%"],
+          ["Any SuperFractor", "1:7,575", "0.26%"],
+        ],
+      },
+      {
+        type: "h3",
+        text: "1 Hobby Case (12 boxes / 240 packs)",
+      },
+      {
+        type: "table",
+        headers: ["Card", "Odds", "Probability"],
+        rows: [
+          ["Any Base Autograph", "1:208", "68.7%"],
+          ["Any Astrovision", "1:305", "54.4%"],
+          ["Any Cactus Mode", "1:1,200", "18.1%"],
+          ["Any SuperFractor", "1:7,575", "3.1%"],
+        ],
+      },
+      {
+        type: "h3",
+        text: "2 Hobby Cases (24 boxes / 480 packs)",
+      },
+      {
+        type: "table",
+        headers: ["Card", "Odds", "Probability"],
+        rows: [
+          ["Any Base Autograph", "1:208", "90.2%"],
+          ["Any Astrovision", "1:305", "79.2%"],
+          ["Any Cactus Mode", "1:1,200", "33.0%"],
+          ["Any SuperFractor", "1:7,575", "6.1%"],
+        ],
+      },
+      {
+        type: "p",
+        text: "A single hobby case produces an expected 3 autographs, 4-5 Astrovisions on average, and roughly 1 Cactus Mode every 5-6 cases. The SuperFractor remains an extreme outlier at any volume.",
+      },
+      {
+        type: "h2",
+        text: "The Rookies to Know",
+      },
+      {
+        type: "p",
+        text: "The 2025 NBA Draft class lands in Chrome Cactus Jack with significant top-end star power. Cooper Flagg headlines the group as the consensus #1 overall talent. Dylan Harper, Kon Knueppel, and the rest of the lottery class fill out the rookie checklist alongside veteran star coverage.",
+      },
+      {
+        type: "p",
+        text: "Rookie autographs in both Base Autograph Variations and Cactus Ink subsets carry the same scarcity as veteran autographs. There is no separate rookie-only auto tier in the product.",
+      },
+      {
+        type: "h2",
+        text: "Longshot Odds",
+      },
+      {
+        type: "p",
+        text: "The hardest pulls in the product, ranked from rarest:",
+      },
+      {
+        type: "table",
+        headers: ["#", "Card", "Odds"],
+        rows: [
+          ["1", "LA Flame Legends SuperFractor", "1:38,274"],
+          ["2", "Base Autograph Variation / Cactus Ink SuperFractor", "1:26,934"],
+          ["3", "Utopia Highlights / Jacked Up SuperFractor", "1:19,137"],
+          ["4", "Base SuperFractor", "1:7,575"],
+          ["5", "Cactus Mode (base)", "1:1,200"],
+        ],
+      },
+      {
+        type: "h2",
+        text: "Final Thoughts",
+      },
+      {
+        type: "p",
+        text: "2025-26 Topps Chrome Cactus Jack Basketball is a deliberately limited, design-forward Chrome release. The strengths are the visual identity, the strength of the 2025 rookie class, and the deliberate scarcity of the autograph program when it hits.",
+      },
+      {
+        type: "p",
+        text: "The weakness is the same as Topps Cosmic Chrome before it: at $490 per box with one autograph every four boxes, single-box rippers face math that does not favor them. Case breakers come out closer to even. Set builders chasing the full parallel rainbow have a more compelling proposition. The 18-tier ladder gives base cards real depth, and the Cactus Jack Refractor /41 is the kind of brand-specific entry that builds set identity over time.",
+      },
+      {
+        type: "p",
+        text: "Where this product earns its place is the rookie class, the design quality of the inserts (Utopia Highlights and Astrovision in particular), and the comparatively tight production run that keeps it out of the bloat territory of recent flagship Chrome releases. Whether the Cactus Jack association becomes a long-term collecting category or fades back into a one-off remains to be seen.",
+      },
+      {
+        type: "link",
+        text: "View the complete 2025-26 Topps Chrome Cactus Jack Basketball checklist on Checklist\u00B2",
+        href: "https://www.checklist2.com/sets/2025-26-topps-chrome-cactus-jack-basketball",
+      },
+    ],
+  },
+  {
     id: "2025-topps-chrome-football",
     title: "2025 Topps Chrome Football: Chrome Is Back, and the NFL Will Never Be the Same",
     publishedAt: "2026-04-29",

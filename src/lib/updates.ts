@@ -13,6 +13,17 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "175-cactus-jack-article",
+    title: "Article: 2025-26 Topps Chrome Cactus Jack Basketball Release Guide",
+    date: "2026-05-20T22:00:00Z",
+    summary: "Published complete release guide for Cactus Jack Basketball covering the 18-tier parallel rainbow, autograph structure, insert breakdowns, break calculator odds, and longshot chase cards. Added Featured Article card to set detail Overview tabs.",
+    description: `## Cactus Jack Basketball Release Guide
+
+Published the first article using the new Featured Article card on set detail Overview tabs. The article covers the full product breakdown: 18-tier parallel rainbow with Cactus Jack Refractor /41, two on-card autograph subsets at 1:208 pack odds, five insert tiers (Utopia Highlights, Jacked Up, LA Flame Legends, Astrovision, Cactus Mode), break hit calculator scenarios for 1 box / 1 case / 2 cases, and the longshot odds ranking. Featured Article card now appears on any set's Overview tab when a matching article exists by setId.`,
+    tags: ["feature"],
+    setId: 23,
+  },
+  {
     id: "174-cactus-jack-box-config",
     title: "Cactus Jack Basketball — Hobby Box Config + Release Date",
     date: "2026-05-20T20:00:00Z",
