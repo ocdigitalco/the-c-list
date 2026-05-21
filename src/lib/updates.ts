@@ -13,6 +13,17 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "174-cactus-jack-box-config",
+    title: "Cactus Jack Basketball — Hobby Box Config + Release Date",
+    date: "2026-05-20T20:00:00Z",
+    summary: "Added Hobby box configuration (4 cards/pack, 20 packs/box, 12 boxes/case) and updated release date to June 19, 2026.",
+    description: `## Cactus Jack Basketball — Box Config
+
+Hobby box configuration: 4 cards per pack, 20 packs per box, 12 boxes per case. Release date updated from 2026-02-13 to 2026-06-19. Confirms the "Base 4:1" pack odds (4 base cards per pack).`,
+    tags: ["box-config"],
+    setId: 23,
+  },
+  {
     id: "173-cactus-jack-parallels",
     title: "2025-26 Topps Chrome Cactus Jack Basketball — Parallel Matrix + Pack Odds",
     date: "2026-05-20T18:00:00Z",
