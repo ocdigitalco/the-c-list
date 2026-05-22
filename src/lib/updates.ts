@@ -13,6 +13,16 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "176-articles-page-redesign",
+    title: "Redesign /articles Page with Hero + Sidebar + Compact Row Layout",
+    date: "2026-05-21T12:00:00Z",
+    summary: "Restructured /articles page into fixed-slot layout: 1 hero (left 2/3) + 3 sidebar articles (right 1/3) + compact text-only row (positions 5-8) + remainder list. Sidebar no longer grows unbounded.",
+    description: `## Articles Page Redesign
+
+Replaced the unbounded sidebar layout with a Business Insider-style fixed-slot structure. Hero article takes left 2/3 with large image, sidebar shows exactly 3 articles with thumbnails, compact row shows positions 5-8 as text-only cards with category tags and read times. Read time now calculated from article body word count (200 wpm). Category tag derived from first tag, uppercased. Layout degrades gracefully with fewer articles.`,
+    tags: ["feature"],
+  },
+  {
     id: "175-cactus-jack-article",
     title: "Article: 2025-26 Topps Chrome Cactus Jack Basketball Release Guide",
     date: "2026-05-20T22:00:00Z",

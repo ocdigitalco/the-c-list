@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { articles, getAllTags } from "@/lib/articles";
+import { articles, getAllTags, type Article } from "@/lib/articles";
 import { Footer } from "@/components/Footer";
 import { ArticleTagFilter } from "./ArticleTagFilter";
 
@@ -9,20 +9,109 @@ export const metadata: Metadata = {
   description: "Guides, insights, and how-tos for collectors and breakers",
 };
 
-function formatDate(iso: string) {
-  return new Date(iso + "T00:00:00Z").toLocaleDateString("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-    timeZone: "UTC",
-  });
+function estimateReadTime(a: Article): string {
+  const bodyWords = a.content
+    .filter((s) => s.type === "p" || s.type === "h2" || s.type === "h3")
+    .reduce((sum, s) => sum + (s.text?.split(/\s+/).length ?? 0), 0);
+  const mins = Math.max(3, Math.ceil(bodyWords / 200));
+  return `${mins} MIN READ`;
 }
 
-function estimateReadTime(description: string): string {
-  const words = description.split(/\s+/).length;
-  const mins = Math.max(3, Math.ceil(words / 40));
-  return `${mins} min read`;
+function categoryTag(a: Article): string | null {
+  if (!a.tags || a.tags.length === 0) return null;
+  return a.tags[0].toUpperCase();
 }
+
+// ─── Hero Article (position 1) ──────────────────────────────────────────────
+
+function HeroArticle({ article: a }: { article: Article }) {
+  const cat = categoryTag(a);
+  return (
+    <Link href={`/articles/${a.id}`} className="group block" style={{ textDecoration: "none" }}>
+      <div style={{ background: "#F5F5F5" }}>
+        {a.heroImage && !a.heroImage.includes("placeholder") ? (
+          <img src={a.heroImage} alt={a.title} width={800} height={500} loading="eager"
+            className="w-full transition-transform duration-500 group-hover:scale-[1.02]"
+            style={{ display: "block", aspectRatio: "16/10", objectFit: "cover" }} />
+        ) : (
+          <div className="flex items-center justify-center"
+            style={{ background: "#2C2C2A", aspectRatio: "16/10" }}>
+            <span style={{ color: "#6B6B6B", fontSize: 18, fontWeight: 700 }}>Checklist{"\u00b2"}</span>
+          </div>
+        )}
+      </div>
+      <div style={{ paddingTop: 16 }}>
+        {cat && (
+          <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "oklch(0.55 0.17 25)", display: "block", marginBottom: 6 }}>
+            {cat}
+          </span>
+        )}
+        <h2 className="group-hover:underline" style={{
+          fontSize: 28, fontWeight: 700, lineHeight: 1.22, color: "#1A1A1A", margin: "0 0 8px 0",
+          fontFamily: "Georgia, 'Times New Roman', serif",
+        }}>
+          {a.title}
+        </h2>
+        <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", color: "#999999" }}>
+          {estimateReadTime(a)}
+        </span>
+      </div>
+    </Link>
+  );
+}
+
+// ─── Sidebar Article (positions 2-4) ────────────────────────────────────────
+
+function SidebarArticle({ article: a }: { article: Article }) {
+  return (
+    <Link href={`/articles/${a.id}`} className="group flex items-start gap-4" style={{ textDecoration: "none" }}>
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <h3 className="group-hover:underline" style={{
+          fontSize: 16, fontWeight: 700, lineHeight: 1.3, color: "#1A1A1A", margin: "0 0 6px 0",
+          fontFamily: "Georgia, 'Times New Roman', serif",
+          display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical" as const, overflow: "hidden",
+        }}>
+          {a.title}
+        </h3>
+        <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", color: "#999999" }}>
+          {estimateReadTime(a)}
+        </span>
+      </div>
+      {a.heroImage && !a.heroImage.includes("placeholder") && (
+        <div className="shrink-0" style={{ width: 100, height: 100, overflow: "hidden" }}>
+          <img src={a.heroImage} alt={a.title} width={100} height={100} loading="lazy"
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
+        </div>
+      )}
+    </Link>
+  );
+}
+
+// ─── Compact Article (positions 5-8) ────────────────────────────────────────
+
+function CompactArticle({ article: a }: { article: Article }) {
+  const cat = categoryTag(a);
+  return (
+    <Link href={`/articles/${a.id}`} className="group block" style={{ textDecoration: "none" }}>
+      {cat && (
+        <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.1em", color: "oklch(0.55 0.17 25)", display: "block", marginBottom: 4 }}>
+          {cat}
+        </span>
+      )}
+      <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.06em", color: "#999999", display: "block", marginBottom: 8 }}>
+        {estimateReadTime(a)}
+      </span>
+      <h3 className="group-hover:underline" style={{
+        fontSize: 18, fontWeight: 700, lineHeight: 1.3, color: "#1A1A1A", margin: 0,
+        fontFamily: "Georgia, 'Times New Roman', serif",
+      }}>
+        {a.title}
+      </h3>
+    </Link>
+  );
+}
+
+// ─── Page ───────────────────────────────────────────────────────────────────
 
 export default async function ArticlesPage({
   searchParams,
@@ -35,23 +124,17 @@ export default async function ArticlesPage({
     ? articles.filter((a) => a.tags.includes(activeTag))
     : articles;
 
-  const [hero, second, ...remaining] = filtered;
+  const hero = filtered[0] ?? null;
+  const sidebar = filtered.slice(1, 4);
+  const compactRow = filtered.slice(4, 8);
+  const remainder = filtered.slice(8);
 
   return (
     <div className="h-full overflow-y-auto" style={{ background: "#FFFFFF" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
         {/* Header */}
         <div style={{ paddingTop: 40, paddingBottom: 12, borderBottom: "1px solid #E5E5E5" }}>
-          <h1
-            style={{
-              fontSize: 13,
-              fontWeight: 700,
-              letterSpacing: "0.12em",
-              textTransform: "uppercase" as const,
-              color: "#1A1A1A",
-              margin: 0,
-            }}
-          >
+          <h1 style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase" as const, color: "#1A1A1A", margin: 0 }}>
             Articles
           </h1>
         </div>
@@ -67,194 +150,66 @@ export default async function ArticlesPage({
           </div>
         ) : (
           <>
-            {/* Two-column layout: hero left, list right */}
-            <div className="flex flex-col lg:flex-row" style={{ gap: 0 }}>
-              {/* ── Left column: Hero article ── */}
-              {hero && (
-                <Link
-                  href={`/articles/${hero.id}`}
-                  className="group block lg:flex-[65] lg:border-r"
-                  style={{
-                    textDecoration: "none",
-                    borderColor: "#E5E5E5",
-                  }}
-                >
+            {/* ── Hero + Sidebar ── */}
+            {hero && (
+              <section className="flex flex-col lg:flex-row" style={{ gap: 0 }}>
+                {/* Hero (left 2/3) */}
+                <div className="lg:flex-[65] lg:border-r" style={{ borderColor: "#E5E5E5" }}>
                   <div className="lg:mr-6">
-                    {/* Hero image */}
-                    <div style={{ background: "#F5F5F5" }}>
-                      {hero.heroImage && !hero.heroImage.includes("placeholder") ? (
-                        <img
-                          src={hero.heroImage}
-                          alt={hero.title}
-                          className="w-full transition-transform duration-500 group-hover:scale-[1.02]"
-                          style={{ display: "block" }}
-                        />
-                      ) : (
-                        <div
-                          className="flex items-center justify-center"
-                          style={{ background: "#2C2C2A", aspectRatio: "16/9" }}
-                        >
-                          <span style={{ color: "#6B6B6B", fontSize: 18, fontWeight: 700 }}>
-                            Checklist{"\u00b2"}
-                          </span>
-                        </div>
-                      )}
-                    </div>
-                    {/* Title below image */}
-                    <div style={{ paddingTop: 16 }}>
-                      <h2
-                        className="group-hover:underline"
-                        style={{
-                          fontSize: 28,
-                          fontWeight: 700,
-                          lineHeight: 1.22,
-                          color: "#1A1A1A",
-                          margin: "0 0 8px 0",
-                          fontFamily: "Georgia, 'Times New Roman', serif",
-                        }}
-                      >
-                        {hero.title}
-                      </h2>
-                      <span
-                        style={{
-                          fontSize: 11,
-                          fontWeight: 600,
-                          letterSpacing: "0.06em",
-                          textTransform: "uppercase" as const,
-                          color: "#999999",
-                        }}
-                      >
-                        {estimateReadTime(hero.description)}
-                      </span>
-                    </div>
+                    <HeroArticle article={hero} />
                   </div>
-                </Link>
-              )}
+                </div>
 
-              {/* ── Right column: Stacked articles ── */}
-              <div className="lg:flex-[35] lg:pl-6 pt-6 lg:pt-0">
-                {/* First right article — with image */}
-                {second && (
-                  <Link
-                    href={`/articles/${second.id}`}
-                    className="group block"
-                    style={{
-                      textDecoration: "none",
-                      paddingBottom: 20,
-                      borderBottom: "1px solid #E5E5E5",
-                      marginBottom: 16,
-                    }}
-                  >
-                    {second.heroImage && !second.heroImage.includes("placeholder") && (
-                      <div
-                        style={{
-                          overflow: "hidden",
-                          marginBottom: 14,
-                          aspectRatio: "16/9",
-                        }}
-                      >
-                        <img
-                          src={second.heroImage}
-                          alt={second.title}
-                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                        />
-                      </div>
-                    )}
-                    <h3
-                      className="group-hover:underline"
-                      style={{
-                        fontSize: 18,
-                        fontWeight: 700,
-                        lineHeight: 1.3,
-                        color: "#1A1A1A",
-                        margin: "0 0 6px 0",
-                        fontFamily: "Georgia, 'Times New Roman', serif",
-                      }}
-                    >
-                      {second.title}
-                    </h3>
-                    <span
-                      style={{
-                        fontSize: 11,
-                        fontWeight: 600,
-                        letterSpacing: "0.06em",
-                        textTransform: "uppercase" as const,
-                        color: "#999999",
-                      }}
-                    >
-                      {estimateReadTime(second.description)}
-                    </span>
-                  </Link>
-                )}
-
-                {/* Remaining articles — horizontal row: headline left, thumbnail right */}
-                {remaining.map((article) => (
-                  <Link
-                    key={article.id}
-                    href={`/articles/${article.id}`}
-                    className="group flex items-start gap-4"
-                    style={{
-                      textDecoration: "none",
-                      paddingBottom: 16,
-                      borderBottom: "1px solid #E5E5E5",
-                      marginBottom: 16,
-                    }}
-                  >
-                    {/* Text */}
-                    <div style={{ flex: 1, minWidth: 0 }}>
-                      <h3
-                        className="group-hover:underline"
-                        style={{
-                          fontSize: 16,
-                          fontWeight: 700,
-                          lineHeight: 1.3,
-                          color: "#1A1A1A",
-                          margin: "0 0 6px 0",
-                          fontFamily: "Georgia, 'Times New Roman', serif",
-                          display: "-webkit-box",
-                          WebkitLineClamp: 3,
-                          WebkitBoxOrient: "vertical" as const,
-                          overflow: "hidden",
-                        }}
-                      >
-                        {article.title}
-                      </h3>
-                      <span
-                        style={{
-                          fontSize: 11,
-                          fontWeight: 600,
-                          letterSpacing: "0.06em",
-                          textTransform: "uppercase" as const,
-                          color: "#999999",
-                        }}
-                      >
-                        {estimateReadTime(article.description)}
-                      </span>
+                {/* Sidebar (right 1/3, capped at 3) */}
+                {sidebar.length > 0 && (
+                  <aside className="lg:flex-[35] lg:pl-6 pt-6 lg:pt-0">
+                    <div className="flex flex-col">
+                      {sidebar.map((a, i) => (
+                        <div key={a.id} style={{
+                          paddingBottom: 16,
+                          marginBottom: i < sidebar.length - 1 ? 16 : 0,
+                          borderBottom: i < sidebar.length - 1 ? "1px solid #E5E5E5" : "none",
+                        }}>
+                          <SidebarArticle article={a} />
+                        </div>
+                      ))}
                     </div>
+                  </aside>
+                )}
+              </section>
+            )}
 
-                    {/* Small square thumbnail */}
-                    {article.heroImage && !article.heroImage.includes("placeholder") && (
-                      <div
-                        className="shrink-0"
-                        style={{
-                          width: 100,
-                          height: 100,
-                          overflow: "hidden",
-                        }}
-                      >
-                        <img
-                          src={article.heroImage}
-                          alt={article.title}
-                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                        />
-                      </div>
-                    )}
-                  </Link>
-                ))}
-              </div>
-            </div>
+            {/* ── Compact Row (positions 5-8) ── */}
+            {compactRow.length > 0 && (
+              <section style={{ borderTop: "1px solid #E5E5E5", marginTop: 32, paddingTop: 24 }}>
+                <div className="grid gap-0" style={{
+                  gridTemplateColumns: `repeat(${Math.min(compactRow.length, 4)}, 1fr)`,
+                }}>
+                  {compactRow.map((a, i) => (
+                    <div key={a.id} style={{
+                      padding: "0 20px",
+                      borderLeft: i > 0 ? "1px solid #E5E5E5" : "none",
+                    }}>
+                      <CompactArticle article={a} />
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
 
-            {/* Bottom spacer */}
+            {/* ── Remainder (position 9+) ── */}
+            {remainder.length > 0 && (
+              <section style={{ borderTop: "1px solid #E5E5E5", marginTop: 32, paddingTop: 24 }}>
+                <div className="flex flex-col">
+                  {remainder.map((a) => (
+                    <div key={a.id} style={{ paddingBottom: 16, marginBottom: 16, borderBottom: "1px solid #E5E5E5" }}>
+                      <SidebarArticle article={a} />
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+
             <div style={{ height: 64 }} />
           </>
         )}
