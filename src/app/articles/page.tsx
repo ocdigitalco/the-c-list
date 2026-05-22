@@ -60,7 +60,37 @@ function HeroArticle({ article: a }: { article: Article }) {
   );
 }
 
-// ─── Sidebar Article (positions 2-4) ────────────────────────────────────────
+// ─── Featured Sidebar Article (position 2) ──────────────────────────────────
+
+function FeaturedSidebarArticle({ article: a }: { article: Article }) {
+  return (
+    <Link href={`/articles/${a.id}`} className="group block" style={{ textDecoration: "none" }}>
+      {a.heroImage && !a.heroImage.includes("placeholder") ? (
+        <div style={{ overflow: "hidden", marginBottom: 14, aspectRatio: "16/10" }}>
+          <img src={a.heroImage} alt={a.title} width={400} height={250} loading="eager"
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+            style={{ display: "block" }} />
+        </div>
+      ) : (
+        <div className="flex items-center justify-center"
+          style={{ background: "#2C2C2A", aspectRatio: "16/10", marginBottom: 14 }}>
+          <span style={{ color: "#6B6B6B", fontSize: 14, fontWeight: 700 }}>Checklist{"\u00b2"}</span>
+        </div>
+      )}
+      <h3 className="group-hover:underline" style={{
+        fontSize: 18, fontWeight: 700, lineHeight: 1.3, color: "#1A1A1A", margin: "0 0 8px 0",
+        fontFamily: "Georgia, 'Times New Roman', serif",
+      }}>
+        {a.title}
+      </h3>
+      <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.06em", color: "#999999" }}>
+        {estimateReadTime(a)}
+      </span>
+    </Link>
+  );
+}
+
+// ─── Sidebar Article (positions 3-4) ────────────────────────────────────────
 
 function SidebarArticle({ article: a }: { article: Article }) {
   return (
@@ -125,7 +155,8 @@ export default async function ArticlesPage({
     : articles;
 
   const hero = filtered[0] ?? null;
-  const sidebar = filtered.slice(1, 4);
+  const featuredSidebar = filtered[1] ?? null;
+  const compactSidebar = filtered.slice(2, 4);
   const compactRow = filtered.slice(4, 8);
   const remainder = filtered.slice(8);
 
@@ -160,15 +191,24 @@ export default async function ArticlesPage({
                   </div>
                 </div>
 
-                {/* Sidebar (right 1/3, capped at 3) */}
-                {sidebar.length > 0 && (
+                {/* Sidebar (right 1/3) */}
+                {featuredSidebar && (
                   <aside className="lg:flex-[35] lg:pl-6 pt-6 lg:pt-0">
                     <div className="flex flex-col">
-                      {sidebar.map((a, i) => (
+                      {/* Position 2: Featured (image on top) */}
+                      <div style={{
+                        paddingBottom: 16,
+                        marginBottom: compactSidebar.length > 0 ? 16 : 0,
+                        borderBottom: compactSidebar.length > 0 ? "1px solid #E5E5E5" : "none",
+                      }}>
+                        <FeaturedSidebarArticle article={featuredSidebar} />
+                      </div>
+                      {/* Positions 3-4: Compact (thumbnail right) */}
+                      {compactSidebar.map((a, i) => (
                         <div key={a.id} style={{
                           paddingBottom: 16,
-                          marginBottom: i < sidebar.length - 1 ? 16 : 0,
-                          borderBottom: i < sidebar.length - 1 ? "1px solid #E5E5E5" : "none",
+                          marginBottom: i < compactSidebar.length - 1 ? 16 : 0,
+                          borderBottom: i < compactSidebar.length - 1 ? "1px solid #E5E5E5" : "none",
                         }}>
                           <SidebarArticle article={a} />
                         </div>
