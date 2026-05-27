@@ -175,7 +175,7 @@ const terms: { term: string; definition: string }[] = [
   {
     term: "Subject Role",
     definition:
-      "A classification of who or what is featured on a card. Each subject in the database is tagged as one of: Athlete (real athletes in their sport), Coach (coaches and bench staff), Celebrity (public figures appearing due to recognition rather than athletic performance, such as entertainers, athletes from other sports appearing as fans, or content creators), or Character (fictional or animated characters from entertainment sets). This affects how subjects are displayed and filtered — for example, an NFL set page labels its sidebar 'Athletes' while a VeeFriends set labels it 'Characters'.",
+      "A classification of who or what is featured on a card. Each subject in the database is tagged as one of: Athlete (real athletes in their sport), Coach (coaches and bench staff), Celebrity (public figures appearing due to recognition rather than athletic performance, such as entertainers, athletes from other sports appearing as fans, or content creators), Character (fictional or animated characters from entertainment sets), or Sketch Artist (artists who produced 1/1 hand-drawn sketch cards in the product). This affects how subjects are displayed and filtered — for example, an NFL set page labels its sidebar 'Athletes' while a VeeFriends set labels it 'Characters'.",
   },
   {
     term: "Tier",

@@ -13,6 +13,17 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "177-star-wars-masterwork-2025",
+    title: "2025 Topps Star Wars Masterwork — Full Checklist",
+    date: "2026-05-27T12:00:00Z",
+    summary: "Added 2025 Topps Star Wars Masterwork with 100 base cards, 7 insert subsets, 6 auto subsets (incl. duo/trio/quad/10-signer book cards), 3 relic subsets, 4 auto-relic subsets, and 4 sketch card subsets. 1,422 total cards, 208 sketch artists, full parallel matrix and pack odds.",
+    description: `## 2025 Topps Star Wars Masterwork
+
+Massive Star Wars set with 25 subsets. 100 base cards with 12 parallels (incl. 4 printing plates). Insert subsets: Under Disguise, Fall of the Chosen One (scenes), Galactic Die Cut Pods, Short Circuit, BB-8 (scenes), Lothal Jedi Temple Mortis Gods puzzle, buybacks. On Card Autographs (96 cards, 11 parallels), Duo (10), Trio (5), Quad (5), Ultimate Book Card (4 cards with 10 signers each). Relic subsets: Skeleton Crew, Relic Cards, ROTJ Film Cel (91 1/1s). Auto-relic subsets: Skeleton Crew, Autograph Relic Cards, ROTJ Film Cel, Pen Autograph Relic. 208 sketch artists added with new \`sketch_artist\` subject role. Full pack odds (111 keys).`,
+    tags: ["checklist"],
+    setId: 847,
+  },
+  {
     id: "176-articles-page-redesign",
     title: "Redesign /articles Page with Hero + Sidebar + Compact Row Layout",
     date: "2026-05-21T12:00:00Z",
