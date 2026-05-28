@@ -118,7 +118,7 @@ function getAutosPerBox(fmt: BoxConfigSingle): number | null {
 function categorize(key: string): "base" | "insert" | "auto" {
   const l = key.toLowerCase();
   if (l.includes("auto") || l.includes("autograph") || l.includes("signature")) return "auto";
-  if (l.startsWith("base")) return "base";
+  if (l.startsWith("base") || l.includes("class base") || l.includes("class chrome base")) return "base";
   return "insert";
 }
 

@@ -13,6 +13,17 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "178-fix-signature-class-base-odds",
+    title: "Fix Base Odds Tab for Signature Class Basketball",
+    date: "2026-05-27T14:00:00Z",
+    summary: "Fixed categorize() function to recognize 'Veteran Class Base' and 'Rookie Class Chrome Base' pack odds keys as base parallels. Base Odds tab was empty because keys didn't start with 'Base'.",
+    description: `## Fix Signature Class Base Odds Tab
+
+Root cause: the \`categorize()\` function in SetDetailClient used \`startsWith("base")\` to classify pack odds keys as base parallels. Signature Class Basketball uses keys like "Veteran Class Base Magenta" and "Rookie Class Chrome Base Refractor" which don't start with "base". Updated to also match keys containing "class base" or "class chrome base". Pack odds data was present (4 box types: Hobby, Hobby Jumbo, Value, Mega with 80+ base keys each) — pure rendering filter issue.`,
+    tags: ["feature"],
+    setId: 838,
+  },
+  {
     id: "177-star-wars-masterwork-2025",
     title: "2025 Topps Star Wars Masterwork — Full Checklist",
     date: "2026-05-27T12:00:00Z",
