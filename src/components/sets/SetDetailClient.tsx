@@ -10,6 +10,7 @@ import { getMLBHeadshotUrl } from "@/lib/mlb-headshot";
 import { trackEvent } from "@/lib/trackEvent";
 import { normalizeOddsObj, denomToDisplay } from "@/lib/parseOdds";
 import { BreakSheetModal, type BreakSheetPlayer } from "@/components/BreakSheetModal";
+import { getTeamLogo } from "@/lib/utils/teamLogo";
 
 // ─── Types & Constants ─────────────────────────────────────────────────────────
 
@@ -299,6 +300,18 @@ function InitialsAvatar({ name, size = 30 }: { name: string; size?: number }) {
   );
 }
 
+function TeamLogo({ teamName, sport, size = 24 }: { teamName: string; sport: string; size?: number }) {
+  const src = getTeamLogo(teamName, sport);
+  const [err, setErr] = useState(false);
+  if (!src || err) return <InitialsAvatar name={teamName} size={size} />;
+  return (
+    <img src={src} alt={`${teamName} logo`} width={size} height={size}
+      loading="lazy" decoding="async" className="flex-shrink-0"
+      onError={() => setErr(true)}
+      style={{ width: size, height: size, objectFit: "contain" }} />
+  );
+}
+
 function PlayerAvatar({ name, nbaPlayerId, ufcImageUrl, mlbPlayerId, imageUrl, size = 30 }: {
   name: string; nbaPlayerId: number | null; ufcImageUrl: string | null;
   mlbPlayerId: number | null; imageUrl?: string | null; size?: number;
@@ -324,8 +337,8 @@ interface TeamRow {
   numberedParallels: number;
 }
 
-function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, subjectLabel = "Athletes" }: {
-  entries: LeaderboardRow[]; hasTeamData: boolean; setId: number; setSlug: string; isMobile?: boolean; subjectLabel?: string;
+function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, subjectLabel = "Athletes", sport = "" }: {
+  entries: LeaderboardRow[]; hasTeamData: boolean; setId: number; setSlug: string; isMobile?: boolean; subjectLabel?: string; sport?: string;
 }) {
   const [sortKey, setSortKey] = useState<SortKey>("totalCards");
   const [rookiesOnly, setRookiesOnly] = useState(false);
@@ -532,7 +545,7 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
                   <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677", width: 18, textAlign: "right", flexShrink: 0 }}>
                     {idx + 1}
                   </span>
-                  <InitialsAvatar name={tr.team} size={avatarSize} />
+                  <TeamLogo teamName={tr.team} sport={sport} size={avatarSize} />
                   <div className="flex-1 min-w-0">
                     <span className="truncate block" style={{ fontSize: 16, fontWeight: 500, color: "#0F0F0E" }}>{tr.team}</span>
                     <p className="truncate" style={{ fontSize: 16, color: "#6B6757", marginTop: 1 }}>
@@ -560,9 +573,9 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
 
 // ─── Mobile Drawer ──────────────────────────────────────────────────────────────
 
-function MobileAthletesDrawer({ open, onClose, entries, hasTeamData, setId, setSlug, athleteCount, subjectLabel = "Athletes" }: {
+function MobileAthletesDrawer({ open, onClose, entries, hasTeamData, setId, setSlug, athleteCount, subjectLabel = "Athletes", sport = "" }: {
   open: boolean; onClose: () => void;
-  entries: LeaderboardRow[]; hasTeamData: boolean; setId: number; setSlug: string; athleteCount: number; subjectLabel?: string;
+  entries: LeaderboardRow[]; hasTeamData: boolean; setId: number; setSlug: string; athleteCount: number; subjectLabel?: string; sport?: string;
 }) {
   const triggerRef = useRef<HTMLElement | null>(null);
 
@@ -599,7 +612,7 @@ function MobileAthletesDrawer({ open, onClose, entries, hasTeamData, setId, setS
       </div>
       {/* Drawer body */}
       <div className="flex-1" style={{ height: "calc(100% - 56px)", overflowY: "auto" }}>
-        <AthletesRail entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug} isMobile subjectLabel={subjectLabel} />
+        <AthletesRail entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug} isMobile subjectLabel={subjectLabel} sport={sport} />
       </div>
     </div>
   );
@@ -1256,7 +1269,7 @@ export function SetDetailClient({
       <div className="hidden min-[1180px]:grid" style={{ gridTemplateColumns: "425px 1fr", minHeight: "100vh" }}>
         {/* Left rail */}
         <aside className="sticky top-0 h-screen overflow-y-auto" style={{ borderRight: "1px solid #EDEAE0" }}>
-          <AthletesRail entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug} subjectLabel={subjectLabel} />
+          <AthletesRail entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug} subjectLabel={subjectLabel} sport={sport} />
         </aside>
         {/* Right column */}
         <div className="flex flex-col">
@@ -1452,7 +1465,7 @@ export function SetDetailClient({
         <MobileAthletesDrawer
           open={drawerOpen} onClose={() => setDrawerOpen(false)}
           entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug}
-          athleteCount={athleteCount} subjectLabel={subjectLabel}
+          athleteCount={athleteCount} subjectLabel={subjectLabel} sport={sport}
         />
       </div>
     </div>

@@ -6,6 +6,7 @@ import { getNBAHeadshotUrl } from "@/lib/nba-headshot";
 import { getUFCHeadshotUrl } from "@/lib/ufc-headshot";
 import { getMLBHeadshotUrl } from "@/lib/mlb-headshot";
 import { trackEvent } from "@/lib/trackEvent";
+import { getTeamLogo } from "@/lib/utils/teamLogo";
 
 // ─── Types ──────────────────────────────────────────────────────────────────────
 
@@ -77,6 +78,18 @@ function InitialsAvatar({ name, size = 30, bg = "#EAE6D9", color = "#6B6757" }: 
       style={{ width: size, height: size, background: bg, color, fontSize: size * 0.35, fontWeight: 600 }}>
       {initials}
     </div>
+  );
+}
+
+function TeamLogo({ teamName, sport, size = 24 }: { teamName: string; sport: string; size?: number }) {
+  const src = getTeamLogo(teamName, sport);
+  const [err, setErr] = useState(false);
+  if (!src || err) return <InitialsAvatar name={teamName} size={size} />;
+  return (
+    <img src={src} alt={`${teamName} logo`} width={size} height={size}
+      loading="lazy" decoding="async" className="flex-shrink-0"
+      onError={() => setErr(true)}
+      style={{ width: size, height: size, objectFit: "contain" }} />
   );
 }
 
@@ -355,8 +368,8 @@ const LB_CHIPS: { key: LBSortKey; label: string }[] = [
   { key: "numberedParallels", label: "Numbered" },
 ];
 
-function SetWideLeaderboard({ entries, hasTeamData, setId, setSlug }: {
-  entries: LeaderboardEntry[]; hasTeamData: boolean; setId: number; setSlug: string;
+function SetWideLeaderboard({ entries, hasTeamData, setId, setSlug, sport = "" }: {
+  entries: LeaderboardEntry[]; hasTeamData: boolean; setId: number; setSlug: string; sport?: string;
 }) {
   const [sortKey, setSortKey] = useState<LBSortKey>("totalCards");
   const [rookiesOnly, setRookiesOnly] = useState(false);
@@ -477,7 +490,7 @@ function SetWideLeaderboard({ entries, hasTeamData, setId, setSlug }: {
                   onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#F1EFE9"; }}
                   onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}>
                   <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677", width: 18, textAlign: "right", flexShrink: 0 }}>{idx + 1}</span>
-                  <InitialsAvatar name={tr.team} size={30} />
+                  <TeamLogo teamName={tr.team} sport={sport} size={30} />
                   <div className="flex-1 min-w-0">
                     <span className="truncate block" style={{ fontSize: 16, fontWeight: 500, color: "#0F0F0E" }}>{tr.team}</span>
                     <p className="truncate" style={{ fontSize: 16, color: "#6B6757", marginTop: 1 }}>{tr.athleteCount} {tr.athleteCount === 1 ? "Athlete" : "Athletes"}</p>
@@ -514,7 +527,7 @@ export function TeamDetailClient({
       <div className="hidden min-[1180px]:grid" style={{ gridTemplateColumns: "300px 1fr", minHeight: "100vh" }}>
         {/* Left rail — set-wide leaderboard */}
         <aside className="sticky top-0 h-screen overflow-y-auto" style={{ borderRight: "1px solid #EDEAE0", background: "#FFFFFF" }}>
-          <SetWideLeaderboard entries={leaderboardEntries} hasTeamData={hasLeaderboardTeamData} setId={setId} setSlug={setSlug} />
+          <SetWideLeaderboard entries={leaderboardEntries} hasTeamData={hasLeaderboardTeamData} setId={setId} setSlug={setSlug} sport={sport} />
         </aside>
 
         {/* Right column */}
@@ -526,7 +539,7 @@ export function TeamDetailClient({
               &lsaquo; {setName}
             </Link>
             <div className="grid items-center gap-8 mt-4" style={{ gridTemplateColumns: "96px 1fr 280px" }}>
-              <TeamCrest name={teamName} size={96} />
+              <TeamLogo teamName={teamName} sport={sport} size={96} />
               <div>
                 <div style={{ fontFamily: FONT_MONO, fontSize: 10, fontWeight: 600, letterSpacing: 2.4, color: "#8A8677", textTransform: "uppercase" }}>
                   {league ?? sport}
@@ -661,7 +674,7 @@ export function TeamDetailClient({
         {/* Hero */}
         <div style={{ background: "#FFFFFF", padding: "18px 16px 14px", borderBottom: "1px solid #EDEAE0" }}>
           <div className="flex items-start gap-4">
-            <TeamCrest name={teamName} size={72} />
+            <TeamLogo teamName={teamName} sport={sport} size={72} />
             <div className="flex-1 min-w-0">
               <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 2, color: "#8A8677", textTransform: "uppercase" }}>
                 {league ?? sport}
