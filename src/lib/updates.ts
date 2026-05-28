@@ -13,6 +13,16 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "180-backfill-player-image-ids",
+    title: "Backfill Player Image IDs Across All Sets",
+    date: "2026-05-28T12:00:00Z",
+    summary: "Root cause: players are per-set rows, so new sets created fresh rows without NBA/MLB/UFC IDs. Backfilled 1,304 image references by matching player names across sets. Signature Class went from 0/259 to 239/259 NBA IDs.",
+    description: `## Player Image ID Backfill
+
+Root cause diagnosed: player headshot images resolve via external IDs (nba_player_id, mlb_player_id, ufc_image_url) stored on per-set player rows. When new sets are seeded, fresh player rows are created without these IDs, even though the same player exists in other sets with IDs populated. Backfilled by matching player names: 266 NBA IDs, 562 MLB IDs, 2 UFC URLs, 474 image_url values. Future seed scripts should include an ID-backfill step after creating player rows.`,
+    tags: ["feature"],
+  },
+  {
     id: "179-athletes-teams-toggle",
     title: "Add Athletes/Teams Toggle to Set Leaderboard",
     date: "2026-05-27T18:00:00Z",
