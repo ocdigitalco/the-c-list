@@ -70,7 +70,7 @@ export const articles: Article[] = [
     publishedAt: "2026-06-19",
     description:
       "Travis Scott's Cactus Jack brand returns to the NBA with a culture-driven Chrome release. A complete look at the 100-card base set, 18-tier parallel rainbow, two on-card autograph subsets, five inserts, and what makes this product different.",
-    heroImage: "/sets/2025-26-topps-chrome-cactus-jack-basketball.jpg",
+    heroImage: "/articles/2025-26-topps-chrome-cactus-jack-basketball-complete-release-guide.jpg",
     tags: ["basketball", "nba", "chrome", "topps", "2025-26", "release guide"],
     setId: 23,
     tldr: "2025-26 Topps Chrome Cactus Jack Basketball is a culture-driven Chrome release built around Travis Scott's Cactus Jack brand. The product features a 100-card base set, 18 base parallel tiers including the unique Cactus Jack Refractor /41, two on-card autograph subsets, and five inserts split between three common and two ultra-rare chase concepts. Hobby-only release with one autograph per four boxes.",
