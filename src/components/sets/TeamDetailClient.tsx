@@ -41,6 +41,13 @@ interface TeamInSet {
   totalCards: number;
 }
 
+interface LeaderboardEntry {
+  id: number; name: string; slug: string | null; team: string | null;
+  isRookie: boolean; totalCards: number; autographs: number; inserts: number;
+  numberedParallels: number; nbaPlayerId: number | null; ufcImageUrl: string | null;
+  mlbPlayerId: number | null; imageUrl: string | null;
+}
+
 export interface TeamDetailClientProps {
   setName: string;
   setSlug: string;
@@ -55,6 +62,8 @@ export interface TeamDetailClientProps {
   numberedParallels: number;
   oneOfOnes: number;
   teamsInSet: TeamInSet[];
+  leaderboardEntries?: LeaderboardEntry[];
+  hasLeaderboardTeamData?: boolean;
 }
 
 // ─── Helpers ────────────────────────────────────────────────────────────────────
@@ -336,9 +345,158 @@ function TeamsDrawer({ open, onClose, teams, currentTeam, setSlug, setId }: {
 
 // ─── Main Component ─────────────────────────────────────────────────────────────
 
+// ─── Set-Wide Leaderboard (matches AthletesRail from SetDetailClient) ────────
+
+type LBSortKey = "totalCards" | "autographs" | "inserts" | "numberedParallels";
+const LB_CHIPS: { key: LBSortKey; label: string }[] = [
+  { key: "totalCards", label: "Total Cards" },
+  { key: "autographs", label: "Autographs" },
+  { key: "inserts", label: "Inserts" },
+  { key: "numberedParallels", label: "Numbered" },
+];
+
+function SetWideLeaderboard({ entries, hasTeamData, setId, setSlug }: {
+  entries: LeaderboardEntry[]; hasTeamData: boolean; setId: number; setSlug: string;
+}) {
+  const [sortKey, setSortKey] = useState<LBSortKey>("totalCards");
+  const [rookiesOnly, setRookiesOnly] = useState(false);
+  const [viewMode, setViewMode] = useState<"athletes" | "teams">("athletes");
+  const [query, setQuery] = useState("");
+  const [showAll, setShowAll] = useState(false);
+
+  const filtered = useMemo(() => {
+    let list = entries;
+    if (query.trim()) {
+      const q = query.trim().toLowerCase();
+      list = list.filter((e) => e.name.toLowerCase().includes(q) || (e.team?.toLowerCase().includes(q)));
+    }
+    if (viewMode === "athletes" && rookiesOnly) list = list.filter((e) => e.isRookie);
+    return [...list].sort((a, b) => {
+      const diff = b[sortKey] - a[sortKey];
+      return diff !== 0 ? diff : a.name.localeCompare(b.name);
+    });
+  }, [entries, query, rookiesOnly, sortKey, viewMode]);
+
+  const teamRows = useMemo(() => {
+    if (viewMode !== "teams") return [];
+    const map = new Map<string, { team: string; athleteCount: number; totalCards: number; autographs: number; inserts: number; numberedParallels: number }>();
+    const source = query.trim()
+      ? entries.filter((e) => e.name.toLowerCase().includes(query.trim().toLowerCase()) || (e.team?.toLowerCase().includes(query.trim().toLowerCase())))
+      : entries;
+    for (const e of source) {
+      const t = e.team ?? "Unknown";
+      if (!map.has(t)) map.set(t, { team: t, athleteCount: 0, totalCards: 0, autographs: 0, inserts: 0, numberedParallels: 0 });
+      const r = map.get(t)!;
+      r.athleteCount++; r.totalCards += e.totalCards; r.autographs += e.autographs; r.inserts += e.inserts; r.numberedParallels += e.numberedParallels;
+    }
+    return Array.from(map.values()).sort((a, b) => b[sortKey] - a[sortKey] || a.team.localeCompare(b.team));
+  }, [entries, query, sortKey, viewMode]);
+
+  const teamCount = useMemo(() => new Set(entries.map((e) => e.team).filter(Boolean)).size, [entries]);
+  const visible = showAll ? filtered : filtered.slice(0, 50);
+
+  return (
+    <div className="flex flex-col h-full" style={{ background: "#FFFFFF" }}>
+      {hasTeamData && (
+        <div className="shrink-0 flex" style={{ borderBottom: "1px solid #EDEAE0", padding: "0 18px" }}>
+          {([["athletes", `Athletes (${entries.length})`], ["teams", `Teams (${teamCount})`]] as const).map(([mode, label]) => (
+            <button key={mode} onClick={() => { setViewMode(mode); setShowAll(false); }}
+              style={{
+                padding: "12px 16px", fontFamily: FONT_DISPLAY, fontSize: 16,
+                fontWeight: viewMode === mode ? 600 : 500,
+                color: viewMode === mode ? "#0F0F0E" : "#8A8677",
+                borderBottom: viewMode === mode ? "2px solid #0F0F0E" : "2px solid transparent",
+                marginBottom: -1, background: "transparent", cursor: "pointer", transition: "all 150ms",
+              }}>{label}</button>
+          ))}
+        </div>
+      )}
+      <div className="shrink-0 space-y-3" style={{ padding: "14px 18px 12px" }}>
+        <div className="relative">
+          <svg className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 pointer-events-none" style={{ color: "#8A8677" }}
+            fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+          </svg>
+          <input type="text" value={query} onChange={(e) => setQuery(e.target.value)}
+            placeholder={viewMode === "teams" ? "Search teams…" : "Search athletes…"}
+            autoComplete="off" spellCheck={false} className="w-full outline-none"
+            style={{ background: "#F1EFE9", borderRadius: 8, padding: "7px 10px 7px 30px", fontSize: 16, border: "none", color: "#0F0F0E" }} />
+        </div>
+        <div className="flex flex-wrap gap-1.5">
+          {LB_CHIPS.map((chip) => (
+            <button key={chip.key} onClick={() => setSortKey(chip.key)}
+              style={{
+                borderRadius: 4, padding: "4px 9px", fontSize: 16, fontWeight: 500,
+                background: sortKey === chip.key ? "#0F0F0E" : "transparent",
+                color: sortKey === chip.key ? "#FAFAF7" : "#3A372F",
+                border: sortKey === chip.key ? "1px solid #0F0F0E" : "1px solid #E6E3D9",
+              }}>{chip.label}</button>
+          ))}
+        </div>
+        {viewMode === "athletes" && (
+          <label className="flex items-center gap-1.5 cursor-pointer" style={{ fontSize: 16, color: "#3A372F" }}>
+            <input type="checkbox" checked={rookiesOnly} onChange={() => setRookiesOnly((v) => !v)} style={{ accentColor: "#0F0F0E" }} />
+            Rookies only
+          </label>
+        )}
+      </div>
+      <div className="shrink-0 flex justify-between items-center"
+        style={{ padding: "6px 18px", borderBottom: "1px solid #EDEAE0", fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase" }}>
+        <span>{viewMode === "teams" ? "TEAM" : "ATHLETE"}</span>
+        <span>{LB_CHIPS.find((c) => c.key === sortKey)?.label}</span>
+      </div>
+      <div className="flex-1 overflow-y-auto">
+        {viewMode === "athletes" ? (
+          visible.length === 0 ? <p className="text-center py-8" style={{ fontSize: 16, color: "#8A8677", fontStyle: "italic" }}>No athletes match.</p> : (
+            <>
+              {visible.map((entry, idx) => (
+                <Link key={entry.id} href={`/sets/${setSlug || setId}/athlete/${entry.slug || entry.id}`}
+                  className="flex items-center gap-2 transition-colors"
+                  style={{ padding: "9px 18px", borderBottom: "1px solid #F4F1E8", textDecoration: "none" }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#F1EFE9"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677", width: 18, textAlign: "right", flexShrink: 0 }}>{idx + 1}</span>
+                  <PlayerAvatar name={entry.name} nbaPlayerId={entry.nbaPlayerId} ufcImageUrl={entry.ufcImageUrl} mlbPlayerId={entry.mlbPlayerId} imageUrl={entry.imageUrl} size={30} />
+                  <div className="flex-1 min-w-0">
+                    <span className="truncate block" style={{ fontSize: 16, fontWeight: 500, color: "#0F0F0E" }}>{entry.name}</span>
+                    {hasTeamData && entry.team && <p className="truncate" style={{ fontSize: 16, color: "#6B6757", marginTop: 1 }}>{entry.team}</p>}
+                  </div>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: "#0F0F0E", flexShrink: 0 }}>{entry[sortKey].toLocaleString()}</span>
+                </Link>
+              ))}
+              {!showAll && filtered.length > 50 && <button onClick={() => setShowAll(true)} className="w-full py-3" style={{ fontSize: 16, fontWeight: 600, color: "#0F0F0E" }}>Show all {filtered.length} athletes</button>}
+            </>
+          )
+        ) : (
+          teamRows.length === 0 ? <p className="text-center py-8" style={{ fontSize: 16, color: "#8A8677", fontStyle: "italic" }}>No teams match.</p> : (
+            <>
+              {(showAll ? teamRows : teamRows.slice(0, 50)).map((tr, idx) => (
+                <Link key={tr.team} href={`/sets/${setSlug || setId}/team/${tr.team.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`}
+                  className="flex items-center gap-2 transition-colors"
+                  style={{ padding: "9px 18px", borderBottom: "1px solid #F4F1E8", textDecoration: "none" }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#F1EFE9"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677", width: 18, textAlign: "right", flexShrink: 0 }}>{idx + 1}</span>
+                  <InitialsAvatar name={tr.team} size={30} />
+                  <div className="flex-1 min-w-0">
+                    <span className="truncate block" style={{ fontSize: 16, fontWeight: 500, color: "#0F0F0E" }}>{tr.team}</span>
+                    <p className="truncate" style={{ fontSize: 16, color: "#6B6757", marginTop: 1 }}>{tr.athleteCount} {tr.athleteCount === 1 ? "Athlete" : "Athletes"}</p>
+                  </div>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: "#0F0F0E", flexShrink: 0 }}>{tr[sortKey].toLocaleString()}</span>
+                </Link>
+              ))}
+            </>
+          )
+        )}
+      </div>
+    </div>
+  );
+}
+
 export function TeamDetailClient({
   setName, setSlug, setId, sport, league, teamName, teamSlug,
   athletes, athleteCount, totalCards, numberedParallels, oneOfOnes, teamsInSet,
+  leaderboardEntries = [], hasLeaderboardTeamData = false,
 }: TeamDetailClientProps) {
   const [tab, setTab] = useState<Tab>("Athletes");
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -354,43 +512,9 @@ export function TeamDetailClient({
     <div style={{ background: "#FAFAF7", minHeight: "100vh" }}>
       {/* ═══ DESKTOP ═══ */}
       <div className="hidden min-[1180px]:grid" style={{ gridTemplateColumns: "300px 1fr", minHeight: "100vh" }}>
-        {/* Left rail — athletes on this team */}
+        {/* Left rail — set-wide leaderboard */}
         <aside className="sticky top-0 h-screen overflow-y-auto" style={{ borderRight: "1px solid #EDEAE0", background: "#FFFFFF" }}>
-          <div style={{ padding: "22px 18px 12px" }}>
-            <h2 style={{ fontFamily: FONT_DISPLAY, fontWeight: 600, fontSize: 16, letterSpacing: -0.2, color: "#0F0F0E", marginBottom: 12 }}>
-              Athletes on {teamName}
-            </h2>
-          </div>
-          <div className="flex-1 overflow-y-auto">
-            {athletes.map((a, idx) => (
-              <Link key={a.id} href={`/sets/${setSlug || setId}/athlete/${a.slug || a.id}`}
-                onClick={() => trackEvent(a.id, "view")}
-                className="flex items-center gap-2 transition-colors"
-                style={{ padding: "9px 18px", borderBottom: "1px solid #F4F1E8", textDecoration: "none" }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#F1EFE9"; }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}>
-                <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677", width: 18, textAlign: "right", flexShrink: 0 }}>
-                  {idx + 1}
-                </span>
-                <PlayerAvatar name={a.name} nbaPlayerId={a.nbaPlayerId} ufcImageUrl={a.ufcImageUrl}
-                  mlbPlayerId={a.mlbPlayerId} imageUrl={a.imageUrl} size={30} />
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-1.5 min-w-0">
-                    <span className="truncate" style={{ fontSize: 16, fontWeight: 500, color: "#0F0F0E" }}>{a.name}</span>
-                    {a.isRookie && (
-                      <span className="shrink-0" style={{
-                        background: "oklch(0.55 0.17 25)", color: "#FFF8F1",
-                        fontSize: 9, fontWeight: 700, padding: "1px 5px", borderRadius: 2,
-                      }}>RC</span>
-                    )}
-                  </div>
-                </div>
-                <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: "#0F0F0E", flexShrink: 0 }}>
-                  {a.totalCards.toLocaleString()}
-                </span>
-              </Link>
-            ))}
-          </div>
+          <SetWideLeaderboard entries={leaderboardEntries} hasTeamData={hasLeaderboardTeamData} setId={setId} setSlug={setSlug} />
         </aside>
 
         {/* Right column */}
@@ -483,7 +607,12 @@ export function TeamDetailClient({
 
           {/* Content */}
           <div style={{ padding: "28px 36px 60px" }}>
-            {(tab === "Overview" || tab === "Athletes") && (
+            {tab === "Overview" && (
+              <div style={{ padding: "40px 20px", textAlign: "center", fontSize: 16, fontStyle: "italic", color: "#8A8677" }}>
+                Overview coming soon.
+              </div>
+            )}
+            {tab === "Athletes" && (
               <AthletesTable athletes={athletes} setSlug={setSlug} setId={setId} />
             )}
             {tab === "Inserts" && (
@@ -595,7 +724,12 @@ export function TeamDetailClient({
 
         {/* Content */}
         <div style={{ padding: 16 }}>
-          {(tab === "Overview" || tab === "Athletes") && (
+          {tab === "Overview" && (
+            <div style={{ padding: "40px 20px", textAlign: "center", fontSize: 16, fontStyle: "italic", color: "#8A8677" }}>
+              Overview coming soon.
+            </div>
+          )}
+          {tab === "Athletes" && (
             <AthletesTable athletes={athletes} setSlug={setSlug} setId={setId} />
           )}
           {tab === "Inserts" && (

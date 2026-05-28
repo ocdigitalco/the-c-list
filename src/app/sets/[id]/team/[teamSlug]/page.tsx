@@ -171,6 +171,46 @@ export default async function TeamDetailPage({
     setId
   );
 
+  // ── Set-wide leaderboard (for left column) ────────────────────────────────
+  const leaderboardRaw = await rawQuery.all<{
+    id: number; name: string; slug: string | null; totalCards: number;
+    isRookie: number; team: string | null; autographs: number; inserts: number;
+    numberedParallels: number; nbaPlayerId: number | null; ufcImageUrl: string | null;
+    mlbPlayerId: number | null; imageUrl: string | null;
+  }>(
+    `WITH player_is AS (
+       SELECT DISTINCT pa.player_id, pa.insert_set_id
+       FROM player_appearances pa INNER JOIN players p ON p.id = pa.player_id WHERE p.set_id = ?
+     ),
+     numbered AS (
+       SELECT pis.player_id, COUNT(*) AS cnt FROM player_is pis
+       INNER JOIN parallels par ON par.insert_set_id = pis.insert_set_id
+       WHERE par.print_run IS NOT NULL GROUP BY pis.player_id
+     )
+     SELECT p.id, p.name, p.slug, p.unique_cards AS totalCards,
+       CAST(MAX(CASE WHEN pa.is_rookie = 1 THEN 1 ELSE 0 END) AS INTEGER) AS isRookie,
+       MAX(pa.team) AS team,
+       COUNT(DISTINCT CASE WHEN i.is_autograph = 1 THEN pa.insert_set_id END) AS autographs,
+       COUNT(DISTINCT CASE WHEN i.name != 'Base Set' AND i.is_autograph = 0 THEN pa.insert_set_id END) AS inserts,
+       COALESCE(n.cnt, 0) AS numberedParallels,
+       p.nba_player_id AS nbaPlayerId, p.ufc_image_url AS ufcImageUrl,
+       p.mlb_player_id AS mlbPlayerId, p.image_url AS imageUrl
+     FROM players p
+     LEFT JOIN player_appearances pa ON pa.player_id = p.id
+     LEFT JOIN insert_sets i ON i.id = pa.insert_set_id
+     LEFT JOIN numbered n ON n.player_id = p.id
+     WHERE p.set_id = ? GROUP BY p.id ORDER BY p.unique_cards DESC`,
+    setId, setId
+  );
+  const leaderboardEntries = leaderboardRaw.map((r) => ({
+    id: r.id, name: r.name, slug: r.slug, team: r.team,
+    isRookie: r.isRookie === 1, totalCards: r.totalCards,
+    autographs: r.autographs, inserts: r.inserts,
+    numberedParallels: r.numberedParallels, nbaPlayerId: r.nbaPlayerId,
+    ufcImageUrl: r.ufcImageUrl, mlbPlayerId: r.mlbPlayerId, imageUrl: r.imageUrl,
+  }));
+  const hasTeamData = leaderboardEntries.some((e) => e.team != null && e.team !== "");
+
   const athletes = athleteRows.map((r) => ({
     id: r.id,
     name: r.name,
@@ -207,6 +247,8 @@ export default async function TeamDetailPage({
         athletes: t.athletes,
         totalCards: t.totalCards,
       }))}
+      leaderboardEntries={leaderboardEntries}
+      hasLeaderboardTeamData={hasTeamData}
     />
   );
 }
