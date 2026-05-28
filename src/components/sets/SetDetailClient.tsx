@@ -375,6 +375,8 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
   const avatarSize = isMobile ? 34 : 30;
   const rowPy = isMobile ? "12px 4px" : "9px 4px";
 
+  const teamCount = useMemo(() => new Set(entries.map((e) => e.team).filter(Boolean)).size, [entries]);
+
   return (
     <div className="flex flex-col h-full" style={{ background: "#FFFFFF" }}>
       {/* Athletes / Teams tabs */}
@@ -383,7 +385,7 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
           borderBottom: "1px solid #EDEAE0",
           padding: isMobile ? "0 16px" : "0 18px",
         }}>
-          {([["athletes", subjectLabel], ["teams", "Teams"]] as const).map(([mode, label]) => (
+          {([["athletes", `${subjectLabel} (${entries.length})`], ["teams", `Teams (${teamCount})`]] as const).map(([mode, label]) => (
             <button key={mode} onClick={() => { setViewMode(mode); setShowAll(false); }}
               style={{
                 padding: "12px 16px",
@@ -1368,7 +1370,7 @@ export function SetDetailClient({
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128H5.228A2 2 0 0 1 3 17.208V5.792A2 2 0 0 1 5.228 3.872h13.544A2 2 0 0 1 21 5.792v6.625M12 10.5a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Z" />
             </svg>
-            {subjectLabel} <span style={{ color: "#8A8677" }}>· {athleteCount}</span>
+            Leaderboard
           </button>
           <div className="v2-break-sheet-pill">
             <BreakSheetModal setName={setName} sport={sport} league={league} players={breakSheetPlayers} />
