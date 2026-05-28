@@ -315,6 +315,15 @@ function PlayerAvatar({ name, nbaPlayerId, ufcImageUrl, mlbPlayerId, imageUrl, s
 
 // ─── Athletes Rail ──────────────────────────────────────────────────────────────
 
+interface TeamRow {
+  team: string;
+  athleteCount: number;
+  totalCards: number;
+  autographs: number;
+  inserts: number;
+  numberedParallels: number;
+}
+
 function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, subjectLabel = "Athletes" }: {
   entries: LeaderboardRow[]; hasTeamData: boolean; setId: number; setSlug: string; isMobile?: boolean; subjectLabel?: string;
 }) {
@@ -322,6 +331,7 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
   const [rookiesOnly, setRookiesOnly] = useState(false);
   const [query, setQuery] = useState("");
   const [showAll, setShowAll] = useState(false);
+  const [viewMode, setViewMode] = useState<"athletes" | "teams">("athletes");
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => () => { if (debounceRef.current) clearTimeout(debounceRef.current); }, []);
@@ -332,12 +342,34 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
       const q = query.trim().toLowerCase();
       list = list.filter((e) => e.name.toLowerCase().includes(q) || (e.team?.toLowerCase().includes(q)));
     }
-    if (rookiesOnly) list = list.filter((e) => e.isRookie);
+    if (viewMode === "athletes" && rookiesOnly) list = list.filter((e) => e.isRookie);
     return [...list].sort((a, b) => {
       const diff = b[sortKey] - a[sortKey];
       return diff !== 0 ? diff : a.name.localeCompare(b.name);
     });
-  }, [entries, query, rookiesOnly, sortKey]);
+  }, [entries, query, rookiesOnly, sortKey, viewMode]);
+
+  const teamRows = useMemo((): TeamRow[] => {
+    if (viewMode !== "teams") return [];
+    const map = new Map<string, TeamRow>();
+    const source = query.trim()
+      ? entries.filter((e) => e.name.toLowerCase().includes(query.trim().toLowerCase()) || (e.team?.toLowerCase().includes(query.trim().toLowerCase())))
+      : entries;
+    for (const e of source) {
+      const t = e.team ?? "Unknown";
+      if (!map.has(t)) map.set(t, { team: t, athleteCount: 0, totalCards: 0, autographs: 0, inserts: 0, numberedParallels: 0 });
+      const row = map.get(t)!;
+      row.athleteCount++;
+      row.totalCards += e.totalCards;
+      row.autographs += e.autographs;
+      row.inserts += e.inserts;
+      row.numberedParallels += e.numberedParallels;
+    }
+    return Array.from(map.values()).sort((a, b) => {
+      const diff = b[sortKey] - a[sortKey];
+      return diff !== 0 ? diff : a.team.localeCompare(b.team);
+    });
+  }, [entries, query, sortKey, viewMode]);
 
   const visible = showAll ? filtered : filtered.slice(0, 50);
   const avatarSize = isMobile ? 34 : 30;
@@ -379,6 +411,21 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
             }}
           />
         </div>
+        {/* Athletes / Teams toggle */}
+        {hasTeamData && (
+          <div className="flex gap-0" style={{ borderRadius: 6, overflow: "hidden", border: "1px solid #E6E3D9" }}>
+            {(["athletes", "teams"] as const).map((mode) => (
+              <button key={mode} onClick={() => { setViewMode(mode); setShowAll(false); }}
+                style={{
+                  padding: "5px 12px", fontSize: 16, fontWeight: 500, border: "none",
+                  background: viewMode === mode ? "#0F0F0E" : "transparent",
+                  color: viewMode === mode ? "#FAFAF7" : "#3A372F",
+                }}>
+                {mode === "athletes" ? subjectLabel : "Teams"}
+              </button>
+            ))}
+          </div>
+        )}
         {/* Filter chips */}
         <div className="flex flex-wrap gap-1.5">
           {SORT_CHIPS.map((chip) => (
@@ -394,12 +441,14 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
             </button>
           ))}
         </div>
-        {/* Rookies only */}
-        <label className="flex items-center gap-1.5 cursor-pointer" style={{ fontSize: 16, color: "#3A372F" }}>
-          <input type="checkbox" checked={rookiesOnly} onChange={() => setRookiesOnly((v) => !v)}
-            style={{ accentColor: "#0F0F0E" }} />
-          Rookies only
-        </label>
+        {/* Rookies only (hidden in teams view) */}
+        {viewMode === "athletes" && (
+          <label className="flex items-center gap-1.5 cursor-pointer" style={{ fontSize: 16, color: "#3A372F" }}>
+            <input type="checkbox" checked={rookiesOnly} onChange={() => setRookiesOnly((v) => !v)}
+              style={{ accentColor: "#0F0F0E" }} />
+            Rookies only
+          </label>
+        )}
       </div>
       {/* Column header */}
       <div className="shrink-0 flex justify-between items-center"
@@ -408,55 +457,94 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
           fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677",
           textTransform: "uppercase",
         }}>
-        <span>ATHLETE</span>
+        <span>{viewMode === "teams" ? "TEAM" : "ATHLETE"}</span>
         <span>{SORT_CHIPS.find((c) => c.key === sortKey)?.label}</span>
       </div>
       {/* Rows */}
       <div className="flex-1 overflow-y-auto">
-        {visible.length === 0 ? (
-          <p className="text-center py-8" style={{ fontSize: 16, color: "#8A8677", fontStyle: "italic" }}>No {subjectLabel.toLowerCase()} match.</p>
-        ) : (
-          <>
-            {visible.map((entry, idx) => (
-              <Link key={entry.id}
-                href={`/sets/${setSlug || setId}/athlete/${entry.slug || entry.id}`}
-                onClick={() => trackEvent(entry.id, "view")}
-                className="flex items-center gap-2 transition-colors"
-                style={{ padding: rowPy, paddingLeft: 18, paddingRight: 18, borderBottom: "1px solid #F4F1E8" }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#F1EFE9"; }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}>
-                <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677", width: 18, textAlign: "right", flexShrink: 0 }}>
-                  {idx + 1}
-                </span>
-                <PlayerAvatar name={entry.name} nbaPlayerId={entry.nbaPlayerId} ufcImageUrl={entry.ufcImageUrl}
-                  mlbPlayerId={entry.mlbPlayerId} imageUrl={entry.imageUrl} size={avatarSize} />
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-1.5 min-w-0">
-                    <span className="truncate" style={{ fontSize: 16, fontWeight: 500, color: "#0F0F0E" }}>{entry.name}</span>
-                    {entry.isRookie && (
-                      <span className="shrink-0" style={{
-                        background: "oklch(0.55 0.17 25)", color: "#FFF8F1",
-                        fontSize: 14, fontWeight: 700, letterSpacing: 0.6,
-                        padding: "1px 4px", borderRadius: 2, lineHeight: 1.2,
-                      }}>RC</span>
+        {viewMode === "athletes" ? (
+          /* ── Athletes View ── */
+          visible.length === 0 ? (
+            <p className="text-center py-8" style={{ fontSize: 16, color: "#8A8677", fontStyle: "italic" }}>No {subjectLabel.toLowerCase()} match.</p>
+          ) : (
+            <>
+              {visible.map((entry, idx) => (
+                <Link key={entry.id}
+                  href={`/sets/${setSlug || setId}/athlete/${entry.slug || entry.id}`}
+                  onClick={() => trackEvent(entry.id, "view")}
+                  className="flex items-center gap-2 transition-colors"
+                  style={{ padding: rowPy, paddingLeft: 18, paddingRight: 18, borderBottom: "1px solid #F4F1E8" }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#F1EFE9"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677", width: 18, textAlign: "right", flexShrink: 0 }}>
+                    {idx + 1}
+                  </span>
+                  <PlayerAvatar name={entry.name} nbaPlayerId={entry.nbaPlayerId} ufcImageUrl={entry.ufcImageUrl}
+                    mlbPlayerId={entry.mlbPlayerId} imageUrl={entry.imageUrl} size={avatarSize} />
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-1.5 min-w-0">
+                      <span className="truncate" style={{ fontSize: 16, fontWeight: 500, color: "#0F0F0E" }}>{entry.name}</span>
+                      {entry.isRookie && (
+                        <span className="shrink-0" style={{
+                          background: "oklch(0.55 0.17 25)", color: "#FFF8F1",
+                          fontSize: 14, fontWeight: 700, letterSpacing: 0.6,
+                          padding: "1px 4px", borderRadius: 2, lineHeight: 1.2,
+                        }}>RC</span>
+                      )}
+                    </div>
+                    {hasTeamData && entry.team && (
+                      <p className="truncate" style={{ fontSize: 16, color: "#6B6757", marginTop: 1 }}>{entry.team}</p>
                     )}
                   </div>
-                  {hasTeamData && entry.team && (
-                    <p className="truncate" style={{ fontSize: 16, color: "#6B6757", marginTop: 1 }}>{entry.team}</p>
-                  )}
-                </div>
-                <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: "#0F0F0E", flexShrink: 0 }}>
-                  {entry[sortKey].toLocaleString()}
-                </span>
-              </Link>
-            ))}
-            {!showAll && filtered.length > 50 && (
-              <button onClick={() => setShowAll(true)}
-                className="w-full py-3" style={{ fontSize: 16, fontWeight: 600, color: "#0F0F0E" }}>
-                Show all {filtered.length.toLocaleString()} {subjectLabel.toLowerCase()}
-              </button>
-            )}
-          </>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: "#0F0F0E", flexShrink: 0 }}>
+                    {entry[sortKey].toLocaleString()}
+                  </span>
+                </Link>
+              ))}
+              {!showAll && filtered.length > 50 && (
+                <button onClick={() => setShowAll(true)}
+                  className="w-full py-3" style={{ fontSize: 16, fontWeight: 600, color: "#0F0F0E" }}>
+                  Show all {filtered.length.toLocaleString()} {subjectLabel.toLowerCase()}
+                </button>
+              )}
+            </>
+          )
+        ) : (
+          /* ── Teams View ── */
+          teamRows.length === 0 ? (
+            <p className="text-center py-8" style={{ fontSize: 16, color: "#8A8677", fontStyle: "italic" }}>No teams match.</p>
+          ) : (
+            <>
+              {(showAll ? teamRows : teamRows.slice(0, 50)).map((tr, idx) => (
+                <Link key={tr.team}
+                  href={`/sets/${setSlug || setId}/team/${tr.team.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`}
+                  className="flex items-center gap-2 transition-colors"
+                  style={{ padding: rowPy, paddingLeft: 18, paddingRight: 18, borderBottom: "1px solid #F4F1E8", textDecoration: "none" }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#F1EFE9"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677", width: 18, textAlign: "right", flexShrink: 0 }}>
+                    {idx + 1}
+                  </span>
+                  <InitialsAvatar name={tr.team} size={avatarSize} />
+                  <div className="flex-1 min-w-0">
+                    <span className="truncate block" style={{ fontSize: 16, fontWeight: 500, color: "#0F0F0E" }}>{tr.team}</span>
+                    <p className="truncate" style={{ fontSize: 16, color: "#6B6757", marginTop: 1 }}>
+                      {tr.athleteCount} {tr.athleteCount === 1 ? "Athlete" : "Athletes"}
+                    </p>
+                  </div>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: "#0F0F0E", flexShrink: 0 }}>
+                    {tr[sortKey].toLocaleString()}
+                  </span>
+                </Link>
+              ))}
+              {!showAll && teamRows.length > 50 && (
+                <button onClick={() => setShowAll(true)}
+                  className="w-full py-3" style={{ fontSize: 16, fontWeight: 600, color: "#0F0F0E" }}>
+                  Show all {teamRows.length.toLocaleString()} teams
+                </button>
+              )}
+            </>
+          )
         )}
       </div>
     </div>

@@ -13,6 +13,16 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "179-athletes-teams-toggle",
+    title: "Add Athletes/Teams Toggle to Set Leaderboard",
+    date: "2026-05-27T18:00:00Z",
+    summary: "Set leaderboard sidebar now has an Athletes/Teams toggle. Teams view aggregates Total Cards, Autographs, Inserts, and Numbered by team with athlete count per team. Rookies-only filter hidden in Teams view.",
+    description: `## Athletes/Teams Leaderboard Toggle
+
+Added a two-option toggle (Athletes | Teams) to the set page leaderboard. Teams view groups by card-level team string, summing stats across all athletes on that team. Shows team name + "N Athletes" count. Column sorting works across both views. Rookies-only filter is hidden (but state preserved) in Teams view. Single shared component handles both mobile and desktop layouts.`,
+    tags: ["feature"],
+  },
+  {
     id: "178-fix-signature-class-base-odds",
     title: "Fix Base Odds Tab for Signature Class Basketball",
     date: "2026-05-27T14:00:00Z",
