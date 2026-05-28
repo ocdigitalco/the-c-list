@@ -377,12 +377,32 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
 
   return (
     <div className="flex flex-col h-full" style={{ background: "#FFFFFF" }}>
-      <div className="shrink-0 space-y-3" style={{ padding: isMobile ? "14px 16px 12px" : "22px 18px 12px" }}>
-        {!isMobile && (
-          <h2 style={{ fontFamily: FONT_DISPLAY, fontWeight: 600, fontSize: 16, letterSpacing: -0.2, color: "#0F0F0E", marginBottom: 12 }}>
-            {subjectLabel} in Set
-          </h2>
-        )}
+      {/* Athletes / Teams tabs */}
+      {hasTeamData && (
+        <div className="shrink-0 flex" style={{
+          borderBottom: "1px solid #EDEAE0",
+          padding: isMobile ? "0 16px" : "0 18px",
+        }}>
+          {([["athletes", subjectLabel], ["teams", "Teams"]] as const).map(([mode, label]) => (
+            <button key={mode} onClick={() => { setViewMode(mode); setShowAll(false); }}
+              style={{
+                padding: "12px 16px",
+                fontFamily: FONT_DISPLAY,
+                fontSize: 16,
+                fontWeight: viewMode === mode ? 600 : 500,
+                color: viewMode === mode ? "#0F0F0E" : "#8A8677",
+                borderBottom: viewMode === mode ? "2px solid #0F0F0E" : "2px solid transparent",
+                marginBottom: -1,
+                background: "transparent",
+                cursor: "pointer",
+                transition: "all 150ms",
+              }}>
+              {label}
+            </button>
+          ))}
+        </div>
+      )}
+      <div className="shrink-0 space-y-3" style={{ padding: isMobile ? "14px 16px 12px" : "14px 18px 12px" }}>
         {/* Search */}
         <div className="relative">
           <svg className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 pointer-events-none" style={{ color: "#8A8677" }}
@@ -402,7 +422,7 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
                 }, 100);
               }
             }}
-            placeholder={`Search ${subjectLabel.toLowerCase()}…`}
+            placeholder={`Search ${viewMode === "teams" ? "teams" : subjectLabel.toLowerCase()}…`}
             autoComplete="off" spellCheck={false}
             className="w-full outline-none"
             style={{
@@ -411,21 +431,6 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
             }}
           />
         </div>
-        {/* Athletes / Teams toggle */}
-        {hasTeamData && (
-          <div className="flex gap-0" style={{ borderRadius: 6, overflow: "hidden", border: "1px solid #E6E3D9" }}>
-            {(["athletes", "teams"] as const).map((mode) => (
-              <button key={mode} onClick={() => { setViewMode(mode); setShowAll(false); }}
-                style={{
-                  padding: "5px 12px", fontSize: 16, fontWeight: 500, border: "none",
-                  background: viewMode === mode ? "#0F0F0E" : "transparent",
-                  color: viewMode === mode ? "#FAFAF7" : "#3A372F",
-                }}>
-                {mode === "athletes" ? subjectLabel : "Teams"}
-              </button>
-            ))}
-          </div>
-        )}
         {/* Filter chips */}
         <div className="flex flex-wrap gap-1.5">
           {SORT_CHIPS.map((chip) => (
@@ -581,18 +586,14 @@ function MobileAthletesDrawer({ open, onClose, entries, hasTeamData, setId, setS
         pointerEvents: open ? "auto" : "none",
       }}>
       {/* Drawer header */}
-      <div className="flex items-center justify-between" style={{
-        padding: "14px 16px", borderBottom: "1px solid #EDEAE0", background: "#FFFFFF",
+      <div className="flex items-center" style={{
+        padding: "14px 16px", borderBottom: "none", background: "#FFFFFF",
       }}>
         <button onClick={onClose} aria-label="Close" className="p-1">
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="#0F0F0E" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
           </svg>
         </button>
-        <span style={{ fontFamily: FONT_DISPLAY, fontSize: 17, fontWeight: 600, letterSpacing: -0.3, color: "#0F0F0E" }}>
-          {subjectLabel} in Set
-        </span>
-        <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677" }}>{athleteCount}</span>
       </div>
       {/* Drawer body */}
       <div className="flex-1" style={{ height: "calc(100% - 56px)", overflowY: "auto" }}>
