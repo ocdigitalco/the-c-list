@@ -577,7 +577,7 @@ function BaseParallelsTable({ insertSets, packOddsJson, boxConfigJson, setSlug }
 
   // Build rows
   interface ParallelRow {
-    cardNumber: string; parallelName: string; printRun: number | null; odds: string | number | null; key: string;
+    cardNumber: string; cardType: string; parallelName: string; printRun: number | null; odds: string | number | null; key: string;
   }
   const rows: ParallelRow[] = [];
   for (const is of baseInserts) {
@@ -585,20 +585,29 @@ function BaseParallelsTable({ insertSets, packOddsJson, boxConfigJson, setSlug }
     for (const app of is.appearances) {
       if (!hasBaseParallel) {
         rows.push({
-          cardNumber: app.cardNumber, parallelName: "Base", printRun: null,
+          cardNumber: app.cardNumber, cardType: is.insertSetName, parallelName: "Base", printRun: null,
           odds: lookupOdds(is.insertSetName, "Base") ?? lookupOdds("Base Cards", "Base"),
           key: `${is.insertSetId}-${app.cardNumber}-base`,
         });
       }
       for (const p of is.parallels) {
         rows.push({
-          cardNumber: app.cardNumber, parallelName: p.name, printRun: p.printRun,
+          cardNumber: app.cardNumber, cardType: is.insertSetName, parallelName: p.name, printRun: p.printRun,
           odds: lookupOdds(is.insertSetName, p.name),
           key: `${is.insertSetId}-${app.cardNumber}-${p.id}`,
         });
       }
     }
   }
+  // Sort by card type, then rarity (print run descending, nulls first = unnumbered first)
+  rows.sort((a, b) => {
+    const typeCmp = a.cardType.localeCompare(b.cardType);
+    if (typeCmp !== 0) return typeCmp;
+    if (a.printRun === null && b.printRun === null) return 0;
+    if (a.printRun === null) return -1;
+    if (b.printRun === null) return 1;
+    return b.printRun - a.printRun;
+  });
 
   // Multi-column mode for specific sets
   const useMultiCol = MULTI_COLUMN_SETS.has(setSlug);
@@ -748,8 +757,9 @@ function BaseParallelsTable({ insertSets, packOddsJson, boxConfigJson, setSlug }
                   </span>
                 </div>
                 <div className="flex items-center gap-2 mt-1">
-                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: row.odds ? "#0F0F0E" : "#B7B2A3" }}>{displayOdds(row.odds)}</span>
-                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#6B6757", marginLeft: "auto" }}>{row.odds != null ? perBoxStr(row.odds) : "—"}</span>
+                  <span style={{ fontSize: 12, color: "#8A8677" }}>{row.cardType}</span>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: row.odds ? "#0F0F0E" : "#B7B2A3", marginLeft: "auto" }}>{displayOdds(row.odds)}</span>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#6B6757" }}>{row.odds != null ? perBoxStr(row.odds) : "—"}</span>
                 </div>
               </div>
             ))}
@@ -785,6 +795,7 @@ function BaseParallelsTable({ insertSets, packOddsJson, boxConfigJson, setSlug }
           <thead>
             <tr>
               <th style={{ ...thStyle, textAlign: "left", width: 70 }}>CARD #</th>
+              <th style={{ ...thStyle, textAlign: "left" }}>CARD TYPE</th>
               <th style={{ ...thStyle, textAlign: "left" }}>PARALLEL TYPE</th>
               <th style={{ ...thStyle, width: 70 }}>NUMBERED</th>
               <th style={{ ...thStyle, width: 100 }}>PACK ODDS</th>
@@ -796,6 +807,9 @@ function BaseParallelsTable({ insertSets, packOddsJson, boxConfigJson, setSlug }
               <tr key={row.key} style={{ borderBottom: "1px solid #F4F1E8" }}>
                 <td style={{ padding: "12px 12px", fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677" }}>
                   #{row.cardNumber}
+                </td>
+                <td style={{ padding: "12px 12px", fontSize: 14, color: "#6B6757", whiteSpace: "nowrap" }}>
+                  {row.cardType}
                 </td>
                 <td style={{ padding: "12px 12px" }}>
                   <span style={{
