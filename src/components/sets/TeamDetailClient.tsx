@@ -524,7 +524,7 @@ export function TeamDetailClient({
   return (
     <div style={{ background: "#FAFAF7", minHeight: "100vh" }}>
       {/* ═══ DESKTOP ═══ */}
-      <div className="hidden min-[1180px]:grid" style={{ gridTemplateColumns: "300px 1fr", minHeight: "100vh" }}>
+      <div className="hidden min-[1180px]:grid" style={{ gridTemplateColumns: "425px 1fr", minHeight: "100vh" }}>
         {/* Left rail — set-wide leaderboard */}
         <aside className="sticky top-0 h-screen overflow-y-auto" style={{ borderRight: "1px solid #EDEAE0", background: "#FFFFFF" }}>
           <SetWideLeaderboard entries={leaderboardEntries} hasTeamData={hasLeaderboardTeamData} setId={setId} setSlug={setSlug} sport={sport} />

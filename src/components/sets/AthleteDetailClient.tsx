@@ -8,6 +8,7 @@ import { getNBAHeadshotUrl } from "@/lib/nba-headshot";
 import { getUFCHeadshotUrl } from "@/lib/ufc-headshot";
 import { getMLBHeadshotUrl } from "@/lib/mlb-headshot";
 import { trackEvent } from "@/lib/trackEvent";
+import { getTeamLogo } from "@/lib/utils/teamLogo";
 import { findOddsKey, lookupOddsValue } from "@/lib/oddsUtils";
 
 // ─── Constants ──────────────────────────────────────────────────────────────────
@@ -126,12 +127,23 @@ function parallelTone(name: string): string {
 
 // ─── Athletes Rail ──────────────────────────────────────────────────────────────
 
-function AthletesRail({ entries, hasTeamData, setId, setSlug, currentAthleteId, subjectLabel = "Athletes" }: {
-  entries: LeaderboardRow[]; hasTeamData: boolean; setId: number; setSlug: string; currentAthleteId: number; subjectLabel?: string;
+function TeamLogoAvatar({ teamName, sport, size = 24 }: { teamName: string; sport: string; size?: number }) {
+  const src = getTeamLogo(teamName, sport);
+  const [err, setErr] = useState(false);
+  if (!src || err) return <InitialsAvatar name={teamName} size={size} />;
+  return <img src={src} alt={`${teamName} logo`} width={size} height={size}
+    loading="lazy" decoding="async" className="flex-shrink-0"
+    onError={() => setErr(true)} style={{ width: size, height: size, objectFit: "contain" }} />;
+}
+
+function AthletesRail({ entries, hasTeamData, setId, setSlug, currentAthleteId, subjectLabel = "Athletes", sport = "" }: {
+  entries: LeaderboardRow[]; hasTeamData: boolean; setId: number; setSlug: string; currentAthleteId: number; subjectLabel?: string; sport?: string;
 }) {
   const [sortKey, setSortKey] = useState<SortKey>("totalCards");
   const [rookiesOnly, setRookiesOnly] = useState(false);
+  const [viewMode, setViewMode] = useState<"athletes" | "teams">("athletes");
   const [query, setQuery] = useState("");
+  const [showAll, setShowAll] = useState(false);
 
   const filtered = useMemo(() => {
     let list = entries;
@@ -139,26 +151,56 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, currentAthleteId, 
       const q = query.trim().toLowerCase();
       list = list.filter((e) => e.name.toLowerCase().includes(q) || (e.team?.toLowerCase().includes(q)));
     }
-    if (rookiesOnly) list = list.filter((e) => e.isRookie);
+    if (viewMode === "athletes" && rookiesOnly) list = list.filter((e) => e.isRookie);
     return [...list].sort((a, b) => {
       const diff = b[sortKey] - a[sortKey];
       return diff !== 0 ? diff : a.name.localeCompare(b.name);
     });
-  }, [entries, query, rookiesOnly, sortKey]);
+  }, [entries, query, rookiesOnly, sortKey, viewMode]);
+
+  const teamRows = useMemo(() => {
+    if (viewMode !== "teams") return [];
+    const map = new Map<string, { team: string; athleteCount: number; totalCards: number; autographs: number; inserts: number; numberedParallels: number }>();
+    const source = query.trim()
+      ? entries.filter((e) => e.name.toLowerCase().includes(query.trim().toLowerCase()) || (e.team?.toLowerCase().includes(query.trim().toLowerCase())))
+      : entries;
+    for (const e of source) {
+      const t = e.team ?? "Unknown";
+      if (!map.has(t)) map.set(t, { team: t, athleteCount: 0, totalCards: 0, autographs: 0, inserts: 0, numberedParallels: 0 });
+      const r = map.get(t)!;
+      r.athleteCount++; r.totalCards += e.totalCards; r.autographs += e.autographs; r.inserts += e.inserts; r.numberedParallels += e.numberedParallels;
+    }
+    return Array.from(map.values()).sort((a, b) => b[sortKey] - a[sortKey] || a.team.localeCompare(b.team));
+  }, [entries, query, sortKey, viewMode]);
+
+  const teamCount = useMemo(() => new Set(entries.map((e) => e.team).filter(Boolean)).size, [entries]);
+  const visible = showAll ? filtered : filtered.slice(0, 50);
 
   return (
     <div className="flex flex-col h-full" style={{ background: "#FFFFFF" }}>
-      <div className="shrink-0 space-y-3" style={{ padding: "22px 18px 12px" }}>
-        <h2 style={{ fontFamily: FONT_DISPLAY, fontWeight: 600, fontSize: 16, letterSpacing: -0.2, color: "#0F0F0E", marginBottom: 12 }}>
-          {subjectLabel} in Set
-        </h2>
+      {hasTeamData && (
+        <div className="shrink-0 flex" style={{ borderBottom: "1px solid #EDEAE0", padding: "0 18px" }}>
+          {([["athletes", `${subjectLabel} (${entries.length})`], ["teams", `Teams (${teamCount})`]] as const).map(([mode, label]) => (
+            <button key={mode} onClick={() => { setViewMode(mode); setShowAll(false); }}
+              style={{
+                padding: "12px 16px", fontFamily: FONT_DISPLAY, fontSize: 16,
+                fontWeight: viewMode === mode ? 600 : 500,
+                color: viewMode === mode ? "#0F0F0E" : "#8A8677",
+                borderBottom: viewMode === mode ? "2px solid #0F0F0E" : "2px solid transparent",
+                marginBottom: -1, background: "transparent", cursor: "pointer", transition: "all 150ms",
+              }}>{label}</button>
+          ))}
+        </div>
+      )}
+      <div className="shrink-0 space-y-3" style={{ padding: "14px 18px 12px" }}>
         <div className="relative">
           <svg className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 pointer-events-none" style={{ color: "#8A8677" }}
             fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
           </svg>
           <input type="text" value={query} onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search athletes…" autoComplete="off" spellCheck={false} className="w-full outline-none"
+            placeholder={viewMode === "teams" ? "Search teams…" : `Search ${subjectLabel.toLowerCase()}…`}
+            autoComplete="off" spellCheck={false} className="w-full outline-none"
             style={{ background: "#F1EFE9", borderRadius: 8, padding: "7px 10px 7px 30px", fontSize: 16, border: "none", color: "#0F0F0E" }} />
         </div>
         <div className="flex flex-wrap gap-1.5">
@@ -169,59 +211,75 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, currentAthleteId, 
                 background: sortKey === chip.key ? "#0F0F0E" : "transparent",
                 color: sortKey === chip.key ? "#FAFAF7" : "#3A372F",
                 border: sortKey === chip.key ? "1px solid #0F0F0E" : "1px solid #E6E3D9",
-              }}>
-              {chip.label}
-            </button>
+              }}>{chip.label}</button>
           ))}
         </div>
-        <label className="flex items-center gap-1.5 cursor-pointer" style={{ fontSize: 16, color: "#3A372F" }}>
-          <input type="checkbox" checked={rookiesOnly} onChange={() => setRookiesOnly((v) => !v)} style={{ accentColor: "#0F0F0E" }} />
-          Rookies only
-        </label>
+        {viewMode === "athletes" && (
+          <label className="flex items-center gap-1.5 cursor-pointer" style={{ fontSize: 16, color: "#3A372F" }}>
+            <input type="checkbox" checked={rookiesOnly} onChange={() => setRookiesOnly((v) => !v)} style={{ accentColor: "#0F0F0E" }} />
+            Rookies only
+          </label>
+        )}
       </div>
       <div className="shrink-0 flex justify-between items-center" style={{
         padding: "6px 18px", borderBottom: "1px solid #EDEAE0",
         fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase",
       }}>
-        <span>ATHLETE</span>
+        <span>{viewMode === "teams" ? "TEAM" : "ATHLETE"}</span>
         <span>{SORT_CHIPS.find((c) => c.key === sortKey)?.label}</span>
       </div>
       <div className="flex-1 overflow-y-auto">
-        {filtered.map((entry, idx) => {
-          const isActive = entry.id === currentAthleteId;
-          return (
-            <Link key={entry.id} href={`/sets/${setSlug || setId}/athlete/${entry.slug || entry.id}`}
-              className="flex items-center gap-2 transition-colors"
-              style={{
-                padding: "9px 18px", borderBottom: "1px solid #F4F1E8", textDecoration: "none",
-                background: isActive ? "#F4F1E8" : "transparent",
-                borderLeft: isActive ? "2px solid #0F0F0E" : "2px solid transparent",
-              }}>
-              <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677", width: 18, textAlign: "right", flexShrink: 0 }}>
-                {idx + 1}
-              </span>
-              <PlayerAvatar name={entry.name} nbaPlayerId={entry.nbaPlayerId} ufcImageUrl={entry.ufcImageUrl}
-                mlbPlayerId={entry.mlbPlayerId} imageUrl={entry.imageUrl} size={30} />
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-1.5 min-w-0">
-                  <span className="truncate" style={{ fontSize: 16, fontWeight: 500, color: "#0F0F0E" }}>{entry.name}</span>
-                  {entry.isRookie && (
-                    <span className="shrink-0" style={{
-                      background: "oklch(0.55 0.17 25)", color: "#FFF8F1",
-                      fontSize: 9, fontWeight: 700, padding: "1px 5px", borderRadius: 2,
-                    }}>RC</span>
-                  )}
+        {viewMode === "athletes" ? (
+          visible.length === 0 ? <p className="text-center py-8" style={{ fontSize: 16, color: "#8A8677", fontStyle: "italic" }}>No {subjectLabel.toLowerCase()} match.</p> : (
+            <>
+              {visible.map((entry, idx) => {
+                const isActive = entry.id === currentAthleteId;
+                return (
+                  <Link key={entry.id} href={`/sets/${setSlug || setId}/athlete/${entry.slug || entry.id}`}
+                    className="flex items-center gap-2 transition-colors"
+                    style={{
+                      padding: "9px 18px", borderBottom: "1px solid #F4F1E8", textDecoration: "none",
+                      background: isActive ? "#F4F1E8" : "transparent",
+                      borderLeft: isActive ? "2px solid #0F0F0E" : "2px solid transparent",
+                    }}>
+                    <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677", width: 18, textAlign: "right", flexShrink: 0 }}>{idx + 1}</span>
+                    <PlayerAvatar name={entry.name} nbaPlayerId={entry.nbaPlayerId} ufcImageUrl={entry.ufcImageUrl}
+                      mlbPlayerId={entry.mlbPlayerId} imageUrl={entry.imageUrl} size={30} />
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-1.5 min-w-0">
+                        <span className="truncate" style={{ fontSize: 16, fontWeight: 500, color: "#0F0F0E" }}>{entry.name}</span>
+                        {entry.isRookie && (
+                          <span className="shrink-0" style={{ background: "oklch(0.55 0.17 25)", color: "#FFF8F1", fontSize: 9, fontWeight: 700, padding: "1px 5px", borderRadius: 2 }}>RC</span>
+                        )}
+                      </div>
+                      {hasTeamData && entry.team && <p className="truncate" style={{ fontSize: 16, color: "#6B6757", marginTop: 1 }}>{entry.team}</p>}
+                    </div>
+                    <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: "#0F0F0E", flexShrink: 0 }}>{entry[sortKey].toLocaleString()}</span>
+                  </Link>
+                );
+              })}
+              {!showAll && filtered.length > 50 && <button onClick={() => setShowAll(true)} className="w-full py-3" style={{ fontSize: 16, fontWeight: 600, color: "#0F0F0E" }}>Show all {filtered.length} {subjectLabel.toLowerCase()}</button>}
+            </>
+          )
+        ) : (
+          teamRows.length === 0 ? <p className="text-center py-8" style={{ fontSize: 16, color: "#8A8677", fontStyle: "italic" }}>No teams match.</p> : (
+            (showAll ? teamRows : teamRows.slice(0, 50)).map((tr, idx) => (
+              <Link key={tr.team} href={`/sets/${setSlug || setId}/team/${tr.team.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`}
+                className="flex items-center gap-2 transition-colors"
+                style={{ padding: "9px 18px", borderBottom: "1px solid #F4F1E8", textDecoration: "none" }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#F1EFE9"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}>
+                <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677", width: 18, textAlign: "right", flexShrink: 0 }}>{idx + 1}</span>
+                <TeamLogoAvatar teamName={tr.team} sport={sport} size={30} />
+                <div className="flex-1 min-w-0">
+                  <span className="truncate block" style={{ fontSize: 16, fontWeight: 500, color: "#0F0F0E" }}>{tr.team}</span>
+                  <p className="truncate" style={{ fontSize: 16, color: "#6B6757", marginTop: 1 }}>{tr.athleteCount} {tr.athleteCount === 1 ? "Athlete" : "Athletes"}</p>
                 </div>
-                {hasTeamData && entry.team && (
-                  <p className="truncate" style={{ fontSize: 16, color: "#6B6757", marginTop: 1 }}>{entry.team}</p>
-                )}
-              </div>
-              <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: "#0F0F0E", flexShrink: 0 }}>
-                {entry[sortKey].toLocaleString()}
-              </span>
-            </Link>
-          );
-        })}
+                <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: "#0F0F0E", flexShrink: 0 }}>{tr[sortKey].toLocaleString()}</span>
+              </Link>
+            ))
+          )
+        )}
       </div>
     </div>
   );
@@ -1201,9 +1259,9 @@ function AlsoFeaturedIn({ otherSets }: { otherSets: OtherSet[] }) {
 
 // ─── Mobile Drawer ──────────────────────────────────────────────────────────────
 
-function MobileAthletesDrawer({ open, onClose, entries, hasTeamData, setId, setSlug, currentAthleteId, athleteCount, subjectLabel = "Athletes" }: {
+function MobileAthletesDrawer({ open, onClose, entries, hasTeamData, setId, setSlug, currentAthleteId, athleteCount, subjectLabel = "Athletes", sport = "" }: {
   open: boolean; onClose: () => void; entries: LeaderboardRow[]; hasTeamData: boolean;
-  setId: number; setSlug: string; currentAthleteId: number; athleteCount: number; subjectLabel?: string;
+  setId: number; setSlug: string; currentAthleteId: number; athleteCount: number; subjectLabel?: string; sport?: string;
 }) {
   useEffect(() => {
     if (!open) return;
@@ -1231,7 +1289,7 @@ function MobileAthletesDrawer({ open, onClose, entries, hasTeamData, setId, setS
         <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677" }}>{athleteCount}</span>
       </div>
       <div style={{ height: "calc(100% - 56px)", overflowY: "auto" }}>
-        <AthletesRail entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug} currentAthleteId={currentAthleteId} subjectLabel={subjectLabel} />
+        <AthletesRail entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug} currentAthleteId={currentAthleteId} subjectLabel={subjectLabel} sport={sport} />
       </div>
     </div>
   );
@@ -1269,7 +1327,7 @@ export function AthleteDetailClient({
       {/* ═══ DESKTOP ═══ */}
       <div className="hidden min-[1180px]:grid" style={{ gridTemplateColumns: "425px 1fr", minHeight: "100vh" }}>
         <aside className="sticky top-0 h-screen overflow-y-auto" style={{ borderRight: "1px solid #EDEAE0" }}>
-          <AthletesRail entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug} currentAthleteId={athleteId} subjectLabel={subjectLabel} />
+          <AthletesRail entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug} currentAthleteId={athleteId} subjectLabel={subjectLabel} sport={sport} />
         </aside>
 
         <div className="flex flex-col">
@@ -1583,7 +1641,7 @@ export function AthleteDetailClient({
 
         <MobileAthletesDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)}
           entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug}
-          currentAthleteId={athleteId} athleteCount={entries.length} subjectLabel={subjectLabel} />
+          currentAthleteId={athleteId} athleteCount={entries.length} subjectLabel={subjectLabel} sport={sport} />
       </div>
     </div>
   );
