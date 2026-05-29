@@ -217,6 +217,39 @@ async function verify() {
   return allMatch;
 }
 
+// ── Revalidation ─────────────────────────────────────────────────────────────
+
+async function triggerRevalidation(setSlug?: string) {
+  const productionUrl = process.env.PRODUCTION_URL ?? "https://www.checklist2.com";
+  const secret = process.env.REVALIDATE_SECRET;
+
+  if (!secret) {
+    console.warn("⚠ REVALIDATE_SECRET not set — skipping revalidation. Pages will refresh on natural ISR expiry.");
+    return;
+  }
+
+  try {
+    const body = setSlug ? { setSlug } : { paths: ["/", "/checklists", "/articles"] };
+    const response = await fetch(`${productionUrl}/api/revalidate`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Authorization: `Bearer ${secret}` },
+      body: JSON.stringify(body),
+    });
+
+    if (!response.ok) {
+      const text = await response.text();
+      console.warn(`⚠ Revalidation request failed (${response.status}): ${text}`);
+      return;
+    }
+
+    const data = await response.json();
+    console.log(`✓ Revalidated ${data.revalidated.length} path(s):`);
+    data.revalidated.forEach((p: string) => console.log(`  - ${p}`));
+  } catch (err) {
+    console.warn("⚠ Revalidation request errored:", err);
+  }
+}
+
 // ── Main ─────────────────────────────────────────────────────────────────────
 
 async function main() {
@@ -235,6 +268,9 @@ async function main() {
     console.error("\nMigration complete but row counts do not match. Please investigate.");
     process.exit(1);
   }
+
+  // Revalidate cached pages — optional set slug as CLI arg
+  await triggerRevalidation(process.argv[2]);
 }
 
 main().catch((err) => {
