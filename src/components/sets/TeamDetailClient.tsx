@@ -65,6 +65,8 @@ export interface TeamDetailClientProps {
   teamsInSet: TeamInSet[];
   leaderboardEntries?: LeaderboardEntry[];
   hasLeaderboardTeamData?: boolean;
+  packOddsJson?: string | null;
+  boxConfigJson?: string | null;
 }
 
 // ─── Helpers ────────────────────────────────────────────────────────────────────
@@ -510,6 +512,7 @@ export function TeamDetailClient({
   setName, setSlug, setId, sport, league, teamName, teamSlug,
   athletes, athleteCount, totalCards, numberedParallels, oneOfOnes, teamsInSet,
   leaderboardEntries = [], hasLeaderboardTeamData = false,
+  packOddsJson, boxConfigJson,
 }: TeamDetailClientProps) {
   const [tab, setTab] = useState<Tab>("Athletes");
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -624,8 +627,18 @@ export function TeamDetailClient({
               <AthletesTable athletes={athletes} setSlug={setSlug} setId={setId} />
             )}
             {tab === "Calculator" && (
-              <div style={{ padding: "40px 20px", textAlign: "center", fontSize: 16, fontStyle: "italic", color: "#8A8677" }}>
-                Break Hit Calculator coming soon.
+              <div style={{ padding: "40px 20px", textAlign: "center", fontSize: 16, color: "#8A8677" }}>
+                {!packOddsJson ? (
+                  <div>
+                    <p style={{ fontStyle: "italic" }}>Pack odds not yet available for this set.</p>
+                    <p style={{ fontSize: 14, marginTop: 8 }}>Once pack odds are published, the Break Hit Calculator will appear here with team-aggregated probabilities.</p>
+                  </div>
+                ) : (
+                  <div>
+                    <p style={{ fontStyle: "italic" }}>Break Hit Calculator coming soon.</p>
+                    <p style={{ fontSize: 14, marginTop: 8 }}>Team-level odds calculation across {athleteCount} athletes will be available in a future update.</p>
+                  </div>
+                )}
               </div>
             )}
           </div>

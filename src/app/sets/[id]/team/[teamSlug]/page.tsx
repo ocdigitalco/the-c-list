@@ -252,6 +252,8 @@ export default async function TeamDetailPage({
       }))}
       leaderboardEntries={leaderboardEntries}
       hasLeaderboardTeamData={hasTeamData}
+      packOddsJson={setRow.packOdds ?? null}
+      boxConfigJson={setRow.boxConfig ?? null}
     />
   );
 }
