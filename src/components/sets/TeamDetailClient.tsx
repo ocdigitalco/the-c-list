@@ -13,11 +13,11 @@ import { getTeamLogo } from "@/lib/utils/teamLogo";
 const FONT_DISPLAY = "var(--cl-font-display), 'Inter Tight', sans-serif";
 const FONT_MONO = "var(--cl-font-mono), 'JetBrains Mono', ui-monospace, monospace";
 
-type Tab = "Overview" | "Athletes" | "Inserts" | "Autographs" | "Numbered Parallels";
+type Tab = "Athletes" | "Calculator";
 type SortKey = "totalCards" | "autographs" | "inserts" | "numberedParallels" | "name";
 type SortDir = "asc" | "desc";
 
-const TABS: Tab[] = ["Overview", "Athletes", "Inserts", "Autographs", "Numbered Parallels"];
+const TABS: Tab[] = ["Athletes", "Calculator"];
 
 interface TeamAthlete {
   id: number;
@@ -620,27 +620,12 @@ export function TeamDetailClient({
 
           {/* Content */}
           <div style={{ padding: "28px 36px 60px" }}>
-            {tab === "Overview" && (
-              <div style={{ padding: "40px 20px", textAlign: "center", fontSize: 16, fontStyle: "italic", color: "#8A8677" }}>
-                Overview coming soon.
-              </div>
-            )}
             {tab === "Athletes" && (
               <AthletesTable athletes={athletes} setSlug={setSlug} setId={setId} />
             )}
-            {tab === "Inserts" && (
+            {tab === "Calculator" && (
               <div style={{ padding: "40px 20px", textAlign: "center", fontSize: 16, fontStyle: "italic", color: "#8A8677" }}>
-                Inserts coming soon
-              </div>
-            )}
-            {tab === "Autographs" && (
-              <div style={{ padding: "40px 20px", textAlign: "center", fontSize: 16, fontStyle: "italic", color: "#8A8677" }}>
-                Autographs coming soon
-              </div>
-            )}
-            {tab === "Numbered Parallels" && (
-              <div style={{ padding: "40px 20px", textAlign: "center", fontSize: 16, fontStyle: "italic", color: "#8A8677" }}>
-                Numbered parallels coming soon
+                Break Hit Calculator coming soon.
               </div>
             )}
           </div>
@@ -737,27 +722,12 @@ export function TeamDetailClient({
 
         {/* Content */}
         <div style={{ padding: 16 }}>
-          {tab === "Overview" && (
-            <div style={{ padding: "40px 20px", textAlign: "center", fontSize: 16, fontStyle: "italic", color: "#8A8677" }}>
-              Overview coming soon.
-            </div>
-          )}
           {tab === "Athletes" && (
             <AthletesTable athletes={athletes} setSlug={setSlug} setId={setId} />
           )}
-          {tab === "Inserts" && (
+          {tab === "Calculator" && (
             <div style={{ padding: "40px 20px", textAlign: "center", fontSize: 16, fontStyle: "italic", color: "#8A8677" }}>
-              Inserts coming soon
-            </div>
-          )}
-          {tab === "Autographs" && (
-            <div style={{ padding: "40px 20px", textAlign: "center", fontSize: 16, fontStyle: "italic", color: "#8A8677" }}>
-              Autographs coming soon
-            </div>
-          )}
-          {tab === "Numbered Parallels" && (
-            <div style={{ padding: "40px 20px", textAlign: "center", fontSize: 16, fontStyle: "italic", color: "#8A8677" }}>
-              Numbered parallels coming soon
+              Break Hit Calculator coming soon.
             </div>
           )}
         </div>

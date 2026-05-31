@@ -127,14 +127,19 @@ export default async function TeamDetailPage({
     setId, teamName, teamName, setId, teamName
   );
 
-  // ── Team aggregate stats ──────────────────────────────────────────────────
+  // ── Team aggregate stats (matches leaderboard aggregation: sum of unique_cards) ──
   const teamStats = await rawQuery.get<{
     totalCards: number;
     numberedParallels: number;
     oneOfOnes: number;
   }>(
     `SELECT
-       COUNT(DISTINCT pa.id) AS totalCards,
+       (SELECT COALESCE(SUM(p2.unique_cards), 0) FROM players p2
+        WHERE p2.set_id = ? AND p2.id IN (
+          SELECT DISTINCT pa2.player_id FROM player_appearances pa2
+          JOIN insert_sets i2 ON i2.id = pa2.insert_set_id
+          WHERE i2.set_id = ? AND pa2.team = ?
+        )) AS totalCards,
        (SELECT COUNT(*) FROM parallels par
         WHERE par.insert_set_id IN (
           SELECT DISTINCT pa2.insert_set_id FROM player_appearances pa2
@@ -147,10 +152,8 @@ export default async function TeamDetailPage({
           JOIN insert_sets i2 ON i2.id = pa2.insert_set_id
           WHERE i2.set_id = ? AND pa2.team = ?
         ) AND par.print_run = 1) AS oneOfOnes
-     FROM player_appearances pa
-     JOIN insert_sets i ON i.id = pa.insert_set_id
-     WHERE i.set_id = ? AND pa.team = ?`,
-    setId, teamName, setId, teamName, setId, teamName
+     FROM (SELECT 1)`,
+    setId, setId, teamName, setId, teamName, setId, teamName
   );
 
   // ── Teams in set (for drawer/switcher) ────────────────────────────────────
