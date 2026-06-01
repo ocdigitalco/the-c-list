@@ -2,6 +2,8 @@ import { db, rawQuery } from "@/lib/db";
 import { sets } from "@/lib/schema";
 import { notFound, redirect } from "next/navigation";
 import { TeamDetailClient } from "@/components/sets/TeamDetailClient";
+import { findOddsKey } from "@/lib/oddsUtils";
+import type { PackOddsSlot, BoxFormat } from "@/components/PackOddsCalculator";
 
 export const revalidate = 3600;
 
@@ -230,6 +232,137 @@ export default async function TeamDetailPage({
     imageUrl: r.imageUrl,
   }));
 
+  // ── Break Hit Calculator data (team-aggregated) ────────────────────────────
+  const hasBoxConfig = !!setRow.boxConfig;
+  const hasPackOdds = !!setRow.packOdds;
+  let packOddsSlotsByFormat: Record<string, PackOddsSlot[]> = {};
+  let boxFormats: BoxFormat[] = [];
+  let totalAutoCards = 0;
+  let teamAutoCards = 0;
+
+  if (hasBoxConfig) {
+    try {
+      const rawBox = JSON.parse(setRow.boxConfig!);
+      const BOX_LABEL_MAP: Record<string, string> = {
+        hobby: "Hobby", jumbo: "Jumbo", hobby_jumbo: "Hobby Jumbo",
+        mega: "Mega", blaster: "Blaster", value: "Value",
+        breakers_delight: "Breaker's Delight",
+      };
+      for (const [k, cfg] of Object.entries(rawBox as Record<string, Record<string, number | null>>)) {
+        const label = BOX_LABEL_MAP[k] ?? k.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+        boxFormats.push({
+          label,
+          boxesPerCase: (cfg.boxes_per_case as number) ?? 8,
+          packsPerCase: ((cfg.boxes_per_case as number) ?? 8) * ((cfg.packs_per_box as number) ?? 1),
+          packsPerBox: (cfg.packs_per_box as number) ?? 1,
+          guaranteedAutos: (cfg.autos_per_box as number) ?? 0,
+          note: cfg.notes as unknown as string | undefined,
+        });
+      }
+    } catch { /* ignore */ }
+  }
+
+  if (hasPackOdds && athleteRows.length > 0) {
+    const { normalizeOddsObj } = await import("@/lib/parseOdds");
+    const rawOdds = JSON.parse(setRow.packOdds!);
+    const firstVal = Object.values(rawOdds)[0];
+    const isNestedOdds = firstVal !== null && typeof firstVal === "object";
+
+    // Get all insert sets this team's athletes appear in
+    const teamPlayerIds = athleteRows.map((r) => r.id);
+    const teamInsertSets = await rawQuery.all<{
+      insert_set_id: number; name: string; is_autograph: number;
+      team_apps: number; total_apps: number;
+    }>(
+      `SELECT i.id AS insert_set_id, i.name, i.is_autograph,
+              COUNT(DISTINCT CASE WHEN pa.player_id IN (${teamPlayerIds.map(() => "?").join(",")}) THEN pa.id END) AS team_apps,
+              COUNT(DISTINCT pa.id) AS total_apps
+       FROM insert_sets i
+       JOIN player_appearances pa ON pa.insert_set_id = i.id
+       WHERE i.set_id = ?
+       GROUP BY i.id`,
+      ...teamPlayerIds, setId
+    );
+
+    // Get parallels for these insert sets
+    const isIds = teamInsertSets.map((r) => r.insert_set_id);
+    const parallelRows = isIds.length > 0
+      ? await rawQuery.all<{ insert_set_id: number; name: string; print_run: number | null }>(
+          `SELECT insert_set_id, name, print_run FROM parallels WHERE insert_set_id IN (${isIds.map(() => "?").join(",")})`,
+          ...isIds
+        )
+      : [];
+    const parallelsByIS = new Map<number, typeof parallelRows>();
+    for (const p of parallelRows) {
+      if (!parallelsByIS.has(p.insert_set_id)) parallelsByIS.set(p.insert_set_id, []);
+      parallelsByIS.get(p.insert_set_id)!.push(p);
+    }
+
+    const autoKeywords = ["auto", "signature", "graph", "relic", "dual", "triple", "ink", "script", "mark"];
+
+    function resolvePrefix(name: string, packOddsData: Record<string, number>): string {
+      if (name === "Base Set") return findOddsKey("Base Set", Object.keys(packOddsData)) ?? "Base";
+      const found = findOddsKey(name, Object.keys(packOddsData));
+      if (found) return found;
+      if (name.startsWith("Base")) {
+        if ("Base Cards" in packOddsData) return "Base Cards";
+      }
+      return name;
+    }
+
+    function buildSlots(packOddsData: Record<string, number>): PackOddsSlot[] {
+      return teamInsertSets.map((is) => {
+        const isAuto = is.is_autograph === 1 || autoKeywords.some((kw) => is.name.toLowerCase().includes(kw));
+        const prefix = resolvePrefix(is.name, packOddsData);
+        const baseDenom = packOddsData[prefix] ?? packOddsData[`${prefix} Refractor`] ?? null;
+        const pars = parallelsByIS.get(is.insert_set_id) ?? [];
+        return {
+          insertSetName: is.name,
+          playerApps: is.team_apps,
+          totalApps: is.total_apps,
+          baseOddsDenom: baseDenom,
+          isAuto,
+          serializedParallels: pars
+            .filter((p) => p.print_run !== null)
+            .map((p) => ({
+              name: p.name,
+              printRun: p.print_run!,
+              denom: packOddsData[`${prefix} ${p.name}`] ?? null,
+            })),
+        };
+      });
+    }
+
+    if (isNestedOdds) {
+      for (const [key, data] of Object.entries(rawOdds as Record<string, Record<string, unknown>>)) {
+        const label = key.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+        const BOX_LABEL_MAP: Record<string, string> = { hobby: "Hobby", hobby_jumbo: "Hobby Jumbo", mega: "Mega", value: "Value", breakers_delight: "Breaker's Delight" };
+        const resolvedLabel = BOX_LABEL_MAP[key] ?? label;
+        if (!(resolvedLabel in packOddsSlotsByFormat)) {
+          packOddsSlotsByFormat[resolvedLabel] = buildSlots(normalizeOddsObj(data));
+        }
+      }
+    } else {
+      const slots = buildSlots(normalizeOddsObj(rawOdds as Record<string, unknown>));
+      for (const fmt of boxFormats) {
+        packOddsSlotsByFormat[fmt.label] = slots;
+      }
+      if (boxFormats.length === 0) packOddsSlotsByFormat["default"] = slots;
+    }
+
+    // Total auto cards in set
+    totalAutoCards = teamInsertSets
+      .filter((is) => is.is_autograph === 1 || autoKeywords.some((kw) => is.name.toLowerCase().includes(kw)))
+      .reduce((sum, is) => sum + is.total_apps, 0);
+
+    // Team auto cards
+    teamAutoCards = teamInsertSets
+      .filter((is) => is.is_autograph === 1 || autoKeywords.some((kw) => is.name.toLowerCase().includes(kw)))
+      .reduce((sum, is) => sum + is.team_apps, 0);
+  }
+
+  const hasBreakCalc = hasBoxConfig && hasPackOdds && Object.keys(packOddsSlotsByFormat).length > 0;
+
   return (
     <TeamDetailClient
       setName={setRow.name}
@@ -254,6 +387,11 @@ export default async function TeamDetailPage({
       hasLeaderboardTeamData={hasTeamData}
       packOddsJson={setRow.packOdds ?? null}
       boxConfigJson={setRow.boxConfig ?? null}
+      packOddsSlotsByFormat={packOddsSlotsByFormat}
+      boxFormats={boxFormats}
+      totalAutoCards={totalAutoCards}
+      teamAutoCards={teamAutoCards}
+      hasBreakCalc={hasBreakCalc}
     />
   );
 }

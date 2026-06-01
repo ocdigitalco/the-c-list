@@ -7,6 +7,7 @@ import { getUFCHeadshotUrl } from "@/lib/ufc-headshot";
 import { getMLBHeadshotUrl } from "@/lib/mlb-headshot";
 import { trackEvent } from "@/lib/trackEvent";
 import { getTeamLogo } from "@/lib/utils/teamLogo";
+import { PackOddsCalculator, type PackOddsSlot, type BoxFormat } from "@/components/PackOddsCalculator";
 
 // ─── Types ──────────────────────────────────────────────────────────────────────
 
@@ -67,6 +68,11 @@ export interface TeamDetailClientProps {
   hasLeaderboardTeamData?: boolean;
   packOddsJson?: string | null;
   boxConfigJson?: string | null;
+  packOddsSlotsByFormat?: Record<string, PackOddsSlot[]>;
+  boxFormats?: BoxFormat[];
+  totalAutoCards?: number;
+  teamAutoCards?: number;
+  hasBreakCalc?: boolean;
 }
 
 // ─── Helpers ────────────────────────────────────────────────────────────────────
@@ -513,6 +519,7 @@ export function TeamDetailClient({
   athletes, athleteCount, totalCards, numberedParallels, oneOfOnes, teamsInSet,
   leaderboardEntries = [], hasLeaderboardTeamData = false,
   packOddsJson, boxConfigJson,
+  packOddsSlotsByFormat = {}, boxFormats = [], totalAutoCards = 0, teamAutoCards = 0, hasBreakCalc = false,
 }: TeamDetailClientProps) {
   const [tab, setTab] = useState<Tab>("Athletes");
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -627,19 +634,21 @@ export function TeamDetailClient({
               <AthletesTable athletes={athletes} setSlug={setSlug} setId={setId} />
             )}
             {tab === "Calculator" && (
-              <div style={{ padding: "40px 20px", textAlign: "center", fontSize: 16, color: "#8A8677" }}>
-                {!packOddsJson ? (
-                  <div>
-                    <p style={{ fontStyle: "italic" }}>Pack odds not yet available for this set.</p>
-                    <p style={{ fontSize: 14, marginTop: 8 }}>Once pack odds are published, the Break Hit Calculator will appear here with team-aggregated probabilities.</p>
-                  </div>
-                ) : (
-                  <div>
-                    <p style={{ fontStyle: "italic" }}>Break Hit Calculator coming soon.</p>
-                    <p style={{ fontSize: 14, marginTop: 8 }}>Team-level odds calculation across {athleteCount} athletes will be available in a future update.</p>
-                  </div>
-                )}
-              </div>
+              hasBreakCalc ? (
+                <PackOddsCalculator
+                  slotsByFormat={packOddsSlotsByFormat}
+                  boxFormats={boxFormats}
+                  totalAutoCards={totalAutoCards}
+                  playerAutoCards={teamAutoCards}
+                  setId={setId}
+                  setName={setName}
+                />
+              ) : (
+                <div style={{ padding: "40px 20px", textAlign: "center", fontSize: 16, color: "#8A8677" }}>
+                  <p style={{ fontStyle: "italic" }}>Pack odds not yet available for this set.</p>
+                  <p style={{ fontSize: 14, marginTop: 8 }}>Once pack odds are published, the Break Hit Calculator will appear here.</p>
+                </div>
+              )
             )}
           </div>
         </div>
