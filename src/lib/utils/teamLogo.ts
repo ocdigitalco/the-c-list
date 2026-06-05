@@ -65,6 +65,14 @@ const MLB_TEAM_ALIASES: Record<string, string> = {
   // San Diego Chargers, Oakland Raiders, etc. handled at NFL level when added
 };
 
+// Vintage/historical NBA team names → modern franchise slug
+const NBA_TEAM_ALIASES: Record<string, string> = {
+  "Washington Bullets": "washington-wizards",
+  "New Jersey Nets": "brooklyn-nets",
+  "Seattle Supersonics": "oklahoma-city-thunder",
+  "Seattle SuperSonics": "oklahoma-city-thunder",
+};
+
 /**
  * Returns the public path to a team's SVG logo, or null if no logo is available.
  * Caller should render a placeholder when null (never a broken <img>).
@@ -74,9 +82,12 @@ export function getTeamLogo(teamName: string, sport: string): string | null {
   const league = SPORT_TO_LEAGUE[sport];
   if (!league) return null;
 
-  // Check sport-specific alias map first (vintage → modern franchise)
+  // Check sport-specific alias maps (vintage → modern franchise)
   if (league === "mlb" && MLB_TEAM_ALIASES[teamName]) {
     return `/logos/mlb/${MLB_TEAM_ALIASES[teamName]}-logo.svg`;
+  }
+  if (league === "nba" && NBA_TEAM_ALIASES[teamName]) {
+    return `/logos/nba/${NBA_TEAM_ALIASES[teamName]}-logo.svg`;
   }
 
   const slug = slugifyTeam(teamName);
