@@ -33,10 +33,21 @@ export function buildSetMeta(
   const short = `${setName} Checklist | Checklist²`;
   const title = full.length <= 65 ? full : mid.length <= 65 ? mid : short;
 
+  // 3-tier description fallback to stay at ≤160 chars — drop whole clauses,
+  // never truncate mid-word.
   const cards = totalCards.toLocaleString("en-US");
-  const description = hasPackOdds
-    ? `Complete ${setName} checklist with ${cards} cards, pack odds, numbered parallels, and box configurations. Free break hit calculator for collectors and breakers.`
-    : `Complete ${setName} checklist with ${cards} cards, numbered parallels, and box configuration data for collectors.`;
+  const descTiers = hasPackOdds
+    ? [
+        `Complete ${setName} checklist with ${cards} cards, pack odds, numbered parallels, and box configurations. Free break hit calculator for collectors and breakers.`,
+        `Complete ${setName} checklist with ${cards} cards, pack odds, parallels, and box configs. Free break hit calculator.`,
+        `${setName} checklist, pack odds, parallels, and box configurations.`,
+      ]
+    : [
+        `Complete ${setName} checklist with ${cards} cards, numbered parallels, and box configuration data for collectors.`,
+        `Complete ${setName} checklist with ${cards} cards, parallels, and box configs.`,
+        `${setName} checklist, parallels, and box configurations.`,
+      ];
+  const description = descTiers.find((d) => d.length <= 160) ?? descTiers[descTiers.length - 1];
 
   return { title, description };
 }
@@ -230,14 +241,24 @@ export async function computeSetAeo(input: SetAeoInput): Promise<SetAeoResult> {
     (r) => !baseRe.test(r.name) && r.isAuto !== 1 && !autoKeyword.test(r.name) && r.cards > 0
   );
 
-  const baseLadder = await rawQuery.all<{ name: string; printRun: number | null }>(
-    `SELECT p.name, p.print_run AS printRun
-     FROM parallels p
-     JOIN insert_sets i ON i.id = p.insert_set_id
-     WHERE i.set_id = ? AND i.name IN ('Base Set', 'Base', 'Base Cards')
-     ORDER BY p.id`,
-    setId
-  );
+  // Base-tier detector: name starts with "Base" or contains "Base" as a
+  // discrete token (e.g. "Veterans Class Base", "Rookie Class Chrome Base II"),
+  // and is not an autograph subset. Aggregate parallels across all matches.
+  const baseTokenRe = /(^|\W)base(\W|$)/i;
+  const baseTierIds = subsetRows
+    .filter((r) => baseTokenRe.test(r.name) && r.isAuto !== 1 && !autoKeyword.test(r.name))
+    .map((r) => r.id);
+  const baseLadder =
+    baseTierIds.length > 0
+      ? await rawQuery.all<{ name: string; printRun: number | null }>(
+          `SELECT p.name, p.print_run AS printRun
+           FROM parallels p
+           WHERE p.insert_set_id IN (${baseTierIds.map(() => "?").join(",")})
+           GROUP BY p.name, p.print_run
+           ORDER BY MIN(p.id)`,
+          ...baseTierIds
+        )
+      : [];
 
   const autoLeaders =
     autographCount > 0

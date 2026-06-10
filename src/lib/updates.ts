@@ -13,6 +13,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "183-seo-aeo-followups",
+    title: "SEO/AEO Follow-ups: Character Roles Backfilled, Meta Description Clamp, Base-Tier Parallel Detection",
+    date: "2026-06-09T12:00:00Z",
+    summary: "Backfilled subject_role athlete→character for 2026 Topps Disney Neon (339) and 2025 Topps Chrome Deadpool (131) so Overview Q&A asks about characters and shows/films. Meta descriptions now clamp to ≤160 chars via tiered clause-dropping. Parallel-ladder clause now detects base-tier subsets by token (e.g. \"Veterans Class Base\") instead of exact names.",
+    description: `## SEO/AEO Follow-ups
+
+**Role backfill (data)**: 2026 Topps Disney Neon (339 subjects) and 2025 Topps Chrome Deadpool (131 subjects) were stored as subject_role='athlete'; both are all-character sets and were flipped to 'character', so their Overview Q&A now reads "Which character has the most cards…" and "Which show or film has the most cards…". Two entertainment sets were audited and deliberately left unchanged because they mix real people with characters/attractions: Disneyland 70th Anniversary (480 — attractions, moments, and real cast members) and 30 Years of Toy Story (241 — characters plus Pixar artists).
+
+**Meta description clamp (template)**: descriptions now use a 3-tier fallback mirroring the title approach — full template → condensed ("…pack odds, parallels, and box configs. Free break hit calculator.") → minimal ("{name} checklist, pack odds, parallels, and box configurations.") — always dropping whole clauses at >160 chars, never truncating mid-word.
+
+**Base-tier parallel detection (template)**: the parallel-ladder Q&A clause previously matched only subsets named exactly "Base Set"/"Base"/"Base Cards". It now detects any non-autograph subset containing "Base" as a discrete token (e.g. "Veterans Class Base", "Rookie Class Chrome Base II") and aggregates parallels across all detected base-tier subsets, so sets like Signature Class now render their full base parallel ladder.`,
+    tags: ["feature"],
+  },
+  {
     id: "182-seo-aeo-overhaul",
     title: "SEO/AEO Overhaul: Metadata, Overview Q&A, and Structured Data for All Set Pages",
     date: "2026-06-08T12:00:00Z",

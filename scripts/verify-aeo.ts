@@ -8,6 +8,8 @@ const SLUGS = [
   "2026-topps-disney-neon",
   "2025-26-topps-motif-basketball",
   "2026-topps-chrome-disney",
+  "2025-topps-signature-class-football",
+  "2026-topps-finest-baseball",
 ];
 
 async function main() {
