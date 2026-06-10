@@ -13,6 +13,19 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "181-merlin-premier-league-2026",
+    title: "2026 Topps Merlin Premier League — Full Checklist with Dual-Format Odds",
+    date: "2026-06-09T12:00:00Z",
+    summary: "Added 2026 Topps Merlin Premier League: 714 cards across 20 subsets — first Premier League set with a full checklist. Dual-format (Hobby + Value) pack odds AND complete print runs, the most complete data package of any set this session.",
+    description: `## 2026 Topps Merlin Premier League
+
+First Premier League set with full checklist data. 200-card base with 24 parallels (Mojo/Vintage Merlin Hobby-exclusive; RayWave/VHS/Battle of Britpop Value-exclusive), 13 insert subsets, 5 autograph subsets, and 1 autograph relic subset. Full dual-format pack odds (Hobby + Value) with complete print runs.
+
+Notable handling: mononym athletes stored as printed (Kevin, André, Murillo, Jair, Evanilson, Savinho, etc.); "Jimmy Floyd HasselbainkLeeds United" concatenation typo normalized; first non-ASCII card numbers (MV-MØ, MY-MØ, ST-EMØ); MB- prefix shared between Magic in His Boots (numeric) and Merlin's Match Ball Signatures (initials) — resolved via subset scoping; MB-14 gap preserved per source (39 cards); 6 multi-subject Spellbinding Trios (3 athletes each via co-player join table); per-card team variations preserved (Jordan Henderson on Brentford + vintage Liverpool trio, Joe Cole on West Ham + Chelsea). EPL club logos pending — neutral placeholder fallback renders for all 20 clubs.`,
+    tags: ["checklist", "odds", "box-config"],
+    setId: 853,
+  },
+  {
     id: "180-backfill-player-image-ids",
     title: "Backfill Player Image IDs Across All Sets",
     date: "2026-05-28T12:00:00Z",
