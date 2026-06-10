@@ -40,7 +40,7 @@ export interface BoxFormatConfig {
   guaranteedAutos: number;
 }
 
-interface PoolEntry {
+export interface PoolEntry {
   insertSetId: number;
   insertSetName: string;
   parallelName: string | null;
@@ -403,6 +403,97 @@ export function getBoxTypeKeys(
   }
 
   return Array.from(keys);
+}
+
+export interface BulkAthleteOdds {
+  playerId: number;
+  playerName: string;
+  probability: number;
+  percentagePerBox: number;
+}
+
+/**
+ * Compute "any card" hit probability for EVERY athlete in a set at once.
+ *
+ * Designed for ISR-time page generation on large sets: builds per-insert-set
+ * weight factors by folding over the pool once, runs a single grouped
+ * appearance query, then computes each athlete's probability from the
+ * deduped per-subject card-count map — no per-athlete pool rebuilds.
+ */
+export async function getBulkAthleteAnyCardOdds(
+  setId: number,
+  pool: PoolEntry[],
+  boxConfig: BoxFormatConfig,
+  boxes: number = 1
+): Promise<BulkAthleteOdds[]> {
+  if (pool.length === 0) return [];
+
+  const { packsPerBox, guaranteedAutos } = boxConfig;
+
+  // Per-insert-set weight factors: weight contribution per single appearance
+  const anyFactor = new Map<number, number>();
+  const autoFactor = new Map<number, number>();
+  let anyTotalWeight = 0;
+  let autoTotalWeight = 0;
+  for (const entry of pool) {
+    const f = entry.weight / entry.totalAppsInIS;
+    anyTotalWeight += entry.weight;
+    anyFactor.set(entry.insertSetId, (anyFactor.get(entry.insertSetId) ?? 0) + f);
+    if (entry.isAuto) {
+      autoTotalWeight += entry.weight;
+      autoFactor.set(entry.insertSetId, (autoFactor.get(entry.insertSetId) ?? 0) + f);
+    }
+  }
+
+  // One grouped query: appearances per (player, insert set)
+  const isIds = [...new Set(pool.map((e) => e.insertSetId))];
+  const placeholders = isIds.map(() => "?").join(",");
+  const rows = await rawQuery.all<{
+    player_id: number;
+    player_name: string;
+    insert_set_id: number;
+    apps: number;
+  }>(
+    `SELECT pa.player_id, p.name AS player_name, pa.insert_set_id, COUNT(*) AS apps
+     FROM player_appearances pa
+     JOIN players p ON p.id = pa.player_id
+     WHERE p.set_id = ? AND pa.insert_set_id IN (${placeholders})
+     GROUP BY pa.player_id, pa.insert_set_id`,
+    setId,
+    ...isIds
+  );
+
+  // Fold per-player weights
+  const perPlayer = new Map<number, { name: string; anyW: number; autoW: number }>();
+  for (const r of rows) {
+    let p = perPlayer.get(r.player_id);
+    if (!p) {
+      p = { name: r.player_name, anyW: 0, autoW: 0 };
+      perPlayer.set(r.player_id, p);
+    }
+    p.anyW += r.apps * (anyFactor.get(r.insert_set_id) ?? 0);
+    p.autoW += r.apps * (autoFactor.get(r.insert_set_id) ?? 0);
+  }
+
+  const usesGuaranteeAuto = guaranteedAutos >= 1;
+  const results: BulkAthleteOdds[] = [];
+  for (const [playerId, p] of perPlayer) {
+    const pAnyFromPacks = calcPoolProbability(p.anyW, anyTotalWeight, packsPerBox, boxes, 0);
+    let probability = pAnyFromPacks;
+    if (usesGuaranteeAuto && autoTotalWeight > 0) {
+      const pAuto = calcPoolProbability(p.autoW, autoTotalWeight, packsPerBox, boxes, guaranteedAutos);
+      probability = 1 - (1 - pAnyFromPacks) * (1 - pAuto);
+    }
+    results.push({
+      playerId,
+      playerName: p.name,
+      probability,
+      percentagePerBox: Math.round(probability * 10000) / 100,
+    });
+  }
+
+  results.sort((a, b) => b.probability - a.probability);
+  return results;
 }
 
 /**

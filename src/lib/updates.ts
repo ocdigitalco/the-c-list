@@ -13,6 +13,24 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "182-seo-aeo-overhaul",
+    title: "SEO/AEO Overhaul: Metadata, Overview Q&A, and Structured Data for All Set Pages",
+    date: "2026-06-08T12:00:00Z",
+    summary: "Every set page now generates SEO metadata (title templates, meta descriptions, OG/Twitter tags), a data-computed summary paragraph, a conditional Q&A section (up to 13 question types), and Dataset + FAQPage JSON-LD. Also fixed the blank Overview tab on mobile.",
+    description: `## SEO/AEO Overhaul for Set Pages
+
+All set pages now ship full search and answer-engine optimization, computed entirely from existing checklist data at ISR generation time — no database changes.
+
+**Metadata**: 3-tier title fallback ("Checklist, Pack Odds & Break Calculator" → "Checklist & Pack Odds" → "Checklist"), computed meta descriptions, canonical URLs, Open Graph and Twitter cards with set sample images.
+
+**Overview tab**: data-computed summary paragraph (release year, manufacturer, card/subset/base/autograph/parallel counts, release date, box formats) plus a conditional FAQ section covering up to 13 question types: total cards, autograph subsets, top subjects by cards and autographs, most likely break hit (reuses the break calculator math in a bulk per-set computation), team leaders, rookies, parallel ladder and print-run range, hardest pulls, release date, box formats, and insert sets. Questions are subject-role aware (athlete/character/celebrity; character sets ask about "show or film" instead of "team") and skip cleanly when data is missing (e.g., no break-hit question when box config is TBA).
+
+**Structured data**: Dataset + FAQPage JSON-LD on every set page, with FAQPage mirroring the rendered Q&A 1:1.
+
+**Bug fix**: the mobile Overview tab was rendering blank — the mobile content area was missing the Overview branch entirely.`,
+    tags: ["feature"],
+  },
+  {
     id: "181-merlin-premier-league-2026",
     title: "2026 Topps Merlin Premier League — Full Checklist with Dual-Format Odds",
     date: "2026-06-09T12:00:00Z",

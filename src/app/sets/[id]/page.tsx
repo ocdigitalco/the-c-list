@@ -8,12 +8,80 @@ import {
 } from "@/lib/schema";
 import { eq, inArray, sql, and } from "drizzle-orm";
 import { notFound, redirect } from "next/navigation";
+import type { Metadata } from "next";
 import { SetDetailClient } from "@/components/sets/SetDetailClient";
 import type { LeaderboardRow } from "@/components/sets/types";
 import type { BreakSheetPlayer } from "@/components/BreakSheetModal";
 import { articles } from "@/lib/articles";
+import { buildSetMeta, computeSetAeo, SITE_URL } from "@/lib/setSeo";
 
 export const revalidate = 3600;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const { id: rawParam } = await params;
+  const isNumeric = /^\d+$/.test(rawParam);
+
+  interface MetaRow {
+    id: number;
+    name: string;
+    img: string | null;
+    hasOdds: number;
+    slug: string | null;
+  }
+  let row: MetaRow | undefined;
+  try {
+    row = isNumeric
+      ? await rawQuery.get<MetaRow>(
+          `SELECT id, name, sample_image_url AS img,
+                  (pack_odds IS NOT NULL) AS hasOdds, slug
+           FROM sets WHERE id = ?`,
+          parseInt(rawParam, 10)
+        )
+      : await rawQuery.get<MetaRow>(
+          `SELECT id, name, sample_image_url AS img,
+                  (pack_odds IS NOT NULL) AS hasOdds, slug
+           FROM sets WHERE slug = ?`,
+          rawParam
+        );
+  } catch { /* slug column may not exist yet */ }
+  if (!row) return {};
+
+  const cardRow = await rawQuery.get<{ c: number }>(
+    `SELECT COUNT(*) AS c
+     FROM player_appearances pa
+     JOIN insert_sets i ON i.id = pa.insert_set_id
+     WHERE i.set_id = ?`,
+    row.id
+  );
+
+  const { title, description } = buildSetMeta(row.name, cardRow?.c ?? 0, !!row.hasOdds);
+  const url = `${SITE_URL}/sets/${row.slug ?? row.id}`;
+  const ogImage = row.img ? `${SITE_URL}${row.img}` : undefined;
+
+  return {
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      title,
+      description,
+      url,
+      type: "website",
+      siteName: "Checklist²",
+      ...(ogImage ? { images: [{ url: ogImage }] } : {}),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      ...(ogImage ? { images: [ogImage] } : {}),
+    },
+  };
+}
 
 export default async function V2SetPage({
   params,
@@ -326,8 +394,78 @@ export default async function V2SetPage({
 
   const hasTeamData = leaderboardEntries.some((e) => e.team != null && e.team !== "");
 
+  // ── SEO / AEO: summary, Q&A, structured data ────────────────────────────
+  const { description: metaDescription } = buildSetMeta(
+    setRow.name,
+    cardCountRow.count,
+    !!setRow.packOdds
+  );
+  const aeo = await computeSetAeo({
+    setId,
+    setName: setRow.name,
+    sport: setRow.sport,
+    releaseDate: setRow.releaseDate ?? null,
+    packOdds: setRow.packOdds ?? null,
+    boxConfig: setRow.boxConfig ?? null,
+    totalCards: cardCountRow.count,
+    autographCount: autographCountRow.count,
+    parallelTypes: parallelTypesRow.count,
+    numberedParallels: numberedParallelsResult.total,
+    allParallels,
+    subjectRole: dominantRoleRow?.role ?? null,
+    leaderboard: leaderboardEntries.map((e) => ({
+      id: e.id,
+      name: e.name,
+      totalCards: e.totalCards,
+      isRookie: e.isRookie,
+      team: e.team,
+    })),
+  });
+
+  const pageUrl = `${SITE_URL}/sets/${rawParam}`;
+  const datasetLd = {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    name: `${setRow.name} Checklist`,
+    description: metaDescription,
+    url: pageUrl,
+    creator: { "@type": "Organization", name: "Checklist²", url: SITE_URL },
+    keywords: [
+      setRow.name,
+      `${setRow.name} checklist`,
+      `${setRow.name} pack odds`,
+      `${setRow.sport} cards`,
+      "sports card checklist",
+    ],
+    ...(setRow.releaseDate ? { datePublished: setRow.releaseDate } : {}),
+  };
+  const faqLd =
+    aeo.faqs.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: aeo.faqs.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }
+      : null;
+  const toJsonLd = (obj: unknown) => JSON.stringify(obj).replace(/</g, "\\u003c");
+
   return (
-    <SetDetailClient
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: toJsonLd(datasetLd) }}
+      />
+      {faqLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: toJsonLd(faqLd) }}
+        />
+      )}
+      <SetDetailClient
       setName={setRow.name}
       sport={setRow.sport}
       league={setRow.league ?? null}
@@ -360,6 +498,9 @@ export default async function V2SetPage({
         description: articles.find((a) => a.setId === setId)!.description,
         heroImage: articles.find((a) => a.setId === setId)!.heroImage,
       } : null}
-    />
+        aeoSummary={aeo.summary}
+        faqs={aeo.faqs}
+      />
+    </>
   );
 }

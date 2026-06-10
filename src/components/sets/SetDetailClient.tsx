@@ -87,6 +87,8 @@ export interface SetDetailClientProps {
   breakSheetPlayers: BreakSheetPlayer[];
   parallelsList: ParallelInfo[];
   featuredArticle?: { slug: string; title: string; description: string; heroImage: string } | null;
+  aeoSummary?: string | null;
+  faqs?: { q: string; a: string }[];
 }
 
 // ─── Helpers ────────────────────────────────────────────────────────────────────
@@ -720,17 +722,37 @@ function StatStrip({ items }: { items: { label: string; value: number }[] }) {
 
 // ─── Tab: Overview ──────────────────────────────────────────────────────────
 
-function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autographs, autoParallels, totalParallels, athleteCount, releaseDate, hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds, subjectLabel = "Athletes", featuredArticle }: {
+function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autographs, autoParallels, totalParallels, athleteCount, releaseDate, hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds, subjectLabel = "Athletes", featuredArticle, setName, aeoSummary, faqs }: {
   boxConfig: string | null; cards: number; cardTypes: number; parallelTypes: number;
   autographs: number; autoParallels: number; totalParallels: number; athleteCount: number;
   releaseDate: string | null; hasChecklist: boolean; hasNumberedParallels: boolean;
   hasBoxConfig: boolean; hasPackOdds: boolean; subjectLabel?: string;
   featuredArticle?: { slug: string; title: string; description: string; heroImage: string } | null;
+  setName: string; aeoSummary?: string | null; faqs?: { q: string; a: string }[];
 }) {
   const boxRows = boxConfig ? buildBoxRows(boxConfig) : [];
 
   return (
     <div className="space-y-8">
+      {/* Set Summary */}
+      {aeoSummary && (
+        <section>
+          <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase", marginBottom: 12 }}>
+            About This Set
+          </div>
+          <p style={{ fontSize: 16, lineHeight: 1.65, color: "#3A372F", margin: 0 }}>
+            {aeoSummary.startsWith(setName) ? (
+              <>
+                <strong style={{ color: "#0F0F0E" }}>{setName}</strong>
+                {aeoSummary.slice(setName.length)}
+              </>
+            ) : (
+              aeoSummary
+            )}
+          </p>
+        </section>
+      )}
+
       {/* Quick Stats */}
       <div>
         <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase", marginBottom: 12 }}>
@@ -903,6 +925,27 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
             </div>
           </a>
         </div>
+      )}
+
+      {/* FAQ / Q&A */}
+      {faqs && faqs.length > 0 && (
+        <section>
+          <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase", marginBottom: 12 }}>
+            Frequently Asked Questions
+          </div>
+          <div style={{ background: "#FFFFFF", border: "1px solid #EDEAE0", borderRadius: 8 }}>
+            {faqs.map((f, i) => (
+              <div key={f.q} style={{ padding: "16px", borderTop: i > 0 ? "1px solid #F4F1E8" : "none" }}>
+                <h3 style={{ fontFamily: FONT_DISPLAY, fontSize: 17, fontWeight: 600, color: "#0F0F0E", margin: 0, lineHeight: 1.3 }}>
+                  {f.q}
+                </h3>
+                <p style={{ fontSize: 15, lineHeight: 1.6, color: "#3A372F", margin: "8px 0 0" }}>
+                  {f.a}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
       )}
     </div>
   );
@@ -1236,6 +1279,7 @@ export function SetDetailClient({
   subjectLabel: subjectLabelProp,
   hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds,
   boxConfig, packOdds, entries, hasTeamData, breakSheetPlayers, parallelsList, featuredArticle,
+  aeoSummary, faqs,
 }: SetDetailClientProps) {
   const subjectLabel = subjectLabelProp ?? "Athletes";
   const [tab, setTab] = useState<Tab>("Overview");
@@ -1356,7 +1400,8 @@ export function SetDetailClient({
                 parallelTypes={parallelTypes} autographs={autographs} autoParallels={autoParallels}
                 totalParallels={totalParallels} athleteCount={athleteCount} releaseDate={releaseDate}
                 hasChecklist={hasChecklist} hasNumberedParallels={hasNumberedParallels}
-                hasBoxConfig={hasBoxConfig} hasPackOdds={hasPackOdds} subjectLabel={subjectLabel} featuredArticle={featuredArticle} />
+                hasBoxConfig={hasBoxConfig} hasPackOdds={hasPackOdds} subjectLabel={subjectLabel}
+                featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} />
             )}
             {tab === "Box Config" && <BoxConfigContent boxConfig={boxConfig} />}
             {tab === "Base Odds" && <PackOddsContent formats={oddsFormats} />}
@@ -1455,6 +1500,14 @@ export function SetDetailClient({
 
         {/* Content */}
         <div style={{ padding: 16 }}>
+          {tab === "Overview" && (
+            <OverviewContent boxConfig={boxConfig} cards={cards} cardTypes={cardTypes}
+              parallelTypes={parallelTypes} autographs={autographs} autoParallels={autoParallels}
+              totalParallels={totalParallels} athleteCount={athleteCount} releaseDate={releaseDate}
+              hasChecklist={hasChecklist} hasNumberedParallels={hasNumberedParallels}
+              hasBoxConfig={hasBoxConfig} hasPackOdds={hasPackOdds} subjectLabel={subjectLabel}
+              featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} />
+          )}
           {tab === "Box Config" && <BoxConfigContent boxConfig={boxConfig} />}
           {tab === "Base Odds" && <PackOddsContent formats={oddsFormats} />}
           {tab === "Insert Odds" && <InsertsContent formats={oddsFormats} />}
