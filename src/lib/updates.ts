@@ -13,6 +13,25 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "186-chrome-ufc-pack-odds",
+    title: "Pack Odds + Breaker Box Config for 2026 Topps Chrome UFC — First Four-Format Set",
+    date: "2026-06-10T16:00:00Z",
+    summary: "Attached full nested pack odds for 2026 Topps Chrome UFC across four formats — Hobby, Breaker, Value, Mega — the first four-format set on the site. Added the missing Breaker box config (1 pack × 12 cards, 3 autographs guaranteed, 8 boxes per case). Break Hit Calculator and AEO Q&A (most-likely-pull, hardest-pull) now live for the set.",
+    description: `## 2026 Topps Chrome UFC Pack Odds
+
+First four-format set: ~552 odds entries across Hobby (141), Breaker (136), Value (138), and Mega (137). Added the Breaker box config (12 cards per pack, 1 pack per box, 8 boxes per case, 3 autographs guaranteed); top-level keys follow the lowercase convention (hobby/breaker/value/mega) used by box_config and every other multi-format set.
+
+**Format exclusivity by key absence**: Geometric Refractor ladders (base + all autograph subsets) are Breaker-only; RayWave and X-Fractor are Value-only; Mini Diamonds is Mega-only; the classic inserts plus Prism/Negative/Sonar/UFC Glove/OctaFractor/FrozenFractor are Hobby-only. Breaker has no plain Base odds — its packs are filled by the Geometric ladder and autos. Per-pack hit rates are highest in Breaker (3 autos in a single 12-card pack), as expected.
+
+**Parser note**: the sheet contains per-pack multiples ("5:1", "4:1", "2:1", "1:1"). The shared \`parseOddsToDenom\` utility already handles generic A:B ratios (no extension needed) — verified 5:1 → 5.0/pack, 1:1 → 1.0, no NaN in any format.
+
+**Source normalizations** (applied before attach): "Geomtric" → "Geometric", "Superfractors" → "Superfractor", "FrozenFractors(#'d ...)" → "FrozenFractor", "X-Fractors" → "X-Fractor". Key prefixes aligned to DB subset names: "All-Action" → "All Action", "Allen & Ginter" → "Allen and Ginter", "Kings & Queens" → "Kings and Queens", "Base Autograph Variations" → "Base Cards Autograph Variations". All "2025 Chrome UFC Buyback" rows deliberately excluded (no checklist entries in this set).
+
+**Known data gaps**: "UFC Debut Patch Autographs" odds keys are attached but the subset has no checklist entries yet, so they display in the odds tables without entering the calculator pool or hardest-pull rankings. Hidden Gems Citrine/Alexandrite/Painite parallels likewise have odds but no parallel rows.`,
+    tags: ["odds", "box-config"],
+    setId: 840,
+  },
+  {
     id: "185-attraction-role-mixed-set-backfill",
     title: "New 'Attraction' Subject Role + Role Backfill for Disneyland 70th and 30 Years of Toy Story",
     date: "2026-06-10T14:00:00Z",
