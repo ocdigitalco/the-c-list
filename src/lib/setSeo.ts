@@ -113,6 +113,8 @@ function subjectNouns(role: string | null): SubjectNouns {
       return { singular: "celebrity", plural: "celebrities", teamLabel: null };
     case "sketch_artist":
       return { singular: "sketch artist", plural: "sketch artists", teamLabel: null };
+    case "attraction":
+      return { singular: "attraction", plural: "attractions", teamLabel: null };
     case "coach":
       return { singular: "coach", plural: "coaches", teamLabel: "team" };
     default:

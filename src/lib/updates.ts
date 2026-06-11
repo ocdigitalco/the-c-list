@@ -13,6 +13,25 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "185-attraction-role-mixed-set-backfill",
+    title: "New 'Attraction' Subject Role + Role Backfill for Disneyland 70th and 30 Years of Toy Story",
+    date: "2026-06-10T14:00:00Z",
+    summary: "Added 'attraction' to the subject_role enum and flipped the two mixed entertainment sets deferred from the Disney Neon backfill: Toy Story (157 character, 84 sketch_artist) and Disneyland 70th (377 attraction, 77 sketch_artist, 26 celebrity). Set pages now label sidebars and Q&A by majority role — 'Attractions' for Disneyland 70th.",
+    description: `## Attraction Role + Mixed-Set Role Backfill
+
+Added \`attraction\` to the subject_role enum (schema + AEO nouns) for park rides, props, and moments. Attraction sets skip team questions — the team field is empty for all Disneyland 70th attraction appearances, so there is no park-land data to drive a "Which land has the most cards" question.
+
+Backfill by appearance bucket (subjects appearing only in Sketch Cards subsets → sketch_artist; only in autograph subsets → celebrity; remainder per set):
+
+- **2025 Topps 30 Years of Toy Story**: 157 → character (incl. autograph subjects — voice-actor signings filed under character names), 84 → sketch_artist (real Pixar/Topps artists).
+- **2025 Topps Disneyland 70th Anniversary**: 377 → attraction (rides, props, moments), 77 → sketch_artist, 26 → celebrity (voice actors/imagineers, e.g. Ben Burtt, Bret Iwan).
+
+Set and athlete pages derive labels from the majority role per set, so Disneyland 70th now shows "Attractions" and asks "Which attraction has the most cards…". Also extended the sidebar label mapping to cover celebrity, sketch_artist, and attraction (previously fell back to "Athletes").
+
+Known cosmetic limitation: in mixed sets the Q&A noun is set-wide, so Disneyland 70th's autograph question labels its celebrity signers as "attraction".`,
+    tags: ["feature"],
+  },
+  {
     id: "184-merlin-base-odds-keys",
     title: "Fix Merlin Premier League Base Parallel Odds Not Displaying",
     date: "2026-06-10T12:00:00Z",

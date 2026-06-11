@@ -45,7 +45,7 @@ export const players = sqliteTable("players", {
   nbaPlayerId: integer("nba_player_id"),
   ufcImageUrl: text("ufc_image_url"),
   mlbPlayerId: integer("mlb_player_id"),
-  subjectRole: text("subject_role", { enum: ["athlete", "coach", "celebrity", "character", "sketch_artist"] }).notNull().default("athlete"),
+  subjectRole: text("subject_role", { enum: ["athlete", "coach", "celebrity", "character", "sketch_artist", "attraction"] }).notNull().default("athlete"),
   // slug: text("slug"), // Added via ALTER TABLE, not in Drizzle schema to avoid query errors on Turso pre-migration
 }, (t) => [
   uniqueIndex("players_set_name_unique").on(t.setId, t.name),

@@ -144,6 +144,9 @@ export default async function V2SetPage({
   );
   const subjectLabel = dominantRoleRow?.role === "character" ? "Characters"
     : dominantRoleRow?.role === "coach" ? "Coaches"
+    : dominantRoleRow?.role === "celebrity" ? "Celebrities"
+    : dominantRoleRow?.role === "sketch_artist" ? "Sketch Artists"
+    : dominantRoleRow?.role === "attraction" ? "Attractions"
     : "Athletes";
 
   const [cardCountRow] = await db
