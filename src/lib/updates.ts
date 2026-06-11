@@ -13,6 +13,21 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "184-merlin-base-odds-keys",
+    title: "Fix Merlin Premier League Base Parallel Odds Not Displaying",
+    date: "2026-06-10T12:00:00Z",
+    summary: "Base Odds tab showed 'No base parallel odds' for 2026 Topps Merlin Premier League because its base parallel pack_odds keys were odds-sheet-verbatim bare names (Refractor, Mojo, RayWave...). Renamed 35 keys (21 Hobby, 14 Value) to the 'Base {Parallel}' convention. Also fixes the Break Hit Calculator, which was silently missing all base parallel entries.",
+    description: `## Merlin Premier League Base Parallel Odds Fix
+
+Root cause: the UI's \`categorize()\` filter classifies pack odds keys as base parallels only when they start with "Base". Merlin's base parallel keys were stored verbatim from the odds sheet as bare parallel names ("Refractor", "Mojo", "Vintage Merlin", "RayWave"...), so the Base Odds tab rendered empty and \`buildOddsPool\` silently dropped all base parallel entries from the Break Hit Calculator.
+
+Renamed only base parallel keys (scoped to keys exactly matching the Base subset's parallel names) to "Base {Parallel}" in both format objects: 21 Hobby keys and 14 Value keys. All odds values preserved; format exclusivity preserved (Mojo/Vintage Merlin remain Hobby-only, RayWave/VHS/Battle of Britpop remain Value-only). Insert and autograph keys untouched. Verified Hobby ladder 1:3 (Refractor) through 1:5,712 (SuperFractor), Value ladder including RayWave 1:2 and Battle of Britpop 1:51, and break calculator now computing with base entries included.
+
+Note: 2026 Topps Chrome Black Baseball has the same bare-key pattern for its main base ladder (Refractor → Superfractor render under Inserts, not Base Parallels) — flagged for a future pass.`,
+    tags: ["odds"],
+    setId: 853,
+  },
+  {
     id: "183-seo-aeo-followups",
     title: "SEO/AEO Follow-ups: Character Roles Backfilled, Meta Description Clamp, Base-Tier Parallel Detection",
     date: "2026-06-09T12:00:00Z",
