@@ -142,15 +142,22 @@ async function createSchema() {
 
 // ── Data migration ───────────────────────────────────────────────────────────
 
+// Tables written by production at runtime (Turso is the source of truth).
+// Never cleared, inserted, or verified here — pull-from-turso.ts syncs them down.
+const PROD_OWNED_TABLES = ["player_events"];
+
 async function migrateData() {
   // Disable foreign key checks for bulk migration
   await exec("PRAGMA foreign_keys = OFF");
 
   console.log("\nClearing Turso tables...");
   const clearOrder = [
-    "player_events", "appearance_co_players", "player_appearances",
+    "appearance_co_players", "player_appearances",
     "parallels", "players", "insert_sets", "topps_sets", "sets",
   ];
+  for (const table of PROD_OWNED_TABLES) {
+    console.log(`  ⏭ ${table}: skipped (production-owned table)`);
+  }
   for (const table of clearOrder) {
     try {
       await exec(`DELETE FROM "${table}"`);
@@ -185,8 +192,10 @@ async function migrateData() {
   // 7. topps_sets (standalone)
   await batchInsert("topps_sets", readAll("topps_sets"));
 
-  // 8. player_events (depends on players) — optional analytics data
-  await batchInsert("player_events", readAll("player_events"));
+  // player_events is production-owned (live analytics writes) — never pushed up.
+  for (const table of PROD_OWNED_TABLES) {
+    console.log(`  ⏭ ${table}: skipped (production-owned table)`);
+  }
 
   // Re-enable foreign key checks
   await exec("PRAGMA foreign_keys = ON");
@@ -199,7 +208,7 @@ async function verify() {
 
   const tables = [
     "sets", "insert_sets", "parallels", "players",
-    "player_appearances", "appearance_co_players", "topps_sets", "player_events",
+    "player_appearances", "appearance_co_players", "topps_sets",
   ];
 
   let allMatch = true;
@@ -265,12 +274,14 @@ async function main() {
   if (ok) {
     console.log("\nMigration complete. All row counts match.");
   } else {
-    console.error("\nMigration complete but row counts do not match. Please investigate.");
-    process.exit(1);
+    console.error("\n⚠ MIGRATION ROW COUNT MISMATCH — investigate the table(s) above. Revalidating anyway: content is already pushed, and stale caches on top of a mismatch make things worse.");
   }
 
-  // Revalidate cached pages — optional set slug as CLI arg
+  // Revalidate cached pages — optional set slug as CLI arg.
+  // Must fire even on mismatch: data has already been written to Turso.
   await triggerRevalidation(process.argv[2]);
+
+  if (!ok) process.exit(1);
 }
 
 main().catch((err) => {
