@@ -13,6 +13,7 @@ const SLUGS = [
   "2025-topps-disneyland-70th-anniversary",
   "2025-topps-30-years-of-toy-story",
   "2026-topps-chrome-ufc",
+  "2026-topps-ufc-freedom-250",
 ];
 
 async function main() {

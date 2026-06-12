@@ -13,6 +13,25 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "187-ufc-freedom-250",
+    title: "New Set: 2026 Topps UFC Freedom 250",
+    date: "2026-06-11T12:00:00Z",
+    summary: "Added 2026 Topps UFC Freedom 250 — a compact America 250-themed UFC release with 117 cards across 6 subsets (Base, UFC Dollar, Founding Fighters, Stamp of Approval, Relics, Autographs) and flat single-format pack odds. Box configuration is TBA and print runs are pending publication.",
+    description: `## 2026 Topps UFC Freedom 250
+
+America 250-themed UFC release, out June 12, 2026: 117 cards across 6 subsets — Base (30), UFC Dollar (30), Founding Fighters (5), Stamp of Approval (20), Relics (10), and Autographs (22). The 30-fighter roster spans legends (McGregor, GSP, Silva, Khabib, Liddell, Hughes, Penn) and current names (Topuria, Pereira, Chimaev, Jones).
+
+**Suffix-style hit numbering**: Relics and Autographs are keyed to the fighter's base card number as {n}-R and {n}-A (e.g. Topuria is 6, 6-R, and 6-A). Gaps are as printed — Autographs exist for 22 of 30 base numbers, Relics for 10.
+
+**Pack odds attached flat** (single format, 47 entries). Hardest pull: Founding Fighters Foilfractor at 1:1,400. The Autographs ladder is non-monotonic as printed (Green 1:71 is rarer than Gold 1:11). UFC Dollar has no Blue parallel — encoded by key absence.
+
+**Pending data**: box configuration is TBA (calculator shows the standard unavailable message until it lands); cards are serial-numbered but print run values are unpublished, so all 47 parallel rows carry NULL print runs pending a backfill.
+
+**Source label corrections** (Topps checklist errors): "Presidental Seal" was a mislabel for the SO- subset, canonically **Stamp of Approval**; the odds sheet's "Sticker Autographs" refers to autograph type, not subset name — stored as **Autographs**. Odds sheet typo 126UFCWH read as 26UFCWH (Autographs Purple 1:12).`,
+    tags: ["checklist", "odds"],
+    setId: 854,
+  },
+  {
     id: "186-chrome-ufc-pack-odds",
     title: "Pack Odds + Breaker Box Config for 2026 Topps Chrome UFC — First Four-Format Set",
     date: "2026-06-10T16:00:00Z",
