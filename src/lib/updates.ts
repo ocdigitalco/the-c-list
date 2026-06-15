@@ -13,6 +13,24 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "189-cosmic-chrome-wwe-parallels",
+    title: "Numbered Parallels Added: 2026 Topps Cosmic Chrome WWE",
+    date: "2026-06-14T16:00:00Z",
+    summary: "Attached 59 numbered parallel rows across 14 subsets of 2026 Topps Cosmic Chrome WWE, including the full 11-rung Base cosmic ladder (/299 down to 1/1). Parallels now display their print runs in the parallels tab. Pack odds are still pending, so the Break Hit Calculator remains inert for this set until odds attach.",
+    description: `## 2026 Topps Cosmic Chrome WWE — Numbered Parallels
+
+Added the cosmic parallel ladders (print runs only) to 14 subsets. Consistent color-to-print-run mapping across the set: Magenta Cosmos /299, Purple Nebula /150, Blue Moon /99, Green Space Dust /75, Gold Interstellar /50, Orange Galactic /25, Black Eclipse /10, Red Flare /5, Superfractor 1/1, plus unnumbered Refractor and Nucleus Refractor.
+
+- **Base** gets the full 11-rung ladder (/299 → 1/1, plus the two unnumbered Refractors).
+- **Galaxy Greats, Extraterrestrial Talent, Galactic Showdown, Star Clusters** get the 6-rung ladder (/99 → 1/1).
+- **Cosmic Chrome Autograph Variation, Milky Way Marks, Equinox Autographs, Solar Flares Signatures, Starfractor** get the 4-rung autograph-tier ladder (/25 → 1/1).
+- **Light Years, Cosmic Dust, Hyper Nova, Geocentric** get a Superfractor 1/1 only.
+
+Pack odds remain pending — the parallels display their \`/#\` in the parallels tab, but the Break Hit Calculator stays inert for this set until odds are attached separately. All other subsets (e.g. Planetary Pursuit) and the base card data were left untouched.`,
+    tags: ["checklist"],
+    setId: 848,
+  },
+  {
     id: "188-ufc-freedom-250-box-config",
     title: "Box Config Added: 2026 Topps UFC Freedom 250",
     date: "2026-06-14T12:00:00Z",
