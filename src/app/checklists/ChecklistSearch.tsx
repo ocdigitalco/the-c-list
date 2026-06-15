@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect, useRef } from "react";
 import Link from "next/link";
+import { trackEvent } from "@/lib/analytics";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -203,7 +204,10 @@ export function ChecklistSearch({
             return (
               <button
                 key={sport}
-                onClick={() => setActiveSport(isAll ? null : sport)}
+                onClick={() => {
+                  setActiveSport(isAll ? null : sport);
+                  trackEvent("sport_filter", { sport: isAll ? "All" : sport });
+                }}
                 className="shrink-0 transition-all"
                 style={{
                   padding: isActive ? "8px 16px" : "8px 14px",

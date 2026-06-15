@@ -642,6 +642,7 @@ export function TeamDetailClient({
                   playerAutoCards={teamAutoCards}
                   setId={setId}
                   setName={setName}
+                  setSlug={setSlug}
                 />
               ) : (
                 <div style={{ padding: "40px 20px", textAlign: "center", fontSize: 16, color: "#8A8677" }}>

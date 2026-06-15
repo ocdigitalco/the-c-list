@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { getSpSspConfig } from "@/lib/spSspConfig";
+import { trackEvent } from "@/lib/analytics";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -42,6 +43,7 @@ interface Props {
   playerAutoCards: number;
   setId?: number;
   setName?: string;
+  setSlug?: string;
 }
 
 // ─── SP/SSP configuration ────────────────────────────────────────────────────
@@ -422,6 +424,7 @@ export function PackOddsCalculator({
   playerAutoCards,
   setId,
   setName,
+  setSlug,
 }: Props) {
   const [fmtIdx, setFmtIdx] = useState(0);
   const initialBoxes = boxFormats[0]?.boxesPerCase || 1;
@@ -434,13 +437,38 @@ export function PackOddsCalculator({
   const hasCaseData = boxesPerCase > 0;
   const cases = hasCaseData ? boxes / boxesPerCase : 0;
 
+  // ── Analytics: debounced calculator_adjust ──
+  // Collapse rapid stepper/format changes into a single fire-and-forget event
+  // reflecting the settled quantity. Skip the initial mount.
+  const adjustMounted = useRef(false);
+  const unitRef = useRef<"box" | "case">("box");
+  useEffect(() => {
+    if (!adjustMounted.current) {
+      adjustMounted.current = true;
+      return;
+    }
+    const t = setTimeout(() => {
+      const quantityUnit = unitRef.current;
+      trackEvent("calculator_adjust", {
+        set_slug: setSlug ?? "",
+        box_type: fmt.label ?? "",
+        quantity: quantityUnit === "case" ? Math.round(cases) : boxes,
+        quantity_unit: quantityUnit,
+      });
+    }, 400);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [boxes, fmtIdx]);
+
   function handleCaseChange(delta: number) {
     if (!hasCaseData) return;
+    unitRef.current = "case";
     const newCases = Math.max(1, Math.round(cases) + delta);
     setBoxes(newCases * boxesPerCase);
   }
 
   function handleBoxChange(delta: number) {
+    unitRef.current = "box";
     setBoxes((b) => Math.max(1, b + delta));
   }
 

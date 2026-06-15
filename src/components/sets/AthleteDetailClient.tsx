@@ -8,6 +8,7 @@ import { getNBAHeadshotUrl } from "@/lib/nba-headshot";
 import { getUFCHeadshotUrl } from "@/lib/ufc-headshot";
 import { getMLBHeadshotUrl } from "@/lib/mlb-headshot";
 import { trackEvent } from "@/lib/trackEvent";
+import { trackEvent as trackGaEvent } from "@/lib/analytics";
 import { getTeamLogo } from "@/lib/utils/teamLogo";
 import { findOddsKey, lookupOddsValue } from "@/lib/oddsUtils";
 
@@ -1324,6 +1325,14 @@ export function AthleteDetailClient({
   const [tab, setTab] = useState<Tab>("Overview");
   const [drawerOpen, setDrawerOpen] = useState(false);
 
+  function handleAthleteTabChange(t: Tab) {
+    setTab(t);
+    trackGaEvent("athlete_tab_click", {
+      athlete_slug: athleteSlug ?? "",
+      tab_name: t,
+    });
+  }
+
   const statItems = [
     { label: "Card Types", value: cardTypes },
     { label: "Total Cards", value: totalCards },
@@ -1440,7 +1449,7 @@ export function AthleteDetailClient({
             background: "#FAFAF7", padding: "0 36px", borderBottom: "1px solid #EDEAE0", display: "flex",
           }}>
             {TABS.map((t) => (
-              <button key={t} role="tab" aria-selected={tab === t} onClick={() => setTab(t)}
+              <button key={t} role="tab" aria-selected={tab === t} onClick={() => handleAthleteTabChange(t)}
                 style={{
                   padding: "14px 20px", fontFamily: FONT_DISPLAY,
                   fontSize: 16, fontWeight: tab === t ? 600 : 500,
@@ -1466,6 +1475,7 @@ export function AthleteDetailClient({
                       playerAutoCards={playerAutoCards}
                       setId={setId}
                       setName={setName}
+                      setSlug={setSlug}
                     />
                   </div>
                 )}
@@ -1590,7 +1600,7 @@ export function AthleteDetailClient({
             borderBottom: "1px solid #EDEAE0", display: "flex", whiteSpace: "nowrap",
           }}>
           {TABS.map((t) => (
-            <button key={t} role="tab" aria-selected={tab === t} onClick={() => setTab(t)}
+            <button key={t} role="tab" aria-selected={tab === t} onClick={() => handleAthleteTabChange(t)}
               style={{
                 padding: "12px 12px", flexShrink: 0, fontFamily: FONT_DISPLAY,
                 fontSize: 16, fontWeight: tab === t ? 600 : 500,
@@ -1616,6 +1626,7 @@ export function AthleteDetailClient({
                     playerAutoCards={playerAutoCards}
                     setId={setId}
                     setName={setName}
+                    setSlug={setSlug}
                   />
                 </div>
               )}

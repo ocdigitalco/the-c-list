@@ -8,6 +8,7 @@ import { getNBAHeadshotUrl } from "@/lib/nba-headshot";
 import { getUFCHeadshotUrl } from "@/lib/ufc-headshot";
 import { getMLBHeadshotUrl } from "@/lib/mlb-headshot";
 import { trackEvent } from "@/lib/trackEvent";
+import { trackEvent as trackGaEvent } from "@/lib/analytics";
 import { normalizeOddsObj, denomToDisplay } from "@/lib/parseOdds";
 import { BreakSheetModal, type BreakSheetPlayer } from "@/components/BreakSheetModal";
 import { getTeamLogo } from "@/lib/utils/teamLogo";
@@ -1285,6 +1286,14 @@ export function SetDetailClient({
   const [tab, setTab] = useState<Tab>("Overview");
   const [drawerOpen, setDrawerOpen] = useState(false);
 
+  function handleSetTabChange(t: Tab) {
+    setTab(t);
+    trackGaEvent("set_tab_click", {
+      set_slug: setSlug ?? "",
+      tab_name: t,
+    });
+  }
+
   const meta = useMemo(() => extractMeta(setName, sport), [setName, sport]);
   const oddsFormats = useMemo(
     () => packOdds ? buildOddsFormats(packOdds, boxConfig, parallelsList) : [],
@@ -1378,7 +1387,7 @@ export function SetDetailClient({
           }}>
             {TABS.map((t) => (
               <button key={t} role="tab" aria-selected={tab === t}
-                onClick={() => setTab(t)}
+                onClick={() => handleSetTabChange(t)}
                 style={{
                   padding: "14px 20px",
                   fontFamily: FONT_DISPLAY,
@@ -1484,7 +1493,7 @@ export function SetDetailClient({
           }}>
           {TABS.map((t) => (
             <button key={t} role="tab" aria-selected={tab === t}
-              onClick={() => setTab(t)}
+              onClick={() => handleSetTabChange(t)}
               style={{
                 padding: "12px 14px", flexShrink: 0,
                 fontFamily: FONT_DISPLAY,

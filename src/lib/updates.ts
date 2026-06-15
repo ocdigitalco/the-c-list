@@ -13,6 +13,23 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "191-ga4-engagement-instrumentation",
+    title: "Engagement Analytics: Calculator, Filters, and Tab Tracking",
+    date: "2026-06-15T18:00:00Z",
+    summary: "Added GA4 engagement instrumentation for four key interactions — the Break Hit Calculator (debounced), the checklists sport filter, and the set and athlete page tabs. All events are fire-and-forget through a new analytics helper and never touch the UX path.",
+    description: `## GA4 Engagement Instrumentation
+
+Wired four custom GA4 events through a new \`src/lib/analytics.ts\` helper. Every call is fire-and-forget: it no-ops during SSR, no-ops when \`gtag\` is absent, and swallows any error, so analytics can never break or block an interaction.
+
+- **\`calculator_adjust\`** — fires when the Break Hit Calculator's box/case quantity settles. A 400 ms debounce collapses rapid stepping into a single event carrying the final value (\`set_slug\`, \`box_type\`, \`quantity\`, \`quantity_unit\`).
+- **\`sport_filter\`** — fires when a sport pill is selected on the checklists page (\`sport\`, with \`All\` when cleared).
+- **\`set_tab_click\`** — fires on user-initiated set-page tab changes (\`set_slug\`, \`tab_name\`); the default-tab mount fires nothing.
+- **\`athlete_tab_click\`** — same rule for athlete-page tabs (\`athlete_slug\`, \`tab_name\`).
+
+Frontend-only change with no data migration. The GA4 helper is distinct from the existing internal \`trackEvent\` (player-event API) and is aliased where both are imported to avoid collisions.`,
+    tags: ["feature"],
+  },
+  {
     id: "190-pristine-premier-league",
     title: "New Set: 2025-26 Topps Pristine Premier League",
     date: "2026-06-15T12:00:00Z",
