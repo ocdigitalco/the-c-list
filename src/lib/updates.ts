@@ -13,6 +13,21 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "188-ufc-freedom-250-box-config",
+    title: "Box Config Added: 2026 Topps UFC Freedom 250",
+    date: "2026-06-14T12:00:00Z",
+    summary: "Attached the Hobby box configuration for 2026 Topps UFC Freedom 250 (5 cards per pack, 1 pack per box). The Break Hit Calculator and the 'most likely to pull' AEO question are now active, driven by the existing pack odds.",
+    description: `## Box Config: 2026 Topps UFC Freedom 250
+
+The box configuration arrived (the set was created with configs TBA) and is now attached: a single Hobby format of **5 cards per pack, 1 pack per box**. With a box config present alongside the existing pack odds, the Break Hit Calculator is enabled and the AEO "which fighter are you most likely to pull" question now renders (it was correctly skipped at creation).
+
+**Auto-or-relic guarantee modeled via odds, not a hard guarantee**: each box guarantees one autograph *or* relic hit — not a guaranteed autograph. The auto guarantee is left at 0 so the calculator does not overstate autograph odds; the existing Autographs and Relics pack odds already model the hit rates correctly against a 1-pack box. A box-config note documents the guarantee for readers.
+
+**Print runs unchanged**: every card is serial-numbered /150 or lower, but per-parallel ladder values remain unpublished, so all parallel print runs stay NULL pending a future backfill — the /150 ceiling is a description detail, not per-card data.`,
+    tags: ["box-config"],
+    setId: 854,
+  },
+  {
     id: "187-ufc-freedom-250",
     title: "New Set: 2026 Topps UFC Freedom 250",
     date: "2026-06-11T12:00:00Z",
