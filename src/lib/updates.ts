@@ -13,6 +13,21 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "190-pristine-premier-league",
+    title: "New Set: 2025-26 Topps Pristine Premier League",
+    date: "2026-06-15T12:00:00Z",
+    summary: "Added 2025-26 Topps Pristine Premier League — the second Premier League set after Merlin and a premium, autograph-heavy chrome release. 686 cards across 22 subsets: 200 base, 10 inserts, 11 autograph/auto-relic subsets, and a dual-autograph subset. Single-format 'Tri-Stack' flat pack odds; box config and print runs deferred.",
+    description: `## 2025-26 Topps Pristine Premier League
+
+The second EPL set on Checklist² (after Merlin), a premium chrome release leaning heavily on autographs. **686 cards across 22 subsets**: 200 base, 10 inserts (Precisionaries, Pure Strike, Generational, Perseverance, Amped, Pearlescent, Pristine Seasons, Glacier, Pristine Ivory, The Grail), eight single-subject autograph subsets, a dual-autograph subset, and four autograph-relic subsets.
+
+**Single format ("Tri-Stack"), flat pack odds.** Hardest pulls: Day 1 Pristine Black and Rookie Jumbo Relic Autographs Pristine Black, both 1:8,235. The Base ladder leads with N:1 odds (Refractor 2:1, Top Corner 1:1). Box configuration and per-card print runs are deferred — all parallel print runs are NULL pending publication, so the Break Hit Calculator stays inert and the "most likely to pull" question is correctly skipped until a box config arrives.
+
+**Data-fidelity notes:** mononyms stored verbatim (Kevin, André, Murillo, Jair, Evanilson, Savinho, Beto, Casemiro, Amad); a G- prefix collision (Generational G-1…G-10 vs The Grail's single G-7) resolved by scoping to subset; six subset-name reconciliations between the odds sheet and the checklist; and Pristine Pairs dual autographs modeled via the co-player join table (15 cards, 2 subjects each). The source listed 76 Pristine Autographs under a header claiming 77 — shipped as the 76 actually enumerated. EPL club logos are unavailable, so clubs fall back to the neutral placeholder.`,
+    tags: ["checklist", "odds"],
+    setId: 855,
+  },
+  {
     id: "189-cosmic-chrome-wwe-parallels",
     title: "Numbered Parallels Added: 2026 Topps Cosmic Chrome WWE",
     date: "2026-06-14T16:00:00Z",

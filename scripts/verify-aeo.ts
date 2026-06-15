@@ -14,6 +14,7 @@ const SLUGS = [
   "2025-topps-30-years-of-toy-story",
   "2026-topps-chrome-ufc",
   "2026-topps-ufc-freedom-250",
+  "2025-26-topps-pristine-premier-league",
 ];
 
 async function main() {
