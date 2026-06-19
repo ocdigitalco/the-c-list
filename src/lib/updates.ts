@@ -13,6 +13,25 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "192-chrome-disney-odds-parallels",
+    title: "Pack Odds + Numbered Parallels: 2026 Topps Chrome Disney",
+    date: "2026-06-17T16:00:00Z",
+    summary: "Attached the seven-format box configuration, nested pack odds (784 odds entries), and 150 numbered parallels across 31 subsets of 2026 Topps Chrome Disney. The Break Hit Calculator and parallels/odds tabs are now live, with format-exclusive parallels (Mega-only X-Fractors, Value-only RayWaves) appearing only under their formats.",
+    description: `## 2026 Topps Chrome Disney — Pack Odds & Numbered Parallels
+
+Attached pack odds and numbered parallels to the existing Chrome Disney checklist — no card data, subjects, or subset records were changed.
+
+**Seven box formats:** Hobby, Value Box (CEE/EA/SE), and Mega Box (CEE/EA/SE). Each carries its own pack-odds column, so format-exclusive parallels surface only where they exist — **X-Fractors are Mega-exclusive**, **RayWave is Value-exclusive**, and the rest follow the published sheet.
+
+- **150 numbered parallels across 31 subsets** (139 numbered), driven by a universal color-to-print-run convention with per-subset overrides.
+- **784 pack-odds entries** spanning the seven formats; the Base ladder leads with N:1 odds (Refractor down to the 1:6,686 Superfractor in Hobby).
+- Superfractors (1/1) and a handful of low-numbered hits display their print run on the Numbered Parallels tab even where the odds sheet lists no pack-odds row for them.
+
+**Data-fidelity notes:** Ten subsets in the odds sheet have no checklist counterpart and were skipped (sketch-card and hard-signed autograph inserts — Sketch Cards Gold/Black, Disney/Pixar Internal Artists Sketch, Authentic Autographs, Cars Authentic Autographs, Disney Channel Autograph Variation, and the Disney Princesses/Dual/Triple/Quad Autographs). The One and Only / Walt subsets were left bare (no parallels). The Lilo & Stitch Shadowbox parallel naming follows the odds sheet (Orange/Black/Red Refractor) rather than the earlier Kaleidoscope/Shimmer/RayWave list, for calculator consistency.`,
+    tags: ["box-config", "odds", "checklist"],
+    setId: 846,
+  },
+  {
     id: "191-ga4-engagement-instrumentation",
     title: "Engagement Analytics: Calculator, Filters, and Tab Tracking",
     date: "2026-06-15T18:00:00Z",
