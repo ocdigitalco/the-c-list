@@ -194,6 +194,23 @@ export default async function V2SetPage({
         ).map((r) => r.id)
       : [];
 
+  // Names of autograph subsets — the single source of truth for classifying
+  // odds keys into the Autograph Odds tab (see categorize() in SetDetailClient).
+  const autographSubsetNames =
+    insertSetIds.length > 0
+      ? (
+          await db
+            .select({ name: insertSets.name })
+            .from(insertSets)
+            .where(
+              and(
+                inArray(insertSets.id, insertSetIds),
+                eq(insertSets.isAutograph, true)
+              )
+            )
+        ).map((r) => r.name)
+      : [];
+
   const [autographCountRow] = await db
     .select({ count: sql<number>`cast(count(*) as integer)` })
     .from(playerAppearances)
@@ -495,6 +512,7 @@ export default async function V2SetPage({
       hasTeamData={hasTeamData}
       breakSheetPlayers={breakSheetPlayers}
       parallelsList={allParallels}
+      autographSubsetNames={autographSubsetNames}
       featuredArticle={articles.find((a) => a.setId === setId) ? {
         slug: articles.find((a) => a.setId === setId)!.id,
         title: articles.find((a) => a.setId === setId)!.title,

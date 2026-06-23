@@ -102,13 +102,6 @@ const ODDS_KEY_OVERRIDES: Record<string, string> = {
   "Re Entry": "Re-Entry",
 };
 
-const AUTO_KEYWORDS = ["auto", "signature", "graph", "relic"];
-
-function isAutoInsertSet(name: string): boolean {
-  const lower = name.toLowerCase();
-  return AUTO_KEYWORDS.some((kw) => lower.includes(kw));
-}
-
 function resolvePrefix(
   name: string,
   packOddsData: Record<string, number>
@@ -159,6 +152,7 @@ function lookupDenom(
 interface InsertSetRow {
   id: number;
   name: string;
+  is_autograph: number;
 }
 
 interface ParallelRow {
@@ -187,7 +181,7 @@ export async function buildOddsPool(
 ): Promise<PoolEntry[]> {
   // Get all insert sets for this set
   const insertSetRows = await rawQuery.all<InsertSetRow>(
-    "SELECT id, name FROM insert_sets WHERE set_id = ?",
+    "SELECT id, name, is_autograph FROM insert_sets WHERE set_id = ?",
     setId
   );
 
@@ -223,7 +217,7 @@ export async function buildOddsPool(
 
   for (const is of insertSetRows) {
     const prefix = resolvePrefix(is.name, packOddsData);
-    const isAuto = isAutoInsertSet(is.name);
+    const isAuto = is.is_autograph === 1;
     const totalApps = totalAppsMap.get(is.id) ?? 0;
     if (totalApps === 0) continue;
 

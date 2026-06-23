@@ -87,6 +87,7 @@ export interface SetDetailClientProps {
   hasTeamData: boolean;
   breakSheetPlayers: BreakSheetPlayer[];
   parallelsList: ParallelInfo[];
+  autographSubsetNames: string[];
   featuredArticle?: { slug: string; title: string; description: string; heroImage: string } | null;
   aeoSummary?: string | null;
   faqs?: { q: string; a: string }[];
@@ -119,8 +120,16 @@ function getAutosPerBox(fmt: BoxConfigSingle): number | null {
     fmt.autos_or_relics_per_box ?? fmt.autos_or_auto_relics_per_box ?? null;
 }
 
-function categorize(key: string): "base" | "insert" | "auto" {
+// `autoNames` is the set of lowercased subset names flagged is_autograph in the
+// DB — the single source of truth. An odds key belongs to an autograph subset
+// when it equals, or is prefixed by, one of those names (e.g. "Cactus Ink" and
+// "Cactus Ink Orange Refractor"). This catches autograph subsets whose names
+// lack the word "auto"/"signature" (Cactus Ink, Milky Way Marks, Equinox, …).
+function categorize(key: string, autoNames: Set<string>): "base" | "insert" | "auto" {
   const l = key.toLowerCase();
+  for (const name of autoNames) {
+    if (l === name || l.startsWith(name + " ")) return "auto";
+  }
   if (l.includes("auto") || l.includes("autograph") || l.includes("signature")) return "auto";
   if (l.startsWith("base") || l.includes("class base") || l.includes("class chrome base")) return "base";
   return "insert";
@@ -224,7 +233,8 @@ function matchPrintRun(oddsKey: string, parallelsList: ParallelInfo[]): number |
   return undefined;
 }
 
-function buildOddsFormats(packOdds: string, boxConfig: string | null, parallelsList: ParallelInfo[]): OddsFormat[] {
+function buildOddsFormats(packOdds: string, boxConfig: string | null, parallelsList: ParallelInfo[], autographSubsetNames: string[]): OddsFormat[] {
+  const autoNames = new Set(autographSubsetNames.map((n) => n.toLowerCase()));
   const rawOdds = JSON.parse(packOdds);
   const firstVal = Object.values(rawOdds)[0];
   const isNested = firstVal !== null && typeof firstVal === "object";
@@ -254,7 +264,7 @@ function buildOddsFormats(packOdds: string, boxConfig: string | null, parallelsL
     for (const [key, denom] of Object.entries(normalized)) {
       const printRun = matchPrintRun(key, parallelsList);
       const row = { name: key, denom, rare: isRare(key, denom), printRun };
-      const cat = categorize(key);
+      const cat = categorize(key, autoNames);
       if (cat === "base") base.push(row);
       else if (cat === "auto") auto.push(row);
       else ins.push(row);
@@ -1279,7 +1289,7 @@ export function SetDetailClient({
   cards, cardTypes, parallelTypes, autographs, autoParallels, totalParallels, athleteCount,
   subjectLabel: subjectLabelProp,
   hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds,
-  boxConfig, packOdds, entries, hasTeamData, breakSheetPlayers, parallelsList, featuredArticle,
+  boxConfig, packOdds, entries, hasTeamData, breakSheetPlayers, parallelsList, autographSubsetNames, featuredArticle,
   aeoSummary, faqs,
 }: SetDetailClientProps) {
   const subjectLabel = subjectLabelProp ?? "Athletes";
@@ -1296,8 +1306,8 @@ export function SetDetailClient({
 
   const meta = useMemo(() => extractMeta(setName, sport), [setName, sport]);
   const oddsFormats = useMemo(
-    () => packOdds ? buildOddsFormats(packOdds, boxConfig, parallelsList) : [],
-    [packOdds, boxConfig, parallelsList]
+    () => packOdds ? buildOddsFormats(packOdds, boxConfig, parallelsList, autographSubsetNames) : [],
+    [packOdds, boxConfig, parallelsList, autographSubsetNames]
   );
 
   const statItems = [

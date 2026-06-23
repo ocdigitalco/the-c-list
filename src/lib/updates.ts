@@ -13,6 +13,21 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "195-autograph-tab-classification-flag",
+    title: "Autograph Subsets Tab Correctly Even Without \"Auto\" in the Name",
+    date: "2026-06-23T16:00:00Z",
+    summary: "Pack-odds tab grouping and the break-hit autograph pool now read the is_autograph flag as the single source of truth, instead of keyword-matching subset names. Fixes autograph subsets whose names don't contain \"auto\"/\"signature\" — like Cactus Ink — that were showing under Insert Odds and being left out of autograph pull odds.",
+    description: `## Autograph Classification Now Driven by the Flag
+
+Two odds code paths still classified subsets as autographs by string-matching the name for "auto", "signature", "graph", or "relic". Autograph subsets whose names use none of those words — **Cactus Ink** (Ink = on-card autograph), Milky Way Marks, Equinox, and similar — slipped through and were treated as plain inserts.
+
+- **Set page Insert/Autograph Odds tabs** (\`categorize\`) now resolve each odds key against the set's \`is_autograph\` subset names first, so e.g. every "Cactus Ink …" odds row lands under **Autograph Odds**.
+- **Break Hit Calculator autograph pool** (\`buildOddsPool\`) now reads \`is_autograph\` instead of its keyword list (which notably lacked "ink"), so these subsets count toward autograph pull odds.
+
+The athlete page already grouped by the flag, so its Autographs tab was correct. This is a logic-only fix — no checklist or database changes — that makes the \`is_autograph\` flag the consistent source of truth across surfaces so classification can't drift on name wording again.`,
+    tags: ["feature"],
+  },
+  {
     id: "194-cactus-jack-reconciliation",
     title: "Checklist Reconciled: 2025-26 Topps Chrome Cactus Jack Basketball",
     date: "2026-06-18T16:00:00Z",
