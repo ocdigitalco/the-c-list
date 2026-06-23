@@ -13,6 +13,36 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "194-cactus-jack-reconciliation",
+    title: "Checklist Reconciled: 2025-26 Topps Chrome Cactus Jack Basketball",
+    date: "2026-06-18T16:00:00Z",
+    summary: "Reconciled the full Cactus Jack checklist against the authoritative Topps release. Corrected the 100-card Base Set and populated seven previously empty subsets — Utopia Highlights, Jacked Up, LA Flame Legends, Astrovision, Cactus Mode, Base Autograph Variation, and Cactus Ink — for 338 cards across the official subsets. Existing parallels and pack odds were preserved untouched.",
+    description: `## 2025-26 Topps Chrome Cactus Jack Basketball — Full Checklist Reconciliation
+
+The prior checklist was built from a source that did not match the official Topps release, leaving seven subsets as empty shells and the Base Set populated with the wrong 100 subjects. This pass reconciles the entire set against the authoritative checklist.
+
+- **Base Set corrected to the official 100** (e.g. #1 is now Jayson Tatum). Cleared and rebuilt to match the published checklist.
+- **Seven subsets populated** (cards only — existing parallels and pack odds preserved): **Utopia Highlights** (UH-, 40), **Jacked Up** (JU-, 40), **LA Flame Legends** (LFL-, 20), **Astrovision** (AST-, 20), **Cactus Mode** (CM-, 20), **Base Autograph Variation** (BV-, 49), and **Cactus Ink** (CI-, 49).
+- **338 appearances** written across the Base Set and the seven official subsets; 45 new player records created and existing set-scoped players reused.
+
+**Data-fidelity notes:** Adou Thiero now appears correctly at Base #96 and Cactus Ink CI-AT (both rookies). Two subsets carried over from the old source — **All-Star Game Autographs** and **Sicko Stars** — are not in the official checklist but have attached parallels, so they were **flagged and left intact** rather than deleted. "Portland Trailblazers" was normalized to "Portland Trail Blazers" and the lowercase BV-Lm card code was preserved as published.`,
+    tags: ["checklist"],
+    setId: 23,
+  },
+  {
+    id: "193-signature-class-veteran-base-68",
+    title: "Missing Card Added: Veteran Class Base #68 (Signature Class Basketball)",
+    date: "2026-06-18T15:00:00Z",
+    summary: "Added the missing Veteran Class Base #68 — Nick Smith Jr. (Charlotte Hornets) — to 2025-26 Topps Signature Class Basketball, completing the subset's 1-100 sequence.",
+    description: `## 2025-26 Topps Signature Class Basketball — Veteran Class Base #68
+
+A completeness audit surfaced a single genuine gap in the **Veteran Class Base** subset: card **#68** was missing while #67 and #69 were present, and the chrome twin subset confirmed the number belonged to **Nick Smith Jr. (Charlotte Hornets)**.
+
+Added the one missing card to close the gap. The subset's base sequence is now contiguous from **1 to 100** (100 cards). No other cards, parallels, or odds were changed.`,
+    tags: ["checklist"],
+    setId: 838,
+  },
+  {
     id: "192-chrome-disney-odds-parallels",
     title: "Pack Odds + Numbered Parallels: 2026 Topps Chrome Disney",
     date: "2026-06-17T16:00:00Z",
