@@ -13,6 +13,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "196-cactus-jack-orphan-players-cleanup",
+    title: "Removed Zero-Card Players from 2025-26 Topps Chrome Cactus Jack Basketball",
+    date: "2026-06-23T18:00:00Z",
+    summary: "Removed 17 orphaned player rows that lingered in the Cactus Jack athlete list with zero cards after the base rebuild (including Andrew Nembhard, who isn't on the official checklist). Also added a site-wide audit check so a set can never list a player with no cards.",
+    description: `## Cactus Jack — Orphaned Zero-Card Players Removed
+
+The earlier Base Set rebuild cleared the old (wrong) appearances but left **17 set-scoped player rows behind with no cards**, so they still surfaced in the athlete list showing zero cards — among them **Andrew Nembhard**, who isn't on the official checklist.
+
+- **17 orphan rows removed** (Andrew Nembhard, Bilal Coulibaly, Coby White, Dejounte Murray, Derrick White, Domantas Sabonis, Evan Mobley, GG Jackson II, Jaden Ivey, Jaden McDaniels, Naji Marshall, Naz Reid, OG Anunoby, Ochai Agbaji, Reed Sheppard, Stephon Castle, Toumani Camara). Every one had zero appearances anywhere, so the rows were safe to delete outright — players are set-scoped, so no other set was affected.
+- The Cactus Jack athlete list now contains only the **145 players who actually have a card**; Jayson Tatum and the rest of the real checklist are untouched.
+
+**New standing check:** \`scripts/audit-set-completeness.ts\` now reports any set that lists a player with zero appearances, so this class of leftover can't go unnoticed after future rebuilds.`,
+    tags: ["checklist"],
+    setId: 23,
+  },
+  {
     id: "195-autograph-tab-classification-flag",
     title: "Autograph Subsets Tab Correctly Even Without \"Auto\" in the Name",
     date: "2026-06-23T16:00:00Z",

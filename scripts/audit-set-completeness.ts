@@ -304,12 +304,57 @@ async function smallestSets() {
   console.log("");
 }
 
+// ── Check 5 — Orphaned zero-card players ────────────────────────────────────
+// A set must never list a player with zero cards. Clearing/rebuilding a set's
+// appearances (e.g. a base rebuild) can leave the set-scoped player rows behind
+// with no remaining player_appearances — these surface in the athlete list with
+// zero cards. Players are set-scoped (players.set_id), so each orphan belongs to
+// exactly one set and is safe to inspect per-set.
+async function orphanedPlayers() {
+  const rows = await all<{
+    slug: string | null;
+    name: string;
+    orphan_players: number;
+  }>(`
+    SELECT s.slug, s.name, COUNT(*) AS orphan_players
+    FROM players p
+    JOIN sets s ON p.set_id = s.id
+    WHERE NOT EXISTS (
+      SELECT 1 FROM player_appearances pa WHERE pa.player_id = p.id
+    )
+    GROUP BY s.id
+    HAVING orphan_players > 0
+    ORDER BY orphan_players DESC, s.name
+  `);
+
+  console.log(rule);
+  console.log("5. ORPHANED ZERO-CARD PLAYERS  (player rows with no appearances)");
+  console.log(rule);
+
+  if (rows.length === 0) {
+    console.log("None. Every player row has at least one card.\n");
+    return;
+  }
+
+  let total = 0;
+  console.log(`\n${"orphans".padEnd(10)}${"set".padEnd(50)}slug`);
+  console.log(thin);
+  for (const r of rows) {
+    total += r.orphan_players;
+    const name = r.name.length > 48 ? r.name.slice(0, 47) + "…" : r.name;
+    console.log(`${String(r.orphan_players).padEnd(10)}${name.padEnd(50)}${r.slug ?? "(no slug)"}`);
+  }
+  console.log(`\n${thin}`);
+  console.log(`TOTAL: ${total} orphaned zero-card players across ${rows.length} sets.\n`);
+}
+
 async function main() {
   console.log("\nSET COMPLETENESS AUDIT  (read-only · local the-c-list.db)\n");
   await emptySubsets();
   await worstAffected();
   await baseSequenceGaps();
   await smallestSets();
+  await orphanedPlayers();
   console.log(rule);
   console.log("End of report. No data was modified.");
   console.log(rule);
