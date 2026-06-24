@@ -13,6 +13,24 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "197-tier-one-baseball-2026-added",
+    title: "2026 Topps Tier One Baseball Added",
+    date: "2026-06-24T12:00:00Z",
+    summary: "Added the full 2026 Topps Tier One Baseball checklist — 1,702 cards across a 100-card three-tier base and 44 autograph, relic, and autograph-relic subsets, with tier-scoped numbered parallels, multi-subject duals/triples, and 7 celebrity cut signatures. Box config is in; pack odds are deferred until Topps publishes them.",
+    description: `## 2026 Topps Tier One Baseball
+
+A premium, autograph- and relic-dense MLB release. The complete checklist is now live: **1,702 cards across 47 subsets**, parsed directly from the official Topps checklist.
+
+- **Base (100 cards, three tiers, each its own parallel ladder):** Tier 1 (#1–20, /99), Tier 2 (#21–70, /125), Tier 3 (#71–100, Blue /125, all RC). Tier-scoped parallels run up through Holo Platinum Blue 1/1 and Printing Plates 1/1.
+- **Autographs & relics:** 44 subsets including Prime Performers, Break Out, Tier One Talent, Cut Signatures, Limited Lumber, Bat Knobs, Prodigious Patches and more — nearly all serially numbered, with full ladders where Topps lists them.
+- **Multi-subject cards:** Dual Autographs (9), Triple Autographs (2), Dual Player Relics (22) and Autographed Dual Relics Bat (12) are stored as single cards with their multiple signers/subjects joined.
+- **Cut Signatures (59, all 1/1):** classified as autographs. Seven are non-athlete cut signatures — Claude Monet, Henry Ford, George Patton, John Denver, Marvin Gaye, Orville Wright and Thomas Jefferson — stored as celebrity subjects.
+- **Box config (Hobby):** 4 cards/pack, 1 pack/box, 12 boxes/case — 2 autographs + 1 memorabilia + 1 base/parallel per box.
+- **Pack odds deferred:** per-card pull odds aren't published yet, so the calculator shows box structure and hardest-pull (the numerous 1/1s) but skips per-card odds for now.`,
+    tags: ["checklist", "box-config"],
+    setId: 856,
+  },
+  {
     id: "196-cactus-jack-orphan-players-cleanup",
     title: "Removed Zero-Card Players from 2025-26 Topps Chrome Cactus Jack Basketball",
     date: "2026-06-23T18:00:00Z",
