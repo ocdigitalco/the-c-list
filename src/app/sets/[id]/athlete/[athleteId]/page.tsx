@@ -185,6 +185,8 @@ export default async function V2AthletePage({
     : dominantRoleRow?.role === "sketch_artist" ? "Sketch Artists"
     : dominantRoleRow?.role === "attraction" ? "Attractions"
     : "Athletes";
+  // For entertainment sets the "team" field holds a movie/franchise, not a sports team.
+  const teamLabel = dominantRoleRow?.role === "character" ? "Movie" : "Team";
 
   // Fetch image_url (not in Drizzle schema)
   let playerImageUrl: string | null = null;
@@ -531,7 +533,39 @@ export default async function V2AthletePage({
     mlbPlayerId: number | null;
     imageUrl: string | null;
   }>(
-    `WITH player_is AS (
+    `WITH team_counts AS (
+       -- Per-player team frequency; empty/NULL teams excluded. Counts both direct
+       -- appearances and co-subject links (co-subjects inherit the card's team).
+       SELECT player_id, team, COUNT(*) AS cnt, MAX(is_base) AS is_base
+       FROM (
+         SELECT pa.player_id AS player_id, pa.team AS team,
+                CASE WHEN i2.name = 'Base Set' THEN 1 ELSE 0 END AS is_base
+         FROM player_appearances pa
+         INNER JOIN players p2 ON p2.id = pa.player_id
+         LEFT JOIN insert_sets i2 ON i2.id = pa.insert_set_id
+         WHERE p2.set_id = ? AND pa.team IS NOT NULL AND pa.team != ''
+         UNION ALL
+         SELECT cp.co_player_id AS player_id, pa.team AS team,
+                CASE WHEN i2.name = 'Base Set' THEN 1 ELSE 0 END AS is_base
+         FROM appearance_co_players cp
+         INNER JOIN player_appearances pa ON pa.id = cp.appearance_id
+         INNER JOIN players p2 ON p2.id = cp.co_player_id
+         LEFT JOIN insert_sets i2 ON i2.id = pa.insert_set_id
+         WHERE p2.set_id = ? AND pa.team IS NOT NULL AND pa.team != ''
+       )
+       GROUP BY player_id, team
+     ),
+     team_mode AS (
+       -- Most-frequent team wins; ties → base-set team, then alphabetical (deterministic).
+       SELECT player_id, team FROM (
+         SELECT player_id, team,
+           ROW_NUMBER() OVER (
+             PARTITION BY player_id ORDER BY cnt DESC, is_base DESC, team ASC
+           ) AS rn
+         FROM team_counts
+       ) WHERE rn = 1
+     ),
+     player_is AS (
        SELECT DISTINCT pa.player_id, pa.insert_set_id
        FROM player_appearances pa
        INNER JOIN players p ON p.id = pa.player_id
@@ -550,7 +584,7 @@ export default async function V2AthletePage({
        p.slug,
        p.unique_cards AS totalCards,
        CAST(MAX(CASE WHEN pa.is_rookie = 1 THEN 1 ELSE 0 END) AS INTEGER) AS isRookie,
-       MAX(pa.team) AS team,
+       tm.team AS team,
        COUNT(DISTINCT CASE
          WHEN lower(i.name) LIKE '%auto%'
            OR lower(i.name) LIKE '%signature%'
@@ -573,9 +607,12 @@ export default async function V2AthletePage({
      LEFT JOIN player_appearances pa ON pa.player_id = p.id
      LEFT JOIN insert_sets i ON i.id = pa.insert_set_id
      LEFT JOIN numbered n ON n.player_id = p.id
+     LEFT JOIN team_mode tm ON tm.player_id = p.id
      WHERE p.set_id = ?
      GROUP BY p.id
      ORDER BY p.unique_cards DESC`,
+    setId,
+    setId,
     setId,
     setId
   );
@@ -693,6 +730,7 @@ export default async function V2AthletePage({
       hasTeamData={hasTeamData}
       subjectLabel={subjectLabel}
       subjectRole={subjectRole}
+      teamLabel={teamLabel}
     />
   );
 }

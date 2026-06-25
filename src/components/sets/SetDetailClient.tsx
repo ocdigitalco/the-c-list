@@ -77,6 +77,7 @@ export interface SetDetailClientProps {
   totalParallels: number;
   athleteCount: number;
   subjectLabel?: string;
+  teamLabel?: string;
   hasChecklist: boolean;
   hasNumberedParallels: boolean;
   hasBoxConfig: boolean;
@@ -350,8 +351,8 @@ interface TeamRow {
   numberedParallels: number;
 }
 
-function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, subjectLabel = "Athletes", sport = "" }: {
-  entries: LeaderboardRow[]; hasTeamData: boolean; setId: number; setSlug: string; isMobile?: boolean; subjectLabel?: string; sport?: string;
+function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, subjectLabel = "Athletes", teamLabel = "Team", sport = "" }: {
+  entries: LeaderboardRow[]; hasTeamData: boolean; setId: number; setSlug: string; isMobile?: boolean; subjectLabel?: string; teamLabel?: string; sport?: string;
 }) {
   const [sortKey, setSortKey] = useState<SortKey>("totalCards");
   const [rookiesOnly, setRookiesOnly] = useState(false);
@@ -411,7 +412,7 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
           borderBottom: "1px solid #EDEAE0",
           padding: isMobile ? "0 16px" : "0 18px",
         }}>
-          {([["athletes", `${subjectLabel} (${entries.length})`], ["teams", `Teams (${teamCount})`]] as const).map(([mode, label]) => (
+          {([["athletes", `${subjectLabel} (${entries.length})`], ["teams", `${teamLabel}s (${teamCount})`]] as const).map(([mode, label]) => (
             <button key={mode} onClick={() => { setViewMode(mode); setShowAll(false); }}
               style={{
                 padding: "12px 16px",
@@ -450,7 +451,7 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
                 }, 100);
               }
             }}
-            placeholder={`Search ${viewMode === "teams" ? "teams" : subjectLabel.toLowerCase()}…`}
+            placeholder={`Search ${viewMode === "teams" ? `${teamLabel.toLowerCase()}s` : subjectLabel.toLowerCase()}…`}
             autoComplete="off" spellCheck={false}
             className="w-full outline-none"
             style={{
@@ -490,7 +491,7 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
           fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677",
           textTransform: "uppercase",
         }}>
-        <span>{viewMode === "teams" ? "TEAM" : "ATHLETE"}</span>
+        <span>{viewMode === "teams" ? teamLabel.toUpperCase() : "ATHLETE"}</span>
         <span>{SORT_CHIPS.find((c) => c.key === sortKey)?.label}</span>
       </div>
       {/* Rows */}
@@ -586,9 +587,9 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
 
 // ─── Mobile Drawer ──────────────────────────────────────────────────────────────
 
-function MobileAthletesDrawer({ open, onClose, entries, hasTeamData, setId, setSlug, athleteCount, subjectLabel = "Athletes", sport = "" }: {
+function MobileAthletesDrawer({ open, onClose, entries, hasTeamData, setId, setSlug, athleteCount, subjectLabel = "Athletes", teamLabel = "Team", sport = "" }: {
   open: boolean; onClose: () => void;
-  entries: LeaderboardRow[]; hasTeamData: boolean; setId: number; setSlug: string; athleteCount: number; subjectLabel?: string; sport?: string;
+  entries: LeaderboardRow[]; hasTeamData: boolean; setId: number; setSlug: string; athleteCount: number; subjectLabel?: string; teamLabel?: string; sport?: string;
 }) {
   const triggerRef = useRef<HTMLElement | null>(null);
 
@@ -625,7 +626,7 @@ function MobileAthletesDrawer({ open, onClose, entries, hasTeamData, setId, setS
       </div>
       {/* Drawer body */}
       <div className="flex-1" style={{ height: "calc(100% - 56px)", overflowY: "auto" }}>
-        <AthletesRail entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug} isMobile subjectLabel={subjectLabel} sport={sport} />
+        <AthletesRail entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug} isMobile subjectLabel={subjectLabel} teamLabel={teamLabel} sport={sport} />
       </div>
     </div>
   );
@@ -1287,12 +1288,13 @@ function EmptyTab({ label }: { label: string }) {
 export function SetDetailClient({
   setName, sport, league, tier, releaseDate, setId, setSlug, sampleImageUrl,
   cards, cardTypes, parallelTypes, autographs, autoParallels, totalParallels, athleteCount,
-  subjectLabel: subjectLabelProp,
+  subjectLabel: subjectLabelProp, teamLabel: teamLabelProp,
   hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds,
   boxConfig, packOdds, entries, hasTeamData, breakSheetPlayers, parallelsList, autographSubsetNames, featuredArticle,
   aeoSummary, faqs,
 }: SetDetailClientProps) {
   const subjectLabel = subjectLabelProp ?? "Athletes";
+  const teamLabel = teamLabelProp ?? "Team";
   const [tab, setTab] = useState<Tab>("Overview");
   const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -1332,7 +1334,7 @@ export function SetDetailClient({
       <div className="hidden min-[1180px]:grid" style={{ gridTemplateColumns: "425px 1fr", minHeight: "100vh" }}>
         {/* Left rail */}
         <aside className="sticky top-0 h-screen overflow-y-auto" style={{ borderRight: "1px solid #EDEAE0" }}>
-          <AthletesRail entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug} subjectLabel={subjectLabel} sport={sport} />
+          <AthletesRail entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug} subjectLabel={subjectLabel} teamLabel={teamLabel} sport={sport} />
         </aside>
         {/* Right column */}
         <div className="flex flex-col">
@@ -1537,7 +1539,7 @@ export function SetDetailClient({
         <MobileAthletesDrawer
           open={drawerOpen} onClose={() => setDrawerOpen(false)}
           entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug}
-          athleteCount={athleteCount} subjectLabel={subjectLabel} sport={sport}
+          athleteCount={athleteCount} subjectLabel={subjectLabel} teamLabel={teamLabel} sport={sport}
         />
       </div>
     </div>

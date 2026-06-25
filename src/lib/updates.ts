@@ -13,6 +13,23 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "198-chrome-disney-2026-movies-and-fixes",
+    title: "2026 Topps Chrome Disney: Movies, Smarter Team Display, and Multi-Signer Counts",
+    date: "2026-06-24T18:00:00Z",
+    summary: "Entertainment sets now label the team field as \"Movie,\" and the character-list team shown for each subject is the most-frequent franchise instead of an alphabetical accident — so Mickey, Donald, and Goofy correctly read \"Mickey & Friends\" instead of a stray MLB jersey-crossover team. Also fixed multi-signer autograph counting so co-signers like Mrs. Incredible and Dale finally show their cards, and corrected a mislabeled triple auto.",
+    description: `## 2026 Topps Chrome Disney — Movie Labeling & Multi-Signer Fixes
+
+A set of display and data corrections for the Disney release (and improvements that apply site-wide).
+
+- **"Team" → "Movie" for character sets:** The set and character pages now label the team field as **Movie** for entertainment (character-role) sets, matching the existing Athlete→Character labeling. Role-based, so any future character set inherits it automatically.
+- **Most-frequent franchise, not alphabetical:** The character list previously showed each subject's *alphabetically-last* team, which for the Mickey & Friends MLB jersey-crossover cards surfaced a stray MLB team (e.g. Mickey as "St. Louis Cardinals"). It now shows the **most-frequent** team, so Mickey, Donald, and Goofy all correctly read **Mickey & Friends**. None of the legitimate per-card MLB jersey data was changed. This applies to every set, not just Disney.
+- **Multi-signer cards now count for every signer:** Co-signers on dual/triple autographs were not being counted, so characters who only appear as a co-signer showed zero cards. Counting now includes co-signer links site-wide — **Mrs. Incredible** (Dual Auto with Mr. Incredible) and **Dale** (Triple Auto) now correctly show their cards, and co-signers inherit the card's movie (Mrs. Incredible → *The Incredibles*).
+- **Triple Auto correction:** A triple autograph was stored with one signer mislabeled as the "Chip & Dale" duo. It's now the three distinct signers **Chip + Dale + Pluto**, with the standalone "Chip & Dale" duo card elsewhere left intact.
+- No remaining characters list zero cards.`,
+    tags: ["feature", "checklist"],
+    setId: 846,
+  },
+  {
     id: "197-tier-one-baseball-2026-added",
     title: "2026 Topps Tier One Baseball Added",
     date: "2026-06-24T12:00:00Z",

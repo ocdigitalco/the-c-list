@@ -15,8 +15,15 @@ const allPlayers = db
 
 console.log(`Recomputing stats for ${allPlayers.length} players...`);
 
+// A player's cards = appearances where they are the primary subject UNION
+// appearances where they are a co-subject (multi-signature cards). UNION dedupes.
 const getAppearances = db.prepare(
-  "SELECT id, insert_set_id FROM player_appearances WHERE player_id = ?"
+  `SELECT id, insert_set_id FROM player_appearances WHERE player_id = ?
+   UNION
+   SELECT pa.id, pa.insert_set_id
+   FROM player_appearances pa
+   INNER JOIN appearance_co_players cp ON cp.appearance_id = pa.id
+   WHERE cp.co_player_id = ?`
 );
 const getParallels = db.prepare(
   "SELECT name, print_run FROM parallels WHERE insert_set_id = ?"
@@ -28,7 +35,7 @@ const updatePlayer = db.prepare(
 const updateTx = db.transaction(() => {
   let processed = 0;
   for (const player of allPlayers) {
-    const appearances = getAppearances.all(player.id) as {
+    const appearances = getAppearances.all(player.id, player.id) as {
       id: number;
       insert_set_id: number;
     }[];

@@ -80,6 +80,7 @@ export interface AthleteDetailClientProps {
   hasTeamData: boolean;
   subjectLabel?: string;
   subjectRole?: string;
+  teamLabel?: string;
 }
 
 // ─── Helpers ────────────────────────────────────────────────────────────────────
@@ -137,8 +138,8 @@ function TeamLogoAvatar({ teamName, sport, size = 24 }: { teamName: string; spor
     onError={() => setErr(true)} style={{ width: size, height: size, objectFit: "contain" }} />;
 }
 
-function AthletesRail({ entries, hasTeamData, setId, setSlug, currentAthleteId, subjectLabel = "Athletes", sport = "" }: {
-  entries: LeaderboardRow[]; hasTeamData: boolean; setId: number; setSlug: string; currentAthleteId: number; subjectLabel?: string; sport?: string;
+function AthletesRail({ entries, hasTeamData, setId, setSlug, currentAthleteId, subjectLabel = "Athletes", teamLabel = "Team", sport = "" }: {
+  entries: LeaderboardRow[]; hasTeamData: boolean; setId: number; setSlug: string; currentAthleteId: number; subjectLabel?: string; teamLabel?: string; sport?: string;
 }) {
   const [sortKey, setSortKey] = useState<SortKey>("totalCards");
   const [rookiesOnly, setRookiesOnly] = useState(false);
@@ -181,7 +182,7 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, currentAthleteId, 
     <div className="flex flex-col h-full" style={{ background: "#FFFFFF" }}>
       {hasTeamData && (
         <div className="shrink-0 flex" style={{ borderBottom: "1px solid #EDEAE0", padding: "0 18px" }}>
-          {([["athletes", `${subjectLabel} (${entries.length})`], ["teams", `Teams (${teamCount})`]] as const).map(([mode, label]) => (
+          {([["athletes", `${subjectLabel} (${entries.length})`], ["teams", `${teamLabel}s (${teamCount})`]] as const).map(([mode, label]) => (
             <button key={mode} onClick={() => { setViewMode(mode); setShowAll(false); }}
               style={{
                 padding: "12px 16px", fontFamily: FONT_DISPLAY, fontSize: 16,
@@ -200,7 +201,7 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, currentAthleteId, 
             <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
           </svg>
           <input type="text" value={query} onChange={(e) => setQuery(e.target.value)}
-            placeholder={viewMode === "teams" ? "Search teams…" : `Search ${subjectLabel.toLowerCase()}…`}
+            placeholder={viewMode === "teams" ? `Search ${teamLabel.toLowerCase()}s…` : `Search ${subjectLabel.toLowerCase()}…`}
             autoComplete="off" spellCheck={false} className="w-full outline-none"
             style={{ background: "#F1EFE9", borderRadius: 8, padding: "7px 10px 7px 30px", fontSize: 16, border: "none", color: "#0F0F0E" }} />
         </div>
@@ -226,7 +227,7 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, currentAthleteId, 
         padding: "6px 18px", borderBottom: "1px solid #EDEAE0",
         fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase",
       }}>
-        <span>{viewMode === "teams" ? "TEAM" : "ATHLETE"}</span>
+        <span>{viewMode === "teams" ? teamLabel.toUpperCase() : "ATHLETE"}</span>
         <span>{SORT_CHIPS.find((c) => c.key === sortKey)?.label}</span>
       </div>
       <div className="flex-1 overflow-y-auto">
@@ -1274,9 +1275,9 @@ function AlsoFeaturedIn({ otherSets }: { otherSets: OtherSet[] }) {
 
 // ─── Mobile Drawer ──────────────────────────────────────────────────────────────
 
-function MobileAthletesDrawer({ open, onClose, entries, hasTeamData, setId, setSlug, currentAthleteId, athleteCount, subjectLabel = "Athletes", sport = "" }: {
+function MobileAthletesDrawer({ open, onClose, entries, hasTeamData, setId, setSlug, currentAthleteId, athleteCount, subjectLabel = "Athletes", teamLabel = "Team", sport = "" }: {
   open: boolean; onClose: () => void; entries: LeaderboardRow[]; hasTeamData: boolean;
-  setId: number; setSlug: string; currentAthleteId: number; athleteCount: number; subjectLabel?: string; sport?: string;
+  setId: number; setSlug: string; currentAthleteId: number; athleteCount: number; subjectLabel?: string; teamLabel?: string; sport?: string;
 }) {
   useEffect(() => {
     if (!open) return;
@@ -1304,7 +1305,7 @@ function MobileAthletesDrawer({ open, onClose, entries, hasTeamData, setId, setS
         <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677" }}>{athleteCount}</span>
       </div>
       <div style={{ height: "calc(100% - 56px)", overflowY: "auto" }}>
-        <AthletesRail entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug} currentAthleteId={currentAthleteId} subjectLabel={subjectLabel} sport={sport} />
+        <AthletesRail entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug} currentAthleteId={currentAthleteId} subjectLabel={subjectLabel} teamLabel={teamLabel} sport={sport} />
       </div>
     </div>
   );
@@ -1319,9 +1320,10 @@ export function AthleteDetailClient({
   cardTypes, totalCards, autographs, autoParallels, numberedParallels, oneOfOnes,
   insertSets, otherSets, packOddsJson, boxConfigJson,
   packOddsSlotsByFormat, boxFormats, totalAutoCards, playerAutoCards, hasBreakCalc,
-  entries, hasTeamData, subjectLabel: subjectLabelProp, subjectRole,
+  entries, hasTeamData, subjectLabel: subjectLabelProp, subjectRole, teamLabel: teamLabelProp,
 }: AthleteDetailClientProps) {
   const subjectLabel = subjectLabelProp ?? "Athletes";
+  const teamLabel = teamLabelProp ?? "Team";
   const [tab, setTab] = useState<Tab>("Overview");
   const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -1350,7 +1352,7 @@ export function AthleteDetailClient({
       {/* ═══ DESKTOP ═══ */}
       <div className="hidden min-[1180px]:grid" style={{ gridTemplateColumns: "425px 1fr", minHeight: "100vh" }}>
         <aside className="sticky top-0 h-screen overflow-y-auto" style={{ borderRight: "1px solid #EDEAE0" }}>
-          <AthletesRail entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug} currentAthleteId={athleteId} subjectLabel={subjectLabel} sport={sport} />
+          <AthletesRail entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug} currentAthleteId={athleteId} subjectLabel={subjectLabel} teamLabel={teamLabel} sport={sport} />
         </aside>
 
         <div className="flex flex-col">
@@ -1411,7 +1413,7 @@ export function AthleteDetailClient({
               {teams.length > 0 && (
                 <div style={{ border: "2px solid #F2F0E9", padding: "14px 16px", alignSelf: "start" }}>
                   <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase", marginBottom: 10 }}>
-                    Team Details
+                    {teamLabel} Details
                   </div>
                   {teams.map((t, i) => (
                     <div key={t} className="flex items-center justify-between" style={{
@@ -1666,7 +1668,7 @@ export function AthleteDetailClient({
 
         <MobileAthletesDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)}
           entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug}
-          currentAthleteId={athleteId} athleteCount={entries.length} subjectLabel={subjectLabel} sport={sport} />
+          currentAthleteId={athleteId} athleteCount={entries.length} subjectLabel={subjectLabel} teamLabel={teamLabel} sport={sport} />
       </div>
     </div>
   );
