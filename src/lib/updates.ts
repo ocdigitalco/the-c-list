@@ -13,6 +13,23 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "199-cactus-jack-image-and-phantom-subset-removal",
+    title: "Cactus Jack: Set Image Added, Phantom \"All-Star Game Autographs\" Subset Removed",
+    date: "2026-06-24T20:00:00Z",
+    summary: "Added the box image for 2025-26 Topps Chrome Cactus Jack Basketball and removed the phantom \"All-Star Game Autographs\" subset — a super-short-print exclusive that isn't in the product's official checklist. Its 20 cards and 5 parallels were deleted; no players were orphaned (all 20 appear in other Cactus Jack subsets).",
+    description: `## Cactus Jack — Image Added & Phantom Subset Removed
+
+Two corrections to **2025-26 Topps Chrome Cactus Jack Basketball**.
+
+- **Set image:** the set now uses its own box image instead of an external link.
+- **"All-Star Game Autographs" removed:** this subset isn't in the product's official checklist — it was a super-short-print exclusive offering that had been erroneously recorded. Removed the subset, its **20 cards** (ASGV-*) and **5 parallel rows** (Base, Orange /25, Black /10, Red /5, SuperFractor /1). No \`pack_odds\` keys referenced it, so odds were unaffected.
+- **No orphaned players:** all 20 subjects (incl. Cooper Flagg, Victor Wembanyama, and legends like Allen Iverson and Kevin Garnett) also appear in other Cactus Jack subsets, so no player rows needed removal and none were left with zero cards.
+
+The remaining checklist is unchanged: Base Set (100), Utopia Highlights (40), Jacked Up (40), LA Flame Legends (20), Astrovision (20), Cactus Mode (20), Base Autograph Variation (49), Cactus Ink (49). The separately-flagged "Sicko Stars" subset was left intact pending its own confirmation.`,
+    tags: ["checklist"],
+    setId: 23,
+  },
+  {
     id: "198-chrome-disney-2026-movies-and-fixes",
     title: "2026 Topps Chrome Disney: Movies, Smarter Team Display, and Multi-Signer Counts",
     date: "2026-06-24T18:00:00Z",
