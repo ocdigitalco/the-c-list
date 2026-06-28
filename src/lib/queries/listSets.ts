@@ -15,6 +15,7 @@ export interface SetListItem {
   packOdds: string | null;
   boxConfig: string | null;
   releaseDate: string | null;
+  createdAt: string | null;
   slug: string | null;
   athleteCount: number;
   cardCount: number;
@@ -89,6 +90,7 @@ export async function listSets(): Promise<{
 
     return {
       ...s,
+      createdAt: createdAt ?? null,
       slug: slugMap.get(s.id) ?? null,
       athleteCount: statsMap.get(s.id)?.athleteCount ?? 0,
       cardCount: statsMap.get(s.id)?.cardCount ?? 0,

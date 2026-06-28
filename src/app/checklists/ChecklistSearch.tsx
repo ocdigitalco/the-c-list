@@ -15,6 +15,7 @@ interface SetCard {
   tier: string;
   season: string;
   releaseDate: string | null;
+  createdAt: string | null;
   sampleImageUrl: string | null;
   athleteCount: number;
   cardCount: number;
@@ -164,10 +165,16 @@ export function ChecklistSearch({
       );
     }
     return [...results].sort((a, b) => {
-      if (!a.releaseDate && !b.releaseDate) return a.name.localeCompare(b.name);
-      if (!a.releaseDate) return 1;
-      if (!b.releaseDate) return -1;
-      return new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime();
+      // Mirror the SQL index sort: COALESCE(release_date, created_at) DESC, name ASC.
+      // Both fields are ISO text, so codepoint comparison gives calendar order.
+      const ka = a.releaseDate ?? a.createdAt;
+      const kb = b.releaseDate ?? b.createdAt;
+      if (!ka && !kb) return a.name.localeCompare(b.name);
+      if (!ka) return 1;
+      if (!kb) return -1;
+      if (ka < kb) return 1;
+      if (ka > kb) return -1;
+      return a.name.localeCompare(b.name);
     });
   }, [sets, query, activeSport]);
 

@@ -103,9 +103,16 @@ function SetsCoverageInner({ rows }: { rows: CoverageRow[] }) {
     for (const yd of by.values()) {
       for (const sportRows of yd.bySport.values()) {
         sportRows.sort((a, b) => {
-          if (a.releaseDate && b.releaseDate) return b.releaseDate.localeCompare(a.releaseDate);
-          if (a.releaseDate) return -1;
-          if (b.releaseDate) return 1;
+          // Mirror the SQL index sort: COALESCE(release_date, created_at) DESC,
+          // name ASC. Both fields are ISO text, so codepoint comparison gives
+          // calendar order; undated sets fall back to created_at.
+          const ka = a.releaseDate ?? a.createdAt;
+          const kb = b.releaseDate ?? b.createdAt;
+          if (!ka && !kb) return a.name.localeCompare(b.name);
+          if (!ka) return 1;
+          if (!kb) return -1;
+          if (ka < kb) return 1;
+          if (ka > kb) return -1;
           return a.name.localeCompare(b.name);
         });
       }

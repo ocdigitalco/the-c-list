@@ -373,6 +373,7 @@ export interface CoverageRow {
   hasPackOdds: boolean;
   hasParallels: boolean;
   releaseDate: string | null;
+  createdAt: string | null;
 }
 
 // ---------------------------------------------------------------------------
@@ -415,6 +416,18 @@ export default async function SetsCoveragePage() {
       if (row.slug) setSlugMap.set(row.id, row.slug);
     }
   } catch { /* slug column may not exist yet */ }
+
+  // Query created_at for all sets (not in Drizzle schema) — used as the sort
+  // fallback for undated sets, mirroring the index SQL COALESCE sort.
+  const setCreatedAtMap = new Map<number, string>();
+  try {
+    const caRows = await rawQuery.all<{ id: number; created_at: string | null }>(
+      "SELECT id, created_at FROM sets"
+    );
+    for (const row of caRows) {
+      if (row.created_at) setCreatedAtMap.set(row.id, row.created_at);
+    }
+  } catch { /* created_at column may not exist yet */ }
 
   // Build normalized name → set row map
   const setsNormMap = new Map<string, typeof allSets[0]>();
@@ -482,6 +495,7 @@ export default async function SetsCoveragePage() {
       hasPackOdds: status.hasPackOdds,
       hasParallels: status.hasParallels,
       releaseDate: matchedSet?.releaseDate ?? null,
+      createdAt: matchedSet ? (setCreatedAtMap.get(matchedSet.id) ?? null) : null,
     };
   });
 
@@ -512,6 +526,7 @@ export default async function SetsCoveragePage() {
       hasPackOdds: status.hasPackOdds,
       hasParallels: status.hasParallels,
       releaseDate: s.releaseDate ?? null,
+      createdAt: setCreatedAtMap.get(s.id) ?? null,
     });
   }
 

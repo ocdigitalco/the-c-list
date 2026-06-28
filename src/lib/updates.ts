@@ -13,6 +13,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "202-client-sort-created-at-fallback",
+    title: "Set Listings Fall Back to Created Date Everywhere",
+    date: "2026-06-27T01:00:00Z",
+    summary:
+      "The client-side set listing comparators (ChecklistSearch on the home and checklists pages, and the Sets coverage table) now fall back to created_at for undated sets, matching the index SQL sort so newly-added sets surface by recency instead of sinking alphabetically.",
+    description: `## Client Sort: Recency Fallback Everywhere
+
+The SQL index sort already fell back to \`created_at\` for undated sets, but the client components re-sorted the results with the old "undated sets last" rule, overriding it. They now mirror the SQL exactly.
+
+- **ChecklistSearch** (home page and \`/checklists\`) and the **Sets coverage table** (\`/sets\`) now sort by \`release_date ?? created_at\` descending, with name ascending as the tiebreaker.
+- **No re-shuffle:** the client order now matches \`COALESCE(release_date, created_at) DESC, name ASC\`, so the ~776 sets without a release date surface by when they were added rather than sinking to the bottom alphabetically.`,
+    tags: ["feature"],
+  },
+  {
     id: "201-index-sort-created-at-fallback",
     title: "Index Sort Falls Back to Created Date for Undated Sets",
     date: "2026-06-27T00:00:00Z",
