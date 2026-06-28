@@ -13,6 +13,26 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "200-knockout-ufc-2026-added",
+    title: "2026 Topps Knockout UFC Added",
+    date: "2026-06-24T22:00:00Z",
+    summary: "Added the full 2026 Topps Knockout UFC checklist — 737 cards across a 100-card base set and 25 autograph, relic, and insert subsets, with as-printed serial numbers, multi-signer duals/trios/quads, and the AKA Ink nicknames preserved. Box config is in; pack odds are deferred until Topps publishes them.",
+    description: `## 2026 Topps Knockout UFC
+
+The complete checklist is now live: **737 cards across 26 subsets**, built directly from the official Topps checklist.
+
+- **Base Set (100):** 35 veterans plus 65 rookies (#36–100, all RC), with a 13-step parallel ladder from Bronze /299 down to Platinum 1/1.
+- **Autographs:** Knockout Autographs (57), Octagon Warriors Signatures (28), Collageagraphs (27), Inception Signatures (25), AKA Ink (18, on-card nicknames preserved), Distinctive Signs (9), plus booklet autos.
+- **Multi-signer cards:** Dynamic Duels (9×2), Triumphant Trios (4×3), UFC Staredown Signatures (10×2), Quad Autograph Booklets (6×4), Final Face Off (10×2) and Octagon Successors (30×2) are stored as single cards with all signers joined.
+- **Autograph relics & relics:** Tier 1 Dual Relic Autographs, Knockout Autographed Relics, Autographed Fight Mat Relics, Triple Threads Autographed Relics, Knockout Relics (51), 1-2 Combo Relics, Triple Threads Relics and UFC Relics.
+- **Inserts:** Knockout Artists, Instant Arrival, Fight DNA and a 100-card Museum Collection.
+- **As-printed names preserved:** intentional source variants are kept distinct (e.g. base "MarQuel Mederos" vs auto "Marquel Mederos"; "Dricus Du Plessis" vs "Dricus du Plessis").
+- **Box config (Hobby):** 8 cards/pack, 4 packs/box, 8 boxes/case — 3 premium autographs per box (one an autograph relic).
+- **Pack odds deferred:** per-card pull odds aren't published yet, so they're omitted for now.`,
+    tags: ["checklist", "box-config"],
+    setId: 858,
+  },
+  {
     id: "199-cactus-jack-image-and-phantom-subset-removal",
     title: "Cactus Jack: Set Image Added, Phantom \"All-Star Game Autographs\" Subset Removed",
     date: "2026-06-24T20:00:00Z",
