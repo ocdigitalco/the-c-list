@@ -13,6 +13,21 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "201-index-sort-created-at-fallback",
+    title: "Index Sort Falls Back to Created Date for Undated Sets",
+    date: "2026-06-27T00:00:00Z",
+    summary:
+      "The checklists index sort now falls back to created_at for sets without a release_date, so newly-added sets surface by recency instead of sinking to the bottom. Also set the 2026 Topps Knockout UFC release date (June 26, 2026).",
+    description: `## Index Sort: Recency Fallback
+
+The set listing previously pushed every set without a \`release_date\` to the very bottom, so freshly-added checklists could be buried even when they were the newest thing on the site.
+
+- **Fallback sort:** the index now orders by \`COALESCE(release_date, created_at) DESC\`, so an undated set surfaces by when it was added rather than sinking below every dated set.
+- **Knockout UFC dated:** set the **2026 Topps Knockout UFC** release date to **June 26, 2026** (street date), so it now sorts by its real release.`,
+    tags: ["feature"],
+    setId: 858,
+  },
+  {
     id: "200-knockout-ufc-2026-added",
     title: "2026 Topps Knockout UFC Added",
     date: "2026-06-24T22:00:00Z",

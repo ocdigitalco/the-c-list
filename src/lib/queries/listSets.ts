@@ -44,8 +44,7 @@ export async function listSets(): Promise<{
     .select()
     .from(sets)
     .orderBy(
-      sql`CASE WHEN ${sets.releaseDate} IS NULL THEN 1 ELSE 0 END`,
-      sql`${sets.releaseDate} DESC`,
+      sql`COALESCE(${sets.releaseDate}, created_at) DESC`,
       sets.name
     );
   const setRows = allSetRows.filter((s) => !hiddenIds.has(s.id));
