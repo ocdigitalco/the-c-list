@@ -13,6 +13,24 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "203-resurgence-football-2025-added",
+    title: "2025 Topps Resurgence Football Added",
+    date: "2026-06-29T00:00:00Z",
+    summary:
+      "Added 2025 Topps Resurgence Football (full checklist, 749 cards, 19 subsets, card gallery images; box config/odds/parallels deferred).",
+    description: `## 2025 Topps Resurgence Football
+
+The complete checklist is now live: **749 cards across 19 subsets**, built directly from the official checklist.
+
+- **Base Set (100)** and **Rookies (100)**, plus eight numbered insert subsets: Electro Lights, Perfect Fits, Wired, String Theory, Conductors, Protonyx, Voltaic and Circuit Breakers.
+- **Autographs:** Base Signatures (70), Rookie Signatures (90), Arc Flash Autographs (22), Molecular Marks (21), Neon Initiates (26), Thermal Red Ink Autographs (20), Resurgence Rookie Relic Signatures (40) and Amped Up Rookie Relic Autographs (30).
+- **Relics:** Radial Rookie Relics (30).
+- **Card gallery images** are included on the set page.
+- **Box config, pack odds and numbered parallels deferred** until published.`,
+    tags: ["checklist"],
+    setId: 859,
+  },
+  {
     id: "202-client-sort-created-at-fallback",
     title: "Set Listings Fall Back to Created Date Everywhere",
     date: "2026-06-27T01:00:00Z",
