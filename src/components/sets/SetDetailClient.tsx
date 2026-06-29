@@ -734,6 +734,110 @@ function StatStrip({ items }: { items: { label: string; value: number }[] }) {
 
 // ─── Tab: Box Config ────────────────────────────────────────────────────────────
 
+// ─── Card Gallery ───────────────────────────────────────────────────────────
+
+function CardGallery({ images, setName }: { images: { src: string; n: number }[]; setName: string }) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canLeft, setCanLeft] = useState(false);
+  const [canRight, setCanRight] = useState(false);
+
+  // Recompute arrow visibility from the live scroll metrics. Left hides at the
+  // start, right hides at the end (1px tolerance for sub-pixel rounding), and
+  // when everything fits (scrollWidth <= clientWidth) neither shows.
+  const updateArrows = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const { scrollLeft, clientWidth, scrollWidth } = el;
+    setCanLeft(scrollLeft > 0);
+    setCanRight(scrollLeft + clientWidth < scrollWidth - 1);
+  };
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    updateArrows();
+    el.addEventListener("scroll", updateArrows, { passive: true });
+    const ro = new ResizeObserver(updateArrows);
+    ro.observe(el);
+    window.addEventListener("resize", updateArrows);
+    return () => {
+      el.removeEventListener("scroll", updateArrows);
+      ro.disconnect();
+      window.removeEventListener("resize", updateArrows);
+    };
+  }, [images.length]);
+
+  // Scroll by exactly one card: measure the first card's width + the row gap
+  // from the live DOM so it stays correct if card sizing changes.
+  const scrollByCard = (dir: 1 | -1) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const firstCard = el.querySelector<HTMLElement>("[data-card]");
+    const row = firstCard?.parentElement;
+    let step = 162; // 150px card + 12px gap fallback
+    if (firstCard && row) {
+      const gap = parseFloat(getComputedStyle(row).columnGap) || 0;
+      step = firstCard.offsetWidth + gap;
+    }
+    el.scrollBy({ left: dir * step, behavior: "smooth" });
+  };
+
+  const arrowBtn = (dir: 1 | -1) => (
+    <button
+      type="button"
+      aria-label={dir === -1 ? "Scroll gallery left" : "Scroll gallery right"}
+      onClick={() => scrollByCard(dir)}
+      className="rounded-lg flex items-center justify-center border transition-colors bg-[#F1EFE9] hover:bg-[#E6E3D9]"
+      style={{ width: 28, height: 28, borderColor: "#E6E3D9", color: "#3A372F" }}
+    >
+      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d={dir === -1 ? "M15.75 19.5 8.25 12l7.5-7.5" : "m8.25 4.5 7.5 7.5-7.5 7.5"} />
+      </svg>
+    </button>
+  );
+
+  return (
+    <section>
+      <div className="flex items-center justify-between" style={{ marginBottom: 12 }}>
+        <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase" }}>
+          Card Gallery
+        </div>
+        {(canLeft || canRight) && (
+          <div className="flex items-center gap-1.5">
+            {canLeft && arrowBtn(-1)}
+            {canRight && arrowBtn(1)}
+          </div>
+        )}
+      </div>
+      {/* Bounded scroll container: constrained to the parent's width and
+          scrolls internally. min-w-0 + max-w-full stop the flex contents
+          from sizing this wrapper (and the page) wide. */}
+      <div ref={scrollRef} className="w-full max-w-full min-w-0 overflow-x-auto no-scrollbar">
+        <div className="flex flex-nowrap gap-3" style={{ paddingBottom: 4 }}>
+          {images.map(({ src, n }) => (
+            <div
+              key={src}
+              data-card
+              className="shrink-0"
+              style={{ width: 150, aspectRatio: "5 / 7", overflow: "hidden", border: "1px solid #EDEAE0", background: "#F1EFE9" }}
+            >
+              <img
+                src={src}
+                alt={`${setName} card ${n}`}
+                width={400}
+                height={560}
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ─── Tab: Overview ──────────────────────────────────────────────────────────
 
 function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autographs, autoParallels, totalParallels, athleteCount, releaseDate, hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds, subjectLabel = "Athletes", featuredArticle, setName, aeoSummary, faqs, cardImages }: {
@@ -752,35 +856,7 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
       {/* Card Gallery — only renders when card images exist in
           public/sets/cards/{slug}/. Display-only horizontal scroll row. */}
       {cardImages && cardImages.length > 0 && (
-        <section>
-          <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase", marginBottom: 12 }}>
-            Card Gallery
-          </div>
-          {/* Bounded scroll container: constrained to the parent's width and
-              scrolls internally. min-w-0 + max-w-full stop the flex contents
-              from sizing this wrapper (and the page) wide. */}
-          <div className="w-full max-w-full min-w-0 overflow-x-auto no-scrollbar">
-            <div className="flex flex-nowrap gap-3" style={{ paddingBottom: 4 }}>
-              {cardImages.map(({ src, n }) => (
-                <div
-                  key={src}
-                  className="shrink-0"
-                  style={{ width: 150, aspectRatio: "5 / 7", overflow: "hidden", border: "1px solid #EDEAE0", background: "#F1EFE9" }}
-                >
-                  <img
-                    src={src}
-                    alt={`${setName} card ${n}`}
-                    width={400}
-                    height={560}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <CardGallery images={cardImages} setName={setName} />
       )}
 
       {/* Set Summary */}
