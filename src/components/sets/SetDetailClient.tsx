@@ -756,24 +756,29 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
           <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase", marginBottom: 12 }}>
             Card Gallery
           </div>
-          <div className="flex gap-3 overflow-x-auto no-scrollbar" style={{ paddingBottom: 4 }}>
-            {cardImages.map(({ src, n }) => (
-              <div
-                key={src}
-                className="flex-shrink-0"
-                style={{ width: 150, aspectRatio: "5 / 7", borderRadius: 8, overflow: "hidden", border: "1px solid #EDEAE0", background: "#F1EFE9" }}
-              >
-                <img
-                  src={src}
-                  alt={`${setName} card ${n}`}
-                  width={400}
-                  height={560}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            ))}
+          {/* Bounded scroll container: constrained to the parent's width and
+              scrolls internally. min-w-0 + max-w-full stop the flex contents
+              from sizing this wrapper (and the page) wide. */}
+          <div className="w-full max-w-full min-w-0 overflow-x-auto no-scrollbar">
+            <div className="flex flex-nowrap gap-3" style={{ paddingBottom: 4 }}>
+              {cardImages.map(({ src, n }) => (
+                <div
+                  key={src}
+                  className="shrink-0"
+                  style={{ width: 150, aspectRatio: "5 / 7", overflow: "hidden", border: "1px solid #EDEAE0", background: "#F1EFE9" }}
+                >
+                  <img
+                    src={src}
+                    alt={`${setName} card ${n}`}
+                    width={400}
+                    height={560}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       )}
@@ -1368,8 +1373,10 @@ export function SetDetailClient({
         <aside className="sticky top-0 h-screen overflow-y-auto" style={{ borderRight: "1px solid #EDEAE0" }}>
           <AthletesRail entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug} subjectLabel={subjectLabel} teamLabel={teamLabel} sport={sport} />
         </aside>
-        {/* Right column */}
-        <div className="flex flex-col">
+        {/* Right column — min-w-0 lets this 1fr grid item shrink below its
+            content's intrinsic width, so the card gallery scrolls internally
+            instead of widening the whole page. */}
+        <div className="flex flex-col min-w-0">
           {/* Hero */}
           <div style={{ background: "#FFFFFF", padding: "30px 36px", borderBottom: "1px solid #EDEAE0" }}>
             <div className="grid items-center gap-8" style={{
