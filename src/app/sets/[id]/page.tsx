@@ -14,6 +14,7 @@ import type { LeaderboardRow } from "@/components/sets/types";
 import type { BreakSheetPlayer } from "@/components/BreakSheetModal";
 import { articles } from "@/lib/articles";
 import { buildSetMeta, computeSetAeo, SITE_URL } from "@/lib/setSeo";
+import { getCardGalleryImages } from "@/lib/cardGallery";
 
 export const revalidate = 3600;
 
@@ -123,6 +124,20 @@ export default async function V2SetPage({
   if (!setRow) notFound();
 
   const setId = setRow.id;
+
+  // Canonical slug for static-asset lookup. The card-image gallery lives in
+  // public/sets/cards/{slug}/; read it server-side (Node runtime, works at
+  // build + ISR revalidation). Returns [] when the folder is absent, so
+  // folderless sets render no gallery.
+  let canonicalSlug: string | null = null;
+  try {
+    const slugRow = await rawQuery.get<{ slug: string | null }>(
+      "SELECT slug FROM sets WHERE id = ?",
+      setId
+    );
+    canonicalSlug = slugRow?.slug ?? null;
+  } catch { /* slug column may not exist yet */ }
+  const cardImages = await getCardGalleryImages(canonicalSlug);
 
   // Insert set IDs
   const insertSetIdRows = await db
@@ -559,6 +574,7 @@ export default async function V2SetPage({
       } : null}
         aeoSummary={aeo.summary}
         faqs={aeo.faqs}
+        cardImages={cardImages}
       />
     </>
   );

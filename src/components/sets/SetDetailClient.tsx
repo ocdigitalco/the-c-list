@@ -92,6 +92,8 @@ export interface SetDetailClientProps {
   featuredArticle?: { slug: string; title: string; description: string; heroImage: string } | null;
   aeoSummary?: string | null;
   faqs?: { q: string; a: string }[];
+  /** Card-image gallery, pre-read server-side from public/sets/cards/{slug}/. */
+  cardImages?: { src: string; n: number }[];
 }
 
 // ─── Helpers ────────────────────────────────────────────────────────────────────
@@ -734,18 +736,48 @@ function StatStrip({ items }: { items: { label: string; value: number }[] }) {
 
 // ─── Tab: Overview ──────────────────────────────────────────────────────────
 
-function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autographs, autoParallels, totalParallels, athleteCount, releaseDate, hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds, subjectLabel = "Athletes", featuredArticle, setName, aeoSummary, faqs }: {
+function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autographs, autoParallels, totalParallels, athleteCount, releaseDate, hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds, subjectLabel = "Athletes", featuredArticle, setName, aeoSummary, faqs, cardImages }: {
   boxConfig: string | null; cards: number; cardTypes: number; parallelTypes: number;
   autographs: number; autoParallels: number; totalParallels: number; athleteCount: number;
   releaseDate: string | null; hasChecklist: boolean; hasNumberedParallels: boolean;
   hasBoxConfig: boolean; hasPackOdds: boolean; subjectLabel?: string;
   featuredArticle?: { slug: string; title: string; description: string; heroImage: string } | null;
   setName: string; aeoSummary?: string | null; faqs?: { q: string; a: string }[];
+  cardImages?: { src: string; n: number }[];
 }) {
   const boxRows = boxConfig ? buildBoxRows(boxConfig) : [];
 
   return (
     <div className="space-y-8">
+      {/* Card Gallery — only renders when card images exist in
+          public/sets/cards/{slug}/. Display-only horizontal scroll row. */}
+      {cardImages && cardImages.length > 0 && (
+        <section>
+          <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase", marginBottom: 12 }}>
+            Card Gallery
+          </div>
+          <div className="flex gap-3 overflow-x-auto no-scrollbar" style={{ paddingBottom: 4 }}>
+            {cardImages.map(({ src, n }) => (
+              <div
+                key={src}
+                className="flex-shrink-0"
+                style={{ width: 150, aspectRatio: "5 / 7", borderRadius: 8, overflow: "hidden", border: "1px solid #EDEAE0", background: "#F1EFE9" }}
+              >
+                <img
+                  src={src}
+                  alt={`${setName} card ${n}`}
+                  width={400}
+                  height={560}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* Set Summary */}
       {aeoSummary && (
         <section>
@@ -1291,7 +1323,7 @@ export function SetDetailClient({
   subjectLabel: subjectLabelProp, teamLabel: teamLabelProp,
   hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds,
   boxConfig, packOdds, entries, hasTeamData, breakSheetPlayers, parallelsList, autographSubsetNames, featuredArticle,
-  aeoSummary, faqs,
+  aeoSummary, faqs, cardImages,
 }: SetDetailClientProps) {
   const subjectLabel = subjectLabelProp ?? "Athletes";
   const teamLabel = teamLabelProp ?? "Team";
@@ -1422,7 +1454,7 @@ export function SetDetailClient({
                 totalParallels={totalParallels} athleteCount={athleteCount} releaseDate={releaseDate}
                 hasChecklist={hasChecklist} hasNumberedParallels={hasNumberedParallels}
                 hasBoxConfig={hasBoxConfig} hasPackOdds={hasPackOdds} subjectLabel={subjectLabel}
-                featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} />
+                featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} cardImages={cardImages} />
             )}
             {tab === "Box Config" && <BoxConfigContent boxConfig={boxConfig} />}
             {tab === "Base Odds" && <PackOddsContent formats={oddsFormats} />}
@@ -1527,7 +1559,7 @@ export function SetDetailClient({
               totalParallels={totalParallels} athleteCount={athleteCount} releaseDate={releaseDate}
               hasChecklist={hasChecklist} hasNumberedParallels={hasNumberedParallels}
               hasBoxConfig={hasBoxConfig} hasPackOdds={hasPackOdds} subjectLabel={subjectLabel}
-              featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} />
+              featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} cardImages={cardImages} />
           )}
           {tab === "Box Config" && <BoxConfigContent boxConfig={boxConfig} />}
           {tab === "Base Odds" && <PackOddsContent formats={oddsFormats} />}
