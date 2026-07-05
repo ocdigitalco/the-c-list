@@ -13,6 +13,21 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "205-chrome-marvel-comics-base-parallels",
+    title: "Marvel Chrome Base-Version Serials Now Feed Stats & Break Calculator",
+    date: "2026-07-05T00:00:00Z",
+    summary:
+      "Marvel Chrome: base-version serials moved from subset_tag to base parallel rows; feeds print-run stats and break calculator",
+    description: `## Marvel Chrome: Base-Version Serials Now Count
+
+The serialized base versions of eleven 2026 Topps Chrome Marvel Comics subsets were previously stored as display tags, so their print runs and 1/1s were invisible to the stat totals and the Break Hit Calculator.
+
+- **Base-version serials** for Clawed Chrome Variations (/20), the Marvel Facsimile Autograph family (/50), Topps Patrimony Refractors (/25), and the five 1/1 subsets (The One And Only Superfractors, Stan Lee & Steve Ditko Superfractors, Comic Excerpts – Spider-Man, Artist Originals, Sketch Cards) are now proper numbered parallel rows.
+- **Print-run and 1/1 counts** now include these base versions, and the **Break Hit Calculator** now models them with their correct pull odds and format exclusivity.`,
+    tags: ["odds"],
+    setId: 860,
+  },
+  {
     id: "204-chrome-marvel-comics-2026-added",
     title: "2026 Topps Chrome Marvel Comics Added",
     date: "2026-07-01T00:00:00Z",
