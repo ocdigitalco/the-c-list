@@ -13,6 +13,24 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "204-chrome-marvel-comics-2026-added",
+    title: "2026 Topps Chrome Marvel Comics Added",
+    date: "2026-07-01T00:00:00Z",
+    summary:
+      "Added 2026 Topps Chrome Marvel Comics (870 cards, 31 subsets, three-format Hobby/Value/Mega pack odds + 150 parallels with format exclusivity, card gallery).",
+    description: `## 2026 Topps Chrome Marvel Comics
+
+The complete checklist is now live: **870 cards across 31 subsets**, with full pack odds and numbered parallels.
+
+- **Base Set (200)** and **Clawed Chrome Variations (200)**, plus themed subsets including Fanfare, Marvel Icons, Meanwhile…, One World Under Doom, Future Stars, The Beyond, Astonishing and more.
+- **Autographs:** Authentic Marvel Comic Book Artist Autographs, Cordially Invited Autographs, Varied Visage: AoA Autographs, the Stan Lee & Steve Ditko Superfractors, and the Marvel Facsimile Autograph family (single/dual/triple/quad).
+- **1/1s:** Comic Excerpts – Spider-Man, The One And Only Superfractors, 124 Sketch Cards and 2 Artist Originals.
+- **Three-format pack odds** (Hobby / Value / Mega) plus **150 numbered parallels** with format exclusivity (Storm's Lightning = Hobby, RayWave = Value, X-Fractor = Mega).
+- **Card gallery images** are included on the set page.`,
+    tags: ["checklist", "box-config", "odds"],
+    setId: 860,
+  },
+  {
     id: "203-resurgence-football-2025-added",
     title: "2025 Topps Resurgence Football Added",
     date: "2026-06-29T00:00:00Z",
