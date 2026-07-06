@@ -10,7 +10,8 @@ import { getMLBHeadshotUrl } from "@/lib/mlb-headshot";
 import { trackEvent } from "@/lib/trackEvent";
 import { trackEvent as trackGaEvent } from "@/lib/analytics";
 import { normalizeOddsObj, denomToDisplay } from "@/lib/parseOdds";
-import { BreakSheetModal, type BreakSheetPlayer } from "@/components/BreakSheetModal";
+import { type BreakSheetPlayer } from "@/components/BreakSheetModal";
+import { BreakSheetLink } from "@/components/BreakSheetLink";
 import { getTeamLogo } from "@/lib/utils/teamLogo";
 
 // ─── Types & Constants ─────────────────────────────────────────────────────────
@@ -636,9 +637,9 @@ function MobileAthletesDrawer({ open, onClose, entries, hasTeamData, setId, setS
 
 // ─── Coverage Card ──────────────────────────────────────────────────────────────
 
-function CoverageCard({ hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds, breakSheetPlayers, setName, sport, league }: {
+function CoverageCard({ hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds, breakSheetPlayers, setName, sport, league, setSlug }: {
   hasChecklist: boolean; hasNumberedParallels: boolean; hasBoxConfig: boolean; hasPackOdds: boolean;
-  breakSheetPlayers: BreakSheetPlayer[]; setName: string; sport: string; league: string | null;
+  breakSheetPlayers: BreakSheetPlayer[]; setName: string; sport: string; league: string | null; setSlug: string;
 }) {
   const rows = [
     { label: "Athlete Checklist", ok: hasChecklist },
@@ -656,16 +657,16 @@ function CoverageCard({ hasChecklist, hasNumberedParallels, hasBoxConfig, hasPac
         </span>
         <div className="v2-break-sheet-pill">
           <style>{`
-            .v2-break-sheet-pill > button {
+            .v2-break-sheet-pill > button, .v2-break-sheet-pill > a {
               background: #0F0F0E !important; color: #FAFAF7 !important;
               font-size: 10px !important; font-weight: 600 !important;
               padding: 5px 10px !important; border-radius: 4px !important;
               border: none !important; cursor: pointer !important;
               line-height: 1.2 !important;
             }
-            .v2-break-sheet-pill > button:hover { background: #1A1A19 !important; }
+            .v2-break-sheet-pill > button:hover, .v2-break-sheet-pill > a:hover { background: #1A1A19 !important; }
           `}</style>
-          <BreakSheetModal setName={setName} sport={sport} league={league} players={breakSheetPlayers} />
+          <BreakSheetLink slug={setSlug} setName={setName} sport={sport} league={league} players={breakSheetPlayers} />
         </div>
       </div>
       <div className="space-y-2">
@@ -1500,6 +1501,7 @@ export function SetDetailClient({
                 hasChecklist={hasChecklist} hasNumberedParallels={hasNumberedParallels}
                 hasBoxConfig={hasBoxConfig} hasPackOdds={hasPackOdds}
                 breakSheetPlayers={breakSheetPlayers} setName={setName} sport={sport} league={league}
+                setSlug={setSlug}
               />
             </div>
           </div>
@@ -1567,7 +1569,7 @@ export function SetDetailClient({
             Leaderboard
           </button>
           <div className="v2-break-sheet-pill">
-            <BreakSheetModal setName={setName} sport={sport} league={league} players={breakSheetPlayers} />
+            <BreakSheetLink slug={setSlug} setName={setName} sport={sport} league={league} players={breakSheetPlayers} />
           </div>
         </div>
 

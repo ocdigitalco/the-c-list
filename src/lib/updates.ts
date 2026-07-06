@@ -13,6 +13,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "206-break-sheet-builder-page",
+    title: "Break Sheet Builder: Dedicated Page",
+    date: "2026-07-05T12:00:00Z",
+    summary:
+      "Break Sheet Builder: dedicated page at /break-sheet-builder replacing modal; shareable configs, GA4 instrumented",
+    description: `## Break Sheet Builder Gets Its Own Page
+
+The Break Sheet Builder graduated from a cramped modal into a full-width workspace at **/break-sheet-builder**.
+
+- **Spreadsheet workspace** — every athlete (or team) loads as an editable row with Whatnot's full column set. Edit titles and descriptions, set prices inline, drag-to-fill down a column, bulk-price selected rows, sort, and remove rows before exporting.
+- **Everything the modal did, and more** — break description, listing type, Short/Long label format, custom tag labels, giveaways and buyers-giveaway, plus new roster (Athletes/Teams) and category filters, a Cases/Boxes break-format readout, and shipping/offerable controls.
+- **Shareable setups** — your whole configuration is encoded compactly in the URL, so a built sheet is a link you can send. Open it pre-selected from any set page's **Break Sheet** button (\`/break-sheet-builder?set={slug}\`).
+- **Download CSV** exports a Whatnot-ready bulk-listing file, exactly as before.`,
+    tags: ["feature"],
+  },
+  {
     id: "205-chrome-marvel-comics-base-parallels",
     title: "Marvel Chrome Base-Version Serials Now Feed Stats & Break Calculator",
     date: "2026-07-05T00:00:00Z",
