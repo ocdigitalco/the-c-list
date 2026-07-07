@@ -50,7 +50,6 @@ interface SheetProps {
   sortKey: string;
   sortDir: SortDir;
   onSort: (key: string) => void;
-  mode: "athletes" | "teams";
 }
 
 interface FillState {
@@ -164,29 +163,6 @@ const Row = memo(
             </span>
           </div>
         </td>
-        <td className="col-player">
-          {give ? (
-            <div className="player">
-              <div className="give-ic">
-                <Gift />
-              </div>
-              <div>
-                <div className="pn">{row.meta.name}</div>
-              </div>
-            </div>
-          ) : (
-            <div className="player">
-              <div className="avatar">{row.meta.initials}</div>
-              <div style={{ minWidth: 0 }}>
-                <div className="pn">
-                  {row.meta.name}
-                  {row.meta.isRC ? <span className="rc">RC</span> : null}
-                </div>
-                {row.meta.team ? <div className="pt">{row.meta.team}</div> : null}
-              </div>
-            </div>
-          )}
-        </td>
         {columns.map((col, c) => {
           const val = row.cells[col.key] ?? "";
           const isActive = isActiveRow && activeC === c;
@@ -287,7 +263,7 @@ const Row = memo(
 );
 
 export function Sheet(props: SheetProps) {
-  const { rows, columns, onEdit, onFill, selected, toggleSel, selectAll, allSelected, sortKey, sortDir, onSort, mode } =
+  const { rows, columns, onEdit, onFill, selected, toggleSel, selectAll, allSelected, sortKey, sortDir, onSort } =
     props;
   const [active, setActive] = useState<{ r: number; c: number } | null>(null);
   const [editing, setEditing] = useState(false);
@@ -453,12 +429,6 @@ export function Sheet(props: SheetProps) {
                 {allSelected ? <Check /> : null}
               </div>
             </th>
-            <th className="col-player">
-              <span className="sortable" onClick={() => onSort("name")}>
-                {mode === "teams" ? "Team" : "Player"}
-                {sortKey === "name" ? <Caret dir={sortDir} /> : null}
-              </span>
-            </th>
             {columns.map((col) => (
               <th key={col.key} style={{ minWidth: col.width, width: col.width }}>
                 {col.sortable ? (
@@ -510,18 +480,6 @@ function Check() {
         stroke="currentColor"
         strokeWidth={2}
         strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-function Gift() {
-  return (
-    <svg width={15} height={15} viewBox="0 0 24 24" fill="none">
-      <path
-        d="M20 12v8H4v-8M2 7h20v5H2zM12 22V7M12 7s-1.5-4-4-4a2 2 0 100 4h4zM12 7s1.5-4 4-4a2 2 0 110 4h-4z"
-        stroke="currentColor"
-        strokeWidth={1.7}
         strokeLinejoin="round"
       />
     </svg>

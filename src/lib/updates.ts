@@ -13,6 +13,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "207-break-sheet-builder-refinements",
+    title: "Break Sheet Builder Refinements",
+    date: "2026-07-07T00:00:00Z",
+    summary:
+      "Break Sheet Builder refinements: bulk price apply, description auto-generate + default-visible tags, checklist section replaced by description, table column cleanup/reorder",
+    description: `## Break Sheet Builder Refinements
+
+A round of usability fixes for the Break Sheet Builder:
+
+- **Apply price to all** — a new price box in the top controls selects every spot and prices them in one click (shares the same select-all and price-apply code as the bulk bar).
+- **Description & tags up front** — the break description and tag labels now show by default instead of hiding behind a toggle. The description sits where the checklist selector used to be.
+- **Auto-generate description** — one tap composes a description from your current setup (e.g. \`1 Case! 2026 Topps UFC Freedom 250 — 30 spots · Buy it Now\`), and it stays fully editable afterward.
+- **Cleaner table** — removed the redundant player column that was clipping the first data column, so the grid now reads **Category · Sub Category · Title · …** with no overflow.`,
+    tags: ["feature"],
+  },
+  {
     id: "206-break-sheet-builder-page",
     title: "Break Sheet Builder: Dedicated Page",
     date: "2026-07-05T12:00:00Z",

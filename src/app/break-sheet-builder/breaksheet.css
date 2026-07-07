@@ -918,8 +918,11 @@
   color: var(--faint);
   margin-right: 1px;
 }
-.bsb .row-give .col-player {
+.bsb .row-give .col-num {
   background: var(--green-soft);
+}
+.bsb .row-give .col-num .rownum .num {
+  color: #256b3d;
 }
 .bsb .row-give .player .pn {
   color: #256b3d;
