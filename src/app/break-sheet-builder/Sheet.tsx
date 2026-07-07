@@ -409,8 +409,14 @@ export function Sheet(props: SheetProps) {
       } else if (e.key === "Backspace" || e.key === "Delete") {
         e.preventDefault();
         if (!columns[c].readOnly) onEdit(rows[r].id, columns[c].key, "");
-      } else if (e.key.length === 1 && !e.metaKey && !e.ctrlKey) {
-        beginEdit(r, c, e.key);
+      } else if (e.key.length === 1 && !e.metaKey && !e.ctrlKey && !e.altKey) {
+        // Seed the edit with this character. preventDefault() so the browser
+        // doesn't ALSO insert it into the freshly-autofocused input, which
+        // would double the first keystroke ("1" → "11").
+        if (!columns[c].readOnly) {
+          e.preventDefault();
+          beginEdit(r, c, e.key);
+        }
       }
     },
     [active, editing, nRows, move, beginEdit, onEdit, rows, columns]

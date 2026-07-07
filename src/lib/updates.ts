@@ -13,6 +13,18 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "208-break-sheet-builder-price-input-fix",
+    title: "Break Sheet Builder: Fixed Price Input Doubling",
+    date: "2026-07-07T12:00:00Z",
+    summary: "Break Sheet Builder: fixed price input doubling on keystroke",
+    description: `## Break Sheet Builder: Price Input Fix
+
+Typing the first digit into a spot's price (or any editable cell) no longer doubles it — entering \`1\` now correctly shows \`1\`, not \`11\`.
+
+The grid's "start typing to edit a cell" shortcut seeded the new cell editor with the first character but didn't stop the browser from also inserting that same keystroke into the freshly-focused input, doubling it. The keystroke is now consumed once. Bulk "apply price to all" and decimal/clear entry are unaffected.`,
+    tags: ["feature"],
+  },
+  {
     id: "207-break-sheet-builder-refinements",
     title: "Break Sheet Builder Refinements",
     date: "2026-07-07T00:00:00Z",
