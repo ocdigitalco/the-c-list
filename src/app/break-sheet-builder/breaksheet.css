@@ -188,6 +188,11 @@
   gap: 14px 16px;
   padding: 14px 24px;
 }
+/* Consolidated second row (Shipping · Offers · Giveaways · Labels · Tag Labels) */
+.bsb .ribbon.row2 {
+  align-items: flex-start;
+  border-top: 1px solid var(--line);
+}
 .bsb .rb-field {
   display: flex;
   flex-direction: column;
@@ -494,8 +499,9 @@
 
 .bsb .taglab {
   display: grid;
-  grid-template-columns: repeat(4, minmax(72px, 1fr));
-  gap: 10px;
+  /* wrap 4 → 2 → 1 as space shrinks so the consolidated row never overflows */
+  grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
+  gap: 8px 10px;
 }
 .bsb .taglab .cap {
   font-size: 11px;

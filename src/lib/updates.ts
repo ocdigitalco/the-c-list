@@ -13,6 +13,24 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "209-break-sheet-builder-top-section-reorder",
+    title: "Break Sheet Builder: Top-Section Reorder",
+    date: "2026-07-07T18:00:00Z",
+    summary:
+      "Break Sheet Builder: top-section reorder — Search first, longer description, Shipping/Offers/Giveaways/Tag Labels consolidated row after bulk price apply",
+    description: `## Break Sheet Builder: Top-Section Reorder
+
+Tidied the controls above the spots table for a more natural top-to-bottom flow:
+
+- **Search** now leads the section.
+- **Break Description** sits second on its own full-width row with a much roomier input (Auto-generate still one tap away).
+- The remaining controls keep their order, ending with **Apply price to all**.
+- Immediately below, a single consolidated row groups **Shipping · Offers · Giveaways · Labels · Tag Labels**, which wraps cleanly on narrow screens.
+
+Layout only — auto-generate, default-visible tag labels, bulk price apply, and inline editing all behave exactly as before.`,
+    tags: ["feature"],
+  },
+  {
     id: "208-break-sheet-builder-price-input-fix",
     title: "Break Sheet Builder: Fixed Price Input Doubling",
     date: "2026-07-07T12:00:00Z",

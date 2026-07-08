@@ -499,8 +499,23 @@ export function BreakSheetBuilderClient({ setOptions, data, initialConfig }: Pro
       {data && (
         <div className="ribbon-wrap">
           <div className="ribbon">
-            {/* Description takes the old Checklist slot (set switching now lives on set pages / the empty state) */}
-            <Field label="Break Description" grow>
+            {/* 1. Search first */}
+            <Field label="Search" grow>
+              <div className="search sm">
+                <span className="ic">
+                  <SearchIco />
+                </span>
+                <input
+                  className="inp inp-sm"
+                  placeholder={config.mode === "teams" ? "Search teams…" : "Search athletes…"}
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+              </div>
+            </Field>
+
+            {/* 2. Break Description — full-width row, roomier input */}
+            <Field label="Break Description" style={{ flex: "1 1 100%", minWidth: 0 }}>
               <div className="rb-row" style={{ flexWrap: "nowrap" }}>
                 <input
                   className="inp inp-sm"
@@ -519,8 +534,8 @@ export function BreakSheetBuilderClient({ setOptions, data, initialConfig }: Pro
                 </button>
               </div>
             </Field>
-            <div className="rb-div" />
 
+            {/* Remaining controls in their current relative order */}
             <Field label="Roster">
               <Seg
                 value={config.mode === "teams" ? "Teams" : "Athletes"}
@@ -561,20 +576,6 @@ export function BreakSheetBuilderClient({ setOptions, data, initialConfig }: Pro
             </div>
             <div className="rb-div" />
 
-            <Field label="Search" grow>
-              <div className="search sm">
-                <span className="ic">
-                  <SearchIco />
-                </span>
-                <input
-                  className="inp inp-sm"
-                  placeholder={config.mode === "teams" ? "Search teams…" : "Search athletes…"}
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                />
-              </div>
-            </Field>
-
             {config.mode === "athletes" && (
               <Field label="Filter">
                 <div className="rb-row">
@@ -608,42 +609,6 @@ export function BreakSheetBuilderClient({ setOptions, data, initialConfig }: Pro
                 options={["Buy it Now", "Auction"]}
                 onChange={(v) => patch({ listingType: v as BreakConfig["listingType"] })}
               />
-            </Field>
-            <Field label="Labels">
-              <Seg
-                value={config.labelFormat}
-                options={["Short", "Long"]}
-                onChange={(v) => patch({ labelFormat: v as BreakConfig["labelFormat"] })}
-              />
-            </Field>
-            <Field label="Shipping">
-              <select
-                className="inp inp-sm"
-                style={{ minWidth: 104 }}
-                value={config.shippingProfile}
-                onChange={(e) => patch({ shippingProfile: e.target.value })}
-              >
-                {SHIPPING_PROFILES.map((o) => (
-                  <option key={o} value={o}>
-                    {o}
-                  </option>
-                ))}
-              </select>
-            </Field>
-            <Field label="Offers">
-              <label
-                className={"check " + (config.offerable ? "on" : "")}
-                onClick={() => patch({ offerable: !config.offerable })}
-                style={{ height: 38, alignItems: "center" }}
-              >
-                <span className="box">{config.offerable ? <Tick /> : null}</span>
-                Offerable
-              </label>
-            </Field>
-            <div className="rb-div" />
-
-            <Field label="Giveaways">
-              <Stepper value={config.giveaways} min={0} onChange={(v) => patch({ giveaways: v })} />
             </Field>
             <Field label="Buyers GA">
               <div
@@ -680,10 +645,43 @@ export function BreakSheetBuilderClient({ setOptions, data, initialConfig }: Pro
             </Field>
           </div>
 
-          {/* Tag labels are always visible (no toggle) */}
-          <div className="ribbon-drawer">
-            <div className="dr-col">
-              <span className="rb-lab">Tag Labels</span>
+          {/* Consolidated row after Apply Price to All: Shipping · Offers · Giveaways · Labels · Tag Labels */}
+          <div className="ribbon row2">
+            <Field label="Shipping">
+              <select
+                className="inp inp-sm"
+                style={{ minWidth: 104 }}
+                value={config.shippingProfile}
+                onChange={(e) => patch({ shippingProfile: e.target.value })}
+              >
+                {SHIPPING_PROFILES.map((o) => (
+                  <option key={o} value={o}>
+                    {o}
+                  </option>
+                ))}
+              </select>
+            </Field>
+            <Field label="Offers">
+              <label
+                className={"check " + (config.offerable ? "on" : "")}
+                onClick={() => patch({ offerable: !config.offerable })}
+                style={{ height: 38, alignItems: "center" }}
+              >
+                <span className="box">{config.offerable ? <Tick /> : null}</span>
+                Offerable
+              </label>
+            </Field>
+            <Field label="Giveaways">
+              <Stepper value={config.giveaways} min={0} onChange={(v) => patch({ giveaways: v })} />
+            </Field>
+            <Field label="Labels">
+              <Seg
+                value={config.labelFormat}
+                options={["Short", "Long"]}
+                onChange={(v) => patch({ labelFormat: v as BreakConfig["labelFormat"] })}
+              />
+            </Field>
+            <Field label="Tag Labels" style={{ flex: "1 1 300px", minWidth: 0 }}>
               <div className="taglab">
                 {TAG_FIELDS.map(([cap, key]) => (
                   <div key={key} className="cell-tag">
@@ -692,7 +690,7 @@ export function BreakSheetBuilderClient({ setOptions, data, initialConfig }: Pro
                   </div>
                 ))}
               </div>
-            </div>
+            </Field>
           </div>
         </div>
       )}
@@ -795,9 +793,19 @@ export function BreakSheetBuilderClient({ setOptions, data, initialConfig }: Pro
 }
 
 // ─── Small presentational helpers ───────────────────────────────────────────────
-function Field({ label, children, grow }: { label: string; children: React.ReactNode; grow?: boolean }) {
+function Field({
+  label,
+  children,
+  grow,
+  style,
+}: {
+  label: string;
+  children: React.ReactNode;
+  grow?: boolean;
+  style?: React.CSSProperties;
+}) {
   return (
-    <div className={"rb-field" + (grow ? " grow" : "")}>
+    <div className={"rb-field" + (grow ? " grow" : "")} style={style}>
       <span className="rb-lab">{label}</span>
       {children}
     </div>
