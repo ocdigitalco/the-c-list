@@ -13,6 +13,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "214-finest-baseball-2026-numbered-parallels",
+    title: "2026 Topps Finest Baseball: Numbered Parallels Added",
+    date: "2026-07-08T01:00:00Z",
+    summary:
+      "2026 Topps Finest Baseball: attached 221 numbered parallels across 26 subsets (tier-aware base availability; pack odds still deferred).",
+    description: `## 2026 Topps Finest Baseball — Numbered Parallels
+
+Attached **221 serial-numbered parallels** across **26 subsets**.
+
+- **Tier-aware base availability** — the four base tiers carry different parallels: Molten Mercury /11 on Common & Uncommon only, Purple Geometric /75 on Common only, and Super Rare limited to Black /10, Red /5, and the Superfractor 1/1.
+- Colors run from Yellow /275 down to the 1/1 Superfractor, including Geometric, Mini Diamond, and X-Fractor variants where they exist per subset.
+- Unnumbered parallels and **pack odds are still deferred** to a later pass.`,
+    tags: ["odds"],
+    setId: 852,
+  },
+  {
     id: "213-break-sheet-builder-row2-redistribution",
     title: "Break Sheet Builder: Row 2 Redistribution",
     date: "2026-07-08T00:30:00Z",
