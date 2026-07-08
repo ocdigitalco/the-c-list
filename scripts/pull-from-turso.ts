@@ -43,7 +43,9 @@ const TABLES = [
   "player_appearances",    // depends on players, insert_sets
   "appearance_co_players", // depends on player_appearances, players
   "topps_sets",            // standalone
-  "player_events",         // depends on players
+  "player_events",         // depends on players (production-owned)
+  "break_sheets",          // production-owned: saved break sheets
+  "break_sheet_prices",    // production-owned: per-spot prices (depends on break_sheets)
 ];
 
 const BATCH_SIZE = 1000;

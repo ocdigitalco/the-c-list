@@ -13,6 +13,21 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "212-break-sheet-builder-cost-roi-saved-sheets",
+    title: "Break Sheet Builder: Cost/ROI & Saved Sheets",
+    date: "2026-07-07T23:59:00Z",
+    summary:
+      "Break Sheet Builder: cost/ROI view; sheets saved on CSV export to production-owned tables; admin /sheets analytics page",
+    description: `## Break Sheet Builder: Cost / ROI & Saved Sheets
+
+- **Cost / ROI** — a new **Cost** input (what you paid for the cases/boxes) sits by the Break controls, and the summary now shows **Cost · Total · Profit** (profit turns red when negative, green when positive).
+- **Saved on export** — clicking **Download CSV** now also saves the sheet and its per-spot prices (anonymously) so we can build price recommendations later. Saving is fire-and-forget: your download always succeeds even if the save fails.
+- **Admin** — a new internal \`/sheets\` page lists saved sheets (date, set, sport, unit/quantity, cost, total, profit) with a per-spot price breakdown. It's gated by an admin secret and not linked anywhere public.
+
+No accounts and no personal data — saved sheets are anonymous.`,
+    tags: ["feature"],
+  },
+  {
     id: "211-break-sheet-builder-category-rules-two-rows",
     title: "Break Sheet Builder: Category Rules & Two-Row Controls",
     date: "2026-07-07T23:30:00Z",

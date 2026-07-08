@@ -144,7 +144,9 @@ async function createSchema() {
 
 // Tables written by production at runtime (Turso is the source of truth).
 // Never cleared, inserted, or verified here — pull-from-turso.ts syncs them down.
-const PROD_OWNED_TABLES = ["player_events"];
+// break_sheets / break_sheet_prices hold user-generated break sheets saved on
+// CSV export; they MUST stay here so content migrations never clobber them.
+const PROD_OWNED_TABLES = ["player_events", "break_sheets", "break_sheet_prices"];
 
 async function migrateData() {
   // Disable foreign key checks for bulk migration

@@ -115,6 +115,7 @@ export function BreakSheetBuilderClient({ setOptions, data, initialConfig }: Pro
   const [sortDir, setSortDir] = useState<SortDir>("asc");
   const [bulkVal, setBulkVal] = useState("");
   const [allPriceVal, setAllPriceVal] = useState("");
+  const [cost, setCost] = useState(""); // what the breaker paid (ephemeral; not in URL)
   const [copied, setCopied] = useState(false);
 
   const sport = data?.sport ?? "";
@@ -140,16 +141,18 @@ export function BreakSheetBuilderClient({ setOptions, data, initialConfig }: Pro
     }
     if (!data) return;
     const t = setTimeout(() => {
+      // Cost is intentionally NOT written to the shareable URL.
       const params = new URLSearchParams({ set: data.slug, ...configToParams(config) });
       window.history.replaceState(null, "", `?${params.toString()}`);
       trackEvent("break_sheet_config", {
         set_slug: data.slug,
         box_type: config.breakUnit,
         quantity: config.breakQty,
+        cost: parseFloat(cost) || 0,
       });
     }, 400);
     return () => clearTimeout(t);
-  }, [config, data]);
+  }, [config, cost, data]);
 
   // ── entities (filtered) ───────────────────────────────────────────────────────
   const entities = useMemo<Entity[]>(() => {
@@ -301,6 +304,12 @@ export function BreakSheetBuilderClient({ setOptions, data, initialConfig }: Pro
   );
   const pricedPct = rowCount ? Math.round((pricedCount / rowCount) * 100) : 0;
 
+  // Cost / Total / Profit. costNum is null when the field is blank; profit is
+  // null (shown as "—") until a cost is entered.
+  const costNum = cost.trim() === "" ? null : parseFloat(cost);
+  const costValid = costNum != null && Number.isFinite(costNum);
+  const profit = costValid ? priceTotal - (costNum as number) : null;
+
   const bi = useMemo(
     () => computeBreakInfo(config.breakUnit, config.breakQty, data?.boxesPerCase ?? null, data?.autosPerBox ?? null),
     [config.breakUnit, config.breakQty, data?.boxesPerCase, data?.autosPerBox]
@@ -392,6 +401,35 @@ export function BreakSheetBuilderClient({ setOptions, data, initialConfig }: Pro
   };
 
   // ── export / share ────────────────────────────────────────────────────────────
+  // Fire-and-forget save of the sheet + per-spot prices. Must never block or
+  // fail the export — errors are logged and swallowed.
+  const saveSheet = () => {
+    if (!data) return;
+    const subjectType = config.mode === "teams" ? "team" : "athlete";
+    const prices = rows
+      .filter((r) => r.kind === "entity")
+      .map((r) => ({ subjectName: r.meta.name, subjectType, price: parseFloat(r.cells.Price) }))
+      .filter((p) => Number.isFinite(p.price));
+    const payload = {
+      setSlug: data.slug,
+      sport: data.sport,
+      breakUnit: config.breakUnit.toLowerCase(), // "cases" | "boxes"
+      quantity: config.breakQty,
+      cost: costValid ? costNum : null,
+      total: priceTotal,
+      profit,
+      config: JSON.stringify({ ...config, mode: config.mode, listingType: config.listingType }),
+      prices,
+    };
+    // keepalive lets the request survive the navigation the download may trigger.
+    fetch("/api/sheets", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+      keepalive: true,
+    }).catch((err) => console.error("break sheet save failed (non-blocking):", err));
+  };
+
   const download = () => {
     if (!data) return;
     const csv = buildCsv(rows.map((r) => r.cells));
@@ -410,6 +448,7 @@ export function BreakSheetBuilderClient({ setOptions, data, initialConfig }: Pro
       box_type: config.breakUnit,
       quantity: rowCount,
     });
+    saveSheet(); // fire-and-forget; download already happened above
   };
   const copyShareLink = async () => {
     if (!data) return;
@@ -552,6 +591,17 @@ export function BreakSheetBuilderClient({ setOptions, data, initialConfig }: Pro
                 </>
               )}
             </div>
+
+            <Field label="Cost">
+              <input
+                className="inp inp-sm"
+                style={{ width: 96 }}
+                inputMode="decimal"
+                placeholder="$ paid"
+                value={cost}
+                onChange={(e) => setCost(e.target.value)}
+              />
+            </Field>
 
             <Field label="Break Description" className="fill">
               <div className="rb-row" style={{ flexWrap: "nowrap" }}>
@@ -705,9 +755,21 @@ export function BreakSheetBuilderClient({ setOptions, data, initialConfig }: Pro
             </div>
             <span>{pricedPct}% priced</span>
           </div>
-          <div className="strip-total">
-            <span className="lab">Total</span>
-            <span className="amt">{fmtUSD(priceTotal)}</span>
+          <div className="strip-money">
+            <div className="sm-item">
+              <span className="lab">Cost</span>
+              <span className="amt neutral">{costValid ? fmtUSD(costNum as number) : "—"}</span>
+            </div>
+            <div className="sm-item">
+              <span className="lab">Total</span>
+              <span className="amt pos">{fmtUSD(priceTotal)}</span>
+            </div>
+            <div className="sm-item">
+              <span className="lab">Profit</span>
+              <span className={"amt " + (profit == null ? "neutral" : profit >= 0 ? "pos" : "neg")}>
+                {profit == null ? "—" : fmtUSD(profit)}
+              </span>
+            </div>
           </div>
         </div>
       )}

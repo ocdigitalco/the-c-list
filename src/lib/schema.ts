@@ -1,4 +1,4 @@
-import { sqliteTable, text, integer, uniqueIndex } from "drizzle-orm/sqlite-core";
+import { sqliteTable, text, integer, real, uniqueIndex } from "drizzle-orm/sqlite-core";
 import { relations } from "drizzle-orm";
 
 export const sets = sqliteTable("sets", {
@@ -70,6 +70,38 @@ export const playerEvents = sqliteTable("player_events", {
   playerId: integer("player_id").notNull().references(() => players.id),
   eventType: text("event_type", { enum: ["search", "view"] }).notNull(),
   createdAt: integer("created_at").notNull(), // Unix ms timestamp
+});
+
+// Production-owned. A saved break sheet, written at CSV-export time. Anonymous
+// (no accounts, no PII — do not add IP/fingerprint fields). `config` holds the
+// remaining break configuration as JSON; the headline cost/total/profit and the
+// unit+quantity are first-class columns so ROI and per-case normalization are
+// queryable without parsing JSON.
+export const breakSheets = sqliteTable("break_sheets", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  createdAt: integer("created_at").notNull(), // Unix ms timestamp
+  setSlug: text("set_slug").notNull(),
+  sport: text("sport").notNull(),
+  breakUnit: text("break_unit", { enum: ["cases", "boxes"] }).notNull(),
+  quantity: integer("quantity").notNull(),
+  cost: real("cost"), // what the breaker paid; null when not entered
+  total: real("total").notNull(), // sum of per-spot prices at export time
+  profit: real("profit"), // total - cost; null when cost is unknown
+  config: text("config").notNull(), // JSON: the rest of the break config
+});
+
+// Production-owned. Per-spot prices for a saved sheet — one row per athlete/team
+// slot. This is the FOUNDATION for a future pricing advisor (e.g. "list Judge at
+// ~$500"): storing prices per subject, together with the parent sheet's unit +
+// quantity, lets per-case list prices be normalized and aggregated later. No PII.
+export const breakSheetPrices = sqliteTable("break_sheet_prices", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  sheetId: integer("sheet_id")
+    .notNull()
+    .references(() => breakSheets.id),
+  subjectName: text("subject_name").notNull(),
+  subjectType: text("subject_type", { enum: ["athlete", "team"] }).notNull(),
+  price: real("price").notNull(),
 });
 
 export const toppsSets = sqliteTable("topps_sets", {
