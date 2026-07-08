@@ -106,21 +106,24 @@ export const DEFAULT_CONFIG: BreakConfig = {
   tagLabels: DEFAULT_TAG_LABELS,
 };
 
-const SPORT_CATEGORY: Record<string, string> = {
-  Baseball: "MLB Breaks",
-  Basketball: "NBA Breaks",
-  Football: "NFL Breaks",
+/** Whatnot Category is always this literal string for card breaks. */
+export const CATEGORY = "Sports Cards";
+
+/**
+ * Sub Category derives from the set's sport. Four mappings are confirmed:
+ * Baseball / Football / Soccer → "{Sport} Breaks", and MMA → "UFC Breaks".
+ * Any other sport gets a PROVISIONAL "{Sport} Breaks" — see subCategoryFor's
+ * caller for the flagged list awaiting confirmation. Never hardcode per-set.
+ */
+const SUBCATEGORY_BY_SPORT: Record<string, string> = {
+  Baseball: "Baseball Breaks",
+  Football: "Football Breaks",
   Soccer: "Soccer Breaks",
-  Hockey: "Hockey Breaks",
   MMA: "UFC Breaks",
-  Wrestling: "WWE Breaks",
-  Racing: "F1 Breaks",
-  Olympics: "Olympics Breaks",
-  Golf: "Golf Breaks",
 };
 
-export function categoryFor(sport: string): string {
-  return SPORT_CATEGORY[sport] ?? `${sport} Breaks`;
+export function subCategoryFor(sport: string): string {
+  return SUBCATEGORY_BY_SPORT[sport] ?? `${sport} Breaks`;
 }
 
 /** Whatnot bulk-listing column order (mirrors the modal's CSV_HEADER). */

@@ -13,6 +13,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "211-break-sheet-builder-category-rules-two-rows",
+    title: "Break Sheet Builder: Category Rules & Two-Row Controls",
+    date: "2026-07-07T23:30:00Z",
+    summary:
+      "Break Sheet Builder: category/sub-category derivation rules; top controls consolidated to two full-width rows; tag label sizing",
+    description: `## Break Sheet Builder: Category Rules & Two-Row Controls
+
+- **CSV Category** is now always \`Sports Cards\`.
+- **CSV Sub Category** derives from the set's sport: Baseball / Football / Soccer → \`{Sport} Breaks\`, and UFC/MMA → \`UFC Breaks\`. Other sports get a provisional \`{Sport} Breaks\`.
+- **Controls** are consolidated into two full-width rows — Row 1 (Search · Roster · Break · Description · Listing · Buyers GA · Apply price to all) and Row 2 (Filter · Shipping · Offers · Giveaways · Labels · Tag Labels) — so the toolbar uses the full width with no dead space.
+- **Tag Labels** inputs are sized down to comfortably hold a short tag (~10–12 characters).
+
+Layout and derivation only — no behavior changes.`,
+    tags: ["feature"],
+  },
+  {
     id: "210-break-sheet-builder-width-corrections",
     title: "Break Sheet Builder: Width Corrections",
     date: "2026-07-07T21:00:00Z",

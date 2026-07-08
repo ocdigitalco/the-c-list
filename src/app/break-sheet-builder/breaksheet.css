@@ -203,16 +203,15 @@
   flex: 1 1 220px;
   min-width: 170px;
 }
-/* compact ~20%-of-container fields (Search, Break Description) */
-.bsb .rb-field.w20 {
-  flex: 0 1 20%;
-  min-width: 190px;
+/* flexible fields that grow to fill the row (Search, Break Description, Filter) */
+.bsb .rb-field.fill {
+  flex: 1 1 180px;
+  min-width: 150px;
 }
-/* on narrow viewports these expand to full width and stack */
+/* on narrow viewports these take a full row and stack */
 @media (max-width: 700px) {
-  .bsb .rb-field.w20 {
+  .bsb .rb-field.fill {
     flex-basis: 100%;
-    min-width: 0;
   }
 }
 .bsb .rb-lab {
@@ -511,8 +510,8 @@
 
 .bsb .taglab {
   display: grid;
-  /* restored to ~pre-reorder sizing, a touch narrower (64px vs 72px cols) */
-  grid-template-columns: repeat(4, minmax(64px, 1fr));
+  /* the four inputs hold short tags — cap each at ~10–12 chars, no wider */
+  grid-template-columns: repeat(4, minmax(0, 92px));
   gap: 8px 10px;
 }
 /* on very narrow screens drop to 2 columns so the row never overflows */
