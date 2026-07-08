@@ -499,8 +499,8 @@ export function BreakSheetBuilderClient({ setOptions, data, initialConfig }: Pro
       {data && (
         <div className="ribbon-wrap">
           <div className="ribbon">
-            {/* 1. Search first */}
-            <Field label="Search" grow>
+            {/* 1. Search first (compact ~20%) */}
+            <Field label="Search" className="w20">
               <div className="search sm">
                 <span className="ic">
                   <SearchIco />
@@ -514,8 +514,8 @@ export function BreakSheetBuilderClient({ setOptions, data, initialConfig }: Pro
               </div>
             </Field>
 
-            {/* 2. Break Description — full-width row, roomier input */}
-            <Field label="Break Description" style={{ flex: "1 1 100%", minWidth: 0 }}>
+            {/* 2. Break Description — compact ~20% */}
+            <Field label="Break Description" className="w20">
               <div className="rb-row" style={{ flexWrap: "nowrap" }}>
                 <input
                   className="inp inp-sm"
@@ -681,7 +681,7 @@ export function BreakSheetBuilderClient({ setOptions, data, initialConfig }: Pro
                 onChange={(v) => patch({ labelFormat: v as BreakConfig["labelFormat"] })}
               />
             </Field>
-            <Field label="Tag Labels" style={{ flex: "1 1 300px", minWidth: 0 }}>
+            <Field label="Tag Labels" style={{ flex: "0 1 auto", minWidth: 0 }}>
               <div className="taglab">
                 {TAG_FIELDS.map(([cap, key]) => (
                   <div key={key} className="cell-tag">
@@ -798,14 +798,16 @@ function Field({
   children,
   grow,
   style,
+  className,
 }: {
   label: string;
   children: React.ReactNode;
   grow?: boolean;
   style?: React.CSSProperties;
+  className?: string;
 }) {
   return (
-    <div className={"rb-field" + (grow ? " grow" : "")} style={style}>
+    <div className={"rb-field" + (grow ? " grow" : "") + (className ? " " + className : "")} style={style}>
       <span className="rb-lab">{label}</span>
       {children}
     </div>

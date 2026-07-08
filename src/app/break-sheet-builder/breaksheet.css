@@ -203,6 +203,18 @@
   flex: 1 1 220px;
   min-width: 170px;
 }
+/* compact ~20%-of-container fields (Search, Break Description) */
+.bsb .rb-field.w20 {
+  flex: 0 1 20%;
+  min-width: 190px;
+}
+/* on narrow viewports these expand to full width and stack */
+@media (max-width: 700px) {
+  .bsb .rb-field.w20 {
+    flex-basis: 100%;
+    min-width: 0;
+  }
+}
 .bsb .rb-lab {
   font-size: 10.5px;
   font-weight: 700;
@@ -499,9 +511,15 @@
 
 .bsb .taglab {
   display: grid;
-  /* wrap 4 → 2 → 1 as space shrinks so the consolidated row never overflows */
-  grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
+  /* restored to ~pre-reorder sizing, a touch narrower (64px vs 72px cols) */
+  grid-template-columns: repeat(4, minmax(64px, 1fr));
   gap: 8px 10px;
+}
+/* on very narrow screens drop to 2 columns so the row never overflows */
+@media (max-width: 520px) {
+  .bsb .taglab {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 .bsb .taglab .cap {
   font-size: 11px;

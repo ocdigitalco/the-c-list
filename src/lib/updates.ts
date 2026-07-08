@@ -13,6 +13,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "210-break-sheet-builder-width-corrections",
+    title: "Break Sheet Builder: Width Corrections",
+    date: "2026-07-07T21:00:00Z",
+    summary:
+      "Break Sheet Builder: width corrections — search and description to 20%, tag label inputs restored",
+    description: `## Break Sheet Builder: Width Corrections
+
+Follow-up to the top-section reorder, which had over-stretched a few inputs:
+
+- **Search** and **Break Description** are now compact (~20% of the row on desktop) instead of full-width, and still expand to full width when the controls stack on mobile.
+- **Tag Labels** (the four rename inputs) are back to roughly their pre-reorder width — a touch narrower — and drop to two columns on very small screens.
+
+Widths only — section order, the consolidated row, and all behavior are unchanged.`,
+    tags: ["feature"],
+  },
+  {
     id: "209-break-sheet-builder-top-section-reorder",
     title: "Break Sheet Builder: Top-Section Reorder",
     date: "2026-07-07T18:00:00Z",
