@@ -630,14 +630,6 @@ export function BreakSheetBuilderClient({ setOptions, data, initialConfig }: Pro
                 onChange={(v) => patch({ listingType: v as BreakConfig["listingType"] })}
               />
             </Field>
-            <Field label="Buyers GA">
-              <div
-                className={"tgl " + (config.buyersGiveaway ? "on" : "")}
-                onClick={() => patch({ buyersGiveaway: !config.buyersGiveaway })}
-              >
-                <div className="tgl-sw" />
-              </div>
-            </Field>
 
             {/* Apply one price to every spot: force select-all, then price them all */}
             <Field label="Apply price to all">
@@ -668,7 +660,7 @@ export function BreakSheetBuilderClient({ setOptions, data, initialConfig }: Pro
           {/* Row 2 — details */}
           <div className="ribbon row2">
             {config.mode === "athletes" && (
-              <Field label="Filter" className="fill">
+              <Field label="Filter">
                 <div className="rb-row">
                   <div className="pills">
                     {CAT_FILTERS.map((c) => (
@@ -718,6 +710,14 @@ export function BreakSheetBuilderClient({ setOptions, data, initialConfig }: Pro
             </Field>
             <Field label="Giveaways">
               <Stepper value={config.giveaways} min={0} onChange={(v) => patch({ giveaways: v })} />
+            </Field>
+            <Field label="Buyers GA">
+              <div
+                className={"tgl " + (config.buyersGiveaway ? "on" : "")}
+                onClick={() => patch({ buyersGiveaway: !config.buyersGiveaway })}
+              >
+                <div className="tgl-sw" />
+              </div>
             </Field>
             <Field label="Labels">
               <Seg

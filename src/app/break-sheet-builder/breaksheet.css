@@ -188,10 +188,18 @@
   gap: 14px 16px;
   padding: 14px 24px;
 }
-/* Consolidated second row (Shipping · Offers · Giveaways · Labels · Tag Labels) */
+/* Details row (Filter · Shipping · Offers · Giveaways · Buyers GA · Labels ·
+   Tag Labels) — groups distributed evenly across the full width. */
 .bsb .ribbon.row2 {
   align-items: flex-start;
+  justify-content: space-between;
   border-top: 1px solid var(--line);
+}
+/* on mobile the row wraps — pack left so wrapped lines don't spread apart */
+@media (max-width: 700px) {
+  .bsb .ribbon.row2 {
+    justify-content: flex-start;
+  }
 }
 .bsb .rb-field {
   display: flex;
@@ -510,8 +518,8 @@
 
 .bsb .taglab {
   display: grid;
-  /* the four inputs hold short tags — cap each at ~10–12 chars, no wider */
-  grid-template-columns: repeat(4, minmax(0, 92px));
+  /* short tags — kept compact, modestly widened to help fill the details row */
+  grid-template-columns: repeat(4, minmax(0, 104px));
   gap: 8px 10px;
 }
 /* on very narrow screens drop to 2 columns so the row never overflows */

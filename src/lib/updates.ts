@@ -13,6 +13,21 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "213-break-sheet-builder-row2-redistribution",
+    title: "Break Sheet Builder: Row 2 Redistribution",
+    date: "2026-07-08T00:30:00Z",
+    summary:
+      "Break Sheet Builder: Row 2 redistribution, Buyers GA paired with Giveaways",
+    description: `## Break Sheet Builder: Row 2 Redistribution
+
+- **Buyers GA** moved next to **Giveaways** (they're both giveaway controls) — it now lives on the details row instead of the top row.
+- **Row 2** controls are now spread evenly across the full width, closing the large gap that sat between the Filter group and the rest.
+- Closing that move tightens the top row too; Search and Break Description take up the freed space.
+
+Placement and sizing only — every control behaves exactly as before.`,
+    tags: ["feature"],
+  },
+  {
     id: "212-break-sheet-builder-cost-roi-saved-sheets",
     title: "Break Sheet Builder: Cost/ROI & Saved Sheets",
     date: "2026-07-07T23:59:00Z",
