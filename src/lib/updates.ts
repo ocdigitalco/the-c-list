@@ -13,6 +13,23 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "216-star-wars-chrome-galaxy-2026-added",
+    title: "2026 Topps Star Wars Chrome Galaxy Added",
+    date: "2026-07-10T18:00:00Z",
+    summary:
+      "Added 2026 Star Wars Chrome Galaxy (540 cards, 15 subsets, art-card artist tags, actor-autograph characters, card gallery; odds/box config/parallels deferred).",
+    description: `## 2026 Topps Star Wars Chrome Galaxy
+
+The full checklist is live: **540 cards across 15 subsets**.
+
+- **Art cards** (Base + inserts like Duel on Cloud City, Art of Rogue One, Galactic Anthology, Force Energy, and the four-puzzle Original Art Puzzle Cards) list the scene/character as the subject with the illustrator credited on each card.
+- **Actor autographs** — Galaxy, Dual, Triple, and Quad Autographs — feature the signer with the character they played, and multi-signer cards link every co-signer.
+- **218 Sketch Card Artists** are included.
+- **Card gallery** images are on the set page. Pack odds, box configuration, and parallels are deferred to a later pass.`,
+    tags: ["checklist"],
+    setId: 861,
+  },
+  {
     id: "215-motif-basketball-2025-26-box-config",
     title: "2025-26 Topps Motif Basketball: Box Configuration Added",
     date: "2026-07-10T00:00:00Z",
