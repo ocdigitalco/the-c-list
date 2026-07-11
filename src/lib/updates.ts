@@ -13,6 +13,25 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "215-motif-basketball-2025-26-box-config",
+    title: "2025-26 Topps Motif Basketball: Box Configuration Added",
+    date: "2026-07-10T00:00:00Z",
+    summary:
+      "2025-26 Topps Motif Basketball: Hobby box configuration added (8 cards/pack, 1 pack/box, 3 boxes/case, 5 autos guaranteed per box); box configuration coverage complete.",
+    description: `## 2025-26 Topps Motif Basketball — Box Configuration
+
+**Hobby** box configuration is now recorded, replacing the TBA placeholder:
+
+- **8** cards per pack
+- **1** pack per box
+- **3** boxes per case
+- **5** autographs guaranteed per box
+
+Box Configuration coverage is now complete for this set. (First Day Issue box configuration remains TBA.)`,
+    tags: ["box-config"],
+    setId: 851,
+  },
+  {
     id: "214-finest-baseball-2026-numbered-parallels",
     title: "2026 Topps Finest Baseball: Numbered Parallels Added",
     date: "2026-07-08T01:00:00Z",
