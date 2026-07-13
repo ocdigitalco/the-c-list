@@ -6,6 +6,27 @@ export interface CardGalleryImage {
   src: string;
   /** The trailing integer parsed from the filename (used for alt text + sort). */
   n: number;
+  /** Intrinsic pixel width — drives the gallery card's aspect ratio (no layout shift). */
+  width: number;
+  /** Intrinsic pixel height. */
+  height: number;
+}
+
+// Fallback aspect when dimensions can't be read: 5:7 (matches the classic
+// vertical card), so a read failure degrades to today's exact behaviour.
+const FALLBACK_W = 500;
+const FALLBACK_H = 700;
+
+/** Read an image's intrinsic dimensions via sharp; fall back to 5:7 on any error. */
+async function readDimensions(absPath: string): Promise<{ width: number; height: number }> {
+  try {
+    const sharp = (await import("sharp")).default;
+    const meta = await sharp(absPath).metadata();
+    if (meta.width && meta.height) return { width: meta.width, height: meta.height };
+  } catch {
+    // sharp unavailable / unreadable → fall through to the 5:7 default
+  }
+  return { width: FALLBACK_W, height: FALLBACK_H };
 }
 
 const IMAGE_EXT = "(?:jpe?g|png|webp)";
@@ -42,14 +63,14 @@ export async function getCardGalleryImages(
   }
 
   const pattern = new RegExp(`^${escapeRegExp(slug)}-(\\d+)\\.${IMAGE_EXT}$`, "i");
-  const matched: CardGalleryImage[] = [];
+  const files: { file: string; n: number }[] = [];
   const unexpected: string[] = [];
 
   for (const file of entries) {
     if (file.startsWith(".")) continue; // skip .gitkeep and other dotfiles
     const m = file.match(pattern);
     if (m) {
-      matched.push({ src: `/sets/cards/${slug}/${file}`, n: parseInt(m[1], 10) });
+      files.push({ file, n: parseInt(m[1], 10) });
     } else {
       unexpected.push(file);
     }
@@ -60,6 +81,15 @@ export async function getCardGalleryImages(
       `[cardGallery] ${slug}: ignoring ${unexpected.length} file(s) not matching {slug}-{n}.{ext}: ${unexpected.join(", ")}`
     );
   }
+
+  // Read intrinsic dimensions so each card can reserve its natural width at a
+  // fixed height with no layout shift (horizontal cards render wider).
+  const matched: CardGalleryImage[] = await Promise.all(
+    files.map(async ({ file, n }) => {
+      const { width, height } = await readDimensions(path.join(dir, file));
+      return { src: `/sets/cards/${slug}/${file}`, n, width, height };
+    })
+  );
 
   matched.sort((a, b) => a.n - b.n);
   return matched;

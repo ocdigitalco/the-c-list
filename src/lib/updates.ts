@@ -13,6 +13,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "217-pristine-pl-parallels-gallery-horizontal-topps-link",
+    title: "Pristine PL Parallels, Box Config & Horizontal Card Gallery",
+    date: "2026-07-13T00:00:00Z",
+    summary:
+      "Pristine PL: numbered parallels, tri-pack box config, gallery; gallery supports horizontal cards; About This Set Topps backlink field",
+    description: `## 2025-26 Topps Pristine Premier League + Gallery/Template updates
+
+- **Pristine PL** — attached the full **numbered parallel** ladders across every subset (Base through the Pristine autograph/relic lines), added the **tri-pack box configuration** (15 cards/pack, 3 packs/box), and marked Box Configuration and Numbered Parallels coverage complete. Card gallery added.
+- **Card gallery now supports horizontal cards** — cards render at a fixed height with their natural width, so landscape cards show wide instead of being squeezed into portrait. Vertical cards are unchanged, there's no layout shift, and the scroll arrows step by the next card's actual width.
+- **About This Set** — sets can now carry a Topps product URL, shown as a "View on Topps website" link (Pristine PL and Knockout UFC populated; other sets show nothing).`,
+    tags: ["odds", "box-config", "feature"],
+    setId: 855,
+  },
+  {
     id: "216-star-wars-chrome-galaxy-2026-added",
     title: "2026 Topps Star Wars Chrome Galaxy Added",
     date: "2026-07-10T18:00:00Z",

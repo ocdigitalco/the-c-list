@@ -12,6 +12,7 @@ import { trackEvent as trackGaEvent } from "@/lib/analytics";
 import { normalizeOddsObj, denomToDisplay } from "@/lib/parseOdds";
 import { type BreakSheetPlayer } from "@/components/BreakSheetModal";
 import { BreakSheetLink } from "@/components/BreakSheetLink";
+import type { CardGalleryImage } from "@/lib/cardGallery";
 import { getTeamLogo } from "@/lib/utils/teamLogo";
 
 // ─── Types & Constants ─────────────────────────────────────────────────────────
@@ -94,7 +95,9 @@ export interface SetDetailClientProps {
   aeoSummary?: string | null;
   faqs?: { q: string; a: string }[];
   /** Card-image gallery, pre-read server-side from public/sets/cards/{slug}/. */
-  cardImages?: { src: string; n: number }[];
+  cardImages?: CardGalleryImage[];
+  /** Optional Topps product-page URL for the "About This Set" backlink. */
+  toppsUrl?: string | null;
 }
 
 // ─── Helpers ────────────────────────────────────────────────────────────────────
@@ -737,7 +740,11 @@ function StatStrip({ items }: { items: { label: string; value: number }[] }) {
 
 // ─── Card Gallery ───────────────────────────────────────────────────────────
 
-function CardGallery({ images, setName }: { images: { src: string; n: number }[]; setName: string }) {
+// Every gallery card renders at this fixed height; width follows the image's
+// intrinsic aspect (vertical 5:7 → 150px wide; horizontal cards render wider).
+const CARD_GALLERY_H = 210;
+
+function CardGallery({ images, setName }: { images: CardGalleryImage[]; setName: string }) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canLeft, setCanLeft] = useState(false);
   const [canRight, setCanRight] = useState(false);
@@ -768,19 +775,25 @@ function CardGallery({ images, setName }: { images: { src: string; n: number }[]
     };
   }, [images.length]);
 
-  // Scroll by exactly one card: measure the first card's width + the row gap
-  // from the live DOM so it stays correct if card sizing changes.
+  // Scroll by one card. Cards can now have different widths (horizontal cards
+  // are wider), so step by the *next* card's actual width in the scroll
+  // direction (measured live) rather than assuming a uniform card width.
   const scrollByCard = (dir: 1 | -1) => {
     const el = scrollRef.current;
     if (!el) return;
-    const firstCard = el.querySelector<HTMLElement>("[data-card]");
-    const row = firstCard?.parentElement;
-    let step = 162; // 150px card + 12px gap fallback
-    if (firstCard && row) {
-      const gap = parseFloat(getComputedStyle(row).columnGap) || 0;
-      step = firstCard.offsetWidth + gap;
+    const cards = Array.from(el.querySelectorAll<HTMLElement>("[data-card]"));
+    if (cards.length === 0) return;
+    const row = cards[0].parentElement;
+    const gap = row ? parseFloat(getComputedStyle(row).columnGap) || 0 : 0;
+    const base = cards[0].offsetLeft; // content-relative origin (offsetParent-agnostic)
+    const left = el.scrollLeft;
+    let target: HTMLElement;
+    if (dir === 1) {
+      target = cards.find((c) => c.offsetLeft - base > left + 1) ?? cards[cards.length - 1];
+    } else {
+      target = [...cards].reverse().find((c) => c.offsetLeft - base < left - 1) ?? cards[0];
     }
-    el.scrollBy({ left: dir * step, behavior: "smooth" });
+    el.scrollBy({ left: dir * (target.offsetWidth + gap), behavior: "smooth" });
   };
 
   const arrowBtn = (dir: 1 | -1) => (
@@ -815,18 +828,22 @@ function CardGallery({ images, setName }: { images: { src: string; n: number }[]
           from sizing this wrapper (and the page) wide. */}
       <div ref={scrollRef} className="w-full max-w-full min-w-0 overflow-x-auto no-scrollbar">
         <div className="flex flex-nowrap gap-3" style={{ paddingBottom: 4 }}>
-          {images.map(({ src, n }) => (
+          {images.map(({ src, n, width, height }) => (
+            // Fixed HEIGHT, natural width: every card is CARD_GALLERY_H tall and
+            // its width follows the image's intrinsic aspect ratio (vertical
+            // cards stay 5:7 → 150px; horizontal cards render wider). The
+            // aspect-ratio reserves the box before the image loads → no shift.
             <div
               key={src}
               data-card
               className="shrink-0"
-              style={{ width: 150, aspectRatio: "5 / 7", overflow: "hidden", border: "1px solid #EDEAE0", background: "#F1EFE9" }}
+              style={{ height: CARD_GALLERY_H, aspectRatio: `${width} / ${height}`, overflow: "hidden", border: "1px solid #EDEAE0", background: "#F1EFE9" }}
             >
               <img
                 src={src}
                 alt={`${setName} card ${n}`}
-                width={400}
-                height={560}
+                width={width}
+                height={height}
                 loading="lazy"
                 decoding="async"
                 className="w-full h-full object-cover"
@@ -841,14 +858,14 @@ function CardGallery({ images, setName }: { images: { src: string; n: number }[]
 
 // ─── Tab: Overview ──────────────────────────────────────────────────────────
 
-function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autographs, autoParallels, totalParallels, athleteCount, releaseDate, hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds, subjectLabel = "Athletes", featuredArticle, setName, aeoSummary, faqs, cardImages }: {
+function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autographs, autoParallels, totalParallels, athleteCount, releaseDate, hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds, subjectLabel = "Athletes", featuredArticle, setName, aeoSummary, faqs, cardImages, toppsUrl }: {
   boxConfig: string | null; cards: number; cardTypes: number; parallelTypes: number;
   autographs: number; autoParallels: number; totalParallels: number; athleteCount: number;
   releaseDate: string | null; hasChecklist: boolean; hasNumberedParallels: boolean;
   hasBoxConfig: boolean; hasPackOdds: boolean; subjectLabel?: string;
   featuredArticle?: { slug: string; title: string; description: string; heroImage: string } | null;
   setName: string; aeoSummary?: string | null; faqs?: { q: string; a: string }[];
-  cardImages?: { src: string; n: number }[];
+  cardImages?: CardGalleryImage[]; toppsUrl?: string | null;
 }) {
   const boxRows = boxConfig ? buildBoxRows(boxConfig) : [];
 
@@ -861,21 +878,41 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
       )}
 
       {/* Set Summary */}
-      {aeoSummary && (
+      {(aeoSummary || toppsUrl) && (
         <section>
           <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase", marginBottom: 12 }}>
             About This Set
           </div>
-          <p style={{ fontSize: 16, lineHeight: 1.65, color: "#3A372F", margin: 0 }}>
-            {aeoSummary.startsWith(setName) ? (
-              <>
-                <strong style={{ color: "#0F0F0E" }}>{setName}</strong>
-                {aeoSummary.slice(setName.length)}
-              </>
-            ) : (
-              aeoSummary
-            )}
-          </p>
+          {aeoSummary && (
+            <p style={{ fontSize: 16, lineHeight: 1.65, color: "#3A372F", margin: 0 }}>
+              {aeoSummary.startsWith(setName) ? (
+                <>
+                  <strong style={{ color: "#0F0F0E" }}>{setName}</strong>
+                  {aeoSummary.slice(setName.length)}
+                </>
+              ) : (
+                aeoSummary
+              )}
+            </p>
+          )}
+          {/* Topps product backlink — only when a URL is set for this set. */}
+          {toppsUrl && (
+            <a
+              href={toppsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex", alignItems: "center", gap: 5,
+                marginTop: aeoSummary ? 12 : 0, fontSize: 15, fontWeight: 600,
+                color: "#D63A20", textDecoration: "none",
+              }}
+            >
+              View on Topps website
+              <svg width={13} height={13} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+              </svg>
+            </a>
+          )}
         </section>
       )}
 
@@ -1405,7 +1442,7 @@ export function SetDetailClient({
   subjectLabel: subjectLabelProp, teamLabel: teamLabelProp,
   hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds,
   boxConfig, packOdds, entries, hasTeamData, breakSheetPlayers, parallelsList, autographSubsetNames, featuredArticle,
-  aeoSummary, faqs, cardImages,
+  aeoSummary, faqs, cardImages, toppsUrl,
 }: SetDetailClientProps) {
   const subjectLabel = subjectLabelProp ?? "Athletes";
   const teamLabel = teamLabelProp ?? "Team";
@@ -1539,7 +1576,7 @@ export function SetDetailClient({
                 totalParallels={totalParallels} athleteCount={athleteCount} releaseDate={releaseDate}
                 hasChecklist={hasChecklist} hasNumberedParallels={hasNumberedParallels}
                 hasBoxConfig={hasBoxConfig} hasPackOdds={hasPackOdds} subjectLabel={subjectLabel}
-                featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} cardImages={cardImages} />
+                featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} cardImages={cardImages} toppsUrl={toppsUrl} />
             )}
             {tab === "Box Config" && <BoxConfigContent boxConfig={boxConfig} />}
             {tab === "Base Odds" && <PackOddsContent formats={oddsFormats} />}
@@ -1644,7 +1681,7 @@ export function SetDetailClient({
               totalParallels={totalParallels} athleteCount={athleteCount} releaseDate={releaseDate}
               hasChecklist={hasChecklist} hasNumberedParallels={hasNumberedParallels}
               hasBoxConfig={hasBoxConfig} hasPackOdds={hasPackOdds} subjectLabel={subjectLabel}
-              featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} cardImages={cardImages} />
+              featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} cardImages={cardImages} toppsUrl={toppsUrl} />
           )}
           {tab === "Box Config" && <BoxConfigContent boxConfig={boxConfig} />}
           {tab === "Base Odds" && <PackOddsContent formats={oddsFormats} />}

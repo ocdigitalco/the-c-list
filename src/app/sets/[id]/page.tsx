@@ -139,6 +139,17 @@ export default async function V2SetPage({
   } catch { /* slug column may not exist yet */ }
   const cardImages = await getCardGalleryImages(canonicalSlug);
 
+  // Optional per-set Topps product URL (added via ALTER, not in the Drizzle
+  // schema — read defensively like slug so pre-migration Turso doesn't error).
+  let toppsUrl: string | null = null;
+  try {
+    const urlRow = await rawQuery.get<{ topps_url: string | null }>(
+      "SELECT topps_url FROM sets WHERE id = ?",
+      setId
+    );
+    toppsUrl = urlRow?.topps_url ?? null;
+  } catch { /* topps_url column may not exist yet */ }
+
   // Insert set IDs
   const insertSetIdRows = await db
     .select({ id: insertSets.id })
@@ -575,6 +586,7 @@ export default async function V2SetPage({
         aeoSummary={aeo.summary}
         faqs={aeo.faqs}
         cardImages={cardImages}
+        toppsUrl={toppsUrl}
       />
     </>
   );
