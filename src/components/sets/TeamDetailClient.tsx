@@ -6,6 +6,7 @@ import { getNBAHeadshotUrl } from "@/lib/nba-headshot";
 import { getUFCHeadshotUrl } from "@/lib/ufc-headshot";
 import { getMLBHeadshotUrl } from "@/lib/mlb-headshot";
 import { getTeamLogo } from "@/lib/utils/teamLogo";
+import { trackEvent } from "@/lib/trackEvent";
 import { PackOddsCalculator, type PackOddsSlot, type BoxFormat } from "@/components/PackOddsCalculator";
 
 // ─── Types ──────────────────────────────────────────────────────────────────────
@@ -469,6 +470,9 @@ function SetWideLeaderboard({ entries, hasTeamData, setId, setSlug, sport = "" }
             <>
               {visible.map((entry, idx) => (
                 <Link key={entry.id} href={`/sets/${setSlug || setId}/athlete/${entry.slug || entry.id}`}
+                  // Search selection → "search" only when a query is active; the
+                  // page visit itself is counted as a "view" on mount.
+                  onClick={() => { if (query.trim()) trackEvent(entry.id, "search"); }}
                   className="flex items-center gap-2 transition-colors"
                   style={{ padding: "9px 18px", borderBottom: "1px solid #F4F1E8", textDecoration: "none" }}
                   onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#F1EFE9"; }}

@@ -238,6 +238,9 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, currentAthleteId, 
                 const isActive = entry.id === currentAthleteId;
                 return (
                   <Link key={entry.id} href={`/sets/${setSlug || setId}/athlete/${entry.slug || entry.id}`}
+                    // Search selection → "search" only when a query is active; the
+                    // page visit itself is counted as a "view" on mount.
+                    onClick={() => { if (query.trim()) trackEvent(entry.id, "search"); }}
                     className="flex items-center gap-2 transition-colors"
                     style={{
                       padding: "9px 18px", borderBottom: "1px solid #F4F1E8", textDecoration: "none",

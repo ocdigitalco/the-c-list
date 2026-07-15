@@ -150,6 +150,10 @@ export function LeaderboardPanel({ entries, hasTeamData, setId }: Props) {
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                 </svg>
+                {/* Intentionally NOT tracked as a "search": filtering by team is
+                    browse intent, not athlete-search intent. A row click after
+                    team-filtering contributes only the mount "view" (see
+                    AthleteDetailClient), never a "search". Do not add tracking here. */}
                 <input
                   type="text"
                   value={teamQuery}

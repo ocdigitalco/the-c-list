@@ -13,6 +13,17 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "220-search-tracking-extended-athlete-surfaces",
+    title: "Search Tracking Extended to All Athlete Search Bars",
+    date: "2026-07-14T18:00:00Z",
+    summary:
+      "Search tracking extended to AthletesRail and TeamDetail athlete-search surfaces; team filter intentionally untracked",
+    description: `## More complete Most Searched
+
+Selecting an athlete from the search box on **athlete pages** and **team pages** now counts toward Most Searched, matching the set-page and sidebar search bars (all four fire only on a real selection from an active query, never on keystrokes). The "Filter by team" box stays a browse tool and is intentionally not counted as a search.`,
+    tags: ["feature"],
+  },
+  {
     id: "219-sheets-admin-layout-set-names",
     title: "Sheets Admin: Site Layout & Set Display Names",
     date: "2026-07-14T12:00:00Z",
