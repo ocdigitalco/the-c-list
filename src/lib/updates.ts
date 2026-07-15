@@ -13,6 +13,17 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "219-sheets-admin-layout-set-names",
+    title: "Sheets Admin: Site Layout & Set Display Names",
+    date: "2026-07-14T12:00:00Z",
+    summary:
+      "/sheets: site-standard layout (width, breadcrumbs, title), set display names resolved from slugs",
+    description: `## /sheets — site-standard chrome + real set names
+
+The internal saved-sheets admin page now matches the rest of the site (same content width, Home breadcrumb, and page-title styling as Sets/Searches/Checklists), and each saved sheet shows the set's **display name** ("2026 Topps Chrome Marvel Comics") instead of its raw slug, linking through to the set page. Sheets whose set was deleted or renamed fall back to the slug. Still admin-only, secret-gated, and unindexed.`,
+    tags: ["feature"],
+  },
+  {
     id: "218-searches-event-capture-fix",
     title: "Searches Leaderboard: Accurate View & Search Tracking",
     date: "2026-07-14T00:00:00Z",

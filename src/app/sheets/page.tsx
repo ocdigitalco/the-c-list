@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { desc } from "drizzle-orm";
-import { db } from "@/lib/db";
+import { db, rawQuery } from "@/lib/db";
 import { breakSheets, breakSheetPrices } from "@/lib/schema";
 
 // Internal admin analytics — never indexed, never linked from public nav.
@@ -9,6 +10,9 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 export const dynamic = "force-dynamic";
+
+const GREEN = "#0E8A4F";
+const RED = "#C0362C";
 
 function usd(n: number | null): string {
   if (n == null) return "—";
@@ -29,7 +33,7 @@ export default async function SheetsAdminPage({
 
   // Gate: query-param secret compared to ADMIN_SECRET (same shape as the
   // REVALIDATE_SECRET check used by /api/revalidate). No secret configured or
-  // no/incorrect match → deny without revealing any data.
+  // no/incorrect match → deny without revealing any data. (Unchanged.)
   if (!expected || provided !== expected) {
     return (
       <div className="h-full overflow-y-auto bg-zinc-950 text-zinc-300">
@@ -52,53 +56,106 @@ export default async function SheetsAdminPage({
     pricesBySheet.set(p.sheetId, list);
   }
 
+  // Resolve display names from slugs (slug isn't on the Drizzle schema, so read
+  // it via rawQuery). A saved sheet's slug may no longer match any set (deleted
+  // /renamed) → fall back to the raw slug and don't link.
+  const slugs = [...new Set(sheets.map((s) => s.setSlug))];
+  const nameBySlug = new Map<string, string>();
+  if (slugs.length > 0) {
+    try {
+      const rows = await rawQuery.all<{ slug: string; name: string }>(
+        `SELECT slug, name FROM sets WHERE slug IN (${slugs.map(() => "?").join(",")})`,
+        ...slugs
+      );
+      for (const r of rows) nameBySlug.set(r.slug, r.name);
+    } catch {
+      /* slug column may not exist yet → all fall back to raw slug */
+    }
+  }
+
   return (
-    <div className="h-full overflow-y-auto bg-zinc-950 text-zinc-200">
-      <div className="max-w-5xl mx-auto px-6 py-10">
-        <h1 className="text-2xl font-bold text-white tracking-tight mb-1">Saved Break Sheets</h1>
-        <p className="text-sm text-zinc-500 mb-8">
+    <div className="h-full overflow-y-auto" style={{ background: "#FAFAF7" }}>
+      <div className="mx-auto cl-container" style={{ maxWidth: 1440, padding: "40px 56px 80px" }}>
+        {/* Breadcrumb: Home / Sheets */}
+        <div style={{ fontFamily: "var(--cl-font-display)", fontSize: 13 }}>
+          <Link href="/" style={{ color: "#6B6757", textDecoration: "none" }}>
+            Home
+          </Link>
+          <span style={{ color: "#D9D5C7", margin: "0 6px" }}>/</span>
+          <span style={{ color: "#3A372F" }}>Sheets</span>
+        </div>
+
+        {/* Title */}
+        <h1
+          className="cl-title"
+          style={{ fontFamily: "var(--cl-font-display)", fontSize: 48, fontWeight: 600, letterSpacing: "-1.2px", color: "#0F0F0E", margin: "12px 0 0", lineHeight: 1.1 }}
+        >
+          Saved Break Sheets
+        </h1>
+        <p style={{ fontSize: 14, color: "#6B6757", margin: "6px 0 0" }}>
           {sheets.length.toLocaleString()} sheet{sheets.length === 1 ? "" : "s"} · newest first · anonymous
         </p>
 
         {sheets.length === 0 ? (
-          <p className="text-sm text-zinc-500">No saved sheets yet.</p>
+          <p style={{ fontSize: 14, color: "#8A8677", marginTop: 28 }}>No saved sheets yet.</p>
         ) : (
-          <div className="space-y-2">
+          <div className="space-y-2" style={{ marginTop: 28 }}>
             {sheets.map((s) => {
               const prices = (pricesBySheet.get(s.id) ?? []).slice().sort((a, b) => b.price - a.price);
-              const profitColor = s.profit == null ? "text-zinc-400" : s.profit >= 0 ? "text-emerald-400" : "text-red-400";
+              const displayName = nameBySlug.get(s.setSlug);
+              const profitColor = s.profit == null ? "#8A8677" : s.profit >= 0 ? GREEN : RED;
               return (
-                <details key={s.id} className="rounded-lg border border-zinc-800 bg-zinc-900/60 overflow-hidden">
-                  <summary className="cursor-pointer list-none px-4 py-3 flex flex-wrap items-center gap-x-5 gap-y-1 hover:bg-zinc-900">
-                    <span className="text-xs font-mono text-zinc-500 w-[132px] shrink-0">{fmtDate(s.createdAt)}</span>
-                    <span className="text-sm font-medium text-white min-w-0 flex-1 truncate">{s.setSlug}</span>
-                    <span className="text-xs text-zinc-400 w-20">{s.sport}</span>
-                    <span className="text-xs text-zinc-400 w-24 tabular-nums">
+                <details key={s.id} className="rounded-lg overflow-hidden" style={{ border: "1px solid #EDEAE0", background: "#FFFFFF" }}>
+                  <summary
+                    className="cursor-pointer list-none flex flex-wrap items-center gap-x-5 gap-y-1.5"
+                    style={{ padding: "12px 16px" }}
+                  >
+                    <span style={{ fontFamily: "var(--cl-font-mono)", fontSize: 11, color: "#8A8677", width: 132, flexShrink: 0 }}>
+                      {fmtDate(s.createdAt)}
+                    </span>
+                    {/* Set display name (falls back to slug; links when the set exists) */}
+                    <span className="min-w-0 flex-1 truncate" style={{ fontSize: 14, fontWeight: 500, minWidth: 140 }} title={displayName ?? s.setSlug}>
+                      {displayName ? (
+                        <Link href={`/sets/${s.setSlug}`} style={{ color: "#0F0F0E", textDecoration: "none" }}>
+                          {displayName}
+                        </Link>
+                      ) : (
+                        <span style={{ color: "#0F0F0E" }}>{s.setSlug}</span>
+                      )}
+                    </span>
+                    <span style={{ fontSize: 12, color: "#6B6757", width: 84 }} className="truncate" title={s.sport}>{s.sport}</span>
+                    <span style={{ fontSize: 12, color: "#6B6757", width: 96, fontVariantNumeric: "tabular-nums" }}>
                       {s.quantity} {s.breakUnit}
                     </span>
-                    <span className="text-xs text-zinc-400 w-24 tabular-nums text-right">Cost {usd(s.cost)}</span>
-                    <span className="text-xs text-emerald-400 w-24 tabular-nums text-right">Total {usd(s.total)}</span>
-                    <span className={`text-xs w-24 tabular-nums text-right ${profitColor}`}>Profit {usd(s.profit)}</span>
-                    <span className="text-[10px] text-zinc-600 w-16 text-right">{prices.length} spots</span>
+                    <span style={{ fontSize: 12, color: "#3A372F", width: 104, textAlign: "right", fontVariantNumeric: "tabular-nums" }}>
+                      Cost {usd(s.cost)}
+                    </span>
+                    <span style={{ fontSize: 12, color: GREEN, width: 104, textAlign: "right", fontVariantNumeric: "tabular-nums" }}>
+                      Total {usd(s.total)}
+                    </span>
+                    <span style={{ fontSize: 12, color: profitColor, width: 112, textAlign: "right", fontVariantNumeric: "tabular-nums" }}>
+                      Profit {usd(s.profit)}
+                    </span>
+                    <span style={{ fontSize: 11, color: "#B7B2A3", width: 64, textAlign: "right" }}>{prices.length} spots</span>
                   </summary>
-                  <div className="border-t border-zinc-800 px-4 py-3 bg-zinc-950/50">
+                  <div style={{ borderTop: "1px solid #EDEAE0", padding: "12px 16px", background: "#FAFAF7" }}>
                     {prices.length === 0 ? (
-                      <p className="text-xs text-zinc-600">No per-spot prices recorded.</p>
+                      <p style={{ fontSize: 12, color: "#B7B2A3" }}>No per-spot prices recorded.</p>
                     ) : (
-                      <table className="w-full text-xs">
+                      <table className="w-full" style={{ fontSize: 12, borderCollapse: "collapse" }}>
                         <thead>
-                          <tr className="text-zinc-500 text-left">
-                            <th className="font-medium py-1 pr-4">Subject</th>
-                            <th className="font-medium py-1 pr-4">Type</th>
-                            <th className="font-medium py-1 text-right">Price</th>
+                          <tr style={{ color: "#8A8677", textAlign: "left" }}>
+                            <th style={{ fontWeight: 500, padding: "2px 16px 6px 0" }}>Subject</th>
+                            <th style={{ fontWeight: 500, padding: "2px 16px 6px 0" }}>Type</th>
+                            <th style={{ fontWeight: 500, padding: "2px 0 6px", textAlign: "right" }}>Price</th>
                           </tr>
                         </thead>
-                        <tbody className="divide-y divide-zinc-800/60">
+                        <tbody>
                           {prices.map((p) => (
-                            <tr key={p.id}>
-                              <td className="py-1 pr-4 text-zinc-200">{p.subjectName}</td>
-                              <td className="py-1 pr-4 text-zinc-500">{p.subjectType}</td>
-                              <td className="py-1 text-right tabular-nums text-zinc-300">{usd(p.price)}</td>
+                            <tr key={p.id} style={{ borderTop: "1px solid #F1EEE3" }}>
+                              <td style={{ padding: "5px 16px 5px 0", color: "#0F0F0E" }}>{p.subjectName}</td>
+                              <td style={{ padding: "5px 16px 5px 0", color: "#8A8677" }}>{p.subjectType}</td>
+                              <td style={{ padding: "5px 0", textAlign: "right", color: "#3A372F", fontVariantNumeric: "tabular-nums" }}>{usd(p.price)}</td>
                             </tr>
                           ))}
                         </tbody>
