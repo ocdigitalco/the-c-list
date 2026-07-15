@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useRef, useEffect } from "react";
+import { useState, useMemo } from "react";
 import Link from "next/link";
 import type { LeaderboardRow } from "./types";
 import { getNBAHeadshotUrl } from "@/lib/nba-headshot";
@@ -69,11 +69,6 @@ export function LeaderboardSidebar({ entries, hasTeamData, setId, setSlug }: Pro
   const [teamQuery, setTeamQuery] = useState("");
   const [nameQuery, setNameQuery] = useState("");
   const [showAll, setShowAll] = useState(false);
-  const searchDebounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(() => {
-    return () => { if (searchDebounceRef.current) clearTimeout(searchDebounceRef.current); };
-  }, []);
 
   const filtered = useMemo(() => {
     let list = entries;
@@ -118,17 +113,7 @@ export function LeaderboardSidebar({ entries, hasTeamData, setId, setSlug }: Pro
           <input
             type="text"
             value={nameQuery}
-            onChange={(e) => {
-              const q = e.target.value;
-              setNameQuery(q);
-              if (searchDebounceRef.current) clearTimeout(searchDebounceRef.current);
-              if (q.trim().length >= 2) {
-                searchDebounceRef.current = setTimeout(() => {
-                  const matches = entries.filter((a) => a.name.toLowerCase().includes(q.toLowerCase()));
-                  matches.slice(0, 3).forEach((a) => trackEvent(a.id, "search"));
-                }, 600);
-              }
-            }}
+            onChange={(e) => setNameQuery(e.target.value)}
             placeholder="Search athletes..."
             autoComplete="off"
             spellCheck={false}
@@ -237,7 +222,9 @@ export function LeaderboardSidebar({ entries, hasTeamData, setId, setSlug }: Pro
               <Link
                 key={entry.id}
                 href={`/sets/${setSlug || setId}/athlete/${entry.slug || entry.id}`}
-                onClick={() => trackEvent(entry.id, "view")}
+                // Search selection → "search" only when a query is active; the
+                // page visit itself is counted as a "view" on mount.
+                onClick={() => { if (nameQuery.trim()) trackEvent(entry.id, "search"); }}
                 className="grid grid-cols-[auto_auto_1fr_auto] items-center gap-2.5 px-4 py-2.5 transition-colors text-left"
                 style={{ borderBottom: "1px solid var(--v2-border)" }}
                 onMouseEnter={(e) => {

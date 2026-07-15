@@ -5,7 +5,6 @@ import Link from "next/link";
 import { getNBAHeadshotUrl } from "@/lib/nba-headshot";
 import { getUFCHeadshotUrl } from "@/lib/ufc-headshot";
 import { getMLBHeadshotUrl } from "@/lib/mlb-headshot";
-import { trackEvent } from "@/lib/trackEvent";
 import { getTeamLogo } from "@/lib/utils/teamLogo";
 import { PackOddsCalculator, type PackOddsSlot, type BoxFormat } from "@/components/PackOddsCalculator";
 
@@ -221,7 +220,6 @@ function AthletesTable({ athletes, setSlug, setId }: {
                 </td>
                 <td style={{ padding: "14px 18px" }}>
                   <Link href={`/sets/${setSlug || setId}/athlete/${a.slug || a.id}`}
-                    onClick={() => trackEvent(a.id, "view")}
                     className="flex items-center gap-2.5" style={{ textDecoration: "none" }}>
                     <PlayerAvatar name={a.name} nbaPlayerId={a.nbaPlayerId} ufcImageUrl={a.ufcImageUrl}
                       mlbPlayerId={a.mlbPlayerId} imageUrl={a.imageUrl} size={30} />
@@ -256,7 +254,6 @@ function AthletesTable({ athletes, setSlug, setId }: {
       <div className="min-[1180px]:hidden space-y-2">
         {sorted.map((a, idx) => (
           <Link key={a.id} href={`/sets/${setSlug || setId}/athlete/${a.slug || a.id}`}
-            onClick={() => trackEvent(a.id, "view")}
             style={{
               display: "block", background: "#FFFFFF", border: "1px solid #EDEAE0",
               borderRadius: 10, padding: "12px 14px", textDecoration: "none",

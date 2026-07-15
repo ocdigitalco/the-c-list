@@ -1327,6 +1327,17 @@ export function AthleteDetailClient({
   const [tab, setTab] = useState<Tab>("Overview");
   const [drawerOpen, setDrawerOpen] = useState(false);
 
+  // Record exactly one "view" per actual page visit, regardless of entry path
+  // (search selection, browse click, direct/deep link, or shared URL). The ref
+  // guard survives React Strict Mode's double-invoked mount effect and any
+  // re-render; it re-fires only if the athlete being viewed changes.
+  const viewedRef = useRef<number | null>(null);
+  useEffect(() => {
+    if (viewedRef.current === athleteId) return;
+    viewedRef.current = athleteId;
+    trackEvent(athleteId, "view");
+  }, [athleteId]);
+
   function handleAthleteTabChange(t: Tab) {
     setTab(t);
     trackGaEvent("athlete_tab_click", {

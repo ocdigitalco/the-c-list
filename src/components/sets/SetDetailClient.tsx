@@ -365,9 +365,6 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
   const [query, setQuery] = useState("");
   const [showAll, setShowAll] = useState(false);
   const [viewMode, setViewMode] = useState<"athletes" | "teams">("athletes");
-  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(() => () => { if (debounceRef.current) clearTimeout(debounceRef.current); }, []);
 
   const filtered = useMemo(() => {
     let list = entries;
@@ -446,17 +443,7 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
           </svg>
           <input
             type="text" value={query}
-            onChange={(e) => {
-              const q = e.target.value;
-              setQuery(q);
-              if (debounceRef.current) clearTimeout(debounceRef.current);
-              if (q.trim().length >= 2) {
-                debounceRef.current = setTimeout(() => {
-                  entries.filter((a) => a.name.toLowerCase().includes(q.toLowerCase()))
-                    .slice(0, 3).forEach((a) => trackEvent(a.id, "search"));
-                }, 100);
-              }
-            }}
+            onChange={(e) => setQuery(e.target.value)}
             placeholder={`Search ${viewMode === "teams" ? `${teamLabel.toLowerCase()}s` : subjectLabel.toLowerCase()}…`}
             autoComplete="off" spellCheck={false}
             className="w-full outline-none"
@@ -511,7 +498,10 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
               {visible.map((entry, idx) => (
                 <Link key={entry.id}
                   href={`/sets/${setSlug || setId}/athlete/${entry.slug || entry.id}`}
-                  onClick={() => trackEvent(entry.id, "view")}
+                  // Search selection: fire "search" only when a query is active (a
+                  // deliberate pick from the search bar). Plain browsing clicks fire
+                  // nothing here — the visit is counted as a "view" on page mount.
+                  onClick={() => { if (query.trim()) trackEvent(entry.id, "search"); }}
                   className="flex items-center gap-2 transition-colors"
                   style={{ padding: rowPy, paddingLeft: 18, paddingRight: 18, borderBottom: "1px solid #F4F1E8" }}
                   onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#F1EFE9"; }}

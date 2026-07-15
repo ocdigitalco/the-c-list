@@ -13,6 +13,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "218-searches-event-capture-fix",
+    title: "Searches Leaderboard: Accurate View & Search Tracking",
+    date: "2026-07-14T00:00:00Z",
+    summary:
+      "/searches fixed: search events fire on selection not keystrokes; view events fire on page mount, covering direct/deep-link loads; historical polluted search events purged",
+    description: `## /searches — accurate Most Viewed & Most Searched
+
+Fixed how the two leaderboards are measured:
+
+- **Most Searched** now counts when you actually **pick a result from the search bar** — previously it logged the top few name matches on every keystroke, which flooded the list with things nobody searched (e.g. sequential base cards).
+- **Most Viewed** now counts on **page load**, so it captures every visit — direct links, shared URLs, and deep links — not just clicks from a leaderboard.
+- A search-then-open journey correctly counts as **one search + one view**.
+- The historical, polluted search events were purged, so Most Searched starts from a clean slate and will fill in as people search.`,
+    tags: ["feature"],
+  },
+  {
     id: "217-pristine-pl-parallels-gallery-horizontal-topps-link",
     title: "Pristine PL Parallels, Box Config & Horizontal Card Gallery",
     date: "2026-07-13T00:00:00Z",
