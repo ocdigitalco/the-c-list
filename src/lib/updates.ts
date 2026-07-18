@@ -13,6 +13,23 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "221-mlb-x-kaws-2026-added",
+    title: "2026 Topps MLB x KAWS Added",
+    date: "2026-07-18T00:00:00Z",
+    summary:
+      "Added 2026 Topps MLB x KAWS — 146 cards, 6 subsets, KAWS artist/Companion subjects, Topps backlink; teams NULL per source; odds/box/parallels deferred.",
+    description: `## 2026 Topps MLB x KAWS
+
+The artist-collaboration checklist is live: **146 cards across 6 subsets**.
+
+- **Base Set (60)** and **KAWS Creation (25)** feature MLB stars and legends (Ohtani, Judge, Jeter, Griffey, Ichiro…).
+- **KAWS Companion (10 SPs)** and the **KAWS Companion SSP Autographs (5)** feature KAWS's Companion character and the artist himself.
+- **Autographs (41)** and **On-Card Autographs (5)** round out the signed content.
+- Card gallery and a Topps product link are on the set page. Team info isn't in the source (left blank); pack odds, box configuration, and parallels are deferred.`,
+    tags: ["checklist"],
+    setId: 862,
+  },
+  {
     id: "220-search-tracking-extended-athlete-surfaces",
     title: "Search Tracking Extended to All Athlete Search Bars",
     date: "2026-07-14T18:00:00Z",
