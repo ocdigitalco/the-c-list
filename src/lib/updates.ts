@@ -13,6 +13,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "222-mlb-x-kaws-2026-odds-parallels",
+    title: "2026 Topps MLB x KAWS: Pack Odds, Parallels & Box Config",
+    date: "2026-07-20T00:00:00Z",
+    summary:
+      "2026 Topps MLB x KAWS: pack odds, 25 serialized parallels, box configuration; auto subsets modeled serialized-only.",
+    description: `## MLB x KAWS — odds, parallels & box config
+
+Pack odds, **25 serialized parallels**, and box configuration are now attached.
+
+- **Base Set** carries the full color ladder (Aqua /199 → Foilfractor 1/1) plus an unnumbered parallel; **KAWS Creation** and **KAWS Companion SPs** each add a Foilfractor 1/1.
+- **Autographs**, **On-Card Autographs**, and **KAWS Companion SSP Autos** are modeled serialized-only — every auto exists solely as a numbered parallel, so their odds live entirely on the parallel rows.
+- **Box:** 4 cards/pack, 3 packs/box. Every pack guarantees 3 base cards + 1 hit slot (parallel, KAWS Creation insert, Companion SP, or an autograph).`,
+    tags: ["odds", "box-config", "checklist"],
+    setId: 862,
+  },
+  {
     id: "221-mlb-x-kaws-2026-added",
     title: "2026 Topps MLB x KAWS Added",
     date: "2026-07-18T00:00:00Z",
