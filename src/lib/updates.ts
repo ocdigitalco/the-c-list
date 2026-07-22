@@ -13,6 +13,24 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "223-chrome-baseball-2026-added",
+    title: "2026 Topps Chrome Baseball Added",
+    date: "2026-07-22T00:00:00Z",
+    summary:
+      "Added 2026 Topps Chrome Baseball — 1,601 cards across 54 subsets, 260 parallels with format exclusivity, four-format box configuration.",
+    description: `## 2026 Topps Chrome Baseball
+
+The flagship Chrome release is live: **1,601 cards across 54 subsets**.
+
+- **Base Set (300)** with the full refractor ladder plus format-exclusive Wave (Jumbo), X-Fractor (Mega), and Raywave / Baseball Seams / Red-White-Blue (Value) parallels.
+- **20 autograph subsets** — Rookie & Retail Rookie Autographs, Chrome Legend Autographs, 75th Diamond Autographs, Ink Strokes, Chromographs, and more — flagged explicitly per the source.
+- **Co-player cards** (Past To Present, Dual Autographs, Gold Logoman duals) modeled as one card with linked co-subjects; multi-team players carried per-card.
+- **260 numbered/unnumbered parallels** attached with product exclusivity (Hobby / Jumbo / Mega / Value / Retail); Breaker-exclusive Geometric parallels are held for a later Breaker box.
+- **Four-format box configuration** (Hobby, Jumbo, Mega, Value) with per-box autograph guarantees.`,
+    tags: ["checklist", "box-config"],
+    setId: 863,
+  },
+  {
     id: "222-mlb-x-kaws-2026-odds-parallels",
     title: "2026 Topps MLB x KAWS: Pack Odds, Parallels & Box Config",
     date: "2026-07-20T00:00:00Z",
