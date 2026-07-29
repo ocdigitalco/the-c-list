@@ -13,6 +13,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "224-chrome-baseball-2026-parallel-names",
+    title: "2026 Topps Chrome Baseball: Parallel Names Corrected to Full",
+    date: "2026-07-28T00:00:00Z",
+    summary:
+      "Corrected 863 parallel names bare→full (Green→Green Refractor, etc.) to match source/860 convention; 206 rows renamed.",
+    description: `## Chrome Baseball: as-printed parallel names
+
+The parallels for 2026 Topps Chrome Baseball were seeded with **bare color names** (Green, Gold Wave, Aqua Raywave…). They now carry their **full as-printed names** (Green Refractor, Gold Wave Refractor, Aqua Raywave Refractor…), matching the source document and the set-wide Chrome convention.
+
+- **206 rows renamed** via exact match, subset-scoped with a collision guard; the 7 X-Fractor rows and all already-full names were left untouched.
+- Rename-only — print runs, format exclusivity, and card links are unchanged.
+- This aligns the rows with the pack-odds sheet so odds map directly by name.`,
+    tags: ["checklist"],
+    setId: 863,
+  },
+  {
     id: "223-chrome-baseball-2026-added",
     title: "2026 Topps Chrome Baseball Added",
     date: "2026-07-22T00:00:00Z",
