@@ -13,6 +13,23 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "225-chrome-baseball-2026-pack-odds",
+    title: "2026 Topps Chrome Baseball: Pack Odds Added",
+    date: "2026-07-28T00:00:00Z",
+    summary:
+      "Attached four-format pack odds (Hobby/Jumbo/Value/Mega) to 2026 Topps Chrome Baseball; Breaker Delight + Fanatics formats excluded.",
+    description: `## Chrome Baseball pack odds
+
+Pack odds are now live for 2026 Topps Chrome Baseball across **four formats — Hobby, Jumbo, Value, and Mega**. Breaker Delight and Fanatics columns from the source sheet were dropped.
+
+- **314 odds rows** attached across 50 subsets, with format exclusivity preserved (a parallel unavailable in a format simply has no odds there — never backfilled).
+- **24 new parallels** created where the odds sheet was richer than the checklist, plus base-tier rows so base-card odds feed the Break Hit Calculator.
+- Format-exclusives land where expected: X-Fractor (Mega), Wave (Jumbo), Baseball Seams / Raywave / Red-White-Blue (Value).
+- Odds-less by design: Chrome Autographs and Cooperstown Calls Class of 2026 (unpublished), and the Fanatics-exclusive Fanatical + Fanatics Authentics Redemption subsets.`,
+    tags: ["odds"],
+    setId: 863,
+  },
+  {
     id: "224-chrome-baseball-2026-parallel-names",
     title: "2026 Topps Chrome Baseball: Parallel Names Corrected to Full",
     date: "2026-07-28T00:00:00Z",
