@@ -13,6 +13,23 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "226-stadium-club-ufc-2026-added",
+    title: "2026 Topps Stadium Club UFC Added",
+    date: "2026-08-14T00:00:00Z",
+    summary:
+      "Added 2026 Topps Stadium Club UFC — 888 cards across 19 subsets, 123 parallels, three-format box config; pack odds pending.",
+    description: `## 2026 Topps Stadium Club UFC
+
+Stadium Club comes to UFC: **888 cards across 19 subsets**.
+
+- **Base & Chrome base** (100 cards each, ×2 series) plus inserts — Beam Team, Fight Motion, Concentration, The Aftermath, Main Stage, and the die-cut **Triumvirates** / **Triumvirates Nickname** (three aligning cards per fighter).
+- **Eight autograph subsets**, including on-card Base and Chrome autograph variations and **Dual Autographs** (modeled as one card with a linked co-signer).
+- **123 parallels** attached with as-printed names and product exclusivity (Hobby / Mega / Value / Retail); serials range from Green /299 down to 1/1 Superfractors and Printing Plates.
+- **Three-format box configuration** (Hobby, Mega, Value). Pack odds are not published yet and will follow.`,
+    tags: ["checklist", "box-config"],
+    setId: 864,
+  },
+  {
     id: "225-chrome-baseball-2026-pack-odds",
     title: "2026 Topps Chrome Baseball: Pack Odds Added",
     date: "2026-07-28T00:00:00Z",

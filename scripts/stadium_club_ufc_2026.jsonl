@@ -1,0 +1,888 @@
+{"subset": "Base Cards I", "card_number": "1", "name": "Mackenzie Dern", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "2", "name": "Joshua Van", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "3", "name": "Arman Tsarukyan", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "4", "name": "Jon Jones", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "5", "name": "Conor McGregor", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "6", "name": "Ilia Topuria", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "7", "name": "Max Holloway", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "8", "name": "Alex Pereira", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "9", "name": "Paddy Pimblett", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "10", "name": "Khamzat Chimaev", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "11", "name": "Kayla Harrison", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "12", "name": "Islam Makhachev", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "13", "name": "Valentina Shevchenko", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "14", "name": "Amanda Nunes", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "15", "name": "Petr Yan", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "16", "name": "Bo Nickal", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "17", "name": "Sergei Pavlovich", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "18", "name": "Reinier De Ridder", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "19", "name": "Diego Lopes", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "20", "name": "Brandon Moreno", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "21", "name": "Zhang Weili", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "22", "name": "Payton Talbott", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "23", "name": "Justin Gaethje", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "24", "name": "Virna Jandiroba", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "25", "name": "Michael Chandler", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "26", "name": "Sean O'Malley", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "27", "name": "Dustin Poirier", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "28", "name": "Alexa Grasso", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "29", "name": "Shavkat Rakhmonov", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "30", "name": "Nassourdine Imavov", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "31", "name": "Dricus Du Plessis", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "32", "name": "Mauricio Santos", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "33", "name": "Carlos Ulberg", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "34", "name": "Ailin Perez", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "35", "name": "Michael Page", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "36", "name": "Natalia Cristina Da Silva", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "37", "name": "Anthony Hernandez", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "38", "name": "Tracy Cortez", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "39", "name": "Waldo Cortes", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "40", "name": "Caio Borralho", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "41", "name": "Tom Aspinall", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "42", "name": "Magomed Ankalaev", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "43", "name": "Jiri Prochazka", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "44", "name": "Ciryl Gane", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "45", "name": "Charles Oliveira", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "46", "name": "Sean Strickland", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "47", "name": "Jean Silva", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "48", "name": "Chan Sung Jung", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "49", "name": "Wanderlei Silva", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "50", "name": "Alexander Volkanovski", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "51", "name": "Carlos Prates", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "52", "name": "Ian Machado Garry", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "53", "name": "Norma Dumont", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "54", "name": "Khabib Nurmagomedov", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "55", "name": "Israel Adesanya", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "56", "name": "Joanna Jędrzejczyk", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "57", "name": "Merab Dvalishvili", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "58", "name": "Jack Della Maddalena", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "59", "name": "Daniel Cormier", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "60", "name": "Colby Covington", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "61", "name": "Erin Blanchfield", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "62", "name": "Maycee Barber", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "63", "name": "Georges St-Pierre", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "64", "name": "Anderson Silva", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "65", "name": "Chuck Liddell", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "66", "name": "Alexandre Pantoja", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "67", "name": "Holly Holm", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "68", "name": "Mark Kerr", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "69", "name": "Donald Cerrone", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "70", "name": "Umar Nurmagomedov", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "71", "name": "Julianna Peña", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "72", "name": "Kai Kara-France", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "73", "name": "Cory Sandhagen", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "74", "name": "Alexander Volkov", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "75", "name": "Kevin Holland", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "76", "name": "Lerone Murphy", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "77", "name": "Josh Emmett", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "78", "name": "Mateusz Gamrot", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "79", "name": "Raquel Pennington", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "80", "name": "Macy Chiasson", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "81", "name": "Amanda Lemos", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "82", "name": "Jan Błachowicz", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "83", "name": "Aljamain Sterling", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "84", "name": "Tatsuro Taira", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "85", "name": "Sean Brady", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "86", "name": "Henry Cejudo", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "87", "name": "Kamaru Usman", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "88", "name": "Leon Edwards", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "89", "name": "Movsar Evloev", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "90", "name": "Manon Fiorot", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "91", "name": "Brandon Royval", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "92", "name": "Yair Rodríguez", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "93", "name": "Robert Whittaker", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "94", "name": "Khalil Rountree Jr.", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "95", "name": "Aleksandar Rakic", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "96", "name": "Jasmine Jasudavicius", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "97", "name": "Irene Aldana", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "98", "name": "Curtis Blaydes", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "99", "name": "Yadong Song", "team": null, "rookie": false}
+{"subset": "Base Cards I", "card_number": "100", "name": "Vinicius Oliveira", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "101", "name": "Arnold Allen", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "102", "name": "Gabriel Bonfim", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "103", "name": "Raul Rosas", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "104", "name": "Azamat Murzakanov", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "105", "name": "Stipe Miocic", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "106", "name": "Michael Morales", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "107", "name": "Rose Namajunas", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "108", "name": "Brendan Allen", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "109", "name": "Belal Muhammad", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "110", "name": "Benoit Saint Denis", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "111", "name": "Tatiana Suarez", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "112", "name": "Yan Xiaonan", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "113", "name": "Yana Santos", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "114", "name": "Joe Pyfer", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "115", "name": "Renato Moicano", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "116", "name": "Maria Godinez Gonzalez", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "117", "name": "Miesha Tate", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "118", "name": "Daniel Hooker", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "119", "name": "Derrick Lewis", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "120", "name": "Shamil Gaziev", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "121", "name": "Volkan Oezdemir", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "122", "name": "Jamahal Hill", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "123", "name": "Jared Cannonier", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "124", "name": "Nikita Krylov", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "125", "name": "Johnny Walker", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "126", "name": "Aiemann Zahabi", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "127", "name": "Assu Almabayev", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "128", "name": "Mario Bautista", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "129", "name": "Paulo Costa", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "130", "name": "Gillian Robertson", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "131", "name": "Karine Silva", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "132", "name": "Tabatha Ricci", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "133", "name": "Serghei Spivac", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "134", "name": "Joaquin Buckley", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "135", "name": "Amir Albazi", "team": null, "rookie": false}
+{"subset": "Base Cards II", "card_number": "136", "name": "Jacqueline Cavalcanti", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "137", "name": "Oban Elliott", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "138", "name": "Lone'er Kavanagh", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "139", "name": "Fatima Kline", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "140", "name": "Felipe Lima", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "141", "name": "Mingyang Zhang", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "142", "name": "Oumar Sy", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "143", "name": "Youssef Zalal", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "144", "name": "Wang Cong", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "145", "name": "Ibo Aslan", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "146", "name": "Rafael Estevam", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "147", "name": "Elijah Smith", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "148", "name": "Tallison Teixeira", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "149", "name": "Tom Nolan", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "150", "name": "Bruna Brasil", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "151", "name": "Clayton Carpenter", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "152", "name": "Zhu Rong", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "153", "name": "Kody Steele", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "154", "name": "Quillan Salkilld", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "155", "name": "Ming Shi", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "156", "name": "Francis Marshall", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "157", "name": "Carlos Leal", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "158", "name": "Rei Tsuruya", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "159", "name": "Hyder Amil", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "160", "name": "Mario Pinto", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "161", "name": "Ramazan Temirov", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "162", "name": "Mansur Abdul-Malik", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "163", "name": "Austin Vanderford", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "164", "name": "Nursulton Ruziboev", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "165", "name": "Andre Lima", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "166", "name": "Michael Parkin", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "167", "name": "Aleksandre Topuria", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "168", "name": "Malcolm Wellmaker", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "169", "name": "Nasrat Haqparast", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "170", "name": "Aaron Pico", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "171", "name": "Patricio Freire", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "172", "name": "Alexia Thainara", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "173", "name": "Ateba Gautier", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "174", "name": "Torrez Finney", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "175", "name": "David Onama", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "176", "name": "Jaqueline Amorim", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "177", "name": "Marco Tulio", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "178", "name": "Chang Ho Lee", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "179", "name": "Dione Barbosa", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "180", "name": "Talita Alencar", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "181", "name": "Marquel Mederos", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "182", "name": "Kaue Fernandes", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "183", "name": "Gabriel Santos", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "184", "name": "JJ Aldrich", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "185", "name": "Nora Cornolle", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "186", "name": "Rizvan Kuniev", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "187", "name": "Navajo Stirling", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "188", "name": "Chris Padilla", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "189", "name": "Daniel Santos", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "190", "name": "Marcus Almeida", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "191", "name": "Andreas Gustafsson", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "192", "name": "Alvin Hines", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "193", "name": "Joo Sang Yoo", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "194", "name": "Michael Aswell", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "195", "name": "Patrick Mix", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "196", "name": "Seok Hyeon Ko", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "197", "name": "Tofiq Musayev", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "198", "name": "Islam Dulatov", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "199", "name": "Jackson McVey", "team": null, "rookie": true}
+{"subset": "Base Cards II", "card_number": "200", "name": "John Castaneda", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards I", "card_number": "CB-1", "name": "Mackenzie Dern", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-2", "name": "Joshua Van", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-3", "name": "Arman Tsarukyan", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-4", "name": "Jon Jones", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-5", "name": "Conor McGregor", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-6", "name": "Ilia Topuria", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-7", "name": "Max Holloway", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-8", "name": "Alex Pereira", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-9", "name": "Paddy Pimblett", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-10", "name": "Khamzat Chimaev", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-11", "name": "Kayla Harrison", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-12", "name": "Islam Makhachev", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-13", "name": "Valentina Shevchenko", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-14", "name": "Amanda Nunes", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-15", "name": "Petr Yan", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-16", "name": "Bo Nickal", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-17", "name": "Sergei Pavlovich", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-18", "name": "Reinier De Ridder", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-19", "name": "Diego Lopes", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-20", "name": "Brandon Moreno", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-21", "name": "Zhang Weili", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-22", "name": "Payton Talbott", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-23", "name": "Justin Gaethje", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-24", "name": "Virna Jandiroba", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-25", "name": "Michael Chandler", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-26", "name": "Sean O'Malley", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-27", "name": "Dustin Poirier", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-28", "name": "Alexa Grasso", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-29", "name": "Shavkat Rakhmonov", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-30", "name": "Nassourdine Imavov", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-31", "name": "Dricus Du Plessis", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-32", "name": "Mauricio Santos", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-33", "name": "Carlos Ulberg", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-34", "name": "Ailin Perez", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-35", "name": "Michael Page", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-36", "name": "Natalia Cristina Da Silva", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-37", "name": "Anthony Hernandez", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-38", "name": "Tracy Cortez", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-39", "name": "Waldo Cortes", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-40", "name": "Caio Borralho", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-41", "name": "Tom Aspinall", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-42", "name": "Magomed Ankalaev", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-43", "name": "Jiri Prochazka", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-44", "name": "Ciryl Gane", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-45", "name": "Charles Oliveira", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-46", "name": "Sean Strickland", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-47", "name": "Jean Silva", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-48", "name": "Chan Sung Jung", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-49", "name": "Wanderlei Silva", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-50", "name": "Alexander Volkanovski", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-51", "name": "Carlos Prates", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-52", "name": "Ian Machado Garry", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-53", "name": "Norma Dumont", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-54", "name": "Khabib Nurmagomedov", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-55", "name": "Israel Adesanya", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-56", "name": "Joanna Jędrzejczyk", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-57", "name": "Merab Dvalishvili", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-58", "name": "Jack Della Maddalena", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-59", "name": "Daniel Cormier", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-60", "name": "Colby Covington", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-61", "name": "Erin Blanchfield", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-62", "name": "Maycee Barber", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-63", "name": "Georges St-Pierre", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-64", "name": "Anderson Silva", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-65", "name": "Chuck Liddell", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-66", "name": "Alexandre Pantoja", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-67", "name": "Holly Holm", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-68", "name": "Mark Kerr", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-69", "name": "Donald Cerrone", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-70", "name": "Umar Nurmagomedov", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-71", "name": "Julianna Peña", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-72", "name": "Kai Kara-France", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-73", "name": "Cory Sandhagen", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-74", "name": "Alexander Volkov", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-75", "name": "Kevin Holland", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-76", "name": "Lerone Murphy", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-77", "name": "Josh Emmett", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-78", "name": "Mateusz Gamrot", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-79", "name": "Raquel Pennington", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-80", "name": "Macy Chiasson", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-81", "name": "Amanda Lemos", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-82", "name": "Jan Błachowicz", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-83", "name": "Aljamain Sterling", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-84", "name": "Tatsuro Taira", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-85", "name": "Sean Brady", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-86", "name": "Henry Cejudo", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-87", "name": "Kamaru Usman", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-88", "name": "Leon Edwards", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-89", "name": "Movsar Evloev", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-90", "name": "Manon Fiorot", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-91", "name": "Brandon Royval", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-92", "name": "Yair Rodríguez", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-93", "name": "Robert Whittaker", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-94", "name": "Khalil Rountree Jr.", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-95", "name": "Aleksandar Rakic", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-96", "name": "Jasmine Jasudavicius", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-97", "name": "Irene Aldana", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-98", "name": "Curtis Blaydes", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-99", "name": "Yadong Song", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards I", "card_number": "CB-100", "name": "Vinicius Oliveira", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-101", "name": "Arnold Allen", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-102", "name": "Gabriel Bonfim", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-103", "name": "Raul Rosas", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-104", "name": "Azamat Murzakanov", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-105", "name": "Stipe Miocic", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-106", "name": "Michael Morales", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-107", "name": "Rose Namajunas", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-108", "name": "Brendan Allen", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-109", "name": "Belal Muhammad", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-110", "name": "Benoit Saint Denis", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-111", "name": "Tatiana Suarez", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-112", "name": "Yan Xiaonan", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-113", "name": "Yana Santos", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-114", "name": "Joe Pyfer", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-115", "name": "Renato Moicano", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-116", "name": "Maria Godinez Gonzalez", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-117", "name": "Miesha Tate", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-118", "name": "Daniel Hooker", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-119", "name": "Derrick Lewis", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-120", "name": "Shamil Gaziev", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-121", "name": "Volkan Oezdemir", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-122", "name": "Jamahal Hill", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-123", "name": "Jared Cannonier", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-124", "name": "Nikita Krylov", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-125", "name": "Johnny Walker", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-126", "name": "Aiemann Zahabi", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-127", "name": "Assu Almabayev", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-128", "name": "Mario Bautista", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-129", "name": "Paulo Costa", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-130", "name": "Gillian Robertson", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-131", "name": "Karine Silva", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-132", "name": "Tabatha Ricci", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-133", "name": "Serghei Spivac", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-134", "name": "Joaquin Buckley", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-135", "name": "Amir Albazi", "team": null, "rookie": false}
+{"subset": "Chrome Base Cards II", "card_number": "CB-136", "name": "Jacqueline Cavalcanti", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-137", "name": "Oban Elliott", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-138", "name": "Lone'er Kavanagh", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-139", "name": "Fatima Kline", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-140", "name": "Felipe Lima", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-141", "name": "Mingyang Zhang", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-142", "name": "Oumar Sy", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-143", "name": "Youssef Zalal", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-144", "name": "Wang Cong", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-145", "name": "Ibo Aslan", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-146", "name": "Rafael Estevam", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-147", "name": "Elijah Smith", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-148", "name": "Tallison Teixeira", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-149", "name": "Tom Nolan", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-150", "name": "Bruna Brasil", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-151", "name": "Clayton Carpenter", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-152", "name": "Zhu Rong", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-153", "name": "Kody Steele", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-154", "name": "Quillan Salkilld", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-155", "name": "Ming Shi", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-156", "name": "Francis Marshall", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-157", "name": "Carlos Leal", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-158", "name": "Rei Tsuruya", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-159", "name": "Hyder Amil", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-160", "name": "Mario Pinto", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-161", "name": "Ramazan Temirov", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-162", "name": "Mansur Abdul-Malik", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-163", "name": "Austin Vanderford", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-164", "name": "Nursulton Ruziboev", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-165", "name": "Andre Lima", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-166", "name": "Michael Parkin", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-167", "name": "Aleksandre Topuria", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-168", "name": "Malcolm Wellmaker", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-169", "name": "Nasrat Haqparast", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-170", "name": "Aaron Pico", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-171", "name": "Patricio Freire", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-172", "name": "Alexia Thainara", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-173", "name": "Ateba Gautier", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-174", "name": "Torrez Finney", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-175", "name": "David Onama", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-176", "name": "Jaqueline Amorim", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-177", "name": "Marco Tulio", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-178", "name": "Chang Ho Lee", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-179", "name": "Dione Barbosa", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-180", "name": "Talita Alencar", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-181", "name": "Marquel Mederos", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-182", "name": "Kaue Fernandes", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-183", "name": "Gabriel Santos", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-184", "name": "JJ Aldrich", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-185", "name": "Nora Cornolle", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-186", "name": "Rizvan Kuniev", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-187", "name": "Navajo Stirling", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-188", "name": "Chris Padilla", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-189", "name": "Daniel Santos", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-190", "name": "Marcus Almeida", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-191", "name": "Andreas Gustafsson", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-192", "name": "Alvin Hines", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-193", "name": "Joo Sang Yoo", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-194", "name": "Michael Aswell", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-195", "name": "Patrick Mix", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-196", "name": "Seok Hyeon Ko", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-197", "name": "Tofiq Musayev", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-198", "name": "Islam Dulatov", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-199", "name": "Jackson McVey", "team": null, "rookie": true}
+{"subset": "Chrome Base Cards II", "card_number": "CB-200", "name": "John Castaneda", "team": null, "rookie": true}
+{"subset": "Beam Team", "card_number": "BT-1", "name": "Youssef Zalal", "team": null, "rookie": true}
+{"subset": "Beam Team", "card_number": "BT-2", "name": "Quillan Salkilld", "team": null, "rookie": true}
+{"subset": "Beam Team", "card_number": "BT-3", "name": "Ateba Gautier", "team": null, "rookie": true}
+{"subset": "Beam Team", "card_number": "BT-4", "name": "Aleksandre Topuria", "team": null, "rookie": true}
+{"subset": "Beam Team", "card_number": "BT-5", "name": "Malcolm Wellmaker", "team": null, "rookie": true}
+{"subset": "Beam Team", "card_number": "BT-6", "name": "Mackenzie Dern", "team": null, "rookie": false}
+{"subset": "Beam Team", "card_number": "BT-7", "name": "Joshua Van", "team": null, "rookie": false}
+{"subset": "Beam Team", "card_number": "BT-8", "name": "Arman Tsarukyan", "team": null, "rookie": false}
+{"subset": "Beam Team", "card_number": "BT-9", "name": "Jon Jones", "team": null, "rookie": false}
+{"subset": "Beam Team", "card_number": "BT-10", "name": "Conor McGregor", "team": null, "rookie": false}
+{"subset": "Beam Team", "card_number": "BT-11", "name": "Ilia Topuria", "team": null, "rookie": false}
+{"subset": "Beam Team", "card_number": "BT-12", "name": "Max Holloway", "team": null, "rookie": false}
+{"subset": "Beam Team", "card_number": "BT-13", "name": "Alex Pereira", "team": null, "rookie": false}
+{"subset": "Beam Team", "card_number": "BT-14", "name": "Paddy Pimblett", "team": null, "rookie": false}
+{"subset": "Beam Team", "card_number": "BT-15", "name": "Khamzat Chimaev", "team": null, "rookie": false}
+{"subset": "Beam Team", "card_number": "BT-16", "name": "Kayla Harrison", "team": null, "rookie": false}
+{"subset": "Beam Team", "card_number": "BT-17", "name": "Islam Makhachev", "team": null, "rookie": false}
+{"subset": "Beam Team", "card_number": "BT-18", "name": "Valentina Shevchenko", "team": null, "rookie": false}
+{"subset": "Beam Team", "card_number": "BT-19", "name": "Amanda Nunes", "team": null, "rookie": false}
+{"subset": "Beam Team", "card_number": "BT-20", "name": "Petr Yan", "team": null, "rookie": false}
+{"subset": "Fight Motion", "card_number": "FM-1", "name": "Bo Nickal", "team": null, "rookie": false}
+{"subset": "Fight Motion", "card_number": "FM-2", "name": "Sergei Pavlovich", "team": null, "rookie": false}
+{"subset": "Fight Motion", "card_number": "FM-3", "name": "Reinier De Ridder", "team": null, "rookie": false}
+{"subset": "Fight Motion", "card_number": "FM-4", "name": "Diego Lopes", "team": null, "rookie": false}
+{"subset": "Fight Motion", "card_number": "FM-5", "name": "Brandon Moreno", "team": null, "rookie": false}
+{"subset": "Fight Motion", "card_number": "FM-6", "name": "Zhang Weili", "team": null, "rookie": false}
+{"subset": "Fight Motion", "card_number": "FM-7", "name": "Payton Talbott", "team": null, "rookie": false}
+{"subset": "Fight Motion", "card_number": "FM-8", "name": "Justin Gaethje", "team": null, "rookie": false}
+{"subset": "Fight Motion", "card_number": "FM-9", "name": "Virna Jandiroba", "team": null, "rookie": false}
+{"subset": "Fight Motion", "card_number": "FM-10", "name": "Michael Chandler", "team": null, "rookie": false}
+{"subset": "Fight Motion", "card_number": "FM-11", "name": "Joshua Van", "team": null, "rookie": false}
+{"subset": "Fight Motion", "card_number": "FM-12", "name": "Arman Tsarukyan", "team": null, "rookie": false}
+{"subset": "Fight Motion", "card_number": "FM-13", "name": "Alexa Grasso", "team": null, "rookie": false}
+{"subset": "Fight Motion", "card_number": "FM-14", "name": "Shavkat Rakhmonov", "team": null, "rookie": false}
+{"subset": "Fight Motion", "card_number": "FM-15", "name": "Nassourdine Imavov", "team": null, "rookie": false}
+{"subset": "Fight Motion", "card_number": "FM-16", "name": "Dricus Du Plessis", "team": null, "rookie": false}
+{"subset": "Fight Motion", "card_number": "FM-17", "name": "Mauricio Santos", "team": null, "rookie": false}
+{"subset": "Fight Motion", "card_number": "FM-18", "name": "Carlos Ulberg", "team": null, "rookie": false}
+{"subset": "Fight Motion", "card_number": "FM-19", "name": "Ailin Perez", "team": null, "rookie": false}
+{"subset": "Fight Motion", "card_number": "FM-20", "name": "Michael Page", "team": null, "rookie": false}
+{"subset": "Fight Motion", "card_number": "FM-21", "name": "Natalia Cristina Da Silva", "team": null, "rookie": false}
+{"subset": "Fight Motion", "card_number": "FM-22", "name": "Anthony Hernandez", "team": null, "rookie": false}
+{"subset": "Fight Motion", "card_number": "FM-23", "name": "Tracy Cortez", "team": null, "rookie": false}
+{"subset": "Fight Motion", "card_number": "FM-24", "name": "Waldo Cortes", "team": null, "rookie": false}
+{"subset": "Fight Motion", "card_number": "FM-25", "name": "Quillan Salkilld", "team": null, "rookie": true}
+{"subset": "Concentration", "card_number": "CN-1", "name": "Petr Yan", "team": null, "rookie": false}
+{"subset": "Concentration", "card_number": "CN-2", "name": "Tom Aspinall", "team": null, "rookie": false}
+{"subset": "Concentration", "card_number": "CN-3", "name": "Alex Pereira", "team": null, "rookie": false}
+{"subset": "Concentration", "card_number": "CN-4", "name": "Jiri Prochazka", "team": null, "rookie": false}
+{"subset": "Concentration", "card_number": "CN-5", "name": "Ciryl Gane", "team": null, "rookie": false}
+{"subset": "Concentration", "card_number": "CN-6", "name": "Zhang Weili", "team": null, "rookie": false}
+{"subset": "Concentration", "card_number": "CN-7", "name": "Kayla Harrison", "team": null, "rookie": false}
+{"subset": "Concentration", "card_number": "CN-8", "name": "Charles Oliveira", "team": null, "rookie": false}
+{"subset": "Concentration", "card_number": "CN-9", "name": "Sean Strickland", "team": null, "rookie": false}
+{"subset": "Concentration", "card_number": "CN-10", "name": "Dricus Du Plessis", "team": null, "rookie": false}
+{"subset": "Concentration", "card_number": "CN-11", "name": "Arman Tsarukyan", "team": null, "rookie": false}
+{"subset": "Concentration", "card_number": "CN-12", "name": "Diego Lopes", "team": null, "rookie": false}
+{"subset": "Concentration", "card_number": "CN-13", "name": "Ian Machado Garry", "team": null, "rookie": false}
+{"subset": "Concentration", "card_number": "CN-14", "name": "Norma Dumont", "team": null, "rookie": false}
+{"subset": "Concentration", "card_number": "CN-15", "name": "Youssef Zalal", "team": null, "rookie": true}
+{"subset": "Concentration", "card_number": "CN-16", "name": "Ateba Gautier", "team": null, "rookie": true}
+{"subset": "Concentration", "card_number": "CN-17", "name": "Payton Talbott", "team": null, "rookie": false}
+{"subset": "Concentration", "card_number": "CN-18", "name": "Caio Borralho", "team": null, "rookie": false}
+{"subset": "Concentration", "card_number": "CN-19", "name": "Israel Adesanya", "team": null, "rookie": false}
+{"subset": "Concentration", "card_number": "CN-20", "name": "Joshua Van", "team": null, "rookie": false}
+{"subset": "Concentration", "card_number": "CN-21", "name": "Conor McGregor", "team": null, "rookie": false}
+{"subset": "Concentration", "card_number": "CN-22", "name": "Erin Blanchfield", "team": null, "rookie": false}
+{"subset": "Concentration", "card_number": "CN-23", "name": "Maycee Barber", "team": null, "rookie": false}
+{"subset": "Concentration", "card_number": "CN-24", "name": "Mackenzie Dern", "team": null, "rookie": false}
+{"subset": "Concentration", "card_number": "CN-25", "name": "Magomed Ankalaev", "team": null, "rookie": false}
+{"subset": "The Aftermath", "card_number": "TA-1", "name": "Kayla Harrison", "team": null, "rookie": false}
+{"subset": "The Aftermath", "card_number": "TA-2", "name": "Rose Namajunas", "team": null, "rookie": false}
+{"subset": "The Aftermath", "card_number": "TA-3", "name": "Merab Dvalishvili", "team": null, "rookie": false}
+{"subset": "The Aftermath", "card_number": "TA-4", "name": "Michael Morales", "team": null, "rookie": false}
+{"subset": "The Aftermath", "card_number": "TA-5", "name": "Amanda Nunes", "team": null, "rookie": false}
+{"subset": "The Aftermath", "card_number": "TA-6", "name": "Valentina Shevchenko", "team": null, "rookie": false}
+{"subset": "The Aftermath", "card_number": "TA-7", "name": "Forrest Griffin", "team": null, "rookie": false}
+{"subset": "The Aftermath", "card_number": "TA-8", "name": "Islam Makhachev", "team": null, "rookie": false}
+{"subset": "The Aftermath", "card_number": "TA-9", "name": "Jack Della Maddalena", "team": null, "rookie": false}
+{"subset": "The Aftermath", "card_number": "TA-10", "name": "Robbie Lawler", "team": null, "rookie": false}
+{"subset": "The Aftermath", "card_number": "TA-11", "name": "Jon Jones", "team": null, "rookie": false}
+{"subset": "The Aftermath", "card_number": "TA-12", "name": "Tom Aspinall", "team": null, "rookie": false}
+{"subset": "The Aftermath", "card_number": "TA-13", "name": "Georges St-Pierre", "team": null, "rookie": false}
+{"subset": "The Aftermath", "card_number": "TA-14", "name": "Holly Holm", "team": null, "rookie": false}
+{"subset": "The Aftermath", "card_number": "TA-15", "name": "Khamzat Chimaev", "team": null, "rookie": false}
+{"subset": "The Aftermath", "card_number": "TA-16", "name": "Michael Bisping", "team": null, "rookie": false}
+{"subset": "The Aftermath", "card_number": "TA-17", "name": "Ilia Topuria", "team": null, "rookie": false}
+{"subset": "The Aftermath", "card_number": "TA-18", "name": "Anderson Silva", "team": null, "rookie": false}
+{"subset": "The Aftermath", "card_number": "TA-19", "name": "Chuck Liddell", "team": null, "rookie": false}
+{"subset": "The Aftermath", "card_number": "TA-20", "name": "Alexandre Pantoja", "team": null, "rookie": false}
+{"subset": "The Aftermath", "card_number": "TA-21", "name": "Max Holloway", "team": null, "rookie": false}
+{"subset": "The Aftermath", "card_number": "TA-22", "name": "Petr Yan", "team": null, "rookie": false}
+{"subset": "The Aftermath", "card_number": "TA-23", "name": "Jean Silva", "team": null, "rookie": false}
+{"subset": "The Aftermath", "card_number": "TA-24", "name": "Alex Pereira", "team": null, "rookie": false}
+{"subset": "The Aftermath", "card_number": "TA-25", "name": "Carlos Prates", "team": null, "rookie": false}
+{"subset": "Main Stage", "card_number": "MS-1", "name": "Paddy Pimblett", "team": null, "rookie": false}
+{"subset": "Main Stage", "card_number": "MS-2", "name": "Jon Jones", "team": null, "rookie": false}
+{"subset": "Main Stage", "card_number": "MS-3", "name": "Alex Pereira", "team": null, "rookie": false}
+{"subset": "Main Stage", "card_number": "MS-4", "name": "Daniel Cormier", "team": null, "rookie": false}
+{"subset": "Main Stage", "card_number": "MS-5", "name": "Colby Covington", "team": null, "rookie": false}
+{"subset": "Main Stage", "card_number": "MS-6", "name": "Khamzat Chimaev", "team": null, "rookie": false}
+{"subset": "Main Stage", "card_number": "MS-7", "name": "Tai Tuivasa", "team": null, "rookie": false}
+{"subset": "Main Stage", "card_number": "MS-8", "name": "Israel Adesanya", "team": null, "rookie": false}
+{"subset": "Main Stage", "card_number": "MS-9", "name": "Urijah Faber", "team": null, "rookie": false}
+{"subset": "Main Stage", "card_number": "MS-10", "name": "Donald Cerrone", "team": null, "rookie": false}
+{"subset": "Main Stage", "card_number": "MS-11", "name": "Brian Ortega", "team": null, "rookie": false}
+{"subset": "Main Stage", "card_number": "MS-12", "name": "Chan Sung Jung", "team": null, "rookie": false}
+{"subset": "Main Stage", "card_number": "MS-13", "name": "Wanderlei Silva", "team": null, "rookie": false}
+{"subset": "Main Stage", "card_number": "MS-14", "name": "Alexander Volkanovski", "team": null, "rookie": false}
+{"subset": "Main Stage", "card_number": "MS-15", "name": "Conor McGregor", "team": null, "rookie": false}
+{"subset": "Main Stage", "card_number": "MS-16", "name": "Ilia Topuria", "team": null, "rookie": false}
+{"subset": "Main Stage", "card_number": "MS-17", "name": "Khabib Nurmagomedov", "team": null, "rookie": false}
+{"subset": "Main Stage", "card_number": "MS-18", "name": "Max Holloway", "team": null, "rookie": false}
+{"subset": "Main Stage", "card_number": "MS-19", "name": "Joanna Jędrzejczyk", "team": null, "rookie": false}
+{"subset": "Main Stage", "card_number": "MS-20", "name": "Amanda Nunes", "team": null, "rookie": false}
+{"subset": "Main Stage", "card_number": "MS-21", "name": "Jack Della Maddalena", "team": null, "rookie": false}
+{"subset": "Main Stage", "card_number": "MS-22", "name": "Nassourdine Imavov", "team": null, "rookie": false}
+{"subset": "Main Stage", "card_number": "MS-23", "name": "Kayla Harrison", "team": null, "rookie": false}
+{"subset": "Main Stage", "card_number": "MS-24", "name": "Sean O'Malley", "team": null, "rookie": false}
+{"subset": "Main Stage", "card_number": "MS-25", "name": "Dustin Poirier", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-1", "name": "Islam Makhachev", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-2", "name": "Islam Makhachev", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-3", "name": "Islam Makhachev", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-4", "name": "Khamzat Chimaev", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-5", "name": "Khamzat Chimaev", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-6", "name": "Khamzat Chimaev", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-7", "name": "Max Holloway", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-8", "name": "Max Holloway", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-9", "name": "Max Holloway", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-10", "name": "Zhang Weili", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-11", "name": "Zhang Weili", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-12", "name": "Zhang Weili", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-13", "name": "Tom Aspinall", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-14", "name": "Tom Aspinall", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-15", "name": "Tom Aspinall", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-16", "name": "Jack Della Maddalena", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-17", "name": "Jack Della Maddalena", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-18", "name": "Jack Della Maddalena", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-19", "name": "Jean Silva", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-20", "name": "Jean Silva", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-21", "name": "Jean Silva", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-22", "name": "Amanda Nunes", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-23", "name": "Amanda Nunes", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-24", "name": "Amanda Nunes", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-25", "name": "Georges St-Pierre", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-26", "name": "Georges St-Pierre", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-27", "name": "Georges St-Pierre", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-28", "name": "Anderson Silva", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-29", "name": "Anderson Silva", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-30", "name": "Anderson Silva", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-31", "name": "Khabib Nurmagomedov", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-32", "name": "Khabib Nurmagomedov", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-33", "name": "Khabib Nurmagomedov", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-34", "name": "Natalia Cristina Da Silva", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-35", "name": "Natalia Cristina Da Silva", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-36", "name": "Natalia Cristina Da Silva", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-37", "name": "Michael Morales", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-38", "name": "Michael Morales", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-39", "name": "Michael Morales", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-40", "name": "Joshua Van", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-41", "name": "Joshua Van", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-42", "name": "Joshua Van", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-43", "name": "Sean Strickland", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-44", "name": "Sean Strickland", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-45", "name": "Sean Strickland", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-46", "name": "Diego Lopes", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-47", "name": "Diego Lopes", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-48", "name": "Diego Lopes", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-49", "name": "Fatima Kline", "team": null, "rookie": true}
+{"subset": "Triumvirates", "card_number": "TV-50", "name": "Fatima Kline", "team": null, "rookie": true}
+{"subset": "Triumvirates", "card_number": "TV-51", "name": "Fatima Kline", "team": null, "rookie": true}
+{"subset": "Triumvirates", "card_number": "TV-52", "name": "Carlos Prates", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-53", "name": "Carlos Prates", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-54", "name": "Carlos Prates", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-55", "name": "Caio Borralho", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-56", "name": "Caio Borralho", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-57", "name": "Caio Borralho", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-58", "name": "Dricus Du Plessis", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-59", "name": "Dricus Du Plessis", "team": null, "rookie": false}
+{"subset": "Triumvirates", "card_number": "TV-60", "name": "Dricus Du Plessis", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-1", "name": "Alex Pereira", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-2", "name": "Alex Pereira", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-3", "name": "Alex Pereira", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-4", "name": "Alexandre Pantoja", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-5", "name": "Alexandre Pantoja", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-6", "name": "Alexandre Pantoja", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-7", "name": "Charles Oliveira", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-8", "name": "Charles Oliveira", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-9", "name": "Charles Oliveira", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-10", "name": "Ilia Topuria", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-11", "name": "Ilia Topuria", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-12", "name": "Ilia Topuria", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-13", "name": "Israel Adesanya", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-14", "name": "Israel Adesanya", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-15", "name": "Israel Adesanya", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-16", "name": "Conor McGregor", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-17", "name": "Conor McGregor", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-18", "name": "Conor McGregor", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-19", "name": "Jon Jones", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-20", "name": "Jon Jones", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-21", "name": "Jon Jones", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-22", "name": "Merab Dvalishvili", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-23", "name": "Merab Dvalishvili", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-24", "name": "Merab Dvalishvili", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-25", "name": "Dustin Poirier", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-26", "name": "Dustin Poirier", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-27", "name": "Dustin Poirier", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-28", "name": "Paddy Pimblett", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-29", "name": "Paddy Pimblett", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-30", "name": "Paddy Pimblett", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-31", "name": "Alexander Volkanovski", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-32", "name": "Alexander Volkanovski", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-33", "name": "Alexander Volkanovski", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-34", "name": "Valentina Shevchenko", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-35", "name": "Valentina Shevchenko", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-36", "name": "Valentina Shevchenko", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-37", "name": "Sean O'Malley", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-38", "name": "Sean O'Malley", "team": null, "rookie": false}
+{"subset": "Triumvirates Nickname", "card_number": "TVN-39", "name": "Sean O'Malley", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-AAN", "name": "Arnold Allen", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-AGO", "name": "Alexa Grasso", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-AHZ", "name": "Anthony Hernandez", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-ALA", "name": "Andre Lima", "team": null, "rookie": true}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-AMV", "name": "Azamat Murzakanov", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-ARC", "name": "Aleksandar Rakic", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-AVD", "name": "Austin Vanderford", "team": null, "rookie": true}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-BBL", "name": "Bruna Brasil", "team": null, "rookie": true}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-BNL", "name": "Bo Nickal", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-BRL", "name": "Brandon Royval", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-CBO", "name": "Caio Borralho", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-CBS", "name": "Curtis Blaydes", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-CCN", "name": "Colby Covington", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-CCR", "name": "Clayton Carpenter", "team": null, "rookie": true}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-CGE", "name": "Ciryl Gane", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-CHR", "name": "Chase Hooper", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-CLE", "name": "Carlos Leal", "team": null, "rookie": true}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-CLL", "name": "Chuck Liddell", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-CMR", "name": "Conor McGregor", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-DCE", "name": "Donald Cerrone", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-DCR", "name": "Daniel Cormier", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-DHR", "name": "Daniel Hooker", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-DL", "name": "Diego Lopes", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-ESH", "name": "Elijah Smith", "team": null, "rookie": true}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-FER", "name": "Frankie Edgar", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-FGN", "name": "Forrest Griffin", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-FLA", "name": "Felipe Lima", "team": null, "rookie": true}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-FML", "name": "Francis Marshall", "team": null, "rookie": true}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-GBM", "name": "Gabriel Bonfim", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-HAL", "name": "Hyder Amil", "team": null, "rookie": true}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-HCO", "name": "Henry Cejudo", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-HHM", "name": "Holly Holm", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-IAA", "name": "Israel Adesanya", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-IAL", "name": "Irene Aldana", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-IMG", "name": "Ian Machado Garry", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-IMV", "name": "Islam Makhachev", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-JAO", "name": "Jose Aldo", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-JBY", "name": "Joaquin Buckley", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-JCI", "name": "Jacqueline Cavalcanti", "team": null, "rookie": true}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-JDM", "name": "Jack Della Maddalena", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-JGE", "name": "Justin Gaethje", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-JJA", "name": "Jasmine Jasudavicius", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-JJK", "name": "Joanna Jędrzejczyk", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-JJS", "name": "Jon Jones", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-KCV", "name": "Khamzat Chimaev", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-KHN", "name": "Kayla Harrison", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-KKF", "name": "Kai Kara-France", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-KRJ", "name": "Khalil Rountree Jr.", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-KSE", "name": "Kody Steele", "team": null, "rookie": true}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-LEK", "name": "Lone'er Kavanagh", "team": null, "rookie": true}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-LES", "name": "Leon Edwards", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-MAM", "name": "Mansur Abdul-Malik", "team": null, "rookie": true}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-MAV", "name": "Magomed Ankalaev", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-MBR", "name": "Maycee Barber", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-MCR", "name": "Michael Chandler", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-MDI", "name": "Merab Dvalishvili", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-MDN", "name": "Mackenzie Dern", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-MEV", "name": "Movsar Evloev", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-MFT", "name": "Manon Fiorot", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-MHS", "name": "Matt Hughes", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-MHY", "name": "Max Holloway", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-MKR", "name": "Mark Kerr", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-MPN", "name": "Michael Parkin", "team": null, "rookie": true}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-MPO", "name": "Mario Pinto", "team": null, "rookie": true}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-MSI", "name": "Ming Shi", "team": null, "rookie": true}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-NCS", "name": "Natalia Cristina Da Silva", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-NDT", "name": "Norma Dumont", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-NIV", "name": "Nassourdine Imavov", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-NRV", "name": "Nursulton Ruziboev", "team": null, "rookie": true}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-OET", "name": "Oban Elliott", "team": null, "rookie": true}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-QSD", "name": "Quillan Salkilld", "team": null, "rookie": true}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-RDR", "name": "Reinier De Ridder", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-REM", "name": "Rafael Estevam", "team": null, "rookie": true}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-RGE", "name": "Royce Gracie", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-RLR", "name": "Robbie Lawler", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-RON", "name": "Zhu Rong", "team": null, "rookie": true}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-RRS", "name": "Raul Rosas", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-RTA", "name": "Rei Tsuruya", "team": null, "rookie": true}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-RWR", "name": "Robert Whittaker", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-SBY", "name": "Sean Brady", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-TAL", "name": "Tom Aspinall", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-TCZ", "name": "Tracy Cortez", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-TNN", "name": "Tom Nolan", "team": null, "rookie": true}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-TTA", "name": "Tallison Teixeira", "team": null, "rookie": true}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-UFR", "name": "Urijah Faber", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-VJA", "name": "Virna Jandiroba", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-VOA", "name": "Vinicius Oliveira", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-WCG", "name": "Wang Cong", "team": null, "rookie": true}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-YSG", "name": "Yadong Song", "team": null, "rookie": false}
+{"subset": "Base Cards Autograph Variation", "card_number": "BAV-YZL", "name": "Youssef Zalal", "team": null, "rookie": true}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-AAI", "name": "Amir Albazi", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-AGN", "name": "Andreas Gustafsson", "team": null, "rookie": true}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-AGR", "name": "Ateba Gautier", "team": null, "rookie": true}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-AHS", "name": "Alvin Hines", "team": null, "rookie": true}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-ALS", "name": "Amanda Lemos", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-ANS", "name": "Amanda Nunes", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-APA", "name": "Alexandre Pantoja", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-APO", "name": "Aaron Pico", "team": null, "rookie": true}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-APP", "name": "Alex Pereira", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-APZ", "name": "Ailin Perez", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-ASA", "name": "Anderson Silva", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-ASG", "name": "Aljamain Sterling", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-ATH", "name": "Alexia Thainara", "team": null, "rookie": true}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-ATN", "name": "Arman Tsarukyan", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-AVI", "name": "Alexander Volkanovski", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-AVV", "name": "Alexander Volkov", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-BAN", "name": "Brendan Allen", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-BMD", "name": "Belal Muhammad", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-BMO", "name": "Brandon Moreno", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-BOA", "name": "Brian Ortega", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-CHL", "name": "Chang Ho Lee", "team": null, "rookie": true}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-COA", "name": "Charles Oliveira", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-CPA", "name": "Chris Padilla", "team": null, "rookie": true}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-CPS", "name": "Carlos Prates", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-CSJ", "name": "Chan Sung Jung", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-CSN", "name": "Cory Sandhagen", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-CUG", "name": "Carlos Ulberg", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-DBA", "name": "Dione Barbosa", "team": null, "rookie": true}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-DOA", "name": "David Onama", "team": null, "rookie": true}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-DPR", "name": "Dustin Poirier", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-DSS", "name": "Daniel Santos", "team": null, "rookie": true}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-EBD", "name": "Erin Blanchfield", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-GSP", "name": "Georges St-Pierre", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-GSS", "name": "Gabriel Santos", "team": null, "rookie": true}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-ITA", "name": "Ilia Topuria", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-JAM", "name": "Jaqueline Amorim", "team": null, "rookie": true}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-JET", "name": "Josh Emmett", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-JHL", "name": "Jamahal Hill", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-JJA", "name": "JJ Aldrich", "team": null, "rookie": true}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-JMO", "name": "Jailton Malhadinho", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-JMV", "name": "Jackson McVey", "team": null, "rookie": true}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-JPE", "name": "Julianna Peña", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-JSA", "name": "Jean Silva", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-JSY", "name": "Joo Sang Yoo", "team": null, "rookie": true}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-JVN", "name": "Joshua Van", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-KFS", "name": "Kaue Fernandes", "team": null, "rookie": true}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-KHD", "name": "Kevin Holland", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-KNV", "name": "Khabib Nurmagomedov", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-KVA", "name": "Ketlen Vieira", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-LGZ", "name": "Maria Godinez Gonzalez", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-LMY", "name": "Lerone Murphy", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-MAL", "name": "Michael Aswell", "team": null, "rookie": true}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-MBA", "name": "Marcus Almeida", "team": null, "rookie": true}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-MCN", "name": "Macy Chiasson", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-MGT", "name": "Mateusz Gamrot", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-MME", "name": "Marquel Mederos", "team": null, "rookie": true}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-MMS", "name": "Michael Morales", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-MPE", "name": "Michael Page", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-MSS", "name": "Mauricio Santos", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-MTO", "name": "Marco Tulio", "team": null, "rookie": true}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-MWR", "name": "Malcolm Wellmaker", "team": null, "rookie": true}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-NCE", "name": "Nora Cornolle", "team": null, "rookie": true}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-PCA", "name": "Paulo Costa", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-PMX", "name": "Patrick Mix", "team": null, "rookie": true}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-PPT", "name": "Paddy Pimblett", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-PTT", "name": "Payton Talbott", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-RNS", "name": "Rose Namajunas", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-RPN", "name": "Raquel Pennington", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-SKO", "name": "Seok Hyeon Ko", "team": null, "rookie": true}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-SMC", "name": "Stipe Miocic", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-SOM", "name": "Sean O'Malley", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-SPH", "name": "Sergei Pavlovich", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-SRA", "name": "Shogun Rua", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-SSD", "name": "Sean Strickland", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-TAR", "name": "Talita Alencar", "team": null, "rookie": true}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-TFY", "name": "Torrez Finney", "team": null, "rookie": true}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-TRI", "name": "Tabatha Ricci", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-TSZ", "name": "Tatiana Suarez", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-TTA", "name": "Tatsuro Taira", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-TTU", "name": "Tai Tuivasa", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-UNV", "name": "Umar Nurmagomedov", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-VSO", "name": "Valentina Shevchenko", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-WSA", "name": "Wanderlei Silva", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-YXN", "name": "Yan Xiaonan", "team": null, "rookie": false}
+{"subset": "Base Cards Chrome Autograph Variation", "card_number": "CAV-ZWI", "name": "Zhang Weili", "team": null, "rookie": false}
+{"subset": "Fight Motion Autographs", "card_number": "FMA-AG", "name": "Alexa Grasso", "team": null, "rookie": false}
+{"subset": "Fight Motion Autographs", "card_number": "FMA-AP", "name": "Ailin Perez", "team": null, "rookie": false}
+{"subset": "Fight Motion Autographs", "card_number": "FMA-AT", "name": "Arman Tsarukyan", "team": null, "rookie": false}
+{"subset": "Fight Motion Autographs", "card_number": "FMA-BM", "name": "Brandon Moreno", "team": null, "rookie": false}
+{"subset": "Fight Motion Autographs", "card_number": "FMA-BN", "name": "Bo Nickal", "team": null, "rookie": false}
+{"subset": "Fight Motion Autographs", "card_number": "FMA-CU", "name": "Carlos Ulberg", "team": null, "rookie": false}
+{"subset": "Fight Motion Autographs", "card_number": "FMA-DL", "name": "Diego Lopes", "team": null, "rookie": false}
+{"subset": "Fight Motion Autographs", "card_number": "FMA-DP", "name": "Dricus Du Plessis", "team": null, "rookie": false}
+{"subset": "Fight Motion Autographs", "card_number": "FMA-JG", "name": "Justin Gaethje", "team": null, "rookie": false}
+{"subset": "Fight Motion Autographs", "card_number": "FMA-JV", "name": "Joshua Van", "team": null, "rookie": false}
+{"subset": "Fight Motion Autographs", "card_number": "FMA-MC", "name": "Michael Chandler", "team": null, "rookie": false}
+{"subset": "Fight Motion Autographs", "card_number": "FMA-MP", "name": "Michael Page", "team": null, "rookie": false}
+{"subset": "Fight Motion Autographs", "card_number": "FMA-MS", "name": "Mauricio Santos", "team": null, "rookie": false}
+{"subset": "Fight Motion Autographs", "card_number": "FMA-NI", "name": "Nassourdine Imavov", "team": null, "rookie": false}
+{"subset": "Fight Motion Autographs", "card_number": "FMA-PT", "name": "Payton Talbott", "team": null, "rookie": false}
+{"subset": "Fight Motion Autographs", "card_number": "FMA-RD", "name": "Reinier De Ridder", "team": null, "rookie": false}
+{"subset": "Fight Motion Autographs", "card_number": "FMA-SP", "name": "Sergei Pavlovich", "team": null, "rookie": false}
+{"subset": "Fight Motion Autographs", "card_number": "FMA-VJ", "name": "Virna Jandiroba", "team": null, "rookie": false}
+{"subset": "Fight Motion Autographs", "card_number": "FMA-ZW", "name": "Zhang Weili", "team": null, "rookie": false}
+{"subset": "The Aftermath Autographs", "card_number": "TAA-AN", "name": "Amanda Nunes", "team": null, "rookie": false}
+{"subset": "The Aftermath Autographs", "card_number": "TAA-AP", "name": "Alexandre Pantoja", "team": null, "rookie": false}
+{"subset": "The Aftermath Autographs", "card_number": "TAA-AS", "name": "Anderson Silva", "team": null, "rookie": false}
+{"subset": "The Aftermath Autographs", "card_number": "TAA-CL", "name": "Chuck Liddell", "team": null, "rookie": false}
+{"subset": "The Aftermath Autographs", "card_number": "TAA-FG", "name": "Forrest Griffin", "team": null, "rookie": false}
+{"subset": "The Aftermath Autographs", "card_number": "TAA-GS", "name": "Georges St-Pierre", "team": null, "rookie": false}
+{"subset": "The Aftermath Autographs", "card_number": "TAA-HH", "name": "Holly Holm", "team": null, "rookie": false}
+{"subset": "The Aftermath Autographs", "card_number": "TAA-IM", "name": "Islam Makhachev", "team": null, "rookie": false}
+{"subset": "The Aftermath Autographs", "card_number": "TAA-IT", "name": "Ilia Topuria", "team": null, "rookie": false}
+{"subset": "The Aftermath Autographs", "card_number": "TAA-JJ", "name": "Jon Jones", "team": null, "rookie": false}
+{"subset": "The Aftermath Autographs", "card_number": "TAA-JM", "name": "Jack Della Maddalena", "team": null, "rookie": false}
+{"subset": "The Aftermath Autographs", "card_number": "TAA-KC", "name": "Khamzat Chimaev", "team": null, "rookie": false}
+{"subset": "The Aftermath Autographs", "card_number": "TAA-KH", "name": "Kayla Harrison", "team": null, "rookie": false}
+{"subset": "The Aftermath Autographs", "card_number": "TAA-MB", "name": "Michael Bisping", "team": null, "rookie": false}
+{"subset": "The Aftermath Autographs", "card_number": "TAA-MD", "name": "Merab Dvalishvili", "team": null, "rookie": false}
+{"subset": "The Aftermath Autographs", "card_number": "TAA-MM", "name": "Michael Morales", "team": null, "rookie": false}
+{"subset": "The Aftermath Autographs", "card_number": "TAA-RL", "name": "Robbie Lawler", "team": null, "rookie": false}
+{"subset": "The Aftermath Autographs", "card_number": "TAA-RN", "name": "Rose Namajunas", "team": null, "rookie": false}
+{"subset": "The Aftermath Autographs", "card_number": "TAA-TA", "name": "Tom Aspinall", "team": null, "rookie": false}
+{"subset": "The Aftermath Autographs", "card_number": "TAA-VS", "name": "Valentina Shevchenko", "team": null, "rookie": false}
+{"subset": "Dual Autographs", "card_number": "DA-MC", "name": "Daniel Cormier", "team": null, "rookie": false, "co_players": [{"name": "Stipe Miocic", "team": null, "rookie": false}]}
+{"subset": "Dual Autographs", "card_number": "DA-MN", "name": "Islam Makhachev", "team": null, "rookie": false, "co_players": [{"name": "Khabib Nurmagomedov", "team": null, "rookie": false}]}
+{"subset": "Dual Autographs", "card_number": "DA-NJ", "name": "Joanna Jędrzejczyk", "team": null, "rookie": false, "co_players": [{"name": "Rose Namajunas", "team": null, "rookie": false}]}
+{"subset": "Dual Autographs", "card_number": "DA-PA", "name": "Israel Adesanya", "team": null, "rookie": false, "co_players": [{"name": "Alex Pereira", "team": null, "rookie": false}]}
+{"subset": "Dual Autographs", "card_number": "DA-PH", "name": "Dustin Poirier", "team": null, "rookie": false, "co_players": [{"name": "Max Holloway", "team": null, "rookie": false}]}
+{"subset": "Dual Autographs", "card_number": "DA-SH", "name": "Georges St-Pierre", "team": null, "rookie": false, "co_players": [{"name": "Matt Hughes", "team": null, "rookie": false}]}
+{"subset": "Dual Autographs", "card_number": "DA-SR", "name": "Shogun Rua", "team": null, "rookie": false, "co_players": [{"name": "Wanderlei Silva", "team": null, "rookie": false}]}
+{"subset": "Dual Autographs", "card_number": "DA-WX", "name": "Yan Xiaonan", "team": null, "rookie": false, "co_players": [{"name": "Zhang Weili", "team": null, "rookie": false}]}
+{"subset": "Main Stage Autographs", "card_number": "MSA-AP", "name": "Alex Pereira", "team": null, "rookie": false}
+{"subset": "Main Stage Autographs", "card_number": "MSA-AV", "name": "Alexander Volkanovski", "team": null, "rookie": false}
+{"subset": "Main Stage Autographs", "card_number": "MSA-BO", "name": "Brian Ortega", "team": null, "rookie": false}
+{"subset": "Main Stage Autographs", "card_number": "MSA-CC", "name": "Colby Covington", "team": null, "rookie": false}
+{"subset": "Main Stage Autographs", "card_number": "MSA-CJ", "name": "Chan Sung Jung", "team": null, "rookie": false}
+{"subset": "Main Stage Autographs", "card_number": "MSA-CM", "name": "Conor McGregor", "team": null, "rookie": false}
+{"subset": "Main Stage Autographs", "card_number": "MSA-DC", "name": "Daniel Cormier", "team": null, "rookie": false}
+{"subset": "Main Stage Autographs", "card_number": "MSA-DE", "name": "Donald Cerrone", "team": null, "rookie": false}
+{"subset": "Main Stage Autographs", "card_number": "MSA-IA", "name": "Israel Adesanya", "team": null, "rookie": false}
+{"subset": "Main Stage Autographs", "card_number": "MSA-IT", "name": "Ilia Topuria", "team": null, "rookie": false}
+{"subset": "Main Stage Autographs", "card_number": "MSA-JJ", "name": "Jon Jones", "team": null, "rookie": false}
+{"subset": "Main Stage Autographs", "card_number": "MSA-JO", "name": "Joanna Jędrzejczyk", "team": null, "rookie": false}
+{"subset": "Main Stage Autographs", "card_number": "MSA-KC", "name": "Khamzat Chimaev", "team": null, "rookie": false}
+{"subset": "Main Stage Autographs", "card_number": "MSA-KN", "name": "Khabib Nurmagomedov", "team": null, "rookie": false}
+{"subset": "Main Stage Autographs", "card_number": "MSA-MH", "name": "Max Holloway", "team": null, "rookie": false}
+{"subset": "Main Stage Autographs", "card_number": "MSA-PP", "name": "Paddy Pimblett", "team": null, "rookie": false}
+{"subset": "Main Stage Autographs", "card_number": "MSA-TT", "name": "Tai Tuivasa", "team": null, "rookie": false}
+{"subset": "Main Stage Autographs", "card_number": "MSA-UF", "name": "Urijah Faber", "team": null, "rookie": false}
+{"subset": "Main Stage Autographs", "card_number": "MSA-WS", "name": "Wanderlei Silva", "team": null, "rookie": false}
+{"subset": "Abstract Autographs", "card_number": "AA-CB", "name": "Caio Borralho", "team": null, "rookie": false}
+{"subset": "Abstract Autographs", "card_number": "AA-CH", "name": "Chase Hooper", "team": null, "rookie": false}
+{"subset": "Abstract Autographs", "card_number": "AA-CO", "name": "Charles Oliveira", "team": null, "rookie": false}
+{"subset": "Abstract Autographs", "card_number": "AA-CP", "name": "Carlos Prates", "team": null, "rookie": false}
+{"subset": "Abstract Autographs", "card_number": "AA-CS", "name": "Cory Sandhagen", "team": null, "rookie": false}
+{"subset": "Abstract Autographs", "card_number": "AA-DH", "name": "Daniel Hooker", "team": null, "rookie": false}
+{"subset": "Abstract Autographs", "card_number": "AA-IG", "name": "Ian Machado Garry", "team": null, "rookie": false}
+{"subset": "Abstract Autographs", "card_number": "AA-JP", "name": "Julianna Peña", "team": null, "rookie": false}
+{"subset": "Abstract Autographs", "card_number": "AA-MA", "name": "Magomed Ankalaev", "team": null, "rookie": false}
+{"subset": "Abstract Autographs", "card_number": "AA-MD", "name": "Mackenzie Dern", "team": null, "rookie": false}
+{"subset": "Abstract Autographs", "card_number": "AA-NS", "name": "Natalia Cristina Da Silva", "team": null, "rookie": false}
+{"subset": "Abstract Autographs", "card_number": "AA-RG", "name": "Royce Gracie", "team": null, "rookie": false}
+{"subset": "Abstract Autographs", "card_number": "AA-SB", "name": "Sean Brady", "team": null, "rookie": false}
+{"subset": "Abstract Autographs", "card_number": "AA-SO", "name": "Sean O'Malley", "team": null, "rookie": false}
+{"subset": "Abstract Autographs", "card_number": "AA-TS", "name": "Tatiana Suarez", "team": null, "rookie": false}
+{"subset": "Concentration Autographs", "card_number": "CNA-AV", "name": "Alexander Volkov", "team": null, "rookie": false}
+{"subset": "Concentration Autographs", "card_number": "CNA-BM", "name": "Belal Muhammad", "team": null, "rookie": false}
+{"subset": "Concentration Autographs", "card_number": "CNA-CG", "name": "Ciryl Gane", "team": null, "rookie": false}
+{"subset": "Concentration Autographs", "card_number": "CNA-DP", "name": "Dustin Poirier", "team": null, "rookie": false}
+{"subset": "Concentration Autographs", "card_number": "CNA-HC", "name": "Henry Cejudo", "team": null, "rookie": false}
+{"subset": "Concentration Autographs", "card_number": "CNA-JA", "name": "Jose Aldo", "team": null, "rookie": false}
+{"subset": "Concentration Autographs", "card_number": "CNA-JS", "name": "Jean Silva", "team": null, "rookie": false}
+{"subset": "Concentration Autographs", "card_number": "CNA-KV", "name": "Ketlen Vieira", "team": null, "rookie": false}
+{"subset": "Concentration Autographs", "card_number": "CNA-LE", "name": "Leon Edwards", "team": null, "rookie": false}
+{"subset": "Concentration Autographs", "card_number": "CNA-ME", "name": "Movsar Evloev", "team": null, "rookie": false}
+{"subset": "Concentration Autographs", "card_number": "CNA-MF", "name": "Manon Fiorot", "team": null, "rookie": false}
+{"subset": "Concentration Autographs", "card_number": "CNA-SS", "name": "Sean Strickland", "team": null, "rookie": false}
+{"subset": "Concentration Autographs", "card_number": "CNA-UN", "name": "Umar Nurmagomedov", "team": null, "rookie": false}
