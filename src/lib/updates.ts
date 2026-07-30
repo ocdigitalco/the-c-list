@@ -13,6 +13,23 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "227-resurgence-football-2025-odds",
+    title: "2025 Topps Resurgence Football: Odds, Parallels & Box Config",
+    date: "2026-07-31T00:00:00Z",
+    summary:
+      "Attached 249 parallels with four-format pack odds (Hobby/Delight/Value/Mega) + box config to 2025 Topps Resurgence Football; fixed one autograph flag.",
+    description: `## Resurgence Football — odds, parallels & box config
+
+The bare checklist is now fully configured: **249 parallels across 19 subsets** with **four-format pack odds** (Hobby, Delight, Value, Mega).
+
+- **Base and Rookies** carry the full Surge → Power Surge ladder plus format-exclusive chase parallels — High Voltage (Hobby), Spark (Mega), Shock (Value), and the Delight-exclusive Static parallels.
+- **212 numbered parallels** down to 1/1 Superfractors; base-tier rows feed the Break Hit Calculator.
+- **Box configuration** added for all four products, with the Hobby autograph + rookie-relic-autograph guarantees.
+- Corrected **Radial Rookie Relics** to an autograph subset (relic-auto).`,
+    tags: ["odds", "box-config"],
+    setId: 859,
+  },
+  {
     id: "226-stadium-club-ufc-2026-added",
     title: "2026 Topps Stadium Club UFC Added",
     date: "2026-08-14T00:00:00Z",

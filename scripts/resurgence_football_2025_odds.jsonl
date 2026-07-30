@@ -1,0 +1,249 @@
+{"subset": "Base", "parallel": "__BASE__", "print_run": null, "odds": {"hobby": "1:1", "delight": null, "value": "1:1", "mega": "1:1"}}
+{"subset": "Base", "parallel": "Refractor", "print_run": null, "odds": {"hobby": "1:4", "delight": "1:1", "value": "1:8", "mega": "1:6"}}
+{"subset": "Base", "parallel": "Prism", "print_run": null, "odds": {"hobby": null, "delight": null, "value": "1:16", "mega": "1:20"}}
+{"subset": "Base", "parallel": "Surge", "print_run": 425, "odds": {"hobby": "1:51", "delight": "1:11", "value": "1:337", "mega": "1:127"}}
+{"subset": "Base", "parallel": "Black and White Surge", "print_run": 399, "odds": {"hobby": "1:54", "delight": "1:12", "value": "1:359", "mega": "1:135"}}
+{"subset": "Base", "parallel": "Bronze Surge", "print_run": 375, "odds": {"hobby": "1:58", "delight": "1:13", "value": "1:382", "mega": "1:144"}}
+{"subset": "Base", "parallel": "Magenta Surge", "print_run": 299, "odds": {"hobby": "1:72", "delight": "1:16", "value": "1:479", "mega": "1:180"}}
+{"subset": "Base", "parallel": "Navy Surge", "print_run": 275, "odds": {"hobby": "1:79", "delight": "1:18", "value": "1:521", "mega": "1:196"}}
+{"subset": "Base", "parallel": "Aqua Surge", "print_run": 250, "odds": {"hobby": "1:86", "delight": "1:19", "value": "1:573", "mega": "1:215"}}
+{"subset": "Base", "parallel": "Yellow Surge", "print_run": 225, "odds": {"hobby": "1:96", "delight": "1:21", "value": "1:637", "mega": "1:239"}}
+{"subset": "Base", "parallel": "Crimson Surge", "print_run": 199, "odds": {"hobby": "1:108", "delight": "1:24", "value": "1:720", "mega": "1:270"}}
+{"subset": "Base", "parallel": "Green Surge", "print_run": 175, "odds": {"hobby": "1:123", "delight": "1:27", "value": "1:818", "mega": "1:307"}}
+{"subset": "Base", "parallel": "Teal Surge", "print_run": 149, "odds": {"hobby": "1:145", "delight": "1:32", "value": "1:961", "mega": "1:361"}}
+{"subset": "Base", "parallel": "White Surge", "print_run": 125, "odds": {"hobby": "1:172", "delight": "1:38", "value": "1:1146", "mega": "1:430"}}
+{"subset": "Base", "parallel": "Digital Surge", "print_run": 100, "odds": {"hobby": "1:215", "delight": "1:48", "value": "1:1432", "mega": "1:537"}}
+{"subset": "Base", "parallel": "Blue Surge", "print_run": 99, "odds": {"hobby": "1:217", "delight": "1:48", "value": "1:1446", "mega": "1:543"}}
+{"subset": "Base", "parallel": "Purple Surge", "print_run": 75, "odds": {"hobby": "1:287", "delight": "1:63", "value": "1:1909", "mega": "1:716"}}
+{"subset": "Base", "parallel": "Gold Power Surge", "print_run": 50, "odds": {"hobby": "1:430", "delight": "1:95", "value": "1:2864", "mega": "1:1075"}}
+{"subset": "Base", "parallel": "Orange Power Surge", "print_run": 25, "odds": {"hobby": "1:860", "delight": "1:190", "value": "1:5732", "mega": "1:2149"}}
+{"subset": "Base", "parallel": "Lime Green Power Surge", "print_run": 15, "odds": {"hobby": "1:1433", "delight": "1:317", "value": "1:9545", "mega": "1:3585"}}
+{"subset": "Base", "parallel": "Pink Power Surge", "print_run": 10, "odds": {"hobby": "1:2148", "delight": "1:475", "value": "1:14344", "mega": "1:5384"}}
+{"subset": "Base", "parallel": "Red Power Surge", "print_run": 5, "odds": {"hobby": "1:4308", "delight": "1:950", "value": "1:28687", "mega": "1:10811"}}
+{"subset": "Base", "parallel": "Superfractor", "print_run": 1, "odds": {"hobby": "1:21928", "delight": "1:5696", "value": "1:144232", "mega": "1:54053"}}
+{"subset": "Base", "parallel": "High Voltage", "print_run": null, "odds": {"hobby": "1:279", "delight": null, "value": null, "mega": null}}
+{"subset": "Base", "parallel": "Blue and Orange Spark", "print_run": null, "odds": {"hobby": null, "delight": null, "value": null, "mega": "1:3"}}
+{"subset": "Base", "parallel": "Sky Blue and Pink Shock", "print_run": null, "odds": {"hobby": null, "delight": null, "value": "1:8", "mega": null}}
+{"subset": "Base", "parallel": "Silver Static", "print_run": null, "odds": {"hobby": null, "delight": "1:4", "value": null, "mega": null}}
+{"subset": "Base", "parallel": "Orange Static", "print_run": 25, "odds": {"hobby": null, "delight": "1:10", "value": null, "mega": null}}
+{"subset": "Base", "parallel": "Lime Green Static", "print_run": 15, "odds": {"hobby": null, "delight": "1:16", "value": null, "mega": null}}
+{"subset": "Base", "parallel": "Pink Static", "print_run": 10, "odds": {"hobby": null, "delight": "1:23", "value": null, "mega": null}}
+{"subset": "Base", "parallel": "Red Static", "print_run": 5, "odds": {"hobby": null, "delight": "1:46", "value": null, "mega": null}}
+{"subset": "Base", "parallel": "Black Static", "print_run": 2, "odds": {"hobby": null, "delight": "1:114", "value": null, "mega": null}}
+{"subset": "Rookies", "parallel": "__BASE__", "print_run": null, "odds": {"hobby": "1:1", "delight": null, "value": "1:2", "mega": "1:1"}}
+{"subset": "Rookies", "parallel": "Refractor", "print_run": null, "odds": {"hobby": "1:4", "delight": "1:1", "value": "1:8", "mega": "1:6"}}
+{"subset": "Rookies", "parallel": "Prism", "print_run": null, "odds": {"hobby": null, "delight": null, "value": "1:16", "mega": "1:12"}}
+{"subset": "Rookies", "parallel": "Surge", "print_run": 425, "odds": {"hobby": "1:51", "delight": "1:12", "value": "1:337", "mega": "1:127"}}
+{"subset": "Rookies", "parallel": "Black and White Surge", "print_run": 399, "odds": {"hobby": "1:54", "delight": "1:12", "value": "1:359", "mega": "1:135"}}
+{"subset": "Rookies", "parallel": "Bronze Surge", "print_run": 375, "odds": {"hobby": "1:58", "delight": "1:13", "value": "1:382", "mega": "1:144"}}
+{"subset": "Rookies", "parallel": "Magenta Surge", "print_run": 299, "odds": {"hobby": "1:72", "delight": "1:16", "value": "1:479", "mega": "1:180"}}
+{"subset": "Rookies", "parallel": "Navy Surge", "print_run": 275, "odds": {"hobby": "1:79", "delight": "1:18", "value": "1:521", "mega": "1:196"}}
+{"subset": "Rookies", "parallel": "Aqua Surge", "print_run": 250, "odds": {"hobby": "1:86", "delight": "1:19", "value": "1:573", "mega": "1:215"}}
+{"subset": "Rookies", "parallel": "Yellow Surge", "print_run": 225, "odds": {"hobby": "1:96", "delight": "1:21", "value": "1:637", "mega": "1:239"}}
+{"subset": "Rookies", "parallel": "Crimson Surge", "print_run": 199, "odds": {"hobby": "1:108", "delight": "1:24", "value": "1:720", "mega": "1:270"}}
+{"subset": "Rookies", "parallel": "Green Surge", "print_run": 175, "odds": {"hobby": "1:123", "delight": "1:27", "value": "1:818", "mega": "1:307"}}
+{"subset": "Rookies", "parallel": "Teal Surge", "print_run": 149, "odds": {"hobby": "1:145", "delight": "1:32", "value": "1:961", "mega": "1:361"}}
+{"subset": "Rookies", "parallel": "White Surge", "print_run": 125, "odds": {"hobby": "1:172", "delight": "1:38", "value": "1:1146", "mega": "1:430"}}
+{"subset": "Rookies", "parallel": "Digital Surge", "print_run": 100, "odds": {"hobby": "1:215", "delight": "1:48", "value": "1:1432", "mega": "1:537"}}
+{"subset": "Rookies", "parallel": "Blue Surge", "print_run": 99, "odds": {"hobby": "1:217", "delight": "1:48", "value": "1:1446", "mega": "1:543"}}
+{"subset": "Rookies", "parallel": "Purple Surge", "print_run": 75, "odds": {"hobby": "1:287", "delight": "1:63", "value": "1:1909", "mega": "1:716"}}
+{"subset": "Rookies", "parallel": "Gold Power Surge", "print_run": 50, "odds": {"hobby": "1:430", "delight": "1:95", "value": "1:2864", "mega": "1:1075"}}
+{"subset": "Rookies", "parallel": "Orange Power Surge", "print_run": 25, "odds": {"hobby": "1:860", "delight": "1:190", "value": "1:5732", "mega": "1:2149"}}
+{"subset": "Rookies", "parallel": "Lime Green Power Surge", "print_run": 15, "odds": {"hobby": "1:1433", "delight": "1:317", "value": "1:9545", "mega": "1:3585"}}
+{"subset": "Rookies", "parallel": "Pink Power Surge", "print_run": 10, "odds": {"hobby": "1:2148", "delight": "1:475", "value": "1:14344", "mega": "1:5384"}}
+{"subset": "Rookies", "parallel": "Red Power Surge", "print_run": 5, "odds": {"hobby": "1:4308", "delight": "1:950", "value": "1:28687", "mega": "1:10811"}}
+{"subset": "Rookies", "parallel": "Superfractor", "print_run": 1, "odds": {"hobby": "1:21928", "delight": "1:5696", "value": "1:144232", "mega": "1:54053"}}
+{"subset": "Rookies", "parallel": "High Voltage", "print_run": null, "odds": {"hobby": "1:279", "delight": null, "value": null, "mega": null}}
+{"subset": "Rookies", "parallel": "Blue and Orange Spark", "print_run": null, "odds": {"hobby": null, "delight": null, "value": null, "mega": "1:3"}}
+{"subset": "Rookies", "parallel": "Sky Blue and Pink Shock", "print_run": null, "odds": {"hobby": null, "delight": null, "value": "1:8", "mega": null}}
+{"subset": "Rookies", "parallel": "Silver Static", "print_run": null, "odds": {"hobby": null, "delight": "1:4", "value": null, "mega": null}}
+{"subset": "Rookies", "parallel": "Orange Static", "print_run": 25, "odds": {"hobby": null, "delight": "1:10", "value": null, "mega": null}}
+{"subset": "Rookies", "parallel": "Lime Green Static", "print_run": 15, "odds": {"hobby": null, "delight": "1:16", "value": null, "mega": null}}
+{"subset": "Rookies", "parallel": "Pink Static", "print_run": 10, "odds": {"hobby": null, "delight": "1:23", "value": null, "mega": null}}
+{"subset": "Rookies", "parallel": "Red Static", "print_run": 5, "odds": {"hobby": null, "delight": "1:46", "value": null, "mega": null}}
+{"subset": "Rookies", "parallel": "Black Static", "print_run": 2, "odds": {"hobby": null, "delight": "1:114", "value": null, "mega": null}}
+{"subset": "Electro Lights", "parallel": "__BASE__", "print_run": null, "odds": {"hobby": null, "delight": null, "value": "1:310", "mega": "1:116"}}
+{"subset": "Perfect Fits", "parallel": "__BASE__", "print_run": null, "odds": {"hobby": "1:522", "delight": "1:37", "value": null, "mega": null}}
+{"subset": "Wired", "parallel": "__BASE__", "print_run": null, "odds": {"hobby": "1:348", "delight": "1:25", "value": null, "mega": null}}
+{"subset": "String Theory", "parallel": "__BASE__", "print_run": null, "odds": {"hobby": "1:418", "delight": "1:30", "value": null, "mega": null}}
+{"subset": "Protonyx", "parallel": "__BASE__", "print_run": null, "odds": {"hobby": "1:6", "delight": null, "value": "1:8", "mega": "1:6"}}
+{"subset": "Protonyx", "parallel": "Refractor", "print_run": null, "odds": {"hobby": "1:24", "delight": null, "value": null, "mega": null}}
+{"subset": "Protonyx", "parallel": "Surge", "print_run": 425, "odds": {"hobby": "1:203", "delight": "1:45", "value": "1:1348", "mega": "1:506"}}
+{"subset": "Protonyx", "parallel": "Bronze Surge", "print_run": 350, "odds": {"hobby": "1:246", "delight": "1:54", "value": "1:1636", "mega": "1:614"}}
+{"subset": "Protonyx", "parallel": "Magenta Surge", "print_run": 299, "odds": {"hobby": "1:288", "delight": "1:64", "value": "1:1916", "mega": "1:719"}}
+{"subset": "Protonyx", "parallel": "Navy Surge", "print_run": 275, "odds": {"hobby": "1:313", "delight": "1:69", "value": "1:2082", "mega": "1:782"}}
+{"subset": "Protonyx", "parallel": "Aqua Surge", "print_run": 250, "odds": {"hobby": "1:344", "delight": "1:76", "value": "1:2291", "mega": "1:860"}}
+{"subset": "Protonyx", "parallel": "Yellow Surge", "print_run": 225, "odds": {"hobby": "1:382", "delight": "1:84", "value": "1:2546", "mega": "1:955"}}
+{"subset": "Protonyx", "parallel": "Crimson Surge", "print_run": 199, "odds": {"hobby": "1:432", "delight": "1:95", "value": "1:2879", "mega": "1:1180"}}
+{"subset": "Protonyx", "parallel": "Green Surge", "print_run": 175, "odds": {"hobby": "1:491", "delight": "1:108", "value": "1:3272", "mega": "1:1228"}}
+{"subset": "Protonyx", "parallel": "Teal Surge", "print_run": 149, "odds": {"hobby": "1:577", "delight": "1:127", "value": "1:3844", "mega": "1:1442"}}
+{"subset": "Protonyx", "parallel": "White Surge", "print_run": 125, "odds": {"hobby": "1:688", "delight": "1:151", "value": "1:4583", "mega": "1:1720"}}
+{"subset": "Protonyx", "parallel": "Blue Surge", "print_run": 99, "odds": {"hobby": "1:868", "delight": "1:192", "value": "1:5789", "mega": "1:2169"}}
+{"subset": "Protonyx", "parallel": "Purple Surge", "print_run": 75, "odds": {"hobby": "1:1147", "delight": "1:254", "value": "1:7636", "mega": "1:2863"}}
+{"subset": "Protonyx", "parallel": "Gold Power Surge", "print_run": 50, "odds": {"hobby": "1:1719", "delight": "1:380", "value": "1:11463", "mega": "1:4304"}}
+{"subset": "Protonyx", "parallel": "Orange Power Surge", "print_run": 25, "odds": {"hobby": "1:3446", "delight": "1:760", "value": "1:22975", "mega": "1:8608"}}
+{"subset": "Protonyx", "parallel": "Lime Green Power Surge", "print_run": 15, "odds": {"hobby": "1:5743", "delight": "1:1266", "value": "1:38179", "mega": "1:14376"}}
+{"subset": "Protonyx", "parallel": "Pink Power Surge", "print_run": 10, "odds": {"hobby": "1:8615", "delight": "1:1899", "value": "1:57693", "mega": "1:21796"}}
+{"subset": "Protonyx", "parallel": "Red Power Surge", "print_run": 5, "odds": {"hobby": "1:17229", "delight": "1:3798", "value": "1:115385", "mega": "1:43591"}}
+{"subset": "Protonyx", "parallel": "Superfractor", "print_run": 1, "odds": {"hobby": "1:90451", "delight": "1:22783", "value": "1:576925", "mega": "1:225221"}}
+{"subset": "Conductors", "parallel": "__BASE__", "print_run": null, "odds": {"hobby": "1:6", "delight": null, "value": "1:8", "mega": "1:6"}}
+{"subset": "Conductors", "parallel": "Refractor", "print_run": null, "odds": {"hobby": "1:24", "delight": null, "value": null, "mega": null}}
+{"subset": "Conductors", "parallel": "Surge", "print_run": 425, "odds": {"hobby": "1:203", "delight": "1:45", "value": "1:1348", "mega": "1:506"}}
+{"subset": "Conductors", "parallel": "Bronze Surge", "print_run": 350, "odds": {"hobby": "1:246", "delight": "1:54", "value": "1:1636", "mega": "1:614"}}
+{"subset": "Conductors", "parallel": "Magenta Surge", "print_run": 299, "odds": {"hobby": "1:288", "delight": "1:64", "value": "1:1916", "mega": "1:719"}}
+{"subset": "Conductors", "parallel": "Navy Surge", "print_run": 275, "odds": {"hobby": "1:313", "delight": "1:69", "value": "1:2082", "mega": "1:782"}}
+{"subset": "Conductors", "parallel": "Aqua Surge", "print_run": 250, "odds": {"hobby": "1:344", "delight": "1:76", "value": "1:2291", "mega": "1:860"}}
+{"subset": "Conductors", "parallel": "Yellow Surge", "print_run": 225, "odds": {"hobby": "1:382", "delight": "1:84", "value": "1:2546", "mega": "1:955"}}
+{"subset": "Conductors", "parallel": "Crimson Surge", "print_run": 199, "odds": {"hobby": "1:432", "delight": "1:95", "value": "1:2879", "mega": "1:1180"}}
+{"subset": "Conductors", "parallel": "Green Surge", "print_run": 175, "odds": {"hobby": "1:491", "delight": "1:108", "value": "1:3272", "mega": "1:1228"}}
+{"subset": "Conductors", "parallel": "Teal Surge", "print_run": 149, "odds": {"hobby": "1:577", "delight": "1:127", "value": "1:3844", "mega": "1:1442"}}
+{"subset": "Conductors", "parallel": "White Surge", "print_run": 125, "odds": {"hobby": "1:688", "delight": "1:151", "value": "1:4583", "mega": "1:1720"}}
+{"subset": "Conductors", "parallel": "Blue Surge", "print_run": 99, "odds": {"hobby": "1:868", "delight": "1:192", "value": "1:5789", "mega": "1:2169"}}
+{"subset": "Conductors", "parallel": "Purple Surge", "print_run": 75, "odds": {"hobby": "1:1147", "delight": "1:254", "value": "1:7636", "mega": "1:2863"}}
+{"subset": "Conductors", "parallel": "Gold Power Surge", "print_run": 50, "odds": {"hobby": "1:1719", "delight": "1:380", "value": "1:11463", "mega": "1:4304"}}
+{"subset": "Conductors", "parallel": "Orange Power Surge", "print_run": 25, "odds": {"hobby": "1:3446", "delight": "1:760", "value": "1:22975", "mega": "1:8608"}}
+{"subset": "Conductors", "parallel": "Lime Green Power Surge", "print_run": 15, "odds": {"hobby": "1:5743", "delight": "1:1266", "value": "1:38179", "mega": "1:14376"}}
+{"subset": "Conductors", "parallel": "Pink Power Surge", "print_run": 10, "odds": {"hobby": "1:8615", "delight": "1:1899", "value": "1:57693", "mega": "1:21796"}}
+{"subset": "Conductors", "parallel": "Red Power Surge", "print_run": 5, "odds": {"hobby": "1:17229", "delight": "1:3798", "value": "1:115385", "mega": "1:43591"}}
+{"subset": "Conductors", "parallel": "Superfractor", "print_run": 1, "odds": {"hobby": "1:90451", "delight": "1:22783", "value": "1:576925", "mega": "1:225221"}}
+{"subset": "Circuit Breakers", "parallel": "__BASE__", "print_run": null, "odds": {"hobby": "1:6", "delight": null, "value": "1:8", "mega": "1:6"}}
+{"subset": "Circuit Breakers", "parallel": "Refractor", "print_run": null, "odds": {"hobby": "1:24", "delight": null, "value": null, "mega": null}}
+{"subset": "Circuit Breakers", "parallel": "Surge", "print_run": 425, "odds": {"hobby": "1:203", "delight": "1:45", "value": "1:1348", "mega": "1:506"}}
+{"subset": "Circuit Breakers", "parallel": "Bronze Surge", "print_run": 350, "odds": {"hobby": "1:246", "delight": "1:54", "value": "1:1636", "mega": "1:614"}}
+{"subset": "Circuit Breakers", "parallel": "Magenta Surge", "print_run": 299, "odds": {"hobby": "1:288", "delight": "1:64", "value": "1:1916", "mega": "1:719"}}
+{"subset": "Circuit Breakers", "parallel": "Navy Surge", "print_run": 275, "odds": {"hobby": "1:313", "delight": "1:69", "value": "1:2082", "mega": "1:782"}}
+{"subset": "Circuit Breakers", "parallel": "Aqua Surge", "print_run": 250, "odds": {"hobby": "1:344", "delight": "1:76", "value": "1:2291", "mega": "1:860"}}
+{"subset": "Circuit Breakers", "parallel": "Yellow Surge", "print_run": 225, "odds": {"hobby": "1:382", "delight": "1:84", "value": "1:2546", "mega": "1:955"}}
+{"subset": "Circuit Breakers", "parallel": "Crimson Surge", "print_run": 199, "odds": {"hobby": "1:432", "delight": "1:95", "value": "1:2879", "mega": "1:1180"}}
+{"subset": "Circuit Breakers", "parallel": "Green Surge", "print_run": 175, "odds": {"hobby": "1:491", "delight": "1:108", "value": "1:3272", "mega": "1:1228"}}
+{"subset": "Circuit Breakers", "parallel": "Teal Surge", "print_run": 149, "odds": {"hobby": "1:577", "delight": "1:127", "value": "1:3844", "mega": "1:1442"}}
+{"subset": "Circuit Breakers", "parallel": "White Surge", "print_run": 125, "odds": {"hobby": "1:688", "delight": "1:151", "value": "1:4583", "mega": "1:1720"}}
+{"subset": "Circuit Breakers", "parallel": "Blue Surge", "print_run": 99, "odds": {"hobby": "1:868", "delight": "1:192", "value": "1:5789", "mega": "1:2169"}}
+{"subset": "Circuit Breakers", "parallel": "Purple Surge", "print_run": 75, "odds": {"hobby": "1:1147", "delight": "1:254", "value": "1:7636", "mega": "1:2863"}}
+{"subset": "Circuit Breakers", "parallel": "Gold Power Surge", "print_run": 50, "odds": {"hobby": "1:1719", "delight": "1:380", "value": "1:11463", "mega": "1:4304"}}
+{"subset": "Circuit Breakers", "parallel": "Orange Power Surge", "print_run": 25, "odds": {"hobby": "1:3446", "delight": "1:760", "value": "1:22975", "mega": "1:8608"}}
+{"subset": "Circuit Breakers", "parallel": "Lime Green Power Surge", "print_run": 15, "odds": {"hobby": "1:5743", "delight": "1:1266", "value": "1:38179", "mega": "1:14376"}}
+{"subset": "Circuit Breakers", "parallel": "Pink Power Surge", "print_run": 10, "odds": {"hobby": "1:8615", "delight": "1:1899", "value": "1:57693", "mega": "1:21796"}}
+{"subset": "Circuit Breakers", "parallel": "Red Power Surge", "print_run": 5, "odds": {"hobby": "1:17229", "delight": "1:3798", "value": "1:115385", "mega": "1:43591"}}
+{"subset": "Circuit Breakers", "parallel": "Superfractor", "print_run": 1, "odds": {"hobby": "1:90451", "delight": "1:22783", "value": "1:576925", "mega": "1:225221"}}
+{"subset": "Voltaic", "parallel": "__BASE__", "print_run": null, "odds": {"hobby": "1:6", "delight": null, "value": "1:8", "mega": "1:6"}}
+{"subset": "Voltaic", "parallel": "Refractor", "print_run": null, "odds": {"hobby": "1:24", "delight": null, "value": null, "mega": null}}
+{"subset": "Voltaic", "parallel": "Surge", "print_run": 425, "odds": {"hobby": "1:203", "delight": "1:45", "value": "1:1348", "mega": "1:506"}}
+{"subset": "Voltaic", "parallel": "Bronze Surge", "print_run": 350, "odds": {"hobby": "1:246", "delight": "1:54", "value": "1:1636", "mega": "1:614"}}
+{"subset": "Voltaic", "parallel": "Magenta Surge", "print_run": 299, "odds": {"hobby": "1:288", "delight": "1:64", "value": "1:1916", "mega": "1:719"}}
+{"subset": "Voltaic", "parallel": "Navy Surge", "print_run": 275, "odds": {"hobby": "1:313", "delight": "1:69", "value": "1:2082", "mega": "1:782"}}
+{"subset": "Voltaic", "parallel": "Aqua Surge", "print_run": 250, "odds": {"hobby": "1:344", "delight": "1:76", "value": "1:2291", "mega": "1:860"}}
+{"subset": "Voltaic", "parallel": "Yellow Surge", "print_run": 225, "odds": {"hobby": "1:382", "delight": "1:84", "value": "1:2546", "mega": "1:955"}}
+{"subset": "Voltaic", "parallel": "Crimson Surge", "print_run": 199, "odds": {"hobby": "1:432", "delight": "1:95", "value": "1:2879", "mega": "1:1180"}}
+{"subset": "Voltaic", "parallel": "Green Surge", "print_run": 175, "odds": {"hobby": "1:491", "delight": "1:108", "value": "1:3272", "mega": "1:1228"}}
+{"subset": "Voltaic", "parallel": "Teal Surge", "print_run": 149, "odds": {"hobby": "1:577", "delight": "1:127", "value": "1:3844", "mega": "1:1442"}}
+{"subset": "Voltaic", "parallel": "White Surge", "print_run": 125, "odds": {"hobby": "1:688", "delight": "1:151", "value": "1:4583", "mega": "1:1720"}}
+{"subset": "Voltaic", "parallel": "Blue Surge", "print_run": 99, "odds": {"hobby": "1:868", "delight": "1:192", "value": "1:5789", "mega": "1:2169"}}
+{"subset": "Voltaic", "parallel": "Purple Surge", "print_run": 75, "odds": {"hobby": "1:1147", "delight": "1:254", "value": "1:7636", "mega": "1:2863"}}
+{"subset": "Voltaic", "parallel": "Gold Power Surge", "print_run": 50, "odds": {"hobby": "1:1719", "delight": "1:380", "value": "1:11463", "mega": "1:4304"}}
+{"subset": "Voltaic", "parallel": "Orange Power Surge", "print_run": 25, "odds": {"hobby": "1:3446", "delight": "1:760", "value": "1:22975", "mega": "1:8608"}}
+{"subset": "Voltaic", "parallel": "Lime Green Power Surge", "print_run": 15, "odds": {"hobby": "1:5743", "delight": "1:1266", "value": "1:38179", "mega": "1:14376"}}
+{"subset": "Voltaic", "parallel": "Pink Power Surge", "print_run": 10, "odds": {"hobby": "1:8615", "delight": "1:1899", "value": "1:57693", "mega": "1:21796"}}
+{"subset": "Voltaic", "parallel": "Red Power Surge", "print_run": 5, "odds": {"hobby": "1:17229", "delight": "1:3798", "value": "1:115385", "mega": "1:43591"}}
+{"subset": "Voltaic", "parallel": "Superfractor", "print_run": 1, "odds": {"hobby": "1:90451", "delight": "1:22783", "value": "1:576925", "mega": "1:225221"}}
+{"subset": "Base Signatures", "parallel": "__BASE__", "print_run": null, "odds": {"hobby": "1:805", "delight": "1:68", "value": "1:5370", "mega": "1:1007"}}
+{"subset": "Base Signatures", "parallel": "Blue Surge", "print_run": 99, "odds": {"hobby": "1:642", "delight": "1:54", "value": "1:4228", "mega": "1:802"}}
+{"subset": "Base Signatures", "parallel": "Gold Power Surge", "print_run": 50, "odds": {"hobby": "1:1004", "delight": "1:84", "value": "1:6692", "mega": "1:1254"}}
+{"subset": "Base Signatures", "parallel": "Orange Power Surge", "print_run": 25, "odds": {"hobby": "1:1527", "delight": "1:128", "value": "1:10162", "mega": "1:1906"}}
+{"subset": "Base Signatures", "parallel": "Lime Green Power Surge", "print_run": 15, "odds": {"hobby": "1:2445", "delight": "1:206", "value": "1:16329", "mega": "1:3058"}}
+{"subset": "Base Signatures", "parallel": "Pink Power Surge", "print_run": 10, "odds": {"hobby": "1:3583", "delight": "1:300", "value": "1:23818", "mega": "1:4475"}}
+{"subset": "Base Signatures", "parallel": "Red Power Surge", "print_run": 5, "odds": {"hobby": "1:7165", "delight": "1:600", "value": "1:47636", "mega": "1:8950"}}
+{"subset": "Base Signatures", "parallel": "Superfractor", "print_run": 1, "odds": {"hobby": "1:36180", "delight": "1:3255", "value": "1:247254", "mega": "1:45045"}}
+{"subset": "Base Signatures", "parallel": "Silver Static", "print_run": null, "odds": {"hobby": null, "delight": "1:5", "value": null, "mega": null}}
+{"subset": "Base Signatures", "parallel": "Gold Static", "print_run": 50, "odds": {"hobby": null, "delight": "1:10", "value": null, "mega": null}}
+{"subset": "Base Signatures", "parallel": "Orange Static", "print_run": 25, "odds": {"hobby": null, "delight": "1:13", "value": null, "mega": null}}
+{"subset": "Base Signatures", "parallel": "Lime Green Static", "print_run": 15, "odds": {"hobby": null, "delight": "1:20", "value": null, "mega": null}}
+{"subset": "Base Signatures", "parallel": "Pink Static", "print_run": 10, "odds": {"hobby": null, "delight": "1:29", "value": null, "mega": null}}
+{"subset": "Base Signatures", "parallel": "Red Static", "print_run": 5, "odds": {"hobby": null, "delight": "1:57", "value": null, "mega": null}}
+{"subset": "Base Signatures", "parallel": "Black Static", "print_run": 2, "odds": {"hobby": null, "delight": "1:143", "value": null, "mega": null}}
+{"subset": "Rookie Signatures", "parallel": "__BASE__", "print_run": null, "odds": {"hobby": "1:20", "delight": "1:3", "value": "1:133", "mega": "1:25"}}
+{"subset": "Rookie Signatures", "parallel": "Black and White Surge", "print_run": 375, "odds": {"hobby": "1:80", "delight": "1:7", "value": "1:530", "mega": "1:100"}}
+{"subset": "Rookie Signatures", "parallel": "Magenta Surge", "print_run": 299, "odds": {"hobby": "1:100", "delight": "1:9", "value": "1:664", "mega": "1:125"}}
+{"subset": "Rookie Signatures", "parallel": "Aqua Surge", "print_run": 250, "odds": {"hobby": "1:120", "delight": "1:10", "value": "1:794", "mega": "1:149"}}
+{"subset": "Rookie Signatures", "parallel": "White Surge", "print_run": 125, "odds": {"hobby": "1:239", "delight": "1:20", "value": "1:1588", "mega": "1:298"}}
+{"subset": "Rookie Signatures", "parallel": "Blue Surge", "print_run": 99, "odds": {"hobby": "1:300", "delight": "1:26", "value": "1:2005", "mega": "1:376"}}
+{"subset": "Rookie Signatures", "parallel": "Purple Surge", "print_run": 75, "odds": {"hobby": "1:397", "delight": "1:34", "value": "1:2646", "mega": "1:497"}}
+{"subset": "Rookie Signatures", "parallel": "Gold Power Surge", "print_run": 50, "odds": {"hobby": "1:596", "delight": "1:50", "value": "1:3970", "mega": "1:745"}}
+{"subset": "Rookie Signatures", "parallel": "Orange Power Surge", "print_run": 25, "odds": {"hobby": "1:1193", "delight": "1:100", "value": "1:7940", "mega": "1:1489"}}
+{"subset": "Rookie Signatures", "parallel": "Lime Green Power Surge", "print_run": 15, "odds": {"hobby": "1:1967", "delight": "1:163", "value": "1:13112", "mega": "1:2457"}}
+{"subset": "Rookie Signatures", "parallel": "Pink Power Surge", "print_run": 10, "odds": {"hobby": "1:2954", "delight": "1:248", "value": "1:19668", "mega": "1:3683"}}
+{"subset": "Rookie Signatures", "parallel": "Red Power Surge", "print_run": 5, "odds": {"hobby": "1:5932", "delight": "1:496", "value": "1:39336", "mega": "1:7385"}}
+{"subset": "Rookie Signatures", "parallel": "Superfractor", "print_run": 1, "odds": {"hobby": "1:30150", "delight": "1:2532", "value": "1:119705", "mega": "1:37537"}}
+{"subset": "Rookie Signatures", "parallel": "Silver Static", "print_run": null, "odds": {"hobby": null, "delight": "1:3", "value": null, "mega": null}}
+{"subset": "Rookie Signatures", "parallel": "Gold Static", "print_run": 50, "odds": {"hobby": null, "delight": "1:5", "value": null, "mega": null}}
+{"subset": "Rookie Signatures", "parallel": "Orange Static", "print_run": 25, "odds": {"hobby": null, "delight": "1:10", "value": null, "mega": null}}
+{"subset": "Rookie Signatures", "parallel": "Lime Green Static", "print_run": 15, "odds": {"hobby": null, "delight": "1:16", "value": null, "mega": null}}
+{"subset": "Rookie Signatures", "parallel": "Pink Static", "print_run": 10, "odds": {"hobby": null, "delight": "1:24", "value": null, "mega": null}}
+{"subset": "Rookie Signatures", "parallel": "Red Static", "print_run": 5, "odds": {"hobby": null, "delight": "1:47", "value": null, "mega": null}}
+{"subset": "Rookie Signatures", "parallel": "Black Static", "print_run": 2, "odds": {"hobby": null, "delight": "1:118", "value": null, "mega": null}}
+{"subset": "Molecular Marks", "parallel": "__BASE__", "print_run": null, "odds": {"hobby": "1:1363", "delight": "1:114", "value": "1:9078", "mega": "1:1702"}}
+{"subset": "Molecular Marks", "parallel": "Blue Surge", "print_run": 99, "odds": {"hobby": "1:1699", "delight": "1:142", "value": "1:11337", "mega": "1:2125"}}
+{"subset": "Molecular Marks", "parallel": "Gold Power Surge", "print_run": 50, "odds": {"hobby": "1:2389", "delight": "1:200", "value": "1:15879", "mega": "1:2977"}}
+{"subset": "Molecular Marks", "parallel": "Orange Power Surge", "print_run": 25, "odds": {"hobby": "1:4580", "delight": "1:387", "value": "1:30544", "mega": "1:5726"}}
+{"subset": "Molecular Marks", "parallel": "Lime Green Power Surge", "print_run": 15, "odds": {"hobby": "1:7698", "delight": "1:651", "value": "1:50906", "mega": "1:9584"}}
+{"subset": "Molecular Marks", "parallel": "Pink Power Surge", "print_run": 10, "odds": {"hobby": "1:11486", "delight": "1:991", "value": "1:76358", "mega": "1:14376"}}
+{"subset": "Molecular Marks", "parallel": "Red Power Surge", "print_run": 5, "odds": {"hobby": "1:23342", "delight": "1:2072", "value": "1:152716", "mega": "1:28752"}}
+{"subset": "Molecular Marks", "parallel": "Superfractor", "print_run": 1, "odds": {"hobby": "1:120600", "delight": "1:11391", "value": "1:865387", "mega": "1:150147"}}
+{"subset": "Arc Flash Autographs", "parallel": "__BASE__", "print_run": null, "odds": {"hobby": "1:1004", "delight": "1:84", "value": "1:6692", "mega": "1:1254"}}
+{"subset": "Arc Flash Autographs", "parallel": "Blue Surge", "print_run": 99, "odds": {"hobby": "1:1445", "delight": "1:121", "value": "1:9634", "mega": "1:1805"}}
+{"subset": "Arc Flash Autographs", "parallel": "Gold Power Surge", "print_run": 50, "odds": {"hobby": "1:2389", "delight": "1:200", "value": "1:15879", "mega": "1:2977"}}
+{"subset": "Arc Flash Autographs", "parallel": "Orange Power Surge", "print_run": 25, "odds": {"hobby": "1:4580", "delight": "1:387", "value": "1:30544", "mega": "1:5726"}}
+{"subset": "Arc Flash Autographs", "parallel": "Lime Green Power Surge", "print_run": 15, "odds": {"hobby": "1:7698", "delight": "1:651", "value": "1:50906", "mega": "1:9584"}}
+{"subset": "Arc Flash Autographs", "parallel": "Pink Power Surge", "print_run": 10, "odds": {"hobby": "1:11486", "delight": "1:991", "value": "1:76358", "mega": "1:14376"}}
+{"subset": "Arc Flash Autographs", "parallel": "Red Power Surge", "print_run": 5, "odds": {"hobby": "1:23342", "delight": "1:2072", "value": "1:152716", "mega": "1:28752"}}
+{"subset": "Arc Flash Autographs", "parallel": "Superfractor", "print_run": 1, "odds": {"hobby": "1:120600", "delight": "1:11391", "value": "1:865387", "mega": "1:150147"}}
+{"subset": "Neon Initiates", "parallel": "__BASE__", "print_run": null, "odds": {"hobby": "1:681", "delight": "1:57", "value": "1:4535", "mega": "1:851"}}
+{"subset": "Neon Initiates", "parallel": "Blue Surge", "print_run": 99, "odds": {"hobby": "1:1031", "delight": "1:86", "value": "1:6878", "mega": "1:1290"}}
+{"subset": "Neon Initiates", "parallel": "Gold Power Surge", "print_run": 50, "odds": {"hobby": "1:1972", "delight": "1:166", "value": "1:13146", "mega": "1:2466"}}
+{"subset": "Neon Initiates", "parallel": "Orange Power Surge", "print_run": 25, "odds": {"hobby": "1:3955", "delight": "1:331", "value": "1:26357", "mega": "1:4932"}}
+{"subset": "Neon Initiates", "parallel": "Lime Green Power Surge", "print_run": 15, "odds": {"hobby": "1:6579", "delight": "1:556", "value": "1:44003", "mega": "1:8240"}}
+{"subset": "Neon Initiates", "parallel": "Pink Power Surge", "print_run": 10, "odds": {"hobby": "1:9913", "delight": "1:844", "value": "1:65726", "mega": "1:12398"}}
+{"subset": "Neon Initiates", "parallel": "Red Power Surge", "print_run": 5, "odds": {"hobby": "1:20100", "delight": "1:1753", "value": "1:133137", "mega": "1:25025"}}
+{"subset": "Neon Initiates", "parallel": "Superfractor", "print_run": 1, "odds": {"hobby": "1:103372", "delight": "1:11392", "value": "1:741760", "mega": "1:135132"}}
+{"subset": "Thermal Red Ink Autographs", "parallel": "__BASE__", "print_run": null, "odds": {"hobby": "1:4282", "delight": "1:356", "value": "1:28530", "mega": "1:5342"}}
+{"subset": "Thermal Red Ink Autographs", "parallel": "Red Power Surge", "print_run": 5, "odds": {"hobby": "1:28945", "delight": "1:2532", "value": "1:192309", "mega": "1:36523"}}
+{"subset": "Thermal Red Ink Autographs", "parallel": "Superfractor", "print_run": 1, "odds": {"hobby": "1:144720", "delight": "1:22782", "value": "1:1038464", "mega": "1:193046"}}
+{"subset": "Resurgence Rookie Relic Signatures", "parallel": "__BASE__", "print_run": null, "odds": {"hobby": "1:74", "delight": "1:7", "value": null, "mega": null}}
+{"subset": "Resurgence Rookie Relic Signatures", "parallel": "Teal Surge", "print_run": 149, "odds": {"hobby": "1:173", "delight": "1:16", "value": null, "mega": null}}
+{"subset": "Resurgence Rookie Relic Signatures", "parallel": "White Surge", "print_run": 125, "odds": {"hobby": "1:206", "delight": "1:19", "value": null, "mega": null}}
+{"subset": "Resurgence Rookie Relic Signatures", "parallel": "Blue Surge", "print_run": 99, "odds": {"hobby": "1:259", "delight": "1:25", "value": null, "mega": null}}
+{"subset": "Resurgence Rookie Relic Signatures", "parallel": "Purple Surge", "print_run": 75, "odds": {"hobby": "1:334", "delight": "1:32", "value": null, "mega": null}}
+{"subset": "Resurgence Rookie Relic Signatures", "parallel": "Gold Power Surge", "print_run": 50, "odds": {"hobby": "1:500", "delight": "1:47", "value": null, "mega": null}}
+{"subset": "Resurgence Rookie Relic Signatures", "parallel": "Orange Power Surge", "print_run": 25, "odds": {"hobby": "1:1051", "delight": "1:94", "value": null, "mega": null}}
+{"subset": "Resurgence Rookie Relic Signatures", "parallel": "Lime Green Power Surge", "print_run": 15, "odds": {"hobby": "1:1668", "delight": "1:152", "value": null, "mega": null}}
+{"subset": "Resurgence Rookie Relic Signatures", "parallel": "Pink Power Surge", "print_run": 10, "odds": {"hobby": "1:2522", "delight": "1:228", "value": null, "mega": null}}
+{"subset": "Resurgence Rookie Relic Signatures", "parallel": "Red Power Surge", "print_run": 5, "odds": {"hobby": "1:5026", "delight": "1:456", "value": null, "mega": null}}
+{"subset": "Resurgence Rookie Relic Signatures", "parallel": "Superfractor", "print_run": 1, "odds": {"hobby": "1:24951", "delight": "1:2279", "value": null, "mega": null}}
+{"subset": "Resurgence Rookie Relic Signatures", "parallel": "Electron", "print_run": 14, "odds": {"hobby": null, "delight": "1:44", "value": null, "mega": null}}
+{"subset": "Resurgence Rookie Relic Signatures", "parallel": "Proton", "print_run": 14, "odds": {"hobby": null, "delight": "1:45", "value": null, "mega": null}}
+{"subset": "Amped Up Rookie Relic Autographs", "parallel": "__BASE__", "print_run": null, "odds": {"hobby": "1:96", "delight": "1:10", "value": null, "mega": null}}
+{"subset": "Amped Up Rookie Relic Autographs", "parallel": "Teal Surge", "print_run": 149, "odds": {"hobby": "1:243", "delight": "1:22", "value": null, "mega": null}}
+{"subset": "Amped Up Rookie Relic Autographs", "parallel": "White Surge", "print_run": 125, "odds": {"hobby": "1:290", "delight": "1:26", "value": null, "mega": null}}
+{"subset": "Amped Up Rookie Relic Autographs", "parallel": "Blue Surge", "print_run": 99, "odds": {"hobby": "1:366", "delight": "1:33", "value": null, "mega": null}}
+{"subset": "Amped Up Rookie Relic Autographs", "parallel": "Purple Surge", "print_run": 75, "odds": {"hobby": "1:463", "delight": "1:43", "value": null, "mega": null}}
+{"subset": "Amped Up Rookie Relic Autographs", "parallel": "Gold Power Surge", "print_run": 50, "odds": {"hobby": "1:703", "delight": "1:63", "value": null, "mega": null}}
+{"subset": "Amped Up Rookie Relic Autographs", "parallel": "Orange Power Surge", "print_run": 25, "odds": {"hobby": "1:1406", "delight": "1:126", "value": null, "mega": null}}
+{"subset": "Amped Up Rookie Relic Autographs", "parallel": "Lime Green Power Surge", "print_run": 15, "odds": {"hobby": "1:2350", "delight": "1:210", "value": null, "mega": null}}
+{"subset": "Amped Up Rookie Relic Autographs", "parallel": "Pink Power Surge", "print_run": 10, "odds": {"hobby": "1:3382", "delight": "1:308", "value": null, "mega": null}}
+{"subset": "Amped Up Rookie Relic Autographs", "parallel": "Red Power Surge", "print_run": 5, "odds": {"hobby": "1:6763", "delight": "1:616", "value": null, "mega": null}}
+{"subset": "Amped Up Rookie Relic Autographs", "parallel": "Superfractor", "print_run": 1, "odds": {"hobby": "1:32895", "delight": "1:3255", "value": null, "mega": null}}
+{"subset": "Amped Up Rookie Relic Autographs", "parallel": "Electron", "print_run": 14, "odds": {"hobby": null, "delight": "1:59", "value": null, "mega": null}}
+{"subset": "Amped Up Rookie Relic Autographs", "parallel": "Proton", "print_run": 14, "odds": {"hobby": null, "delight": "1:61", "value": null, "mega": null}}
+{"subset": "Radial Rookie Relics", "parallel": "__BASE__", "print_run": null, "odds": {"hobby": "1:94", "delight": "1:10", "value": null, "mega": null}}
+{"subset": "Radial Rookie Relics", "parallel": "Teal Surge", "print_run": 149, "odds": {"hobby": "1:218", "delight": "1:20", "value": null, "mega": null}}
+{"subset": "Radial Rookie Relics", "parallel": "White Surge", "print_run": 125, "odds": {"hobby": "1:260", "delight": "1:24", "value": null, "mega": null}}
+{"subset": "Radial Rookie Relics", "parallel": "Blue Surge", "print_run": 99, "odds": {"hobby": "1:329", "delight": "1:30", "value": null, "mega": null}}
+{"subset": "Radial Rookie Relics", "parallel": "Purple Surge", "print_run": 75, "odds": {"hobby": "1:449", "delight": "1:41", "value": null, "mega": null}}
+{"subset": "Radial Rookie Relics", "parallel": "Gold Power Surge", "print_run": 50, "odds": {"hobby": "1:676", "delight": "1:62", "value": null, "mega": null}}
+{"subset": "Radial Rookie Relics", "parallel": "Orange Power Surge", "print_run": 25, "odds": {"hobby": "1:1347", "delight": "1:123", "value": null, "mega": null}}
+{"subset": "Radial Rookie Relics", "parallel": "Lime Green Power Surge", "print_run": 15, "odds": {"hobby": "1:2240", "delight": "1:206", "value": null, "mega": null}}
+{"subset": "Radial Rookie Relics", "parallel": "Pink Power Surge", "print_run": 10, "odds": {"hobby": "1:3382", "delight": "1:308", "value": null, "mega": null}}
+{"subset": "Radial Rookie Relics", "parallel": "Red Power Surge", "print_run": 5, "odds": {"hobby": "1:6827", "delight": "1:633", "value": null, "mega": null}}
+{"subset": "Radial Rookie Relics", "parallel": "Superfractor", "print_run": 1, "odds": {"hobby": "1:32891", "delight": "1:3255", "value": null, "mega": null}}
+{"subset": "Radial Rookie Relics", "parallel": "Electron", "print_run": 14, "odds": {"hobby": null, "delight": "1:59", "value": null, "mega": null}}
+{"subset": "Radial Rookie Relics", "parallel": "Proton", "print_run": 14, "odds": {"hobby": null, "delight": "1:61", "value": null, "mega": null}}
