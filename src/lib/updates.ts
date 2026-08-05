@@ -13,6 +13,23 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "229-marvel-comics-sapphire-2026-added",
+    title: "2026 Topps Chrome Marvel Comics Sapphire Edition Added",
+    date: "2026-08-05T00:00:00Z",
+    summary:
+      "Added 2026 Topps Chrome Marvel Comics Sapphire Edition — 242 cards, 8 subsets, base Sapphire parallels; 17 character debuts.",
+    description: `## 2026 Topps Chrome Marvel Comics Sapphire Edition
+
+The Sapphire edition of the Marvel Comics set: **242 cards across 8 subsets**.
+
+- **Characters I & II** (100 each) carry the Sapphire base ladder — Green /99 down to a 1/1 Padparadscha.
+- **Marvel Facsimile Autographs** span single, dual, triple, and quad signature cards (multi-character autos modeled as one card with linked co-signers).
+- **Hidden Gems** and **Infinite** round out the inserts.
+- **17 character debuts** (e.g. Dark Gwenpool, Infernal Hulk, Arachnix) are flagged as first appearances and now render a **"Debut"** badge.`,
+    tags: ["checklist"],
+    setId: 865,
+  },
+  {
     id: "228-debut-badge-entertainment",
     title: "First-Appearance Badge Reads \"Debut\" for Entertainment Sets",
     date: "2026-08-04T00:00:00Z",
