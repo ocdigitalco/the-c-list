@@ -13,6 +13,21 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "228-debut-badge-entertainment",
+    title: "First-Appearance Badge Reads \"Debut\" for Entertainment Sets",
+    date: "2026-08-04T00:00:00Z",
+    summary:
+      "InsertSetRow first-appearance badge renders 'Debut' for Entertainment/non-athlete sets; 'Rookie' unchanged everywhere else. RC badges unchanged.",
+    description: `## "Debut" instead of "Rookie" for characters
+
+On entertainment sets, the first-appearance flag (\`is_rookie\`) marks a character's debut rather than a rookie season, so "Dark Gwenpool — Rookie" read wrong.
+
+- The **InsertSetRow** first-appearance badge now reads **"Debut"** on Entertainment sets and **"Rookie"** everywhere else. This retroactively corrects Marvel Comics, Disney, and the Sapphire set.
+- Label-only change — the underlying flag, its value, and which cards show a badge are all unchanged. The compact **"RC"** badges elsewhere are untouched.
+- Guarded so sports and mixed sets can never be affected: the label only flips for the Entertainment category.`,
+    tags: ["feature"],
+  },
+  {
     id: "227-resurgence-football-2025-odds",
     title: "2025 Topps Resurgence Football: Odds, Parallels & Box Config",
     date: "2026-07-31T00:00:00Z",

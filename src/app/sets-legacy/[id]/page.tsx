@@ -871,6 +871,7 @@ export default async function SetPage({
                       key={insertSet.insertSetId}
                       insertSetName={insertSet.insertSetName}
                       isTeamCard={playerView.name === "Team Card"}
+                      isEntertainment={setRow.sport === "Entertainment"}
                       appearances={insertSet.appearances.map((a) => ({
                         cardNumber: a.cardNumber,
                         team: a.team,

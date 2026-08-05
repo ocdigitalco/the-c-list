@@ -22,6 +22,11 @@ interface Props {
   appearances: Appearance[];
   parallels: Parallel[];
   isTeamCard?: boolean;
+  // Set classification for the first-appearance badge label. Optional; when
+  // absent the badge reads "Rookie" exactly as before. "Debut" is used only
+  // for unambiguously non-athlete Entertainment sets — never for sports/mixed.
+  subjectRole?: string;
+  isEntertainment?: boolean;
 }
 
 function parallelClasses(printRun: number | null): string {
@@ -43,9 +48,12 @@ function PrintRun({ printRun }: { printRun: number | null }) {
   return <span className="font-mono opacity-75">/{printRun}</span>;
 }
 
-export function InsertSetRow({ insertSetName, appearances, parallels, isTeamCard = false }: Props) {
+export function InsertSetRow({ insertSetName, appearances, parallels, isTeamCard = false, subjectRole, isEntertainment = false }: Props) {
   const [expanded, setExpanded] = useState(false);
   const hasRookie = !isTeamCard && appearances.some((a) => a.isRookie);
+  // Label only, not show/hide: "Debut" for non-athlete Entertainment sets;
+  // "Rookie" everywhere else (default). Guarantees sports/mixed sets are unaffected.
+  const firstAppearanceLabel = isEntertainment && subjectRole !== "athlete" ? "Debut" : "Rookie";
 
   return (
     <div className="rounded-xl border border-zinc-800 bg-zinc-900 overflow-hidden">
@@ -58,7 +66,7 @@ export function InsertSetRow({ insertSetName, appearances, parallels, isTeamCard
           <span className="font-semibold text-white truncate">{insertSetName}</span>
           {hasRookie && (
             <span className="shrink-0 text-xs font-bold text-amber-400 bg-amber-400/10 border border-amber-400/20 px-1.5 py-0.5 rounded">
-              Rookie
+              {firstAppearanceLabel}
             </span>
           )}
           <span className="shrink-0 text-xs text-zinc-600">
@@ -98,7 +106,7 @@ export function InsertSetRow({ insertSetName, appearances, parallels, isTeamCard
                   )}
                   {!isTeamCard && a.isRookie && (
                     <span className="text-xs font-bold text-amber-400 bg-amber-400/10 border border-amber-400/20 px-1.5 py-0.5 rounded">
-                      Rookie
+                      {firstAppearanceLabel}
                     </span>
                   )}
                 </div>
