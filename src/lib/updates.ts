@@ -13,6 +13,23 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "231-chrome-updates-basketball-2526-odds",
+    title: "2025-26 Topps Chrome Updates Basketball Pack Odds Attached",
+    date: "2026-08-06T00:00:00Z",
+    summary:
+      "Attached pack odds to 2025-26 Topps Chrome Updates Basketball — 389 odds keys across six formats (Hobby/Jumbo/Delight/Sapphire/Value/Mega) plus 154 derived parallel exclusivities.",
+    description: `## 2025-26 Topps Chrome Updates Basketball — Pack Odds
+
+Phase 2 attaches the full pack-odds table to the set seeded in Phase 1.
+
+- **389 odds keys** spanning six box formats: Hobby, Jumbo, Delight, Sapphire, Value, and Mega.
+- Format-exclusive ladders now carry odds only where they're pulled — Sapphire, Basketball, RayWave, and Geometric parallels each live in a single format.
+- **154 parallel exclusivities** derived from single-format odds availability (Delight 98, Sapphire 32, Mega 11, Value 10, Hobby 2, Jumbo 1).
+- Pack odds render through the shared odds utility and the break-hit calculator.`,
+    tags: ["odds"],
+    setId: 866,
+  },
+  {
     id: "230-chrome-updates-basketball-2526-added",
     title: "2025-26 Topps Chrome Updates Basketball Added",
     date: "2026-08-06T00:00:00Z",
