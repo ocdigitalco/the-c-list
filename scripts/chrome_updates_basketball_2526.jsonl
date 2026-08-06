@@ -1,0 +1,1299 @@
+{"subset": "Base Cards", "code": "1", "player": "LeBron James", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "2", "player": "Luka Dončić", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "3", "player": "Kyrie Irving", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "4", "player": "Anthony Davis", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "5", "player": "Paolo Banchero", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "6", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "7", "player": "Giannis Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "8", "player": "Jayson Tatum", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "9", "player": "Jaylen Brown", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "10", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "11", "player": "Jalen Williams", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "12", "player": "Nikola Jokić", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "13", "player": "Jamal Murray", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "14", "player": "Stephen Curry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "15", "player": "Jimmy Butler III", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "16", "player": "Draymond Green", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "17", "player": "Anthony Edwards", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "18", "player": "Tyrese Haliburton", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "19", "player": "Donovan Mitchell", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "20", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "21", "player": "Karl-Anthony Towns", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "22", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "23", "player": "Kevin Durant", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "24", "player": "Kawhi Leonard", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "25", "player": "Evan Mobley", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "26", "player": "Devin Booker", "team": "Phoenix Suns", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "27", "player": "Pascal Siakam", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "28", "player": "Jaren Jackson Jr.", "team": "Memphis Grizzlies", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "29", "player": "Ja Morant", "team": "Memphis Grizzlies", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "30", "player": "De'Aaron Fox", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "31", "player": "Chet Holmgren", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "32", "player": "Darius Garland", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "33", "player": "James Harden", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "34", "player": "Domantas Sabonis", "team": "Sacramento Kings", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "35", "player": "Bam Adebayo", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "36", "player": "Trae Young", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "37", "player": "Ivica Zubac", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "38", "player": "Alperen Sengun", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "39", "player": "Franz Wagner", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "40", "player": "Derrick White", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "41", "player": "Tyrese Maxey", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "42", "player": "Joel Embiid", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "43", "player": "OG Anunoby", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "44", "player": "Amen Thompson", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "45", "player": "Aaron Gordon", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "46", "player": "Damian Lillard", "team": "Portland Trail Blazers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "47", "player": "Scottie Barnes", "team": "Toronto Raptors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "48", "player": "Desmond Bane", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "49", "player": "Jalen Johnson", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "50", "player": "LaMelo Ball", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "51", "player": "Tyler Herro", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "52", "player": "Julius Randle", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "53", "player": "Lauri Markkanen", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "54", "player": "Austin Reaves", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "55", "player": "Rudy Gobert", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "56", "player": "Trey Murphy III", "team": "New Orleans Pelicans", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "57", "player": "Jarrett Allen", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "58", "player": "Norman Powell", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "59", "player": "Dyson Daniels", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "60", "player": "Mikal Bridges", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "61", "player": "Fred VanVleet", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "62", "player": "DeMar DeRozan", "team": "Sacramento Kings", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "63", "player": "Zach Lavine", "team": "Sacramento Kings", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "64", "player": "Jrue Holiday", "team": "Portland Trail Blazers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "65", "player": "Kristaps Porzingis", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "66", "player": "Brandon Ingram", "team": "Toronto Raptors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "67", "player": "Michael Porter Jr.", "team": "Brooklyn Nets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "68", "player": "Andrew Nembhard", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "69", "player": "Cameron Johnson", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "70", "player": "Myles Turner", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "71", "player": "Naz Reid", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "72", "player": "Josh Hart", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "73", "player": "RJ Barrett", "team": "Toronto Raptors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "74", "player": "De'Andre Hunter", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "75", "player": "CJ McCollum", "team": "Washington Wizards", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "76", "player": "Anfernee Simons", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "77", "player": "Paul George", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "78", "player": "Nikola Vučević", "team": "Chicago Bulls", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "79", "player": "Jalen Green", "team": "Phoenix Suns", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "80", "player": "Bradley Beal", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "81", "player": "Jordan Poole", "team": "New Orleans Pelicans", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "82", "player": "Stephon Castle", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "83", "player": "Chris Paul", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "84", "player": "Russell Westbrook", "team": "Sacramento Kings", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "85", "player": "Scoot Henderson", "team": "Portland Trail Blazers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "86", "player": "Brandon Miller", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "87", "player": "Alex Sarr", "team": "Washington Wizards", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "88", "player": "Zaccharie Risacher", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "89", "player": "Dejounte Murray", "team": "New Orleans Pelicans", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "90", "player": "D'Angelo Russell", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "91", "player": "Al Horford", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "92", "player": "Bogdan Bogdanović", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "93", "player": "Coby White", "team": "Chicago Bulls", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "94", "player": "Clint Capela", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "95", "player": "Grayson Allen", "team": "Phoenix Suns", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "96", "player": "Jalen Suggs", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "97", "player": "Gradey Dick", "team": "Toronto Raptors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "98", "player": "Jonathan Kuminga", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "99", "player": "Buddy Hield", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "100", "player": "Walker Kessler", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "101", "player": "Khris Middleton", "team": "Washington Wizards", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "102", "player": "Collin Sexton", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "103", "player": "Bronny James Jr.", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "104", "player": "Deandre Ayton", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "105", "player": "Rob Dillingham", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "106", "player": "Shaedon Sharpe", "team": "Portland Trail Blazers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "107", "player": "Rui Hachimura", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "108", "player": "Donte DiVincenzo", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "109", "player": "Mike Conley", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "110", "player": "Bobby Portis", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "111", "player": "Zach Edey", "team": "Memphis Grizzlies", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "112", "player": "Kel'el Ware", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "113", "player": "Kyle Kuzma", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "114", "player": "Herbert Jones", "team": "New Orleans Pelicans", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "115", "player": "Christian Braun", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "116", "player": "Dereck Lively II", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "117", "player": "Dillon Brooks", "team": "Phoenix Suns", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "118", "player": "Josh Giddey", "team": "Chicago Bulls", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "119", "player": "Lonzo Ball", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "120", "player": "Naji Marshall", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "121", "player": "Payton Pritchard", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "122", "player": "P.J. Washington", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "123", "player": "Nic Claxton", "team": "Brooklyn Nets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "124", "player": "Tobias Harris", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "125", "player": "T.J. McConnell", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "126", "player": "Jaden McDaniels", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "127", "player": "Luguentz Dort", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "128", "player": "Andrew Wiggins", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "129", "player": "Dorian Finney-Smith", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "130", "player": "Matas Buzelis", "team": "Chicago Bulls", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "131", "player": "Alex Caruso", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "132", "player": "Aaron Wiggins", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "133", "player": "Bennedict Mathurin", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "134", "player": "Aaron Nesmith", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "135", "player": "Malik Monk", "team": "Sacramento Kings", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "136", "player": "Duncan Robinson", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "137", "player": "Quentin Grimes", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "138", "player": "Kelly Oubre Jr.", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "139", "player": "Dwight Powell", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "140", "player": "Jaden Hardy", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "141", "player": "Bill Russell", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "142", "player": "Shaquille O'Neal", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "143", "player": "Larry Bird", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "144", "player": "Kareem Abdul-Jabbar", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "145", "player": "Allen Iverson", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "146", "player": "Dirk Nowitzki", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "147", "player": "Kevin Garnett", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "148", "player": "Carmelo Anthony", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "149", "player": "Magic Johnson", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "150", "player": "Rick Barry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "151", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "152", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "153", "player": "VJ Edgecombe", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "154", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "155", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "156", "player": "Tre Johnson III", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "157", "player": "Jeremiah Fears", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "158", "player": "Egor Dëmin", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "159", "player": "Collin Murray-Boyles", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "160", "player": "Khaman Maluach", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "161", "player": "Cedric Coward", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "162", "player": "Noa Essengue", "team": "Chicago Bulls", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "163", "player": "Derik Queen", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "164", "player": "Carter Bryant", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "165", "player": "Thomas Sorber", "team": "Oklahoma City Thunder", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "166", "player": "Yang Hansen", "team": "Portland Trail Blazers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "167", "player": "Joan Beringer", "team": "Minnesota Timberwolves", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "168", "player": "Walter Clayton Jr.", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "169", "player": "Nolan Traore", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "170", "player": "Kasparas Jakučionis", "team": "Miami Heat", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "171", "player": "Will Riley", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "172", "player": "Drake Powell", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "173", "player": "Asa Newell", "team": "Atlanta Hawks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "174", "player": "Nique Clifford", "team": "Sacramento Kings", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "175", "player": "Jase Richardson", "team": "Orlando Magic", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "176", "player": "Ben Saraf", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "177", "player": "Danny Wolf", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "178", "player": "Hugo González", "team": "Boston Celtics", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "179", "player": "Liam McNeeley", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "180", "player": "Yanic Konan-Niederhäuser", "team": "Los Angeles Clippers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "181", "player": "Rasheer Fleming", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "182", "player": "Noah Penda", "team": "Orlando Magic", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "183", "player": "Sion James", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "184", "player": "Ryan Kalkbrenner", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "185", "player": "Johni Broome", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "186", "player": "Adou Thiero", "team": "Los Angeles Lakers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "187", "player": "Ryan Nembhard", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "188", "player": "Chaz Lanier", "team": "Detroit Pistons", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "189", "player": "Kam Jones", "team": "Indiana Pacers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "190", "player": "Alijah Martin", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "191", "player": "Micah Peavy", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "192", "player": "Koby Brea", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "193", "player": "Maxime Raynaud", "team": "Sacramento Kings", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "194", "player": "Jamir Watkins", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "195", "player": "Brooks Barnhizer", "team": "Oklahoma City Thunder", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "196", "player": "Will Richard", "team": "Golden State Warriors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "197", "player": "Amari Williams", "team": "Boston Celtics", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "198", "player": "Caleb Love", "team": "Portland Trail Blazers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "199", "player": "Javon Small", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards", "code": "200", "player": "Tyrese Proctor", "team": "Cleveland Cavaliers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Clutch City", "code": "YQ-1", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Clutch City", "code": "YQ-2", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Clutch City", "code": "YQ-3", "player": "VJ Edgecombe", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Clutch City", "code": "YQ-4", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Clutch City", "code": "YQ-5", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Clutch City", "code": "YQ-6", "player": "Yang Hansen", "team": "Portland Trail Blazers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Clutch City", "code": "YQ-7", "player": "Tre Johnson III", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Clutch City", "code": "YQ-8", "player": "Jeremiah Fears", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Clutch City", "code": "YQ-9", "player": "Collin Murray-Boyles", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Clutch City", "code": "YQ-10", "player": "Khaman Maluach", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Clutch City", "code": "YQ-11", "player": "Egor Dëmin", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Clutch City", "code": "YQ-12", "player": "Walter Clayton Jr.", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Clutch City", "code": "YQ-13", "player": "Kasparas Jakučionis", "team": "Miami Heat", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Clutch City", "code": "YQ-14", "player": "Derik Queen", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Clutch City", "code": "YQ-15", "player": "Carter Bryant", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "New Editions", "code": "GR-1", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "New Editions", "code": "GR-2", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "New Editions", "code": "GR-3", "player": "VJ Edgecombe", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "New Editions", "code": "GR-4", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "New Editions", "code": "GR-5", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "New Editions", "code": "GR-6", "player": "Yang Hansen", "team": "Portland Trail Blazers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "New Editions", "code": "GR-7", "player": "Tre Johnson III", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "New Editions", "code": "GR-8", "player": "Jeremiah Fears", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "New Editions", "code": "GR-9", "player": "Collin Murray-Boyles", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "New Editions", "code": "GR-10", "player": "Khaman Maluach", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "New Editions", "code": "GR-11", "player": "Egor Dëmin", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "New Editions", "code": "GR-12", "player": "Walter Clayton Jr.", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "New Editions", "code": "GR-13", "player": "Kasparas Jakučionis", "team": "Miami Heat", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "New Editions", "code": "GR-14", "player": "Derik Queen", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "New Editions", "code": "GR-15", "player": "Carter Bryant", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "New Editions", "code": "GR-16", "player": "Joan Beringer", "team": "Minnesota Timberwolves", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "New Editions", "code": "GR-17", "player": "Noa Essengue", "team": "Chicago Bulls", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "New Editions", "code": "GR-18", "player": "Liam McNeeley", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "New Editions", "code": "GR-19", "player": "Cedric Coward", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "New Editions", "code": "GR-20", "player": "Hugo González", "team": "Boston Celtics", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Stratospheric Stars", "code": "ST-1", "player": "Kawhi Leonard", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Stratospheric Stars", "code": "ST-2", "player": "Stephen Curry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Stratospheric Stars", "code": "ST-3", "player": "Jayson Tatum", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Stratospheric Stars", "code": "ST-4", "player": "Anthony Edwards", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Stratospheric Stars", "code": "ST-5", "player": "Damian Lillard", "team": "Portland Trail Blazers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Stratospheric Stars", "code": "ST-6", "player": "Anthony Davis", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Stratospheric Stars", "code": "ST-7", "player": "Tyrese Haliburton", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Stratospheric Stars", "code": "ST-8", "player": "Joel Embiid", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Stratospheric Stars", "code": "ST-9", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Stratospheric Stars", "code": "ST-10", "player": "Donovan Mitchell", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Stratospheric Stars", "code": "ST-11", "player": "Devin Booker", "team": "Phoenix Suns", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Stratospheric Stars", "code": "ST-12", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Stratospheric Stars", "code": "ST-13", "player": "Kyrie Irving", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Stratospheric Stars", "code": "ST-14", "player": "Trae Young", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Stratospheric Stars", "code": "ST-15", "player": "James Harden", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Stratospheric Stars", "code": "ST-16", "player": "Ja Morant", "team": "Memphis Grizzlies", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Stratospheric Stars", "code": "ST-17", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Stratospheric Stars", "code": "ST-18", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Stratospheric Stars", "code": "ST-19", "player": "Paolo Banchero", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Stratospheric Stars", "code": "ST-20", "player": "Jalen Green", "team": "Phoenix Suns", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Stratospheric Stars", "code": "ST-21", "player": "Shaquille O'Neal", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Stratospheric Stars", "code": "ST-22", "player": "Magic Johnson", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Stratospheric Stars", "code": "ST-23", "player": "Allen Iverson", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Stratospheric Stars", "code": "ST-24", "player": "Larry Bird", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Stratospheric Stars", "code": "ST-25", "player": "Tracy McGrady", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Power Players", "code": "PP-1", "player": "Giannis Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Power Players", "code": "PP-2", "player": "Draymond Green", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Power Players", "code": "PP-3", "player": "Bam Adebayo", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Power Players", "code": "PP-4", "player": "Rudy Gobert", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Power Players", "code": "PP-5", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Power Players", "code": "PP-6", "player": "Domantas Sabonis", "team": "Sacramento Kings", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Power Players", "code": "PP-7", "player": "Karl-Anthony Towns", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Power Players", "code": "PP-8", "player": "Alperen Sengun", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Power Players", "code": "PP-9", "player": "Jarrett Allen", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Power Players", "code": "PP-10", "player": "Evan Mobley", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Power Players", "code": "PP-11", "player": "Myles Turner", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Power Players", "code": "PP-12", "player": "Ivica Zubac", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Power Players", "code": "PP-13", "player": "Dereck Lively II", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Power Players", "code": "PP-14", "player": "Anthony Davis", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Power Players", "code": "PP-15", "player": "Deandre Ayton", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Power Players", "code": "PP-16", "player": "Zach Edey", "team": "Memphis Grizzlies", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Power Players", "code": "PP-17", "player": "Kevin Durant", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Power Players", "code": "PP-18", "player": "Joel Embiid", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Power Players", "code": "PP-19", "player": "Julius Randle", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Power Players", "code": "PP-20", "player": "Aaron Gordon", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Power Players", "code": "PP-21", "player": "Hakeem Olajuwon", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Power Players", "code": "PP-22", "player": "Dennis Rodman", "team": "Chicago Bulls", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Power Players", "code": "PP-23", "player": "Tim Duncan", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Power Players", "code": "PP-24", "player": "David Robinson", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Power Players", "code": "PP-25", "player": "Karl Malone", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Fortune 15", "code": "F15-1", "player": "Damian Lillard", "team": "Portland Trail Blazers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Fortune 15", "code": "F15-2", "player": "Jaylen Brown", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Fortune 15", "code": "F15-3", "player": "Desmond Bane", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Fortune 15", "code": "F15-4", "player": "Ja Morant", "team": "Memphis Grizzlies", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Fortune 15", "code": "F15-5", "player": "Josh Hart", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Fortune 15", "code": "F15-6", "player": "Chris Paul", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Fortune 15", "code": "F15-7", "player": "Julius Randle", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Fortune 15", "code": "F15-8", "player": "Kawhi Leonard", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Fortune 15", "code": "F15-9", "player": "Paul George", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Fortune 15", "code": "F15-10", "player": "Donovan Mitchell", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Fortune 15", "code": "F15-11", "player": "Tyrese Haliburton", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Fortune 15", "code": "F15-12", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Fortune 15", "code": "F15-13", "player": "DeMar DeRozan", "team": "Sacramento Kings", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Fortune 15", "code": "F15-14", "player": "Austin Reaves", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Fortune 15", "code": "F15-15", "player": "Jimmy Butler III", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Go Time", "code": "GT-1", "player": "Jalen Green", "team": "Phoenix Suns", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Go Time", "code": "GT-2", "player": "Devin Booker", "team": "Phoenix Suns", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Go Time", "code": "GT-3", "player": "Tyrese Haliburton", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Go Time", "code": "GT-4", "player": "Tyler Herro", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Go Time", "code": "GT-5", "player": "Tyrese Maxey", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Go Time", "code": "GT-6", "player": "Dwyane Wade", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Go Time", "code": "GT-7", "player": "Dirk Nowitzki", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Go Time", "code": "GT-8", "player": "Shaquille O'Neal", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Go Time", "code": "GT-9", "player": "Paul Pierce", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Go Time", "code": "GT-10", "player": "Vince Carter", "team": "Toronto Raptors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Go Time", "code": "GT-11", "player": "Tre Johnson III", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Go Time", "code": "GT-12", "player": "Egor Dëmin", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Go Time", "code": "GT-13", "player": "Collin Murray-Boyles", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Go Time", "code": "GT-14", "player": "Cedric Coward", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Go Time", "code": "GT-15", "player": "Derik Queen", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Activators", "code": "AC-1", "player": "Anthony Edwards", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Activators", "code": "AC-2", "player": "Jalen Johnson", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Activators", "code": "AC-3", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Activators", "code": "AC-4", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Activators", "code": "AC-5", "player": "Tyrese Haliburton", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Activators", "code": "AC-6", "player": "Chet Holmgren", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Activators", "code": "AC-7", "player": "Paolo Banchero", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Activators", "code": "AC-8", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Activators", "code": "AC-9", "player": "LaMelo Ball", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Activators", "code": "AC-10", "player": "Brandon Miller", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Activators", "code": "AC-11", "player": "Zaccharie Risacher", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Activators", "code": "AC-12", "player": "Alex Sarr", "team": "Washington Wizards", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Activators", "code": "AC-13", "player": "Chris Paul", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Activators", "code": "AC-14", "player": "Collin Sexton", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Activators", "code": "AC-15", "player": "De'Aaron Fox", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Activators", "code": "AC-16", "player": "Joel Embiid", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Activators", "code": "AC-17", "player": "Scoot Henderson", "team": "Portland Trail Blazers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Activators", "code": "AC-18", "player": "Paul George", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Activators", "code": "AC-19", "player": "Jaden McDaniels", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Activators", "code": "AC-20", "player": "Luka Dončić", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Moment in Time", "code": "MT-1", "player": "Luka Dončić", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Moment in Time", "code": "MT-2", "player": "Stephen Curry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Moment in Time", "code": "MT-3", "player": "Anthony Edwards", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Moment in Time", "code": "MT-4", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Moment in Time", "code": "MT-5", "player": "Kawhi Leonard", "team": "Toronto Raptors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Moment in Time", "code": "MT-6", "player": "Jayson Tatum", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Moment in Time", "code": "MT-7", "player": "Tyrese Haliburton", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Moment in Time", "code": "MT-8", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Moment in Time", "code": "MT-9", "player": "Nikola Jokić", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Moment in Time", "code": "MT-10", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Moment in Time", "code": "MT-11", "player": "Damian Lillard", "team": "Portland Trail Blazers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Moment in Time", "code": "MT-12", "player": "Kevin Durant", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Moment in Time", "code": "MT-13", "player": "LeBron James", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Moment in Time", "code": "MT-14", "player": "Dwyane Wade", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Moment in Time", "code": "MT-15", "player": "Kyrie Irving", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Moment in Time", "code": "MT-16", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Moment in Time", "code": "MT-17", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Moment in Time", "code": "MT-18", "player": "VJ Edgecombe", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Moment in Time", "code": "MT-19", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Moment in Time", "code": "MT-20", "player": "Jeremiah Fears", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Moment in Time", "code": "MT-21", "player": "Ray Allen", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Moment in Time", "code": "MT-22", "player": "Shaquille O'Neal", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Moment in Time", "code": "MT-23", "player": "Allen Iverson", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Moment in Time", "code": "MT-24", "player": "Dirk Nowitzki", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Moment in Time", "code": "MT-25", "player": "Derrick Rose", "team": "Chicago Bulls", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Clutch Gene", "code": "CG-1", "player": "Stephen Curry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Clutch Gene", "code": "CG-2", "player": "Tyrese Maxey", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Clutch Gene", "code": "CG-3", "player": "Paul George", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Clutch Gene", "code": "CG-4", "player": "Jalen Williams", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Clutch Gene", "code": "CG-5", "player": "Tyler Herro", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Clutch Gene", "code": "CG-6", "player": "Anthony Edwards", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Clutch Gene", "code": "CG-7", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Clutch Gene", "code": "CG-8", "player": "Kawhi Leonard", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Clutch Gene", "code": "CG-9", "player": "Jayson Tatum", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Clutch Gene", "code": "CG-10", "player": "Jaylen Brown", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Clutch Gene", "code": "CG-11", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Clutch Gene", "code": "CG-12", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Clutch Gene", "code": "CG-13", "player": "VJ Edgecombe", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Clutch Gene", "code": "CG-14", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Clutch Gene", "code": "CG-15", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Clutch Gene", "code": "CG-16", "player": "Tre Johnson III", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Clutch Gene", "code": "CG-17", "player": "Jeremiah Fears", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Clutch Gene", "code": "CG-18", "player": "Egor Dëmin", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Clutch Gene", "code": "CG-19", "player": "Collin Murray-Boyles", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Clutch Gene", "code": "CG-20", "player": "Walter Clayton Jr.", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Clutch Gene", "code": "CG-21", "player": "Dwyane Wade", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Clutch Gene", "code": "CG-22", "player": "Shaquille O'Neal", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Clutch Gene", "code": "CG-23", "player": "Larry Bird", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Clutch Gene", "code": "CG-24", "player": "Magic Johnson", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Clutch Gene", "code": "CG-25", "player": "Tracy McGrady", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Clutch Gene", "code": "CG-26", "player": "Dirk Nowitzki", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Clutch Gene", "code": "CG-27", "player": "Kevin Garnett", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Clutch Gene", "code": "CG-28", "player": "Carmelo Anthony", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Clutch Gene", "code": "CG-29", "player": "Rick Barry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Clutch Gene", "code": "CG-30", "player": "John Stockton", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "No Limit", "code": "IP-1", "player": "Allen Iverson", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "No Limit", "code": "IP-2", "player": "Kevin Garnett", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "No Limit", "code": "IP-3", "player": "Dirk Nowitzki", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "No Limit", "code": "IP-4", "player": "Hakeem Olajuwon", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "No Limit", "code": "IP-5", "player": "Larry Bird", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "No Limit", "code": "IP-6", "player": "Jayson Tatum", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "No Limit", "code": "IP-7", "player": "Tyrese Haliburton", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "No Limit", "code": "IP-8", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "No Limit", "code": "IP-9", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "No Limit", "code": "IP-10", "player": "Anthony Edwards", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "1", "player": "LeBron James", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "2", "player": "Luka Dončić", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "3", "player": "Kyrie Irving", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "4", "player": "Anthony Davis", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "5", "player": "Paolo Banchero", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "6", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "7", "player": "Giannis Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "8", "player": "Jayson Tatum", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "9", "player": "Jaylen Brown", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "10", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "11", "player": "Jalen Williams", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "12", "player": "Nikola Jokić", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "13", "player": "Jamal Murray", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "14", "player": "Stephen Curry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "15", "player": "Jimmy Butler III", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "16", "player": "Draymond Green", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "17", "player": "Anthony Edwards", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "18", "player": "Tyrese Haliburton", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "19", "player": "Donovan Mitchell", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "20", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "21", "player": "Karl-Anthony Towns", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "22", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "23", "player": "Kevin Durant", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "24", "player": "Kawhi Leonard", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "25", "player": "Evan Mobley", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "26", "player": "Devin Booker", "team": "Phoenix Suns", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "27", "player": "Pascal Siakam", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "28", "player": "Jaren Jackson Jr.", "team": "Memphis Grizzlies", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "29", "player": "Ja Morant", "team": "Memphis Grizzlies", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "30", "player": "De'Aaron Fox", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "31", "player": "Chet Holmgren", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "32", "player": "Darius Garland", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "33", "player": "James Harden", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "34", "player": "Domantas Sabonis", "team": "Sacramento Kings", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "35", "player": "Bam Adebayo", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "36", "player": "Trae Young", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "37", "player": "Ivica Zubac", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "38", "player": "Alperen Sengun", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "39", "player": "Franz Wagner", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "40", "player": "Derrick White", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "151", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "152", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "153", "player": "VJ Edgecombe", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "154", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "155", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "156", "player": "Tre Johnson III", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "157", "player": "Jeremiah Fears", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "161", "player": "Cedric Coward", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "163", "player": "Derik Queen", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards Image Variations", "code": "196", "player": "Will Richard", "team": "Golden State Warriors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Sapphire Selections", "code": "SS-1", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Sapphire Selections", "code": "SS-2", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Sapphire Selections", "code": "SS-3", "player": "VJ Edgecombe", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Sapphire Selections", "code": "SS-4", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Sapphire Selections", "code": "SS-5", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Sapphire Selections", "code": "SS-6", "player": "Tre Johnson III", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Sapphire Selections", "code": "SS-7", "player": "Jeremiah Fears", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Sapphire Selections", "code": "SS-8", "player": "Egor Dëmin", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Sapphire Selections", "code": "SS-9", "player": "Collin Murray-Boyles", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Sapphire Selections", "code": "SS-10", "player": "Khaman Maluach", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Sapphire Selections", "code": "SS-11", "player": "Noa Essengue", "team": "Chicago Bulls", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Sapphire Selections", "code": "SS-12", "player": "Carter Bryant", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Sapphire Selections", "code": "SS-13", "player": "Yang Hansen", "team": "Portland Trail Blazers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Sapphire Selections", "code": "SS-14", "player": "Kasparas Jakučionis", "team": "Miami Heat", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Sapphire Selections", "code": "SS-15", "player": "Asa Newell", "team": "Atlanta Hawks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Sapphire Selections", "code": "SS-16", "player": "Cedric Coward", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Sapphire Selections", "code": "SS-17", "player": "Derik Queen", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Sapphire Selections", "code": "SS-18", "player": "Hugo González", "team": "Boston Celtics", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Sapphire Selections", "code": "SS-19", "player": "Adou Thiero", "team": "Los Angeles Lakers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Sapphire Selections", "code": "SS-20", "player": "Walter Clayton Jr.", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Infinite Sapphire", "code": "INF-1", "player": "LeBron James", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Infinite Sapphire", "code": "INF-2", "player": "Luka Dončić", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Infinite Sapphire", "code": "INF-3", "player": "Anthony Edwards", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Infinite Sapphire", "code": "INF-4", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Infinite Sapphire", "code": "INF-5", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Infinite Sapphire", "code": "INF-6", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Infinite Sapphire", "code": "INF-7", "player": "Paolo Banchero", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Infinite Sapphire", "code": "INF-8", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Infinite Sapphire", "code": "INF-9", "player": "Stephen Curry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Infinite Sapphire", "code": "INF-10", "player": "Nikola Jokić", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Infinite Sapphire", "code": "INF-11", "player": "Giannis Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Infinite Sapphire", "code": "INF-12", "player": "Jayson Tatum", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Infinite Sapphire", "code": "INF-13", "player": "LaMelo Ball", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Infinite Sapphire", "code": "INF-14", "player": "Tyrese Haliburton", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Infinite Sapphire", "code": "INF-15", "player": "Kyrie Irving", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Infinite Sapphire", "code": "INF-16", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Infinite Sapphire", "code": "INF-17", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Infinite Sapphire", "code": "INF-18", "player": "VJ Edgecombe", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Infinite Sapphire", "code": "INF-19", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Infinite Sapphire", "code": "INF-20", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Shadow Etch", "code": "SE-1", "player": "Stephen Curry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Shadow Etch", "code": "SE-2", "player": "Trae Young", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Shadow Etch", "code": "SE-3", "player": "Tyrese Maxey", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Shadow Etch", "code": "SE-4", "player": "Damian Lillard", "team": "Portland Trail Blazers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Shadow Etch", "code": "SE-5", "player": "Anthony Davis", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Shadow Etch", "code": "SE-6", "player": "Ja Morant", "team": "Memphis Grizzlies", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Shadow Etch", "code": "SE-7", "player": "James Harden", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Shadow Etch", "code": "SE-8", "player": "Joel Embiid", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Shadow Etch", "code": "SE-9", "player": "Anthony Edwards", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Shadow Etch", "code": "SE-10", "player": "Kevin Durant", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Shadow Etch", "code": "SE-11", "player": "Yang Hansen", "team": "Portland Trail Blazers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Shadow Etch", "code": "SE-12", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Shadow Etch", "code": "SE-13", "player": "Tre Johnson III", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Shadow Etch", "code": "SE-14", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Shadow Etch", "code": "SE-15", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Celebracion", "code": "CB-1", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Celebracion", "code": "CB-2", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Celebracion", "code": "CB-3", "player": "Jayson Tatum", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Celebracion", "code": "CB-4", "player": "Jimmy Butler III", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Celebracion", "code": "CB-5", "player": "Devin Booker", "team": "Phoenix Suns", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Celebracion", "code": "CB-6", "player": "Tyler Herro", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Celebracion", "code": "CB-7", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Celebracion", "code": "CB-8", "player": "Ja Morant", "team": "Memphis Grizzlies", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Celebracion", "code": "CB-9", "player": "Paul George", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Celebracion", "code": "CB-10", "player": "Damian Lillard", "team": "Portland Trail Blazers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Celebracion", "code": "CB-11", "player": "Pascal Siakam", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Celebracion", "code": "CB-12", "player": "Joel Embiid", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Celebracion", "code": "CB-13", "player": "Donovan Mitchell", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Celebracion", "code": "CB-14", "player": "Karl-Anthony Towns", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Celebracion", "code": "CB-15", "player": "Kawhi Leonard", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Captains", "code": "SC-1", "player": "Anthony Edwards", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Captains", "code": "SC-2", "player": "Stephen Curry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Captains", "code": "SC-3", "player": "Giannis Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Captains", "code": "SC-4", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Captains", "code": "SC-5", "player": "Jamal Murray", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Captains", "code": "SC-6", "player": "Luka Dončić", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Captains", "code": "SC-7", "player": "Kawhi Leonard", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Captains", "code": "SC-8", "player": "Nikola Jokić", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Captains", "code": "SC-9", "player": "Kevin Durant", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Captains", "code": "SC-10", "player": "James Harden", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Captains", "code": "SC-11", "player": "Evan Mobley", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Captains", "code": "SC-12", "player": "Tyrese Haliburton", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Captains", "code": "SC-13", "player": "LeBron James", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Captains", "code": "SC-14", "player": "Jaylen Brown", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Captains", "code": "SC-15", "player": "Julius Randle", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Captains", "code": "SC-16", "player": "VJ Edgecombe", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Captains", "code": "SC-17", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Captains", "code": "SC-18", "player": "Jeremiah Fears", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Captains", "code": "SC-19", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Captains", "code": "SC-20", "player": "Tre Johnson III", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Radiating Rookies", "code": "RR-1", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Radiating Rookies", "code": "RR-2", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Radiating Rookies", "code": "RR-3", "player": "VJ Edgecombe", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Radiating Rookies", "code": "RR-4", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Radiating Rookies", "code": "RR-5", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Radiating Rookies", "code": "RR-6", "player": "Tre Johnson III", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Radiating Rookies", "code": "RR-7", "player": "Jeremiah Fears", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Radiating Rookies", "code": "RR-8", "player": "Egor Dëmin", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Radiating Rookies", "code": "RR-9", "player": "Collin Murray-Boyles", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Radiating Rookies", "code": "RR-10", "player": "Khaman Maluach", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Radiating Rookies", "code": "RR-11", "player": "Cedric Coward", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Radiating Rookies", "code": "RR-12", "player": "Carter Bryant", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Radiating Rookies", "code": "RR-13", "player": "Yang Hansen", "team": "Portland Trail Blazers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Radiating Rookies", "code": "RR-14", "player": "Derik Queen", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Radiating Rookies", "code": "RR-15", "player": "Will Richard", "team": "Golden State Warriors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Helix", "code": "H-1", "player": "LeBron James", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Helix", "code": "H-2", "player": "Luka Dončić", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Helix", "code": "H-3", "player": "Anthony Edwards", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Helix", "code": "H-4", "player": "Kevin Durant", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Helix", "code": "H-5", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Helix", "code": "H-6", "player": "Nikola Jokić", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Helix", "code": "H-7", "player": "LaMelo Ball", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Helix", "code": "H-8", "player": "Stephon Castle", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Helix", "code": "H-9", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Helix", "code": "H-10", "player": "Stephen Curry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Helix", "code": "H-11", "player": "Kareem Abdul-Jabbar", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Helix", "code": "H-12", "player": "Tim Duncan", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Helix", "code": "H-13", "player": "Karl Malone", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Helix", "code": "H-14", "player": "Allen Iverson", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Helix", "code": "H-15", "player": "Vince Carter", "team": "Toronto Raptors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Helix", "code": "H-16", "player": "VJ Edgecombe", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Helix", "code": "H-17", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Helix", "code": "H-18", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Helix", "code": "H-19", "player": "Cedric Coward", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Helix", "code": "H-20", "player": "Jeremiah Fears", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Fanatical", "code": "FAN-1", "player": "Chet Holmgren", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Fanatical", "code": "FAN-2", "player": "Paolo Banchero", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Fanatical", "code": "FAN-3", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Fanatical", "code": "FAN-4", "player": "LeBron James", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Fanatical", "code": "FAN-5", "player": "Donovan Mitchell", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Fanatical", "code": "FAN-6", "player": "Kawhi Leonard", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Fanatical", "code": "FAN-7", "player": "Jimmy Butler III", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Fanatical", "code": "FAN-8", "player": "Jaylen Brown", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Fanatical", "code": "FAN-9", "player": "Bam Adebayo", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Fanatical", "code": "FAN-10", "player": "Austin Reaves", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Fanatical", "code": "FAN-11", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Fanatical", "code": "FAN-12", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Fanatical", "code": "FAN-13", "player": "VJ Edgecombe", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Fanatical", "code": "FAN-14", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Fanatical", "code": "FAN-15", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Fanatical", "code": "FAN-16", "player": "Tre Johnson III", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Fanatical", "code": "FAN-17", "player": "Jeremiah Fears", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Fanatical", "code": "FAN-18", "player": "Egor Dëmin", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Fanatical", "code": "FAN-19", "player": "Collin Murray-Boyles", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Fanatical", "code": "FAN-20", "player": "Khaman Maluach", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Fanatical", "code": "FAN-21", "player": "Yang Hansen", "team": "Portland Trail Blazers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Fanatical", "code": "FAN-22", "player": "Walter Clayton Jr.", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Fanatical", "code": "FAN-23", "player": "Asa Newell", "team": "Atlanta Hawks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Fanatical", "code": "FAN-24", "player": "Jase Richardson", "team": "Orlando Magic", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Fanatical", "code": "FAN-25", "player": "Cedric Coward", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Glass Canvas", "code": "GC-1", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Glass Canvas", "code": "GC-2", "player": "Devin Booker", "team": "Phoenix Suns", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Glass Canvas", "code": "GC-3", "player": "Tyrese Haliburton", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Glass Canvas", "code": "GC-4", "player": "Tyler Herro", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Glass Canvas", "code": "GC-5", "player": "Kyrie Irving", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Glass Canvas", "code": "GC-6", "player": "Nikola Jokić", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Glass Canvas", "code": "GC-7", "player": "Luka Dončić", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Glass Canvas", "code": "GC-8", "player": "Karl-Anthony Towns", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Glass Canvas", "code": "GC-9", "player": "Paul George", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Glass Canvas", "code": "GC-10", "player": "Jaylen Brown", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Glass Canvas", "code": "GC-11", "player": "Ja Morant", "team": "Memphis Grizzlies", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Glass Canvas", "code": "GC-12", "player": "Joel Embiid", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Glass Canvas", "code": "GC-13", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Glass Canvas", "code": "GC-14", "player": "Jalen Johnson", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Glass Canvas", "code": "GC-15", "player": "James Harden", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Glass Canvas", "code": "GC-16", "player": "Tim Duncan", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Glass Canvas", "code": "GC-17", "player": "Kareem Abdul-Jabbar", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Glass Canvas", "code": "GC-18", "player": "Dwyane Wade", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Glass Canvas", "code": "GC-19", "player": "Vince Carter", "team": "Toronto Raptors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Glass Canvas", "code": "GC-20", "player": "Carmelo Anthony", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Glass Canvas", "code": "GC-21", "player": "Jeremiah Fears", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Glass Canvas", "code": "GC-22", "player": "VJ Edgecombe", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Glass Canvas", "code": "GC-23", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Glass Canvas", "code": "GC-24", "player": "Cedric Coward", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Glass Canvas", "code": "GC-25", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Paradox", "code": "PX-1", "player": "Jalen Green", "team": "Phoenix Suns", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Paradox", "code": "PX-2", "player": "LaMelo Ball", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Paradox", "code": "PX-3", "player": "Jimmy Butler III", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Paradox", "code": "PX-4", "player": "Jayson Tatum", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Paradox", "code": "PX-5", "player": "Devin Booker", "team": "Phoenix Suns", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Paradox", "code": "PX-6", "player": "Tyrese Haliburton", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Paradox", "code": "PX-7", "player": "Tyler Herro", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Paradox", "code": "PX-8", "player": "Damian Lillard", "team": "Portland Trail Blazers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Paradox", "code": "PX-9", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Paradox", "code": "PX-10", "player": "Ja Morant", "team": "Memphis Grizzlies", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Paradox", "code": "PX-11", "player": "Paul George", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Paradox", "code": "PX-12", "player": "Zach Lavine", "team": "Sacramento Kings", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Paradox", "code": "PX-13", "player": "De'Aaron Fox", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Paradox", "code": "PX-14", "player": "Alex Sarr", "team": "Washington Wizards", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Paradox", "code": "PX-15", "player": "Chris Paul", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Paradox", "code": "PX-16", "player": "Tyrese Maxey", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Paradox", "code": "PX-17", "player": "Jalen Williams", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Paradox", "code": "PX-18", "player": "Karl-Anthony Towns", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Paradox", "code": "PX-19", "player": "Julius Randle", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Paradox", "code": "PX-20", "player": "Scoot Henderson", "team": "Portland Trail Blazers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Paradox", "code": "PX-21", "player": "Yang Hansen", "team": "Portland Trail Blazers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Paradox", "code": "PX-22", "player": "Joan Beringer", "team": "Minnesota Timberwolves", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Paradox", "code": "PX-23", "player": "Walter Clayton Jr.", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Paradox", "code": "PX-24", "player": "Nolan Traore", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Paradox", "code": "PX-25", "player": "Kasparas Jakučionis", "team": "Miami Heat", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "1", "player": "LeBron James", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "2", "player": "Luka Dončić", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "3", "player": "Kyrie Irving", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "4", "player": "Anthony Davis", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "5", "player": "Paolo Banchero", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "6", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "7", "player": "Giannis Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "8", "player": "Jayson Tatum", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "9", "player": "Jaylen Brown", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "10", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "11", "player": "Jalen Williams", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "12", "player": "Nikola Jokić", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "13", "player": "Jamal Murray", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "14", "player": "Stephen Curry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "15", "player": "Jimmy Butler III", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "16", "player": "Draymond Green", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "17", "player": "Anthony Edwards", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "18", "player": "Tyrese Haliburton", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "19", "player": "Donovan Mitchell", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "20", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "21", "player": "Karl-Anthony Towns", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "22", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "23", "player": "Kevin Durant", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "24", "player": "Kawhi Leonard", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "25", "player": "Evan Mobley", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "26", "player": "Devin Booker", "team": "Phoenix Suns", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "27", "player": "Pascal Siakam", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "28", "player": "Jaren Jackson Jr.", "team": "Memphis Grizzlies", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "29", "player": "Ja Morant", "team": "Memphis Grizzlies", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "30", "player": "De'Aaron Fox", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "31", "player": "Chet Holmgren", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "32", "player": "Darius Garland", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "33", "player": "James Harden", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "34", "player": "Domantas Sabonis", "team": "Sacramento Kings", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "35", "player": "Bam Adebayo", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "36", "player": "Trae Young", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "37", "player": "Ivica Zubac", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "38", "player": "Alperen Sengun", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "39", "player": "Franz Wagner", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "40", "player": "Derrick White", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "41", "player": "Tyrese Maxey", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "42", "player": "Joel Embiid", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "43", "player": "OG Anunoby", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "44", "player": "Amen Thompson", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "45", "player": "Aaron Gordon", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "46", "player": "Damian Lillard", "team": "Portland Trail Blazers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "47", "player": "Scottie Barnes", "team": "Toronto Raptors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "48", "player": "Desmond Bane", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "49", "player": "Jalen Johnson", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "50", "player": "LaMelo Ball", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "51", "player": "Tyler Herro", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "52", "player": "Julius Randle", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "53", "player": "Lauri Markkanen", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "54", "player": "Austin Reaves", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "55", "player": "Rudy Gobert", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "56", "player": "Trey Murphy III", "team": "New Orleans Pelicans", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "57", "player": "Jarrett Allen", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "58", "player": "Norman Powell", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "59", "player": "Dyson Daniels", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "60", "player": "Mikal Bridges", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "61", "player": "Fred VanVleet", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "62", "player": "DeMar DeRozan", "team": "Sacramento Kings", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "63", "player": "Zach Lavine", "team": "Sacramento Kings", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "64", "player": "Jrue Holiday", "team": "Portland Trail Blazers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "65", "player": "Kristaps Porzingis", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "66", "player": "Brandon Ingram", "team": "Toronto Raptors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "67", "player": "Michael Porter Jr.", "team": "Brooklyn Nets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "68", "player": "Andrew Nembhard", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "69", "player": "Cameron Johnson", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "70", "player": "Myles Turner", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "71", "player": "Naz Reid", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "72", "player": "Josh Hart", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "73", "player": "RJ Barrett", "team": "Toronto Raptors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "74", "player": "De'Andre Hunter", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "75", "player": "CJ McCollum", "team": "Washington Wizards", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "76", "player": "Anfernee Simons", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "77", "player": "Paul George", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "78", "player": "Nikola Vučević", "team": "Chicago Bulls", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "79", "player": "Jalen Green", "team": "Phoenix Suns", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "80", "player": "Bradley Beal", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "81", "player": "Jordan Poole", "team": "New Orleans Pelicans", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "82", "player": "Stephon Castle", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "83", "player": "Chris Paul", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "84", "player": "Russell Westbrook", "team": "Sacramento Kings", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "85", "player": "Scoot Henderson", "team": "Portland Trail Blazers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "86", "player": "Brandon Miller", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "87", "player": "Alex Sarr", "team": "Washington Wizards", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "88", "player": "Zaccharie Risacher", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "89", "player": "Dejounte Murray", "team": "New Orleans Pelicans", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "90", "player": "D'Angelo Russell", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "151", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "152", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "153", "player": "VJ Edgecombe", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "154", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "155", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "156", "player": "Tre Johnson III", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "157", "player": "Jeremiah Fears", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "160", "player": "Khaman Maluach", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "166", "player": "Yang Hansen", "team": "Portland Trail Blazers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Base Cards Denim Tear", "code": "170", "player": "Kasparas Jakučionis", "team": "Miami Heat", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Alter Egos", "code": "AE-1", "player": "LeBron James", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Alter Egos", "code": "AE-2", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Alter Egos", "code": "AE-3", "player": "Stephen Curry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Alter Egos", "code": "AE-4", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Alter Egos", "code": "AE-5", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Alter Egos", "code": "AE-6", "player": "Nikola Jokić", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Alter Egos", "code": "AE-7", "player": "Kevin Durant", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Alter Egos", "code": "AE-8", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Alter Egos", "code": "AE-9", "player": "Ja Morant", "team": "Memphis Grizzlies", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Alter Egos", "code": "AE-10", "player": "James Harden", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Minionfractor", "code": "M-1", "player": "Nikola Jokić", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Minionfractor", "code": "M-2", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Minionfractor", "code": "M-3", "player": "Stephen Curry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Minionfractor", "code": "M-4", "player": "Kareem Abdul-Jabbar", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Minionfractor", "code": "M-5", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-AB", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-AE", "player": "Anthony Edwards", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-AG", "player": "Aaron Gordon", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-AI", "player": "Allen Iverson", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-AM", "player": "Alijah Martin", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-AS", "player": "Alex Sarr", "team": "Washington Wizards", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-ASA", "player": "Asa Newell", "team": "Atlanta Hawks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-AT", "player": "Alex Toohey", "team": "Golden State Warriors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-AW", "player": "Amari Williams", "team": "Boston Celtics", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-BAM", "player": "Bam Adebayo", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-BJ", "player": "Bronny James Jr.", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-BM", "player": "Brandon Miller", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-CC", "player": "Cedric Coward", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-CCU", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-CF", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-CH", "player": "Chet Holmgren", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-CJ", "player": "Cameron Johnson", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-CL", "player": "Chaz Lanier", "team": "Detroit Pistons", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-CMB", "player": "Collin Murray-Boyles", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-CP", "player": "Chris Paul", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-DD", "player": "Donte DiVincenzo", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-DHA", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-DN", "player": "Dirk Nowitzki", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-DQ", "player": "Derik Queen", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-DW", "player": "Dwyane Wade", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-DWO", "player": "Danny Wolf", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-ED", "player": "Egor Dëmin", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-EM", "player": "Evan Mobley", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-GA", "player": "Giannis Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-HJO", "player": "Herbert Jones", "team": "New Orleans Pelicans", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-HO", "player": "Hakeem Olajuwon", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-IC", "player": "Isaiah Collier", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-IT", "player": "Isiah Thomas", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-JB", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-JBR", "player": "Johni Broome", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-JG", "player": "Jalen Green", "team": "Phoenix Suns", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-JH", "player": "James Harden", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-JJ", "player": "Jalen Johnson", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-JJJ", "player": "Jaren Jackson Jr.", "team": "Memphis Grizzlies", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-JM", "player": "Jamal Murray", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-JMA", "player": "Jahmai Mashack", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-JOB", "player": "Joan Beringer", "team": "Minnesota Timberwolves", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-JP", "player": "Jordan Poole", "team": "New Orleans Pelicans", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-JR", "player": "Jase Richardson", "team": "Orlando Magic", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-JRH", "player": "Jrue Holiday", "team": "Portland Trail Blazers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-JT", "player": "Jayson Tatum", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-JTO", "player": "John Tonje", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-KAJ", "player": "Kareem Abdul-Jabbar", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-KAM", "player": "Kam Jones", "team": "Indiana Pacers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-KAT", "player": "Karl-Anthony Towns", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-KBR", "player": "Koby Brea", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-KD", "player": "Kevin Durant", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-KG", "player": "Kevin Garnett", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-KHM", "player": "Khris Middleton", "team": "Washington Wizards", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-KJ", "player": "Kasparas Jakučionis", "team": "Miami Heat", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-KK", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-KKU", "player": "Kyle Kuzma", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-KL", "player": "Kevin Love", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-KM", "player": "Khaman Maluach", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-KMA", "player": "Karl Malone", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-KP", "player": "Kristaps Porzingis", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-KSA", "player": "Kobe Sanders", "team": "Los Angeles Clippers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-LB", "player": "Larry Bird", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-LBJ", "player": "LeBron James", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-LMC", "player": "Liam McNeeley", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-MAX", "player": "Maxime Raynaud", "team": "Sacramento Kings", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-MJ", "player": "Magic Johnson", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-MPE", "player": "Micah Peavy", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-MPJ", "player": "Michael Porter Jr.", "team": "Brooklyn Nets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-MS", "player": "Max Shulga", "team": "Boston Celtics", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-NE", "player": "Noa Essengue", "team": "Chicago Bulls", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-NJ", "player": "Nikola Jokić", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-NP", "player": "Noah Penda", "team": "Orlando Magic", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-NT", "player": "Nolan Traore", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-PB", "player": "Paolo Banchero", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-PJW", "player": "P.J. Washington", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-RD", "player": "Rob Dillingham", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-RF", "player": "Rasheer Fleming", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-RH", "player": "Andrew Wiggins", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-RK", "player": "Ryan Kalkbrenner", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-SC", "player": "Stephen Curry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-SCA", "player": "Stephon Castle", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-SGA", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-SH", "player": "Scoot Henderson", "team": "Portland Trail Blazers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-SJ", "player": "Sion James", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-SO", "player": "Shaquille O'Neal", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-TH", "player": "Tyrese Haliburton", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-TJM", "player": "T.J. McConnell", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-TM", "player": "Tyrese Maxey", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-TP", "player": "Tyrese Proctor", "team": "Cleveland Cavaliers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-TS", "player": "Thomas Sorber", "team": "Oklahoma City Thunder", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-VW", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-WCJ", "player": "Walter Clayton Jr.", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-WR", "player": "Will Richard", "team": "Golden State Warriors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-YH", "player": "Yang Hansen", "team": "Portland Trail Blazers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-YKN", "player": "Yanic Konan-Niederhäuser", "team": "Los Angeles Clippers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-ZL", "player": "Zach Lavine", "team": "Sacramento Kings", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "TCA-ZR", "player": "Zaccharie Risacher", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Topps Chrome Autographs", "code": "DA-DRU", "player": "Druski", "team": "Entertainer", "is_rookie": 0, "subject_role": "celebrity"}
+{"subset": "Topps Chrome Autographs", "code": "SLA-SL", "player": "Spike Lee", "team": "Entertainer", "is_rookie": 0, "subject_role": "celebrity"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-AB", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-AMA", "player": "Alijah Martin", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-AN", "player": "Asa Newell", "team": "Atlanta Hawks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-AT", "player": "Adou Thiero", "team": "Los Angeles Lakers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-ATO", "player": "Alex Toohey", "team": "Golden State Warriors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-AW", "player": "Amari Williams", "team": "Boston Celtics", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-BB", "player": "Brooks Barnhizer", "team": "Oklahoma City Thunder", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-BS", "player": "Ben Saraf", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-CC", "player": "Cedric Coward", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-CF", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-CL", "player": "Chaz Lanier", "team": "Detroit Pistons", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-CMB", "player": "Collin Murray-Boyles", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-DH", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-DP", "player": "Drake Powell", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-DQ", "player": "Derik Queen", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-DW", "player": "Danny Wolf", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-ED", "player": "Egor Dëmin", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-JAM", "player": "Jahmai Mashack", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-JB", "player": "Johni Broome", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-JOB", "player": "Joan Beringer", "team": "Minnesota Timberwolves", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-JR", "player": "Jase Richardson", "team": "Orlando Magic", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-JSM", "player": "Javon Small", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-JTO", "player": "John Tonje", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-JWA", "player": "Jamir Watkins", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-KJ", "player": "Kasparas Jakučionis", "team": "Miami Heat", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-KJO", "player": "Kam Jones", "team": "Indiana Pacers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-KK", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-KM", "player": "Khaman Maluach", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-KOB", "player": "Koby Brea", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-KSA", "player": "Kobe Sanders", "team": "Los Angeles Clippers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-LAO", "player": "Lachlan Olbrich", "team": "Chicago Bulls", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-LM", "player": "Liam McNeeley", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-MAX", "player": "Maxime Raynaud", "team": "Sacramento Kings", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-MPE", "player": "Micah Peavy", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-MSH", "player": "Max Shulga", "team": "Boston Celtics", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-NC", "player": "Nique Clifford", "team": "Sacramento Kings", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-NE", "player": "Noa Essengue", "team": "Chicago Bulls", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-NP", "player": "Noah Penda", "team": "Orlando Magic", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-NT", "player": "Nolan Traore", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-RF", "player": "Rasheer Fleming", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-RK", "player": "Ryan Kalkbrenner", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-SJ", "player": "Sion James", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-TP", "player": "Taelon Peter", "team": "Indiana Pacers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-TPR", "player": "Tyrese Proctor", "team": "Cleveland Cavaliers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-TS", "player": "Thomas Sorber", "team": "Oklahoma City Thunder", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-WCJ", "player": "Walter Clayton Jr.", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-WIR", "player": "Will Riley", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-WR", "player": "Will Richard", "team": "Golden State Warriors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-YH", "player": "Yang Hansen", "team": "Portland Trail Blazers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Autographs Lava Lamp", "code": "RA-YKN", "player": "Yanic Konan-Niederhäuser", "team": "Los Angeles Clippers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-AB", "player": "Anthony Black", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-AE", "player": "Alex English", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-AH", "player": "Al Horford", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-AJM", "player": "Ajay Mitchell", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-AM", "player": "Alijah Martin", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-AS", "player": "Alex Sarr", "team": "Washington Wizards", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-ASA", "player": "Asa Newell", "team": "Atlanta Hawks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-ASE", "player": "Alperen Sengun", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-AWI", "player": "Amari Williams", "team": "Boston Celtics", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-BB", "player": "Brooks Barnhizer", "team": "Oklahoma City Thunder", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-BJ", "player": "Bronny James Jr.", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-BM", "player": "Brandon Miller", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-BSA", "player": "Ben Saraf", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-CCO", "player": "Cedric Coward", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-CCU", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-CG", "player": "Collin Gillespie", "team": "Phoenix Suns", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-CH", "player": "Chet Holmgren", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-CL", "player": "Chaz Lanier", "team": "Detroit Pistons", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-CSP", "player": "Cam Spencer", "team": "Memphis Grizzlies", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-CW", "player": "Cam Whitmore", "team": "Washington Wizards", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-CWI", "player": "Cody Williams", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-DFI", "player": "Derek Fisher", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-DH", "player": "DaRon Holmes II", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-DHO", "player": "Dwight Howard", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-DM", "player": "Donovan Mitchell", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-DQ", "player": "Derik Queen", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-DR", "player": "Dennis Rodman", "team": "Chicago Bulls", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-EM", "player": "Evan Mobley", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-GD", "player": "Gradey Dick", "team": "Toronto Raptors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-GH", "player": "Grant Hill", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-IC", "player": "Isaiah Collier", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-IH", "player": "Isaiah Hartenstein", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-JA", "player": "Jarrett Allen", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-JB", "player": "Johni Broome", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-JBE", "player": "Joan Beringer", "team": "Minnesota Timberwolves", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-JET", "player": "Jason Terry", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-JG", "player": "Jalen Green", "team": "Phoenix Suns", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-JHA", "player": "Jordan Hawkins", "team": "New Orleans Pelicans", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-JHO", "player": "Jett Howard", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-JJA", "player": "Jaime Jaquez Jr.", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-JLA", "player": "Jake LaRavia", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-JOE", "player": "Joe Johnson", "team": "Brooklyn Nets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-JR", "player": "Jalen Rose", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-JRI", "player": "Jase Richardson", "team": "Orlando Magic", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-JW", "player": "Jarace Walker", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-KBR", "player": "Koby Brea", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-KD", "player": "Kevin Durant", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-KF", "player": "Kyle Filipowski", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-KG", "player": "Kyshawn George", "team": "Washington Wizards", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-KJ", "player": "Kam Jones", "team": "Indiana Pacers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-KMA", "player": "Karl Malone", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-KW", "player": "Kel'el Ware", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-LJ", "player": "Larry Johnson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-LO", "player": "Lachlan Olbrich", "team": "Chicago Bulls", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-MPE", "player": "Micah Peavy", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-MPJ", "player": "Michael Porter Jr.", "team": "Brooklyn Nets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-MRA", "player": "Maxime Raynaud", "team": "Sacramento Kings", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-MT", "player": "Myles Turner", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-MW", "player": "Mark Williams", "team": "Phoenix Suns", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-NT", "player": "Nikola Topić", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-OI", "player": "Oso Ighodaro", "team": "Phoenix Suns", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-PA", "player": "Precious Achiuwa", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-PS", "player": "Peja Stojaković", "team": "Sacramento Kings", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-QP", "player": "Quinten Post", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-RBL", "player": "Rolando Blackman", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-RD", "player": "Rob Dillingham", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-RDU", "player": "Ryan Dunn", "team": "Phoenix Suns", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-RG", "player": "Rudy Gay", "team": "Sacramento Kings", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-RH", "player": "Ron Holland II", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-RHO", "player": "Robert Horry", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-RK", "player": "Ryan Kalkbrenner", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-RON", "player": "Ron Harper", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-SC", "player": "Stephon Castle", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-SH", "player": "Scoot Henderson", "team": "Portland Trail Blazers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-SJ", "player": "Sion James", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-SK", "player": "Steve Kerr", "team": "Chicago Bulls", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-SP", "player": "Scotty Pippen Jr.", "team": "Memphis Grizzlies", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-SSH", "player": "Shaedon Sharpe", "team": "Portland Trail Blazers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-SW", "player": "Spud Webb", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-TDS", "player": "Tristan da Silva", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-TH", "player": "Taylor Hendricks", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-TJO", "player": "Tyus Jones", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-TK", "player": "Tyler Kolek", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-TRE", "player": "Tre Jones", "team": "Chicago Bulls", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-TS", "player": "Tidjane Salaün", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-TSM", "player": "Tyler Smith", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-VW", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-WC", "player": "Wendell Carter Jr.", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-YH", "player": "Yang Hansen", "team": "Portland Trail Blazers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-YKN", "player": "Yanic Konan-Niederhäuser", "team": "Los Angeles Clippers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Havoc Marks", "code": "HM-ZR", "player": "Zaccharie Risacher", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-AB", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-AE", "player": "Anthony Edwards", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-AI", "player": "Allen Iverson", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-AS", "player": "Alex Sarr", "team": "Washington Wizards", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-BAM", "player": "Bam Adebayo", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-BM", "player": "Brandon Miller", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-CC", "player": "Cedric Coward", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-CCU", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-CF", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-CH", "player": "Chet Holmgren", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-CMB", "player": "Collin Murray-Boyles", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-DH", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-DN", "player": "Dirk Nowitzki", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-DQ", "player": "Derik Queen", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-DW", "player": "Dwyane Wade", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-ED", "player": "Egor Dëmin", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-GA", "player": "Giannis Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-HO", "player": "Hakeem Olajuwon", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-JB", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-JBE", "player": "Joan Beringer", "team": "Minnesota Timberwolves", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-JG", "player": "Jalen Green", "team": "Phoenix Suns", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-JH", "player": "James Harden", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-JT", "player": "Jayson Tatum", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-KAJ", "player": "Kareem Abdul-Jabbar", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-KD", "player": "Kevin Durant", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-KG", "player": "Kevin Garnett", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-KK", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-KM", "player": "Khaman Maluach", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-KMA", "player": "Karl Malone", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-KS", "player": "Kasparas Jakučionis", "team": "Miami Heat", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-LB", "player": "Larry Bird", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-LBJ", "player": "LeBron James", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-MB", "player": "Mikal Bridges", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-MJ", "player": "Magic Johnson", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-NE", "player": "Noa Essengue", "team": "Chicago Bulls", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-NJ", "player": "Nikola Jokić", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-PB", "player": "Paolo Banchero", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-RD", "player": "Rob Dillingham", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-SC", "player": "Stephen Curry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-SCA", "player": "Stephon Castle", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-SGA", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-SH", "player": "Scoot Henderson", "team": "Portland Trail Blazers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-SO", "player": "Shaquille O'Neal", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-THA", "player": "Tyrese Haliburton", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-TM", "player": "Tyrese Maxey", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-TS", "player": "Thomas Sorber", "team": "Oklahoma City Thunder", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-VW", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-WR", "player": "Will Richard", "team": "Golden State Warriors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-YH", "player": "Yang Hansen", "team": "Portland Trail Blazers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "1980-81 Topps Basketball Autographs", "code": "80TBA-ZR", "player": "Zaccharie Risacher", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-AB", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-ALM", "player": "Alijah Martin", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-ASA", "player": "Asa Newell", "team": "Atlanta Hawks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-AT", "player": "Adou Thiero", "team": "Los Angeles Lakers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-ATO", "player": "Alex Toohey", "team": "Golden State Warriors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-AW", "player": "Amari Williams", "team": "Boston Celtics", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-BB", "player": "Brooks Barnhizer", "team": "Oklahoma City Thunder", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-BS", "player": "Ben Saraf", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-CC", "player": "Cedric Coward", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-CF", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-CL", "player": "Chaz Lanier", "team": "Detroit Pistons", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-CMB", "player": "Collin Murray-Boyles", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-DH", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-DP", "player": "Drake Powell", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-DQ", "player": "Derik Queen", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-DW", "player": "Danny Wolf", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-ED", "player": "Egor Dëmin", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-JBE", "player": "Joan Beringer", "team": "Minnesota Timberwolves", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-JBR", "player": "Johni Broome", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-JMA", "player": "Jahmai Mashack", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-JR", "player": "Jase Richardson", "team": "Orlando Magic", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-JSM", "player": "Javon Small", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-JTO", "player": "John Tonje", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-JWA", "player": "Jamir Watkins", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-KBR", "player": "Koby Brea", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-KJ", "player": "Kam Jones", "team": "Indiana Pacers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-KJA", "player": "Kasparas Jakučionis", "team": "Miami Heat", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-KK", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-KM", "player": "Khaman Maluach", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-KSA", "player": "Kobe Sanders", "team": "Los Angeles Clippers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-LMC", "player": "Liam McNeeley", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-LO", "player": "Lachlan Olbrich", "team": "Chicago Bulls", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-MPE", "player": "Micah Peavy", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-MRA", "player": "Maxime Raynaud", "team": "Sacramento Kings", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-MSH", "player": "Max Shulga", "team": "Boston Celtics", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-NC", "player": "Nique Clifford", "team": "Sacramento Kings", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-NE", "player": "Noa Essengue", "team": "Chicago Bulls", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-NP", "player": "Noah Penda", "team": "Orlando Magic", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-NT", "player": "Nolan Traore", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-RF", "player": "Rasheer Fleming", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-RK", "player": "Ryan Kalkbrenner", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-SJ", "player": "Sion James", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-TP", "player": "Tyrese Proctor", "team": "Cleveland Cavaliers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-TPE", "player": "Taelon Peter", "team": "Indiana Pacers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-TS", "player": "Thomas Sorber", "team": "Oklahoma City Thunder", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-WCJ", "player": "Walter Clayton Jr.", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-WR", "player": "Will Riley", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-WRI", "player": "Will Richard", "team": "Golden State Warriors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-YH", "player": "Yang Hansen", "team": "Portland Trail Blazers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Future Stars Autographs", "code": "FS-YKN", "player": "Yanic Konan-Niederhäuser", "team": "Los Angeles Clippers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-AB", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-ABL", "player": "Anthony Black", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-AJM", "player": "Ajay Mitchell", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-AM", "player": "Alijah Martin", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-AS", "player": "Alex Sarr", "team": "Washington Wizards", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-ASA", "player": "Asa Newell", "team": "Atlanta Hawks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-AST", "player": "Amar'e Stoudemire", "team": "Phoenix Suns", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-AT", "player": "Alex Toohey", "team": "Golden State Warriors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-ATH", "player": "Adou Thiero", "team": "Los Angeles Lakers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-AWI", "player": "Amari Williams", "team": "Boston Celtics", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-BAM", "player": "Bam Adebayo", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-BB", "player": "Brooks Barnhizer", "team": "Oklahoma City Thunder", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-BJ", "player": "Bronny James Jr.", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-BM", "player": "Brandon Miller", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-BS", "player": "Ben Saraf", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-CC", "player": "Cedric Coward", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-CF", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-CH", "player": "Chet Holmgren", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-CL", "player": "Chaz Lanier", "team": "Detroit Pistons", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-CMB", "player": "Collin Murray-Boyles", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-CW", "player": "Cam Whitmore", "team": "Washington Wizards", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-CWI", "player": "Cody Williams", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-DDA", "player": "Dyson Daniels", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-DH", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-DHO", "player": "DaRon Holmes II", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-DOC", "player": "Doc Rivers", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-DP", "player": "Drake Powell", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-DQ", "player": "Derik Queen", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-DW", "player": "Danny Wolf", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-ED", "player": "Egor Dëmin", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-GD", "player": "Gradey Dick", "team": "Toronto Raptors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-GP", "player": "Gary Payton", "team": "Seattle SuperSonics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-HG", "player": "Horace Grant", "team": "Chicago Bulls", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-IC", "player": "Isaiah Collier", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-JBE", "player": "Joan Beringer", "team": "Minnesota Timberwolves", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-JBR", "player": "Johni Broome", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-JE", "player": "Justin Edwards", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-JET", "player": "Jason Terry", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-JH", "player": "Jordan Hawkins", "team": "New Orleans Pelicans", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-JHO", "player": "Jett Howard", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-JJ", "player": "Jaime Jaquez Jr.", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-JJB", "player": "JJ Barea", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-JMA", "player": "Jahmai Mashack", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-JR", "player": "Jase Richardson", "team": "Orlando Magic", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-JSM", "player": "Javon Small", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-JT", "player": "Jayson Tatum", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-JTO", "player": "John Tonje", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-JW", "player": "Jamir Watkins", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-JWA", "player": "Jarace Walker", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-KBR", "player": "Koby Brea", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-KF", "player": "Kyle Filipowski", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-KJ", "player": "Kasparas Jakučionis", "team": "Miami Heat", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-KJO", "player": "Kam Jones", "team": "Indiana Pacers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-KK", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-KM", "player": "Khaman Maluach", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-KPE", "player": "Kendrick Perkins", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-KSA", "player": "Kobe Sanders", "team": "Los Angeles Clippers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-KW", "player": "Kel'el Ware", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-KYG", "player": "Kyshawn George", "team": "Washington Wizards", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-LMC", "player": "Liam McNeeley", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-LO", "player": "Lachlan Olbrich", "team": "Chicago Bulls", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-MAX", "player": "Maxime Raynaud", "team": "Sacramento Kings", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-MP", "player": "Micah Peavy", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-MSH", "player": "Max Shulga", "team": "Boston Celtics", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-NC", "player": "Nique Clifford", "team": "Sacramento Kings", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-NE", "player": "Noa Essengue", "team": "Chicago Bulls", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-NP", "player": "Noah Penda", "team": "Orlando Magic", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-NR", "player": "Nate Robinson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-NT", "player": "Nolan Traore", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-NTO", "player": "Nikola Topić", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-OI", "player": "Oso Ighodaro", "team": "Phoenix Suns", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-PB", "player": "Paolo Banchero", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-PJW", "player": "P.J. Washington", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-QP", "player": "Quinten Post", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-RDU", "player": "Ryan Dunn", "team": "Phoenix Suns", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-RF", "player": "Rasheer Fleming", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-RH", "player": "Ron Holland II", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-RK", "player": "Ryan Kalkbrenner", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-SH", "player": "Scoot Henderson", "team": "Portland Trail Blazers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-SJ", "player": "Sion James", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-TDS", "player": "Tristan da Silva", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-TK", "player": "Tyler Kolek", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-TKU", "player": "Toni Kukoc", "team": "Chicago Bulls", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-TP", "player": "Taelon Peter", "team": "Indiana Pacers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-TPR", "player": "Tyrese Proctor", "team": "Cleveland Cavaliers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-TS", "player": "Tidjane Salaün", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-TSM", "player": "Tyler Smith", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-TSO", "player": "Thomas Sorber", "team": "Oklahoma City Thunder", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-WCJ", "player": "Walter Clayton Jr.", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-WR", "player": "Will Riley", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-WRI", "player": "Will Richard", "team": "Golden State Warriors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-YH", "player": "Yang Hansen", "team": "Portland Trail Blazers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-YKN", "player": "Yanic Konan-Niederhäuser", "team": "Los Angeles Clippers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Chromographs", "code": "CH-ZR", "player": "Zaccharie Risacher", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-AB", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-AM", "player": "Alijah Martin", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-AN", "player": "Asa Newell", "team": "Atlanta Hawks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-AW", "player": "Amari Williams", "team": "Boston Celtics", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-BB", "player": "Brooks Barnhizer", "team": "Oklahoma City Thunder", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-BS", "player": "Ben Saraf", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-CC", "player": "Cedric Coward", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-CF", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-CH", "player": "Chucky Hepburn", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-CJ", "player": "Curtis Jones", "team": "Denver Nuggets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-CL", "player": "Chaz Lanier", "team": "Detroit Pistons", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-CLO", "player": "Caleb Love", "team": "Portland Trail Blazers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-CM", "player": "Chris Mañon", "team": "Los Angeles Lakers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-CMB", "player": "Collin Murray-Boyles", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-CYB", "player": "Chris Youngblood", "team": "Oklahoma City Thunder", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-DC", "player": "Dylan Cardwell", "team": "Sacramento Kings", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-DH", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-DJG", "player": "David Jones Garcia", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-DP", "player": "Drake Powell", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-DQ", "player": "Derik Queen", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-DW", "player": "Danny Wolf", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-ED", "player": "Egor Dëmin", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-ET", "player": "Ethan Thompson", "team": "Indiana Pacers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-HD", "player": "Hunter Dickinson", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-HS", "player": "Hunter Sallis", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-JBE", "player": "Joan Beringer", "team": "Minnesota Timberwolves", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-JBR", "player": "Johni Broome", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-JC", "player": "Javonte Cooke", "team": "Portland Trail Blazers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-JMA", "player": "Jahmai Mashack", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-JR", "player": "Jase Richardson", "team": "Orlando Magic", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-JS", "player": "Javon Small", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-JT", "player": "Jahmyl Telfort", "team": "Los Angeles Clippers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-JWA", "player": "Jamir Watkins", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-KJ", "player": "Kasparas Jakučionis", "team": "Miami Heat", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-KJO", "player": "Kam Jones", "team": "Indiana Pacers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-KK", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-KM", "player": "Khaman Maluach", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-KS", "player": "Kobe Sanders", "team": "Los Angeles Clippers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-LMC", "player": "Liam McNeeley", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-LO", "player": "Lachlan Olbrich", "team": "Chicago Bulls", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-MAX", "player": "Maxime Raynaud", "team": "Sacramento Kings", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-MC", "player": "Moussa Cisse", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-MD", "player": "Mohamed Diawara", "team": "New York Knicks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-MG", "player": "Myron Gardner", "team": "Miami Heat", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-MK", "player": "Miles Kelly", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-MP", "player": "Micah Peavy", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-MS", "player": "Max Shulga", "team": "Boston Celtics", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-MSE", "player": "Mark Sears", "team": "Milwaukee Bucks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-NC", "player": "Nique Clifford", "team": "Sacramento Kings", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-NE", "player": "Noa Essengue", "team": "Chicago Bulls", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-NP", "player": "Noah Penda", "team": "Orlando Magic", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-NT", "player": "Nolan Traore", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-RF", "player": "Rasheer Fleming", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-RK", "player": "Ryan Kalkbrenner", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-RN", "player": "Ryan Nembhard", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-SJ", "player": "Sion James", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-TP", "player": "Taelon Peter", "team": "Indiana Pacers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-TPR", "player": "Tyrese Proctor", "team": "Cleveland Cavaliers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-WCJ", "player": "Walter Clayton Jr.", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-WR", "player": "Will Riley", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-WRI", "player": "Will Richard", "team": "Golden State Warriors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-YH", "player": "Yang Hansen", "team": "Portland Trail Blazers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-YKN", "player": "Yanic Konan-Niederhäuser", "team": "Los Angeles Clippers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-AA", "player": "Alex Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-AB", "player": "Adama Bal", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-AG", "player": "Andersson Garcia", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-AMO", "player": "Alex Morales", "team": "Orlando Magic", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-AT", "player": "Adou Thiero", "team": "Los Angeles Lakers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-BH", "player": "Blake Hinson", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-BM", "player": "Bez Mbeng", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-CJ", "player": "Chaney Johnson", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-CJH", "player": "CJ Huntley", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-CR", "player": "Cormac Ryan", "team": "Milwaukee Bucks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-DBR", "player": "Darius Brown", "team": "Cleveland Cavaliers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-DHO", "player": "DaRon Holmes II", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-HGR", "player": "Hayden Gray", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-JK", "player": "Jayson Kent", "team": "Portland Trail Blazers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-JOD", "player": "Josh Oduro", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-JPO", "player": "John Poulakidas", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-JRE", "player": "Julian Reese", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-JTO", "player": "John Tonje", "team": "Boston Celtics", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-KGI", "player": "Keshon Gilbert", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-KRI", "player": "Kadary Richmond", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-LJC", "player": "LJ Cryer", "team": "Golden State Warriors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-LWI", "player": "Lucas Williamson", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-MSI", "player": "Malachi Smith", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-NTO", "player": "Nikola Topić", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-PSA", "player": "Payton Sandfort", "team": "Oklahoma City Thunder", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-SPE", "player": "Sean Pedulla", "team": "Los Angeles Clippers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-TBU", "player": "Tyler Burton", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-TEN", "player": "Tristan Enaruna", "team": "Cleveland Cavaliers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-TOK", "player": "Toby Okani", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch Autographs", "code": "DPA-VGO", "player": "Vladislav Goldin", "team": "Miami Heat", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch (Non-Autograph)", "code": "DP-VJ", "player": "VJ Edgecombe", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch (Non-Autograph)", "code": "DP-TJ", "player": "Tre Johnson III", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch (Non-Autograph)", "code": "DP-CBR", "player": "Carter Bryant", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch (Non-Autograph)", "code": "DP-HG", "player": "Hugo González", "team": "Boston Celtics", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch (Non-Autograph)", "code": "DP-JF", "player": "Jeremiah Fears", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "NBA Debut Patch (Non-Autograph)", "code": "DP-RZI", "player": "Rocco Zikarsky", "team": "Minnesota Timberwolves", "is_rookie": 1, "subject_role": "athlete"}

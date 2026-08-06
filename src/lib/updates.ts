@@ -13,6 +13,24 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "230-chrome-updates-basketball-2526-added",
+    title: "2025-26 Topps Chrome Updates Basketball Added",
+    date: "2026-08-06T00:00:00Z",
+    summary:
+      "Added 2025-26 Topps Chrome Updates Basketball — 1,299 cards across 33 subsets (including the debut-year NBA Debut Patch Autographs), 359 parallels, six-format box configuration (Hobby/Jumbo/Delight/Value/Mega/Sapphire). Pack odds to follow.",
+    description: `## 2025-26 Topps Chrome Updates Basketball
+
+**1,299 cards across 33 subsets**, plus **359 parallels** and a six-format box configuration.
+
+- Base set of 200 (legends and a 50-card rookie run), with Refractor, Sapphire, Basketball, RayWave, Geometric, and Wave parallel ladders.
+- Insert lineup includes Clutch City, New Editions, Stratospheric Stars, Moment in Time, Fanatical, Glass Canvas, Paradox, and the debut-year **NBA Debut Patch Autographs**.
+- Autograph subsets: Topps Chrome, Rookie Autographs Lava Lamp, Havoc Marks, 1980-81 Topps Basketball, Future Stars, Chromographs, and NBA Debut Patch Autographs.
+- **Box configuration** across six formats — Hobby, Jumbo, Delight, Value, Mega, and Sapphire (config not yet published).
+- Pack odds to follow in Phase 2.`,
+    tags: ["checklist", "box-config"],
+    setId: 866,
+  },
+  {
     id: "229-marvel-comics-sapphire-2026-added",
     title: "2026 Topps Chrome Marvel Comics Sapphire Edition Added",
     date: "2026-08-05T00:00:00Z",
