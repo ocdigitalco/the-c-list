@@ -13,6 +13,18 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "232-chrome-updates-basketball-2526-boxes-per-case",
+    title: "2025-26 Topps Chrome Updates Basketball Boxes-Per-Case Added",
+    date: "2026-08-07T00:00:00Z",
+    summary:
+      "2025-26 Topps Chrome Updates Basketball: added boxes-per-case to the box configuration (Hobby 12, Jumbo 8, Value 40, Mega 20, Delight 6).",
+    description: `## 2025-26 Topps Chrome Updates Basketball — Boxes Per Case
+
+Added boxes-per-case to the box configuration for five formats: **Hobby 12, Jumbo 8, Value 40, Mega 20, Delight 6**. Sapphire carries no boxes-per-case value (unpublished). Cards-per-pack, packs-per-box, autos-per-box, and format notes are unchanged.`,
+    tags: ["box-config"],
+    setId: 866,
+  },
+  {
     id: "231-chrome-updates-basketball-2526-odds",
     title: "2025-26 Topps Chrome Updates Basketball Pack Odds Attached",
     date: "2026-08-06T00:00:00Z",
