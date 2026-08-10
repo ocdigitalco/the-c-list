@@ -115,6 +115,9 @@ function resolvePrefix(
     (k) => k.toLowerCase() === name.toLowerCase()
   );
   if (ciMatch) return ciMatch;
+  // Prefer the subset's own name when odds keys are composed as "{name} <tier>"
+  // (e.g. "Base Cards Base" / "Base Cards Refractors"); avoids collapsing to "Base".
+  if (Object.keys(packOddsData).some((k) => k.startsWith(`${name} `))) return name;
   // Base subset variants
   if (name.startsWith("Base")) {
     if ("Base Cards" in packOddsData) return "Base Cards";
@@ -143,6 +146,8 @@ function lookupDenom(
     packOddsData[`${prefix} Geometric`] ??
     packOddsData[`${prefix} Refractor`] ??
     packOddsData[`${prefix} Refractor Parallel`] ??
+    packOddsData[`${prefix} Base`] ??
+    packOddsData[`${prefix} Refractors`] ??
     null
   );
 }

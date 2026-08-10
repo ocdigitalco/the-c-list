@@ -304,6 +304,9 @@ export default async function TeamDetailPage({
       if (name === "Base Set") return findOddsKey("Base Set", Object.keys(packOddsData)) ?? "Base";
       const found = findOddsKey(name, Object.keys(packOddsData));
       if (found) return found;
+      // Prefer the subset's own name when odds keys are composed as "{name} <tier>"
+      // (e.g. "Base Cards Base" / "Base Cards Refractors").
+      if (Object.keys(packOddsData).some((k) => k.startsWith(`${name} `))) return name;
       if (name.startsWith("Base")) {
         if ("Base Cards" in packOddsData) return "Base Cards";
       }
@@ -314,7 +317,7 @@ export default async function TeamDetailPage({
       return teamInsertSets.map((is) => {
         const isAuto = is.is_autograph === 1 || autoKeywords.some((kw) => is.name.toLowerCase().includes(kw));
         const prefix = resolvePrefix(is.name, packOddsData);
-        const baseDenom = packOddsData[prefix] ?? packOddsData[`${prefix} Refractor`] ?? null;
+        const baseDenom = packOddsData[prefix] ?? packOddsData[`${prefix} Refractor`] ?? packOddsData[`${prefix} Base`] ?? packOddsData[`${prefix} Refractors`] ?? null;
         const pars = parallelsByIS.get(is.insert_set_id) ?? [];
         return {
           insertSetName: is.name,

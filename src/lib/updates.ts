@@ -13,6 +13,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "233-break-hit-calculator-odds-key-fixes",
+    title: "Break Hit Calculator: Odds-Key Resolution & Auto-Stat Fixes",
+    date: "2026-08-10T00:00:00Z",
+    summary:
+      "Break Hit Calculator now resolves '{subset} Base' and plural Refractors odds keys (fixes Chrome Updates Basketball and all similarly-keyed sets), auto pool uses the autograph flag (528 vs 443 on Chrome Updates BK), unified Auto Parallels definition across set and athlete pages, pluralization fix.",
+    description: `## Break Hit Calculator fixes
+
+- **Odds-key resolution:** the calculator now recognizes \`"{subset} Base"\` base-tier keys and plural \`"Refractors"\`, and no longer collapses a \`"Base Cards"\` base subset down to bare \`"Base"\`. This repairs the player-page calculator on 2025-26 Topps Chrome Updates Basketball (and the ~10 other sets using the \`"{subset} Base"\` convention), where every row previously showed the same auto-guarantee number.
+- **Auto pool:** the guaranteed-slot denominator now uses the \`is_autograph\` flag instead of a subset-name keyword match, so it includes flagged auto subsets like Havoc Marks and excludes "(Non-Autograph)" subsets (528 vs 443 on Chrome Updates BK). The player-side numerator uses the same flag.
+- **Auto Parallels:** the athlete page now counts all parallels on autograph subsets (matching the set page) rather than only serialized ones.
+- **Pluralization:** "~1 in 6.6 boxs" → "boxes".`,
+    tags: ["feature"],
+  },
+  {
     id: "232-chrome-updates-basketball-2526-boxes-per-case",
     title: "2025-26 Topps Chrome Updates Basketball Boxes-Per-Case Added",
     date: "2026-08-07T00:00:00Z",

@@ -592,7 +592,7 @@ export default async function SetPage({
         // Some sets have no plain base key in pack odds; their base entry uses a
         // suffix like " Geometric" or " Refractor" (common for auto sets). Try fallbacks.
         const baseDenom = baseKey
-          ? (packOddsData[baseKey] ?? packOddsData[`${baseKey} Geometric`] ?? packOddsData[`${baseKey} Refractor`] ?? null)
+          ? (packOddsData[baseKey] ?? packOddsData[`${baseKey} Geometric`] ?? packOddsData[`${baseKey} Refractor`] ?? packOddsData[`${baseKey} Base`] ?? packOddsData[`${baseKey} Refractors`] ?? null)
           : null;
         return {
           insertSetName: is.insertSetName,

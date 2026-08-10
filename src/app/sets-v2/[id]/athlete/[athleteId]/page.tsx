@@ -318,6 +318,8 @@ export default async function V2AthletePage({
           packOddsData[prefix] ??
           packOddsData[`${prefix} Geometric`] ??
           packOddsData[`${prefix} Refractor`] ??
+          packOddsData[`${prefix} Base`] ??
+          packOddsData[`${prefix} Refractors`] ??
           null;
         return {
           insertSetName: is.insertSetName,

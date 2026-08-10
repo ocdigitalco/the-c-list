@@ -278,12 +278,18 @@ function formatPct(p: number): string {
   return `${pct.toFixed(2)}%`;
 }
 
+function pluralizeUnit(unit: string, n: number): string {
+  if (n === 1) return unit;
+  return /(?:s|x|z|ch|sh)$/i.test(unit) ? `${unit}es` : `${unit}s`;
+}
+
 function formatOneIn(p: number, unit: string): string {
   if (p <= 0) return "—";
   if (p >= 1) return `~${p.toFixed(1)}× per ${unit}`;
   const x = 1 / p;
-  if (x < 2) return `~1 in 1 ${unit}s`;
-  return `~1 in ${x.toFixed(x < 10 ? 1 : 0)} ${unit}s`;
+  if (x < 2) return `~1 in 1 ${pluralizeUnit(unit, 1)}`;
+  const display = x.toFixed(x < 10 ? 1 : 0);
+  return `~1 in ${display} ${pluralizeUnit(unit, Number(display))}`;
 }
 
 function oddsColor(p: number): string {

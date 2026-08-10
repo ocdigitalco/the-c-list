@@ -412,6 +412,10 @@ export default async function V2AthletePage({
       if (overridden) return overridden;
       const found = findOddsKey(name, Object.keys(packOddsData));
       if (found) return found;
+      // Prefer the subset's own name when odds keys are composed as "{name} <tier>"
+      // (e.g. "Base Cards Base" / "Base Cards Refractors"); avoids collapsing a
+      // "Base ..."-named subset down to bare "Base".
+      if (Object.keys(packOddsData).some((k) => k.startsWith(`${name} `))) return name;
       // Base subset fallback
       if (name.startsWith("Base")) {
         if ("Base Cards" in packOddsData) return "Base Cards";
@@ -430,6 +434,8 @@ export default async function V2AthletePage({
           packOddsData[`${prefix} Geometric`] ??
           packOddsData[`${prefix} Refractor`] ??
           packOddsData[`${prefix} Refractor Parallel`] ??
+          packOddsData[`${prefix} Base`] ??
+          packOddsData[`${prefix} Refractors`] ??
           null;
         return {
           insertSetName: is.insertSetName,
@@ -468,19 +474,21 @@ export default async function V2AthletePage({
     }
   }
 
-  // Total auto cards for guaranteed-slot model
-  const autoFilter = `(LOWER(i.name) LIKE '%auto%' OR LOWER(i.name) LIKE '%signature%' OR LOWER(i.name) LIKE '%graph%' OR LOWER(i.name) LIKE '%relic%')`;
+  // Total auto cards for guaranteed-slot model — use the is_autograph flag so the
+  // guarantee-share denominator matches the player-side numerator exactly (a
+  // name-keyword filter both misses flagged auto subsets like "Havoc Marks" and
+  // wrongly catches "... (Non-Autograph)").
   const totalAutoCards =
     (await rawQuery.get<{ n: number }>(
       `SELECT COUNT(*) AS n
        FROM player_appearances pa
        JOIN insert_sets i ON pa.insert_set_id = i.id
-       WHERE i.set_id = ? AND ${autoFilter}`,
+       WHERE i.set_id = ? AND i.is_autograph = 1`,
       setRow.id
     ))?.n ?? 0;
 
   const playerAutoCards = playerInsertSets
-    .filter((is) => is.isAutograph || autoKeywords.some((kw) => is.insertSetName.toLowerCase().includes(kw)))
+    .filter((is) => is.isAutograph)
     .reduce((sum, is) => sum + is.appearances.length, 0);
 
   // ── Other sets this player appears in ───────────────────────────────────────
@@ -691,8 +699,12 @@ export default async function V2AthletePage({
     is.isAutograph || autoKeywords.some((kw) => is.insertSetName.toLowerCase().includes(kw))
   );
   const athleteAutographs = autoInsertSets.reduce((sum, is) => sum + is.appearances.length, 0);
+  // "Auto Parallels" counts all parallels on the player's autograph subsets — same
+  // definition as the set page (no print_run filter); sets whose autos are
+  // unnumbered by publication should not read 0. The "Numbered" stat covers the
+  // serialized dimension separately.
   const athleteAutoParallels = autoInsertSets.reduce((sum, is) =>
-    sum + is.appearances.length * is.parallels.filter((p) => p.printRun !== null).length, 0
+    sum + is.appearances.length * is.parallels.length, 0
   );
 
   return (
