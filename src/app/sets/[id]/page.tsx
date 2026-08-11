@@ -9,7 +9,7 @@ import {
 import { eq, inArray, sql, and } from "drizzle-orm";
 import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
-import { SetDetailClient } from "@/components/sets/SetDetailClient";
+import { SetDetailClient, type RelatedLink } from "@/components/sets/SetDetailClient";
 import type { LeaderboardRow } from "@/components/sets/types";
 import type { BreakSheetPlayer } from "@/components/BreakSheetModal";
 import { articles } from "@/lib/articles";
@@ -149,6 +149,20 @@ export default async function V2SetPage({
     );
     toppsUrl = urlRow?.topps_url ?? null;
   } catch { /* topps_url column may not exist yet */ }
+
+  // Related article links (JSON array of {url, source, title, description}) —
+  // read defensively; the column is added via ALTER and may not exist pre-migration.
+  let relatedLinks: RelatedLink[] = [];
+  try {
+    const linkRow = await rawQuery.get<{ related_links: string | null }>(
+      "SELECT related_links FROM sets WHERE id = ?",
+      setId
+    );
+    if (linkRow?.related_links) {
+      const parsed = JSON.parse(linkRow.related_links);
+      if (Array.isArray(parsed)) relatedLinks = parsed as RelatedLink[];
+    }
+  } catch { /* related_links column may not exist yet, or invalid JSON */ }
 
   // Insert set IDs
   const insertSetIdRows = await db
@@ -570,6 +584,7 @@ export default async function V2SetPage({
       hasNumberedParallels={numberedParallelsResult.total > 0}
       hasBoxConfig={!!setRow.boxConfig}
       hasPackOdds={!!setRow.packOdds}
+      relatedLinks={relatedLinks}
       boxConfig={setRow.boxConfig ?? null}
       packOdds={setRow.packOdds ?? null}
       entries={leaderboardEntries}

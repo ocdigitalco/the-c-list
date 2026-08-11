@@ -29,7 +29,11 @@ async function readDimensions(absPath: string): Promise<{ width: number; height:
   return { width: FALLBACK_W, height: FALLBACK_H };
 }
 
-const IMAGE_EXT = "(?:jpe?g|png|webp)";
+const IMAGE_EXT = "jpe?g|png|webp";
+
+// When the same {slug}-{n} base name exists in more than one extension, keep a
+// single entry, preferring the more efficient encoding: webp > png > jpg/jpeg.
+const EXT_PREFERENCE: Record<string, number> = { webp: 0, png: 1, jpg: 2, jpeg: 2 };
 
 function escapeRegExp(s: string): string {
   return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -62,19 +66,33 @@ export async function getCardGalleryImages(
     return [];
   }
 
-  const pattern = new RegExp(`^${escapeRegExp(slug)}-(\\d+)\\.${IMAGE_EXT}$`, "i");
-  const files: { file: string; n: number }[] = [];
+  // Anchored pattern ({slug}-{n}.{ext} exactly) — this is also the corrupt-name
+  // guard: names like "{slug}-1.jpg " (trailing space) fail the `$` anchor and
+  // are skipped rather than served, for every supported extension.
+  const pattern = new RegExp(`^${escapeRegExp(slug)}-(\\d+)\\.(${IMAGE_EXT})$`, "i");
+  const files: { file: string; n: number; ext: string }[] = [];
   const unexpected: string[] = [];
 
   for (const file of entries) {
     if (file.startsWith(".")) continue; // skip .gitkeep and other dotfiles
     const m = file.match(pattern);
     if (m) {
-      files.push({ file, n: parseInt(m[1], 10) });
+      files.push({ file, n: parseInt(m[1], 10), ext: m[2].toLowerCase() });
     } else {
       unexpected.push(file);
     }
   }
+
+  // Dedup by parsed integer, preferring webp > png > jpg when a base name exists
+  // in multiple extensions. Numeric sort below stays extension-agnostic.
+  const byNumber = new Map<number, { file: string; n: number; ext: string }>();
+  for (const f of files) {
+    const cur = byNumber.get(f.n);
+    if (!cur || (EXT_PREFERENCE[f.ext] ?? 99) < (EXT_PREFERENCE[cur.ext] ?? 99)) {
+      byNumber.set(f.n, f);
+    }
+  }
+  const dedupedFiles = [...byNumber.values()];
 
   if (unexpected.length > 0) {
     console.warn(
@@ -85,7 +103,7 @@ export async function getCardGalleryImages(
   // Read intrinsic dimensions so each card can reserve its natural width at a
   // fixed height with no layout shift (horizontal cards render wider).
   const matched: CardGalleryImage[] = await Promise.all(
-    files.map(async ({ file, n }) => {
+    dedupedFiles.map(async ({ file, n }) => {
       const { width, height } = await readDimensions(path.join(dir, file));
       return { src: `/sets/cards/${slug}/${file}`, n, width, height };
     })

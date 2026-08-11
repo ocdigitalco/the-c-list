@@ -13,6 +13,19 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "234-chrome-updates-basketball-2526-links-gallery",
+    title: "2025-26 Topps Chrome Updates Basketball: Links + Gallery Formats",
+    date: "2026-08-10T00:00:00Z",
+    summary:
+      "2025-26 Topps Chrome Updates Basketball: swapped topps_url to the permanent product page and added three Topps RIPPED article links. Galleries now support .jpg, .png, and .webp site-wide.",
+    description: `## Links + gallery formats
+
+- **2025-26 Topps Chrome Updates Basketball** now links to the permanent Topps product page and carries three **Topps RIPPED** article backlinks (product history, Alter Egos design, and a checklist spotlight) rendered under the "About This Set" backlink.
+- **Galleries** support \`.jpg\`, \`.png\`, and \`.webp\` site-wide, with extension-agnostic numeric sort. When the same image number exists in multiple formats, the more efficient encoding wins (webp > png > jpg).`,
+    tags: ["feature"],
+    setId: 866,
+  },
+  {
     id: "233-break-hit-calculator-odds-key-fixes",
     title: "Break Hit Calculator: Odds-Key Resolution & Auto-Stat Fixes",
     date: "2026-08-10T00:00:00Z",

@@ -98,6 +98,15 @@ export interface SetDetailClientProps {
   cardImages?: CardGalleryImage[];
   /** Optional Topps product-page URL for the "About This Set" backlink. */
   toppsUrl?: string | null;
+  /** Optional related article links rendered under the Topps backlink. */
+  relatedLinks?: RelatedLink[];
+}
+
+export interface RelatedLink {
+  url: string;
+  source: string;
+  title: string;
+  description: string;
 }
 
 // ─── Helpers ────────────────────────────────────────────────────────────────────
@@ -848,14 +857,14 @@ function CardGallery({ images, setName }: { images: CardGalleryImage[]; setName:
 
 // ─── Tab: Overview ──────────────────────────────────────────────────────────
 
-function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autographs, autoParallels, totalParallels, athleteCount, releaseDate, hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds, subjectLabel = "Athletes", featuredArticle, setName, aeoSummary, faqs, cardImages, toppsUrl }: {
+function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autographs, autoParallels, totalParallels, athleteCount, releaseDate, hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds, subjectLabel = "Athletes", featuredArticle, setName, aeoSummary, faqs, cardImages, toppsUrl, relatedLinks }: {
   boxConfig: string | null; cards: number; cardTypes: number; parallelTypes: number;
   autographs: number; autoParallels: number; totalParallels: number; athleteCount: number;
   releaseDate: string | null; hasChecklist: boolean; hasNumberedParallels: boolean;
   hasBoxConfig: boolean; hasPackOdds: boolean; subjectLabel?: string;
   featuredArticle?: { slug: string; title: string; description: string; heroImage: string } | null;
   setName: string; aeoSummary?: string | null; faqs?: { q: string; a: string }[];
-  cardImages?: CardGalleryImage[]; toppsUrl?: string | null;
+  cardImages?: CardGalleryImage[]; toppsUrl?: string | null; relatedLinks?: RelatedLink[];
 }) {
   const boxRows = boxConfig ? buildBoxRows(boxConfig) : [];
 
@@ -868,7 +877,7 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
       )}
 
       {/* Set Summary */}
-      {(aeoSummary || toppsUrl) && (
+      {(aeoSummary || toppsUrl || (relatedLinks && relatedLinks.length > 0)) && (
         <section>
           <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase", marginBottom: 12 }}>
             About This Set
@@ -902,6 +911,33 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
               </svg>
             </a>
+          )}
+          {/* Related article backlinks (e.g. Topps RIPPED). */}
+          {relatedLinks && relatedLinks.length > 0 && (
+            <div style={{ marginTop: aeoSummary || toppsUrl ? 20 : 0 }}>
+              <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase", marginBottom: 10 }}>
+                Read more on {relatedLinks[0].source}
+              </div>
+              <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 10 }}>
+                {relatedLinks.map((link) => (
+                  <li key={link.url}>
+                    <a
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ fontSize: 15, fontWeight: 600, color: "#D63A20", textDecoration: "none" }}
+                    >
+                      {link.title}
+                    </a>
+                    {link.description && (
+                      <p style={{ fontSize: 13, lineHeight: 1.55, color: "#6B6757", margin: "2px 0 0" }}>
+                        {link.description}
+                      </p>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
           )}
         </section>
       )}
@@ -1432,7 +1468,7 @@ export function SetDetailClient({
   subjectLabel: subjectLabelProp, teamLabel: teamLabelProp,
   hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds,
   boxConfig, packOdds, entries, hasTeamData, breakSheetPlayers, parallelsList, autographSubsetNames, featuredArticle,
-  aeoSummary, faqs, cardImages, toppsUrl,
+  aeoSummary, faqs, cardImages, toppsUrl, relatedLinks,
 }: SetDetailClientProps) {
   const subjectLabel = subjectLabelProp ?? "Athletes";
   const teamLabel = teamLabelProp ?? "Team";
@@ -1566,7 +1602,7 @@ export function SetDetailClient({
                 totalParallels={totalParallels} athleteCount={athleteCount} releaseDate={releaseDate}
                 hasChecklist={hasChecklist} hasNumberedParallels={hasNumberedParallels}
                 hasBoxConfig={hasBoxConfig} hasPackOdds={hasPackOdds} subjectLabel={subjectLabel}
-                featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} cardImages={cardImages} toppsUrl={toppsUrl} />
+                featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} cardImages={cardImages} toppsUrl={toppsUrl} relatedLinks={relatedLinks} />
             )}
             {tab === "Box Config" && <BoxConfigContent boxConfig={boxConfig} />}
             {tab === "Base Odds" && <PackOddsContent formats={oddsFormats} />}
@@ -1671,7 +1707,7 @@ export function SetDetailClient({
               totalParallels={totalParallels} athleteCount={athleteCount} releaseDate={releaseDate}
               hasChecklist={hasChecklist} hasNumberedParallels={hasNumberedParallels}
               hasBoxConfig={hasBoxConfig} hasPackOdds={hasPackOdds} subjectLabel={subjectLabel}
-              featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} cardImages={cardImages} toppsUrl={toppsUrl} />
+              featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} cardImages={cardImages} toppsUrl={toppsUrl} relatedLinks={relatedLinks} />
           )}
           {tab === "Box Config" && <BoxConfigContent boxConfig={boxConfig} />}
           {tab === "Base Odds" && <PackOddsContent formats={oddsFormats} />}
