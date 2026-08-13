@@ -13,6 +13,25 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "235-chrome-updates-basketball-2526-print-runs",
+    title: "2025-26 Topps Chrome Updates Basketball: Parallel Print Runs",
+    date: "2026-08-13T00:00:00Z",
+    summary:
+      "2025-26 Topps Chrome Updates Basketball: backfilled 255 parallel print runs reconciled against the published parallels source — standard Chrome ladders across inserts and autographs, the non-standard Rookie Autographs Lava Lamp ladder (/299–/8), Base RayWave colors, and Image Variation Speckles; insert Geometric refractors remain unnumbered as published.",
+    description: `## 2025-26 Topps Chrome Updates Basketball — Print Runs
+
+Backfilled **255 parallel print runs** reconciled against the published parallels source.
+
+- Standard Chrome color ladders (/199 → 1/1) across the insert and autograph subsets, plus their colored Geometric tiers.
+- The **Rookie Autographs Lava Lamp** ladder is intentionally non-standard as published: /299, /175, /125, /85, /35, /15, /8.
+- Base RayWave colors and Base Cards Image Variation Speckles.
+- The bare insert "Refractors Geometric" tiers remain **unnumbered** as published; Base Cards' own Geometric /99 is unchanged.
+
+Set-wide: **292** numbered parallels, **67** unnumbered. Pack odds were not touched.`,
+    tags: ["checklist"],
+    setId: 866,
+  },
+  {
     id: "234-chrome-updates-basketball-2526-links-gallery",
     title: "2025-26 Topps Chrome Updates Basketball: Links + Gallery Formats",
     date: "2026-08-10T00:00:00Z",
