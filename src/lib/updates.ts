@@ -13,6 +13,23 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "237-mls-chrome-2026-added",
+    title: "2026 Topps Chrome Major League Soccer Added",
+    date: "2026-08-13T00:00:00Z",
+    summary:
+      "Added 2026 Topps Chrome Major League Soccer — 543 cards across 18 subsets including Chrome Dual Autographs and National Pairings Dual Autographs (first MLS set on the platform); parallels and pack odds to follow at release.",
+    description: `## 2026 Topps Chrome Major League Soccer
+
+The first MLS set on the platform: **543 cards across 18 subsets**.
+
+- 200-card base set, new **Rhythm of the Game** and **Patriotic Passion** inserts, returning **Helix**, **Wonderkids**, and **Pearlers**.
+- First Chrome MLS cards for Antoine Griezmann and Robert Lewandowski; **MLS Renaissance Autographs** from Lionel Messi and David Beckham; **MLS Debut Patch Autographs**.
+- **Chrome Dual Autographs** and **National Pairings Dual Autographs** modeled as single cards with linked co-signers.
+- Parallels and pack odds to follow at release.`,
+    tags: ["checklist"],
+    setId: 867,
+  },
+  {
     id: "236-tier-one-baseball-2026-parallels-odds",
     title: "2026 Topps Tier One Baseball: Parallel Ladders + Pack Odds",
     date: "2026-08-13T00:00:00Z",
