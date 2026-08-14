@@ -13,6 +13,19 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "238-subset-type-flags",
+    title: "Subset Type Flags (Base / Relic / Booklet) Across All Sets",
+    date: "2026-08-14T00:00:00Z",
+    summary:
+      "Added explicit subset type flags (base/relic/booklet) across all sets, powering the new set-page type tabs.",
+    description: `## Explicit subset type flags
+
+Added three independent \`insert_sets\` columns — \`is_base\`, \`is_relic\`, \`is_booklet\` — extending the \`is_autograph\` philosophy so the new set-page type tabs (Base / Insert / Relic / Autograph / Booklets) draw from explicit data rather than name-guessing.
+
+Backfilled every subset across all sets: **158 base**, **199 relic**, **17 booklet**, with **110 autograph+relic overlaps** (the flags are independent — the UI's placement matrix handles promotion). \`is_autograph\` was left untouched.`,
+    tags: ["feature"],
+  },
+  {
     id: "237-mls-chrome-2026-added",
     title: "2026 Topps Chrome Major League Soccer Added",
     date: "2026-08-13T00:00:00Z",

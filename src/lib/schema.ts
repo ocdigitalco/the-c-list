@@ -22,6 +22,9 @@ export const insertSets = sqliteTable("insert_sets", {
     .references(() => sets.id),
   name: text("name").notNull(),
   isAutograph: integer("is_autograph", { mode: "boolean" }).notNull().default(false),
+  isBase: integer("is_base", { mode: "boolean" }).notNull().default(false),
+  isRelic: integer("is_relic", { mode: "boolean" }).notNull().default(false),
+  isBooklet: integer("is_booklet", { mode: "boolean" }).notNull().default(false),
 });
 
 export const parallels = sqliteTable("parallels", {
