@@ -13,6 +13,21 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "236-tier-one-baseball-2026-parallels-odds",
+    title: "2026 Topps Tier One Baseball: Parallel Ladders + Pack Odds",
+    date: "2026-08-13T00:00:00Z",
+    summary:
+      "2026 Topps Tier One Baseball: seeded the autograph and relic parallel ladders (93 parallels, print runs pending publication) and attached the full Hobby pack-odds sheet (205 keys).",
+    description: `## 2026 Topps Tier One Baseball — Parallels + Odds
+
+The June seed omitted the autograph and relic parallel ladders. Reconciled against the official Topps odds sheet:
+
+- **Seeded 93 parallel rows** across 27 autograph and relic subsets — the Blue / Green / Red / Holo Silver / Holo Platinum Blue color ladders plus the Patch / Button / Laundry Tag / Dual / Triple / Die-Cut program tiers. Print runs are NULL pending publication.
+- **Attached 205 Hobby pack-odds keys** across the base tiers and every autograph and relic program. Single-format (Hobby) product.`,
+    tags: ["checklist", "odds"],
+    setId: 856,
+  },
+  {
     id: "235-chrome-updates-basketball-2526-print-runs",
     title: "2025-26 Topps Chrome Updates Basketball: Parallel Print Runs",
     date: "2026-08-13T00:00:00Z",
