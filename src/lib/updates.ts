@@ -13,6 +13,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "239-set-page-type-tabs",
+    title: "Set Pages Restructured: Card-Type Tabs & Always-On Checklists",
+    date: "2026-08-14T00:00:00Z",
+    summary:
+      "Set pages restructured: card-type tabs (Base/Insert/Relic/Autograph/Booklets) with full checklists visible before odds publish, type chips, sticky tab navigation, and a cleaner odds table.",
+    description: `## Set page redesign
+
+Set pages now organize cards into **type tabs** — Base Cards, Insert Cards, Relic Cards, Autograph Cards, and Booklets — with membership driven by the explicit subset flags. Empty tabs are hidden per set.
+
+- **Always-on checklists:** every tab lists its subsets' full card checklists (code, player, team, RC badge) regardless of whether pack odds have published. The parallels table adapts — checklist only, checklist + Numbered, or checklist + Numbered + Pack Odds.
+- **Type chips** on subset headers (RELIC / BOOKLET / AUTO) surface cross-type membership.
+- **Sticky tab navigation** on scroll, with a horizontally scrollable bar on mobile.
+- Box configuration now lives entirely in the Overview tab; the old odds-only tabs and the "Per Box" column are gone, and Numbered / Pack Odds share one unified text color.`,
+    tags: ["feature"],
+  },
+  {
     id: "238-subset-type-flags",
     title: "Subset Type Flags (Base / Relic / Booklet) Across All Sets",
     date: "2026-08-14T00:00:00Z",

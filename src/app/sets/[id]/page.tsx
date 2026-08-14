@@ -9,7 +9,7 @@ import {
 import { eq, inArray, sql, and } from "drizzle-orm";
 import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
-import { SetDetailClient, type RelatedLink } from "@/components/sets/SetDetailClient";
+import { SetDetailClient, type RelatedLink, type SubsetChecklist } from "@/components/sets/SetDetailClient";
 import type { LeaderboardRow } from "@/components/sets/types";
 import type { BreakSheetPlayer } from "@/components/BreakSheetModal";
 import { articles } from "@/lib/articles";
@@ -285,6 +285,50 @@ export default async function V2SetPage({
         )
       : [];
   const allParallels = allParallelsRaw.map((p) => ({ name: p.name, printRun: p.printRun ?? null }));
+
+  // Per-subset checklists for the card-type tabs (Base/Insert/Relic/Autograph/Booklets).
+  // One row per appearance (primary subject); flags drive tab membership client-side.
+  let subsetChecklists: SubsetChecklist[] = [];
+  if (insertSetIds.length > 0) {
+    const ph = insertSetIds.map(() => "?").join(",");
+    const subRows = await rawQuery.all<{
+      id: number; name: string; is_autograph: number; is_base: number; is_relic: number; is_booklet: number;
+    }>(
+      `SELECT id, name, is_autograph, is_base, is_relic, is_booklet FROM insert_sets WHERE set_id = ? ORDER BY id`,
+      setId
+    );
+    const appRows = await rawQuery.all<{
+      insert_set_id: number; code: string; player: string; team: string | null; is_rookie: number;
+    }>(
+      `SELECT pa.insert_set_id, pa.card_number AS code, p.name AS player, pa.team, pa.is_rookie
+       FROM player_appearances pa JOIN players p ON p.id = pa.player_id
+       WHERE pa.insert_set_id IN (${ph}) ORDER BY pa.insert_set_id, pa.id`,
+      ...insertSetIds
+    );
+    const parRows = await rawQuery.all<{ insert_set_id: number; name: string; print_run: number | null }>(
+      `SELECT insert_set_id, name, print_run FROM parallels WHERE insert_set_id IN (${ph}) ORDER BY insert_set_id, id`,
+      ...insertSetIds
+    );
+    const appsBy = new Map<number, { code: string; player: string; team: string | null; isRookie: boolean }[]>();
+    for (const a of appRows) {
+      if (!appsBy.has(a.insert_set_id)) appsBy.set(a.insert_set_id, []);
+      appsBy.get(a.insert_set_id)!.push({ code: a.code, player: a.player, team: a.team, isRookie: !!a.is_rookie });
+    }
+    const parsBy = new Map<number, { name: string; printRun: number | null }[]>();
+    for (const p of parRows) {
+      if (!parsBy.has(p.insert_set_id)) parsBy.set(p.insert_set_id, []);
+      parsBy.get(p.insert_set_id)!.push({ name: p.name, printRun: p.print_run ?? null });
+    }
+    subsetChecklists = subRows.map((s) => ({
+      name: s.name,
+      isAutograph: !!s.is_autograph,
+      isBase: !!s.is_base,
+      isRelic: !!s.is_relic,
+      isBooklet: !!s.is_booklet,
+      cards: appsBy.get(s.id) ?? [],
+      parallels: parsBy.get(s.id) ?? [],
+    }));
+  }
 
   // Numbered parallels
   const numberedParallelsResult =
@@ -584,6 +628,7 @@ export default async function V2SetPage({
       hasNumberedParallels={numberedParallelsResult.total > 0}
       hasBoxConfig={!!setRow.boxConfig}
       hasPackOdds={!!setRow.packOdds}
+      subsets={subsetChecklists}
       relatedLinks={relatedLinks}
       boxConfig={setRow.boxConfig ?? null}
       packOdds={setRow.packOdds ?? null}

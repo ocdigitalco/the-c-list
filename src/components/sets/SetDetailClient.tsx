@@ -14,13 +14,17 @@ import { type BreakSheetPlayer } from "@/components/BreakSheetModal";
 import { BreakSheetLink } from "@/components/BreakSheetLink";
 import type { CardGalleryImage } from "@/lib/cardGallery";
 import { getTeamLogo } from "@/lib/utils/teamLogo";
+import { findOddsKey } from "@/lib/oddsUtils";
 
 // ─── Types & Constants ─────────────────────────────────────────────────────────
 
-type Tab = "Overview" | "Box Config" | "Base Odds" | "Insert Odds" | "Autograph Odds";
+type Tab = string;
 type SortKey = "totalCards" | "autographs" | "inserts" | "numberedParallels";
 
-const TABS: Tab[] = ["Overview", "Box Config", "Base Odds", "Insert Odds", "Autograph Odds"];
+// Card-type tabs, in display order. Membership is driven by the explicit
+// insert_sets flags (is_base / is_autograph / is_relic / is_booklet).
+const CARD_TAB_ORDER = ["Base Cards", "Insert Cards", "Relic Cards", "Autograph Cards", "Booklets"] as const;
+type CardTab = typeof CARD_TAB_ORDER[number];
 const SORT_CHIPS: { key: SortKey; label: string }[] = [
   { key: "totalCards", label: "Total Cards" },
   { key: "autographs", label: "Autographs" },
@@ -31,25 +35,9 @@ const SORT_CHIPS: { key: SortKey; label: string }[] = [
 const FONT_DISPLAY = "var(--cl-font-display), 'Inter Tight', sans-serif";
 const FONT_MONO = "var(--cl-font-mono), 'JetBrains Mono', ui-monospace, monospace";
 
-interface OddsRow {
-  name: string;
-  denom: number;
-  rare: boolean;
-  printRun?: number | null;
-}
-
 interface ParallelInfo {
   name: string;
   printRun: number | null;
-}
-
-interface OddsFormat {
-  key: string;
-  label: string;
-  packsPerBox: number;
-  baseParallels: OddsRow[];
-  inserts: OddsRow[];
-  autographs: OddsRow[];
 }
 
 interface BoxRow {
@@ -100,6 +88,8 @@ export interface SetDetailClientProps {
   toppsUrl?: string | null;
   /** Optional related article links rendered under the Topps backlink. */
   relatedLinks?: RelatedLink[];
+  /** Per-subset checklists for the card-type tabs. */
+  subsets?: SubsetChecklist[];
 }
 
 export interface RelatedLink {
@@ -107,6 +97,16 @@ export interface RelatedLink {
   source: string;
   title: string;
   description: string;
+}
+
+export interface SubsetChecklist {
+  name: string;
+  isAutograph: boolean;
+  isBase: boolean;
+  isRelic: boolean;
+  isBooklet: boolean;
+  cards: { code: string; player: string; team: string | null; isRookie: boolean }[];
+  parallels: { name: string; printRun: number | null }[];
 }
 
 // ─── Helpers ────────────────────────────────────────────────────────────────────
@@ -141,26 +141,6 @@ function getAutosPerBox(fmt: BoxConfigSingle): number | null {
 // when it equals, or is prefixed by, one of those names (e.g. "Cactus Ink" and
 // "Cactus Ink Orange Refractor"). This catches autograph subsets whose names
 // lack the word "auto"/"signature" (Cactus Ink, Milky Way Marks, Equinox, …).
-function categorize(key: string, autoNames: Set<string>): "base" | "insert" | "auto" {
-  const l = key.toLowerCase();
-  for (const name of autoNames) {
-    if (l === name || l.startsWith(name + " ")) return "auto";
-  }
-  if (l.includes("auto") || l.includes("autograph") || l.includes("signature")) return "auto";
-  if (l.startsWith("base") || l.includes("class base") || l.includes("class chrome base")) return "base";
-  return "insert";
-}
-
-function isRare(name: string, denom: number): boolean {
-  return name.toLowerCase().includes("superfractor") || denom >= 5000;
-}
-
-function perBoxStr(denom: number, ppb: number): string {
-  const v = ppb / denom;
-  if (v >= 1) return `~${v.toFixed(1)}×`;
-  return `~${v.toFixed(2)}×`;
-}
-
 function formatDate(iso: string): string {
   const d = new Date(iso + "T00:00:00Z");
   return d.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
@@ -222,93 +202,6 @@ function buildBoxRows(boxConfig: string): BoxRow[] {
     autosPerBox: getAutosPerBox(fmt),
     notes: fmt.notes ?? fmt.note ?? undefined,
   }];
-}
-
-function matchPrintRun(oddsKey: string, parallelsList: ParallelInfo[]): number | null | undefined {
-  const key = oddsKey.toLowerCase().trim();
-
-  // Step 1 — Exact match (entire key equals parallel name)
-  const exact = parallelsList.find(p => p.name.toLowerCase().trim() === key);
-  if (exact) return exact.printRun;
-
-  // Step 2 — Suffix match: odds key ends with the parallel name
-  // e.g. "Base Gold Refractor" ends with "Gold Refractor" → /50
-  // e.g. "Rookie Variation Autographs Superfractor" ends with "Superfractor" → /1
-  // Pick the LONGEST parallel name that matches as a suffix (most specific)
-  const suffixMatches = parallelsList.filter(p => {
-    const pName = p.name.toLowerCase().trim();
-    return key.endsWith(pName) || key.endsWith(" " + pName);
-  });
-
-  if (suffixMatches.length > 0) {
-    suffixMatches.sort((a, b) => b.name.length - a.name.length);
-    return suffixMatches[0].printRun;
-  }
-
-  // Step 3 — No match found (unnumbered base insert)
-  return undefined;
-}
-
-function buildOddsFormats(packOdds: string, boxConfig: string | null, parallelsList: ParallelInfo[], autographSubsetNames: string[]): OddsFormat[] {
-  const autoNames = new Set(autographSubsetNames.map((n) => n.toLowerCase()));
-  const rawOdds = JSON.parse(packOdds);
-  const firstVal = Object.values(rawOdds)[0];
-  const isNested = firstVal !== null && typeof firstVal === "object";
-
-  // Build packs-per-box lookup from box config
-  const ppbMap: Record<string, number> = {};
-  if (boxConfig) {
-    const rawBox = JSON.parse(boxConfig);
-    if (isMultiConfig(rawBox)) {
-      for (const [key, cfg] of Object.entries(rawBox as BoxConfigMulti)) {
-        ppbMap[fmtBoxLabel(key).toLowerCase()] = cfg.packs_per_box ?? 12;
-      }
-    } else {
-      ppbMap["hobby"] = (rawBox as BoxConfigSingle).packs_per_box ?? 12;
-    }
-  }
-
-  function ppbFor(label: string): number {
-    return ppbMap[label.toLowerCase()] ?? 12;
-  }
-
-  function buildRows(data: Record<string, unknown>): { base: OddsRow[]; ins: OddsRow[]; auto: OddsRow[] } {
-    const normalized = normalizeOddsObj(data);
-    const base: OddsRow[] = [];
-    const ins: OddsRow[] = [];
-    const auto: OddsRow[] = [];
-    for (const [key, denom] of Object.entries(normalized)) {
-      const printRun = matchPrintRun(key, parallelsList);
-      const row = { name: key, denom, rare: isRare(key, denom), printRun };
-      const cat = categorize(key, autoNames);
-      if (cat === "base") base.push(row);
-      else if (cat === "auto") auto.push(row);
-      else ins.push(row);
-    }
-    base.sort((a, b) => a.denom - b.denom);
-    ins.sort((a, b) => a.denom - b.denom);
-    auto.sort((a, b) => a.denom - b.denom);
-    return { base, ins, auto };
-  }
-
-  const formats: OddsFormat[] = [];
-  if (isNested) {
-    const seenLabels = new Set<string>();
-    for (const [key, data] of Object.entries(rawOdds as Record<string, Record<string, unknown>>)) {
-      const label = fmtBoxLabel(key);
-      if (seenLabels.has(label)) continue;
-      seenLabels.add(label);
-      const { base, ins, auto } = buildRows(data);
-      formats.push({ key, label, packsPerBox: ppbFor(label), baseParallels: base, inserts: ins, autographs: auto });
-    }
-  } else {
-    const { base, ins, auto } = buildRows(rawOdds as Record<string, unknown>);
-    const label = Object.keys(ppbMap).length === 1
-      ? Object.keys(ppbMap)[0].replace(/\b\w/g, c => c.toUpperCase())
-      : "Hobby";
-    formats.push({ key: "default", label, packsPerBox: ppbFor(label), baseParallels: base, inserts: ins, autographs: auto });
-  }
-  return formats;
 }
 
 // ─── Avatar ─────────────────────────────────────────────────────────────────────
@@ -1140,315 +1033,12 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
   );
 }
 
-// ─── Tab: Box Config ────────────────────────────────────────────────────────
-
-function BoxConfigContent({ boxConfig }: { boxConfig: string | null }) {
-  if (!boxConfig) return <EmptyTab label="Box configuration coming soon" />;
-  const rows = buildBoxRows(boxConfig);
-
-  return (
-    <>
-      {/* Desktop table */}
-      <div className="hidden min-[1180px]:block">
-        <table className="w-full" style={{ fontSize: 16 }}>
-          <thead>
-            <tr>
-              {["BOX TYPE", "CARDS/PACK", "PACKS/BOX", "BOXES/CASE", "PACKS/CASE", "AUTOS/BOX"].map((h, i) => (
-                <th key={h} style={{
-                  textAlign: i === 0 ? "left" : "right", padding: "10px 10px",
-                  fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6,
-                  color: "#8A8677", borderBottom: "1px solid #EDEAE0", textTransform: "uppercase",
-                }}>{h}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((row) => (
-              <React.Fragment key={row.label}>
-                <tr>
-                  <td style={{ padding: "12px 10px", fontWeight: 600, fontFamily: FONT_DISPLAY, color: "#0F0F0E",
-                    borderBottom: row.notes ? "none" : "1px solid #F4F1E8" }}>{row.label}</td>
-                  {[row.cardsPerPack, row.packsPerBox, row.boxesPerCase].map((v, j) => (
-                    <td key={j} style={{ padding: "12px 10px", textAlign: "right",
-                      fontFamily: FONT_MONO, color: v != null ? "#0F0F0E" : "#B7B2A3",
-                      borderBottom: row.notes ? "none" : "1px solid #F4F1E8" }}>
-                      {v ?? "—"}
-                    </td>
-                  ))}
-                  <td style={{ padding: "12px 10px", textAlign: "right", fontFamily: FONT_MONO,
-                    color: row.packsPerCase !== "—" ? "#0F0F0E" : "#B7B2A3",
-                    borderBottom: row.notes ? "none" : "1px solid #F4F1E8" }}>
-                    {row.packsPerCase}
-                  </td>
-                  <td style={{ padding: "12px 10px", textAlign: "right", fontFamily: FONT_MONO,
-                    color: row.autosPerBox != null ? "#0F0F0E" : "#B7B2A3",
-                    borderBottom: row.notes ? "none" : "1px solid #F4F1E8" }}>
-                    {row.autosPerBox ?? "—"}
-                  </td>
-                </tr>
-                {row.notes && (
-                  <tr>
-                    <td colSpan={6} style={{
-                      padding: "4px 10px 12px", fontStyle: "italic", fontSize: 16,
-                      color: "#6B6757", borderBottom: "1px solid #F4F1E8",
-                    }}>{row.notes}</td>
-                  </tr>
-                )}
-              </React.Fragment>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      {/* Mobile cards */}
-      <div className="min-[1180px]:hidden space-y-2.5">
-        {rows.map((row) => (
-          <div key={row.label} style={{
-            background: "#FFFFFF", border: "1px solid #EDEAE0", borderRadius: 10, padding: "12px 14px",
-          }}>
-            <div style={{ fontFamily: FONT_DISPLAY, fontSize: 16, fontWeight: 600, color: "#0F0F0E", marginBottom: 10 }}>
-              {row.label}
-            </div>
-            <div className="grid grid-cols-5 gap-2">
-              {[
-                { l: "CARDS/PK", v: row.cardsPerPack },
-                { l: "PKS/BOX", v: row.packsPerBox },
-                { l: "BXS/CASE", v: row.boxesPerCase },
-                { l: "PKS/CASE", v: row.packsPerCase === "—" ? null : row.packsPerCase },
-                { l: "AUTOS/BX", v: row.autosPerBox },
-              ].map((s) => (
-                <div key={s.l}>
-                  <div style={{ fontFamily: FONT_MONO, fontSize: 7, fontWeight: 600, letterSpacing: 1, color: "#8A8677", textTransform: "uppercase" }}>
-                    {s.l}
-                  </div>
-                  <div style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: s.v != null ? "#0F0F0E" : "#B7B2A3", marginTop: 2 }}>
-                    {s.v ?? "—"}
-                  </div>
-                </div>
-              ))}
-            </div>
-            {row.notes && (
-              <div style={{ borderTop: "1px solid #F4F1E8", marginTop: 10, paddingTop: 8, fontSize: 16, fontStyle: "italic", color: "#6B6757" }}>
-                {row.notes}
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
-    </>
-  );
-}
-
-// ─── Tab: Pack Odds ─────────────────────────────────────────────────────────────
-
-function PackOddsContent({ formats }: { formats: OddsFormat[] }) {
-  const [activeIdx, setActiveIdx] = useState(0);
-  if (formats.length === 0) return <EmptyTab label="Pack odds coming soon" />;
-  const active = formats[activeIdx] ?? formats[0];
-  const rows = active.baseParallels;
-  const ppb = active.packsPerBox;
-
-  return (
-    <div className="space-y-4">
-      {/* Box type chips */}
-      {formats.length > 1 && (
-        <div className="flex flex-wrap gap-1.5 min-[1180px]:gap-2">
-          {formats.map((f, i) => (
-            <button key={f.key} onClick={() => setActiveIdx(i)}
-              className="min-[1180px]:rounded-md"
-              style={{
-                borderRadius: 999, padding: "7px 12px", fontSize: 16, fontWeight: 600,
-                background: i === activeIdx ? "#0F0F0E" : "#FFFFFF",
-                color: i === activeIdx ? "#FAFAF7" : "#3A372F",
-                border: i === activeIdx ? "1px solid #0F0F0E" : "1px solid #EDEAE0",
-              }}>
-              {f.label}
-            </button>
-          ))}
-        </div>
-      )}
-      {rows.length === 0 ? (
-        <EmptyTab label={`No base parallel odds for ${active.label}`} />
-      ) : (
-        <OddsTable rows={rows} ppb={ppb} headers={["BASE PARALLELS", "PACK ODDS", `PER BOX (${ppb} PACKS)`]} showNumbered />
-      )}
-    </div>
-  );
-}
-
-// ─── Tab: Inserts ───────────────────────────────────────────────────────────────
-
-function InsertsContent({ formats }: { formats: OddsFormat[] }) {
-  if (formats.length === 0) return <EmptyTab label="Pack odds coming soon" />;
-  const active = formats[0]; // hobby / first format
-  const rows = active.inserts;
-  const ppb = active.packsPerBox;
-  if (rows.length === 0) return <EmptyTab label="No insert odds available" />;
-  return <OddsTable rows={rows} ppb={ppb} headers={["INSERT", "PACK ODDS", `PER BOX (${ppb} PACKS)`]} showNumbered />;
-}
-
-// ─── Tab: Autographs ────────────────────────────────────────────────────────────
-
-function AutosContent({ formats }: { formats: OddsFormat[] }) {
-  if (formats.length === 0) return <EmptyTab label="Pack odds coming soon" />;
-  const active = formats[0];
-  const rows = active.autographs;
-  const ppb = active.packsPerBox;
-  if (rows.length === 0) return <EmptyTab label="No autograph odds available" />;
-
-  return (
-    <>
-      {/* Desktop */}
-      <div className="hidden min-[1180px]:block">
-        <table className="w-full" style={{ fontSize: 16 }}>
-          <thead>
-            <tr>
-              {["AUTOGRAPH", "NUMBERED", "PACK ODDS", `PER BOX (${ppb} PACKS)`].map((h, i) => (
-                <th key={h} style={{
-                  textAlign: i === 0 ? "left" : "right", padding: "10px 10px",
-                  fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6,
-                  color: "#6B6757", borderBottom: "1px solid #EDEAE0", textTransform: "uppercase",
-                  width: i === 0 ? undefined : i === 1 ? 70 : i === 2 ? 100 : 160,
-                }}>{h}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((row) => (
-              <tr key={row.name} style={{ borderBottom: "1px solid #F4F1E8" }}>
-                <td style={{ padding: "12px 10px", color: row.rare ? "#9A2B14" : "#0F0F0E" }}>{row.name}</td>
-                <td style={{ padding: "12px 10px", textAlign: "right", fontFamily: FONT_MONO, color: "#B7B2A3" }}>
-                  {printRunDisplay(row.printRun)}
-                </td>
-                <td style={{ padding: "12px 10px", textAlign: "right", fontFamily: FONT_MONO, color: "#0F0F0E" }}>
-                  {denomToDisplay(row.denom)}
-                </td>
-                <td style={{ padding: "12px 10px", textAlign: "right", fontFamily: FONT_MONO, color: "#6B6757" }}>
-                  {perBoxStr(row.denom, ppb)}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      {/* Mobile */}
-      <div className="min-[1180px]:hidden space-y-0">
-        {rows.map((row) => (
-          <div key={row.name} className="flex flex-col gap-0.5" style={{
-            padding: "10px 0", borderBottom: "1px solid #F4F1E8",
-          }}>
-            <div className="flex items-center justify-between">
-              <span style={{ fontSize: 16, color: row.rare ? "#9A2B14" : "#0F0F0E", flex: 1 }}>{row.name}</span>
-              <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 500, color: "#0F0F0E" }}>
-                {denomToDisplay(row.denom)}
-              </span>
-            </div>
-            <div className="flex items-center justify-between">
-              <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#B7B2A3" }}>
-                {printRunDisplay(row.printRun)}
-              </span>
-              <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#6B6757", width: 90, textAlign: "right" }}>
-                {perBoxStr(row.denom, ppb)}
-              </span>
-            </div>
-          </div>
-        ))}
-      </div>
-    </>
-  );
-}
-
 // ─── Shared Odds Table ──────────────────────────────────────────────────────────
 
 function printRunDisplay(pr: number | null | undefined): string {
   if (pr === undefined || pr === null) return "—";
   if (pr === 1) return "1/1";
   return `/${pr}`;
-}
-
-function OddsTable({ rows, ppb, headers, showNumbered = false }: {
-  rows: OddsRow[]; ppb: number; headers: [string, string, string]; showNumbered?: boolean;
-}) {
-  return (
-    <>
-      {/* Desktop */}
-      <div className="hidden min-[1180px]:block">
-        <table className="w-full" style={{ fontSize: 16 }}>
-          <thead>
-            <tr>
-              <th style={{
-                textAlign: "left", padding: "10px 10px",
-                fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6,
-                color: "#6B6757", borderBottom: "1px solid #EDEAE0", textTransform: "uppercase",
-              }}>{headers[0]}</th>
-              {showNumbered && (
-                <th style={{
-                  textAlign: "right", padding: "10px 10px",
-                  fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6,
-                  color: "#6B6757", borderBottom: "1px solid #EDEAE0", textTransform: "uppercase",
-                  width: 70,
-                }}>NUMBERED</th>
-              )}
-              <th style={{
-                textAlign: "right", padding: "10px 10px",
-                fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6,
-                color: "#6B6757", borderBottom: "1px solid #EDEAE0", textTransform: "uppercase",
-                width: 100,
-              }}>{headers[1]}</th>
-              <th style={{
-                textAlign: "right", padding: "10px 10px",
-                fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6,
-                color: "#6B6757", borderBottom: "1px solid #EDEAE0", textTransform: "uppercase",
-                width: 160,
-              }}>{headers[2]}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((row) => (
-              <tr key={row.name} style={{ borderBottom: "1px solid #F4F1E8" }}>
-                <td style={{ padding: "12px 10px", color: row.rare ? "#9A2B14" : "#0F0F0E" }}>{row.name}</td>
-                {showNumbered && (
-                  <td style={{ padding: "12px 10px", textAlign: "right", fontFamily: FONT_MONO, color: "#B7B2A3" }}>
-                    {printRunDisplay(row.printRun)}
-                  </td>
-                )}
-                <td style={{ padding: "12px 10px", textAlign: "right", fontFamily: FONT_MONO, color: row.rare ? "#9A2B14" : "#0F0F0E" }}>
-                  {denomToDisplay(row.denom)}
-                </td>
-                <td style={{ padding: "12px 10px", textAlign: "right", fontFamily: FONT_MONO, color: "#6B6757" }}>
-                  {perBoxStr(row.denom, ppb)}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      {/* Mobile */}
-      <div className="min-[1180px]:hidden space-y-0">
-        {rows.map((row) => (
-          <div key={row.name} className="flex flex-col gap-0.5" style={{
-            padding: "10px 0", borderBottom: "1px solid #F4F1E8",
-          }}>
-            <div className="flex items-center">
-              <span style={{ flex: 1, fontSize: 16, color: row.rare ? "#9A2B14" : "#0F0F0E" }}>{row.name}</span>
-              <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 500, color: row.rare ? "#9A2B14" : "#0F0F0E" }}>
-                {denomToDisplay(row.denom)}
-              </span>
-            </div>
-            <div className="flex items-center justify-between">
-              {showNumbered && (
-                <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#B7B2A3" }}>
-                  {printRunDisplay(row.printRun)}
-                </span>
-              )}
-              <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#6B6757", width: 90, textAlign: "right", marginLeft: "auto" }}>
-                {perBoxStr(row.denom, ppb)}
-              </span>
-            </div>
-          </div>
-        ))}
-      </div>
-    </>
-  );
 }
 
 function EmptyTab({ label }: { label: string }) {
@@ -1460,6 +1050,139 @@ function EmptyTab({ label }: { label: string }) {
   );
 }
 
+// ─── Card-type tabs (Base / Insert / Relic / Autograph / Booklets) ──────────────
+
+/** Membership from explicit flags — Tyler's locked matrix. */
+function subsetInTab(s: SubsetChecklist, tab: CardTab): boolean {
+  switch (tab) {
+    case "Base Cards": return s.isBase;
+    case "Autograph Cards": return s.isAutograph;
+    case "Relic Cards": return s.isRelic && !s.isAutograph;
+    case "Booklets": return s.isBooklet;
+    case "Insert Cards": return !s.isBase && !s.isAutograph && !s.isRelic && !s.isBooklet;
+    default: return false;
+  }
+}
+
+/** Muted metadata pill on subset headers (accent variant for BOOKLET). */
+function TypeChip({ label, accent = false }: { label: string; accent?: boolean }) {
+  return (
+    <span style={{
+      flexShrink: 0,
+      fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1, textTransform: "uppercase",
+      padding: "2px 6px", borderRadius: 4,
+      color: accent ? "#9A2B14" : "#8A8677",
+      background: accent ? "rgba(154,43,20,0.07)" : "#F1EFE9",
+      border: accent ? "1px solid rgba(154,43,20,0.18)" : "1px solid #E6E3D9",
+    }}>{label}</span>
+  );
+}
+
+/** Chips shown for a subset within a given tab (never removes it from anywhere). */
+function chipsFor(s: SubsetChecklist, tab: CardTab): { label: string; accent?: boolean }[] {
+  const out: { label: string; accent?: boolean }[] = [];
+  if (tab === "Autograph Cards") {
+    if (s.isRelic) out.push({ label: "RELIC" });
+    if (s.isBooklet) out.push({ label: "BOOKLET", accent: true });
+  } else if (tab === "Booklets") {
+    if (s.isAutograph) out.push({ label: "AUTO" });
+    if (s.isRelic) out.push({ label: "RELIC" });
+  } else if (tab === "Relic Cards") {
+    if (s.isBooklet) out.push({ label: "BOOKLET" });
+  }
+  return out;
+}
+
+/** One subset: header + type chips + always-on checklist + adaptive parallels table. */
+function SubsetSection({ subset, tab, showNumbered, oddsFor }: {
+  subset: SubsetChecklist; tab: CardTab;
+  showNumbered: boolean;
+  oddsFor: (parallelName: string) => number | null;
+}) {
+  const chips = chipsFor(subset, tab);
+  const pars = subset.parallels;
+  // Per-set states: show Numbered col when the set has numbered parallels;
+  // show Pack Odds col when any of this subset's parallels resolves an odds value.
+  const oddsRows = pars.map((p) => ({ ...p, denom: oddsFor(p.name) }));
+  const showOdds = oddsRows.some((r) => r.denom != null);
+  const showNumberedCol = showNumbered && pars.some((p) => p.printRun != null);
+
+  return (
+    <section style={{ marginBottom: 28 }}>
+      {/* Header */}
+      <div className="flex flex-wrap items-center gap-2" style={{ marginBottom: 10 }}>
+        <h3 style={{ fontFamily: FONT_DISPLAY, fontSize: 18, fontWeight: 600, color: "#0F0F0E", margin: 0 }}>
+          {subset.name}
+        </h3>
+        {chips.map((c) => <TypeChip key={c.label} label={c.label} accent={c.accent} />)}
+        <span style={{ fontFamily: FONT_MONO, fontSize: 12, color: "#8A8677" }}>
+          {subset.cards.length} card{subset.cards.length !== 1 ? "s" : ""}
+          {pars.length > 0 ? ` · ${pars.length} parallel${pars.length !== 1 ? "s" : ""}` : ""}
+        </span>
+      </div>
+
+      {/* Checklist — always on */}
+      <div style={{ border: "1px solid #EDEAE0", borderRadius: 8, overflow: "hidden", background: "#FFFFFF" }}>
+        {subset.cards.map((c, i) => (
+          <div key={`${c.code}-${i}`} className="flex items-center gap-3"
+            style={{ padding: "8px 12px", borderTop: i > 0 ? "1px solid #F4F1E8" : "none" }}>
+            <span style={{ fontFamily: FONT_MONO, fontSize: 13, color: "#8A8677", minWidth: 54 }}>{c.code}</span>
+            <span style={{ fontSize: 15, fontWeight: 500, color: "#0F0F0E", flex: 1, minWidth: 0 }}>{c.player}</span>
+            {c.isRookie && (
+              <span style={{
+                flexShrink: 0, fontFamily: FONT_MONO, fontSize: 9, fontWeight: 700, letterSpacing: 0.5,
+                color: "#9A2B14", background: "rgba(154,43,20,0.08)", border: "1px solid rgba(154,43,20,0.2)",
+                padding: "1px 5px", borderRadius: 3,
+              }}>RC</span>
+            )}
+            {c.team && <span style={{ fontSize: 13, color: "#6B6757", flexShrink: 0, textAlign: "right" }}>{c.team}</span>}
+          </div>
+        ))}
+      </div>
+
+      {/* Parallels table — only when the subset has parallels (states 2 & 3) */}
+      {pars.length > 0 && (
+        <div style={{ marginTop: 12, border: "1px solid #EDEAE0", borderRadius: 8, overflow: "hidden", background: "#FFFFFF" }}>
+          <div className="flex items-center" style={{ padding: "8px 12px", borderBottom: "1px solid #EDEAE0" }}>
+            <span style={{ flex: 1, fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.4, color: "#8A8677", textTransform: "uppercase" }}>Parallel</span>
+            {showNumberedCol && <span style={{ width: 72, textAlign: "right", fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.4, color: "#8A8677", textTransform: "uppercase" }}>Numbered</span>}
+            {showOdds && <span style={{ width: 100, textAlign: "right", fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.4, color: "#8A8677", textTransform: "uppercase" }}>Pack Odds</span>}
+          </div>
+          {oddsRows.map((r, i) => (
+            <div key={`${r.name}-${i}`} className="flex items-center" style={{ padding: "8px 12px", borderTop: i > 0 ? "1px solid #F4F1E8" : "none" }}>
+              <span style={{ flex: 1, fontSize: 14, color: "#0F0F0E", minWidth: 0 }}>{r.name}</span>
+              {showNumberedCol && <span style={{ width: 72, textAlign: "right", fontFamily: FONT_MONO, fontSize: 14, color: "#0F0F0E" }}>{printRunDisplay(r.printRun)}</span>}
+              {showOdds && <span style={{ width: 100, textAlign: "right", fontFamily: FONT_MONO, fontSize: 14, color: "#0F0F0E" }}>{r.denom != null ? denomToDisplay(r.denom) : "—"}</span>}
+            </div>
+          ))}
+        </div>
+      )}
+    </section>
+  );
+}
+
+function CardTypeTabContent({ tab, subsets, hasNumberedParallels, oddsResolver }: {
+  tab: CardTab; subsets: SubsetChecklist[];
+  hasNumberedParallels: boolean;
+  oddsResolver: (subsetName: string, parallelName: string) => number | null;
+}) {
+  const members = subsets.filter((s) => subsetInTab(s, tab));
+  if (members.length === 0) return <EmptyTab label="No cards in this category" />;
+  return (
+    <div>
+      {members.map((s) => (
+        <SubsetSection
+          key={s.name}
+          subset={s}
+          tab={tab}
+          showNumbered={hasNumberedParallels}
+          oddsFor={(parallelName) => oddsResolver(s.name, parallelName)}
+        />
+      ))}
+    </div>
+  );
+}
+
 // ─── Main Component ─────────────────────────────────────────────────────────────
 
 export function SetDetailClient({
@@ -1468,7 +1191,7 @@ export function SetDetailClient({
   subjectLabel: subjectLabelProp, teamLabel: teamLabelProp,
   hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds,
   boxConfig, packOdds, entries, hasTeamData, breakSheetPlayers, parallelsList, autographSubsetNames, featuredArticle,
-  aeoSummary, faqs, cardImages, toppsUrl, relatedLinks,
+  aeoSummary, faqs, cardImages, toppsUrl, relatedLinks, subsets = [],
 }: SetDetailClientProps) {
   const subjectLabel = subjectLabelProp ?? "Athletes";
   const teamLabel = teamLabelProp ?? "Team";
@@ -1484,10 +1207,40 @@ export function SetDetailClient({
   }
 
   const meta = useMemo(() => extractMeta(setName, sport), [setName, sport]);
-  const oddsFormats = useMemo(
-    () => packOdds ? buildOddsFormats(packOdds, boxConfig, parallelsList, autographSubsetNames) : [],
-    [packOdds, boxConfig, parallelsList, autographSubsetNames]
+
+  // Primary-format pack-odds lookup (nested → first format; flat → itself),
+  // keyed by odds key. Used to resolve a subset's parallel pull odds for the
+  // Pack Odds column. Single source; matching tolerates key composition.
+  const primaryOdds = useMemo<Record<string, number> | null>(() => {
+    if (!packOdds) return null;
+    try {
+      const raw = JSON.parse(packOdds);
+      const firstVal = Object.values(raw)[0];
+      const isNested = firstVal !== null && typeof firstVal === "object";
+      const data = isNested ? (Object.values(raw)[0] as Record<string, unknown>) : (raw as Record<string, unknown>);
+      return normalizeOddsObj(data);
+    } catch { return null; }
+  }, [packOdds]);
+
+  const oddsResolver = useMemo(() => {
+    const keys = primaryOdds ? Object.keys(primaryOdds) : [];
+    return (subsetName: string, parallelName: string): number | null => {
+      if (!primaryOdds) return null;
+      const composed = `${subsetName} ${parallelName}`;
+      if (primaryOdds[composed] != null) return primaryOdds[composed];
+      const found = findOddsKey(composed, keys);
+      return found && primaryOdds[found] != null ? primaryOdds[found] : null;
+    };
+  }, [primaryOdds]);
+
+  // Dynamic tab list: Overview + any card-type tab that has member subsets.
+  const cardTabs = useMemo(
+    () => CARD_TAB_ORDER.filter((t) => subsets.some((s) => subsetInTab(s, t))),
+    [subsets]
   );
+  const tabList = useMemo<Tab[]>(() => ["Overview", ...cardTabs], [cardTabs]);
+  // If the active tab is no longer valid (e.g. hydration), fall back to Overview.
+  const activeTab: Tab = tabList.includes(tab) ? tab : "Overview";
 
   const statItems = [
     { label: "Cards", value: cards },
@@ -1572,20 +1325,21 @@ export function SetDetailClient({
           {/* Stat strip */}
           <StatStrip items={statItems} />
 
-          {/* Primary tabs */}
-          <div role="tablist" style={{
+          {/* Primary tabs — sticky below the site header on scroll */}
+          <div role="tablist" className="overflow-x-auto no-scrollbar" style={{
+            position: "sticky", top: 0, zIndex: 20,
             background: "#FAFAF7", padding: "0 36px", borderBottom: "1px solid #EDEAE0",
-            display: "flex",
+            display: "flex", whiteSpace: "nowrap",
           }}>
-            {TABS.map((t) => (
-              <button key={t} role="tab" aria-selected={tab === t}
+            {tabList.map((t) => (
+              <button key={t} role="tab" aria-selected={activeTab === t}
                 onClick={() => handleSetTabChange(t)}
                 style={{
-                  padding: "14px 20px",
+                  padding: "14px 20px", flexShrink: 0,
                   fontFamily: FONT_DISPLAY,
-                  fontSize: 16, fontWeight: tab === t ? 600 : 500,
-                  color: tab === t ? "#0F0F0E" : "#8A8677",
-                  borderBottom: tab === t ? "2px solid #0F0F0E" : "2px solid transparent",
+                  fontSize: 16, fontWeight: activeTab === t ? 600 : 500,
+                  color: activeTab === t ? "#0F0F0E" : "#8A8677",
+                  borderBottom: activeTab === t ? "2px solid #0F0F0E" : "2px solid transparent",
                   marginBottom: -1, background: "transparent", cursor: "pointer",
                   transition: "all 150ms",
                 }}>
@@ -1596,18 +1350,17 @@ export function SetDetailClient({
 
           {/* Content area */}
           <div style={{ padding: "28px 36px 60px" }}>
-            {tab === "Overview" && (
+            {activeTab === "Overview" ? (
               <OverviewContent boxConfig={boxConfig} cards={cards} cardTypes={cardTypes}
                 parallelTypes={parallelTypes} autographs={autographs} autoParallels={autoParallels}
                 totalParallels={totalParallels} athleteCount={athleteCount} releaseDate={releaseDate}
                 hasChecklist={hasChecklist} hasNumberedParallels={hasNumberedParallels}
                 hasBoxConfig={hasBoxConfig} hasPackOdds={hasPackOdds} subjectLabel={subjectLabel}
                 featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} cardImages={cardImages} toppsUrl={toppsUrl} relatedLinks={relatedLinks} />
+            ) : (
+              <CardTypeTabContent tab={activeTab as CardTab} subsets={subsets}
+                hasNumberedParallels={hasNumberedParallels} oddsResolver={oddsResolver} />
             )}
-            {tab === "Box Config" && <BoxConfigContent boxConfig={boxConfig} />}
-            {tab === "Base Odds" && <PackOddsContent formats={oddsFormats} />}
-            {tab === "Insert Odds" && <InsertsContent formats={oddsFormats} />}
-            {tab === "Autograph Odds" && <AutosContent formats={oddsFormats} />}
           </div>
         </div>
       </div>
@@ -1683,15 +1436,15 @@ export function SetDetailClient({
             top: 53, background: "#FAFAF7", padding: "0 16px",
             borderBottom: "1px solid #EDEAE0", display: "flex", whiteSpace: "nowrap",
           }}>
-          {TABS.map((t) => (
-            <button key={t} role="tab" aria-selected={tab === t}
+          {tabList.map((t) => (
+            <button key={t} role="tab" aria-selected={activeTab === t}
               onClick={() => handleSetTabChange(t)}
               style={{
                 padding: "12px 14px", flexShrink: 0,
                 fontFamily: FONT_DISPLAY,
-                fontSize: 16, fontWeight: tab === t ? 600 : 500,
-                color: tab === t ? "#0F0F0E" : "#8A8677",
-                borderBottom: tab === t ? "2px solid #0F0F0E" : "2px solid transparent",
+                fontSize: 16, fontWeight: activeTab === t ? 600 : 500,
+                color: activeTab === t ? "#0F0F0E" : "#8A8677",
+                borderBottom: activeTab === t ? "2px solid #0F0F0E" : "2px solid transparent",
                 marginBottom: -1, background: "transparent", cursor: "pointer",
               }}>
               {t}
@@ -1701,18 +1454,17 @@ export function SetDetailClient({
 
         {/* Content */}
         <div style={{ padding: 16 }}>
-          {tab === "Overview" && (
+          {activeTab === "Overview" ? (
             <OverviewContent boxConfig={boxConfig} cards={cards} cardTypes={cardTypes}
               parallelTypes={parallelTypes} autographs={autographs} autoParallels={autoParallels}
               totalParallels={totalParallels} athleteCount={athleteCount} releaseDate={releaseDate}
               hasChecklist={hasChecklist} hasNumberedParallels={hasNumberedParallels}
               hasBoxConfig={hasBoxConfig} hasPackOdds={hasPackOdds} subjectLabel={subjectLabel}
               featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} cardImages={cardImages} toppsUrl={toppsUrl} relatedLinks={relatedLinks} />
+          ) : (
+            <CardTypeTabContent tab={activeTab as CardTab} subsets={subsets}
+              hasNumberedParallels={hasNumberedParallels} oddsResolver={oddsResolver} />
           )}
-          {tab === "Box Config" && <BoxConfigContent boxConfig={boxConfig} />}
-          {tab === "Base Odds" && <PackOddsContent formats={oddsFormats} />}
-          {tab === "Insert Odds" && <InsertsContent formats={oddsFormats} />}
-          {tab === "Autograph Odds" && <AutosContent formats={oddsFormats} />}
         </div>
 
         {/* Athletes drawer */}
