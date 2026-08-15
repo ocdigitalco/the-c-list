@@ -1,0 +1,943 @@
+{"subset": "Definitive Autograph Relics", "code": "DAR-AIV", "player": "Allen Iverson", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-BAM1", "player": "Bam Adebayo", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-BAM2", "player": "Bam Adebayo", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-BAM3", "player": "Bam Adebayo", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-BAM4", "player": "Bam Adebayo", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-BMI1", "player": "Brandon Miller", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-BMI2", "player": "Brandon Miller", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-BMI3", "player": "Brandon Miller", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-BMI4", "player": "Brandon Miller", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-CCU1", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-CCU2", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-CCU3", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-CCU4", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-CHO1", "player": "Chet Holmgren", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-CHO2", "player": "Chet Holmgren", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-CHO3", "player": "Chet Holmgren", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-CHO4", "player": "Chet Holmgren", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-CPA1", "player": "Chris Paul", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-CPA2", "player": "Chris Paul", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-CPA3", "player": "Chris Paul", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-CPA4", "player": "Chris Paul", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-DHO", "player": "Dwight Howard", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-DNO", "player": "Dirk Nowitzki", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-DWA", "player": "Dwyane Wade", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-EMO1", "player": "Evan Mobley", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-EMO2", "player": "Evan Mobley", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-EMO3", "player": "Evan Mobley", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-EMO4", "player": "Evan Mobley", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-JBR1", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-JBR2", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-JBR3", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-JBR4", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-JHA1", "player": "James Harden", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-JHA2", "player": "James Harden", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-JHA3", "player": "James Harden", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-JHA4", "player": "James Harden", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-JMU1", "player": "Jamal Murray", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-JMU2", "player": "Jamal Murray", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-JMU3", "player": "Jamal Murray", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-JMU4", "player": "Jamal Murray", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-JTA1", "player": "Jayson Tatum", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-JTA2", "player": "Jayson Tatum", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-JTA3", "player": "Jayson Tatum", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-JTA4", "player": "Jayson Tatum", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-JWI1", "player": "Jalen Williams", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-JWI2", "player": "Jalen Williams", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-JWI3", "player": "Jalen Williams", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-JWI4", "player": "Jalen Williams", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-KAT1", "player": "Karl-Anthony Towns", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-KAT2", "player": "Karl-Anthony Towns", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-KAT3", "player": "Karl-Anthony Towns", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-KAT4", "player": "Karl-Anthony Towns", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-KDU1", "player": "Kevin Durant", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-KDU2", "player": "Kevin Durant", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-KDU3", "player": "Kevin Durant", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-KDU4", "player": "Kevin Durant", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-LBI", "player": "Larry Bird", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-LBJ1", "player": "LeBron James", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-LBJ2", "player": "LeBron James", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-LBJ3", "player": "LeBron James", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-LBJ4", "player": "LeBron James", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-NJO1", "player": "Nikola Jokić", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-NJO2", "player": "Nikola Jokić", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-NJO3", "player": "Nikola Jokić", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-NJO4", "player": "Nikola Jokić", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-PBA1", "player": "Paolo Banchero", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-PBA2", "player": "Paolo Banchero", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-PBA3", "player": "Paolo Banchero", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-PBA4", "player": "Paolo Banchero", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-SCU1", "player": "Stephen Curry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-SCU2", "player": "Stephen Curry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-SCU3", "player": "Stephen Curry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-SCU4", "player": "Stephen Curry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-SGA1", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-SGA2", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-SGA3", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-SGA4", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-SON", "player": "Shaquille O'Neal", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-VWE1", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-VWE2", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-VWE3", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-VWE4", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-ZRI1", "player": "Zaccharie Risacher", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-ZRI2", "player": "Zaccharie Risacher", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-ZRI3", "player": "Zaccharie Risacher", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autograph Relics", "code": "DAR-ZRI4", "player": "Zaccharie Risacher", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-ABA1", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-ABA2", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-ANE1", "player": "Asa Newell", "team": "Atlanta Hawks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-ANE2", "player": "Asa Newell", "team": "Atlanta Hawks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-BSA1", "player": "Ben Saraf", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-BSA2", "player": "Ben Saraf", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-CCO1", "player": "Cedric Coward", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-CCO2", "player": "Cedric Coward", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-CFL1", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-CFL2", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-CMB1", "player": "Collin Murray-Boyles", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-CMB2", "player": "Collin Murray-Boyles", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-DHA1", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-DHA2", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-DQU1", "player": "Derik Queen", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-DQU2", "player": "Derik Queen", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-DWO1", "player": "Danny Wolf", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-DWO2", "player": "Danny Wolf", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-EDE1", "player": "Egor Dëmin", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-EDE2", "player": "Egor Dëmin", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-JBE1", "player": "Joan Beringer", "team": "Minnesota Timberwolves", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-JBE2", "player": "Joan Beringer", "team": "Minnesota Timberwolves", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-JRI1", "player": "Jase Richardson", "team": "Orlando Magic", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-JRI2", "player": "Jase Richardson", "team": "Orlando Magic", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-KJA1", "player": "Kasparas Jakučionis", "team": "Miami Heat", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-KJA2", "player": "Kasparas Jakučionis", "team": "Miami Heat", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-KKN1", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-KKN2", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-KMA1", "player": "Khaman Maluach", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-KMA2", "player": "Khaman Maluach", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-LMC1", "player": "Liam McNeeley", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-LMC2", "player": "Liam McNeeley", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-MRA1", "player": "Maxime Raynaud", "team": "Sacramento Kings", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-MRA2", "player": "Maxime Raynaud", "team": "Sacramento Kings", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-NCL1", "player": "Nique Clifford", "team": "Sacramento Kings", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-NCL2", "player": "Nique Clifford", "team": "Sacramento Kings", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-NTR1", "player": "Nolan Traore", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-NTR2", "player": "Nolan Traore", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-YHA1", "player": "Yang Hansen", "team": "Portland Trail Blazers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-YHA2", "player": "Yang Hansen", "team": "Portland Trail Blazers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-YKN1", "player": "Yanic Konan-Niederhäuser", "team": "Los Angeles Clippers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Autographs", "code": "DRPA-YKN2", "player": "Yanic Konan-Niederhäuser", "team": "Los Angeles Clippers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-AE", "player": "Anthony Edwards", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-AI", "player": "Allen Iverson", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-AS", "player": "Anfernee Simons", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-BA", "player": "Bam Adebayo", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-BI", "player": "Brandon Ingram", "team": "Toronto Raptors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-BM", "player": "Brandon Miller", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-CC", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-CH", "player": "Chet Holmgren", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-CP", "player": "Chris Paul", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-DH", "player": "Dwight Howard", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-DN", "player": "Dirk Nowitzki", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-EM", "player": "Evan Mobley", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-FW", "player": "Franz Wagner", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-GA", "player": "Giannis Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-JB", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-JH", "player": "Jrue Holiday", "team": "Portland Trail Blazers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-JHA", "player": "James Harden", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-JJ", "player": "Jaren Jackson Jr.", "team": "Memphis Grizzlies", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-JM", "player": "Jamal Murray", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-JT", "player": "Jayson Tatum", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-JW", "player": "Jalen Williams", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-KD", "player": "Kevin Durant", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-KM", "player": "Karl Malone", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-LB", "player": "Larry Bird", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-LM", "player": "Lauri Markkanen", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-NJ", "player": "Nikola Jokić", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-PB", "player": "Paolo Banchero", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-SG", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-SO", "player": "Shaquille O'Neal", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-TMA", "player": "Tyrese Maxey", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-VW", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Authentic Relic Autographs", "code": "ARA-ZR", "player": "Zaccharie Risacher", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Opening Act Rookie Relic Autographs", "code": "BRRA-AB", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Opening Act Rookie Relic Autographs", "code": "BRRA-AN", "player": "Asa Newell", "team": "Atlanta Hawks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Opening Act Rookie Relic Autographs", "code": "BRRA-BS", "player": "Ben Saraf", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Opening Act Rookie Relic Autographs", "code": "BRRA-CC", "player": "Cedric Coward", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Opening Act Rookie Relic Autographs", "code": "BRRA-CF", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Opening Act Rookie Relic Autographs", "code": "BRRA-CM", "player": "Collin Murray-Boyles", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Opening Act Rookie Relic Autographs", "code": "BRRA-DH", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Opening Act Rookie Relic Autographs", "code": "BRRA-DPO", "player": "Drake Powell", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Opening Act Rookie Relic Autographs", "code": "BRRA-DW", "player": "Danny Wolf", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Opening Act Rookie Relic Autographs", "code": "BRRA-ED", "player": "Egor Dëmin", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Opening Act Rookie Relic Autographs", "code": "BRRA-JB", "player": "Joan Beringer", "team": "Minnesota Timberwolves", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Opening Act Rookie Relic Autographs", "code": "BRRA-JR", "player": "Jase Richardson", "team": "Orlando Magic", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Opening Act Rookie Relic Autographs", "code": "BRRA-KJA", "player": "Kasparas Jakučionis", "team": "Miami Heat", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Opening Act Rookie Relic Autographs", "code": "BRRA-KK", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Opening Act Rookie Relic Autographs", "code": "BRRA-MR", "player": "Maxime Raynaud", "team": "Sacramento Kings", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Opening Act Rookie Relic Autographs", "code": "BRRA-NT", "player": "Nolan Traore", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Opening Act Rookie Relic Autographs", "code": "BRRA-RF", "player": "Rasheer Fleming", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Opening Act Rookie Relic Autographs", "code": "BRRA-WR", "player": "Will Riley", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Opening Act Rookie Relic Autographs", "code": "BRRA-YH", "player": "Yang Hansen", "team": "Portland Trail Blazers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Opening Act Rookie Relic Autographs", "code": "BRRA-YK", "player": "Yanic Konan-Niederhäuser", "team": "Los Angeles Clippers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definable Relic Autographs", "code": "DEF-AE", "player": "Anthony Edwards", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definable Relic Autographs", "code": "DEF-AI", "player": "Allen Iverson", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definable Relic Autographs", "code": "DEF-BA", "player": "Bam Adebayo", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definable Relic Autographs", "code": "DEF-CC", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definable Relic Autographs", "code": "DEF-CP", "player": "Chris Paul", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definable Relic Autographs", "code": "DEF-DH", "player": "Dwight Howard", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definable Relic Autographs", "code": "DEF-DN", "player": "Dirk Nowitzki", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definable Relic Autographs", "code": "DEF-EM", "player": "Evan Mobley", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definable Relic Autographs", "code": "DEF-GA", "player": "Giannis Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definable Relic Autographs", "code": "DEF-JB", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definable Relic Autographs", "code": "DEF-JM", "player": "Jamal Murray", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definable Relic Autographs", "code": "DEF-JT", "player": "Jayson Tatum", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definable Relic Autographs", "code": "DEF-JW", "player": "Jalen Williams", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definable Relic Autographs", "code": "DEF-KD", "player": "Kevin Durant", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definable Relic Autographs", "code": "DEF-KM", "player": "Karl Malone", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definable Relic Autographs", "code": "DEF-LB", "player": "Larry Bird", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definable Relic Autographs", "code": "DEF-NJ", "player": "Nikola Jokić", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definable Relic Autographs", "code": "DEF-PB", "player": "Paolo Banchero", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definable Relic Autographs", "code": "DEF-SG", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definable Relic Autographs", "code": "DEF-SO", "player": "Shaquille O'Neal", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definable Relic Autographs", "code": "DEF-TMA", "player": "Tyrese Maxey", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definable Relic Autographs", "code": "DEF-VW", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Rookie Defining Games Relic Autograph", "code": "RDGR-CF", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Rookie Defining Games Relic Autograph", "code": "RDGR-KK", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Markers Autographs", "code": "DMA-AI", "player": "Allen Iverson", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Markers Autographs", "code": "DMA-CP", "player": "Chris Paul", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Markers Autographs", "code": "DMA-DN", "player": "Dirk Nowitzki", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Markers Autographs", "code": "DMA-DR", "player": "Dennis Rodman", "team": "Chicago Bulls", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Markers Autographs", "code": "DMA-GA", "player": "Giannis Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Markers Autographs", "code": "DMA-HO", "player": "Hakeem Olajuwon", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Markers Autographs", "code": "DMA-JH", "player": "James Harden", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Markers Autographs", "code": "DMA-JS", "player": "John Stockton", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Markers Autographs", "code": "DMA-KAJ", "player": "Kareem Abdul-Jabbar", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Markers Autographs", "code": "DMA-KAT", "player": "Karl-Anthony Towns", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Markers Autographs", "code": "DMA-KD", "player": "Kevin Durant", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Markers Autographs", "code": "DMA-KG", "player": "Kevin Garnett", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Markers Autographs", "code": "DMA-KM", "player": "Karl Malone", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Markers Autographs", "code": "DMA-LJ", "player": "LeBron James", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Markers Autographs", "code": "DMA-NJ", "player": "Nikola Jokić", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Markers Autographs", "code": "DMA-OR", "player": "Oscar Robertson", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Markers Autographs", "code": "DMA-SC", "player": "Stephen Curry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Markers Autographs", "code": "DMA-SGA", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Markers Autographs", "code": "DMA-VW", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Moments Collection Autographs", "code": "MMA-AB", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Moments Collection Autographs", "code": "MMA-BA", "player": "Bam Adebayo", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Moments Collection Autographs", "code": "MMA-CC", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Moments Collection Autographs", "code": "MMA-CCO", "player": "Cedric Coward", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Moments Collection Autographs", "code": "MMA-CF", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Moments Collection Autographs", "code": "MMA-CH", "player": "Chet Holmgren", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Moments Collection Autographs", "code": "MMA-CMB", "player": "Collin Murray-Boyles", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Moments Collection Autographs", "code": "MMA-CP", "player": "Chris Paul", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Moments Collection Autographs", "code": "MMA-DH", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Moments Collection Autographs", "code": "MMA-DQ", "player": "Derik Queen", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Moments Collection Autographs", "code": "MMA-ED", "player": "Egor Dёmin", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Moments Collection Autographs", "code": "MMA-EM", "player": "Evan Mobley", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Moments Collection Autographs", "code": "MMA-GA", "player": "Giannis Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Moments Collection Autographs", "code": "MMA-JB", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Moments Collection Autographs", "code": "MMA-JG", "player": "Josh Giddey", "team": "Chicago Bulls", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Moments Collection Autographs", "code": "MMA-JH", "player": "James Harden", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Moments Collection Autographs", "code": "MMA-JM", "player": "Jamal Murray", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Moments Collection Autographs", "code": "MMA-JT", "player": "Jayson Tatum", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Moments Collection Autographs", "code": "MMA-JW", "player": "Jalen Williams", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Moments Collection Autographs", "code": "MMA-KAT", "player": "Karl-Anthony Towns", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Moments Collection Autographs", "code": "MMA-KD", "player": "Kevin Durant", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Moments Collection Autographs", "code": "MMA-KK", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Moments Collection Autographs", "code": "MMA-KM", "player": "Khaman Maluach", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Moments Collection Autographs", "code": "MMA-NJ", "player": "Nikola Jokić", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Moments Collection Autographs", "code": "MMA-PB", "player": "Paolo Banchero", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Moments Collection Autographs", "code": "MMA-SC", "player": "Stephen Curry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Moments Collection Autographs", "code": "MMA-SCA", "player": "Stephon Castle", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Moments Collection Autographs", "code": "MMA-TH", "player": "Tyrese Haliburton", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Moments Collection Autographs", "code": "MMA-VW", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Moments Collection Autographs", "code": "MMA-YH", "player": "Yang Hansen", "team": "Portland Trail Blazers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Legendary Autograph Collection", "code": "LGD-DN", "player": "Dirk Nowitzki", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Legendary Autograph Collection", "code": "LGD-DR", "player": "David Robinson", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Legendary Autograph Collection", "code": "LGD-DRO", "player": "Dennis Rodman", "team": "Chicago Bulls", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Legendary Autograph Collection", "code": "LGD-HO", "player": "Hakeem Olajuwon", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Legendary Autograph Collection", "code": "LGD-JS", "player": "John Stockton", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Legendary Autograph Collection", "code": "LGD-KAJ", "player": "Kareem Abdul-Jabbar", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Legendary Autograph Collection", "code": "LGD-KM", "player": "Karl Malone", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Legendary Autograph Collection", "code": "LGD-LB", "player": "Larry Bird", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Legendary Autograph Collection", "code": "LGD-MJ", "player": "Magic Johnson", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Legendary Autograph Collection", "code": "LGD-OR", "player": "Oscar Robertson", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Legendary Autograph Collection", "code": "LGD-PP", "player": "Paul Pierce", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Legendary Autograph Collection", "code": "LGD-SM", "player": "Stephon Marbury", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Legendary Autograph Collection", "code": "LGD-SN", "player": "Steve Nash", "team": "Phoenix Suns", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Legendary Autograph Collection", "code": "LGD-TM", "player": "Tracy McGrady", "team": "Toronto Raptors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Legendary Autograph Collection", "code": "LGD-GP", "player": "Gary Payton", "team": "Seattle Supersonics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Decisive Signatures", "code": "DEC-AB", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Decisive Signatures", "code": "DEC-AE", "player": "Anthony Edwards", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Decisive Signatures", "code": "DEC-AS", "player": "Alex Sarr", "team": "Washington Wizards", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Decisive Signatures", "code": "DEC-BA", "player": "Bam Adebayo", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Decisive Signatures", "code": "DEC-CC", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Decisive Signatures", "code": "DEC-CF", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Decisive Signatures", "code": "DEC-CH", "player": "Chet Holmgren", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Decisive Signatures", "code": "DEC-CMB", "player": "Collin Murray-Boyles", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Decisive Signatures", "code": "DEC-CP", "player": "Chris Paul", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Decisive Signatures", "code": "DEC-DH", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Decisive Signatures", "code": "DEC-EM", "player": "Evan Mobley", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Decisive Signatures", "code": "DEC-GA", "player": "Giannis Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Decisive Signatures", "code": "DEC-JB", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Decisive Signatures", "code": "DEC-JG", "player": "Josh Giddey", "team": "Chicago Bulls", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Decisive Signatures", "code": "DEC-JH", "player": "James Harden", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Decisive Signatures", "code": "DEC-JM", "player": "Jamal Murray", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Decisive Signatures", "code": "DEC-JT", "player": "Jayson Tatum", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Decisive Signatures", "code": "DEC-JW", "player": "Jalen Williams", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Decisive Signatures", "code": "DEC-KD", "player": "Kevin Durant", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Decisive Signatures", "code": "DEC-KJ", "player": "Kasparas Jakučionis", "team": "Miami Heat", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Decisive Signatures", "code": "DEC-KP", "player": "Kristaps Porzingis", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Decisive Signatures", "code": "DEC-NJ", "player": "Nikola Jokić", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Decisive Signatures", "code": "DEC-PB", "player": "Paolo Banchero", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Decisive Signatures", "code": "DEC-SC", "player": "Stephen Curry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Decisive Signatures", "code": "DEC-SCA", "player": "Stephon Castle", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Decisive Signatures", "code": "DEC-SGA", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Decisive Signatures", "code": "DEC-TH", "player": "Tyrese Haliburton", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Decisive Signatures", "code": "DEC-TM", "player": "Tyrese Maxey", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Decisive Signatures", "code": "DEC-VW", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Decisive Signatures", "code": "DEC-ZR", "player": "Zaccharie Risacher", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Rookies Autographs", "code": "RAU-AB", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookies Autographs", "code": "RAU-AN", "player": "Asa Newell", "team": "Atlanta Hawks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookies Autographs", "code": "RAU-BB", "player": "Brooks Barnhizer", "team": "Oklahoma City Thunder", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookies Autographs", "code": "RAU-CC", "player": "Cedric Coward", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookies Autographs", "code": "RAU-CF", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookies Autographs", "code": "RAU-CL", "player": "Chaz Lanier", "team": "Detroit Pistons", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookies Autographs", "code": "RAU-CM", "player": "Collin Murray-Boyles", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookies Autographs", "code": "RAU-DH", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookies Autographs", "code": "RAU-DQ", "player": "Derik Queen", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookies Autographs", "code": "RAU-ED", "player": "Egor Dёmin", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookies Autographs", "code": "RAU-JB", "player": "Joan Beringer", "team": "Minnesota Timberwolves", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookies Autographs", "code": "RAU-JBR", "player": "Johni Broome", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookies Autographs", "code": "RAU-JS", "player": "Javon Small", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookies Autographs", "code": "RAU-KJ", "player": "Kasparas Jakučionis", "team": "Miami Heat", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookies Autographs", "code": "RAU-KJO", "player": "Kam Jones", "team": "Indiana Pacers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookies Autographs", "code": "RAU-KK", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookies Autographs", "code": "RAU-MP", "player": "Micah Peavy", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookies Autographs", "code": "RAU-MR", "player": "Maxime Raynaud", "team": "Sacramento Kings", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookies Autographs", "code": "RAU-NE", "player": "Noa Essengue", "team": "Chicago Bulls", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookies Autographs", "code": "RAU-NP", "player": "Noah Penda", "team": "Orlando Magic", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookies Autographs", "code": "RAU-NT", "player": "Nolan Traore", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookies Autographs", "code": "RAU-RF", "player": "Rasheer Fleming", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookies Autographs", "code": "RAU-RK", "player": "Ryan Kalkbrenner", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookies Autographs", "code": "RAU-SJ", "player": "Sion James", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookies Autographs", "code": "RAU-TP", "player": "Tyrese Proctor", "team": "Cleveland Cavaliers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookies Autographs", "code": "RAU-WC", "player": "Walter Clayton Jr.", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookies Autographs", "code": "RAU-WR", "player": "Will Riley", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookies Autographs", "code": "RAU-WRI", "player": "Will Richard", "team": "Golden State Warriors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookies Autographs", "code": "RAU-YH", "player": "Yang Hansen", "team": "Portland Trail Blazers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookies Autographs", "code": "RAU-YK", "player": "Yanic Konan-Niederhäuser", "team": "Los Angeles Clippers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-AS", "player": "Amar'e Stoudemire", "team": "Phoenix Suns", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-ASA", "player": "Alex Sarr", "team": "Washington Wizards", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-ASI", "player": "Anfernee Simons", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-BA", "player": "Bam Adebayo", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-CC", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-CH", "player": "Chet Holmgren", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-DR", "player": "David Robinson", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-DRO", "player": "Dennis Rodman", "team": "Chicago Bulls", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-DW", "player": "Dwyane Wade", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-EM", "player": "Evan Mobley", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-FW", "player": "Franz Wagner", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-HO", "player": "Hakeem Olajuwon", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-JB", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-JG", "player": "Josh Giddey", "team": "Chicago Bulls", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-JM", "player": "Jamal Murray", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-JS", "player": "John Stockton", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-JT", "player": "Jayson Tatum", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-JW", "player": "Jalen Williams", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-KM", "player": "Karl Malone", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-KP", "player": "Kristaps Porzingis", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-LB", "player": "Larry Bird", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-MJ", "player": "Magic Johnson", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-MR", "player": "Mitch Richmond", "team": "Sacramento Kings", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-PB", "player": "Paolo Banchero", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-PP", "player": "Paul Pierce", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-RW", "player": "Rasheed Wallace", "team": "Portland Trail Blazers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-SC", "player": "Stephen Curry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-SCA", "player": "Stephon Castle", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-SF", "player": "Steve Francis", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-SK", "player": "Steve Kerr", "team": "Chicago Bulls", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-SN", "player": "Steve Nash", "team": "Phoenix Suns", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-TH", "player": "Tyrese Haliburton", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-TM", "player": "Tyrese Maxey", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-TMC", "player": "Tracy McGrady", "team": "Toronto Raptors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-TY", "player": "Trae Young", "team": "Washington Wizards", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-VW", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-YM", "player": "Yao Ming", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-ZR", "player": "Zaccharie Risacher", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-GP", "player": "Gary Payton", "team": "Seattle Supersonics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Autographs", "code": "DFA-SM", "player": "Stephon Marbury", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Defining Images Autographs", "code": "DIA-AB", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Defining Images Autographs", "code": "DIA-AM", "player": "Ajay Mitchell", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Defining Images Autographs", "code": "DIA-AS", "player": "Alex Sarr", "team": "Washington Wizards", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Defining Images Autographs", "code": "DIA-ASI", "player": "Anfernee Simons", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Defining Images Autographs", "code": "DIA-BA", "player": "Bam Adebayo", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Defining Images Autographs", "code": "DIA-BI", "player": "Brandon Ingram", "team": "Toronto Raptors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Defining Images Autographs", "code": "DIA-CC", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Defining Images Autographs", "code": "DIA-CF", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Defining Images Autographs", "code": "DIA-CH", "player": "Chet Holmgren", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Defining Images Autographs", "code": "DIA-CP", "player": "Chris Paul", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Defining Images Autographs", "code": "DIA-DH", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Defining Images Autographs", "code": "DIA-DW", "player": "Derrick White", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Defining Images Autographs", "code": "DIA-EM", "player": "Evan Mobley", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Defining Images Autographs", "code": "DIA-FW", "player": "Franz Wagner", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Defining Images Autographs", "code": "DIA-GA", "player": "Giannis Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Defining Images Autographs", "code": "DIA-JB", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Defining Images Autographs", "code": "DIA-JG", "player": "Josh Giddey", "team": "Chicago Bulls", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Defining Images Autographs", "code": "DIA-JH", "player": "James Harden", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Defining Images Autographs", "code": "DIA-JJ", "player": "Jaren Jackson Jr.", "team": "Memphis Grizzlies", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Defining Images Autographs", "code": "DIA-JM", "player": "Jamal Murray", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Defining Images Autographs", "code": "DIA-JW", "player": "Jalen Williams", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Defining Images Autographs", "code": "DIA-KD", "player": "Kevin Durant", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Defining Images Autographs", "code": "DIA-KP", "player": "Kristaps Porzingis", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Defining Images Autographs", "code": "DIA-NJ", "player": "Nikola Jokić", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Defining Images Autographs", "code": "DIA-PB", "player": "Paolo Banchero", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Defining Images Autographs", "code": "DIA-SC", "player": "Stephon Castle", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Defining Images Autographs", "code": "DIA-TH", "player": "Tyrese Haliburton", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Defining Images Autographs", "code": "DIA-TM", "player": "Tyrese Maxey", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Defining Images Autographs", "code": "DIA-VW", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Defining Images Autographs", "code": "DIA-ZR", "player": "Zaccharie Risacher", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Signs", "code": "SIGN-AB", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Signs", "code": "SIGN-AH", "player": "Al Horford", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Signs", "code": "SIGN-AHA", "player": "Anfernee Hardaway", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Signs", "code": "SIGN-BD", "player": "Baron Davis", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Signs", "code": "SIGN-BI", "player": "Brandon Ingram", "team": "Toronto Raptors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Signs", "code": "SIGN-BM", "player": "Brandon Miller", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Signs", "code": "SIGN-CF", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Signs", "code": "SIGN-CP", "player": "Chris Paul", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Signs", "code": "SIGN-CW", "player": "Coby White", "team": "Chicago Bulls", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Signs", "code": "SIGN-DF", "player": "Derek Fisher", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Signs", "code": "SIGN-DH", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Signs", "code": "SIGN-DV", "player": "Devin Vassell", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Signs", "code": "SIGN-EM", "player": "Evan Mobley", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Signs", "code": "SIGN-FW", "player": "Franz Wagner", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Signs", "code": "SIGN-GD", "player": "Gradey Dick", "team": "Toronto Raptors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Signs", "code": "SIGN-GG", "player": "George Gervin", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Signs", "code": "SIGN-JG", "player": "Josh Giddey", "team": "Chicago Bulls", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Signs", "code": "SIGN-JO", "player": "Jermaine O'Neal", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Signs", "code": "SIGN-JS", "player": "JR Smith", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Signs", "code": "SIGN-JW", "player": "Jason Williams", "team": "Memphis Grizzlies", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Signs", "code": "SIGN-LM", "player": "Lauri Markkanen", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Signs", "code": "SIGN-MF", "player": "Michael Finley", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Signs", "code": "SIGN-MT", "player": "Myles Turner", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Signs", "code": "SIGN-RH", "player": "Robert Horry", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Signs", "code": "SIGN-SH", "player": "Scoot Henderson", "team": "Portland Trail Blazers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Signs", "code": "SIGN-SS", "player": "Shaedon Sharpe", "team": "Portland Trail Blazers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Signs", "code": "SIGN-TK", "player": "Toni Kukoc", "team": "Chicago Bulls", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Signs", "code": "SIGN-TM", "player": "Tyrese Maxey", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Signs", "code": "SIGN-WF", "player": "Walt Frazier", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Signs", "code": "SIGN-ZR", "player": "Zaccharie Risacher", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-AH", "player": "Al Horford", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-AM", "player": "Alonzo Mourning", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-CD", "player": "Clyde Drexler", "team": "Portland Trail Blazers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-CH", "player": "Chet Holmgren", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-DF", "player": "Derek Fisher", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-DH", "player": "Dwight Howard", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-DN", "player": "Dirk Nowitzki", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-DR", "player": "David Robinson", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-DRO", "player": "Dennis Rodman", "team": "Chicago Bulls", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-DW", "player": "Dwyane Wade", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-GA", "player": "Giannis Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-GP", "player": "Gary Payton", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-HO", "player": "Hakeem Olajuwon", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-JM", "player": "Jamal Murray", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-JT", "player": "Jayson Tatum", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-JW", "player": "Jalen Williams", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-KA", "player": "Kareem Abdul-Jabbar", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-KD", "player": "Kevin Durant", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-KG", "player": "Kevin Garnett", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-KP", "player": "Kristaps Porzingis", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-LB", "player": "Larry Bird", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-LJ1", "player": "LeBron James", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-LJ2", "player": "LeBron James", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-LJ3", "player": "LeBron James", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-MG", "player": "Manu Ginobili", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-MJ", "player": "Magic Johnson", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-NJ", "player": "Nikola Jokić", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-OR", "player": "Oscar Robertson", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-PP", "player": "Paul Pierce", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-RH", "player": "Rip Hamilton", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-RHO", "player": "Robert Horry", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-RP", "player": "Robert Parish", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-SC", "player": "Stephen Curry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-SG", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-SK", "player": "Steve Kerr", "team": "Chicago Bulls", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-SO", "player": "Shaquille O'Neal", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-TK", "player": "Toni Kukoc", "team": "Chicago Bulls", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-TP", "player": "Tony Parker", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Noble Ink", "code": "NOI-WF", "player": "Walt Frazier", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Legends Autograph Collection", "code": "FLC-AH", "player": "Anfernee Hardaway", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Legends Autograph Collection", "code": "FLC-AM", "player": "Alonzo Mourning", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Legends Autograph Collection", "code": "FLC-CD", "player": "Clyde Drexler", "team": "Portland Trail Blazers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Legends Autograph Collection", "code": "FLC-DH", "player": "Dwight Howard", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Legends Autograph Collection", "code": "FLC-DN", "player": "Dirk Nowitzki", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Legends Autograph Collection", "code": "FLC-DR", "player": "David Robinson", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Legends Autograph Collection", "code": "FLC-DRO", "player": "Dennis Rodman", "team": "Chicago Bulls", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Legends Autograph Collection", "code": "FLC-DW", "player": "Dominique Wilkins", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Legends Autograph Collection", "code": "FLC-GG", "player": "George Gervin", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Legends Autograph Collection", "code": "FLC-HO", "player": "Hakeem Olajuwon", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Legends Autograph Collection", "code": "FLC-JR", "player": "Jalen Rose", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Legends Autograph Collection", "code": "FLC-JS", "player": "John Starks", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Legends Autograph Collection", "code": "FLC-JST", "player": "John Stockton", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Legends Autograph Collection", "code": "FLC-JW", "player": "Jason Williams", "team": "Memphis Grizzlies", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Legends Autograph Collection", "code": "FLC-KA", "player": "Kareem Abdul-Jabbar", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Legends Autograph Collection", "code": "FLC-KG", "player": "Kevin Garnett", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Legends Autograph Collection", "code": "FLC-KM", "player": "Karl Malone", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Legends Autograph Collection", "code": "FLC-LB", "player": "Larry Bird", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Legends Autograph Collection", "code": "FLC-MB", "player": "Muggsy Bogues", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Legends Autograph Collection", "code": "FLC-MJ", "player": "Magic Johnson", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Legends Autograph Collection", "code": "FLC-MR", "player": "Mitch Richmond", "team": "Sacramento Kings", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Legends Autograph Collection", "code": "FLC-OR", "player": "Oscar Robertson", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Legends Autograph Collection", "code": "FLC-PP", "player": "Paul Pierce", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Legends Autograph Collection", "code": "FLC-RW", "player": "Rasheed Wallace", "team": "Portland Trail Blazers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Legends Autograph Collection", "code": "FLC-SF", "player": "Steve Francis", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Legends Autograph Collection", "code": "FLC-SM", "player": "Stephon Marbury", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Legends Autograph Collection", "code": "FLC-SN", "player": "Steve Nash", "team": "Phoenix Suns", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Legends Autograph Collection", "code": "FLC-SW", "player": "Spud Webb", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Legends Autograph Collection", "code": "FLC-TM", "player": "Tracy McGrady", "team": "Toronto Raptors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Legends Autograph Collection", "code": "FLC-GP", "player": "Gary Payton", "team": "Seattle Supersonics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-AB", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-AM", "player": "Alijah Martin", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-AN", "player": "Asa Newell", "team": "Atlanta Hawks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-AT", "player": "Adou Thiero", "team": "Los Angeles Lakers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-BB", "player": "Brooks Barnhizer", "team": "Oklahoma City Thunder", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-BS", "player": "Ben Saraf", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-CC", "player": "Cedric Coward", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-CF", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-CL", "player": "Chaz Lanier", "team": "Detroit Pistons", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-CM", "player": "Collin Murray-Boyles", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-DH", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-DP", "player": "Drake Powell", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-DW", "player": "Danny Wolf", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-ED", "player": "Egor Dёmin", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-JB", "player": "Johni Broome", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-JBE", "player": "Joan Beringer", "team": "Minnesota Timberwolves", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-JR", "player": "Jase Richardson", "team": "Orlando Magic", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-JS", "player": "Javon Small", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-KJ", "player": "Kam Jones", "team": "Indiana Pacers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-KJA", "player": "Kasparas Jakučionis", "team": "Miami Heat", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-KK", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-KM", "player": "Khaman Maluach", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-LM", "player": "Liam McNeeley", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-MP", "player": "Micah Peavy", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-MR", "player": "Maxime Raynaud", "team": "Sacramento Kings", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-NC", "player": "Nique Clifford", "team": "Sacramento Kings", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-NE", "player": "Noa Essengue", "team": "Chicago Bulls", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-NP", "player": "Noah Penda", "team": "Orlando Magic", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-NT", "player": "Nolan Traore", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-RF", "player": "Rasheer Fleming", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-RK", "player": "Ryan Kalkbrenner", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-SJ", "player": "Sion James", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-TP", "player": "Tyrese Proctor", "team": "Cleveland Cavaliers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-TS", "player": "Thomas Sorber", "team": "Oklahoma City Thunder", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-WC", "player": "Walter Clayton Jr.", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-WR", "player": "Will Richard", "team": "Golden State Warriors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-WRI", "player": "Will Riley", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-YH", "player": "Yang Hansen", "team": "Portland Trail Blazers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Rookies Autograph Collection", "code": "FRC-YK", "player": "Yanic Konan-Niederhäuser Los Angeles Clippers Rookie FRC-dQ derik Queen", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Framed Veterans Autograph Collection", "code": "FVC-AE", "player": "Anthony Edwards", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Veterans Autograph Collection", "code": "FVC-AM", "player": "Ajay Mitchell", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Veterans Autograph Collection", "code": "FVC-AS", "player": "Anfernee Simons", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Veterans Autograph Collection", "code": "FVC-BA", "player": "Bam Adebayo", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Veterans Autograph Collection", "code": "FVC-BI", "player": "Brandon Ingram", "team": "Toronto Raptors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Veterans Autograph Collection", "code": "FVC-CC", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Veterans Autograph Collection", "code": "FVC-CH", "player": "Chet Holmgren", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Veterans Autograph Collection", "code": "FVC-CP", "player": "Chris Paul", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Veterans Autograph Collection", "code": "FVC-FW", "player": "Franz Wagner", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Veterans Autograph Collection", "code": "FVC-GA", "player": "Giannis Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Veterans Autograph Collection", "code": "FVC-IZ", "player": "Ivica Zubac", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Veterans Autograph Collection", "code": "FVC-JB", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Veterans Autograph Collection", "code": "FVC-JG", "player": "Josh Giddey", "team": "Chicago Bulls", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Veterans Autograph Collection", "code": "FVC-JH", "player": "James Harden", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Veterans Autograph Collection", "code": "FVC-JJ", "player": "Jaren Jackson Jr.", "team": "Memphis Grizzlies", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Veterans Autograph Collection", "code": "FVC-JM", "player": "Jamal Murray", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Veterans Autograph Collection", "code": "FVC-JT", "player": "Jayson Tatum", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Veterans Autograph Collection", "code": "FVC-JW", "player": "Jalen Williams", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Veterans Autograph Collection", "code": "FVC-KD", "player": "Kevin Durant", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Veterans Autograph Collection", "code": "FVC-KP", "player": "Kristaps Porzingis", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Veterans Autograph Collection", "code": "FVC-LJ", "player": "LeBron James", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Veterans Autograph Collection", "code": "FVC-NJ", "player": "Nikola Jokić", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Veterans Autograph Collection", "code": "FVC-PB", "player": "Paolo Banchero", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Veterans Autograph Collection", "code": "FVC-SC", "player": "Stephen Curry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Veterans Autograph Collection", "code": "FVC-SCA", "player": "Stephon Castle", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Veterans Autograph Collection", "code": "FVC-SG", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Veterans Autograph Collection", "code": "FVC-TH", "player": "Tyrese Haliburton", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Veterans Autograph Collection", "code": "FVC-TM", "player": "Tyrese Maxey", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Framed Veterans Autograph Collection", "code": "FVC-ZR", "player": "Zaccharie Risacher", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-AD1", "player": "Anthony Davis", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-AD2", "player": "Anthony Davis", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-AE1", "player": "Anthony Edwards", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-AE2", "player": "Anthony Edwards", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-AR1", "player": "Austin Reaves", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-AR2", "player": "Austin Reaves", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-BA1", "player": "Bam Adebayo", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-BA2", "player": "Bam Adebayo", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-BM1", "player": "Brandon Miller", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-BM2", "player": "Brandon Miller", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-CC1", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-CC2", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-DB1", "player": "Devin Booker", "team": "Phoenix Suns", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-DB2", "player": "Devin Booker", "team": "Phoenix Suns", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-DM1", "player": "Donovan Mitchell", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-DM2", "player": "Donovan Mitchell", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-GA1", "player": "Giannis Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-GA2", "player": "Giannis Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-JA1", "player": "Ja Morant", "team": "Memphis Grizzlies", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-JA2", "player": "Ja Morant", "team": "Memphis Grizzlies", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-JB1", "player": "Jaylen Brown", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-JB2", "player": "Jaylen Brown", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-JBN1", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-JBN2", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-JBT1", "player": "Jimmy Butler III", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-JBT2", "player": "Jimmy Butler III", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-JH1", "player": "James Harden", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-JH2", "player": "James Harden", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-JM1", "player": "Jamal Murray", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-JM2", "player": "Jamal Murray", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-JT1", "player": "Jayson Tatum", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-JT2", "player": "Jayson Tatum", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-KD1", "player": "Kevin Durant", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-KD2", "player": "Kevin Durant", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-KI1", "player": "Kyrie Irving", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-KI2", "player": "Kyrie Irving", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-KL1", "player": "Kawhi Leonard", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-KL2", "player": "Kawhi Leonard", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-KT1", "player": "Karl-Anthony Towns", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-KT2", "player": "Karl-Anthony Towns", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-LB1", "player": "LaMelo Ball", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-LB2", "player": "LaMelo Ball", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-LD", "player": "Luka Dončić", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-LJ", "player": "LeBron James", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-NJ", "player": "Nikola Jokić", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-PB1", "player": "Paolo Banchero", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-PB2", "player": "Paolo Banchero", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-SC", "player": "Stephen Curry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-TM1", "player": "Tyrese Maxey", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-TM2", "player": "Tyrese Maxey", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-VW1", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-VW2", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-ZW1", "player": "Zion Williamson", "team": "New Orleans Pelicans", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-ZW2", "player": "Zion Williamson", "team": "New Orleans Pelicans", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-JE1", "player": "Joel Embiid", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Patch Collection", "code": "DPC-JE2", "player": "Joel Embiid", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-AB1", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-AB2", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-AN1", "player": "Asa Newell", "team": "Atlanta Hawks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-AN2", "player": "Asa Newell", "team": "Atlanta Hawks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-CB1", "player": "Carter Bryant", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-CB2", "player": "Carter Bryant", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-CC1", "player": "Cedric Coward", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-CC2", "player": "Cedric Coward", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-CF1", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-CF2", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-CM1", "player": "Collin Murray-Boyles", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-CM2", "player": "Collin Murray-Boyles", "team": "Toronto Raptors", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-DH1", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-DH2", "player": "Dylan Harper", "team": "San Antonio Spurs", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-DQ1", "player": "Derik Queen", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-DQ2", "player": "Derik Queen", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-ED1", "player": "Egor Dёmin", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-ED2", "player": "Egor Dёmin", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-HG1", "player": "Hugo González", "team": "Boston Celtics", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-HG2", "player": "Hugo González", "team": "Boston Celtics", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-JF1", "player": "Jeremiah Fears", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-JF2", "player": "Jeremiah Fears", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-KJ1", "player": "Kasparas Jakučionis", "team": "Miami Heat", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-KJ2", "player": "Kasparas Jakučionis", "team": "Miami Heat", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-KK1", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-KK2", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-KM1", "player": "Khaman Maluach", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-KM2", "player": "Khaman Maluach", "team": "Phoenix Suns", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-LM1", "player": "Liam McNeeley", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-LM2", "player": "Liam McNeeley", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-MR1", "player": "Maxime Raynaud", "team": "Sacramento Kings", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-MR2", "player": "Maxime Raynaud", "team": "Sacramento Kings", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-NT1", "player": "Nolan Traore", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-NT2", "player": "Nolan Traore", "team": "Brooklyn Nets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-TJ1", "player": "Tre Johnson III", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-TJ2", "player": "Tre Johnson III", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-VE1", "player": "VJ Edgecombe", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Rookie Patch Collection", "code": "DRP-VE2", "player": "VJ Edgecombe", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-AB1", "player": "Anthony Black", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-AB2", "player": "Anthony Black", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-AG1", "player": "Aaron Gordon", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-AG2", "player": "Aaron Gordon", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-AS1", "player": "Alex Sarr", "team": "Washington Wizards", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-AS2", "player": "Alex Sarr", "team": "Washington Wizards", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-ASM1", "player": "Anfernee Simons", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-ASM2", "player": "Anfernee Simons", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-AT1", "player": "Amen Thompson", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-AT2", "player": "Amen Thompson", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-AUT1", "player": "Ausar Thompson", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-AUT2", "player": "Ausar Thompson", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-BA1", "player": "Bam Adebayo", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-BA2", "player": "Bam Adebayo", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-BC1", "player": "Bub Carrington", "team": "Washington Wizards", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-BC2", "player": "Bub Carrington", "team": "Washington Wizards", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-BM1", "player": "Brandon Miller", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-BM2", "player": "Brandon Miller", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-CH1", "player": "Chet Holmgren", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-CH2", "player": "Chet Holmgren", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-CT1", "player": "Cam Thomas", "team": "Brooklyn Nets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-CT2", "player": "Cam Thomas", "team": "Brooklyn Nets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-DD1", "player": "DeMar DeRozan", "team": "Sacramento Kings", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-DD2", "player": "DeMar DeRozan", "team": "Sacramento Kings", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-DF1", "player": "De'Aaron Fox", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-DF2", "player": "De'Aaron Fox", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-DG1", "player": "Darius Garland", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-DG2", "player": "Darius Garland", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-DM1", "player": "Dejounte Murray", "team": "New Orleans Pelicans", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-DM2", "player": "Dejounte Murray", "team": "New Orleans Pelicans", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-DMG1", "player": "Draymond Green", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-DMG2", "player": "Draymond Green", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-DS1", "player": "Domantas Sabonis", "team": "Sacramento Kings", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-DS2", "player": "Domantas Sabonis", "team": "Sacramento Kings", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-EM1", "player": "Evan Mobley", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-EM2", "player": "Evan Mobley", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-FW1", "player": "Franz Wagner", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-FW2", "player": "Franz Wagner", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-JB1", "player": "Jaylen Brown", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-JB2", "player": "Jaylen Brown", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-JD1", "player": "Jalen Duren", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-JD2", "player": "Jalen Duren", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-JE1", "player": "Joel Embiid", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-JE2", "player": "Joel Embiid", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-JH1", "player": "James Harden", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-JH2", "player": "James Harden", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-JJ1", "player": "Jalen Johnson", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-JJ2", "player": "Jalen Johnson", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-JJJ1", "player": "Jaren Jackson Jr.", "team": "Memphis Grizzlies", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-JJJ2", "player": "Jaren Jackson Jr.", "team": "Memphis Grizzlies", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-JM1", "player": "Ja Morant", "team": "Memphis Grizzlies", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-JM2", "player": "Ja Morant", "team": "Memphis Grizzlies", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-JMM1", "player": "Jamal Murray", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-JMM2", "player": "Jamal Murray", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-JR1", "player": "Julius Randle", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-JR2", "player": "Julius Randle", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-KAT1", "player": "Karl-Anthony Towns", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-KAT2", "player": "Karl-Anthony Towns", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-KG1", "player": "Keyonte George", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-KG2", "player": "Keyonte George", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-KL1", "player": "Kawhi Leonard", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-KL2", "player": "Kawhi Leonard", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-KM1", "player": "Keegan Murray", "team": "Sacramento Kings", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-KM2", "player": "Keegan Murray", "team": "Sacramento Kings", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-KT1", "player": "Klay Thompson", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-KT2", "player": "Klay Thompson", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-KW1", "player": "Kel'el Ware", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-KW2", "player": "Kel'el Ware", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-LB1", "player": "LaMelo Ball", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-LB2", "player": "LaMelo Ball", "team": "Charlotte Hornets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-LM1", "player": "Lauri Markkanen", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-LM2", "player": "Lauri Markkanen", "team": "Utah Jazz", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-MB1", "player": "Mikal Bridges", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-MB2", "player": "Mikal Bridges", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-MBU1", "player": "Matas Buzelis", "team": "Chicago Bulls", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-MBU2", "player": "Matas Buzelis", "team": "Chicago Bulls", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-OA1", "player": "OG Anunoby", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-OA2", "player": "OG Anunoby", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-PS1", "player": "Pascal Siakam", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-PS2", "player": "Pascal Siakam", "team": "Indiana Pacers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-PW1", "player": "P.J. Washington Jr.", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-PW2", "player": "P.J. Washington Jr.", "team": "Dallas Mavericks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-SB1", "player": "Scottie Barnes", "team": "Toronto Raptors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-SB2", "player": "Scottie Barnes", "team": "Toronto Raptors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-SC1", "player": "Stephon Castle", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-SC2", "player": "Stephon Castle", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-SS1", "player": "Shaedon Sharpe", "team": "Portland Trail Blazers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-SS2", "player": "Shaedon Sharpe", "team": "Portland Trail Blazers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-TH1", "player": "Tyler Herro", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-TH2", "player": "Tyler Herro", "team": "Miami Heat", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-TM1", "player": "Tyrese Maxey", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-TM2", "player": "Tyrese Maxey", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-VW1", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-VW2", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-ZL1", "player": "Zach Lavine", "team": "Sacramento Kings", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-ZL2", "player": "Zach Lavine", "team": "Sacramento Kings", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-ZR1", "player": "Zaccharie Risacher", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-ZR2", "player": "Zaccharie Risacher", "team": "Atlanta Hawks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-ZW1", "player": "Zion Williamson", "team": "New Orleans Pelicans", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Relic Collection", "code": "DRE-ZW2", "player": "Zion Williamson", "team": "New Orleans Pelicans", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-AE1", "player": "Anthony Edwards", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-AE2", "player": "Anthony Edwards", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-AE3", "player": "Anthony Edwards", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-AE4", "player": "Anthony Edwards", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-AE5", "player": "Anthony Edwards", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-AE6", "player": "Anthony Edwards", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-AE7", "player": "Anthony Edwards", "team": "Minnesota Timberwolves", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-CC1", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-CC2", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-CC3", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-CC4", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-CC5", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-CC6", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-CC7", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-CC8", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-CC9", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-CC10", "player": "Cade Cunningham", "team": "Detroit Pistons", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-DM1", "player": "Donovan Mitchell", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-DM2", "player": "Donovan Mitchell", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-DM3", "player": "Donovan Mitchell", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-DM4", "player": "Donovan Mitchell", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-DM5", "player": "Donovan Mitchell", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-DM6", "player": "Donovan Mitchell", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-DM7", "player": "Donovan Mitchell", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-DM8", "player": "Donovan Mitchell", "team": "Cleveland Cavaliers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-GA1", "player": "Giannis Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-GA2", "player": "Giannis Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-GA3", "player": "Giannis Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-GA4", "player": "Giannis Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-GA5", "player": "Giannis Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-GA6", "player": "Giannis Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-GA7", "player": "Giannis Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-GA8", "player": "Giannis Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-GA9", "player": "Giannis Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-GA10", "player": "Giannis Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-GA11", "player": "Giannis Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-GA12", "player": "Giannis Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-GA13", "player": "Giannis Antetokounmpo", "team": "Milwaukee Bucks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-JT1", "player": "Jayson Tatum", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-JT2", "player": "Jayson Tatum", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-JT3", "player": "Jayson Tatum", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-JT4", "player": "Jayson Tatum", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-JT5", "player": "Jayson Tatum", "team": "Boston Celtics", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-LJ1", "player": "LeBron James", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-LJ2", "player": "LeBron James", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-LJ3", "player": "LeBron James", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-LJ4", "player": "LeBron James", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-LJ5", "player": "LeBron James", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-PB1", "player": "Paolo Banchero", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-PB2", "player": "Paolo Banchero", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-PB3", "player": "Paolo Banchero", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-PB4", "player": "Paolo Banchero", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-PB5", "player": "Paolo Banchero", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-PB6", "player": "Paolo Banchero", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-PB7", "player": "Paolo Banchero", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-PB8", "player": "Paolo Banchero", "team": "Orlando Magic", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-SC1", "player": "Stephen Curry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-SC2", "player": "Stephen Curry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-SC3", "player": "Stephen Curry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-SC4", "player": "Stephen Curry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-SC5", "player": "Stephen Curry", "team": "Golden State Warriors", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-SGA1", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-SGA2", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-SGA3", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-SGA4", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-SGA5", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-SGA6", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-SGA7", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-SGA8", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-SGA9", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-SGA10", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-SGA11", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-SGA12", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-SGA13", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-SGA14", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-SGA15", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-SGA16", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-SGA17", "player": "Shai Gilgeous-Alexander", "team": "Oklahoma City Thunder", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-TM1", "player": "Tyrese Maxey", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-TM2", "player": "Tyrese Maxey", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-TM3", "player": "Tyrese Maxey", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-TM4", "player": "Tyrese Maxey", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-TM5", "player": "Tyrese Maxey", "team": "Philadelphia 76ers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-VW1", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-VW2", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-VW3", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-VW4", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-VW5", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-VW6", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-VW7", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-VW8", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-VW9", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-VW10", "player": "Victor Wembanyama", "team": "San Antonio Spurs", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-JB1", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-JB2", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-JB3", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-JB4", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-JB5", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-JB6", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate I", "code": "DN-JB7", "player": "Jalen Brunson", "team": "New York Knicks", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-AB1", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-AB2", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-AB3", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-AB4", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-AB5", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-AB6", "player": "Ace Bailey", "team": "Utah Jazz", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-CC1", "player": "Cedric Coward", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-CC2", "player": "Cedric Coward", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-CC3", "player": "Cedric Coward", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-CC4", "player": "Cedric Coward", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-CC5", "player": "Cedric Coward", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-CC6", "player": "Cedric Coward", "team": "Memphis Grizzlies", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-CF1", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-CF2", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-CF3", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-CF4", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-CF5", "player": "Cooper Flagg", "team": "Dallas Mavericks", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-DQ1", "player": "Derik Queen", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-DQ2", "player": "Derik Queen", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-DQ3", "player": "Derik Queen", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-DQ4", "player": "Derik Queen", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-DQ5", "player": "Derik Queen", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-HG1", "player": "Hugo González", "team": "Boston Celtics", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-HG2", "player": "Hugo González", "team": "Boston Celtics", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-HG3", "player": "Hugo González", "team": "Boston Celtics", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-HG4", "player": "Hugo González", "team": "Boston Celtics", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-HG5", "player": "Hugo González", "team": "Boston Celtics", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-HG6", "player": "Hugo González", "team": "Boston Celtics", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-HG7", "player": "Hugo González", "team": "Boston Celtics", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-HG8", "player": "Hugo González", "team": "Boston Celtics", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-JF1", "player": "Jeremiah Fears", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-JF2", "player": "Jeremiah Fears", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-JF3", "player": "Jeremiah Fears", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-JF4", "player": "Jeremiah Fears", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-JF5", "player": "Jeremiah Fears", "team": "New Orleans Pelicans", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-KD1", "player": "Kevin Durant", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-KD2", "player": "Kevin Durant", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-KD3", "player": "Kevin Durant", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-KD4", "player": "Kevin Durant", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-KD5", "player": "Kevin Durant", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-KD6", "player": "Kevin Durant", "team": "Houston Rockets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-KK1", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-KK2", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-KK3", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-KK4", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-KK5", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-KK6", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-KK7", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-KK8", "player": "Kon Knueppel", "team": "Charlotte Hornets", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-KL1", "player": "Kawhi Leonard", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-KL2", "player": "Kawhi Leonard", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-KL3", "player": "Kawhi Leonard", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-KL4", "player": "Kawhi Leonard", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-KL5", "player": "Kawhi Leonard", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-KL6", "player": "Kawhi Leonard", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-KL7", "player": "Kawhi Leonard", "team": "Los Angeles Clippers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-LD1", "player": "Luka Dončić", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-LD2", "player": "Luka Dončić", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-LD3", "player": "Luka Dončić", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-LD4", "player": "Luka Dončić", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-LD5", "player": "Luka Dončić", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-LD6", "player": "Luka Dončić", "team": "Los Angeles Lakers", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-NJ1", "player": "Nikola Jokić", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-NJ2", "player": "Nikola Jokić", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-NJ3", "player": "Nikola Jokić", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-NJ4", "player": "Nikola Jokić", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-NJ5", "player": "Nikola Jokić", "team": "Denver Nuggets", "is_rookie": 0, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-TJ1", "player": "Tre Johnson III", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-TJ2", "player": "Tre Johnson III", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-TJ3", "player": "Tre Johnson III", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-TJ4", "player": "Tre Johnson III", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-TJ5", "player": "Tre Johnson III", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-TJ6", "player": "Tre Johnson III", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-TJ7", "player": "Tre Johnson III", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-TJ8", "player": "Tre Johnson III", "team": "Washington Wizards", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-VE1", "player": "VJ Edgecombe", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-VE2", "player": "VJ Edgecombe", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-VE3", "player": "VJ Edgecombe", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-VE4", "player": "VJ Edgecombe", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-VE5", "player": "VJ Edgecombe", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-VE6", "player": "VJ Edgecombe", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-VE7", "player": "VJ Edgecombe", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-VE8", "player": "VJ Edgecombe", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}
+{"subset": "Definitive Nameplate II", "code": "DNP-VE9", "player": "VJ Edgecombe", "team": "Philadelphia 76ers", "is_rookie": 1, "subject_role": "athlete"}

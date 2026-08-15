@@ -13,6 +13,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "240-definitive-basketball-2526",
+    title: "2025-26 Topps Definitive Basketball Added",
+    date: "2026-08-14T00:00:00Z",
+    summary:
+      "Added 2025-26 Topps Definitive Basketball — 978 cards across 27 all-hit subsets (no base set), including the platform's first triple-autograph cards; parallels and pack odds to follow at publication.",
+    description: `## 2025-26 Topps Definitive Basketball
+
+A premium all-hits product — **978 cards across 27 subsets**, every one an autograph and/or relic (no base set). Highlights include the platform's **first triple-autograph cards** (Triple Rookie Autographs and Triple Autographs), on-card Framed and Definitive autograph lines, and the Definitive Nameplate patch collections.
+
+Phase 1 loads the full structure and checklists (visible now in the no-odds state); **parallels and pack odds follow at publication**. Pre-order opens August 18, 2026.`,
+    tags: ["checklist"],
+    setId: 868,
+  },
+  {
     id: "239-set-page-type-tabs",
     title: "Set Pages Restructured: Card-Type Tabs & Always-On Checklists",
     date: "2026-08-14T00:00:00Z",
