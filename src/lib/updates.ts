@@ -13,6 +13,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "241-signature-class-fb-parallels-odds",
+    title: "2025 Topps Signature Class Football: Parallels & Pack Odds",
+    date: "2026-08-14T00:00:00Z",
+    summary:
+      "2025 Topps Signature Class Football: full parallel structure with published print runs and exclusivities, plus pack odds across Hobby, Jumbo, Value, Mega, and Target Mega.",
+    description: `## 2025 Topps Signature Class Football — parallels + odds
+
+Attached the complete **parallel structure** (240 rows) with each parallel's **published print run** and, where the source labels one, its **retail exclusivity** (Value / Mega / Retail box exclusives). Merged the official Topps odds sheet in the same pass: **pack odds across Hobby, Jumbo, Value, Mega, and Target Mega** (274 keys).
+
+The set page now shows the numbered ladders, exclusivity-labeled parallels, and per-format pull odds; the Break Hit Calculator is live for this set.`,
+    tags: ["odds"],
+    setId: 850,
+  },
+  {
     id: "240-definitive-basketball-2526",
     title: "2025-26 Topps Definitive Basketball Added",
     date: "2026-08-14T00:00:00Z",
