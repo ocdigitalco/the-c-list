@@ -13,6 +13,17 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "242-break-sheet-builder-article",
+    title: "New Article: Stop Building Break Sheets by Hand",
+    date: "2026-08-15T00:00:00Z",
+    summary:
+      "Published article: Stop Building Break Sheets by Hand, a guide to the Whatnot Break Sheet Builder.",
+    description: `## Stop Building Break Sheets by Hand
+
+A new guide to the free **Break Sheet Builder** for Whatnot breakers: auto-loaded spots from real checklist data, hit-annotated titles, a live cost/profit readout, and a CSV built for Whatnot's bulk importer.`,
+    tags: ["announcement"],
+  },
+  {
     id: "241-signature-class-fb-parallels-odds",
     title: "2025 Topps Signature Class Football: Parallels & Pack Odds",
     date: "2026-08-14T00:00:00Z",

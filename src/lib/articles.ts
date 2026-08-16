@@ -65,6 +65,109 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    "id": "break-sheet-builder-whatnot",
+    "title": "Stop Building Break Sheets by Hand: How the Checklist\u00b2 Break Sheet Builder Saves Whatnot Breakers Hours on Every Break",
+    "publishedAt": "2026-08-15",
+    "description": "The free Break Sheet Builder on Checklist\u00b2 turns hours of Whatnot break prep into minutes: auto-loaded spots from real checklist data, a live profit readout, and a CSV built for Whatnot bulk import.",
+    "heroImage": "/articles/whatnot-break-sheet-builder-hero.png",
+    "tags": [
+      "breaks",
+      "whatnot",
+      "tools",
+      "beginner"
+    ],
+    "tldr": "The free Break Sheet Builder on Checklist\u00b2 auto-loads every athlete or team spot from real checklist data, annotates each title with its hit context, tracks cost and profit live as you price, and exports a CSV built for Whatnot's bulk importer. It turns hours of break-sheet prep into a few minutes of clicking.",
+    "content": [
+      {
+        "type": "p",
+        "text": "If you break live on Whatnot, you already know the worst part of the job isn't the breaking. It's everything before you go live. Building the break sheet. Listing out every team or player spot, cross-referencing the checklist to price each one fairly, formatting a spreadsheet, and getting it into a shape Whatnot will accept. For a single break it's tedious. Across a full week of scheduled breaks, it's hours of unpaid spreadsheet work standing between you and the camera."
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "The <a href=\"https://www.checklist2.com/break-sheet-builder\">Break Sheet Builder</a> on Checklist\u00b2 was built to delete that work. It's free, it's built specifically for Whatnot breaks, and it turns the sheet-building process from an evening project into a few minutes of clicking."
+      },
+      {
+        "type": "h2",
+        "text": "Built on Real Checklist Data, Not a Blank Spreadsheet"
+      },
+      {
+        "type": "p",
+        "text": "The difference between the Break Sheet Builder and a blank Google Sheet is what's already inside it. Pick a product, say 2025 Topps Resurgence Football, and the builder auto-loads every athlete in the checklist as a ready-made spot row. That's 264 rows generated in seconds, before you've typed a single name."
+      },
+      {
+        "type": "p",
+        "text": "And the rows arrive smart. Each spot title is automatically annotated with that athlete's actual hit context from the checklist, like \"(RC AUTO 2 PARALLELS)\" or \"(AUTO 1 PARALLEL),\" so buyers scrolling your listings can see at a glance who has autograph content, and rookies are flagged automatically. That's the kind of detail that sells spots, and it's generated from the same database that powers Checklist\u00b2's set pages and Break Hit Calculator: full checklists, parallels, print runs, and official Topps pack odds. Live filter chips show you the shape of your break as you work (total rows, autographs, inserts, numbered cards), and one-click tag labels for AUTO, MEM AUTO, RELIC, and RC keep your listings consistent without retyping."
+      },
+      {
+        "type": "h2",
+        "text": "Individual or Team Breaks: Both Formats, One Tool"
+      },
+      {
+        "type": "p",
+        "text": "Whatnot breakers don't run one kind of break, and the builder doesn't assume you do. A single toggle switches the roster between Athletes and Teams. Run a classic pick-your-team break, or a player-based break where buyers chase individual stars. Configure the break itself just as fast: cases or boxes, quantity, and the builder tracks what that means in boxes and autographs. A 12-box case of Resurgence shows its 12 guaranteed autos right in the header."
+      },
+      {
+        "type": "p",
+        "text": "Either way, every spot stays editable. The sheet works like a spreadsheet you already know. Click a cell to edit, use Tab and Enter to move, and drag the corner to fill down a value across dozens of rows at once. Combine small-market spots, split a loaded team, apply one price to everything with a single click, or fill your shipping tier down the whole sheet in one drag. You start at ninety percent done instead of zero, and the last ten percent is fast."
+      },
+      {
+        "type": "h2",
+        "text": "The Built-In ROI Calculator: Know Your Numbers Before You Go Live"
+      },
+      {
+        "type": "p",
+        "text": "Here's where the builder earns its keep beyond saving time. Enter what you paid for the break in the cost field, and the header becomes a live economics dashboard: your total priced revenue, your cost, and your profit, updating with every price you set. A progress bar tracks how much of the sheet you've priced, so a half-finished sheet never sneaks onto Whatnot."
+      },
+      {
+        "type": "p",
+        "text": "Every experienced breaker has felt the sting of finishing a sold-out break and realizing the math never worked. The spot prices covered the hype but not the case cost. The live profit readout makes that impossible to miss before you list. Adjust a few spot prices and watch the margin move in real time. Price with confidence, protect your margin, and walk into every live knowing exactly what a full sell-through pays you."
+      },
+      {
+        "type": "p",
+        "text": "For newer breakers, this alone is worth the visit. Pricing a break correctly is the hardest skill in live breaking, and having the math running live against your actual costs flattens the learning curve considerably."
+      },
+      {
+        "type": "h2",
+        "text": "Whatnot-Ready CSV Export, Down to the Column"
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "When the sheet is done, one click downloads a CSV built for Whatnot's bulk import. This isn't a generic export you'll spend an hour reshaping. The builder's columns mirror Whatnot's product-import schema: title, description, quantity, Buy It Now or Auction type, price, shipping weight, offerability, hazmat, condition, cost per item, SKU, and images. You can set shipping tiers, mark spots offerable, add giveaways, and choose listing type right in the builder, and it all lands in the file exactly where Whatnot expects it. From there, it's a straight run through Whatnot's own <a href=\"https://help.whatnot.com/hc/en-us/articles/7440530071821-Bulk-import-products-from-a-CSV-file\" target=\"_blank\" rel=\"noopener noreferrer\">bulk import from a CSV file</a> flow: build, export, upload, go live."
+      },
+      {
+        "type": "p",
+        "text": "This is worth underlining because it's where the hours actually disappear. The manual workflow isn't slow because typing player names is hard. It's slow because every break sheet has to end up in Whatnot's format anyway, and doing that translation by hand for every single break is pure overhead. The builder ends at the exact file Whatnot needs."
+      },
+      {
+        "type": "p",
+        "text": "One honest note on scope: the Break Sheet Builder is currently designed for Whatnot breaks specifically. It says \"Built for Whatnot\" right in the footer. If you break on Whatnot, the export drops into your workflow as-is. If you break elsewhere, the CSV is still a clean, structured sheet, but Whatnot is what it's built and optimized for today."
+      },
+      {
+        "type": "h2",
+        "text": "Shareable Sheets, Built for How Breakers Actually Work"
+      },
+      {
+        "type": "p",
+        "text": "Every sheet you build lives at a shareable URL. Send it to a co-host to review pricing before the show. Drop it in your Discord so regulars can scope the spots before you list. Pull it back up next week when you're running the same product again and want a head start. Tweak prices, re-export, done. Repeat breaks of the same product go from \"rebuild the sheet\" to \"adjust and export.\""
+      },
+      {
+        "type": "h2",
+        "text": "What This Adds Up To"
+      },
+      {
+        "type": "p",
+        "text": "Time is the one thing a breaker can't buy more of. Every hour spent formatting spreadsheets is an hour not spent going live, engaging buyers, or sourcing the next case. The Break Sheet Builder gives those hours back: a full spot sheet auto-loaded from real checklist data, hit-annotated titles that sell themselves, both athlete and team formats, spreadsheet-fast editing, a live profit readout that guards your margin, and a CSV that drops straight into Whatnot's bulk importer."
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "And it's free. Build your next break sheet at <a href=\"https://www.checklist2.com/break-sheet-builder\">checklist2.com/break-sheet-builder</a>. Your future self, twenty minutes before going live, will thank you."
+      }
+    ]
+  },
+  {
     id: "2025-26-topps-chrome-cactus-jack-basketball",
     title: "2025-26 Topps Chrome Cactus Jack Basketball: Complete Release Guide",
     publishedAt: "2026-06-19",
