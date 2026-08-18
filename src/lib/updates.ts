@@ -13,6 +13,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "243-mint-marvel-2026",
+    title: "2026 Topps Mint Marvel Added",
+    date: "2026-08-17T00:00:00Z",
+    summary:
+      "Added 2026 Topps Mint Marvel — 480 cards across 16 subsets with published print runs and exclusivities (Bronze/Silver/Gold/Platinum tiers, Chrome variations, Cerebro, Mass Symbiote Takeover, autographs, cut signatures, comic-cut relics, and 1/1 sketches). Pack odds to follow.",
+    description: `## 2026 Topps Mint Marvel
+
+A premium Marvel Comics release on thick foil stock with a four-tier base structure (Bronze, Silver, Gold, Platinum /99) plus encased **Chrome variations** serialed /100, /75, /50, /25. Highlights include the 55-card **Cerebro** insert, the 30-card **Mass Symbiote Takeover** insert, **Chrome Autographs** of comic creators and Marvel Studios actors, a **Stan Lee cut signature**, **Spider-Man Comic Cut** relics, and 1/1 **Sketch Cards**.
+
+Phase 1 loads the full structure, **480 cards across 16 subsets**, and **72 published parallel rows** with print runs and box/SDCC exclusivities. Pack odds follow when the odds sheet publishes.`,
+    tags: ["checklist"],
+    setId: 869,
+  },
+  {
     id: "242-break-sheet-builder-article",
     title: "New Article: Stop Building Break Sheets by Hand",
     date: "2026-08-15T00:00:00Z",
