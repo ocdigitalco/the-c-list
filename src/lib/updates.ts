@@ -13,6 +13,18 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "244-mint-marvel-2026-box-config",
+    title: "2026 Topps Mint Marvel: Hobby Box Configuration",
+    date: "2026-08-18T00:00:00Z",
+    summary:
+      "Added the published Hobby box configuration for 2026 Topps Mint Marvel — 10 cards per pack, 1 pack per box, 10 boxes per case.",
+    description: `## 2026 Topps Mint Marvel — Hobby box configuration
+
+Attached the published **Hobby** box configuration: **10 cards per pack**, **1 pack per box**, **10 boxes per case**. The set page now shows the box breakdown. Pack odds remain unpublished and follow when the odds sheet releases.`,
+    tags: ["box-config"],
+    setId: 869,
+  },
+  {
     id: "243-mint-marvel-2026",
     title: "2026 Topps Mint Marvel Added",
     date: "2026-08-17T00:00:00Z",
