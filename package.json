@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "gallery:manifest": "tsx scripts/generate-card-gallery-manifest.ts",
+    "predev": "tsx scripts/generate-card-gallery-manifest.ts",
     "dev": "next dev",
+    "prebuild": "tsx scripts/generate-card-gallery-manifest.ts",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
