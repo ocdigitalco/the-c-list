@@ -120,6 +120,9 @@ async function createSchema() {
     "ALTER TABLE insert_sets ADD COLUMN is_base INTEGER NOT NULL DEFAULT 0",
     "ALTER TABLE insert_sets ADD COLUMN is_relic INTEGER NOT NULL DEFAULT 0",
     "ALTER TABLE insert_sets ADD COLUMN is_booklet INTEGER NOT NULL DEFAULT 0",
+    "ALTER TABLE insert_sets ADD COLUMN print_run INTEGER",
+    "ALTER TABLE insert_sets ADD COLUMN notes TEXT",
+    "ALTER TABLE parallels ADD COLUMN note TEXT",
   ];
   for (const stmt of alterStmts) {
     try {

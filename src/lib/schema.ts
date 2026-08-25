@@ -25,6 +25,8 @@ export const insertSets = sqliteTable("insert_sets", {
   isBase: integer("is_base", { mode: "boolean" }).notNull().default(false),
   isRelic: integer("is_relic", { mode: "boolean" }).notNull().default(false),
   isBooklet: integer("is_booklet", { mode: "boolean" }).notNull().default(false),
+  printRun: integer("print_run"), // subset-level numbered parent ("all cards /X"); null = not a numbered parent
+  notes: text("notes"), // subset-level provenance notes / dq
 });
 
 export const parallels = sqliteTable("parallels", {
@@ -35,6 +37,7 @@ export const parallels = sqliteTable("parallels", {
   name: text("name").notNull(),
   printRun: integer("print_run"), // null = unlimited
   exclusivity: text("exclusivity"), // null = all products; e.g. "Hobby", "Delight"
+  note: text("note"), // per-parallel provenance note (distinct from exclusivity)
 });
 
 export const players = sqliteTable("players", {
