@@ -106,7 +106,7 @@ export interface SubsetChecklist {
   isRelic: boolean;
   isBooklet: boolean;
   cards: { code: string; player: string; team: string | null; isRookie: boolean }[];
-  parallels: { name: string; printRun: number | null }[];
+  parallels: { name: string; printRun: number | null; note?: string | null }[];
 }
 
 // ─── Helpers ────────────────────────────────────────────────────────────────────
@@ -1159,7 +1159,7 @@ function SubsetSection({ subset, tab, showNumbered, oddsFor }: {
             <div key={`${r.name}-${i}`} className="flex items-center" style={{ padding: "8px 12px", borderTop: i > 0 ? "1px solid #F4F1E8" : "none" }}>
               <span style={{ flex: 1, fontSize: 14, color: "#0F0F0E", minWidth: 0 }}>{r.name}</span>
               {showNumberedCol && <span style={{ width: 72, textAlign: "right", fontFamily: FONT_MONO, fontSize: 14, color: "#0F0F0E" }}>{printRunDisplay(r.printRun)}</span>}
-              {showOdds && <span style={{ width: 132, textAlign: "right", fontFamily: FONT_MONO, fontSize: 14, color: "#0F0F0E" }}>{r.odds != null ? (<>{denomToDisplay(r.odds.denom)}{r.odds.format && r.odds.format !== "hobby" && <span style={{ color: "#8A8677", fontSize: 11 }}> · {fmtBoxLabel(r.odds.format)}</span>}</>) : "—"}</span>}
+              {showOdds && <span style={{ width: 132, textAlign: "right", fontFamily: FONT_MONO, fontSize: 14, color: "#0F0F0E" }}>{r.odds != null ? (<>{denomToDisplay(r.odds.denom)}{r.odds.format && r.odds.format !== "hobby" && <span style={{ color: "#8A8677", fontSize: 11 }}> · {fmtBoxLabel(r.odds.format)}</span>}</>) : (r.note ? <span title={r.note} style={{ color: "#8A8677", borderBottom: "1px dotted #B7B2A3", cursor: "help" }}>—</span> : "—")}</span>}
             </div>
           ))}
         </div>
