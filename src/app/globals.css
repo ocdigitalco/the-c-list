@@ -49,7 +49,7 @@ body {
   --brand-accent-deep: #B12C18;
   --brand-slate: #5A5247;
   --brand-fog: #CFC8B8;
-  --brand-font-head: var(--font-inter-tight), 'Inter Tight', 'Inter', system-ui, sans-serif;
+  --brand-font-head: var(--font-carter-one), 'Carter One', system-ui, sans-serif;
   --brand-font-body: var(--font-inter), 'Inter', system-ui, sans-serif;
   --brand-font-mono: var(--font-jetbrains), 'JetBrains Mono', ui-monospace, Menlo, monospace;
 }

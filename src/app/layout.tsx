@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Inter, Inter_Tight, JetBrains_Mono } from "next/font/google";
+import { Carter_One, Inter, Inter_Tight, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import { Header } from "@/components/Header";
 import "./globals.css";
@@ -27,6 +27,12 @@ const interTight = Inter_Tight({
   weight: ["400", "500", "600", "700", "800", "900"],
 });
 
+const carterOne = Carter_One({
+  variable: "--font-carter-one",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains",
   subsets: ["latin"],
@@ -47,7 +53,7 @@ export default function RootLayout({
     <html lang="en" data-theme="light">
       <head />
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${interTight.variable} ${jetbrainsMono.variable} antialiased bg-zinc-950 text-zinc-100 h-screen flex flex-col overflow-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${interTight.variable} ${carterOne.variable} ${jetbrainsMono.variable} antialiased bg-zinc-950 text-zinc-100 h-screen flex flex-col overflow-hidden`}
       >
         <Header />
         <main className="flex-1 overflow-hidden">{children}</main>
