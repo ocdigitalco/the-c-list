@@ -269,11 +269,67 @@ async function triggerRevalidation(setSlug?: string) {
   }
 }
 
+// ── Recompute player stats ───────────────────────────────────────────────────
+// Recompute players.{unique_cards,total_print_run,one_of_ones,insert_set_count}
+// on the LOCAL db BEFORE the sync, so freshly-loaded parallels are reflected in
+// the rows that get pushed to Turso. Mirrors scripts/recompute-unique-cards.ts.
+// Lives here — the single chokepoint every data change crosses before
+// production — so a seeder that forgets to recompute can't ship stale stats
+// (the bug this guards against). Idempotent: pure function of current data.
+function recomputePlayerStats() {
+  const players = localDb.prepare("SELECT id FROM players").all() as { id: number }[];
+  // A player's cards = their own appearances UNION co-subject links (dedup).
+  const getAppearances = localDb.prepare(
+    `SELECT id, insert_set_id FROM player_appearances WHERE player_id = ?
+     UNION
+     SELECT pa.id, pa.insert_set_id
+     FROM player_appearances pa
+     INNER JOIN appearance_co_players cp ON cp.appearance_id = pa.id
+     WHERE cp.co_player_id = ?`
+  );
+  const getParallels = localDb.prepare(
+    "SELECT print_run FROM parallels WHERE insert_set_id = ?"
+  );
+  const updatePlayer = localDb.prepare(
+    "UPDATE players SET unique_cards = ?, total_print_run = ?, one_of_ones = ?, insert_set_count = ? WHERE id = ?"
+  );
+
+  const tx = localDb.transaction(() => {
+    for (const player of players) {
+      const appearances = getAppearances.all(player.id, player.id) as {
+        id: number;
+        insert_set_id: number;
+      }[];
+      const insertSetIds = new Set(appearances.map((a) => a.insert_set_id));
+      let uniqueCards = 0;
+      let totalPrintRun = 0;
+      let oneOfOnes = 0;
+      for (const { insert_set_id } of appearances) {
+        uniqueCards += 1; // base card
+        const pars = getParallels.all(insert_set_id) as { print_run: number | null }[];
+        for (const par of pars) {
+          uniqueCards += 1;
+          if (par.print_run !== null) {
+            totalPrintRun += 1; // count of numbered parallels, not sum of runs
+            if (par.print_run === 1) oneOfOnes += 1;
+          }
+        }
+      }
+      updatePlayer.run(uniqueCards, totalPrintRun, oneOfOnes, insertSetIds.size, player.id);
+    }
+  });
+  tx();
+  console.log(`  Recomputed stats for ${players.length} players.`);
+}
+
 // ── Main ─────────────────────────────────────────────────────────────────────
 
 async function main() {
   console.log(`Migrating local SQLite → Turso`);
   console.log(`Target: ${TURSO_URL}\n`);
+
+  console.log("Recomputing player stats (local)...");
+  recomputePlayerStats();
 
   await createSchema();
   await migrateData();
