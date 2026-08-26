@@ -594,17 +594,11 @@ export default async function V2AthletePage({
        CAST(MAX(CASE WHEN pa.is_rookie = 1 THEN 1 ELSE 0 END) AS INTEGER) AS isRookie,
        tm.team AS team,
        COUNT(DISTINCT CASE
-         WHEN lower(i.name) LIKE '%auto%'
-           OR lower(i.name) LIKE '%signature%'
-           OR lower(i.name) LIKE '%signed%'
-           OR lower(i.name) LIKE '%autograph%'
+         WHEN i.is_autograph = 1
          THEN pa.insert_set_id END) AS autographs,
        COUNT(DISTINCT CASE
          WHEN i.name != 'Base Set'
-           AND lower(i.name) NOT LIKE '%auto%'
-           AND lower(i.name) NOT LIKE '%signature%'
-           AND lower(i.name) NOT LIKE '%signed%'
-           AND lower(i.name) NOT LIKE '%autograph%'
+           AND i.is_autograph = 0
          THEN pa.insert_set_id END) AS inserts,
        COALESCE(n.cnt, 0) AS numberedParallels,
        p.nba_player_id AS nbaPlayerId,
@@ -694,10 +688,11 @@ export default async function V2AthletePage({
     parallels: is.parallels.map((p) => ({ id: p.id, name: p.name, printRun: p.printRun })),
   }));
 
-  // Compute autograph stats for the stat strip
-  const autoInsertSets = playerInsertSets.filter((is) =>
-    is.isAutograph || autoKeywords.some((kw) => is.insertSetName.toLowerCase().includes(kw))
-  );
+  // Compute autograph stats for the stat strip. Use the is_autograph flag as the
+  // single definition (matches the leaderboard column, the card-type list, and
+  // the set page's totalAutoCards) — a name-keyword net wrongly counts pure relic
+  // subsets like "Real One Relics" (is_autograph=0) as autographs.
+  const autoInsertSets = playerInsertSets.filter((is) => is.isAutograph);
   const athleteAutographs = autoInsertSets.reduce((sum, is) => sum + is.appearances.length, 0);
   // "Auto Parallels" counts all parallels on the player's autograph subsets — same
   // definition as the set page (no print_run filter); sets whose autos are
