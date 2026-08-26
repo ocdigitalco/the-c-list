@@ -131,6 +131,10 @@ function fmtBoxLabel(key: string): string {
 // most representative; the resolver tags the value when it isn't hobby.
 const ODDS_FORMAT_PREFERENCE = [
   "hobby", "jumbo", "value", "mega", "hanger", "fat_pack", "fanatics", "london_mega", "walmart_mega",
+  // Phase 3 formats (official Topps sheet order); non-hobby → tagged.
+  "hobby_silver_pack", "jumbo_silver_pack", "super_box", "super_box_oversized", "bulk_packs",
+  "club_super_box", "club_super_box_oversized", "kids_mega", "club_ex_box_sams",
+  "club_ex_box_sams_oversized", "gc_white_slip_sheets",
 ];
 
 function isMultiConfig(cfg: BoxConfigSingle | BoxConfigMulti): cfg is BoxConfigMulti {
