@@ -126,6 +126,13 @@ function fmtBoxLabel(key: string): string {
   return BOX_LABEL_MAP[key] ?? key.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
+// Order the Pack Odds column falls through when a parallel's odds live in only
+// some formats. Prefers what a typical buyer opens, so the shown value is the
+// most representative; the resolver tags the value when it isn't hobby.
+const ODDS_FORMAT_PREFERENCE = [
+  "hobby", "jumbo", "value", "mega", "hanger", "fat_pack", "fanatics", "london_mega", "walmart_mega",
+];
+
 function isMultiConfig(cfg: BoxConfigSingle | BoxConfigMulti): cfg is BoxConfigMulti {
   const first = Object.values(cfg)[0];
   return first !== null && typeof first === "object";
@@ -1097,14 +1104,14 @@ function chipsFor(s: SubsetChecklist, tab: CardTab): { label: string; accent?: b
 function SubsetSection({ subset, tab, showNumbered, oddsFor }: {
   subset: SubsetChecklist; tab: CardTab;
   showNumbered: boolean;
-  oddsFor: (parallelName: string) => number | null;
+  oddsFor: (parallelName: string) => { denom: number; format: string | null } | null;
 }) {
   const chips = chipsFor(subset, tab);
   const pars = subset.parallels;
   // Per-set states: show Numbered col when the set has numbered parallels;
   // show Pack Odds col when any of this subset's parallels resolves an odds value.
-  const oddsRows = pars.map((p) => ({ ...p, denom: oddsFor(p.name) }));
-  const showOdds = oddsRows.some((r) => r.denom != null);
+  const oddsRows = pars.map((p) => ({ ...p, odds: oddsFor(p.name) }));
+  const showOdds = oddsRows.some((r) => r.odds != null);
   const showNumberedCol = showNumbered && pars.some((p) => p.printRun != null);
 
   return (
@@ -1146,13 +1153,13 @@ function SubsetSection({ subset, tab, showNumbered, oddsFor }: {
           <div className="flex items-center" style={{ padding: "8px 12px", borderBottom: "1px solid #EDEAE0" }}>
             <span style={{ flex: 1, fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.4, color: "#8A8677", textTransform: "uppercase" }}>Parallel</span>
             {showNumberedCol && <span style={{ width: 72, textAlign: "right", fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.4, color: "#8A8677", textTransform: "uppercase" }}>Numbered</span>}
-            {showOdds && <span style={{ width: 100, textAlign: "right", fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.4, color: "#8A8677", textTransform: "uppercase" }}>Pack Odds</span>}
+            {showOdds && <span style={{ width: 132, textAlign: "right", fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.4, color: "#8A8677", textTransform: "uppercase" }}>Pack Odds</span>}
           </div>
           {oddsRows.map((r, i) => (
             <div key={`${r.name}-${i}`} className="flex items-center" style={{ padding: "8px 12px", borderTop: i > 0 ? "1px solid #F4F1E8" : "none" }}>
               <span style={{ flex: 1, fontSize: 14, color: "#0F0F0E", minWidth: 0 }}>{r.name}</span>
               {showNumberedCol && <span style={{ width: 72, textAlign: "right", fontFamily: FONT_MONO, fontSize: 14, color: "#0F0F0E" }}>{printRunDisplay(r.printRun)}</span>}
-              {showOdds && <span style={{ width: 100, textAlign: "right", fontFamily: FONT_MONO, fontSize: 14, color: "#0F0F0E" }}>{r.denom != null ? denomToDisplay(r.denom) : "—"}</span>}
+              {showOdds && <span style={{ width: 132, textAlign: "right", fontFamily: FONT_MONO, fontSize: 14, color: "#0F0F0E" }}>{r.odds != null ? (<>{denomToDisplay(r.odds.denom)}{r.odds.format && r.odds.format !== "hobby" && <span style={{ color: "#8A8677", fontSize: 11 }}> · {fmtBoxLabel(r.odds.format)}</span>}</>) : "—"}</span>}
             </div>
           ))}
         </div>
@@ -1164,7 +1171,7 @@ function SubsetSection({ subset, tab, showNumbered, oddsFor }: {
 function CardTypeTabContent({ tab, subsets, hasNumberedParallels, oddsResolver }: {
   tab: CardTab; subsets: SubsetChecklist[];
   hasNumberedParallels: boolean;
-  oddsResolver: (subsetName: string, parallelName: string) => number | null;
+  oddsResolver: (subsetName: string, parallelName: string) => { denom: number; format: string | null } | null;
 }) {
   const members = subsets.filter((s) => subsetInTab(s, tab));
   if (members.length === 0) return <EmptyTab label="No cards in this category" />;
@@ -1211,27 +1218,39 @@ export function SetDetailClient({
   // Primary-format pack-odds lookup (nested → first format; flat → itself),
   // keyed by odds key. Used to resolve a subset's parallel pull odds for the
   // Pack Odds column. Single source; matching tolerates key composition.
-  const primaryOdds = useMemo<Record<string, number> | null>(() => {
+  // Per-format normalized odds for the Pack Odds column, ordered by the buyer
+  // preference above. A parallel's odds can live in only one format (e.g.
+  // Sandglitter is jumbo-only, the Union Jack foils are London Mega-only), so
+  // resolving against a single format dropped many parallels to "—". flat
+  // (non-nested) pack_odds stays a single unlabeled format → renders as today.
+  const oddsByFormat = useMemo<{ format: string | null; odds: Record<string, number> }[] | null>(() => {
     if (!packOdds) return null;
     try {
-      const raw = JSON.parse(packOdds);
+      const raw = JSON.parse(packOdds) as Record<string, unknown>;
       const firstVal = Object.values(raw)[0];
       const isNested = firstVal !== null && typeof firstVal === "object";
-      const data = isNested ? (Object.values(raw)[0] as Record<string, unknown>) : (raw as Record<string, unknown>);
-      return normalizeOddsObj(data);
+      if (!isNested) return [{ format: null, odds: normalizeOddsObj(raw) }];
+      const nested = raw as Record<string, Record<string, unknown>>;
+      const ordered = [
+        ...ODDS_FORMAT_PREFERENCE.filter((f) => f in nested),
+        ...Object.keys(nested).filter((f) => !ODDS_FORMAT_PREFERENCE.includes(f)),
+      ];
+      return ordered.map((f) => ({ format: f, odds: normalizeOddsObj(nested[f]) }));
     } catch { return null; }
   }, [packOdds]);
 
   const oddsResolver = useMemo(() => {
-    const keys = primaryOdds ? Object.keys(primaryOdds) : [];
-    return (subsetName: string, parallelName: string): number | null => {
-      if (!primaryOdds) return null;
+    return (subsetName: string, parallelName: string): { denom: number; format: string | null } | null => {
+      if (!oddsByFormat) return null;
       const composed = `${subsetName} ${parallelName}`;
-      if (primaryOdds[composed] != null) return primaryOdds[composed];
-      const found = findOddsKey(composed, keys);
-      return found && primaryOdds[found] != null ? primaryOdds[found] : null;
+      for (const { format, odds } of oddsByFormat) {
+        if (odds[composed] != null) return { denom: odds[composed], format };
+        const found = findOddsKey(composed, Object.keys(odds));
+        if (found && odds[found] != null) return { denom: odds[found], format };
+      }
+      return null;
     };
-  }, [primaryOdds]);
+  }, [oddsByFormat]);
 
   // Dynamic tab list: Overview + any card-type tab that has member subsets.
   const cardTabs = useMemo(
