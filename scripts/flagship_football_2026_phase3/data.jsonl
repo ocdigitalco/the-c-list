@@ -1,0 +1,932 @@
+{"name": "Real One Autographs Base", "odds": {"Hobby": "1:3,181", "Jumbo": "1:888", "Hanger": "1:2,854", "Fat Pack": "1:4,108", "Value": "1:11,536", "Mega": "1:10,730", "Fanatics": "1:9,120", "Bulk Packs": "1:17,157", "London Mega": "1:7,671", "Walmart Mega": "1:5,034"}, "variant": null}
+{"name": "Real One Autographs Green", "odds": {"Hobby": "1:3,407", "Jumbo": "1:912", "Hanger": "1:3,326", "Fat Pack": "1:4,788", "Value": "1:15,851", "Mega": "1:13,627", "Fanatics": "1:11,215", "Bulk Packs": "1:25,662", "London Mega": "1:8,986", "Walmart Mega": "1:5,428"}, "variant": null}
+{"name": "Real One Autographs Gold", "odds": {"Hobby": "1:4,291", "Jumbo": "1:1,334", "Hanger": "1:8,701", "Fat Pack": "1:23,498", "Value": "1:43,471", "Mega": "1:43,530", "Fanatics": "1:4,193,549", "Bulk Packs": "1:27,109", "London Mega": "1:166,029", "Walmart Mega": "1:16,581"}, "variant": null}
+{"name": "Real One Autographs Orange", "odds": {"Hobby": "1:8,388", "Jumbo": "1:2,605", "Hanger": "1:16,913", "Fat Pack": "1:45,969", "Value": "1:84,746", "Mega": "1:85,135", "Fanatics": "1:8,125,000", "Bulk Packs": "1:52,782", "London Mega": "1:326,634", "Walmart Mega": "1:32,505"}, "variant": null}
+{"name": "Real One Autographs Black", "odds": {"Hobby": "1:20,332", "Jumbo": "1:6,331", "Hanger": "1:40,772", "Fat Pack": "1:111,445", "Value": "1:208,668", "Mega": "1:210,527", "Fanatics": "1:751,446", "Bulk Packs": "1:129,225", "London Mega": "1:802,470", "Walmart Mega": "1:78,008"}, "variant": null}
+{"name": "Real One Autographs Red", "odds": {"Hobby": "1:40,279", "Jumbo": "1:12,556", "Hanger": "1:84,746", "Fat Pack": "1:220,526", "Value": "1:400,001", "Mega": "1:416,667", "Fanatics": "1:37,142,858", "Bulk Packs": "1:255,153", "London Mega": "1:1,575,758", "Walmart Mega": "1:153,665"}, "variant": null}
+{"name": "Real One Autographs Foilfractor", "odds": {"Hobby": "1:202,178", "Jumbo": "1:62,306", "Hanger": "1:435,511", "Fat Pack": "1:1,111,112", "Value": "1:2,113,822", "Mega": "1:2,063,493", "Fanatics": "1:778,444", "Bulk Packs": "1:1,313,132", "London Mega": "1:7,878,788", "Walmart Mega": "1:830,671"}, "variant": null}
+{"name": "Base Cards Base", "odds": {"Hobby": "1:1", "Jumbo": "1:1", "Hanger": "1:1", "Fat Pack": "1:1", "Value": "1:1", "Mega": "1:1", "Fanatics": "1:1", "Bulk Packs": "1:1", "Kids Mega": "1:1", "Walmart Mega": "1:1"}, "variant": null}
+{"name": "FUTURE STARS Base", "odds": {"Hobby": "1:4", "Jumbo": "1:2", "Hanger": "1:1", "Fat Pack": "1:2", "Value": "1:4", "Mega": "1:3", "Fanatics": "1:5", "Bulk Packs": "1:4", "Kids Mega": "1:4", "Walmart Mega": "1:4"}, "variant": null}
+{"name": "Team Cards Base", "odds": {"Hobby": "1:4", "Jumbo": "1:2", "Hanger": "1:1", "Fat Pack": "1:2", "Value": "1:4", "Mega": "1:3", "Fanatics": "1:5", "Bulk Packs": "1:4", "Kids Mega": "1:4", "Walmart Mega": "1:4"}, "variant": null}
+{"name": "League Leaders Base", "odds": {"Hobby": "1:4", "Jumbo": "1:2", "Hanger": "1:1", "Fat Pack": "1:2", "Value": "1:4", "Mega": "1:3", "Fanatics": "1:5", "Bulk Packs": "1:4", "Kids Mega": "1:4", "Walmart Mega": "1:4"}, "variant": null}
+{"name": "Combo Cards Base", "odds": {"Hobby": "1:4", "Jumbo": "1:2", "Hanger": "1:1", "Fat Pack": "1:2", "Value": "1:4", "Mega": "1:3", "Fanatics": "1:5", "Bulk Packs": "1:4", "Kids Mega": "1:4", "Walmart Mega": "1:4"}, "variant": null}
+{"name": "Base Cards Rainbow Foil", "odds": {"Hobby": "1:68", "Jumbo": "1:14", "Hanger": "1:14", "Fat Pack": "1:28", "Value": "1:82", "Mega": "1:82", "Fanatics": "1:61", "Bulk Packs": "1:55", "London Mega": "1:82", "Kids Mega": "1:80", "Walmart Mega": "1:82"}, "variant": null}
+{"name": "FUTURE STARS Rainbow Foil", "odds": {"Hobby": "1:406", "Jumbo": "1:82", "Hanger": "1:82", "Fat Pack": "1:163", "Value": "1:487", "Mega": "1:487", "Fanatics": "1:365", "Bulk Packs": "1:325", "London Mega": "1:487", "Kids Mega": "1:481", "Walmart Mega": "1:487"}, "variant": null}
+{"name": "Team Cards Rainbow Foil", "odds": {"Hobby": "1:406", "Jumbo": "1:82", "Hanger": "1:82", "Fat Pack": "1:163", "Value": "1:487", "Mega": "1:487", "Fanatics": "1:365", "Bulk Packs": "1:325", "London Mega": "1:487", "Kids Mega": "1:481", "Walmart Mega": "1:487"}, "variant": null}
+{"name": "League Leaders Rainbow Foil", "odds": {"Hobby": "1:406", "Jumbo": "1:82", "Hanger": "1:82", "Fat Pack": "1:163", "Value": "1:487", "Mega": "1:487", "Fanatics": "1:365", "Bulk Packs": "1:325", "London Mega": "1:487", "Kids Mega": "1:481", "Walmart Mega": "1:487"}, "variant": null}
+{"name": "Combo Cards Rainbow Foil", "odds": {"Hobby": "1:406", "Jumbo": "1:82", "Hanger": "1:82", "Fat Pack": "1:163", "Value": "1:487", "Mega": "1:487", "Fanatics": "1:365", "Bulk Packs": "1:325", "London Mega": "1:487", "Kids Mega": "1:481", "Walmart Mega": "1:487"}, "variant": null}
+{"name": "Base Cards Aqua Rainbow Foil", "odds": {"Hobby": "1:1,680", "Jumbo": "1:334"}, "variant": null}
+{"name": "FUTURE STARS Aqua Rainbow Foil", "odds": {"Hobby": "1:10,080", "Jumbo": "1:2,000"}, "variant": null}
+{"name": "Team Cards Aqua Rainbow Foil", "odds": {"Hobby": "1:10,080", "Jumbo": "1:2,000"}, "variant": null}
+{"name": "League Leaders Aqua Rainbow Foil", "odds": {"Hobby": "1:10,080", "Jumbo": "1:2,000"}, "variant": null}
+{"name": "Combo Cards Aqua Rainbow Foil", "odds": {"Hobby": "1:10,080", "Jumbo": "1:2,000"}, "variant": null}
+{"name": "Base Cards Gold", "odds": {"Hobby": "1:142", "Jumbo": "1:24", "Hanger": "1:89", "Fat Pack": "1:166", "Value": "1:356", "Mega": "1:407", "Fanatics": "1:229", "Walmart Mega": "1:1,526"}, "variant": null}
+{"name": "FUTURE STARS Gold", "odds": {"Hobby": "1:863", "Jumbo": "1:141", "Hanger": "1:542", "Fat Pack": "1:1,006", "Value": "1:2,167", "Mega": "1:2,477", "Fanatics": "1:1,393", "Walmart Mega": "1:9,286"}, "variant": null}
+{"name": "Team Cards Gold", "odds": {"Hobby": "1:863", "Jumbo": "1:141", "Hanger": "1:542", "Fat Pack": "1:1,006", "Value": "1:2,167", "Mega": "1:2,477", "Fanatics": "1:1,393", "Walmart Mega": "1:9,286"}, "variant": null}
+{"name": "League Leaders Gold", "odds": {"Hobby": "1:863", "Jumbo": "1:141", "Hanger": "1:542", "Fat Pack": "1:1,006", "Value": "1:2,167", "Mega": "1:2,477", "Fanatics": "1:1,393", "Walmart Mega": "1:9,286"}, "variant": null}
+{"name": "Combo Cards Gold", "odds": {"Hobby": "1:863", "Jumbo": "1:141", "Hanger": "1:542", "Fat Pack": "1:1,006", "Value": "1:2,167", "Mega": "1:2,477", "Fanatics": "1:1,393", "Walmart Mega": "1:9,286"}, "variant": null}
+{"name": "Base Cards Black", "odds": {"Hobby": "1:4,161", "Jumbo": "1:677", "Hanger": "1:2,613", "Fat Pack": "1:4,852", "Value": "1:10,451", "Mega": "1:11,943", "Fanatics": "1:6,718", "Walmart Mega": "1:44,785"}, "variant": null}
+{"name": "FUTURE STARS Black", "odds": {"Hobby": "1:25,057", "Jumbo": "1:4,077", "Hanger": "1:15,734", "Fat Pack": "1:29,223", "Value": "1:62,933", "Mega": "1:71,943", "Fanatics": "1:40,454", "Walmart Mega": "1:269,542"}, "variant": null}
+{"name": "Team Cards Black", "odds": {"Hobby": "1:25,057", "Jumbo": "1:4,077", "Hanger": "1:15,734", "Fat Pack": "1:29,223", "Value": "1:62,933", "Mega": "1:71,943", "Fanatics": "1:40,454", "Walmart Mega": "1:269,542"}, "variant": null}
+{"name": "League Leaders Black", "odds": {"Hobby": "1:25,057", "Jumbo": "1:4,077", "Hanger": "1:15,734", "Fat Pack": "1:29,223", "Value": "1:62,933", "Mega": "1:71,943", "Fanatics": "1:40,454", "Walmart Mega": "1:269,542"}, "variant": null}
+{"name": "Combo Cards Black", "odds": {"Hobby": "1:25,057", "Jumbo": "1:4,077", "Hanger": "1:15,734", "Fat Pack": "1:29,223", "Value": "1:62,933", "Mega": "1:71,943", "Fanatics": "1:40,454", "Walmart Mega": "1:269,542"}, "variant": null}
+{"name": "Base Cards Independence Day", "odds": {"Hobby": "1:3,833", "Jumbo": "1:624", "Hanger": "1:2,407", "Fat Pack": "1:4,470", "Value": "1:9,626", "Mega": "1:11,001", "Fanatics": "1:6,188", "Walmart Mega": "1:41,251"}, "variant": null}
+{"name": "FUTURE STARS Independence Day", "odds": {"Hobby": "1:23,037", "Jumbo": "1:3,748", "Hanger": "1:14,466", "Fat Pack": "1:26,868", "Value": "1:57,871", "Mega": "1:66,138", "Fanatics": "1:37,203", "Walmart Mega": "1:248,139"}, "variant": null}
+{"name": "Team Cards Independence Day", "odds": {"Hobby": "1:23,037", "Jumbo": "1:3,748", "Hanger": "1:14,466", "Fat Pack": "1:26,868", "Value": "1:57,871", "Mega": "1:66,138", "Fanatics": "1:37,203", "Walmart Mega": "1:248,139"}, "variant": null}
+{"name": "League Leaders Independence Day", "odds": {"Hobby": "1:23,037", "Jumbo": "1:3,748", "Hanger": "1:14,466", "Fat Pack": "1:26,868", "Value": "1:57,871", "Mega": "1:66,138", "Fanatics": "1:37,203", "Walmart Mega": "1:248,139"}, "variant": null}
+{"name": "Combo Cards Independence Day", "odds": {"Hobby": "1:23,037", "Jumbo": "1:3,748", "Hanger": "1:14,466", "Fat Pack": "1:26,868", "Value": "1:57,871", "Mega": "1:66,138", "Fanatics": "1:37,203", "Walmart Mega": "1:248,139"}, "variant": null}
+{"name": "Base Cards Canvas", "odds": {"Hobby": "1:5,825", "Jumbo": "1:948", "Hanger": "1:3,658", "Fat Pack": "1:6,793", "Value": "1:14,630", "Mega": "1:16,721", "Fanatics": "1:9,405", "Walmart Mega": "1:62,702"}, "variant": null}
+{"name": "FUTURE STARS Canvas", "odds": {"Hobby": "1:35,125", "Jumbo": "1:5,716", "Hanger": "1:22,061", "Fat Pack": "1:40,967", "Value": "1:88,262", "Mega": "1:100,807", "Fanatics": "1:56,722", "Walmart Mega": "1:378,788"}, "variant": null}
+{"name": "Team Cards Canvas", "odds": {"Hobby": "1:35,125", "Jumbo": "1:5,716", "Hanger": "1:22,061", "Fat Pack": "1:40,967", "Value": "1:88,262", "Mega": "1:100,807", "Fanatics": "1:56,722", "Walmart Mega": "1:378,788"}, "variant": null}
+{"name": "League Leaders Canvas", "odds": {"Hobby": "1:35,125", "Jumbo": "1:5,716", "Hanger": "1:22,061", "Fat Pack": "1:40,967", "Value": "1:88,262", "Mega": "1:100,807", "Fanatics": "1:56,722", "Walmart Mega": "1:378,788"}, "variant": null}
+{"name": "Combo Cards Canvas", "odds": {"Hobby": "1:35,125", "Jumbo": "1:5,716", "Hanger": "1:22,061", "Fat Pack": "1:40,967", "Value": "1:88,262", "Mega": "1:100,807", "Fanatics": "1:56,722", "Walmart Mega": "1:378,788"}, "variant": null}
+{"name": "Base Cards Heavy Hitters", "odds": {}, "variant": null}
+{"name": "FUTURE STARS Heavy Hitters", "odds": {}, "variant": null}
+{"name": "Team Cards Heavy Hitters", "odds": {}, "variant": null}
+{"name": "League Leaders Heavy Hitters", "odds": {}, "variant": null}
+{"name": "Combo Cards Heavy Hitters", "odds": {}, "variant": null}
+{"name": "Base Cards Camo", "odds": {"Hobby": "1:11,655", "Jumbo": "1:1,896", "Hanger": "1:7,318", "Fat Pack": "1:13,591", "Value": "1:29,272", "Mega": "1:33,455", "Fanatics": "1:18,818", "Walmart Mega": "1:125,459"}, "variant": null}
+{"name": "FUTURE STARS Camo", "odds": {"Hobby": "1:70,572", "Jumbo": "1:11,479", "Hanger": "1:44,307", "Fat Pack": "1:82,305", "Value": "1:177,305", "Mega": "1:202,430", "Fanatics": "1:113,896", "Walmart Mega": "1:757,576"}, "variant": null}
+{"name": "Team Cards Camo", "odds": {"Hobby": "1:70,572", "Jumbo": "1:11,479", "Hanger": "1:44,307", "Fat Pack": "1:82,305", "Value": "1:177,305", "Mega": "1:202,430", "Fanatics": "1:113,896", "Walmart Mega": "1:757,576"}, "variant": null}
+{"name": "League Leaders Camo", "odds": {"Hobby": "1:70,572", "Jumbo": "1:11,479", "Hanger": "1:44,307", "Fat Pack": "1:82,305", "Value": "1:177,305", "Mega": "1:202,430", "Fanatics": "1:113,896", "Walmart Mega": "1:757,576"}, "variant": null}
+{"name": "Combo Cards Camo", "odds": {"Hobby": "1:70,572", "Jumbo": "1:11,479", "Hanger": "1:44,307", "Fat Pack": "1:82,305", "Value": "1:177,305", "Mega": "1:202,430", "Fanatics": "1:113,896", "Walmart Mega": "1:757,576"}, "variant": null}
+{"name": "Base Cards First Card", "odds": {}, "variant": null}
+{"name": "FUTURE STARS First Card", "odds": {}, "variant": null}
+{"name": "Team Cards First Card", "odds": {}, "variant": null}
+{"name": "League Leaders First Card", "odds": {}, "variant": null}
+{"name": "Combo Cards First Card", "odds": {}, "variant": null}
+{"name": "Base Cards Printing Plate Cyan Print", "odds": {"Hobby": "1:281,021", "Jumbo": "1:45,720", "Hanger": "1:176,439", "Fat Pack": "1:327,787", "Value": "1:705,755", "Mega": "1:806,953", "Fanatics": "1:453,753", "Walmart Mega": "1:3,030,304"}, "variant": null}
+{"name": "FUTURE STARS Printing Plate Cyan Print", "odds": {"Hobby": "1:1,694,916", "Jumbo": "1:273,973", "Hanger": "1:1,063,830", "Fat Pack": "1:1,960,785", "Value": "1:4,166,667", "Mega": "1:4,761,905", "Fanatics": "1:2,702,703", "Walmart Mega": "1:16,666,667"}, "variant": null}
+{"name": "Team Cards Printing Plate Cyan Print", "odds": {"Hobby": "1:1,694,916", "Jumbo": "1:273,973", "Hanger": "1:1,063,830", "Fat Pack": "1:1,960,785", "Value": "1:4,166,667", "Mega": "1:4,761,905", "Fanatics": "1:2,702,703", "Walmart Mega": "1:16,666,667"}, "variant": null}
+{"name": "League Leaders Printing Plate Cyan Print", "odds": {"Hobby": "1:1,694,916", "Jumbo": "1:273,973", "Hanger": "1:1,063,830", "Fat Pack": "1:1,960,785", "Value": "1:4,166,667", "Mega": "1:4,761,905", "Fanatics": "1:2,702,703", "Walmart Mega": "1:16,666,667"}, "variant": null}
+{"name": "Combo Cards Printing Plate Cyan Print", "odds": {"Hobby": "1:1,639,345", "Jumbo": "1:268,818", "Hanger": "1:1,041,667", "Fat Pack": "1:1,923,077", "Value": "1:4,166,667", "Mega": "1:4,761,905", "Fanatics": "1:2,702,703"}, "variant": null}
+{"name": "Base Cards Printing Plate Magenta Print", "odds": {"Hobby": "1:281,021", "Jumbo": "1:45,720", "Hanger": "1:176,439", "Fat Pack": "1:327,787", "Value": "1:705,755", "Mega": "1:806,953", "Fanatics": "1:453,753", "Walmart Mega": "1:3,030,304"}, "variant": null}
+{"name": "FUTURE STARS Printing Plate Magenta Print", "odds": {"Hobby": "1:1,694,916", "Jumbo": "1:273,973", "Hanger": "1:1,063,830", "Fat Pack": "1:1,960,785", "Value": "1:4,166,667", "Mega": "1:4,761,905", "Fanatics": "1:2,702,703", "Walmart Mega": "1:16,666,667"}, "variant": null}
+{"name": "Team Cards Printing Plate Magenta Print", "odds": {"Hobby": "1:1,694,916", "Jumbo": "1:273,973", "Hanger": "1:1,063,830", "Fat Pack": "1:1,960,785", "Value": "1:4,166,667", "Mega": "1:4,761,905", "Fanatics": "1:2,702,703", "Walmart Mega": "1:16,666,667"}, "variant": null}
+{"name": "League Leaders Printing Plate Magenta Print", "odds": {"Hobby": "1:1,694,916", "Jumbo": "1:273,973", "Hanger": "1:1,063,830", "Fat Pack": "1:1,960,785", "Value": "1:4,166,667", "Mega": "1:4,761,905", "Fanatics": "1:2,702,703", "Walmart Mega": "1:16,666,667"}, "variant": null}
+{"name": "Combo Cards Printing Plate Magenta Print", "odds": {"Hobby": "1:1,639,345", "Jumbo": "1:268,818", "Hanger": "1:1,041,667", "Fat Pack": "1:1,923,077", "Value": "1:4,166,667", "Mega": "1:4,761,905", "Fanatics": "1:2,702,703"}, "variant": null}
+{"name": "Base Cards Printing Plate Black Print", "odds": {"Hobby": "1:281,021", "Jumbo": "1:45,720", "Hanger": "1:176,439", "Fat Pack": "1:327,787", "Value": "1:705,755", "Mega": "1:806,953", "Fanatics": "1:453,753", "Walmart Mega": "1:3,030,304"}, "variant": null}
+{"name": "FUTURE STARS Printing Plate Black Print", "odds": {"Hobby": "1:1,694,916", "Jumbo": "1:273,973", "Hanger": "1:1,063,830", "Fat Pack": "1:1,960,785", "Value": "1:4,166,667", "Mega": "1:4,761,905", "Fanatics": "1:2,702,703", "Walmart Mega": "1:16,666,667"}, "variant": null}
+{"name": "Team Cards Printing Plate Black Print", "odds": {"Hobby": "1:1,694,916", "Jumbo": "1:273,973", "Hanger": "1:1,063,830", "Fat Pack": "1:1,960,785", "Value": "1:4,166,667", "Mega": "1:4,761,905", "Fanatics": "1:2,702,703", "Walmart Mega": "1:16,666,667"}, "variant": null}
+{"name": "League Leaders Printing Plate Black Print", "odds": {"Hobby": "1:1,694,916", "Jumbo": "1:273,973", "Hanger": "1:1,063,830", "Fat Pack": "1:1,960,785", "Value": "1:4,166,667", "Mega": "1:4,761,905", "Fanatics": "1:2,702,703", "Walmart Mega": "1:16,666,667"}, "variant": null}
+{"name": "Combo Cards Printing Plate Black Print", "odds": {"Hobby": "1:1,639,345", "Jumbo": "1:268,818", "Hanger": "1:1,041,667", "Fat Pack": "1:1,923,077", "Value": "1:4,166,667", "Mega": "1:4,761,905", "Fanatics": "1:2,702,703"}, "variant": null}
+{"name": "Base Cards Printing Plate Yellow Print", "odds": {"Hobby": "1:281,021", "Jumbo": "1:45,720", "Hanger": "1:176,439", "Fat Pack": "1:327,787", "Value": "1:705,755", "Mega": "1:806,953", "Fanatics": "1:453,753", "Walmart Mega": "1:3,030,304"}, "variant": null}
+{"name": "FUTURE STARS Printing Plate Yellow Print", "odds": {"Hobby": "1:1,694,916", "Jumbo": "1:273,973", "Hanger": "1:1,063,830", "Fat Pack": "1:1,960,785", "Value": "1:4,166,667", "Mega": "1:4,761,905", "Fanatics": "1:2,702,703", "Walmart Mega": "1:16,666,667"}, "variant": null}
+{"name": "Team Cards Printing Plate Yellow Print", "odds": {"Hobby": "1:1,694,916", "Jumbo": "1:273,973", "Hanger": "1:1,063,830", "Fat Pack": "1:1,960,785", "Value": "1:4,166,667", "Mega": "1:4,761,905", "Fanatics": "1:2,702,703", "Walmart Mega": "1:16,666,667"}, "variant": null}
+{"name": "League Leaders Printing Plate Yellow Print", "odds": {"Hobby": "1:1,694,916", "Jumbo": "1:273,973", "Hanger": "1:1,063,830", "Fat Pack": "1:1,960,785", "Value": "1:4,166,667", "Mega": "1:4,761,905", "Fanatics": "1:2,702,703", "Walmart Mega": "1:16,666,667"}, "variant": null}
+{"name": "Combo Cards Printing Plate Yellow Print", "odds": {"Hobby": "1:1,639,345", "Jumbo": "1:268,818", "Hanger": "1:1,041,667", "Fat Pack": "1:1,923,077", "Value": "1:4,166,667", "Mega": "1:4,761,905", "Fanatics": "1:2,702,703"}, "variant": null}
+{"name": "Base Cards Yellow Rainbow Foil", "odds": {}, "variant": null}
+{"name": "FUTURE STARS Yellow Rainbow Foil", "odds": {}, "variant": null}
+{"name": "Team Cards Yellow Rainbow Foil", "odds": {}, "variant": null}
+{"name": "League Leaders Yellow Rainbow Foil", "odds": {}, "variant": null}
+{"name": "Combo Cards Yellow Rainbow Foil", "odds": {}, "variant": null}
+{"name": "Base Cards Purple Rainbow Foil", "odds": {}, "variant": null}
+{"name": "FUTURE STARS Purple Rainbow Foil", "odds": {}, "variant": null}
+{"name": "Team Cards Purple Rainbow Foil", "odds": {}, "variant": null}
+{"name": "League Leaders Purple Rainbow Foil", "odds": {}, "variant": null}
+{"name": "Combo Cards Purple Rainbow Foil", "odds": {}, "variant": null}
+{"name": "Base Cards Blue Rainbow Foil", "odds": {}, "variant": null}
+{"name": "FUTURE STARS Blue Rainbow Foil", "odds": {}, "variant": null}
+{"name": "Team Cards Blue Rainbow Foil", "odds": {}, "variant": null}
+{"name": "League Leaders Blue Rainbow Foil", "odds": {}, "variant": null}
+{"name": "Combo Cards Blue Rainbow Foil", "odds": {}, "variant": null}
+{"name": "Base Cards Green Rainbow Foil", "odds": {"Hobby": "1:1,403", "Jumbo": "1:229"}, "variant": null}
+{"name": "FUTURE STARS Green Rainbow Foil", "odds": {"Hobby": "1:8,415", "Jumbo": "1:1,369"}, "variant": null}
+{"name": "Team Cards Green Rainbow Foil", "odds": {"Hobby": "1:8,415", "Jumbo": "1:1,369"}, "variant": null}
+{"name": "League Leaders Green Rainbow Foil", "odds": {"Hobby": "1:8,415", "Jumbo": "1:1,369"}, "variant": null}
+{"name": "Combo Cards Green Rainbow Foil", "odds": {"Hobby": "1:8,415", "Jumbo": "1:1,369"}, "variant": null}
+{"name": "Base Cards Gold Rainbow Foil", "odds": {"Hobby": "1:2,776", "Jumbo": "1:452"}, "variant": null}
+{"name": "FUTURE STARS Gold Rainbow Foil", "odds": {"Hobby": "1:16,743", "Jumbo": "1:2,724"}, "variant": null}
+{"name": "Team Cards Gold Rainbow Foil", "odds": {"Hobby": "1:16,743", "Jumbo": "1:2,724"}, "variant": null}
+{"name": "League Leaders Gold Rainbow Foil", "odds": {"Hobby": "1:16,743", "Jumbo": "1:2,724"}, "variant": null}
+{"name": "Combo Cards Gold Rainbow Foil", "odds": {"Hobby": "1:16,743", "Jumbo": "1:2,724"}, "variant": null}
+{"name": "Base Cards Orange Rainbow Foil", "odds": {"Hobby": "1:5,554", "Jumbo": "1:904"}, "variant": null}
+{"name": "FUTURE STARS Orange Rainbow Foil", "odds": {"Hobby": "1:33,625", "Jumbo": "1:5,471"}, "variant": null}
+{"name": "Team Cards Orange Rainbow Foil", "odds": {"Hobby": "1:33,625", "Jumbo": "1:5,471"}, "variant": null}
+{"name": "League Leaders Orange Rainbow Foil", "odds": {"Hobby": "1:33,625", "Jumbo": "1:5,471"}, "variant": null}
+{"name": "Combo Cards Orange Rainbow Foil", "odds": {"Hobby": "1:33,625", "Jumbo": "1:5,471"}, "variant": null}
+{"name": "Base Cards Black Rainbow Foil", "odds": {"Hobby": "1:13,880", "Jumbo": "1:2,258"}, "variant": null}
+{"name": "FUTURE STARS Black Rainbow Foil", "odds": {"Hobby": "1:85,471", "Jumbo": "1:13,909"}, "variant": null}
+{"name": "Team Cards Black Rainbow Foil", "odds": {"Hobby": "1:85,471", "Jumbo": "1:13,909"}, "variant": null}
+{"name": "League Leaders Black Rainbow Foil", "odds": {"Hobby": "1:85,471", "Jumbo": "1:13,909"}, "variant": null}
+{"name": "Combo Cards Black Rainbow Foil", "odds": {"Hobby": "1:85,471", "Jumbo": "1:13,909"}, "variant": null}
+{"name": "Base Cards Red Rainbow Foil", "odds": {"Hobby": "1:27,814", "Jumbo": "1:4,525"}, "variant": null}
+{"name": "FUTURE STARS Red Rainbow Foil", "odds": {"Hobby": "1:174,826", "Jumbo": "1:28,418"}, "variant": null}
+{"name": "Team Cards Red Rainbow Foil", "odds": {"Hobby": "1:174,826", "Jumbo": "1:28,418"}, "variant": null}
+{"name": "League Leaders Red Rainbow Foil", "odds": {"Hobby": "1:174,826", "Jumbo": "1:28,418"}, "variant": null}
+{"name": "Combo Cards Red Rainbow Foil", "odds": {"Hobby": "1:174,826", "Jumbo": "1:28,418"}, "variant": null}
+{"name": "Base Cards Foilfractor", "odds": {"Hobby": "1:133,952", "Jumbo": "1:21,790"}, "variant": null}
+{"name": "FUTURE STARS Foilfractor", "odds": {"Hobby": "1:806,452", "Jumbo": "1:130,719"}, "variant": null}
+{"name": "Team Cards Foilfractor", "odds": {"Hobby": "1:806,452", "Jumbo": "1:130,719"}, "variant": null}
+{"name": "League Leaders Foilfractor", "odds": {"Hobby": "1:806,452", "Jumbo": "1:130,719"}, "variant": null}
+{"name": "Combo Cards Foilfractor", "odds": {"Hobby": "1:806,452", "Jumbo": "1:130,719"}, "variant": null}
+{"name": "Base Cards Sandglitter", "odds": {"Jumbo": "1:15"}, "variant": null}
+{"name": "FUTURE STARS Sandglitter", "odds": {"Jumbo": "1:89"}, "variant": null}
+{"name": "Team Cards Sandglitter", "odds": {"Jumbo": "1:89"}, "variant": null}
+{"name": "League Leaders Sandglitter", "odds": {"Jumbo": "1:89"}, "variant": null}
+{"name": "Combo Cards Sandglitter", "odds": {"Jumbo": "1:89"}, "variant": null}
+{"name": "Base Cards Sandglitter Gold", "odds": {"Jumbo": "1:239"}, "variant": null}
+{"name": "FUTURE STARS Sandglitter Gold", "odds": {"Jumbo": "1:1,439"}, "variant": null}
+{"name": "Team Cards Sandglitter Gold", "odds": {"Jumbo": "1:1,439"}, "variant": null}
+{"name": "League Leaders Sandglitter Gold", "odds": {"Jumbo": "1:1,439"}, "variant": null}
+{"name": "Combo Cards Sandglitter Gold", "odds": {"Jumbo": "1:1,439"}, "variant": null}
+{"name": "Base Cards Sandglitter Orange", "odds": {"Jumbo": "1:478"}, "variant": null}
+{"name": "FUTURE STARS Sandglitter Orange", "odds": {"Jumbo": "1:2,889"}, "variant": null}
+{"name": "Team Cards Sandglitter Orange", "odds": {"Jumbo": "1:2,889"}, "variant": null}
+{"name": "League Leaders Sandglitter Orange", "odds": {"Jumbo": "1:2,889"}, "variant": null}
+{"name": "Combo Cards Sandglitter Orange", "odds": {"Jumbo": "1:2,889"}, "variant": null}
+{"name": "Base Cards Sandglitter Black", "odds": {"Jumbo": "1:1,193"}, "variant": null}
+{"name": "FUTURE STARS Sandglitter Black", "odds": {"Jumbo": "1:7,344"}, "variant": null}
+{"name": "Team Cards Sandglitter Black", "odds": {"Jumbo": "1:7,344"}, "variant": null}
+{"name": "League Leaders Sandglitter Black", "odds": {"Jumbo": "1:7,344"}, "variant": null}
+{"name": "Combo Cards Sandglitter Black", "odds": {"Jumbo": "1:7,344"}, "variant": null}
+{"name": "Base Cards Sandglitter Red", "odds": {"Jumbo": "1:2,390"}, "variant": null}
+{"name": "FUTURE STARS Sandglitter Red", "odds": {"Jumbo": "1:15,007"}, "variant": null}
+{"name": "Team Cards Sandglitter Red", "odds": {}, "variant": null}
+{"name": "League Leaders Sandglitter Red", "odds": {"Jumbo": "1:15,007"}, "variant": null}
+{"name": "Combo Cards Sandglitter Red", "odds": {"Jumbo": "1:15,007"}, "variant": null}
+{"name": "Base Cards Diamante Foil", "odds": {"Hanger": "1:4"}, "variant": null}
+{"name": "FUTURE STARS Diamante Foil", "odds": {"Hanger": "1:21"}, "variant": null}
+{"name": "Team Cards Diamante Foil", "odds": {"Hanger": "1:21"}, "variant": null}
+{"name": "League Leaders Diamante Foil", "odds": {"Hanger": "1:21"}, "variant": null}
+{"name": "Combo Cards Diamante Foil", "odds": {"Hanger": "1:21"}, "variant": null}
+{"name": "Base Cards Pink Diamante Foil", "odds": {"Hanger": "1:67"}, "variant": null}
+{"name": "FUTURE STARS Pink Diamante Foil", "odds": {"Hanger": "1:400"}, "variant": null}
+{"name": "Team Cards Pink Diamante Foil", "odds": {"Hanger": "1:400"}, "variant": null}
+{"name": "League Leaders Pink Diamante Foil", "odds": {"Hanger": "1:400"}, "variant": null}
+{"name": "Combo Cards Pink Diamante Foil", "odds": {"Hanger": "1:400"}, "variant": null}
+{"name": "Base Cards Green Diamante Foil", "odds": {}, "variant": null}
+{"name": "FUTURE STARS Green Diamante Foil", "odds": {}, "variant": null}
+{"name": "Team Cards Green Diamante Foil", "odds": {}, "variant": null}
+{"name": "League Leaders Green Diamante Foil", "odds": {}, "variant": null}
+{"name": "Combo Cards Green Diamante Foil", "odds": {}, "variant": null}
+{"name": "Base Cards Gold Diamante", "odds": {"Hanger": "1:308"}, "variant": null}
+{"name": "FUTURE STARS Gold Diamante", "odds": {"Hanger": "1:1,852"}, "variant": null}
+{"name": "Team Cards Gold Diamante", "odds": {"Hanger": "1:1,852"}, "variant": null}
+{"name": "League Leaders Gold Diamante", "odds": {"Hanger": "1:1,852"}, "variant": null}
+{"name": "Combo Cards Gold Diamante", "odds": {"Hanger": "1:1,852"}, "variant": null}
+{"name": "Base Cards Orange Diamante Foil", "odds": {"Hanger": "1:615"}, "variant": null}
+{"name": "FUTURE STARS Orange Diamante Foil", "odds": {"Hanger": "1:3,719"}, "variant": null}
+{"name": "Team Cards Orange Diamante Foil", "odds": {"Hanger": "1:3,719"}, "variant": null}
+{"name": "League Leaders Orange Diamante Foil", "odds": {"Hanger": "1:3,719"}, "variant": null}
+{"name": "Combo Cards Orange Diamante Foil", "odds": {"Hanger": "1:3,719"}, "variant": null}
+{"name": "Base Cards Black Diamante Foil", "odds": {"Hanger": "1:1,536"}, "variant": null}
+{"name": "FUTURE STARS Black Diamante Foil", "odds": {"Hanger": "1:9,456"}, "variant": null}
+{"name": "Team Cards Black Diamante Foil", "odds": {"Hanger": "1:9,456"}, "variant": null}
+{"name": "League Leaders Black Diamante Foil", "odds": {"Hanger": "1:9,456"}, "variant": null}
+{"name": "Combo Cards Black Diamante Foil", "odds": {"Hanger": "1:9,456"}, "variant": null}
+{"name": "Base Cards Red Diamante Foil", "odds": {"Hanger": "1:3,077"}, "variant": null}
+{"name": "FUTURE STARS Red Diamante Foil", "odds": {"Hanger": "1:19,324"}, "variant": null}
+{"name": "Team Cards Red Diamante Foil", "odds": {"Hanger": "1:19,324"}, "variant": null}
+{"name": "League Leaders Red Diamante Foil", "odds": {"Hanger": "1:19,324"}, "variant": null}
+{"name": "Combo Cards Red Diamante Foil", "odds": {"Hanger": "1:19,324"}, "variant": null}
+{"name": "Base Cards Holo Foil", "odds": {"Hanger": "1:20", "Fat Pack": "1:34", "Value": "1:80", "Mega": "1:80", "Fanatics": "1:61", "Bulk Packs": "1:67", "London Mega": "1:80", "Kids Mega": "1:80", "Walmart Mega": "1:80"}, "variant": null}
+{"name": "FUTURE STARS Holo Foil", "odds": {"Hanger": "1:121", "Fat Pack": "1:200", "Value": "1:481", "Mega": "1:481", "Fanatics": "1:360", "Bulk Packs": "1:400", "London Mega": "1:481", "Kids Mega": "1:481", "Walmart Mega": "1:481"}, "variant": null}
+{"name": "Team Cards Holo Foil", "odds": {"Hanger": "1:121", "Fat Pack": "1:200", "Value": "1:481", "Mega": "1:481", "Fanatics": "1:360", "Bulk Packs": "1:400", "London Mega": "1:481", "Kids Mega": "1:481", "Walmart Mega": "1:481"}, "variant": null}
+{"name": "League Leaders Holo Foil", "odds": {"Hanger": "1:121", "Fat Pack": "1:200", "Value": "1:481", "Mega": "1:481", "Fanatics": "1:360", "Bulk Packs": "1:400", "London Mega": "1:481", "Kids Mega": "1:481", "Walmart Mega": "1:481"}, "variant": null}
+{"name": "Combo Cards Holo Foil", "odds": {"Hanger": "1:121", "Fat Pack": "1:200", "Value": "1:481", "Mega": "1:481", "Fanatics": "1:360", "Bulk Packs": "1:400", "London Mega": "1:481", "Kids Mega": "1:481", "Walmart Mega": "1:481"}, "variant": null}
+{"name": "Base Cards Aqua Holo Foil", "odds": {"Hanger": "1:667", "Fat Pack": "1:1,334", "Value": "1:3,361", "Mega": "1:3,361", "Fanatics": "1:3,361", "Bulk Packs": "1:3,361", "London Mega": "1:3,361", "Kids Mega": "1:3,361", "Walmart Mega": "1:3,361"}, "variant": null}
+{"name": "FUTURE STARS Aqua Holo Foil", "odds": {"Hanger": "1:4,000", "Fat Pack": "1:8,000", "Value": "1:20,162", "Mega": "1:20,162", "Fanatics": "1:20,162", "Bulk Packs": "1:20,162", "London Mega": "1:20,162", "Kids Mega": "1:20,162", "Walmart Mega": "1:20,162"}, "variant": null}
+{"name": "Team Cards Aqua Holo Foil", "odds": {"Hanger": "1:4,000", "Fat Pack": "1:8,000", "Value": "1:20,162", "Mega": "1:20,162", "Fanatics": "1:20,162", "Bulk Packs": "1:20,162", "London Mega": "1:20,162", "Kids Mega": "1:20,162", "Walmart Mega": "1:20,162"}, "variant": null}
+{"name": "League Leaders Aqua Holo Foil", "odds": {"Hanger": "1:4,000", "Fat Pack": "1:8,000", "Value": "1:20,162", "Mega": "1:20,162", "Fanatics": "1:20,162", "Bulk Packs": "1:20,162", "London Mega": "1:20,162", "Kids Mega": "1:20,162", "Walmart Mega": "1:20,162"}, "variant": null}
+{"name": "Combo Cards Aqua Holo Foil", "odds": {"Hanger": "1:4,000", "Fat Pack": "1:8,000", "Value": "1:20,162", "Mega": "1:20,162", "Fanatics": "1:20,162", "Bulk Packs": "1:20,162", "London Mega": "1:20,162", "Kids Mega": "1:20,162", "Walmart Mega": "1:20,162"}, "variant": null}
+{"name": "Base Cards Pink Holo Foil", "odds": {"Hanger": "1:79", "Fat Pack": "1:147", "Value": "1:315", "Mega": "1:360", "Fanatics": "1:203", "Walmart Mega": "1:1,350"}, "variant": null}
+{"name": "FUTURE STARS Pink Holo Foil", "odds": {"Hanger": "1:479", "Fat Pack": "1:889", "Value": "1:1,915", "Mega": "1:2,188", "Fanatics": "1:1,231", "Walmart Mega": "1:8,205"}, "variant": null}
+{"name": "Team Cards Pink Holo Foil", "odds": {"Hanger": "1:479", "Fat Pack": "1:889", "Value": "1:1,915", "Mega": "1:2,188", "Fanatics": "1:1,231", "Walmart Mega": "1:8,205"}, "variant": null}
+{"name": "League Leaders Pink Holo Foil", "odds": {"Hanger": "1:479", "Fat Pack": "1:889", "Value": "1:1,915", "Mega": "1:2,188", "Fanatics": "1:1,231", "Walmart Mega": "1:8,205"}, "variant": null}
+{"name": "Combo Cards Pink Holo Foil", "odds": {"Hanger": "1:479", "Fat Pack": "1:889", "Value": "1:1,915", "Mega": "1:2,188", "Fanatics": "1:1,231", "Walmart Mega": "1:8,205"}, "variant": null}
+{"name": "Base Cards Yellow Holo Foil", "odds": {}, "variant": null}
+{"name": "FUTURE STARS Yellow Holo Foil", "odds": {}, "variant": null}
+{"name": "Team Cards Yellow Holo Foil", "odds": {}, "variant": null}
+{"name": "League Leaders Yellow Holo Foil", "odds": {}, "variant": null}
+{"name": "Combo Cards Yellow Holo Foil", "odds": {}, "variant": null}
+{"name": "Base Cards Purple Holo Foil", "odds": {}, "variant": null}
+{"name": "FUTURE STARS Purple Holo Foil", "odds": {}, "variant": null}
+{"name": "Team Cards Purple Holo Foil", "odds": {}, "variant": null}
+{"name": "League Leaders Purple Holo Foil", "odds": {}, "variant": null}
+{"name": "Combo Cards Purple Holo Foil", "odds": {}, "variant": null}
+{"name": "Base Cards Blue Holo Foil", "odds": {}, "variant": null}
+{"name": "FUTURE STARS Blue Holo Foil", "odds": {}, "variant": null}
+{"name": "Team Cards Blue Holo Foil", "odds": {}, "variant": null}
+{"name": "League Leaders Blue Holo Foil", "odds": {}, "variant": null}
+{"name": "Combo Cards Blue Holo Foil", "odds": {}, "variant": null}
+{"name": "Base Cards Green Holo Foil", "odds": {"Hanger": "1:967", "Fat Pack": "1:1,796", "Value": "1:3,868", "Mega": "1:4,421", "Fanatics": "1:2,487", "Walmart Mega": "1:16,576"}, "variant": null}
+{"name": "FUTURE STARS Green Holo Foil", "odds": {"Hanger": "1:5,804", "Fat Pack": "1:10,779", "Value": "1:23,213", "Mega": "1:26,533", "Fanatics": "1:14,924", "Walmart Mega": "1:99,503"}, "variant": null}
+{"name": "Team Cards Green Holo Foil", "odds": {"Hanger": "1:5,804", "Fat Pack": "1:10,779", "Value": "1:23,213", "Mega": "1:26,533", "Fanatics": "1:14,924", "Walmart Mega": "1:99,503"}, "variant": null}
+{"name": "League Leaders Green Holo Foil", "odds": {"Hanger": "1:5,804", "Fat Pack": "1:10,779", "Value": "1:23,213", "Mega": "1:26,533", "Fanatics": "1:14,924", "Walmart Mega": "1:99,503"}, "variant": null}
+{"name": "Combo Cards Green Holo Foil", "odds": {"Hanger": "1:5,804", "Fat Pack": "1:10,779", "Value": "1:23,213", "Mega": "1:26,533", "Fanatics": "1:14,924", "Walmart Mega": "1:99,503"}, "variant": null}
+{"name": "Base Cards Gold Holo Foil", "odds": {"Hanger": "1:1,915", "Fat Pack": "1:3,556", "Value": "1:7,658", "Mega": "1:8,752", "Fanatics": "1:4,923", "Walmart Mega": "1:32,819"}, "variant": null}
+{"name": "FUTURE STARS Gold Holo Foil", "odds": {"Hanger": "1:11,547", "Fat Pack": "1:21,446", "Value": "1:46,190", "Mega": "1:52,771", "Fanatics": "1:29,692", "Walmart Mega": "1:198,020"}, "variant": null}
+{"name": "Team Cards Gold Holo Foil", "odds": {"Hanger": "1:11,547", "Fat Pack": "1:21,446", "Value": "1:46,190", "Mega": "1:52,771", "Fanatics": "1:29,692", "Walmart Mega": "1:198,020"}, "variant": null}
+{"name": "League Leaders Gold Holo Foil", "odds": {"Hanger": "1:11,547", "Fat Pack": "1:21,446", "Value": "1:46,190", "Mega": "1:52,771", "Fanatics": "1:29,692", "Walmart Mega": "1:198,020"}, "variant": null}
+{"name": "Combo Cards Gold Holo Foil", "odds": {"Hanger": "1:11,547", "Fat Pack": "1:21,446", "Value": "1:46,190", "Mega": "1:52,771", "Fanatics": "1:29,692", "Walmart Mega": "1:198,020"}, "variant": null}
+{"name": "Base Cards Orange Holo Foil", "odds": {"Hanger": "1:3,831", "Fat Pack": "1:7,114", "Value": "1:15,322", "Mega": "1:17,511", "Fanatics": "1:9,850", "Walmart Mega": "1:65,667"}, "variant": null}
+{"name": "FUTURE STARS Orange Holo Foil", "odds": {"Hanger": "1:23,192", "Fat Pack": "1:43,067", "Value": "1:92,765", "Mega": "1:106,045", "Fanatics": "1:59,631", "Walmart Mega": "1:396,826"}, "variant": null}
+{"name": "Team Cards Orange Holo Foil", "odds": {"Hanger": "1:23,192", "Fat Pack": "1:43,067", "Value": "1:92,765", "Mega": "1:106,045", "Fanatics": "1:59,631", "Walmart Mega": "1:396,826"}, "variant": null}
+{"name": "League Leaders Orange Holo Foil", "odds": {"Hanger": "1:23,192", "Fat Pack": "1:43,067", "Value": "1:92,765", "Mega": "1:106,045", "Fanatics": "1:59,631", "Walmart Mega": "1:396,826"}, "variant": null}
+{"name": "Combo Cards Orange Holo Foil", "odds": {"Hanger": "1:23,192", "Fat Pack": "1:43,067", "Value": "1:92,765", "Mega": "1:106,045", "Fanatics": "1:59,631", "Walmart Mega": "1:396,826"}, "variant": null}
+{"name": "Base Cards Black Holo Foil", "odds": {"Hanger": "1:9,573", "Fat Pack": "1:17,778", "Value": "1:38,291", "Mega": "1:43,758", "Fanatics": "1:24,615", "Walmart Mega": "1:164,080"}, "variant": null}
+{"name": "FUTURE STARS Black Holo Foil", "odds": {"Hanger": "1:58,963", "Fat Pack": "1:109,530", "Value": "1:235,850", "Mega": "1:269,542", "Fanatics": "1:151,516", "Walmart Mega": "1:1,010,102"}, "variant": null}
+{"name": "Team Cards Black Holo Foil", "odds": {"Hanger": "1:58,963", "Fat Pack": "1:109,530", "Value": "1:235,850", "Mega": "1:269,542", "Fanatics": "1:151,516", "Walmart Mega": "1:1,010,102"}, "variant": null}
+{"name": "League Leaders Black Holo Foil", "odds": {"Hanger": "1:58,963", "Fat Pack": "1:109,530", "Value": "1:235,850", "Mega": "1:269,542", "Fanatics": "1:151,516", "Walmart Mega": "1:1,010,102"}, "variant": null}
+{"name": "Combo Cards Black Holo Foil", "odds": {"Hanger": "1:58,963", "Fat Pack": "1:109,530", "Value": "1:235,850", "Mega": "1:269,542", "Fanatics": "1:151,516", "Walmart Mega": "1:1,010,102"}, "variant": null}
+{"name": "Base Cards Red Holo Foil", "odds": {"Hanger": "1:19,183", "Fat Pack": "1:35,625", "Value": "1:76,737", "Mega": "1:87,684", "Fanatics": "1:49,327", "Walmart Mega": "1:328,781"}, "variant": null}
+{"name": "FUTURE STARS Red Holo Foil", "odds": {"Hanger": "1:120,482", "Fat Pack": "1:223,714", "Value": "1:483,092", "Mega": "1:549,451", "Fanatics": "1:309,598", "Walmart Mega": "1:2,083,334"}, "variant": null}
+{"name": "Team Cards Red Holo Foil", "odds": {"Hanger": "1:120,482", "Fat Pack": "1:223,714", "Value": "1:483,092", "Mega": "1:549,451", "Fanatics": "1:309,598", "Walmart Mega": "1:2,083,334"}, "variant": null}
+{"name": "League Leaders Red Holo Foil", "odds": {"Hanger": "1:120,482", "Fat Pack": "1:223,714", "Value": "1:483,092", "Mega": "1:549,451", "Fanatics": "1:309,598", "Walmart Mega": "1:2,083,334"}, "variant": null}
+{"name": "Combo Cards Red Holo Foil", "odds": {"Hanger": "1:120,482", "Fat Pack": "1:223,714", "Value": "1:483,092", "Mega": "1:549,451", "Fanatics": "1:309,598", "Walmart Mega": "1:2,083,334"}, "variant": null}
+{"name": "Base Cards Rose Gold Holo Foil", "odds": {"Hanger": "1:96,447", "Fat Pack": "1:179,138", "Value": "1:385,872", "Mega": "1:440,828", "Fanatics": "1:248,045", "Walmart Mega": "1:1,653,945"}, "variant": null}
+{"name": "FUTURE STARS Rose Gold Holo Foil", "odds": {"Hanger": "1:793,651", "Fat Pack": "1:1,470,589", "Value": "1:3,125,000", "Mega": "1:3,571,429", "Fanatics": "1:2,040,817", "Walmart Mega": "1:14,285,715"}, "variant": null}
+{"name": "Team Cards Rose Gold Holo Foil", "odds": {"Hanger": "1:793,651", "Fat Pack": "1:1,470,589", "Value": "1:3,125,000", "Mega": "1:3,571,429", "Fanatics": "1:2,040,817", "Walmart Mega": "1:14,285,715"}, "variant": null}
+{"name": "League Leaders Rose Gold Holo Foil", "odds": {"Hanger": "1:793,651", "Fat Pack": "1:1,470,589", "Value": "1:3,125,000", "Mega": "1:3,571,429", "Fanatics": "1:2,040,817", "Walmart Mega": "1:14,285,715"}, "variant": null}
+{"name": "Combo Cards Rose Gold Holo Foil", "odds": {"Hanger": "1:793,651", "Fat Pack": "1:1,470,589", "Value": "1:3,125,000", "Mega": "1:3,571,429", "Fanatics": "1:2,040,817", "Walmart Mega": "1:14,285,715"}, "variant": null}
+{"name": "Base Cards Football Parallel", "odds": {"Value": "1:14"}, "variant": null}
+{"name": "FUTURE STARS Football Parallel", "odds": {"Value": "1:82"}, "variant": null}
+{"name": "Team Cards Football Parallel", "odds": {"Value": "1:82"}, "variant": null}
+{"name": "League Leaders Football Parallel", "odds": {"Value": "1:82"}, "variant": null}
+{"name": "Combo Cards Football Parallel", "odds": {"Value": "1:82"}, "variant": null}
+{"name": "Base Cards Football Green", "odds": {"Value": "1:1,357"}, "variant": null}
+{"name": "FUTURE STARS Football Green", "odds": {"Value": "1:8,140"}, "variant": null}
+{"name": "Team Cards Football Green", "odds": {"Value": "1:8,140"}, "variant": null}
+{"name": "League Leaders Football Green", "odds": {"Value": "1:8,140"}, "variant": null}
+{"name": "Combo Cards Football Green", "odds": {"Value": "1:8,140"}, "variant": null}
+{"name": "Base Cards Football Gold", "odds": {"Value": "1:2,685"}, "variant": null}
+{"name": "FUTURE STARS Football Gold", "odds": {"Value": "1:16,195"}, "variant": null}
+{"name": "Team Cards Football Gold", "odds": {"Value": "1:16,195"}, "variant": null}
+{"name": "League Leaders Football Gold", "odds": {"Value": "1:16,195"}, "variant": null}
+{"name": "Combo Cards Football Gold", "odds": {"Value": "1:16,195"}, "variant": null}
+{"name": "Base Cards Football Orange", "odds": {"Value": "1:5,373"}, "variant": null}
+{"name": "FUTURE STARS Football Orange", "odds": {"Value": "1:32,521"}, "variant": null}
+{"name": "Team Cards Football Orange", "odds": {"Value": "1:32,521"}, "variant": null}
+{"name": "League Leaders Football Orange", "odds": {"Value": "1:32,521"}, "variant": null}
+{"name": "Combo Cards Football Orange", "odds": {"Value": "1:32,521"}, "variant": null}
+{"name": "Base Cards Football Black", "odds": {"Value": "1:13,425"}, "variant": null}
+{"name": "FUTURE STARS Football Black", "odds": {"Value": "1:82,713"}, "variant": null}
+{"name": "Team Cards Football Black", "odds": {"Value": "1:82,713"}, "variant": null}
+{"name": "League Leaders Football Black", "odds": {"Value": "1:82,713"}, "variant": null}
+{"name": "Combo Cards Football Black", "odds": {"Value": "1:82,713"}, "variant": null}
+{"name": "Base Cards Football Red", "odds": {"Value": "1:26,904"}, "variant": null}
+{"name": "FUTURE STARS Football Red", "odds": {"Value": "1:168,919"}, "variant": null}
+{"name": "Team Cards Football Red", "odds": {"Value": "1:168,919"}, "variant": null}
+{"name": "League Leaders Football Red", "odds": {"Value": "1:168,919"}, "variant": null}
+{"name": "Combo Cards Football Red", "odds": {"Value": "1:168,919"}, "variant": null}
+{"name": "Base Cards Football Rose Gold", "odds": {"Value": "1:135,290"}, "variant": null}
+{"name": "FUTURE STARS Football Rose Gold", "odds": {"Value": "1:1,111,112"}, "variant": null}
+{"name": "Team Cards Football Rose Gold", "odds": {"Value": "1:1,111,112"}, "variant": null}
+{"name": "League Leaders Football Rose Gold", "odds": {"Value": "1:1,111,112"}, "variant": null}
+{"name": "Combo Cards Football Rose Gold", "odds": {"Value": "1:1,111,112"}, "variant": null}
+{"name": "Base Cards Topps Foilboard", "odds": {"Fanatics": "1:7"}, "variant": null}
+{"name": "FUTURE STARS Topps Foilboard", "odds": {"Fanatics": "1:40"}, "variant": null}
+{"name": "Team Cards Topps Foilboard", "odds": {"Fanatics": "1:40"}, "variant": null}
+{"name": "League Leaders Topps Foilboard", "odds": {"Fanatics": "1:40"}, "variant": null}
+{"name": "Combo Cards Topps Foilboard", "odds": {"Fanatics": "1:40"}, "variant": null}
+{"name": "Base Cards Crucial Catch", "odds": {}, "variant": null}
+{"name": "FUTURE STARS Crucial Catch", "odds": {}, "variant": null}
+{"name": "Team Cards Crucial Catch", "odds": {}, "variant": null}
+{"name": "League Leaders Crucial Catch", "odds": {}, "variant": null}
+{"name": "Combo Cards Crucial Catch", "odds": {}, "variant": null}
+{"name": "Base Cards Union Jack Rainbow Foil", "odds": {"London Mega": "1:1"}, "variant": null}
+{"name": "FUTURE STARS Union Jack Rainbow Foil", "odds": {"London Mega": "1:4"}, "variant": null}
+{"name": "Team Cards Union Jack Rainbow Foil", "odds": {"London Mega": "1:4"}, "variant": null}
+{"name": "League Leaders Union Jack Rainbow Foil", "odds": {"London Mega": "1:4"}, "variant": null}
+{"name": "Combo Cards Union Jack Rainbow Foil", "odds": {"London Mega": "1:4"}, "variant": null}
+{"name": "Base Cards Union Jack Blue Rainbow Foil", "odds": {"London Mega": "1:80"}, "variant": null}
+{"name": "FUTURE STARS Union Jack Blue Rainbow Foil", "odds": {"London Mega": "1:481"}, "variant": null}
+{"name": "Team Cards Union Jack Blue Rainbow Foil", "odds": {"London Mega": "1:481"}, "variant": null}
+{"name": "League Leaders Union Jack Blue Rainbow Foil", "odds": {"London Mega": "1:481"}, "variant": null}
+{"name": "Combo Cards Union Jack Blue Rainbow Foil", "odds": {"London Mega": "1:481"}, "variant": null}
+{"name": "Base Cards Big Ben", "odds": {"London Mega": "1:36"}, "variant": null}
+{"name": "FUTURE STARS Big Ben", "odds": {"London Mega": "1:213"}, "variant": null}
+{"name": "Team Cards Big Ben", "odds": {"London Mega": "1:213"}, "variant": null}
+{"name": "League Leaders Big Ben", "odds": {"London Mega": "1:213"}, "variant": null}
+{"name": "Combo Cards Big Ben", "odds": {"London Mega": "1:213"}, "variant": null}
+{"name": "Base Cards Tudor Rose", "odds": {"London Mega": "1:419"}, "variant": null}
+{"name": "FUTURE STARS Tudor Rose", "odds": {"London Mega": "1:2,630"}, "variant": null}
+{"name": "Team Cards Tudor Rose", "odds": {"London Mega": "1:2,630"}, "variant": null}
+{"name": "League Leaders Tudor Rose", "odds": {"London Mega": "1:2,630"}, "variant": null}
+{"name": "Combo Cards Tudor Rose", "odds": {"London Mega": "1:2,630"}, "variant": null}
+{"name": "Base Cards Crown Jewels", "odds": {"London Mega": "1:2,106"}, "variant": null}
+{"name": "FUTURE STARS Crown Jewels", "odds": {"London Mega": "1:17,281"}, "variant": null}
+{"name": "Team Cards Crown Jewels", "odds": {"London Mega": "1:17,281"}, "variant": null}
+{"name": "League Leaders Crown Jewels", "odds": {"London Mega": "1:17,281"}, "variant": null}
+{"name": "Combo Cards Crown Jewels", "odds": {"London Mega": "1:17,281"}, "variant": null}
+{"name": "Real One Autographs Base", "odds": {"Hobby": "1:5,301", "Jumbo": "1:1,480", "Hanger": "1:4,756", "Fat Pack": "1:6,847", "Value": "1:19,226", "Mega": "1:17,882", "Fanatics": "1:15,200", "Bulk Packs": "1:28,594", "London Mega": "1:12,785", "Walmart Mega": "1:8,390"}, "variant": "veterans_only_line"}
+{"name": "Real One Autographs Green", "odds": {"Hobby": "1:5,678", "Jumbo": "1:1,520", "Hanger": "1:5,542", "Fat Pack": "1:7,979", "Value": "1:26,418", "Mega": "1:22,711", "Fanatics": "1:18,691", "Bulk Packs": "1:42,769", "London Mega": "1:14,977", "Walmart Mega": "1:9,047"}, "variant": "veterans_only_line"}
+{"name": "Real One Autographs Gold", "odds": {"Hobby": "1:7,151", "Jumbo": "1:2,223", "Hanger": "1:14,501", "Fat Pack": "1:39,163", "Value": "1:72,452", "Mega": "1:72,549", "Fanatics": "1:6,989,248", "Bulk Packs": "1:45,182", "London Mega": "1:276,714", "Walmart Mega": "1:27,635"}, "variant": "veterans_only_line"}
+{"name": "Real One Autographs Orange", "odds": {"Hobby": "1:13,979", "Jumbo": "1:4,341", "Hanger": "1:28,188", "Fat Pack": "1:76,615", "Value": "1:141,243", "Mega": "1:141,891", "Fanatics": "1:13,541,667", "Bulk Packs": "1:87,969", "London Mega": "1:544,389", "Walmart Mega": "1:54,174"}, "variant": "veterans_only_line"}
+{"name": "Real One Autographs Black", "odds": {"Hobby": "1:33,886", "Jumbo": "1:10,552", "Hanger": "1:67,953", "Fat Pack": "1:185,741", "Value": "1:347,780", "Mega": "1:350,878", "Fanatics": "1:1,252,409", "Bulk Packs": "1:215,375", "London Mega": "1:1,337,449", "Walmart Mega": "1:130,014"}, "variant": "veterans_only_line"}
+{"name": "Real One Autographs Red", "odds": {"Hobby": "1:67,132", "Jumbo": "1:20,926", "Hanger": "1:141,243", "Fat Pack": "1:367,544", "Value": "1:666,667", "Mega": "1:694,445", "Fanatics": "1:61,904,762", "Bulk Packs": "1:425,254", "London Mega": "1:2,626,263", "Walmart Mega": "1:256,108"}, "variant": "veterans_only_line"}
+{"name": "Real One Autographs Foilfractor", "odds": {"Hobby": "1:336,963", "Jumbo": "1:103,843", "Hanger": "1:725,852", "Fat Pack": "1:1,851,852", "Value": "1:3,523,036", "Mega": "1:3,439,154", "Fanatics": "1:1,297,406", "Bulk Packs": "1:2,188,553", "London Mega": "1:13,131,314", "Walmart Mega": "1:1,384,452"}, "variant": "veterans_only_line"}
+{"name": "Base Cards White & Blue", "odds": {"Walmart Mega": "1:8"}, "variant": null}
+{"name": "FUTURE STARS White & Blue", "odds": {"Walmart Mega": "1:43"}, "variant": null}
+{"name": "Team Cards White & Blue", "odds": {"Walmart Mega": "1:43"}, "variant": null}
+{"name": "League Leaders White & Blue", "odds": {"Walmart Mega": "1:43"}, "variant": null}
+{"name": "Combo Cards White & Blue", "odds": {"Walmart Mega": "1:43"}, "variant": null}
+{"name": "Base Cards Purple & Blue", "odds": {"Walmart Mega": "1:248"}, "variant": null}
+{"name": "FUTURE STARS Purple & Blue", "odds": {"Walmart Mega": "1:1,495"}, "variant": null}
+{"name": "Team Cards Purple & Blue", "odds": {"Walmart Mega": "1:1,495"}, "variant": null}
+{"name": "League Leaders Purple & Blue", "odds": {"Walmart Mega": "1:1,495"}, "variant": null}
+{"name": "Combo Cards Purple & Blue", "odds": {"Walmart Mega": "1:1,495"}, "variant": null}
+{"name": "Base Cards Blue & Yellow", "odds": {"Walmart Mega": "1:414"}, "variant": null}
+{"name": "FUTURE STARS Blue & Yellow", "odds": {"Walmart Mega": "1:2,493"}, "variant": null}
+{"name": "Team Cards Blue & Yellow", "odds": {"Walmart Mega": "1:2,493"}, "variant": null}
+{"name": "League Leaders Blue & Yellow", "odds": {"Walmart Mega": "1:2,493"}, "variant": null}
+{"name": "Combo Cards Blue & Yellow", "odds": {"Walmart Mega": "1:2,493"}, "variant": null}
+{"name": "Base Cards Green & Blue", "odds": {"Walmart Mega": "1:629"}, "variant": null}
+{"name": "FUTURE STARS Green & Blue", "odds": {"Walmart Mega": "1:3,771"}, "variant": null}
+{"name": "Team Cards Green & Blue", "odds": {"Walmart Mega": "1:3,771"}, "variant": null}
+{"name": "League Leaders Green & Blue", "odds": {"Walmart Mega": "1:3,771"}, "variant": null}
+{"name": "Combo Cards Green & Blue", "odds": {"Walmart Mega": "1:3,771"}, "variant": null}
+{"name": "Base Cards Gold & Blue", "odds": {"Walmart Mega": "1:1,244"}, "variant": null}
+{"name": "FUTURE STARS Gold & Blue", "odds": {"Walmart Mega": "1:7,503"}, "variant": null}
+{"name": "Team Cards Gold & Blue", "odds": {"Walmart Mega": "1:7,503"}, "variant": null}
+{"name": "League Leaders Gold & Blue", "odds": {"Walmart Mega": "1:7,503"}, "variant": null}
+{"name": "Combo Cards Gold & Blue", "odds": {"Walmart Mega": "1:7,503"}, "variant": null}
+{"name": "Base Cards Orange & Blue", "odds": {"Walmart Mega": "1:2,489"}, "variant": null}
+{"name": "FUTURE STARS Orange & Blue", "odds": {"Walmart Mega": "1:15,068"}, "variant": null}
+{"name": "Team Cards Orange & Blue", "odds": {"Walmart Mega": "1:15,068"}, "variant": null}
+{"name": "League Leaders Orange & Blue", "odds": {"Walmart Mega": "1:15,068"}, "variant": null}
+{"name": "Combo Cards Orange & Blue", "odds": {"Walmart Mega": "1:15,068"}, "variant": null}
+{"name": "Base Cards Black & Blue", "odds": {"Walmart Mega": "1:6,220"}, "variant": null}
+{"name": "FUTURE STARS Black & Blue", "odds": {"Walmart Mega": "1:38,315"}, "variant": null}
+{"name": "Team Cards Black & Blue", "odds": {"Walmart Mega": "1:38,315"}, "variant": null}
+{"name": "League Leaders Black & Blue", "odds": {"Walmart Mega": "1:38,315"}, "variant": null}
+{"name": "Combo Cards Black & Blue", "odds": {"Walmart Mega": "1:38,315"}, "variant": null}
+{"name": "ROOKIES Base", "odds": {"Hobby": "1:1", "Jumbo": "1:1", "Hanger": "1:1", "Fat Pack": "1:1", "Value": "1:1", "Mega": "1:1", "Fanatics": "1:1", "Bulk Packs": "1:1", "Kids Mega": "1:1", "Walmart Mega": "1:1"}, "variant": null}
+{"name": "ROOKIES Rainbow Foil", "odds": {"Hobby": "1:41", "Jumbo": "1:9", "Hanger": "1:9", "Fat Pack": "1:17", "Value": "1:49", "Mega": "1:49", "Fanatics": "1:37", "Bulk Packs": "1:33", "London Mega": "1:49", "Kids Mega": "1:49", "Walmart Mega": "1:49"}, "variant": null}
+{"name": "ROOKIES Aqua Rainbow Foil", "odds": {"Hobby": "1:1,009", "Jumbo": "1:200"}, "variant": null}
+{"name": "ROOKIES Gold", "odds": {"Hobby": "1:86", "Jumbo": "1:14", "Hanger": "1:54", "Fat Pack": "1:100", "Value": "1:214", "Mega": "1:245", "Fanatics": "1:138", "Walmart Mega": "1:917"}, "variant": null}
+{"name": "ROOKIES Black", "odds": {"Hobby": "1:2,497", "Jumbo": "1:407", "Hanger": "1:1,568", "Fat Pack": "1:2,912", "Value": "1:6,270", "Mega": "1:7,166", "Fanatics": "1:4,031", "Walmart Mega": "1:26,868"}, "variant": null}
+{"name": "ROOKIES Independence Day", "odds": {"Hobby": "1:2,300", "Jumbo": "1:375", "Hanger": "1:1,444", "Fat Pack": "1:2,682", "Value": "1:5,776", "Mega": "1:6,600", "Fanatics": "1:3,713", "Walmart Mega": "1:24,747"}, "variant": null}
+{"name": "ROOKIES Canvas", "odds": {"Hobby": "1:3,495", "Jumbo": "1:569", "Hanger": "1:2,195", "Fat Pack": "1:4,076", "Value": "1:8,779", "Mega": "1:10,033", "Fanatics": "1:5,644", "Walmart Mega": "1:37,623"}, "variant": null}
+{"name": "ROOKIES Heavy Hitters", "odds": {}, "variant": null}
+{"name": "ROOKIES Camo", "odds": {"Hobby": "1:6,997", "Jumbo": "1:1,139", "Hanger": "1:4,394", "Fat Pack": "1:8,160", "Value": "1:17,575", "Mega": "1:20,085", "Fanatics": "1:11,299", "Walmart Mega": "1:75,302"}, "variant": null}
+{"name": "ROOKIES First Card", "odds": {}, "variant": null}
+{"name": "ROOKIES Printing Plate Cyan Print", "odds": {"Hobby": "1:168,635", "Jumbo": "1:27,435", "Hanger": "1:105,933", "Fat Pack": "1:196,464", "Value": "1:423,729", "Mega": "1:483,092", "Fanatics": "1:272,480", "Walmart Mega": "1:1,818,182"}, "variant": null}
+{"name": "ROOKIES Printing Plate Magenta Print", "odds": {"Hobby": "1:168,635", "Jumbo": "1:27,435", "Hanger": "1:105,933", "Fat Pack": "1:196,464", "Value": "1:423,729", "Mega": "1:483,092", "Fanatics": "1:272,480", "Walmart Mega": "1:1,818,182"}, "variant": null}
+{"name": "ROOKIES Printing Plate Black Print", "odds": {"Hobby": "1:168,635", "Jumbo": "1:27,435", "Hanger": "1:105,933", "Fat Pack": "1:196,464", "Value": "1:423,729", "Mega": "1:483,092", "Fanatics": "1:272,480", "Walmart Mega": "1:1,818,182"}, "variant": null}
+{"name": "ROOKIES Printing Plate Yellow Print", "odds": {"Hobby": "1:168,635", "Jumbo": "1:27,435", "Hanger": "1:105,933", "Fat Pack": "1:196,464", "Value": "1:423,729", "Mega": "1:483,092", "Fanatics": "1:272,480", "Walmart Mega": "1:1,818,182"}, "variant": null}
+{"name": "ROOKIES Yellow Rainbow Foil", "odds": {}, "variant": null}
+{"name": "ROOKIES Purple Rainbow Foil", "odds": {}, "variant": null}
+{"name": "ROOKIES Blue Rainbow Foil", "odds": {}, "variant": null}
+{"name": "ROOKIES Green Rainbow Foil", "odds": {"Hobby": "1:842", "Jumbo": "1:137"}, "variant": null}
+{"name": "ROOKIES Gold Rainbow Foil", "odds": {"Hobby": "1:1,666", "Jumbo": "1:271"}, "variant": null}
+{"name": "ROOKIES Orange Rainbow Foil", "odds": {"Hobby": "1:3,335", "Jumbo": "1:543"}, "variant": null}
+{"name": "ROOKIES Black Rainbow Foil", "odds": {"Hobby": "1:8,328", "Jumbo": "1:1,355"}, "variant": null}
+{"name": "ROOKIES Red Rainbow Foil", "odds": {"Hobby": "1:16,743", "Jumbo": "1:2,724"}, "variant": null}
+{"name": "ROOKIES Foilfractor", "odds": {"Hobby": "1:80,386", "Jumbo": "1:13,074"}, "variant": null}
+{"name": "ROOKIES Sandglitter", "odds": {"Jumbo": "1:9"}, "variant": null}
+{"name": "ROOKIES Sandglitter Gold", "odds": {"Jumbo": "1:144"}, "variant": null}
+{"name": "ROOKIES Sandglitter Orange", "odds": {"Jumbo": "1:287"}, "variant": null}
+{"name": "ROOKIES Sandglitter Black", "odds": {"Jumbo": "1:716"}, "variant": null}
+{"name": "ROOKIES Sandglitter Red", "odds": {"Jumbo": "1:1,439"}, "variant": null}
+{"name": "ROOKIES Diamante Foil", "odds": {"Hanger": "1:3"}, "variant": null}
+{"name": "ROOKIES Pink Diamante Foil", "odds": {"Hanger": "1:40"}, "variant": null}
+{"name": "ROOKIES Green Diamante Foil", "odds": {}, "variant": null}
+{"name": "ROOKIES Gold Diamante", "odds": {"Hanger": "1:185"}, "variant": null}
+{"name": "ROOKIES Orange Diamante Foil", "odds": {"Hanger": "1:369"}, "variant": null}
+{"name": "ROOKIES Black Diamante Foil", "odds": {"Hanger": "1:922"}, "variant": null}
+{"name": "ROOKIES Red Diamante Foil", "odds": {"Hanger": "1:1,852"}, "variant": null}
+{"name": "ROOKIES Holo Foil", "odds": {"Hanger": "1:13", "Fat Pack": "1:20", "Value": "1:49", "Mega": "1:49", "Fanatics": "1:36", "Bulk Packs": "1:40", "London Mega": "1:49", "Kids Mega": "1:49", "Walmart Mega": "1:49"}, "variant": null}
+{"name": "ROOKIES Aqua Holo Foil", "odds": {"Hanger": "1:400", "Fat Pack": "1:800", "Value": "1:2,017", "Mega": "1:2,017", "Fanatics": "1:2,017", "Bulk Packs": "1:2,017", "London Mega": "1:2,017", "Kids Mega": "1:2,017", "Walmart Mega": "1:2,017"}, "variant": null}
+{"name": "ROOKIES Pink Holo Foil", "odds": {"Hanger": "1:48", "Fat Pack": "1:88", "Value": "1:190", "Mega": "1:217", "Fanatics": "1:122", "Walmart Mega": "1:813"}, "variant": null}
+{"name": "ROOKIES Yellow Holo Foil", "odds": {}, "variant": null}
+{"name": "ROOKIES Purple Holo Foil", "odds": {}, "variant": null}
+{"name": "ROOKIES Blue Holo Foil", "odds": {}, "variant": null}
+{"name": "ROOKIES Green Holo Foil", "odds": {"Hanger": "1:581", "Fat Pack": "1:1,078", "Value": "1:2,322", "Mega": "1:2,653", "Fanatics": "1:1,493", "Walmart Mega": "1:9,948"}, "variant": null}
+{"name": "ROOKIES Gold Holo Foil", "odds": {"Hanger": "1:1,149", "Fat Pack": "1:2,134", "Value": "1:4,595", "Mega": "1:5,251", "Fanatics": "1:2,954", "Walmart Mega": "1:19,693"}, "variant": null}
+{"name": "ROOKIES Orange Holo Foil", "odds": {"Hanger": "1:2,300", "Fat Pack": "1:4,271", "Value": "1:9,199", "Mega": "1:10,514", "Fanatics": "1:5,914", "Walmart Mega": "1:39,417"}, "variant": null}
+{"name": "ROOKIES Black Holo Foil", "odds": {"Hanger": "1:5,744", "Fat Pack": "1:10,667", "Value": "1:22,973", "Mega": "1:26,254", "Fanatics": "1:14,769", "Walmart Mega": "1:98,426"}, "variant": null}
+{"name": "ROOKIES Red Holo Foil", "odds": {"Hanger": "1:11,547", "Fat Pack": "1:21,446", "Value": "1:46,190", "Mega": "1:52,771", "Fanatics": "1:29,692", "Walmart Mega": "1:198,020"}, "variant": null}
+{"name": "ROOKIES Rose Gold Holo Foil", "odds": {"Hanger": "1:58,963", "Fat Pack": "1:109,530", "Value": "1:235,850", "Mega": "1:269,542", "Fanatics": "1:151,516", "Walmart Mega": "1:1,010,102"}, "variant": null}
+{"name": "ROOKIES Football Parallel", "odds": {"Value": "1:9"}, "variant": null}
+{"name": "ROOKIES Football Green", "odds": {"Value": "1:814"}, "variant": null}
+{"name": "ROOKIES Football Gold", "odds": {"Value": "1:1,611"}, "variant": null}
+{"name": "ROOKIES Football Orange", "odds": {"Value": "1:3,226"}, "variant": null}
+{"name": "ROOKIES Football Black", "odds": {"Value": "1:8,055"}, "variant": null}
+{"name": "ROOKIES Football Red", "odds": {"Value": "1:16,195"}, "variant": null}
+{"name": "ROOKIES Football Rose Gold", "odds": {"Value": "1:82,713"}, "variant": null}
+{"name": "ROOKIES Topps Foilboard", "odds": {"Fanatics": "1:4"}, "variant": null}
+{"name": "ROOKIES Crucial Catch", "odds": {}, "variant": null}
+{"name": "ROOKIES Union Jack Rainbow Foil", "odds": {"London Mega": "1:1"}, "variant": null}
+{"name": "ROOKIES Union Jack Blue Rainbow Foil", "odds": {"London Mega": "1:49"}, "variant": null}
+{"name": "ROOKIES Big Ben", "odds": {"London Mega": "1:22"}, "variant": null}
+{"name": "ROOKIES Tudor Rose", "odds": {"London Mega": "1:253"}, "variant": null}
+{"name": "ROOKIES Crown Jewels", "odds": {"London Mega": "1:1,287"}, "variant": null}
+{"name": "Rookie Real One Autographs Base", "odds": {"Hobby": "1:734", "Jumbo": "1:176", "Hanger": "1:1,165", "Fat Pack": "1:3,224", "Value": "1:5,741", "Mega": "1:5,801", "Fanatics": "1:568,182", "Bulk Packs": "1:3,916", "London Mega": "1:10,997", "Walmart Mega": "1:2,195"}, "variant": null}
+{"name": "Rookie Real One Autographs Green", "odds": {"Hobby": "1:1,447", "Jumbo": "1:450", "Hanger": "1:2,937", "Fat Pack": "1:7,884", "Value": "1:14,670", "Mega": "1:14,728", "Fanatics": "1:1,333,334", "Bulk Packs": "1:9,139", "London Mega": "1:52,855", "Walmart Mega": "1:5,597"}, "variant": null}
+{"name": "Rookie Real One Autographs Gold", "odds": {"Hobby": "1:2,824", "Jumbo": "1:879", "Hanger": "1:5,734", "Fat Pack": "1:15,397", "Value": "1:28,646", "Mega": "1:28,761", "Fanatics": "1:2,564,103", "Bulk Packs": "1:17,845", "London Mega": "1:103,200", "Walmart Mega": "1:10,929"}, "variant": null}
+{"name": "Rookie Real One Autographs Orange", "odds": {"Hobby": "1:5,572", "Jumbo": "1:1,734", "Hanger": "1:11,313", "Fat Pack": "1:30,377", "Value": "1:56,530", "Mega": "1:56,754", "Fanatics": "1:5,000,000", "Bulk Packs": "1:35,212", "London Mega": "1:203,666", "Walmart Mega": "1:21,562"}, "variant": null}
+{"name": "Rookie Real One Autographs Black", "odds": {"Hobby": "1:13,564", "Jumbo": "1:4,220", "Hanger": "1:27,541", "Fat Pack": "1:73,965", "Value": "1:137,552", "Mega": "1:138,122", "Fanatics": "1:12,500,000", "Bulk Packs": "1:85,690", "London Mega": "1:495,050", "Walmart Mega": "1:52,494"}, "variant": null}
+{"name": "Rookie Real One Autographs Red", "odds": {"Hobby": "1:26,774", "Jumbo": "1:8,330", "Hanger": "1:54,348", "Fat Pack": "1:145,986", "Value": "1:271,740", "Mega": "1:272,480", "Fanatics": "1:25,000,000", "Bulk Packs": "1:169,205", "London Mega": "1:980,393", "Walmart Mega": "1:103,627"}, "variant": null}
+{"name": "Rookie Real One Autographs Foilfractor", "odds": {"Hobby": "1:133,869", "Jumbo": "1:41,650", "Hanger": "1:271,740", "Fat Pack": "1:729,928", "Value": "1:1,351,352", "Mega": "1:1,369,864", "Fanatics": "1:100,000,000", "Bulk Packs": "1:847,458", "London Mega": "1:5,000,000", "Walmart Mega": "1:518,135"}, "variant": null}
+{"name": "ROOKIES White & Blue", "odds": {"Walmart Mega": "1:5"}, "variant": null}
+{"name": "ROOKIES Purple & Blue", "odds": {"Walmart Mega": "1:150"}, "variant": null}
+{"name": "ROOKIES Blue & Yellow", "odds": {"Walmart Mega": "1:249"}, "variant": null}
+{"name": "ROOKIES Green & Blue", "odds": {"Walmart Mega": "1:378"}, "variant": null}
+{"name": "ROOKIES Gold & Blue", "odds": {"Walmart Mega": "1:747"}, "variant": null}
+{"name": "ROOKIES Orange & Blue", "odds": {"Walmart Mega": "1:1,495"}, "variant": null}
+{"name": "ROOKIES Black & Blue", "odds": {"Walmart Mega": "1:3,732"}, "variant": null}
+{"name": "Base Cards Vintage Stock Variation Base", "odds": {"Hobby": "1:1,766", "Jumbo": "1:288", "Hanger": "1:1,109", "Fat Pack": "1:2,059", "Value": "1:4,435", "Mega": "1:5,068", "Fanatics": "1:2,851", "Walmart Mega": "1:19,005"}, "variant": null}
+{"name": "Base Cards Clear Variation Base", "odds": {"Hobby": "1:3,931"}, "variant": null}
+{"name": "Golden Mirror Image Variations I Base", "odds": {"Hobby": "1:3,444", "Jumbo": "1:689", "Hanger": "1:689", "Fat Pack": "1:1,378", "Value": "1:4,133", "Mega": "1:4,133", "Fanatics": "1:3,100", "Bulk Packs": "1:1,466", "London Mega": "1:4,133", "Walmart Mega": "1:4,133"}, "variant": null}
+{"name": "Golden Mirror Image Variations II Base", "odds": {"Hobby": "1:5,166", "Jumbo": "1:1,034", "Hanger": "1:1,034", "Fat Pack": "1:2,067", "Value": "1:6,199", "Mega": "1:6,199", "Fanatics": "1:4,650", "Bulk Packs": "1:2,198", "London Mega": "1:6,199", "Walmart Mega": "1:6,199"}, "variant": null}
+{"name": "Golden Mirror Image Variations III Base", "odds": {"Hobby": "1:17,218", "Jumbo": "1:3,444", "Hanger": "1:3,444", "Fat Pack": "1:6,888", "Value": "1:20,662", "Mega": "1:20,662", "Fanatics": "1:15,497", "Bulk Packs": "1:7,325", "London Mega": "1:20,662", "Walmart Mega": "1:20,662"}, "variant": null}
+{"name": "GOLDEN MIRROR ROOKIE IMAGE VARIATIONS Base", "odds": {"Hobby": "1:20,683", "Jumbo": "1:4,137", "Hanger": "1:4,137", "Fat Pack": "1:8,274", "Value": "1:24,821", "Mega": "1:24,821", "Fanatics": "1:18,616", "Bulk Packs": "1:8,799", "London Mega": "1:24,821", "Walmart Mega": "1:24,821"}, "variant": null}
+{"name": "Base Cards Team Color Border Variations Base", "odds": {"Hobby": "1:481", "Jumbo": "1:60", "Hanger": "1:96", "Fat Pack": "1:216", "Value": "1:481", "Mega": "1:481", "Fanatics": "1:720", "London Mega": "1:481", "Walmart Mega": "1:481"}, "variant": null}
+{"name": "Base Cards Player Number Variations Base", "odds": {"Hobby": "1:1,966"}, "variant": null}
+{"name": "Base Cards True Photo Variations Base", "odds": {"Hobby": "1:3,216", "Jumbo": "1:644", "Hanger": "1:644", "Fat Pack": "1:1,287", "Value": "1:3,859", "Mega": "1:3,859", "Fanatics": "1:2,895", "London Mega": "1:3,859", "Walmart Mega": "1:3,859"}, "variant": null}
+{"name": "Base Cards True Photo Variations Name Variation", "odds": {}, "variant": null}
+{"name": "2025 All Topps Team Base", "odds": {"Hobby": "1:22", "Jumbo": "1:8", "Hanger": "1:3", "Fat Pack": "1:6", "Value": "1:11", "Mega": "1:11", "Fanatics": "1:11", "Bulk Packs": "1:11", "London Mega": "1:11", "Kids Mega": "1:6", "Walmart Mega": "1:11"}, "variant": null}
+{"name": "Topps Profiles Base", "odds": {"Hobby": "1:17", "Jumbo": "1:6", "Hanger": "1:3", "Fat Pack": "1:5", "Value": "1:9", "Mega": "1:9", "Fanatics": "1:9", "Bulk Packs": "1:9", "London Mega": "1:9", "Kids Mega": "1:5", "Walmart Mega": "1:9"}, "variant": null}
+{"name": "Big Ticket Players Base", "odds": {"Hobby": "1:17", "Jumbo": "1:6", "Hanger": "1:3", "Fat Pack": "1:5", "Value": "1:9", "Mega": "1:9", "Fanatics": "1:9", "Bulk Packs": "1:9", "London Mega": "1:9", "Kids Mega": "1:5", "Walmart Mega": "1:9"}, "variant": null}
+{"name": "2025 Greatest Hits Base", "odds": {"Hobby": "1:17", "Jumbo": "1:6", "Hanger": "1:3", "Fat Pack": "1:5", "Value": "1:9", "Mega": "1:9", "Fanatics": "1:9", "Bulk Packs": "1:9", "London Mega": "1:9", "Kids Mega": "1:5", "Walmart Mega": "1:9"}, "variant": null}
+{"name": "Ring of Honor Base", "odds": {"Hobby": "1:85", "Jumbo": "1:29", "Hanger": "1:11", "Fat Pack": "1:21", "Value": "1:41", "Mega": "1:41", "Fanatics": "1:41", "Bulk Packs": "1:41", "London Mega": "1:41", "Kids Mega": "1:21", "Walmart Mega": "1:41"}, "variant": null}
+{"name": "2025 All Topps Team Pink", "odds": {"Hobby": "1:3,744", "Jumbo": "1:1,248", "Hanger": "1:468", "Fat Pack": "1:936", "Value": "1:1,872", "Mega": "1:1,872", "Fanatics": "1:1,872", "Bulk Packs": "1:1,872", "London Mega": "1:1,872", "Walmart Mega": "1:1,872"}, "variant": null}
+{"name": "Topps Profiles Pink", "odds": {"Hobby": "1:2,995", "Jumbo": "1:999", "Hanger": "1:375", "Fat Pack": "1:749", "Value": "1:1,498", "Mega": "1:1,498", "Fanatics": "1:1,498", "Bulk Packs": "1:1,498", "London Mega": "1:1,498", "Walmart Mega": "1:1,498"}, "variant": null}
+{"name": "Big Ticket Players Pink", "odds": {"Hobby": "1:2,995", "Jumbo": "1:999", "Hanger": "1:375", "Fat Pack": "1:749", "Value": "1:1,498", "Mega": "1:1,498", "Fanatics": "1:1,498", "Bulk Packs": "1:1,498", "London Mega": "1:1,498", "Walmart Mega": "1:1,498"}, "variant": null}
+{"name": "2025 Greatest Hits Pink", "odds": {"Hobby": "1:2,995", "Jumbo": "1:999", "Hanger": "1:375", "Fat Pack": "1:749", "Value": "1:1,498", "Mega": "1:1,498", "Fanatics": "1:1,498", "Bulk Packs": "1:1,498", "London Mega": "1:1,498", "Walmart Mega": "1:1,498"}, "variant": null}
+{"name": "2025 All Topps Team Blue", "odds": {"Hobby": "1:24,957", "Jumbo": "1:8,319", "Hanger": "1:3,120", "Fat Pack": "1:6,240", "Value": "1:12,479", "Mega": "1:12,479", "Fanatics": "1:12,479", "Bulk Packs": "1:12,479", "London Mega": "1:12,479", "Walmart Mega": "1:12,479"}, "variant": null}
+{"name": "Topps Profiles Blue", "odds": {"Hobby": "1:19,977", "Jumbo": "1:6,659", "Hanger": "1:2,497", "Fat Pack": "1:4,994", "Value": "1:9,988", "Mega": "1:9,988", "Fanatics": "1:9,988", "Bulk Packs": "1:9,988", "London Mega": "1:9,988", "Walmart Mega": "1:9,988"}, "variant": null}
+{"name": "Big Ticket Players Blue", "odds": {"Hobby": "1:19,977", "Jumbo": "1:6,659", "Hanger": "1:2,497", "Fat Pack": "1:4,994", "Value": "1:9,988", "Mega": "1:9,988", "Fanatics": "1:9,988", "Bulk Packs": "1:9,988", "London Mega": "1:9,988", "Walmart Mega": "1:9,988"}, "variant": null}
+{"name": "2025 Greatest Hits Blue", "odds": {"Hobby": "1:19,977", "Jumbo": "1:6,659", "Hanger": "1:2,497", "Fat Pack": "1:4,994", "Value": "1:9,988", "Mega": "1:9,988", "Fanatics": "1:9,988", "Bulk Packs": "1:9,988", "London Mega": "1:9,988", "Walmart Mega": "1:9,988"}, "variant": null}
+{"name": "2025 All Topps Team Green", "odds": {"Hobby": "1:37,822", "Jumbo": "1:12,609", "Hanger": "1:4,729", "Fat Pack": "1:9,457", "Value": "1:18,915", "Mega": "1:18,915", "Fanatics": "1:18,915", "Bulk Packs": "1:18,915", "London Mega": "1:18,915", "Walmart Mega": "1:18,915"}, "variant": null}
+{"name": "Topps Profiles Green", "odds": {"Hobby": "1:30,267", "Jumbo": "1:10,089", "Hanger": "1:3,784", "Fat Pack": "1:7,567", "Value": "1:15,134", "Mega": "1:15,134", "Fanatics": "1:15,134", "Bulk Packs": "1:15,134", "London Mega": "1:15,134", "Walmart Mega": "1:15,134"}, "variant": null}
+{"name": "Big Ticket Players Green", "odds": {"Hobby": "1:30,267", "Jumbo": "1:10,089", "Hanger": "1:3,784", "Fat Pack": "1:7,567", "Value": "1:15,134", "Mega": "1:15,134", "Fanatics": "1:15,134", "Bulk Packs": "1:15,134", "London Mega": "1:15,134", "Walmart Mega": "1:15,134"}, "variant": null}
+{"name": "2025 Greatest Hits Green", "odds": {"Hobby": "1:30,267", "Jumbo": "1:10,089", "Hanger": "1:3,784", "Fat Pack": "1:7,567", "Value": "1:15,134", "Mega": "1:15,134", "Fanatics": "1:15,134", "Bulk Packs": "1:15,134", "London Mega": "1:15,134", "Walmart Mega": "1:15,134"}, "variant": null}
+{"name": "2025 All Topps Team Gold", "odds": {"Hobby": "1:74,851", "Jumbo": "1:24,957", "Hanger": "1:9,359", "Fat Pack": "1:18,717", "Value": "1:37,440", "Mega": "1:37,440", "Fanatics": "1:37,440", "Bulk Packs": "1:37,440", "London Mega": "1:37,440", "Walmart Mega": "1:37,440"}, "variant": null}
+{"name": "Topps Profiles Gold", "odds": {"Hobby": "1:60,025", "Jumbo": "1:20,005", "Hanger": "1:7,501", "Fat Pack": "1:15,002", "Value": "1:30,004", "Mega": "1:30,004", "Fanatics": "1:30,004", "Bulk Packs": "1:30,004", "London Mega": "1:30,004", "Walmart Mega": "1:30,004"}, "variant": null}
+{"name": "Big Ticket Players Gold", "odds": {"Hobby": "1:60,025", "Jumbo": "1:20,005", "Hanger": "1:7,501", "Fat Pack": "1:15,002", "Value": "1:30,004", "Mega": "1:30,004", "Fanatics": "1:30,004", "Bulk Packs": "1:30,004", "London Mega": "1:30,004", "Walmart Mega": "1:30,004"}, "variant": null}
+{"name": "2025 Greatest Hits Gold", "odds": {"Hobby": "1:60,025", "Jumbo": "1:20,005", "Hanger": "1:7,501", "Fat Pack": "1:15,002", "Value": "1:30,004", "Mega": "1:30,004", "Fanatics": "1:30,004", "Bulk Packs": "1:30,004", "London Mega": "1:30,004", "Walmart Mega": "1:30,004"}, "variant": null}
+{"name": "2025 All Topps Team Orange", "odds": {"Hobby": "1:150,603", "Jumbo": "1:50,176", "Hanger": "1:18,815", "Fat Pack": "1:37,623", "Value": "1:75,245", "Mega": "1:75,245", "Fanatics": "1:75,245", "Bulk Packs": "1:75,245", "London Mega": "1:75,245", "Walmart Mega": "1:75,245"}, "variant": null}
+{"name": "Topps Profiles Orange", "odds": {"Hobby": "1:120,193", "Jumbo": "1:40,065", "Hanger": "1:15,027", "Fat Pack": "1:30,058", "Value": "1:60,097", "Mega": "1:60,097", "Fanatics": "1:60,097", "Bulk Packs": "1:60,097", "London Mega": "1:60,097", "Walmart Mega": "1:60,097"}, "variant": null}
+{"name": "Big Ticket Players Orange", "odds": {"Hobby": "1:120,193", "Jumbo": "1:40,065", "Hanger": "1:15,027", "Fat Pack": "1:30,058", "Value": "1:60,097", "Mega": "1:60,097", "Fanatics": "1:60,097", "Bulk Packs": "1:60,097", "London Mega": "1:60,097", "Walmart Mega": "1:60,097"}, "variant": null}
+{"name": "2025 Greatest Hits Orange", "odds": {"Hobby": "1:120,193", "Jumbo": "1:40,065", "Hanger": "1:15,027", "Fat Pack": "1:30,058", "Value": "1:60,097", "Mega": "1:60,097", "Fanatics": "1:60,097", "Bulk Packs": "1:60,097", "London Mega": "1:60,097", "Walmart Mega": "1:60,097"}, "variant": null}
+{"name": "2025 All Topps Team Black", "odds": {"Hobby": "1:374,532", "Jumbo": "1:124,844", "Hanger": "1:46,795", "Fat Pack": "1:93,546", "Value": "1:187,266", "Mega": "1:187,266", "Fanatics": "1:187,266", "Bulk Packs": "1:187,266", "London Mega": "1:187,266", "Walmart Mega": "1:187,266"}, "variant": null}
+{"name": "Topps Profiles Black", "odds": {"Hobby": "1:302,115", "Jumbo": "1:100,807", "Hanger": "1:37,793", "Fat Pack": "1:75,586", "Value": "1:151,058", "Mega": "1:151,058", "Fanatics": "1:151,058", "Bulk Packs": "1:151,058", "London Mega": "1:151,058", "Walmart Mega": "1:151,058"}, "variant": null}
+{"name": "Big Ticket Players Black", "odds": {"Hobby": "1:302,115", "Jumbo": "1:100,807", "Hanger": "1:37,793", "Fat Pack": "1:75,586", "Value": "1:151,058", "Mega": "1:151,058", "Fanatics": "1:151,058", "Bulk Packs": "1:151,058", "London Mega": "1:151,058", "Walmart Mega": "1:151,058"}, "variant": null}
+{"name": "2025 Greatest Hits Black", "odds": {"Hobby": "1:302,115", "Jumbo": "1:100,807", "Hanger": "1:37,793", "Fat Pack": "1:75,586", "Value": "1:151,058", "Mega": "1:151,058", "Fanatics": "1:151,058", "Bulk Packs": "1:151,058", "London Mega": "1:151,058", "Walmart Mega": "1:151,058"}, "variant": null}
+{"name": "2025 All Topps Team Red", "odds": {"Hobby": "1:769,231", "Jumbo": "1:256,411", "Hanger": "1:96,062", "Fat Pack": "1:192,308", "Value": "1:384,616", "Mega": "1:384,616", "Fanatics": "1:384,616", "Bulk Packs": "1:384,616", "London Mega": "1:384,616", "Walmart Mega": "1:384,616"}, "variant": null}
+{"name": "Topps Profiles Red", "odds": {"Hobby": "1:606,061", "Jumbo": "1:202,430", "Hanger": "1:75,873", "Fat Pack": "1:151,746", "Value": "1:303,952", "Mega": "1:303,952", "Fanatics": "1:303,952", "Bulk Packs": "1:303,952", "London Mega": "1:303,952", "Walmart Mega": "1:303,952"}, "variant": null}
+{"name": "Big Ticket Players Red", "odds": {"Hobby": "1:606,061", "Jumbo": "1:202,430", "Hanger": "1:75,873", "Fat Pack": "1:151,746", "Value": "1:303,952", "Mega": "1:303,952", "Fanatics": "1:303,952", "Bulk Packs": "1:303,952", "London Mega": "1:303,952", "Walmart Mega": "1:303,952"}, "variant": null}
+{"name": "2025 Greatest Hits Red", "odds": {"Hobby": "1:606,061", "Jumbo": "1:202,430", "Hanger": "1:75,873", "Fat Pack": "1:151,746", "Value": "1:303,952", "Mega": "1:303,952", "Fanatics": "1:303,952", "Bulk Packs": "1:303,952", "London Mega": "1:303,952", "Walmart Mega": "1:303,952"}, "variant": null}
+{"name": "2025 All Topps Team Foilfractor", "odds": {"Hobby": "1:3,571,429", "Jumbo": "1:1,204,820", "Hanger": "1:452,489", "Fat Pack": "1:900,901", "Value": "1:1,818,182", "Mega": "1:1,818,182", "Fanatics": "1:1,818,182", "Bulk Packs": "1:1,818,182", "London Mega": "1:1,818,182", "Walmart Mega": "1:1,818,182"}, "variant": null}
+{"name": "Topps Profiles Foilfractor", "odds": {"Hobby": "1:2,857,143", "Jumbo": "1:961,539", "Hanger": "1:361,011", "Fat Pack": "1:724,638", "Value": "1:1,449,276", "Mega": "1:1,449,276", "Fanatics": "1:1,449,276", "Bulk Packs": "1:1,449,276", "London Mega": "1:1,449,276", "Walmart Mega": "1:1,449,276"}, "variant": null}
+{"name": "Big Ticket Players Foilfractor", "odds": {"Hobby": "1:2,857,143", "Jumbo": "1:961,539", "Hanger": "1:361,011", "Fat Pack": "1:724,638", "Value": "1:1,449,276", "Mega": "1:1,449,276", "Fanatics": "1:1,449,276", "Bulk Packs": "1:1,449,276", "London Mega": "1:1,449,276", "Walmart Mega": "1:1,449,276"}, "variant": null}
+{"name": "2025 Greatest Hits Foilfractor", "odds": {"Hobby": "1:2,857,143", "Jumbo": "1:961,539", "Hanger": "1:361,011", "Fat Pack": "1:724,638", "Value": "1:1,449,276", "Mega": "1:1,449,276", "Fanatics": "1:1,449,276", "Bulk Packs": "1:1,449,276", "London Mega": "1:1,449,276", "Walmart Mega": "1:1,449,276"}, "variant": null}
+{"name": "Ring of Honor Foilfractor", "odds": {"Hobby": "1:14,285,715", "Jumbo": "1:4,761,905", "Hanger": "1:1,818,182", "Fat Pack": "1:3,571,429", "Value": "1:7,142,858", "Mega": "1:7,142,858", "Fanatics": "1:7,142,858", "Bulk Packs": "1:7,142,858", "London Mega": "1:7,142,858", "Walmart Mega": "1:7,142,858"}, "variant": null}
+{"name": "Class of 26 Base", "odds": {"Hobby": "1:15,120", "Jumbo": "1:5,040", "Hanger": "1:1,890", "Fat Pack": "1:3,780", "Value": "1:7,560", "Mega": "1:7,560", "Fanatics": "1:7,560", "Bulk Packs": "1:7,560", "London Mega": "1:7,560", "Kids Mega": "1:7,560", "Walmart Mega": "1:7,560"}, "variant": null}
+{"name": "Touchdown Machines Base", "odds": {"Hobby": "1:1,448", "Jumbo": "1:483", "Hanger": "1:181", "Fat Pack": "1:362", "Value": "1:724", "Mega": "1:724", "Fanatics": "1:724", "Bulk Packs": "1:724", "London Mega": "1:724", "Kids Mega": "1:724", "Walmart Mega": "1:724"}, "variant": null}
+{"name": "1000 Yard Club Base", "odds": {"Hobby": "1:2,040", "Jumbo": "1:680", "Hanger": "1:255", "Fat Pack": "1:510", "Value": "1:1,020", "Mega": "1:1,020", "Fanatics": "1:1,020", "Bulk Packs": "1:1,020", "London Mega": "1:1,020", "Kids Mega": "1:1,020", "Walmart Mega": "1:1,020"}, "variant": null}
+{"name": "4000 Yard Club Base", "odds": {"Hobby": "1:12,600", "Jumbo": "1:4,200", "Hanger": "1:1,575", "Fat Pack": "1:3,150", "Value": "1:6,300", "Mega": "1:6,300", "Fanatics": "1:6,300", "Bulk Packs": "1:6,300", "London Mega": "1:6,300", "Kids Mega": "1:6,300", "Walmart Mega": "1:6,300"}, "variant": null}
+{"name": "Class of 26 Blue", "odds": {"Hobby": "1:100,101", "Jumbo": "1:33,356", "Hanger": "1:12,508", "Fat Pack": "1:25,019", "Value": "1:50,026", "Mega": "1:50,026", "Fanatics": "1:50,026", "Bulk Packs": "1:50,026", "London Mega": "1:50,026", "Walmart Mega": "1:50,026"}, "variant": null}
+{"name": "Touchdown Machines Blue", "odds": {"Hobby": "1:9,599", "Jumbo": "1:3,200", "Hanger": "1:1,200", "Fat Pack": "1:2,400", "Value": "1:4,800", "Mega": "1:4,800", "Fanatics": "1:4,800", "Bulk Packs": "1:4,800", "London Mega": "1:4,800", "Walmart Mega": "1:4,800"}, "variant": null}
+{"name": "1000 Yard Club Blue", "odds": {"Hobby": "1:13,494", "Jumbo": "1:4,499", "Hanger": "1:1,687", "Fat Pack": "1:3,374", "Value": "1:6,748", "Mega": "1:6,748", "Fanatics": "1:6,748", "Bulk Packs": "1:6,748", "London Mega": "1:6,748", "Walmart Mega": "1:6,748"}, "variant": null}
+{"name": "4000 Yard Club Blue", "odds": {"Hobby": "1:83,403", "Jumbo": "1:27,809", "Hanger": "1:10,429", "Fat Pack": "1:20,856", "Value": "1:41,719", "Mega": "1:41,719", "Fanatics": "1:41,719", "Bulk Packs": "1:41,719", "London Mega": "1:41,719", "Walmart Mega": "1:41,719"}, "variant": null}
+{"name": "Class of 26 Green", "odds": {"Hobby": "1:152,208", "Jumbo": "1:50,710", "Hanger": "1:19,012", "Fat Pack": "1:38,023", "Value": "1:76,046", "Mega": "1:76,046", "Fanatics": "1:76,046", "Bulk Packs": "1:76,046", "London Mega": "1:76,046", "Walmart Mega": "1:76,046"}, "variant": null}
+{"name": "Touchdown Machines Green", "odds": {"Hobby": "1:14,548", "Jumbo": "1:4,850", "Hanger": "1:1,819", "Fat Pack": "1:3,638", "Value": "1:7,275", "Mega": "1:7,275", "Fanatics": "1:7,275", "Bulk Packs": "1:7,275", "London Mega": "1:7,275", "Walmart Mega": "1:7,275"}, "variant": null}
+{"name": "1000 Yard Club Green", "odds": {"Hobby": "1:20,450", "Jumbo": "1:6,817", "Hanger": "1:2,557", "Fat Pack": "1:5,113", "Value": "1:10,225", "Mega": "1:10,225", "Fanatics": "1:10,225", "Bulk Packs": "1:10,225", "London Mega": "1:10,225", "Walmart Mega": "1:10,225"}, "variant": null}
+{"name": "4000 Yard Club Green", "odds": {"Hobby": "1:126,104", "Jumbo": "1:42,035", "Hanger": "1:15,761", "Fat Pack": "1:31,526", "Value": "1:63,052", "Mega": "1:63,052", "Fanatics": "1:63,052", "Bulk Packs": "1:63,052", "London Mega": "1:63,052", "Walmart Mega": "1:63,052"}, "variant": null}
+{"name": "Class of 26 Gold", "odds": {"Hobby": "1:302,115", "Jumbo": "1:100,807", "Hanger": "1:37,793", "Fat Pack": "1:75,586", "Value": "1:151,058", "Mega": "1:151,058", "Fanatics": "1:151,058", "Bulk Packs": "1:151,058", "London Mega": "1:151,058", "Walmart Mega": "1:151,058"}, "variant": null}
+{"name": "Touchdown Machines Gold", "odds": {"Hobby": "1:28,794", "Jumbo": "1:9,599", "Hanger": "1:3,600", "Fat Pack": "1:7,199", "Value": "1:14,397", "Mega": "1:14,397", "Fanatics": "1:14,397", "Bulk Packs": "1:14,397", "London Mega": "1:14,397", "Walmart Mega": "1:14,397"}, "variant": null}
+{"name": "1000 Yard Club Gold", "odds": {"Hobby": "1:40,519", "Jumbo": "1:13,507", "Hanger": "1:5,066", "Fat Pack": "1:10,130", "Value": "1:20,260", "Mega": "1:20,260", "Fanatics": "1:20,260", "Bulk Packs": "1:20,260", "London Mega": "1:20,260", "Walmart Mega": "1:20,260"}, "variant": null}
+{"name": "4000 Yard Club Gold", "odds": {"Hobby": "1:251,890", "Jumbo": "1:83,893", "Hanger": "1:31,467", "Fat Pack": "1:62,933", "Value": "1:125,945", "Mega": "1:125,945", "Fanatics": "1:125,945", "Bulk Packs": "1:125,945", "London Mega": "1:125,945", "Walmart Mega": "1:125,945"}, "variant": null}
+{"name": "Class of 26 Orange", "odds": {"Hobby": "1:606,061", "Jumbo": "1:202,430", "Hanger": "1:75,873", "Fat Pack": "1:151,746", "Value": "1:303,952", "Mega": "1:303,952", "Fanatics": "1:303,952", "Bulk Packs": "1:303,952", "London Mega": "1:303,952", "Walmart Mega": "1:303,952"}, "variant": null}
+{"name": "Touchdown Machines Orange", "odds": {"Hobby": "1:57,704", "Jumbo": "1:19,235", "Hanger": "1:7,214", "Fat Pack": "1:14,426", "Value": "1:28,852", "Mega": "1:28,852", "Fanatics": "1:28,852", "Bulk Packs": "1:28,852", "London Mega": "1:28,852", "Walmart Mega": "1:28,852"}, "variant": null}
+{"name": "1000 Yard Club Orange", "odds": {"Hobby": "1:81,104", "Jumbo": "1:27,028", "Hanger": "1:10,136", "Fat Pack": "1:20,272", "Value": "1:40,536", "Mega": "1:40,536", "Fanatics": "1:40,536", "Bulk Packs": "1:40,536", "London Mega": "1:40,536", "Walmart Mega": "1:40,536"}, "variant": null}
+{"name": "4000 Yard Club Orange", "odds": {"Hobby": "1:505,051", "Jumbo": "1:168,351", "Hanger": "1:63,172", "Fat Pack": "1:126,263", "Value": "1:252,526", "Mega": "1:252,526", "Fanatics": "1:252,526", "Bulk Packs": "1:252,526", "London Mega": "1:252,526", "Walmart Mega": "1:252,526"}, "variant": null}
+{"name": "Class of 26 Black", "odds": {"Hobby": "1:1,562,500", "Jumbo": "1:523,561", "Hanger": "1:196,464", "Fat Pack": "1:392,157", "Value": "1:787,402", "Mega": "1:787,402", "Fanatics": "1:787,402", "Bulk Packs": "1:787,402", "London Mega": "1:787,402", "Walmart Mega": "1:787,402"}, "variant": null}
+{"name": "Touchdown Machines Black", "odds": {"Hobby": "1:144,509", "Jumbo": "1:48,170", "Hanger": "1:18,064", "Fat Pack": "1:36,128", "Value": "1:72,255", "Mega": "1:72,255", "Fanatics": "1:72,255", "Bulk Packs": "1:72,255", "London Mega": "1:72,255", "Walmart Mega": "1:72,255"}, "variant": null}
+{"name": "1000 Yard Club Black", "odds": {"Hobby": "1:202,840", "Jumbo": "1:67,659", "Hanger": "1:25,368", "Fat Pack": "1:50,736", "Value": "1:101,523", "Mega": "1:101,523", "Fanatics": "1:101,523", "Bulk Packs": "1:101,523", "London Mega": "1:101,523", "Walmart Mega": "1:101,523"}, "variant": null}
+{"name": "4000 Yard Club Black", "odds": {"Hobby": "1:1,282,052", "Jumbo": "1:429,185", "Hanger": "1:161,291", "Fat Pack": "1:322,581", "Value": "1:645,162", "Mega": "1:645,162", "Fanatics": "1:645,162", "Bulk Packs": "1:645,162", "London Mega": "1:645,162", "Walmart Mega": "1:645,162"}, "variant": null}
+{"name": "Class of 26 Red", "odds": {"Hobby": "1:3,333,334", "Jumbo": "1:1,098,902", "Hanger": "1:409,837", "Fat Pack": "1:819,673", "Value": "1:1,639,345", "Mega": "1:1,639,345", "Fanatics": "1:1,639,345", "Bulk Packs": "1:1,639,345", "London Mega": "1:1,639,345", "Walmart Mega": "1:1,639,345"}, "variant": null}
+{"name": "Touchdown Machines Red", "odds": {"Hobby": "1:289,856", "Jumbo": "1:96,712", "Hanger": "1:36,272", "Fat Pack": "1:72,517", "Value": "1:145,138", "Mega": "1:145,138", "Fanatics": "1:145,138", "Bulk Packs": "1:145,138", "London Mega": "1:145,138", "Walmart Mega": "1:145,138"}, "variant": null}
+{"name": "1000 Yard Club Red", "odds": {"Hobby": "1:406,505", "Jumbo": "1:135,318", "Hanger": "1:50,736", "Fat Pack": "1:101,523", "Value": "1:202,840", "Mega": "1:202,840", "Fanatics": "1:202,840", "Bulk Packs": "1:202,840", "London Mega": "1:202,840", "Walmart Mega": "1:202,840"}, "variant": null}
+{"name": "4000 Yard Club Red", "odds": {"Hobby": "1:2,777,778", "Jumbo": "1:925,926", "Hanger": "1:347,223", "Fat Pack": "1:694,445", "Value": "1:1,388,889", "Mega": "1:1,388,889", "Fanatics": "1:1,388,889", "Bulk Packs": "1:1,388,889", "London Mega": "1:1,388,889", "Walmart Mega": "1:1,388,889"}, "variant": null}
+{"name": "Class of 26 Foilfractor", "odds": {"Hobby": "1:14,285,715", "Jumbo": "1:4,761,905", "Hanger": "1:1,818,182", "Fat Pack": "1:3,571,429", "Value": "1:7,142,858", "Mega": "1:7,142,858", "Fanatics": "1:7,142,858", "Bulk Packs": "1:7,142,858", "London Mega": "1:7,142,858", "Walmart Mega": "1:7,142,858"}, "variant": null}
+{"name": "Touchdown Machines Foilfractor", "odds": {"Hobby": "1:1,388,889", "Jumbo": "1:462,963", "Hanger": "1:173,612", "Fat Pack": "1:347,223", "Value": "1:694,445", "Mega": "1:694,445", "Fanatics": "1:694,445", "Bulk Packs": "1:694,445", "London Mega": "1:694,445", "Walmart Mega": "1:694,445"}, "variant": null}
+{"name": "1000 Yard Club Foilfractor", "odds": {"Hobby": "1:1,960,785", "Jumbo": "1:649,351", "Hanger": "1:243,903", "Fat Pack": "1:487,805", "Value": "1:980,393", "Mega": "1:980,393", "Fanatics": "1:980,393", "Bulk Packs": "1:980,393", "London Mega": "1:980,393", "Walmart Mega": "1:980,393"}, "variant": null}
+{"name": "4000 Yard Club Foilfractor", "odds": {"Hobby": "1:12,500,000", "Jumbo": "1:4,000,000", "Hanger": "1:1,515,152", "Fat Pack": "1:3,030,304", "Value": "1:5,882,353", "Mega": "1:5,882,353", "Fanatics": "1:5,882,353", "Bulk Packs": "1:5,882,353", "London Mega": "1:5,882,353", "Walmart Mega": "1:5,882,353"}, "variant": null}
+{"name": "Wild Card Moments Base", "odds": {"Hobby": "1:174", "Jumbo": "1:58"}, "variant": null}
+{"name": "Divisional Dominance Base", "odds": {"Hobby": "1:244", "Jumbo": "1:82"}, "variant": null}
+{"name": "Conference Kings Base", "odds": {"Hobby": "1:304", "Jumbo": "1:102"}, "variant": null}
+{"name": "All Hail the Champ Base", "odds": {"Hobby": "1:304", "Jumbo": "1:102"}, "variant": null}
+{"name": "Wild Card Moments Blue", "odds": {"Hobby": "1:1,158", "Jumbo": "1:386"}, "variant": null}
+{"name": "Divisional Dominance Blue", "odds": {"Hobby": "1:1,622", "Jumbo": "1:541"}, "variant": null}
+{"name": "Conference Kings Blue", "odds": {"Hobby": "1:2,026", "Jumbo": "1:676"}, "variant": null}
+{"name": "All Hail the Champ Blue", "odds": {"Hobby": "1:2,026", "Jumbo": "1:676"}, "variant": null}
+{"name": "Wild Card Moments Green", "odds": {"Hobby": "1:1,755", "Jumbo": "1:585"}, "variant": null}
+{"name": "Divisional Dominance Green", "odds": {"Hobby": "1:2,457", "Jumbo": "1:819"}, "variant": null}
+{"name": "Conference Kings Green", "odds": {"Hobby": "1:3,071", "Jumbo": "1:1,024"}, "variant": null}
+{"name": "All Hail the Champ Green", "odds": {"Hobby": "1:3,071", "Jumbo": "1:1,024"}, "variant": null}
+{"name": "Wild Card Moments Gold", "odds": {"Hobby": "1:3,476", "Jumbo": "1:1,159"}, "variant": null}
+{"name": "Divisional Dominance Gold", "odds": {"Hobby": "1:4,871", "Jumbo": "1:1,624"}, "variant": null}
+{"name": "Conference Kings Gold", "odds": {"Hobby": "1:6,077", "Jumbo": "1:2,026"}, "variant": null}
+{"name": "All Hail the Champ Gold", "odds": {"Hobby": "1:6,077", "Jumbo": "1:2,026"}, "variant": null}
+{"name": "Wild Card Moments Orange", "odds": {"Hobby": "1:6,957", "Jumbo": "1:2,319"}, "variant": null}
+{"name": "Divisional Dominance Orange", "odds": {"Hobby": "1:9,758", "Jumbo": "1:3,253"}, "variant": null}
+{"name": "Conference Kings Orange", "odds": {"Hobby": "1:12,216", "Jumbo": "1:4,073"}, "variant": null}
+{"name": "All Hail the Champ Orange", "odds": {"Hobby": "1:12,216", "Jumbo": "1:4,073"}, "variant": null}
+{"name": "Wild Card Moments Black", "odds": {"Hobby": "1:17,453", "Jumbo": "1:5,818"}, "variant": null}
+{"name": "Divisional Dominance Black", "odds": {"Hobby": "1:24,534", "Jumbo": "1:8,179"}, "variant": null}
+{"name": "Conference Kings Black", "odds": {"Hobby": "1:30,386", "Jumbo": "1:10,128"}, "variant": null}
+{"name": "All Hail the Champ Black", "odds": {"Hobby": "1:30,386", "Jumbo": "1:10,128"}, "variant": null}
+{"name": "Wild Card Moments Red", "odds": {"Hobby": "1:34,905", "Jumbo": "1:11,635"}, "variant": null}
+{"name": "Divisional Dominance Red", "odds": {"Hobby": "1:49,286", "Jumbo": "1:16,426"}, "variant": null}
+{"name": "Conference Kings Red", "odds": {"Hobby": "1:62,384", "Jumbo": "1:20,795"}, "variant": null}
+{"name": "All Hail the Champ Red", "odds": {"Hobby": "1:62,384", "Jumbo": "1:20,795"}, "variant": null}
+{"name": "Wild Card Moments Foilfractor", "odds": {"Hobby": "1:167,505", "Jumbo": "1:55,835"}, "variant": null}
+{"name": "Divisional Dominance Foilfractor", "odds": {"Hobby": "1:234,742", "Jumbo": "1:78,187"}, "variant": null}
+{"name": "Conference Kings Foilfractor", "odds": {"Hobby": "1:293,256", "Jumbo": "1:97,752"}, "variant": null}
+{"name": "All Hail the Champ Foilfractor", "odds": {"Hobby": "1:293,256", "Jumbo": "1:97,752"}, "variant": null}
+{"name": "Struttin Base", "odds": {"Hobby": "1:803", "Jumbo": "1:201"}, "variant": null}
+{"name": "Billboard Material Base", "odds": {"Hobby": "1:803", "Jumbo": "1:201"}, "variant": null}
+{"name": "Touchdown Base", "odds": {"Hobby": "1:603", "Jumbo": "1:151"}, "variant": null}
+{"name": "Struttin Foilfractor", "odds": {"Hobby": "1:218,341", "Jumbo": "1:54,615"}, "variant": null}
+{"name": "Billboard Material Foilfractor", "odds": {"Hobby": "1:218,341", "Jumbo": "1:54,615"}, "variant": null}
+{"name": "Touchdown Foilfractor", "odds": {"Hobby": "1:182,150", "Jumbo": "1:45,517"}, "variant": null}
+{"name": "1991 Topps Football Base", "odds": {"Hobby": "1:9", "Jumbo": "1:3", "Hanger": "1:2", "Fat Pack": "1:3", "Value": "1:5", "Mega": "1:5", "Fanatics": "1:5", "Bulk Packs": "1:5", "London Mega": "1:5", "Walmart Mega": "1:5"}, "variant": null}
+{"name": "1991 Topps Football Pink", "odds": {"Hobby": "1:1,492", "Jumbo": "1:498", "Hanger": "1:187", "Fat Pack": "1:373", "Value": "1:746", "Mega": "1:746", "Fanatics": "1:746", "Bulk Packs": "1:746", "London Mega": "1:746", "Walmart Mega": "1:746"}, "variant": null}
+{"name": "1991 Topps Football Blue", "odds": {"Hobby": "1:9,987", "Jumbo": "1:3,329", "Hanger": "1:1,249", "Fat Pack": "1:2,497", "Value": "1:4,994", "Mega": "1:4,994", "Fanatics": "1:4,994", "Bulk Packs": "1:4,994", "London Mega": "1:4,994", "Walmart Mega": "1:4,994"}, "variant": null}
+{"name": "1991 Topps Football Green", "odds": {"Hobby": "1:15,131", "Jumbo": "1:5,044", "Hanger": "1:1,892", "Fat Pack": "1:3,783", "Value": "1:7,566", "Mega": "1:7,566", "Fanatics": "1:7,566", "Bulk Packs": "1:7,566", "London Mega": "1:7,566", "Walmart Mega": "1:7,566"}, "variant": null}
+{"name": "1991 Topps Football The Real One", "odds": {"Hobby": "1:16,461", "Jumbo": "1:5,487", "Hanger": "1:2,058", "Fat Pack": "1:4,116", "Value": "1:8,231", "Mega": "1:8,231", "Fanatics": "1:8,231", "Bulk Packs": "1:8,231", "London Mega": "1:8,231", "Walmart Mega": "1:8,231"}, "variant": null}
+{"name": "1991 Topps Football Gold", "odds": {"Hobby": "1:29,977", "Jumbo": "1:9,994", "Hanger": "1:3,748", "Fat Pack": "1:7,495", "Value": "1:14,991", "Mega": "1:14,991", "Fanatics": "1:14,991", "Bulk Packs": "1:14,991", "London Mega": "1:14,991", "Walmart Mega": "1:14,991"}, "variant": null}
+{"name": "1991 Topps Football No Name", "odds": {}, "variant": null}
+{"name": "1991 Topps Football Orange", "odds": {"Hobby": "1:60,025", "Jumbo": "1:20,005", "Hanger": "1:7,501", "Fat Pack": "1:15,002", "Value": "1:30,004", "Mega": "1:30,004", "Fanatics": "1:30,004", "Bulk Packs": "1:30,004", "London Mega": "1:30,004", "Walmart Mega": "1:30,004"}, "variant": null}
+{"name": "1991 Topps Football Black", "odds": {"Hobby": "1:150,603", "Jumbo": "1:50,176", "Hanger": "1:18,815", "Fat Pack": "1:37,623", "Value": "1:75,245", "Mega": "1:75,245", "Fanatics": "1:75,245", "Bulk Packs": "1:75,245", "London Mega": "1:75,245", "Walmart Mega": "1:75,245"}, "variant": null}
+{"name": "1991 Topps Football Red", "odds": {"Hobby": "1:302,115", "Jumbo": "1:100,807", "Hanger": "1:37,793", "Fat Pack": "1:75,586", "Value": "1:151,058", "Mega": "1:151,058", "Fanatics": "1:151,058", "Bulk Packs": "1:151,058", "London Mega": "1:151,058", "Walmart Mega": "1:151,058"}, "variant": null}
+{"name": "1991 Topps Football Foilfractor", "odds": {"Hobby": "1:1,449,276", "Jumbo": "1:480,770", "Hanger": "1:180,506", "Fat Pack": "1:361,011", "Value": "1:724,638", "Mega": "1:724,638", "Fanatics": "1:724,638", "Bulk Packs": "1:724,638", "London Mega": "1:724,638", "Walmart Mega": "1:724,638"}, "variant": null}
+{"name": "1991 Topps Football Crackle", "odds": {"Mega": "1:5", "London Mega": "1:5", "Walmart Mega": "1:5"}, "variant": null}
+{"name": "1991 Topps Football Pink Crackle", "odds": {"Mega": "1:60", "London Mega": "1:60", "Walmart Mega": "1:60"}, "variant": null}
+{"name": "1991 Topps Football Blue Crackle", "odds": {"Mega": "1:1,438", "London Mega": "1:1,438", "Walmart Mega": "1:1,438"}, "variant": null}
+{"name": "1991 Topps Football Green Crackle", "odds": {"Mega": "1:2,178", "London Mega": "1:2,178", "Walmart Mega": "1:2,178"}, "variant": null}
+{"name": "1991 Topps Football Gold Crackle", "odds": {"Mega": "1:4,315", "London Mega": "1:4,315", "Walmart Mega": "1:4,315"}, "variant": null}
+{"name": "1991 Topps Football Orange Crackle", "odds": {"Mega": "1:8,638", "London Mega": "1:8,638", "Walmart Mega": "1:8,638"}, "variant": null}
+{"name": "1991 Topps Football Black Crackle", "odds": {"Mega": "1:21,664", "London Mega": "1:21,664", "Walmart Mega": "1:21,664"}, "variant": null}
+{"name": "1991 Topps Football Red Crackle", "odds": {"Mega": "1:43,517", "London Mega": "1:43,517", "Walmart Mega": "1:43,517"}, "variant": null}
+{"name": "NFL Stars Base", "odds": {"Hanger": "1:3", "Fat Pack": "1:2", "Value": "1:16", "Fanatics": "1:23", "Bulk Packs": "1:3", "Kids Mega": "1:3", "Walmart Mega": "1:61"}, "variant": null}
+{"name": "Pressure Cookers Base", "odds": {"Hanger": "1:4", "Fat Pack": "1:2", "Value": "1:21", "Fanatics": "1:31", "Bulk Packs": "1:4", "Kids Mega": "1:4", "Walmart Mega": "1:81"}, "variant": null}
+{"name": "Greats of the Game Base", "odds": {"Hanger": "1:4", "Fat Pack": "1:2", "Value": "1:21", "Fanatics": "1:31", "Bulk Packs": "1:4", "Kids Mega": "1:4", "Walmart Mega": "1:81"}, "variant": null}
+{"name": "NFL Stars Green", "odds": {"Hanger": "1:2,219", "Fat Pack": "1:1,110", "Value": "1:13,314", "Fanatics": "1:19,973", "Bulk Packs": "1:2,219"}, "variant": null}
+{"name": "Pressure Cookers Green", "odds": {"Hanger": "1:2,961", "Fat Pack": "1:1,481", "Value": "1:17,762", "Fanatics": "1:26,646", "Bulk Packs": "1:2,961"}, "variant": null}
+{"name": "Greats of the Game Green", "odds": {"Hanger": "1:2,961", "Fat Pack": "1:1,481", "Value": "1:17,762", "Fanatics": "1:26,646", "Bulk Packs": "1:2,961"}, "variant": null}
+{"name": "NFL Stars Gold", "odds": {"Hanger": "1:6,657", "Fat Pack": "1:3,329", "Value": "1:39,937", "Fanatics": "1:59,917", "Bulk Packs": "1:6,657"}, "variant": null}
+{"name": "Pressure Cookers Gold", "odds": {"Hanger": "1:8,892", "Fat Pack": "1:4,446", "Value": "1:53,334", "Fanatics": "1:80,000", "Bulk Packs": "1:8,892"}, "variant": null}
+{"name": "Greats of the Game Gold", "odds": {"Hanger": "1:8,892", "Fat Pack": "1:4,446", "Value": "1:53,334", "Fanatics": "1:80,000", "Bulk Packs": "1:8,892"}, "variant": null}
+{"name": "NFL Stars Orange", "odds": {"Hanger": "1:13,314", "Fat Pack": "1:6,657", "Value": "1:79,873", "Fanatics": "1:119,761", "Bulk Packs": "1:13,314"}, "variant": null}
+{"name": "Pressure Cookers Orange", "odds": {"Hanger": "1:17,794", "Fat Pack": "1:8,898", "Value": "1:106,724", "Fanatics": "1:160,257", "Bulk Packs": "1:17,794"}, "variant": null}
+{"name": "Greats of the Game Orange", "odds": {"Hanger": "1:17,794", "Fat Pack": "1:8,898", "Value": "1:106,724", "Fanatics": "1:160,257", "Bulk Packs": "1:17,794"}, "variant": null}
+{"name": "NFL Stars Black", "odds": {"Hanger": "1:33,289", "Fat Pack": "1:16,642", "Value": "1:199,601", "Fanatics": "1:299,402", "Bulk Packs": "1:33,289"}, "variant": null}
+{"name": "Pressure Cookers Black", "odds": {"Hanger": "1:44,763", "Fat Pack": "1:22,382", "Value": "1:268,818", "Fanatics": "1:403,226", "Bulk Packs": "1:44,763"}, "variant": null}
+{"name": "Greats of the Game Black", "odds": {"Hanger": "1:44,763", "Fat Pack": "1:22,382", "Value": "1:268,818", "Fanatics": "1:403,226", "Bulk Packs": "1:44,763"}, "variant": null}
+{"name": "NFL Stars Red", "odds": {"Hanger": "1:66,578", "Fat Pack": "1:33,289", "Value": "1:400,000", "Fanatics": "1:598,803", "Bulk Packs": "1:66,578"}, "variant": null}
+{"name": "Pressure Cookers Red", "odds": {"Hanger": "1:89,848", "Fat Pack": "1:44,924", "Value": "1:537,635", "Fanatics": "1:806,452", "Bulk Packs": "1:89,848"}, "variant": null}
+{"name": "Greats of the Game Red", "odds": {"Hanger": "1:89,848", "Fat Pack": "1:44,924", "Value": "1:537,635", "Fanatics": "1:806,452", "Bulk Packs": "1:89,848"}, "variant": null}
+{"name": "NFL Stars Foilfractor", "odds": {"Hanger": "1:321,544", "Fat Pack": "1:160,514", "Value": "1:1,923,077", "Fanatics": "1:2,857,143", "Bulk Packs": "1:321,544"}, "variant": null}
+{"name": "Pressure Cookers Foilfractor", "odds": {"Hanger": "1:427,351", "Fat Pack": "1:214,133", "Value": "1:2,564,103", "Fanatics": "1:3,846,154", "Bulk Packs": "1:427,351"}, "variant": null}
+{"name": "Greats of the Game Foilfractor", "odds": {"Hanger": "1:427,351", "Fat Pack": "1:214,133", "Value": "1:2,564,103", "Fanatics": "1:3,846,154", "Bulk Packs": "1:427,351"}, "variant": null}
+{"name": "NFL Stars Crackle", "odds": {"Mega": "1:31", "London Mega": "1:31", "Walmart Mega": "1:61"}, "variant": null}
+{"name": "Pressure Cookers Crackle", "odds": {"Mega": "1:41", "London Mega": "1:41", "Walmart Mega": "1:81"}, "variant": null}
+{"name": "Greats of the Game Crackle", "odds": {"Mega": "1:41", "London Mega": "1:41", "Walmart Mega": "1:81"}, "variant": null}
+{"name": "NFL Stars Gold Crackle", "odds": {"Mega": "1:5,388", "London Mega": "1:5,388", "Walmart Mega": "1:5,388"}, "variant": null}
+{"name": "Pressure Cookers Gold Crackle", "odds": {"Mega": "1:7,197", "London Mega": "1:7,197", "Walmart Mega": "1:7,197"}, "variant": null}
+{"name": "Greats of the Game Gold Crackle", "odds": {"Mega": "1:7,197", "London Mega": "1:7,197", "Walmart Mega": "1:7,197"}, "variant": null}
+{"name": "NFL Stars Orange Crackle", "odds": {"Mega": "1:10,776", "London Mega": "1:10,776", "Walmart Mega": "1:10,776"}, "variant": null}
+{"name": "Pressure Cookers Orange Crackle", "odds": {"Mega": "1:14,403", "London Mega": "1:14,403", "Walmart Mega": "1:14,403"}, "variant": null}
+{"name": "Greats of the Game Orange Crackle", "odds": {"Mega": "1:14,403", "London Mega": "1:14,403", "Walmart Mega": "1:14,403"}, "variant": null}
+{"name": "NFL Stars Black Crackle", "odds": {"Mega": "1:26,940", "London Mega": "1:26,940", "Walmart Mega": "1:26,940"}, "variant": null}
+{"name": "Pressure Cookers Black Crackle", "odds": {"Mega": "1:36,232", "London Mega": "1:36,232", "Walmart Mega": "1:36,232"}, "variant": null}
+{"name": "Greats of the Game Black Crackle", "odds": {"Mega": "1:36,232", "London Mega": "1:36,232", "Walmart Mega": "1:36,232"}, "variant": null}
+{"name": "NFL Stars Red Crackle", "odds": {"Mega": "1:53,880", "London Mega": "1:53,880", "Walmart Mega": "1:53,880"}, "variant": null}
+{"name": "Pressure Cookers Red Crackle", "odds": {"Mega": "1:72,728", "London Mega": "1:72,728", "Walmart Mega": "1:72,728"}, "variant": null}
+{"name": "Greats of the Game Red Crackle", "odds": {"Mega": "1:72,728", "London Mega": "1:72,728", "Walmart Mega": "1:72,728"}, "variant": null}
+{"name": "All Kings Base", "odds": {"Hobby": "1:11,195", "Jumbo": "1:3,732", "Hanger": "1:1,400", "Fat Pack": "1:2,799", "Value": "1:5,598", "Mega": "1:5,598", "Fanatics": "1:5,598", "London Mega": "1:5,598", "Walmart Mega": "1:5,598"}, "variant": "topps_conflicting_odds_line_1"}
+{"name": "All Kings Gold", "odds": {"Hobby": "1:320,000", "Jumbo": "1:106,572"}, "variant": "topps_conflicting_odds_line_1"}
+{"name": "1991 TOPPS FOOTBALL CHROME BASE CARDS Base", "odds": {"Hobby Silver Pack": "1:1", "Jumbo Silver Pack": "1:1"}, "variant": null}
+{"name": "1991 TOPPS FOOTBALL CHROME BASE CARDS Purple", "odds": {"Hobby Silver Pack": "1:91", "Jumbo Silver Pack": "1:91"}, "variant": null}
+{"name": "1991 TOPPS FOOTBALL CHROME BASE CARDS Aqua", "odds": {"Hobby Silver Pack": "1:35", "Jumbo Silver Pack": "1:35"}, "variant": null}
+{"name": "1991 TOPPS FOOTBALL CHROME BASE CARDS Blue", "odds": {"Hobby Silver Pack": "1:46", "Jumbo Silver Pack": "1:46"}, "variant": null}
+{"name": "1991 TOPPS FOOTBALL CHROME BASE CARDS Green", "odds": {"Hobby Silver Pack": "1:69", "Jumbo Silver Pack": "1:69"}, "variant": null}
+{"name": "1991 TOPPS FOOTBALL CHROME BASE CARDS Gold", "odds": {"Hobby Silver Pack": "1:137", "Jumbo Silver Pack": "1:136"}, "variant": null}
+{"name": "1991 TOPPS FOOTBALL CHROME BASE CARDS Orange", "odds": {"Hobby Silver Pack": "1:273", "Jumbo Silver Pack": "1:273"}, "variant": null}
+{"name": "1991 TOPPS FOOTBALL CHROME BASE CARDS Black", "odds": {"Hobby Silver Pack": "1:683", "Jumbo Silver Pack": "1:683"}, "variant": null}
+{"name": "1991 TOPPS FOOTBALL CHROME BASE CARDS Red", "odds": {"Hobby Silver Pack": "1:1,312", "Jumbo Silver Pack": "1:1,311"}, "variant": null}
+{"name": "1991 TOPPS FOOTBALL CHROME BASE CARDS Superfractor", "odds": {"Hobby Silver Pack": "1:6,556", "Jumbo Silver Pack": "1:6,553"}, "variant": null}
+{"name": "1991 TOPPS FOOTBALL CHROME BASE CARDS London Union Jack", "odds": {"London Mega": "1:1"}, "variant": null}
+{"name": "1991 TOPPS FOOTBALL CHROME BASE CARDS London Big Ben", "odds": {"London Mega": "1:43"}, "variant": null}
+{"name": "1991 TOPPS FOOTBALL CHROME BASE CARDS London Tudor Rose", "odds": {"London Mega": "1:507"}, "variant": null}
+{"name": "1991 TOPPS FOOTBALL CHROME BASE CARDS London Crown Jewels", "odds": {"London Mega": "1:2,630"}, "variant": null}
+{"name": "1991 TOPPS FOOTBALL CHROME BASE CARDS Autographs", "odds": {"Hobby Silver Pack": "1:519", "Jumbo Silver Pack": "1:519"}, "variant": null}
+{"name": "1991 TOPPS FOOTBALL CHROME BASE CARDS Autographs Green", "odds": {"Hobby Silver Pack": "1:141", "Jumbo Silver Pack": "1:141"}, "variant": null}
+{"name": "1991 TOPPS FOOTBALL CHROME BASE CARDS Autographs Gold", "odds": {"Hobby Silver Pack": "1:247", "Jumbo Silver Pack": "1:247"}, "variant": null}
+{"name": "1991 TOPPS FOOTBALL CHROME BASE CARDS Autographs Orange", "odds": {"Hobby Silver Pack": "1:461", "Jumbo Silver Pack": "1:461"}, "variant": null}
+{"name": "1991 TOPPS FOOTBALL CHROME BASE CARDS Autographs Black", "odds": {"Hobby Silver Pack": "1:1,127", "Jumbo Silver Pack": "1:1,126"}, "variant": null}
+{"name": "1991 TOPPS FOOTBALL CHROME BASE CARDS Autographs Red", "odds": {"Hobby Silver Pack": "1:1,987", "Jumbo Silver Pack": "1:1,986"}, "variant": null}
+{"name": "1991 TOPPS FOOTBALL CHROME BASE CARDS Autographs Superfractor", "odds": {"Hobby Silver Pack": "1:9,641", "Jumbo Silver Pack": "1:9,636"}, "variant": null}
+{"name": "1957 Rookie Variation Base", "odds": {"Hobby": "1:11,249", "Jumbo": "1:3,750", "Hanger": "1:1,406", "Fat Pack": "1:2,812", "Value": "1:5,624", "Mega": "1:5,624", "Fanatics": "1:5,624", "London Mega": "1:5,624", "Walmart Mega": "1:5,624"}, "variant": null}
+{"name": "NFL Material Cards Base", "odds": {"Hobby": "1:313", "Jumbo": "1:80", "Hanger": "1:101", "Fat Pack": "1:294", "Value": "1:444", "Mega": "1:383", "Fanatics": "1:266", "Bulk Packs": "1:10,196", "London Mega": "1:155", "Walmart Mega": "1:272"}, "variant": null}
+{"name": "1991 Topps Football Relics Base", "odds": {"Hobby": "1:838", "Jumbo": "1:175", "Hanger": "1:321", "Fat Pack": "1:800", "Value": "1:519", "Mega": "1:490", "Fanatics": "1:994", "Bulk Packs": "1:2,002", "London Mega": "1:757", "Walmart Mega": "1:532"}, "variant": null}
+{"name": "NFL Material Cards Blue", "odds": {"Hobby": "1:5,423", "Jumbo": "1:2,183", "Hanger": "1:5,463", "Value": "1:3,028", "Mega": "1:3,370", "Fanatics": "1:11,109", "Walmart Mega": "1:3,279"}, "variant": null}
+{"name": "1991 Topps Football Relics Blue", "odds": {"Hobby": "1:9,903", "Jumbo": "1:3,986", "Hanger": "1:9,978", "Value": "1:5,530", "Mega": "1:6,154", "Fanatics": "1:20,289", "Walmart Mega": "1:5,988"}, "variant": null}
+{"name": "NFL Material Cards Green", "odds": {"Hobby": "1:8,217", "Jumbo": "1:3,307", "Hanger": "1:8,279", "Value": "1:4,589", "Mega": "1:5,106", "Fanatics": "1:16,833", "Walmart Mega": "1:4,968"}, "variant": null}
+{"name": "1991 Topps Football Relics Green", "odds": {"Hobby": "1:15,007", "Jumbo": "1:6,040", "Hanger": "1:15,118", "Value": "1:8,379", "Mega": "1:9,324", "Fanatics": "1:30,741", "Walmart Mega": "1:9,072"}, "variant": null}
+{"name": "NFL Material Cards Gold", "odds": {"Hobby": "1:16,271", "Jumbo": "1:6,548", "Hanger": "1:16,391", "Value": "1:9,086", "Mega": "1:10,110", "Fanatics": "1:33,334", "Walmart Mega": "1:9,837"}, "variant": null}
+{"name": "1991 Topps Football Relics Gold", "odds": {"Hobby": "1:29,727", "Jumbo": "1:11,964", "Hanger": "1:29,950", "Value": "1:16,598", "Mega": "1:18,471", "Fanatics": "1:60,902", "Walmart Mega": "1:17,970"}, "variant": null}
+{"name": "NFL Material Cards Orange", "odds": {"Hobby": "1:31,848", "Jumbo": "1:12,818", "Hanger": "1:32,083", "Value": "1:17,785", "Mega": "1:19,791", "Fanatics": "1:65,232", "Walmart Mega": "1:19,253"}, "variant": null}
+{"name": "1991 Topps Football Relics Orange", "odds": {"Hobby": "1:59,631", "Jumbo": "1:24,004", "Hanger": "1:60,097", "Value": "1:33,301", "Mega": "1:37,051", "Fanatics": "1:122,101", "Walmart Mega": "1:36,063"}, "variant": null}
+{"name": "NFL Material Cards Black", "odds": {"Hobby": "1:79,873", "Jumbo": "1:32,145", "Hanger": "1:80,451", "Value": "1:44,584", "Mega": "1:49,628", "Fanatics": "1:163,667", "Walmart Mega": "1:48,286"}, "variant": null}
+{"name": "1991 Topps Football Relics Black", "odds": {"Hobby": "1:149,701", "Jumbo": "1:60,278", "Hanger": "1:150,830", "Value": "1:83,683", "Mega": "1:93,110", "Fanatics": "1:306,749", "Walmart Mega": "1:90,580"}, "variant": null}
+{"name": "NFL Material Cards Red", "odds": {"Hobby": "1:160,772", "Jumbo": "1:64,684", "Hanger": "1:161,813", "Value": "1:89,767", "Mega": "1:99,901", "Fanatics": "1:328,948", "Walmart Mega": "1:97,182"}, "variant": null}
+{"name": "1991 Topps Football Relics Red", "odds": {"Hobby": "1:297,620", "Jumbo": "1:119,618", "Hanger": "1:299,402", "Value": "1:166,113", "Mega": "1:184,843", "Fanatics": "1:609,757", "Walmart Mega": "1:179,857"}, "variant": null}
+{"name": "NFL Material Cards Platinum", "odds": {"Hobby": "1:138,505", "Jumbo": "1:33,479"}, "variant": null}
+{"name": "1991 Topps Football Relics Platinum", "odds": {"Hobby": "1:1,449,276", "Jumbo": "1:581,396", "Hanger": "1:1,449,276", "Value": "1:806,452", "Mega": "1:892,858", "Fanatics": "1:2,941,177", "Walmart Mega": "1:869,566"}, "variant": null}
+{"name": "Field Fit Swatch Collection Base", "odds": {"Hobby": "1:89", "Jumbo": "1:22"}, "variant": null}
+{"name": "NFL Material Dual Relic Cards Base", "odds": {"Hobby": "1:3,273", "Jumbo": "1:505", "Hanger": "1:1,841", "Fat Pack": "1:38,775", "Value": "1:1,469", "Mega": "1:1,417", "Fanatics": "1:2,946", "Bulk Packs": "1:62,035", "London Mega": "1:1,494", "Walmart Mega": "1:1,426"}, "variant": null}
+{"name": "Field Fit Swatch Collection Blue", "odds": {"Hobby": "1:1,131", "Jumbo": "1:274"}, "variant": null}
+{"name": "NFL Material Dual Relic Cards Blue", "odds": {"Hobby": "1:7,723", "Jumbo": "1:3,108", "Hanger": "1:7,780", "Value": "1:4,313", "Mega": "1:4,799", "Fanatics": "1:15,821", "Walmart Mega": "1:4,669"}, "variant": null}
+{"name": "Field Fit Swatch Collection Green", "odds": {"Hobby": "1:1,714", "Jumbo": "1:415"}, "variant": null}
+{"name": "NFL Material Dual Relic Cards Green", "odds": {"Hobby": "1:11,705", "Jumbo": "1:4,711", "Hanger": "1:11,792", "Value": "1:6,536", "Mega": "1:7,273", "Fanatics": "1:23,976", "Walmart Mega": "1:7,077"}, "variant": null}
+{"name": "Field Fit Swatch Collection Gold", "odds": {"Hobby": "1:3,393", "Jumbo": "1:820"}, "variant": null}
+{"name": "NFL Material Dual Relic Cards Gold", "odds": {"Hobby": "1:23,192", "Jumbo": "1:9,334", "Hanger": "1:23,365", "Value": "1:12,951", "Mega": "1:14,410", "Fanatics": "1:47,506", "Walmart Mega": "1:14,022"}, "variant": null}
+{"name": "Field Fit Swatch Collection Orange", "odds": {"Hobby": "1:6,786", "Jumbo": "1:1,640"}, "variant": null}
+{"name": "NFL Material Dual Relic Cards Orange", "odds": {"Hobby": "1:47,779", "Jumbo": "1:19,228", "Hanger": "1:48,124", "Value": "1:26,674", "Mega": "1:29,683", "Fanatics": "1:97,848", "Walmart Mega": "1:28,886"}, "variant": null}
+{"name": "Field Fit Swatch Collection Black", "odds": {"Hobby": "1:16,964", "Jumbo": "1:4,100"}, "variant": null}
+{"name": "NFL Material Dual Relic Cards Black", "odds": {"Hobby": "1:116,280", "Jumbo": "1:46,817", "Hanger": "1:117,234", "Value": "1:64,936", "Mega": "1:72,255", "Fanatics": "1:238,096", "Walmart Mega": "1:70,324"}, "variant": null}
+{"name": "Field Fit Swatch Collection Red", "odds": {"Hobby": "1:33,922", "Jumbo": "1:8,199"}, "variant": null}
+{"name": "NFL Material Dual Relic Cards Red", "odds": {"Hobby": "1:232,559", "Jumbo": "1:93,633", "Hanger": "1:234,193", "Value": "1:129,871", "Mega": "1:144,509", "Fanatics": "1:476,191", "Walmart Mega": "1:140,647"}, "variant": null}
+{"name": "Field Fit Swatch Collection Platinum", "odds": {"Hobby": "1:166,113", "Jumbo": "1:40,177"}, "variant": null}
+{"name": "NFL Material Dual Relic Cards Platinum", "odds": {"Hobby": "1:201,613", "Jumbo": "1:48,686"}, "variant": null}
+{"name": "Real One Relics Base", "odds": {"Hobby": "1:1,149", "Jumbo": "1:314", "Hanger": "1:202", "Fat Pack": "1:388", "Value": "1:565", "Mega": "1:450", "Fanatics": "1:1,092", "Bulk Packs": "1:1,454", "London Mega": "1:439", "Walmart Mega": "1:546"}, "variant": null}
+{"name": "Real One Relics Gold", "odds": {"Hobby": "1:23,884", "Jumbo": "1:9,613", "Hanger": "1:24,062", "Value": "1:13,337", "Mega": "1:14,842", "Fanatics": "1:48,924", "Walmart Mega": "1:14,441"}, "variant": null}
+{"name": "Real One Relics Orange", "odds": {"Hobby": "1:47,779", "Jumbo": "1:19,228", "Hanger": "1:48,124", "Value": "1:26,674", "Mega": "1:29,683", "Fanatics": "1:97,848", "Walmart Mega": "1:28,886"}, "variant": null}
+{"name": "Real One Relics Black", "odds": {"Hobby": "1:120,049", "Jumbo": "1:48,310", "Hanger": "1:120,919", "Value": "1:67,025", "Mega": "1:74,572", "Fanatics": "1:245,701", "Walmart Mega": "1:72,569"}, "variant": null}
+{"name": "Real One Relics Red", "odds": {"Hobby": "1:239,809", "Jumbo": "1:96,619", "Hanger": "1:242,131", "Value": "1:134,049", "Mega": "1:149,254", "Fanatics": "1:492,611", "Walmart Mega": "1:145,138"}, "variant": null}
+{"name": "Real One Relics Foilfractor", "odds": {"Hobby": "1:1,176,471", "Jumbo": "1:471,699", "Hanger": "1:1,176,471", "Value": "1:653,595", "Mega": "1:724,638", "Fanatics": "1:2,380,953", "Walmart Mega": "1:709,220"}, "variant": null}
+{"name": "NFL Material Autograph Cards Base", "odds": {"Hobby": "1:7,452", "Jumbo": "1:1,894", "Hanger": "1:15,129", "Fat Pack": "1:40,618", "Value": "1:70,922", "Mega": "1:75,873", "Fanatics": "1:6,666,667", "London Mega": "1:272,480", "Walmart Mega": "1:28,836"}, "variant": null}
+{"name": "TOPPS AUTOGRAPH PATCH CARDS Base", "odds": {"Hobby": "1:11,853", "Jumbo": "1:2,520"}, "variant": null}
+{"name": "NFL Material Autograph Cards Gold", "odds": {"Hobby": "1:9,590", "Jumbo": "1:2,437", "Hanger": "1:19,471", "Fat Pack": "1:52,274", "Value": "1:91,325", "Mega": "1:97,657", "Fanatics": "1:9,090,910", "London Mega": "1:350,878", "Walmart Mega": "1:37,120"}, "variant": null}
+{"name": "NFL Material Autograph Cards Orange", "odds": {"Hobby": "1:18,265", "Jumbo": "1:4,641", "Hanger": "1:37,092", "Fat Pack": "1:99,602", "Value": "1:173,914", "Mega": "1:185,874", "Fanatics": "1:16,666,667", "London Mega": "1:666,667", "Walmart Mega": "1:70,672"}, "variant": null}
+{"name": "TOPPS AUTOGRAPH PATCH CARDS Orange", "odds": {"Hobby": "1:12,801", "Jumbo": "1:2,722"}, "variant": null}
+{"name": "NFL Material Autograph Cards Black", "odds": {"Hobby": "1:45,663", "Jumbo": "1:11,601", "Hanger": "1:92,679", "Fat Pack": "1:248,757", "Value": "1:434,783", "Mega": "1:465,117", "Fanatics": "1:50,000,000", "London Mega": "1:1,666,667", "Walmart Mega": "1:176,679"}, "variant": null}
+{"name": "TOPPS AUTOGRAPH PATCH CARDS Black", "odds": {"Hobby": "1:32,000", "Jumbo": "1:6,803"}, "variant": null}
+{"name": "NFL Material Autograph Cards Red", "odds": {"Hobby": "1:87,184", "Jumbo": "1:22,149", "Hanger": "1:176,992", "Fat Pack": "1:476,191", "Value": "1:833,334", "Mega": "1:884,956", "Fanatics": "1:100,000,000", "London Mega": "1:3,225,807", "Walmart Mega": "1:337,838"}, "variant": null}
+{"name": "TOPPS AUTOGRAPH PATCH CARDS Red", "odds": {"Hobby": "1:58,686", "Jumbo": "1:12,472"}, "variant": null}
+{"name": "NFL Material Autograph Cards Platinum", "odds": {"Hobby": "1:436,682", "Jumbo": "1:110,742", "Hanger": "1:884,956", "Fat Pack": "1:2,380,953", "Value": "1:4,166,667", "Mega": "1:4,347,827", "London Mega": "1:16,666,667", "Walmart Mega": "1:1,694,916"}, "variant": null}
+{"name": "TOPPS AUTOGRAPH PATCH CARDS Platinum", "odds": {"Hobby": "1:281,691", "Jumbo": "1:59,881"}, "variant": null}
+{"name": "NFL Stars Autographs Base", "odds": {"Hobby": "1:6,777", "Jumbo": "1:2,109", "Hanger": "1:13,759", "Fat Pack": "1:36,942", "Value": "1:68,729", "Mega": "1:69,014", "Fanatics": "1:6,250,000", "Bulk Packs": "1:42,827", "London Mega": "1:247,525", "Walmart Mega": "1:26,227"}, "variant": null}
+{"name": "NFL Stars Autographs Blue", "odds": {"Hobby": "1:1,297", "Jumbo": "1:404", "Hanger": "1:2,633", "Fat Pack": "1:7,069", "Value": "1:13,151", "Mega": "1:13,205", "Fanatics": "1:1,190,477", "Bulk Packs": "1:8,194", "London Mega": "1:47,394", "Walmart Mega": "1:5,018"}, "variant": null}
+{"name": "NFL Stars Autographs Green", "odds": {"Hobby": "1:1,806", "Jumbo": "1:562", "Hanger": "1:3,666", "Fat Pack": "1:9,844", "Value": "1:18,316", "Mega": "1:18,390", "Fanatics": "1:1,666,667", "Bulk Packs": "1:11,410", "London Mega": "1:66,007", "Walmart Mega": "1:6,988"}, "variant": null}
+{"name": "NFL Stars Autographs Gold", "odds": {"Hobby": "1:3,325", "Jumbo": "1:1,035", "Hanger": "1:6,752", "Fat Pack": "1:18,130", "Value": "1:33,727", "Mega": "1:33,864", "Fanatics": "1:3,030,304", "Bulk Packs": "1:21,013", "London Mega": "1:121,507", "Walmart Mega": "1:12,869"}, "variant": null}
+{"name": "NFL Stars Autographs Orange", "odds": {"Hobby": "1:6,343", "Jumbo": "1:1,974", "Hanger": "1:12,879", "Fat Pack": "1:34,579", "Value": "1:64,351", "Mega": "1:64,600", "Fanatics": "1:5,882,353", "Bulk Packs": "1:40,081", "London Mega": "1:232,019", "Walmart Mega": "1:24,552"}, "variant": null}
+{"name": "NFL Stars Autographs Black", "odds": {"Hobby": "1:15,618", "Jumbo": "1:4,859", "Hanger": "1:31,706", "Fat Pack": "1:85,179", "Value": "1:158,479", "Mega": "1:158,983", "Fanatics": "1:14,285,715", "Bulk Packs": "1:98,717", "London Mega": "1:571,429", "Walmart Mega": "1:60,460"}, "variant": null}
+{"name": "NFL Stars Autographs Red", "odds": {"Hobby": "1:31,231", "Jumbo": "1:9,719", "Hanger": "1:63,412", "Fat Pack": "1:170,358", "Value": "1:316,456", "Mega": "1:318,472", "Fanatics": "1:33,333,334", "Bulk Packs": "1:197,239", "London Mega": "1:1,136,364", "Walmart Mega": "1:120,919"}, "variant": null}
+{"name": "NFL Stars Autographs Platinum", "odds": {"Hobby": "1:156,250", "Jumbo": "1:48,591", "Hanger": "1:317,461", "Fat Pack": "1:854,701", "Value": "1:1,587,302", "Mega": "1:1,587,302", "Fanatics": "1:100,000,000", "Bulk Packs": "1:990,100", "London Mega": "1:5,555,556", "Walmart Mega": "1:606,061"}, "variant": null}
+{"name": "NFL Stars Dual Autographs Base", "odds": {"Hobby": "1:47,141", "Jumbo": "1:8,419", "Hanger": "1:37,035", "Fat Pack": "1:106,641", "Value": "1:334,750", "Mega": "1:338,752", "Fanatics": "1:556,445", "London Mega": "1:224,000", "Walmart Mega": "1:134,726"}, "variant": null}
+{"name": "NFL Stars Triple Autographs Base", "odds": {"Hobby": "1:114,939", "Jumbo": "1:19,175", "Hanger": "1:88,884", "Fat Pack": "1:370,926", "Value": "1:785,934", "Mega": "1:795,331", "Fanatics": "1:1,306,435", "London Mega": "1:120,960", "Walmart Mega": "1:316,311"}, "variant": null}
+{"name": "SUPER BOWL CHAMPION SIGNATURES Base", "odds": {"Hobby": "1:313"}, "variant": null}
+{"name": "Ring of Honor Signatures Base", "odds": {"Hobby": "1:18,478", "Jumbo": "1:4,695", "Hanger": "1:37,510", "Fat Pack": "1:100,705", "Value": "1:175,747", "Mega": "1:188,324", "Fanatics": "1:16,666,667", "London Mega": "1:675,676", "Walmart Mega": "1:71,531"}, "variant": null}
+{"name": "SUPER BOWL CHAMPION SIGNATURES Foilfractor", "odds": {"Hobby": "1:92,507"}, "variant": null}
+{"name": "Ring of Honor Signatures Foilfractor", "odds": {"Hobby": "1:2,380,953", "Jumbo": "1:609,757", "Hanger": "1:4,761,905", "Fat Pack": "1:12,500,000", "Value": "1:25,000,000", "Mega": "1:25,000,000", "London Mega": "1:100,000,000", "Walmart Mega": "1:9,090,910"}, "variant": null}
+{"name": "Field Fit Swatch Collection Autograph Relic Base", "odds": {"Hobby": "1:7,452", "Jumbo": "1:1,894", "Hanger": "1:15,129", "Fat Pack": "1:40,618", "Value": "1:70,922", "Mega": "1:75,873", "Fanatics": "1:6,666,667", "London Mega": "1:272,480", "Walmart Mega": "1:28,836"}, "variant": null}
+{"name": "NFL Material Dual Relic Autographs Base", "odds": {"Hobby": "1:24,214", "Jumbo": "1:6,153", "Hanger": "1:49,165", "Fat Pack": "1:132,101", "Value": "1:230,415", "Mega": "1:246,914", "Fanatics": "1:25,000,000", "London Mega": "1:884,956", "Walmart Mega": "1:93,721"}, "variant": null}
+{"name": "Field Fit Swatch Collection Autograph Relic Gold", "odds": {"Hobby": "1:9,133", "Jumbo": "1:2,321", "Hanger": "1:18,543", "Fat Pack": "1:49,801", "Value": "1:86,957", "Mega": "1:93,024", "Fanatics": "1:8,333,334", "London Mega": "1:333,334", "Walmart Mega": "1:35,349"}, "variant": null}
+{"name": "NFL Material Dual Relic Autographs Gold", "odds": {"Hobby": "1:23,976", "Jumbo": "1:6,091", "Hanger": "1:48,686", "Fat Pack": "1:130,719", "Value": "1:228,311", "Mega": "1:243,903", "Fanatics": "1:20,000,000", "London Mega": "1:877,193", "Walmart Mega": "1:92,765"}, "variant": null}
+{"name": "Field Fit Swatch Collection Autograph Relic Orange", "odds": {"Hobby": "1:17,434", "Jumbo": "1:4,430", "Hanger": "1:35,399", "Fat Pack": "1:95,058", "Value": "1:166,113", "Mega": "1:177,620", "Fanatics": "1:16,666,667", "London Mega": "1:636,943", "Walmart Mega": "1:67,477"}, "variant": null}
+{"name": "NFL Material Dual Relic Autographs Orange", "odds": {"Hobby": "1:42,626", "Jumbo": "1:10,829", "Hanger": "1:86,506", "Fat Pack": "1:232,559", "Value": "1:406,505", "Mega": "1:434,783", "Fanatics": "1:33,333,334", "London Mega": "1:1,562,500", "Walmart Mega": "1:165,017"}, "variant": null}
+{"name": "Field Fit Swatch Collection Autograph Relic Black", "odds": {"Hobby": "1:38,359", "Jumbo": "1:9,745", "Hanger": "1:77,882", "Fat Pack": "1:209,206", "Value": "1:364,964", "Mega": "1:390,625", "Fanatics": "1:33,333,334", "London Mega": "1:1,408,451", "Walmart Mega": "1:148,368"}, "variant": null}
+{"name": "NFL Material Dual Relic Autographs Black", "odds": {"Hobby": "1:106,497", "Jumbo": "1:27,071", "Hanger": "1:216,451", "Fat Pack": "1:581,396", "Value": "1:1,010,102", "Mega": "1:1,086,957", "Fanatics": "1:100,000,000", "London Mega": "1:3,846,154", "Walmart Mega": "1:411,523"}, "variant": null}
+{"name": "Field Fit Swatch Collection Autograph Relic Red", "odds": {"Hobby": "1:71,023", "Jumbo": "1:18,048", "Hanger": "1:144,301", "Fat Pack": "1:387,597", "Value": "1:675,676", "Mega": "1:724,638", "Fanatics": "1:50,000,000", "London Mega": "1:2,564,103", "Walmart Mega": "1:274,726"}, "variant": null}
+{"name": "NFL Material Dual Relic Autographs Red", "odds": {"Hobby": "1:213,220", "Jumbo": "1:54,142", "Hanger": "1:432,901", "Fat Pack": "1:1,162,791", "Value": "1:2,040,817", "Mega": "1:2,173,914", "Fanatics": "1:100,000,000", "London Mega": "1:7,692,308", "Walmart Mega": "1:826,447"}, "variant": null}
+{"name": "Field Fit Swatch Collection Autograph Relic Platinum", "odds": {"Hobby": "1:354,610", "Jumbo": "1:90,253", "Hanger": "1:719,425", "Fat Pack": "1:1,923,077", "Value": "1:3,333,334", "Mega": "1:3,571,429", "London Mega": "1:12,500,000", "Walmart Mega": "1:1,369,864"}, "variant": null}
+{"name": "NFL Material Dual Relic Autographs Platinum", "odds": {"Hobby": "1:1,063,830", "Jumbo": "1:271,003", "Hanger": "1:2,173,914", "Fat Pack": "1:5,882,353", "Value": "1:10,000,000", "Mega": "1:11,111,112", "London Mega": "1:33,333,334", "Walmart Mega": "1:4,166,667"}, "variant": null}
+{"name": "1991 TOPPS FOOTBALL AUTOGRAPH CARDS I Base", "odds": {"Hobby": "1:949", "Jumbo": "1:296", "Hanger": "1:1,927", "Fat Pack": "1:5,174", "Value": "1:9,626", "Mega": "1:9,665", "Fanatics": "1:873,494", "Bulk Packs": "1:5,997", "London Mega": "1:34,689", "Walmart Mega": "1:3,673"}, "variant": null}
+{"name": "1991 TOPPS FOOTBALL AUTOGRAPH CARDS I Blue", "odds": {"Hobby": "1:1,146", "Jumbo": "1:357", "Hanger": "1:2,325", "Fat Pack": "1:6,250", "Value": "1:11,621", "Mega": "1:11,663", "Fanatics": "1:1,066,177", "Bulk Packs": "1:7,239", "London Mega": "1:42,349", "Walmart Mega": "1:4,434"}, "variant": null}
+{"name": "1991 TOPPS FOOTBALL AUTOGRAPH CARDS I Green", "odds": {"Hobby": "1:1,717", "Jumbo": "1:534", "Hanger": "1:3,487", "Fat Pack": "1:9,366", "Value": "1:17,410", "Mega": "1:17,454", "Fanatics": "1:1,593,407", "Bulk Packs": "1:10,831", "London Mega": "1:63,430", "Walmart Mega": "1:6,633"}, "variant": null}
+{"name": "1991 TOPPS FOOTBALL AUTOGRAPH CARDS I Gold", "odds": {"Hobby": "1:3,218", "Jumbo": "1:1,001", "Hanger": "1:6,500", "Fat Pack": "1:17,553", "Value": "1:32,621", "Mega": "1:32,607", "Fanatics": "1:2,959,184", "Bulk Packs": "1:20,300", "London Mega": "1:118,756", "Walmart Mega": "1:12,427"}, "variant": null}
+{"name": "1991 TOPPS FOOTBALL AUTOGRAPH CARDS I Orange", "odds": {"Hobby": "1:6,445", "Jumbo": "1:2,003", "Hanger": "1:12,855", "Fat Pack": "1:35,135", "Value": "1:64,906", "Mega": "1:65,671", "Fanatics": "1:6,041,667", "Bulk Packs": "1:40,617", "London Mega": "1:237,705", "Walmart Mega": "1:24,766"}, "variant": null}
+{"name": "1991 TOPPS FOOTBALL AUTOGRAPH CARDS I Black", "odds": {"Hobby": "1:16,156", "Jumbo": "1:4,991", "Hanger": "1:32,724", "Fat Pack": "1:88,039", "Value": "1:164,028", "Mega": "1:163,842", "Fanatics": "1:14,500,000", "Bulk Packs": "1:100,347", "London Mega": "1:594,263", "Walmart Mega": "1:61,650"}, "variant": null}
+{"name": "1991 TOPPS FOOTBALL AUTOGRAPH CARDS I Red", "odds": {"Hobby": "1:20,988", "Jumbo": "1:4,490"}, "variant": null}
+{"name": "1991 TOPPS FOOTBALL AUTOGRAPH CARDS I Platinum", "odds": {"Jumbo": "1:10,649"}, "variant": null}
+{"name": "1991 TOPPS FOOTBALL AUTOGRAPH CARDS I Base", "odds": {"Hobby": "1:2,109", "Jumbo": "1:657", "Hanger": "1:4,282", "Fat Pack": "1:11,497", "Value": "1:21,391", "Mega": "1:21,478", "Fanatics": "1:1,941,098", "Bulk Packs": "1:13,326", "London Mega": "1:77,087", "Walmart Mega": "1:8,162"}, "variant": "second_line_unlabeled"}
+{"name": "1991 TOPPS FOOTBALL AUTOGRAPH CARDS I Blue", "odds": {"Hobby": "1:2,545", "Jumbo": "1:792", "Hanger": "1:5,167", "Fat Pack": "1:13,889", "Value": "1:25,824", "Mega": "1:25,917", "Fanatics": "1:2,369,282", "Bulk Packs": "1:16,087", "London Mega": "1:94,107", "Walmart Mega": "1:9,853"}, "variant": "second_line_unlabeled"}
+{"name": "1991 TOPPS FOOTBALL AUTOGRAPH CARDS I Green", "odds": {"Hobby": "1:3,815", "Jumbo": "1:1,187", "Hanger": "1:7,749", "Fat Pack": "1:20,812", "Value": "1:38,687", "Mega": "1:38,785", "Fanatics": "1:3,540,904", "Bulk Packs": "1:24,068", "London Mega": "1:140,955", "Walmart Mega": "1:14,739"}, "variant": "second_line_unlabeled"}
+{"name": "1991 TOPPS FOOTBALL AUTOGRAPH CARDS I Gold", "odds": {"Hobby": "1:7,150", "Jumbo": "1:2,224", "Hanger": "1:14,443", "Fat Pack": "1:39,006", "Value": "1:72,491", "Mega": "1:72,459", "Fanatics": "1:6,575,964", "Bulk Packs": "1:45,111", "London Mega": "1:263,901", "Walmart Mega": "1:27,614"}, "variant": "second_line_unlabeled"}
+{"name": "1991 TOPPS FOOTBALL AUTOGRAPH CARDS I Orange", "odds": {"Hobby": "1:14,321", "Jumbo": "1:4,450", "Hanger": "1:28,566", "Fat Pack": "1:78,077", "Value": "1:144,236", "Mega": "1:145,934", "Fanatics": "1:13,425,926", "Bulk Packs": "1:90,259", "London Mega": "1:528,234", "Walmart Mega": "1:55,034"}, "variant": "second_line_unlabeled"}
+{"name": "1991 TOPPS FOOTBALL AUTOGRAPH CARDS I Black", "odds": {"Hobby": "1:35,903", "Jumbo": "1:11,091", "Hanger": "1:72,720", "Fat Pack": "1:195,642", "Value": "1:364,505", "Mega": "1:364,093", "Fanatics": "1:32,222,223", "Bulk Packs": "1:222,992", "London Mega": "1:1,320,583", "Walmart Mega": "1:137,000"}, "variant": "second_line_unlabeled"}
+{"name": "1991 TOPPS FOOTBALL AUTOGRAPH CARDS I Red", "odds": {"Hobby": "1:46,639", "Jumbo": "1:9,978"}, "variant": "second_line_unlabeled"}
+{"name": "1991 TOPPS FOOTBALL AUTOGRAPH CARDS I Platinum", "odds": {"Jumbo": "1:23,664"}, "variant": "second_line_unlabeled"}
+{"name": "Victory Ink Base", "odds": {"Hobby": "1:770", "Jumbo": "1:240", "Hanger": "1:1,563", "Fat Pack": "1:4,197", "Value": "1:7,808", "Mega": "1:7,840", "Fanatics": "1:709,220", "Bulk Packs": "1:4,865", "London Mega": "1:28,138", "Walmart Mega": "1:2,980"}, "variant": null}
+{"name": "Island Ink Base", "odds": {"Hobby": "1:2,814", "Jumbo": "1:876", "Hanger": "1:5,713", "Fat Pack": "1:15,338", "Value": "1:28,539", "Mega": "1:28,654", "Fanatics": "1:2,564,103", "Bulk Packs": "1:17,778", "London Mega": "1:102,881", "Walmart Mega": "1:10,888"}, "variant": null}
+{"name": "Mascot Autographs Base", "odds": {"Hobby": "1:11,847", "Jumbo": "1:3,687", "Hanger": "1:24,056", "Fat Pack": "1:64,600", "Value": "1:120,193", "Mega": "1:120,628", "Fanatics": "1:11,111,112", "Bulk Packs": "1:74,851", "London Mega": "1:432,901", "Walmart Mega": "1:45,851"}, "variant": null}
+{"name": "Super Bowl Halftime Headliners Autographs Base", "odds": {}, "variant": null}
+{"name": "Victory Ink Green", "odds": {"Hobby": "1:2,937", "Jumbo": "1:914", "Hanger": "1:5,963", "Fat Pack": "1:16,011", "Value": "1:29,789", "Mega": "1:29,914", "Fanatics": "1:2,702,703", "Bulk Packs": "1:18,557", "London Mega": "1:107,297", "Walmart Mega": "1:11,365"}, "variant": null}
+{"name": "Island Ink Green", "odds": {"Hobby": "1:6,214", "Jumbo": "1:1,934", "Hanger": "1:12,616", "Fat Pack": "1:33,876", "Value": "1:63,012", "Mega": "1:63,292", "Fanatics": "1:5,555,556", "Bulk Packs": "1:39,262", "London Mega": "1:227,273", "Walmart Mega": "1:24,045"}, "variant": null}
+{"name": "Mascot Autographs Green", "odds": {"Hobby": "1:52,057", "Jumbo": "1:16,197", "Hanger": "1:105,709", "Fat Pack": "1:284,091", "Value": "1:529,101", "Mega": "1:529,101", "Fanatics": "1:50,000,000", "Bulk Packs": "1:328,948", "London Mega": "1:1,886,793", "Walmart Mega": "1:201,613"}, "variant": null}
+{"name": "Super Bowl Halftime Headliners Autographs Green", "odds": {}, "variant": null}
+{"name": "Victory Ink Gold", "odds": {"Hobby": "1:5,907", "Jumbo": "1:1,838", "Hanger": "1:11,994", "Fat Pack": "1:32,207", "Value": "1:59,917", "Mega": "1:60,169", "Fanatics": "1:5,555,556", "Bulk Packs": "1:37,328", "London Mega": "1:215,983", "Walmart Mega": "1:22,863"}, "variant": null}
+{"name": "Island Ink Gold", "odds": {"Hobby": "1:11,661", "Jumbo": "1:3,628", "Hanger": "1:23,675", "Fat Pack": "1:63,573", "Value": "1:118,344", "Mega": "1:118,765", "Fanatics": "1:11,111,112", "Bulk Packs": "1:73,692", "London Mega": "1:425,532", "Walmart Mega": "1:45,127"}, "variant": null}
+{"name": "Mascot Autographs Gold", "odds": {"Hobby": "1:68,729", "Jumbo": "1:21,382", "Hanger": "1:139,471", "Fat Pack": "1:374,532", "Value": "1:699,301", "Mega": "1:699,301", "Fanatics": "1:50,000,000", "Bulk Packs": "1:434,783", "London Mega": "1:2,500,000", "Walmart Mega": "1:265,958"}, "variant": null}
+{"name": "Super Bowl Halftime Headliners Autographs Gold", "odds": {}, "variant": null}
+{"name": "Victory Ink Orange", "odds": {"Hobby": "1:11,466", "Jumbo": "1:3,568", "Hanger": "1:23,278", "Fat Pack": "1:62,500", "Value": "1:116,280", "Mega": "1:116,823", "Fanatics": "1:11,111,112", "Bulk Packs": "1:72,464", "London Mega": "1:418,411", "Walmart Mega": "1:44,366"}, "variant": null}
+{"name": "Island Ink Orange", "odds": {"Hobby": "1:21,792", "Jumbo": "1:6,780", "Hanger": "1:44,248", "Fat Pack": "1:118,765", "Value": "1:221,239", "Mega": "1:221,730", "Fanatics": "1:20,000,000", "Bulk Packs": "1:137,742", "London Mega": "1:793,651", "Walmart Mega": "1:84,318"}, "variant": null}
+{"name": "Mascot Autographs Orange", "odds": {"Hobby": "1:137,363", "Jumbo": "1:42,754", "Hanger": "1:279,330", "Fat Pack": "1:751,880", "Value": "1:1,388,889", "Mega": "1:1,408,451", "Fanatics": "1:100,000,000", "Bulk Packs": "1:869,566", "London Mega": "1:5,000,000", "Walmart Mega": "1:531,915"}, "variant": null}
+{"name": "Super Bowl Halftime Headliners Autographs Orange", "odds": {}, "variant": null}
+{"name": "Victory Ink Black", "odds": {"Hobby": "1:28,629", "Jumbo": "1:8,908", "Hanger": "1:58,140", "Fat Pack": "1:156,007", "Value": "1:290,698", "Mega": "1:291,546", "Fanatics": "1:25,000,000", "Bulk Packs": "1:180,832", "London Mega": "1:1,041,667", "Walmart Mega": "1:110,865"}, "variant": null}
+{"name": "Island Ink Black", "odds": {"Hobby": "1:55,402", "Jumbo": "1:17,242", "Hanger": "1:112,486", "Fat Pack": "1:302,115", "Value": "1:561,798", "Mega": "1:564,972", "Fanatics": "1:50,000,000", "Bulk Packs": "1:349,651", "London Mega": "1:2,040,817", "Walmart Mega": "1:214,593"}, "variant": null}
+{"name": "Mascot Autographs Black", "odds": {"Hobby": "1:343,643", "Jumbo": "1:106,952", "Hanger": "1:699,301", "Fat Pack": "1:1,886,793", "Value": "1:3,448,276", "Mega": "1:3,448,276", "Bulk Packs": "1:2,173,914", "London Mega": "1:12,500,000", "Walmart Mega": "1:1,333,334"}, "variant": null}
+{"name": "Super Bowl Halftime Headliners Autographs Black", "odds": {}, "variant": null}
+{"name": "Victory Ink Red", "odds": {"Hobby": "1:57,274", "Jumbo": "1:17,816", "Hanger": "1:116,280", "Fat Pack": "1:312,500", "Value": "1:581,396", "Mega": "1:584,796", "Fanatics": "1:50,000,000", "Bulk Packs": "1:362,319", "London Mega": "1:2,083,334", "Walmart Mega": "1:221,730"}, "variant": null}
+{"name": "Island Ink Red", "odds": {"Hobby": "1:108,460", "Jumbo": "1:33,761", "Hanger": "1:220,265", "Fat Pack": "1:591,716", "Value": "1:1,098,902", "Mega": "1:1,111,112", "Fanatics": "1:100,000,000", "Bulk Packs": "1:684,932", "London Mega": "1:4,000,000", "Walmart Mega": "1:420,169"}, "variant": null}
+{"name": "Mascot Autographs Red", "odds": {"Hobby": "1:684,932", "Jumbo": "1:213,676", "Hanger": "1:1,388,889", "Fat Pack": "1:3,703,704", "Value": "1:7,142,858", "Mega": "1:7,142,858", "Bulk Packs": "1:4,347,827", "London Mega": "1:25,000,000", "Walmart Mega": "1:2,631,579"}, "variant": null}
+{"name": "Super Bowl Halftime Headliners Autographs Red", "odds": {}, "variant": null}
+{"name": "Victory Ink Foilfractor", "odds": {"Hobby": "1:286,533", "Jumbo": "1:89,048", "Hanger": "1:581,396", "Fat Pack": "1:1,562,500", "Value": "1:2,941,177", "Mega": "1:2,941,177", "Bulk Packs": "1:1,818,182", "London Mega": "1:10,000,000", "Walmart Mega": "1:1,111,112"}, "variant": null}
+{"name": "Island Ink Foilfractor Mascot Autographs - 1:3,448,276 - 1: - 1: 1: 1: 1: - - - -1:20,000,000 1:100,000,000 - - - 1:12,500,000 - - - - Foilfractor", "odds": {"Hobby": "1:571,429", "Jumbo": "1:178,254", "Hanger": "1:1,162,791", "Fat Pack": "1:3,125,000", "Value": "1:5,882,353", "Mega": "1:5,882,353", "Bulk Packs": "1:3,571,429", "London Mega": "1:20,000,000", "Walmart Mega": "1:2,222,223"}, "variant": null}
+{"name": "Super Bowl Halftime Headliners Autographs Foilfractor", "odds": {}, "variant": null}
+{"name": "1991 Topps Rookies Football Base", "odds": {"Hobby": "1:9", "Jumbo": "1:3", "Hanger": "1:2", "Fat Pack": "1:3", "Value": "1:5", "Mega": "1:5", "Fanatics": "1:5", "Bulk Packs": "1:5", "London Mega": "1:5", "Walmart Mega": "1:5"}, "variant": null}
+{"name": "1991 Topps Rookies Football Pink", "odds": {"Hobby": "1:1,492", "Jumbo": "1:498", "Hanger": "1:187", "Fat Pack": "1:373", "Value": "1:746", "Mega": "1:746", "Fanatics": "1:746", "Bulk Packs": "1:746", "London Mega": "1:746", "Walmart Mega": "1:746"}, "variant": null}
+{"name": "1991 Topps Rookies Football Blue", "odds": {"Hobby": "1:9,987", "Jumbo": "1:3,329", "Hanger": "1:1,249", "Fat Pack": "1:2,497", "Value": "1:4,994", "Mega": "1:4,994", "Fanatics": "1:4,994", "Bulk Packs": "1:4,994", "London Mega": "1:4,994", "Walmart Mega": "1:4,994"}, "variant": null}
+{"name": "1991 Topps Rookies Football Green", "odds": {"Hobby": "1:15,131", "Jumbo": "1:5,044", "Hanger": "1:1,892", "Fat Pack": "1:3,783", "Value": "1:7,566", "Mega": "1:7,566", "Fanatics": "1:7,566", "Bulk Packs": "1:7,566", "London Mega": "1:7,566", "Walmart Mega": "1:7,566"}, "variant": null}
+{"name": "1991 Topps Rookies Football The Real One", "odds": {"Hobby": "1:16,461", "Jumbo": "1:5,487", "Hanger": "1:2,058", "Fat Pack": "1:4,116", "Value": "1:8,231", "Mega": "1:8,231", "Fanatics": "1:8,231", "Bulk Packs": "1:8,231", "London Mega": "1:8,231", "Walmart Mega": "1:8,231"}, "variant": null}
+{"name": "1991 Topps Rookies Football Gold", "odds": {"Hobby": "1:29,977", "Jumbo": "1:9,994", "Hanger": "1:3,748", "Fat Pack": "1:7,495", "Value": "1:14,991", "Mega": "1:14,991", "Fanatics": "1:14,991", "Bulk Packs": "1:14,991", "London Mega": "1:14,991", "Walmart Mega": "1:14,991"}, "variant": null}
+{"name": "1991 Topps Rookies Football No Name", "odds": {}, "variant": null}
+{"name": "1991 Topps Rookies Football Orange", "odds": {"Hobby": "1:60,025", "Jumbo": "1:20,005", "Hanger": "1:7,501", "Fat Pack": "1:15,002", "Value": "1:30,004", "Mega": "1:30,004", "Fanatics": "1:30,004", "Bulk Packs": "1:30,004", "London Mega": "1:30,004", "Walmart Mega": "1:30,004"}, "variant": null}
+{"name": "1991 Topps Rookies Football Black", "odds": {"Hobby": "1:150,603", "Jumbo": "1:50,176", "Hanger": "1:18,815", "Fat Pack": "1:37,623", "Value": "1:75,245", "Mega": "1:75,245", "Fanatics": "1:75,245", "Bulk Packs": "1:75,245", "London Mega": "1:75,245", "Walmart Mega": "1:75,245"}, "variant": null}
+{"name": "1991 Topps Rookies Football Red", "odds": {"Hobby": "1:302,115", "Jumbo": "1:100,807", "Hanger": "1:37,793", "Fat Pack": "1:75,586", "Value": "1:151,058", "Mega": "1:151,058", "Fanatics": "1:151,058", "Bulk Packs": "1:151,058", "London Mega": "1:151,058", "Walmart Mega": "1:151,058"}, "variant": null}
+{"name": "1991 Topps Rookies Football Foilfractor", "odds": {"Hobby": "1:1,449,276", "Jumbo": "1:480,770", "Hanger": "1:180,506", "Fat Pack": "1:361,011", "Value": "1:724,638", "Mega": "1:724,638", "Fanatics": "1:724,638", "Bulk Packs": "1:724,638", "London Mega": "1:724,638", "Walmart Mega": "1:724,638"}, "variant": null}
+{"name": "1991 Topps Rookies Football Crackle", "odds": {"Mega": "1:16", "London Mega": "1:16", "Walmart Mega": "1:16"}, "variant": null}
+{"name": "1991 Topps Rookies Football Pink Crackle", "odds": {"Mega": "1:60", "London Mega": "1:60", "Walmart Mega": "1:60"}, "variant": null}
+{"name": "1991 Topps Rookies Football Blue Crackle", "odds": {"Mega": "1:1,438", "London Mega": "1:1,438", "Walmart Mega": "1:1,438"}, "variant": null}
+{"name": "1991 Topps Rookies Football Green Crackle", "odds": {"Mega": "1:2,178", "London Mega": "1:2,178", "Walmart Mega": "1:2,178"}, "variant": null}
+{"name": "1991 Topps Rookies Football Gold Crackle", "odds": {"Mega": "1:4,315", "London Mega": "1:4,315", "Walmart Mega": "1:4,315"}, "variant": null}
+{"name": "1991 Topps Rookies Football Orange Crackle", "odds": {"Mega": "1:8,638", "London Mega": "1:8,638", "Walmart Mega": "1:8,638"}, "variant": null}
+{"name": "1991 Topps Rookies Football Black Crackle", "odds": {"Mega": "1:21,664", "London Mega": "1:21,664", "Walmart Mega": "1:21,664"}, "variant": null}
+{"name": "1991 Topps Rookies Football Red Crackle", "odds": {"Mega": "1:43,517", "London Mega": "1:43,517", "Walmart Mega": "1:43,517"}, "variant": null}
+{"name": "2025 All Topps Team Autographs Base", "odds": {"Hobby": "1:20,615", "Jumbo": "1:6,414", "Hanger": "1:41,859", "Fat Pack": "1:112,360", "Value": "1:209,206", "Mega": "1:210,085", "Fanatics": "1:20,000,000", "Bulk Packs": "1:130,209", "London Mega": "1:751,880", "Walmart Mega": "1:79,809"}, "variant": null}
+{"name": "1991 Super Rookie Autographs Base", "odds": {"Hobby": "1:41,238", "Jumbo": "1:12,828", "Hanger": "1:83,683", "Fat Pack": "1:224,720", "Value": "1:418,411", "Mega": "1:420,169", "Fanatics": "1:33,333,334", "Bulk Packs": "1:260,417", "London Mega": "1:1,515,152", "Walmart Mega": "1:159,490"}, "variant": null}
+{"name": "2025 All Topps Team Autographs Green", "odds": {"Hobby": "1:8,009", "Jumbo": "1:2,492", "Hanger": "1:16,263", "Fat Pack": "1:43,669", "Value": "1:81,235", "Mega": "1:81,567", "Fanatics": "1:7,142,858", "Bulk Packs": "1:50,608", "London Mega": "1:292,398", "Walmart Mega": "1:30,999"}, "variant": null}
+{"name": "1991 Super Rookie Autographs Green", "odds": {"Hobby": "1:10,412", "Jumbo": "1:3,240", "Hanger": "1:21,142", "Fat Pack": "1:56,754", "Value": "1:105,597", "Mega": "1:106,045", "Fanatics": "1:10,000,000", "Bulk Packs": "1:65,790", "London Mega": "1:380,229", "Walmart Mega": "1:40,291"}, "variant": null}
+{"name": "2025 All Topps Team Autographs Gold", "odds": {"Hobby": "1:15,858", "Jumbo": "1:4,934", "Hanger": "1:32,196", "Fat Pack": "1:86,431", "Value": "1:160,772", "Mega": "1:161,551", "Fanatics": "1:14,285,715", "Bulk Packs": "1:100,201", "London Mega": "1:578,035", "Walmart Mega": "1:61,388"}, "variant": null}
+{"name": "1991 Super Rookie Autographs Gold", "odds": {"Hobby": "1:20,615", "Jumbo": "1:6,414", "Hanger": "1:41,859", "Fat Pack": "1:112,360", "Value": "1:209,206", "Mega": "1:210,085", "Fanatics": "1:20,000,000", "Bulk Packs": "1:130,209", "London Mega": "1:751,880", "Walmart Mega": "1:79,809"}, "variant": null}
+{"name": "2025 All Topps Team Autographs Orange", "odds": {"Hobby": "1:27,488", "Jumbo": "1:8,552", "Hanger": "1:55,804", "Fat Pack": "1:149,926", "Value": "1:278,552", "Mega": "1:280,113", "Fanatics": "1:25,000,000", "Bulk Packs": "1:173,612", "London Mega": "1:1,000,000", "Walmart Mega": "1:106,383"}, "variant": null}
+{"name": "1991 Super Rookie Autographs Orange", "odds": {"Hobby": "1:41,238", "Jumbo": "1:12,828", "Hanger": "1:83,683", "Fat Pack": "1:224,720", "Value": "1:418,411", "Mega": "1:420,169", "Fanatics": "1:33,333,334", "Bulk Packs": "1:260,417", "London Mega": "1:1,515,152", "Walmart Mega": "1:159,490"}, "variant": null}
+{"name": "2025 All Topps Team Autographs Black", "odds": {"Hobby": "1:68,729", "Jumbo": "1:21,382", "Hanger": "1:139,471", "Fat Pack": "1:374,532", "Value": "1:699,301", "Mega": "1:699,301", "Fanatics": "1:50,000,000", "Bulk Packs": "1:434,783", "London Mega": "1:2,500,000", "Walmart Mega": "1:265,958"}, "variant": null}
+{"name": "1991 Super Rookie Autographs Black", "odds": {"Hobby": "1:93,721", "Jumbo": "1:29,155", "Hanger": "1:190,115", "Fat Pack": "1:510,205", "Value": "1:952,381", "Mega": "1:952,381", "Fanatics": "1:100,000,000", "Bulk Packs": "1:591,716", "London Mega": "1:3,448,276", "Walmart Mega": "1:362,319"}, "variant": null}
+{"name": "2025 All Topps Team Autographs Red", "odds": {"Hobby": "1:137,363", "Jumbo": "1:42,754", "Hanger": "1:279,330", "Fat Pack": "1:751,880", "Value": "1:1,388,889", "Mega": "1:1,408,451", "Fanatics": "1:100,000,000", "Bulk Packs": "1:869,566", "London Mega": "1:5,000,000", "Walmart Mega": "1:531,915"}, "variant": null}
+{"name": "1991 Super Rookie Autographs Red", "odds": {"Hobby": "1:187,266", "Jumbo": "1:58,310", "Hanger": "1:380,229", "Fat Pack": "1:1,020,409", "Value": "1:1,886,793", "Mega": "1:1,923,077", "Fanatics": "1:100,000,000", "Bulk Packs": "1:1,190,477", "London Mega": "1:6,666,667", "Walmart Mega": "1:724,638"}, "variant": null}
+{"name": "2025 All Topps Team Autographs Foilfractor", "odds": {"Hobby": "1:684,932", "Jumbo": "1:213,676", "Hanger": "1:1,388,889", "Fat Pack": "1:3,703,704", "Value": "1:7,142,858", "Mega": "1:7,142,858", "Bulk Packs": "1:4,347,827", "London Mega": "1:25,000,000", "Walmart Mega": "1:2,631,579"}, "variant": null}
+{"name": "1991 Super Rookie Autographs Foilfractor", "odds": {"Hobby": "1:934,580", "Jumbo": "1:291,546", "Hanger": "1:1,886,793", "Fat Pack": "1:5,000,000", "Value": "1:9,090,910", "Mega": "1:10,000,000", "Bulk Packs": "1:5,882,353", "London Mega": "1:33,333,334", "Walmart Mega": "1:3,571,429"}, "variant": null}
+{"name": "Super Box Oversized Base Card Base", "odds": {"Super Box Oversized": "1:1"}, "variant": null}
+{"name": "Companion Cards Base", "odds": {"Super Box Oversized": "1:1"}, "variant": null}
+{"name": "Funko Base Cards Base", "odds": {"Super Box": "1:192"}, "variant": null}
+{"name": "Funko Base Cards FUNKO BASE CARDS AUTOGRAPH PARALLEL", "odds": {"Super Box": "1:942"}, "variant": null}
+{"name": "Fanatics Authentic Redemptions Cards Base", "odds": {"Fanatics": "1:1,879"}, "variant": null}
+{"name": "Marketing Card Base", "odds": {"Kids Mega": "1:1"}, "variant": null}
+{"name": "Rookie Premiere Autographs Base", "odds": {}, "variant": null}
+{"name": "Rookie Premiere Autographs Green Ink", "odds": {"Hobby": "1:5,154", "Jumbo": "1:1,604", "Hanger": "1:10,465", "Fat Pack": "1:28,098", "Value": "1:52,274", "Mega": "1:52,494", "Fanatics": "1:4,761,905", "Bulk Packs": "1:32,574", "London Mega": "1:188,324", "Walmart Mega": "1:19,945"}, "variant": null}
+{"name": "Rookie Premiere Autographs Red Ink", "odds": {"Hobby": "1:51,547", "Jumbo": "1:16,034", "Hanger": "1:104,603", "Fat Pack": "1:280,899", "Value": "1:523,561", "Mega": "1:523,561", "Fanatics": "1:50,000,000", "Bulk Packs": "1:325,733", "London Mega": "1:1,886,793", "Walmart Mega": "1:199,601"}, "variant": null}
+{"name": "Lenticular London Base", "odds": {"London Mega": "1:360"}, "variant": null}
+{"name": "Rookie Card Vintage Stock Variation Base", "odds": {"Hobby": "1:1,766", "Jumbo": "1:288", "Hanger": "1:1,109", "Fat Pack": "1:2,059", "Value": "1:4,435", "Mega": "1:5,068", "Fanatics": "1:2,851", "Walmart Mega": "1:19,005"}, "variant": null}
+{"name": "Rookie Card Clear Variation Base", "odds": {"Hobby": "1:3,931"}, "variant": null}
+{"name": "Rookie Card Team Color Border Variation Base", "odds": {"Hobby": "1:481", "Jumbo": "1:60", "Hanger": "1:96", "Fat Pack": "1:216", "Value": "1:481", "Mega": "1:481", "Fanatics": "1:720", "London Mega": "1:481", "Walmart Mega": "1:481"}, "variant": null}
+{"name": "Rookie Card Player Number Variations Base", "odds": {"Hobby": "1:1,966"}, "variant": null}
+{"name": "Rookie Card True Photo Variation Base", "odds": {"Hobby": "1:3,216", "Jumbo": "1:644", "Hanger": "1:644", "Fat Pack": "1:1,287", "Value": "1:3,859", "Mega": "1:3,859", "Fanatics": "1:2,895", "London Mega": "1:3,859", "Walmart Mega": "1:3,859"}, "variant": null}
+{"name": "NFL Rookies Material Cards Base", "odds": {"Hobby": "1:524", "Jumbo": "1:115", "Hanger": "1:114", "Fat Pack": "1:212", "Value": "1:638", "Mega": "1:553", "Fanatics": "1:498", "Bulk Packs": "1:14,713", "London Mega": "1:250", "Walmart Mega": "1:591"}, "variant": null}
+{"name": "1991 Topps Football Rookie Relics Base", "odds": {"Hobby": "1:718", "Jumbo": "1:223", "Hanger": "1:153", "Fat Pack": "1:248", "Value": "1:736", "Mega": "1:598", "Fanatics": "1:927", "Bulk Packs": "1:640", "London Mega": "1:992", "Walmart Mega": "1:599"}, "variant": null}
+{"name": "NFL Rookies Material Cards Blue", "odds": {"Hobby": "1:6,370", "Jumbo": "1:2,564", "Hanger": "1:6,417", "Value": "1:3,557", "Mega": "1:3,958", "Fanatics": "1:13,049", "Walmart Mega": "1:3,851"}, "variant": null}
+{"name": "1991 Topps Football Rookie Relics Blue", "odds": {"Hobby": "1:6,370", "Jumbo": "1:2,564", "Hanger": "1:6,417", "Value": "1:3,557", "Mega": "1:3,958", "Fanatics": "1:13,049", "Walmart Mega": "1:3,851"}, "variant": null}
+{"name": "NFL Rookies Material Cards Green", "odds": {"Hobby": "1:9,653", "Jumbo": "1:3,885", "Hanger": "1:9,725", "Value": "1:5,390", "Mega": "1:5,998", "Fanatics": "1:19,775", "Walmart Mega": "1:5,837"}, "variant": null}
+{"name": "1991 Topps Football Rookie Relics Green", "odds": {"Hobby": "1:9,653", "Jumbo": "1:3,885", "Hanger": "1:9,725", "Value": "1:5,390", "Mega": "1:5,998", "Fanatics": "1:19,775", "Walmart Mega": "1:5,837"}, "variant": null}
+{"name": "NFL Rookies Material Cards Gold", "odds": {"Hobby": "1:19,110", "Jumbo": "1:7,691", "Hanger": "1:19,250", "Value": "1:10,671", "Mega": "1:11,874", "Fanatics": "1:39,139", "Walmart Mega": "1:11,553"}, "variant": null}
+{"name": "1991 Topps Football Rookie Relics Gold", "odds": {"Hobby": "1:19,110", "Jumbo": "1:7,691", "Hanger": "1:19,250", "Value": "1:10,671", "Mega": "1:11,874", "Fanatics": "1:39,139", "Walmart Mega": "1:11,553"}, "variant": null}
+{"name": "NFL Rookies Material Cards Orange", "odds": {"Hobby": "1:38,212", "Jumbo": "1:15,380", "Hanger": "1:38,506", "Value": "1:21,341", "Mega": "1:23,748", "Fanatics": "1:78,309", "Walmart Mega": "1:23,106"}, "variant": null}
+{"name": "1991 Topps Football Rookie Relics Orange", "odds": {"Hobby": "1:38,212", "Jumbo": "1:15,380", "Hanger": "1:38,506", "Value": "1:21,341", "Mega": "1:23,748", "Fanatics": "1:78,309", "Walmart Mega": "1:23,106"}, "variant": null}
+{"name": "NFL Rookies Material Cards Black", "odds": {"Hobby": "1:95,511", "Jumbo": "1:38,447", "Hanger": "1:96,247", "Value": "1:53,362", "Mega": "1:59,383", "Fanatics": "1:195,695", "Walmart Mega": "1:57,771"}, "variant": null}
+{"name": "1991 Topps Football Rookie Relics Black", "odds": {"Hobby": "1:95,511", "Jumbo": "1:38,447", "Hanger": "1:96,247", "Value": "1:53,362", "Mega": "1:59,383", "Fanatics": "1:195,695", "Walmart Mega": "1:57,771"}, "variant": null}
+{"name": "NFL Rookies Material Cards Red", "odds": {"Hobby": "1:191,205", "Jumbo": "1:76,924", "Hanger": "1:192,679", "Value": "1:106,724", "Mega": "1:118,765", "Fanatics": "1:392,157", "Walmart Mega": "1:115,474"}, "variant": null}
+{"name": "1991 Topps Football Rookie Relics Red", "odds": {"Hobby": "1:191,205", "Jumbo": "1:76,924", "Hanger": "1:192,679", "Value": "1:106,724", "Mega": "1:118,765", "Fanatics": "1:392,157", "Walmart Mega": "1:115,474"}, "variant": null}
+{"name": "NFL Rookies Material Cards Platinum", "odds": {"Hobby": "1:166,113", "Jumbo": "1:40,177"}, "variant": null}
+{"name": "1991 Topps Football Rookie Relics Platinum", "odds": {"Hobby": "1:934,580", "Jumbo": "1:377,359", "Hanger": "1:943,397", "Value": "1:523,561", "Mega": "1:581,396", "Fanatics": "1:1,923,077", "Walmart Mega": "1:564,972"}, "variant": null}
+{"name": "1991 Topps Rookies Football Chrome Base Cards Base", "odds": {"Hobby Silver Pack": "1:1", "Jumbo Silver Pack": "1:1"}, "variant": null}
+{"name": "1991 Topps Rookies Football Chrome Base Cards Purple", "odds": {"Hobby Silver Pack": "1:91", "Jumbo Silver Pack": "1:91"}, "variant": null}
+{"name": "1991 Topps Rookies Football Chrome Base Cards Aqua", "odds": {"Hobby Silver Pack": "1:35", "Jumbo Silver Pack": "1:35"}, "variant": null}
+{"name": "1991 Topps Rookies Football Chrome Base Cards Blue", "odds": {"Hobby Silver Pack": "1:46", "Jumbo Silver Pack": "1:46"}, "variant": null}
+{"name": "1991 Topps Rookies Football Chrome Base Cards Green", "odds": {"Hobby Silver Pack": "1:69", "Jumbo Silver Pack": "1:69"}, "variant": null}
+{"name": "1991 Topps Rookies Football Chrome Base Cards Gold", "odds": {"Hobby Silver Pack": "1:137", "Jumbo Silver Pack": "1:136"}, "variant": null}
+{"name": "1991 Topps Rookies Football Chrome Base Cards Orange", "odds": {"Hobby Silver Pack": "1:273", "Jumbo Silver Pack": "1:273"}, "variant": null}
+{"name": "1991 Topps Rookies Football Chrome Base Cards Black", "odds": {"Hobby Silver Pack": "1:683", "Jumbo Silver Pack": "1:683"}, "variant": null}
+{"name": "1991 Topps Rookies Football Chrome Base Cards Red", "odds": {"Hobby Silver Pack": "1:1,372", "Jumbo Silver Pack": "1:1,371"}, "variant": null}
+{"name": "1991 Topps Rookies Football Chrome Base Cards Superfractor", "odds": {"Hobby Silver Pack": "1:6,556", "Jumbo Silver Pack": "1:6,553"}, "variant": null}
+{"name": "1991 Topps Rookies Football Chrome Base Cards London Union Jack", "odds": {"London Mega": "1:1"}, "variant": null}
+{"name": "1991 Topps Rookies Football Chrome Base Cards London Big Ben", "odds": {"London Mega": "1:43"}, "variant": null}
+{"name": "1991 Topps Rookies Football Chrome Base Cards London Tudor Rose", "odds": {"London Mega": "1:507"}, "variant": null}
+{"name": "1991 Topps Rookies Football Chrome Base Cards London Crown Jewels", "odds": {"London Mega": "1:2,630"}, "variant": null}
+{"name": "1991 Topps Rookies Football Chrome Base Cards Autographs", "odds": {"Hobby Silver Pack": "1:28", "Jumbo Silver Pack": "1:28"}, "variant": null}
+{"name": "1991 Topps Rookies Football Chrome Base Cards Autographs Green", "odds": {"Hobby Silver Pack": "1:81", "Jumbo Silver Pack": "1:81"}, "variant": null}
+{"name": "1991 Topps Rookies Football Chrome Base Cards Autographs Gold", "odds": {"Hobby Silver Pack": "1:152", "Jumbo Silver Pack": "1:152"}, "variant": null}
+{"name": "1991 Topps Rookies Football Chrome Base Cards Autographs Orange", "odds": {"Hobby Silver Pack": "1:303", "Jumbo Silver Pack": "1:303"}, "variant": null}
+{"name": "1991 Topps Rookies Football Chrome Base Cards Autographs Black", "odds": {"Hobby Silver Pack": "1:727", "Jumbo Silver Pack": "1:727"}, "variant": null}
+{"name": "1991 Topps Rookies Football Chrome Base Cards Autographs Red", "odds": {"Hobby Silver Pack": "1:1,457", "Jumbo Silver Pack": "1:1,457"}, "variant": null}
+{"name": "1991 Topps Rookies Football Chrome Base Cards Autographs Superfractor", "odds": {"Hobby Silver Pack": "1:7,126", "Jumbo Silver Pack": "1:7,123"}, "variant": null}
+{"name": "Rookie Real One Relics Base", "odds": {"Hobby": "1:958", "Jumbo": "1:262", "Hanger": "1:169", "Fat Pack": "1:324", "Value": "1:472", "Mega": "1:375", "Fanatics": "1:910", "Bulk Packs": "1:1,213", "London Mega": "1:366", "Walmart Mega": "1:455"}, "variant": null}
+{"name": "Rookie Real One Relics Gold", "odds": {"Hobby": "1:19,608", "Jumbo": "1:7,892", "Hanger": "1:19,756", "Value": "1:10,950", "Mega": "1:12,184", "Fanatics": "1:40,177", "Walmart Mega": "1:11,856"}, "variant": null}
+{"name": "Rookie Real One Relics Orange", "odds": {"Hobby": "1:39,216", "Jumbo": "1:15,783", "Hanger": "1:39,511", "Value": "1:21,902", "Mega": "1:24,367", "Fanatics": "1:80,322", "Walmart Mega": "1:23,708"}, "variant": null}
+{"name": "Rookie Real One Relics Black", "odds": {"Hobby": "1:98,040", "Jumbo": "1:39,464", "Hanger": "1:98,815", "Value": "1:54,735", "Mega": "1:60,902", "Fanatics": "1:200,804", "Walmart Mega": "1:59,277"}, "variant": null}
+{"name": "Rookie Real One Relics Red", "odds": {"Hobby": "1:196,079", "Jumbo": "1:78,927", "Hanger": "1:197,629", "Value": "1:109,530", "Mega": "1:121,803", "Fanatics": "1:401,607", "Walmart Mega": "1:118,484"}, "variant": null}
+{"name": "Rookie Real One Relics Foilfractor", "odds": {"Hobby": "1:961,539", "Jumbo": "1:386,101", "Hanger": "1:970,874", "Value": "1:537,635", "Mega": "1:595,239", "Fanatics": "1:1,960,785", "Walmart Mega": "1:581,396"}, "variant": null}
+{"name": "NFL Rookie Material Autograph Cards Base", "odds": {"Hobby": "1:2,550", "Jumbo": "1:648", "Hanger": "1:5,176", "Fat Pack": "1:13,897", "Value": "1:24,266", "Mega": "1:25,961", "Fanatics": "1:2,325,582", "London Mega": "1:93,197", "Walmart Mega": "1:9,865"}, "variant": null}
+{"name": "Topps Autograph Rookie Patch Cards Base", "odds": {"Hobby": "1:1,824", "Jumbo": "1:388"}, "variant": null}
+{"name": "NFL Rookie Material Autograph Cards Gold", "odds": {"Hobby": "1:5,047", "Jumbo": "1:1,283", "Hanger": "1:10,249", "Fat Pack": "1:27,518", "Value": "1:48,054", "Mega": "1:51,414", "Fanatics": "1:4,545,455", "London Mega": "1:184,502", "Walmart Mega": "1:19,536"}, "variant": null}
+{"name": "NFL Rookie Material Autograph Cards Orange", "odds": {"Hobby": "1:9,835", "Jumbo": "1:2,499", "Hanger": "1:19,969", "Fat Pack": "1:53,620", "Value": "1:93,633", "Mega": "1:100,201", "Fanatics": "1:9,090,910", "London Mega": "1:359,713", "Walmart Mega": "1:38,067"}, "variant": null}
+{"name": "Topps Autograph Rookie Patch Cards Orange", "odds": {"Hobby": "1:7,041", "Jumbo": "1:1,497"}, "variant": null}
+{"name": "NFL Rookie Material Autograph Cards Black", "odds": {"Hobby": "1:24,589", "Jumbo": "1:6,247", "Hanger": "1:49,926", "Fat Pack": "1:134,049", "Value": "1:234,193", "Mega": "1:250,627", "Fanatics": "1:25,000,000", "London Mega": "1:900,901", "Walmart Mega": "1:95,148"}, "variant": null}
+{"name": "Topps Autograph Rookie Patch Cards Black", "odds": {"Hobby": "1:17,600", "Jumbo": "1:3,742"}, "variant": null}
+{"name": "NFL Rookie Material Autograph Cards Red", "odds": {"Hobby": "1:49,165", "Jumbo": "1:12,494", "Hanger": "1:99,801", "Fat Pack": "1:268,097", "Value": "1:467,290", "Mega": "1:500,000", "Fanatics": "1:50,000,000", "London Mega": "1:1,785,715", "Walmart Mega": "1:190,477"}, "variant": null}
+{"name": "Topps Autograph Rookie Patch Cards Red", "odds": {"Hobby": "1:35,199", "Jumbo": "1:7,483"}, "variant": null}
+{"name": "NFL Rookie Material Autograph Cards Platinum", "odds": {"Hobby": "1:245,701", "Jumbo": "1:62,461", "Hanger": "1:500,000", "Fat Pack": "1:1,333,334", "Value": "1:2,325,582", "Mega": "1:2,500,000", "London Mega": "1:9,090,910", "Walmart Mega": "1:952,381"}, "variant": null}
+{"name": "Topps Autograph Rookie Patch Cards Platinum", "odds": {"Hobby": "1:176,057", "Jumbo": "1:37,412"}, "variant": null}
+{"name": "1991 Topps Football Rookie Autograph Cards Base", "odds": {"Hobby": "1:749", "Jumbo": "1:58", "Hanger": "1:265", "Fat Pack": "1:464", "Value": "1:1,468", "Mega": "1:1,422", "Fanatics": "1:889", "Bulk Packs": "1:1,338", "London Mega": "1:328", "Walmart Mega": "1:652"}, "variant": null}
+{"name": "1991 Topps Football Rookie Autograph Cards Blue", "odds": {"Hobby": "1:1,637", "Jumbo": "1:510", "Hanger": "1:3,323", "Fat Pack": "1:8,920", "Value": "1:16,595", "Mega": "1:16,664", "Fanatics": "1:1,492,538", "Bulk Packs": "1:10,340", "London Mega": "1:59,809", "Walmart Mega": "1:6,332"}, "variant": null}
+{"name": "1991 Topps Football Rookie Autograph Cards Green", "odds": {"Hobby": "1:2,479", "Jumbo": "1:772", "Hanger": "1:5,034", "Fat Pack": "1:13,516", "Value": "1:25,145", "Mega": "1:25,247", "Fanatics": "1:2,272,728", "Bulk Packs": "1:15,665", "London Mega": "1:90,580", "Walmart Mega": "1:9,595"}, "variant": null}
+{"name": "1991 Topps Football Rookie Autograph Cards Gold", "odds": {"Hobby": "1:4,582", "Jumbo": "1:1,426", "Hanger": "1:9,302", "Fat Pack": "1:24,976", "Value": "1:46,469", "Mega": "1:46,664", "Fanatics": "1:4,166,667", "Bulk Packs": "1:28,952", "London Mega": "1:167,505", "Walmart Mega": "1:17,731"}, "variant": null}
+{"name": "1991 Topps Football Rookie Autograph Cards Orange", "odds": {"Hobby": "1:8,963", "Jumbo": "1:2,789", "Hanger": "1:18,199", "Fat Pack": "1:48,876", "Value": "1:90,910", "Mega": "1:91,325", "Fanatics": "1:8,333,334", "Bulk Packs": "1:56,626", "London Mega": "1:327,869", "Walmart Mega": "1:34,687"}, "variant": null}
+{"name": "1991 Topps Football Rookie Autograph Cards Black", "odds": {"Hobby": "1:22,407", "Jumbo": "1:6,972", "Hanger": "1:45,496", "Fat Pack": "1:122,101", "Value": "1:227,273", "Mega": "1:228,311", "Fanatics": "1:20,000,000", "Bulk Packs": "1:141,644", "London Mega": "1:819,673", "Walmart Mega": "1:86,731"}, "variant": null}
+{"name": "1991 Topps Football Rookie Autograph Cards Red", "odds": {"Hobby": "1:30,610", "Jumbo": "1:6,508"}, "variant": null}
+{"name": "1991 Topps Football Rookie Autograph Cards Platinum", "odds": {"Jumbo": "1:15,007"}, "variant": null}
+{"name": "The Flagship Collection Base", "odds": {"Club Exclusive Box": "1:1", "Club Ex Box Sams": "1:1"}, "variant": null}
+{"name": "Big Time Players Base", "odds": {"Club Exclusive Box": "1:3", "Club Ex Box Sams": "1:3"}, "variant": null}
+{"name": "The Flagship Collection Blue", "odds": {"Club Exclusive Box": "1:112", "Club Ex Box Sams": "1:112"}, "variant": null}
+{"name": "Big Time Players Blue", "odds": {"Club Exclusive Box": "1:1,005", "Club Ex Box Sams": "1:1,005"}, "variant": null}
+{"name": "The Flagship Collection Green", "odds": {"Club Exclusive Box": "1:169", "Club Ex Box Sams": "1:169"}, "variant": null}
+{"name": "Big Time Players Green", "odds": {"Club Exclusive Box": "1:1,521", "Club Ex Box Sams": "1:1,521"}, "variant": null}
+{"name": "The Flagship Collection Purple", "odds": {"Club Exclusive Box": "1:223", "Club Ex Box Sams": "1:223"}, "variant": null}
+{"name": "Big Time Players Purple", "odds": {"Club Exclusive Box": "1:2,011", "Club Ex Box Sams": "1:2,011"}, "variant": null}
+{"name": "The Flagship Collection Gold", "odds": {"Club Exclusive Box": "1:335", "Club Ex Box Sams": "1:335"}, "variant": null}
+{"name": "Big Time Players Gold", "odds": {"Club Exclusive Box": "1:3,025", "Club Ex Box Sams": "1:3,025"}, "variant": null}
+{"name": "The Flagship Collection Orange", "odds": {"Club Exclusive Box": "1:670", "Club Ex Box Sams": "1:670"}, "variant": null}
+{"name": "Big Time Players Orange", "odds": {"Club Exclusive Box": "1:6,074", "Club Ex Box Sams": "1:6,074"}, "variant": null}
+{"name": "The Flagship Collection Black", "odds": {"Club Exclusive Box": "1:1,677", "Club Ex Box Sams": "1:1,677"}, "variant": null}
+{"name": "Big Time Players Black", "odds": {"Club Exclusive Box": "1:15,442", "Club Ex Box Sams": "1:15,442"}, "variant": null}
+{"name": "The Flagship Collection Red", "odds": {"Club Exclusive Box": "1:3,361", "Club Ex Box Sams": "1:3,361"}, "variant": null}
+{"name": "Big Time Players Red", "odds": {"Club Exclusive Box": "1:31,556", "Club Ex Box Sams": "1:31,556"}, "variant": null}
+{"name": "The Flagship Collection Foilfractor", "odds": {"Club Exclusive Box": "1:16,130", "Club Ex Box Sams": "1:16,130"}, "variant": null}
+{"name": "Big Time Players Foilfractor", "odds": {"Club Exclusive Box": "1:145,138", "Club Ex Box Sams": "1:145,138"}, "variant": null}
+{"name": "The Flagship Collection Chrome Base", "odds": {"Club Exclusive Box": "1:2", "Club Ex Box Sams": "1:2"}, "variant": null}
+{"name": "Highlight Reels Base", "odds": {"Club Exclusive Box": "1:11", "Club Ex Box Sams": "1:11"}, "variant": null}
+{"name": "The Flagship Collection Chrome Blue", "odds": {"Club Exclusive Box": "1:112", "Club Ex Box Sams": "1:112"}, "variant": null}
+{"name": "Highlight Reels Blue", "odds": {"Club Exclusive Box": "1:1,005", "Club Ex Box Sams": "1:1,005"}, "variant": null}
+{"name": "The Flagship Collection Chrome Green", "odds": {"Club Exclusive Box": "1:169", "Club Ex Box Sams": "1:169"}, "variant": null}
+{"name": "Highlight Reels Green", "odds": {"Club Exclusive Box": "1:1,520", "Club Ex Box Sams": "1:1,521"}, "variant": null}
+{"name": "The Flagship Collection Chrome Purple", "odds": {"Club Exclusive Box": "1:223", "Club Ex Box Sams": "1:223"}, "variant": null}
+{"name": "Highlight Reels Purple", "odds": {"Club Exclusive Box": "1:2,011", "Club Ex Box Sams": "1:2,011"}, "variant": null}
+{"name": "The Flagship Collection Chrome Gold", "odds": {"Club Exclusive Box": "1:335", "Club Ex Box Sams": "1:335"}, "variant": null}
+{"name": "Highlight Reels Gold", "odds": {"Club Exclusive Box": "1:3,025", "Club Ex Box Sams": "1:3,025"}, "variant": null}
+{"name": "The Flagship Collection Chrome Orange", "odds": {"Club Exclusive Box": "1:670", "Club Ex Box Sams": "1:670"}, "variant": null}
+{"name": "Highlight Reels Orange", "odds": {"Club Exclusive Box": "1:6,074", "Club Ex Box Sams": "1:6,074"}, "variant": null}
+{"name": "The Flagship Collection Chrome Black", "odds": {"Club Exclusive Box": "1:1,677", "Club Ex Box Sams": "1:1,677"}, "variant": null}
+{"name": "Highlight Reels Black", "odds": {"Club Exclusive Box": "1:15,442", "Club Ex Box Sams": "1:15,442"}, "variant": null}
+{"name": "The Flagship Collection Chrome Red", "odds": {"Club Exclusive Box": "1:3,361", "Club Ex Box Sams": "1:3,361"}, "variant": null}
+{"name": "Highlight Reels Red", "odds": {"Club Exclusive Box": "1:31,556", "Club Ex Box Sams": "1:31,556"}, "variant": null}
+{"name": "The Flagship Collection Chrome Superfractor", "odds": {"Club Exclusive Box": "1:16,130", "Club Ex Box Sams": "1:16,130"}, "variant": null}
+{"name": "Highlight Reels Superfractor", "odds": {"Club Exclusive Box": "1:145,138", "Club Ex Box Sams": "1:145,138"}, "variant": null}
+{"name": "The Flagship Collection Chrome Autographs", "odds": {"Club Exclusive Box": "1:1,739", "Club Ex Box Sams": "1:1,739"}, "variant": null}
+{"name": "Club Exclusive Oversized Card Base", "odds": {"Club Exclusive Box Oversized": "1:2", "Club Ex Box Sams Oversized": "1:2"}, "variant": null}
+{"name": "Club Exclusive Oversized Card Orange", "odds": {"Club Exclusive Box Oversized": "1:1,254", "Club Ex Box Sams Oversized": "1:1,254"}, "variant": null}
+{"name": "Club Exclusive Oversized Card Black", "odds": {"Club Exclusive Box Oversized": "1:3,163", "Club Ex Box Sams Oversized": "1:3,163"}, "variant": null}
+{"name": "Club Exclusive Oversized Card Red", "odds": {"Club Exclusive Box Oversized": "1:6,367", "Club Ex Box Sams Oversized": "1:6,367"}, "variant": null}
+{"name": "Club Exclusive Oversized Card Foilfractor", "odds": {"Club Exclusive Box Oversized": "1:30,239", "Club Ex Box Sams Oversized": "1:30,239"}, "variant": null}
+{"name": "Ring of Honor Pink", "odds": {"Hobby": "1:14,975", "Jumbo": "1:4,992", "Hanger": "1:1,872", "Fat Pack": "1:3,744", "Value": "1:7,487", "Mega": "1:7,487", "Fanatics": "1:7,487", "Bulk Packs": "1:7,487", "London Mega": "1:7,487", "Walmart Mega": "1:7,487"}, "variant": null}
+{"name": "Ring of Honor Blue", "odds": {"Hobby": "1:100,101", "Jumbo": "1:33,356", "Hanger": "1:12,508", "Fat Pack": "1:25,019", "Value": "1:50,026", "Mega": "1:50,026", "Fanatics": "1:50,026", "Bulk Packs": "1:50,026", "London Mega": "1:50,026", "Walmart Mega": "1:50,026"}, "variant": null}
+{"name": "Ring of Honor Green", "odds": {"Hobby": "1:152,208", "Jumbo": "1:50,710", "Hanger": "1:19,012", "Fat Pack": "1:38,023", "Value": "1:76,046", "Mega": "1:76,046", "Fanatics": "1:76,046", "Bulk Packs": "1:76,046", "London Mega": "1:76,046", "Walmart Mega": "1:76,046"}, "variant": null}
+{"name": "Ring of Honor Gold", "odds": {"Hobby": "1:302,115", "Jumbo": "1:100,807", "Hanger": "1:37,793", "Fat Pack": "1:75,586", "Value": "1:151,058", "Mega": "1:151,058", "Fanatics": "1:151,058", "Bulk Packs": "1:151,058", "London Mega": "1:151,058", "Walmart Mega": "1:151,058"}, "variant": null}
+{"name": "Ring of Honor Orange", "odds": {"Hobby": "1:606,061", "Jumbo": "1:202,430", "Hanger": "1:75,873", "Fat Pack": "1:151,746", "Value": "1:303,952", "Mega": "1:303,952", "Fanatics": "1:303,952", "Bulk Packs": "1:303,952", "London Mega": "1:303,952", "Walmart Mega": "1:303,952"}, "variant": null}
+{"name": "Ring of Honor Black", "odds": {"Hobby": "1:1,562,500", "Jumbo": "1:523,561", "Hanger": "1:196,464", "Fat Pack": "1:392,157", "Value": "1:787,402", "Mega": "1:787,402", "Fanatics": "1:787,402", "Bulk Packs": "1:787,402", "London Mega": "1:787,402", "Walmart Mega": "1:787,402"}, "variant": null}
+{"name": "Ring of Honor Red", "odds": {"Hobby": "1:3,333,334", "Jumbo": "1:1,098,902", "Hanger": "1:409,837", "Fat Pack": "1:819,673", "Value": "1:1,639,345", "Mega": "1:1,639,345", "Fanatics": "1:1,639,345", "Bulk Packs": "1:1,639,345", "London Mega": "1:1,639,345", "Walmart Mega": "1:1,639,345"}, "variant": null}
+{"name": "Base Cards Silver Crackle", "odds": {"Super Box": "1:1"}, "variant": null}
+{"name": "Base Cards Silver Crackle", "odds": {"Super Box": "1:2"}, "variant": null}
+{"name": "FUTURE STARS", "odds": {"Super Box": "1:9"}, "variant": null}
+{"name": "Team Cards Silver Crackle", "odds": {"Super Box": "1:9"}, "variant": null}
+{"name": "League Leaders Silver Crackle", "odds": {"Super Box": "1:9"}, "variant": null}
+{"name": "Combo Cards Silver Crackle", "odds": {"Super Box": "1:9"}, "variant": null}
+{"name": "ROOKIES Silver Crackle", "odds": {"Super Box": "1:1"}, "variant": null}
+{"name": "Future Stars Golden Mirror Image Variations Base", "odds": {"Hobby": "1:34,495", "Jumbo": "1:6,900", "Hanger": "1:6,900", "Fat Pack": "1:13,799", "Value": "1:41,391", "Mega": "1:41,391", "Fanatics": "1:31,047", "Bulk Packs": "1:14,676", "London Mega": "1:41,391", "Walmart Mega": "1:41,391"}, "variant": null}
+{"name": "Team Cards Golden Mirror Image Variations Base", "odds": {"Hobby": "1:34,495", "Jumbo": "1:6,900", "Hanger": "1:6,900", "Fat Pack": "1:13,799", "Value": "1:41,391", "Mega": "1:41,391", "Fanatics": "1:31,047", "Bulk Packs": "1:14,676", "London Mega": "1:41,391", "Walmart Mega": "1:41,391"}, "variant": null}
+{"name": "Combo Cards Golden Mirror Image Variations Base", "odds": {"Hobby": "1:34,495", "Jumbo": "1:6,900", "Hanger": "1:6,900", "Fat Pack": "1:13,799", "Value": "1:41,391", "Mega": "1:41,391", "Fanatics": "1:31,047", "Bulk Packs": "1:14,676", "London Mega": "1:41,391", "Walmart Mega": "1:41,391"}, "variant": null}
+{"name": "League Leaders Golden Mirror Image Variations Base", "odds": {"Hobby": "1:34,495", "Jumbo": "1:6,900", "Hanger": "1:6,900", "Fat Pack": "1:13,799", "Value": "1:41,391", "Mega": "1:41,391", "Fanatics": "1:31,047", "Bulk Packs": "1:14,676", "London Mega": "1:41,391", "Walmart Mega": "1:41,391"}, "variant": null}
+{"name": "Flagship First Signatures Base", "odds": {"Hobby": "1:449", "Jumbo": "1:74", "Hanger": "1:399", "Fat Pack": "1:1,190", "Value": "1:1,946", "Mega": "1:2,147", "Fanatics": "1:1,803", "Bulk Packs": "1:1,555", "London Mega": "1:120,919", "Walmart Mega": "1:802"}, "variant": null}
+{"name": "Flagship First Dual Signatures Base", "odds": {"Hobby": "1:13,015", "Jumbo": "1:3,069", "Hanger": "1:18,177", "Fat Pack": "1:43,616", "Value": "1:92,416", "Mega": "1:93,521", "Fanatics": "1:153,620", "Bulk Packs": "1:64,953", "London Mega": "1:61,841", "Walmart Mega": "1:37,195"}, "variant": null}
+{"name": "Flagship First Signatures Gold Ink", "odds": {"Hobby": "1:5,857", "Jumbo": "1:1,823", "Hanger": "1:11,891", "Fat Pack": "1:31,929", "Value": "1:59,418", "Mega": "1:59,666", "Fanatics": "1:5,263,158", "Bulk Packs": "1:37,010", "London Mega": "1:214,133", "Walmart Mega": "1:22,666"}, "variant": null}
+{"name": "Flagship First Dual Signatures Gold Ink", "odds": {"Hobby": "1:31,273", "Jumbo": "1:7,375", "Hanger": "1:43,678", "Fat Pack": "1:104,807", "Value": "1:222,070", "Mega": "1:224,725", "Fanatics": "1:369,141", "Bulk Packs": "1:156,079", "London Mega": "1:148,600", "Walmart Mega": "1:89,376"}, "variant": null}
+{"name": "Flagship First Signatures Red Ink", "odds": {"Hobby": "1:56,023", "Jumbo": "1:17,428", "Hanger": "1:113,766", "Fat Pack": "1:305,811", "Value": "1:568,182", "Mega": "1:571,429", "Fanatics": "1:50,000,000", "Bulk Packs": "1:354,610", "London Mega": "1:2,040,817", "Walmart Mega": "1:216,920"}, "variant": null}
+{"name": "Flagship First Dual Signatures Red Ink", "odds": {"Hobby": "1:291,767", "Jumbo": "1:61,252", "Hanger": "1:362,792", "Fat Pack": "1:870,539", "Value": "1:1,844,538", "Mega": "1:1,866,593", "Fanatics": "1:901,440", "Bulk Packs": "1:1,296,405", "London Mega": "1:120,960", "Walmart Mega": "1:742,363"}, "variant": null}
+{"name": "FUTURE STARS FUTURE STARS REAL ONE AUTOGRAPHS", "odds": {"Hobby": "1:20,615", "Jumbo": "1:6,414", "Hanger": "1:41,859", "Fat Pack": "1:112,360", "Value": "1:209,206", "Mega": "1:210,085", "Fanatics": "1:20,000,000", "Bulk Packs": "1:130,209", "London Mega": "1:751,880", "Walmart Mega": "1:79,809"}, "variant": null}
+{"name": "FUTURE STARS FUTURE STARS REAL ONE AUTOGRAPHS Green", "odds": {"Hobby": "1:34,711", "Jumbo": "1:10,798", "Hanger": "1:70,473", "Fat Pack": "1:189,036", "Value": "1:352,113", "Mega": "1:353,357", "Fanatics": "1:33,333,334", "Bulk Packs": "1:219,299", "London Mega": "1:1,265,823", "Walmart Mega": "1:134,229"}, "variant": null}
+{"name": "FUTURE STARS FUTURE STARS REAL ONE AUTOGRAPHS Gold", "odds": {"Hobby": "1:51,547", "Jumbo": "1:16,034", "Hanger": "1:104,603", "Fat Pack": "1:280,899", "Value": "1:523,561", "Mega": "1:523,561", "Fanatics": "1:50,000,000", "Bulk Packs": "1:325,733", "London Mega": "1:1,886,793", "Walmart Mega": "1:199,601"}, "variant": null}
+{"name": "FUTURE STARS FUTURE STARS REAL ONE AUTOGRAPHS Orange", "odds": {"Hobby": "1:103,093", "Jumbo": "1:32,072", "Hanger": "1:209,206", "Fat Pack": "1:561,798", "Value": "1:1,041,667", "Mega": "1:1,052,632", "Fanatics": "1:100,000,000", "Bulk Packs": "1:649,351", "London Mega": "1:3,703,704", "Walmart Mega": "1:398,407"}, "variant": null}
+{"name": "FUTURE STARS FUTURE STARS REAL ONE AUTOGRAPHS Black", "odds": {"Hobby": "1:257,732", "Jumbo": "1:80,193", "Hanger": "1:523,561", "Fat Pack": "1:1,408,451", "Value": "1:2,631,579", "Mega": "1:2,631,579", "Bulk Packs": "1:1,639,345", "London Mega": "1:9,090,910", "Walmart Mega": "1:1,000,000"}, "variant": null}
+{"name": "FUTURE STARS FUTURE STARS REAL ONE AUTOGRAPHS Red FUTURE STARS - 1:2,564,103 - 1:800,000 - 1: 1: 1: 1: - - - -1:16,666,667 1:100,000,000 - - - 1:10,000,000 - - - - FUTURE STARS REAL ONE AUTOGRAPHS Foilfractor", "odds": {"Hobby": "1:515,464", "Jumbo": "1:160,257", "Hanger": "1:1,041,667", "Fat Pack": "1:2,777,778", "Value": "1:5,263,158", "Mega": "1:5,263,158", "Bulk Packs": "1:3,225,807", "London Mega": "1:20,000,000", "Walmart Mega": "1:2,000,000"}, "variant": null}
+{"name": "Funko Base Cards Physical Funko Figurine NOT", "odds": {"Super Box": "1:1"}, "variant": null}
+{"name": "Base Cards Sample Base Card", "odds": {}, "variant": null}
+{"name": "Rookie Card True Photo Variation Name Variation", "odds": {}, "variant": null}
+{"name": "GC White Slip Sheets Base", "odds": {"GC White Slip Sheets": "1:4"}, "variant": null}
+{"name": "All Kings Base", "odds": {"Hobby": "1:55,971", "Jumbo": "1:18,657", "Hanger": "1:6,997", "Fat Pack": "1:13,993", "Value": "1:27,986", "Mega": "1:27,986", "Fanatics": "1:27,986", "London Mega": "1:27,986", "Walmart Mega": "1:27,986"}, "variant": "topps_conflicting_odds_line_2"}
+{"name": "All Kings Gold", "odds": {"Hobby": "1:1,264,320", "Jumbo": "1:345,150"}, "variant": "topps_conflicting_odds_line_2"}

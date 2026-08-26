@@ -1,0 +1,5196 @@
+{
+"subsets": [
+{
+"id": 2258,
+"name": "1000 Yard Club",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 14021,
+"name": "Blue",
+"print_run": 150,
+"note": null
+},
+{
+"id": 14022,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 14023,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 14024,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 14025,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 14026,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 14027,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2275,
+"name": "1957 Rookie Variation",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 1,
+"print_run": null,
+"parallels": []
+},
+{
+"id": 2298,
+"name": "1991 Super Rookies Autographs",
+"is_autograph": 1,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 13854,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13855,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13856,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13857,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13858,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13859,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2267,
+"name": "1991 Topps Football",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 14063,
+"name": "Crackle Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 14064,
+"name": "Pink Crackle",
+"print_run": null,
+"note": null
+},
+{
+"id": 14065,
+"name": "Pink",
+"print_run": 1000,
+"note": null
+},
+{
+"id": 14066,
+"name": "Blue",
+"print_run": 150,
+"note": null
+},
+{
+"id": 14067,
+"name": "Blue Crackle",
+"print_run": 150,
+"note": null
+},
+{
+"id": 14068,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 14069,
+"name": "Green Crackle",
+"print_run": 99,
+"note": null
+},
+{
+"id": 14070,
+"name": "The Real One",
+"print_run": 91,
+"note": null
+},
+{
+"id": 14071,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 14072,
+"name": "Gold Crackle",
+"print_run": 50,
+"note": null
+},
+{
+"id": 14073,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 14074,
+"name": "Orange Crackle",
+"print_run": 25,
+"note": null
+},
+{
+"id": 14075,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 14076,
+"name": "Black Crackle",
+"print_run": 10,
+"note": null
+},
+{
+"id": 14077,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 14078,
+"name": "Red Crackle",
+"print_run": 5,
+"note": null
+},
+{
+"id": 14079,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2290,
+"name": "1991 Topps Football Autograph Cards",
+"is_autograph": 1,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 13840,
+"name": "Blue",
+"print_run": 150,
+"note": null
+},
+{
+"id": 13841,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13842,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13843,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13844,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13845,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13846,
+"name": "Platinum",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2273,
+"name": "1991 Topps Football Chrome Base Cards",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 14080,
+"name": "Union Jack",
+"print_run": null,
+"note": null
+},
+{
+"id": 14081,
+"name": "Big Ben",
+"print_run": null,
+"note": null
+},
+{
+"id": 14082,
+"name": "Tudor Rose",
+"print_run": null,
+"note": null
+},
+{
+"id": 14083,
+"name": "Crown Jewels",
+"print_run": null,
+"note": null
+},
+{
+"id": 14084,
+"name": "Aqua",
+"print_run": 199,
+"note": null
+},
+{
+"id": 14085,
+"name": "Blue",
+"print_run": 150,
+"note": null
+},
+{
+"id": 14086,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 14087,
+"name": "Purple",
+"print_run": 75,
+"note": null
+},
+{
+"id": 14088,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 14089,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 14090,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 14091,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 14092,
+"name": "Superfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2306,
+"name": "1991 Topps Football Relics",
+"is_autograph": 0,
+"is_relic": 1,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 13953,
+"name": "Blue",
+"print_run": 150,
+"note": null
+},
+{
+"id": 13954,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13955,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13956,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13957,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13958,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13959,
+"name": "Platinum",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2291,
+"name": "1991 Topps Football Rookie Autograph Cards",
+"is_autograph": 1,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 13847,
+"name": "Blue",
+"print_run": 150,
+"note": null
+},
+{
+"id": 13848,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13849,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13850,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13851,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13852,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13853,
+"name": "Platinum",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2307,
+"name": "1991 Topps Football Rookie Relics",
+"is_autograph": 0,
+"is_relic": 1,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 13960,
+"name": "Blue",
+"print_run": 150,
+"note": null
+},
+{
+"id": 13961,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13962,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13963,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13964,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13965,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13966,
+"name": "Platinum",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2268,
+"name": "1991 Topps Rookies Football",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 14093,
+"name": "Crackle Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 14094,
+"name": "Pink Crackle",
+"print_run": null,
+"note": null
+},
+{
+"id": 14095,
+"name": "Pink",
+"print_run": 1000,
+"note": null
+},
+{
+"id": 14096,
+"name": "Blue",
+"print_run": 150,
+"note": null
+},
+{
+"id": 14097,
+"name": "Blue Crackle",
+"print_run": 150,
+"note": null
+},
+{
+"id": 14098,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 14099,
+"name": "Green Crackle",
+"print_run": 99,
+"note": null
+},
+{
+"id": 14100,
+"name": "The Real One",
+"print_run": 91,
+"note": null
+},
+{
+"id": 14101,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 14102,
+"name": "Gold Crackle",
+"print_run": 50,
+"note": null
+},
+{
+"id": 14103,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 14104,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 14105,
+"name": "Black Crackle",
+"print_run": 10,
+"note": null
+},
+{
+"id": 14106,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 14107,
+"name": "Red Crackle",
+"print_run": 5,
+"note": null
+},
+{
+"id": 14108,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2274,
+"name": "1991 Topps Rookies Football Chrome Base Cards",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 14109,
+"name": "Union Jack",
+"print_run": null,
+"note": null
+},
+{
+"id": 14110,
+"name": "Big Ben",
+"print_run": null,
+"note": null
+},
+{
+"id": 14111,
+"name": "Tudor Rose",
+"print_run": null,
+"note": null
+},
+{
+"id": 14112,
+"name": "Crown Jewels",
+"print_run": null,
+"note": null
+},
+{
+"id": 14113,
+"name": "Aqua",
+"print_run": 199,
+"note": null
+},
+{
+"id": 14114,
+"name": "Blue",
+"print_run": 150,
+"note": null
+},
+{
+"id": 14115,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 14116,
+"name": "Purple",
+"print_run": 75,
+"note": null
+},
+{
+"id": 14117,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 14118,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 14119,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 14120,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 14121,
+"name": "Superfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2251,
+"name": "2025 All Topps Team",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 13967,
+"name": "Pink",
+"print_run": null,
+"note": null
+},
+{
+"id": 13968,
+"name": "Blue",
+"print_run": 150,
+"note": null
+},
+{
+"id": 13969,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13970,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13971,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13972,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13973,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13974,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2297,
+"name": "2025 All Topps Team Autographs",
+"is_autograph": 1,
+"is_relic": 0,
+"is_base": 0,
+"print_run": 250,
+"parallels": [
+{
+"id": 13878,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13879,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13880,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13881,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13882,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13883,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2255,
+"name": "2025 Greatest Hits",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 13999,
+"name": "Pink",
+"print_run": null,
+"note": null
+},
+{
+"id": 14000,
+"name": "Blue",
+"print_run": 150,
+"note": null
+},
+{
+"id": 14001,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 14002,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 14003,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 14004,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 14005,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 14006,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2259,
+"name": "4000 Yard Club",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 14028,
+"name": "Blue",
+"print_run": 150,
+"note": null
+},
+{
+"id": 14029,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 14030,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 14031,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 14032,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 14033,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 14034,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2263,
+"name": "All Hail the Champ",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 14056,
+"name": "Blue",
+"print_run": 150,
+"note": null
+},
+{
+"id": 14057,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 14058,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 14059,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 14060,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 14061,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 14062,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2272,
+"name": "All Kings",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 14157,
+"name": "Gold",
+"print_run": 1,
+"note": "Hobby/Jumbo Exclusive"
+}
+]
+},
+{
+"id": 2243,
+"name": "Base Cards Clear Variation",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 1,
+"print_run": 10,
+"parallels": []
+},
+{
+"id": 2229,
+"name": "Base Cards I",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 1,
+"print_run": null,
+"parallels": [
+{
+"id": 13433,
+"name": "Aqua Holo Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13439,
+"name": "Aqua Rainbow Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13445,
+"name": "Diamante Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13451,
+"name": "Football",
+"print_run": null,
+"note": null
+},
+{
+"id": 13457,
+"name": "Holo Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13463,
+"name": "Pink Diamante Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13469,
+"name": "Rainbow Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13475,
+"name": "Sandglitter",
+"print_run": null,
+"note": null
+},
+{
+"id": 13481,
+"name": "Topps Foilboard",
+"print_run": null,
+"note": null
+},
+{
+"id": 13487,
+"name": "Union Jack Rainbow Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13493,
+"name": "Union Jack Blue Rainbow Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13499,
+"name": "Big Ben",
+"print_run": null,
+"note": null
+},
+{
+"id": 13505,
+"name": "Tudor Rose",
+"print_run": null,
+"note": null
+},
+{
+"id": 13511,
+"name": "Crown Jewels",
+"print_run": null,
+"note": null
+},
+{
+"id": 13517,
+"name": "White & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13523,
+"name": "Purple & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13529,
+"name": "Blue & Yellow",
+"print_run": null,
+"note": null
+},
+{
+"id": 13535,
+"name": "Green & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13541,
+"name": "Gold & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13547,
+"name": "Orange & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13553,
+"name": "Black & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13559,
+"name": "Gold",
+"print_run": 2026,
+"note": null
+},
+{
+"id": 13565,
+"name": "Pink Holo Foil",
+"print_run": 1200,
+"note": null
+},
+{
+"id": 13571,
+"name": "Green Holo Foil",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13577,
+"name": "Football Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13583,
+"name": "Green Rainbow Foil",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13589,
+"name": "Independence Day",
+"print_run": 76,
+"note": null
+},
+{
+"id": 13595,
+"name": "Black",
+"print_run": 70,
+"note": null
+},
+{
+"id": 13601,
+"name": "Gold Diamante",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13607,
+"name": "Gold Holo Foil",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13613,
+"name": "Gold Rainbow Foil",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13619,
+"name": "Football Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13625,
+"name": "Sandglitter Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13631,
+"name": "Canvas",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13637,
+"name": "Camo",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13643,
+"name": "Orange Diamante Foil",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13649,
+"name": "Orange Holo Foil",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13655,
+"name": "Orange Rainbow Foil",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13661,
+"name": "Football Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13667,
+"name": "Sandglitter Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13673,
+"name": "Black Diamante Foil",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13679,
+"name": "Black Holo Foil",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13685,
+"name": "Black Rainbow Foil",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13691,
+"name": "Football Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13697,
+"name": "Sandglitter Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13703,
+"name": "Red Diamante Foil",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13709,
+"name": "Red Holo Foil",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13715,
+"name": "Red Rainbow Foil",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13721,
+"name": "Football Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13727,
+"name": "Sandglitter Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13733,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+},
+{
+"id": 13739,
+"name": "Football Rose Gold",
+"print_run": 1,
+"note": null
+},
+{
+"id": 13745,
+"name": "Rose Gold Holo Foil",
+"print_run": 1,
+"note": null
+},
+{
+"id": 13751,
+"name": "Cyan Printing Plate",
+"print_run": 1,
+"note": "Printing Plates line (one odds line covers all four colors)"
+},
+{
+"id": 13757,
+"name": "Magenta Printing Plate",
+"print_run": 1,
+"note": "Printing Plates line (one odds line covers all four colors)"
+},
+{
+"id": 13763,
+"name": "Yellow Printing Plate",
+"print_run": 1,
+"note": "Printing Plates line (one odds line covers all four colors)"
+},
+{
+"id": 13769,
+"name": "Black Printing Plate",
+"print_run": 1,
+"note": "Printing Plates line (one odds line covers all four colors)"
+},
+{
+"id": 13775,
+"name": "Yellow Holo Foil",
+"print_run": 399,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13781,
+"name": "Yellow Rainbow Foil",
+"print_run": 399,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13787,
+"name": "Purple Holo Foil",
+"print_run": 250,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13793,
+"name": "Purple Rainbow Foil",
+"print_run": 250,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13799,
+"name": "Blue Holo Foil",
+"print_run": 150,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13805,
+"name": "Blue Rainbow Foil",
+"print_run": 150,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13811,
+"name": "Green Diamante Foil",
+"print_run": 99,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+}
+]
+},
+{
+"id": 2247,
+"name": "Base Cards Player Number Variations",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 1,
+"print_run": 20,
+"parallels": []
+},
+{
+"id": 2245,
+"name": "Base Cards Team Color Border Variations",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 1,
+"print_run": null,
+"parallels": []
+},
+{
+"id": 2249,
+"name": "Base Cards True Photo Variations",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 1,
+"print_run": null,
+"parallels": []
+},
+{
+"id": 2241,
+"name": "Base Cards Vintage Stock Variation",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 1,
+"print_run": 99,
+"parallels": []
+},
+{
+"id": 2254,
+"name": "Big Ticket Players",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 13991,
+"name": "Pink",
+"print_run": null,
+"note": null
+},
+{
+"id": 13992,
+"name": "Blue",
+"print_run": 150,
+"note": null
+},
+{
+"id": 13993,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13994,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13995,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13996,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13997,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13998,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2281,
+"name": "Big Time Players",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": []
+},
+{
+"id": 2265,
+"name": "Billboard Material",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 14155,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2256,
+"name": "Class of 26",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 14007,
+"name": "Blue",
+"print_run": 150,
+"note": null
+},
+{
+"id": 14008,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 14009,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 14010,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 14011,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 14012,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 14013,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2284,
+"name": "Club Exclusive Oversized Card",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": []
+},
+{
+"id": 2233,
+"name": "Combo Cards",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 13437,
+"name": "Aqua Holo Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13443,
+"name": "Aqua Rainbow Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13449,
+"name": "Diamante Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13455,
+"name": "Football",
+"print_run": null,
+"note": null
+},
+{
+"id": 13461,
+"name": "Holo Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13467,
+"name": "Pink Diamante Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13473,
+"name": "Rainbow Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13479,
+"name": "Sandglitter",
+"print_run": null,
+"note": null
+},
+{
+"id": 13485,
+"name": "Topps Foilboard",
+"print_run": null,
+"note": null
+},
+{
+"id": 13491,
+"name": "Union Jack Rainbow Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13497,
+"name": "Union Jack Blue Rainbow Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13503,
+"name": "Big Ben",
+"print_run": null,
+"note": null
+},
+{
+"id": 13509,
+"name": "Tudor Rose",
+"print_run": null,
+"note": null
+},
+{
+"id": 13515,
+"name": "Crown Jewels",
+"print_run": null,
+"note": null
+},
+{
+"id": 13521,
+"name": "White & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13527,
+"name": "Purple & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13533,
+"name": "Blue & Yellow",
+"print_run": null,
+"note": null
+},
+{
+"id": 13539,
+"name": "Green & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13545,
+"name": "Gold & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13551,
+"name": "Orange & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13557,
+"name": "Black & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13563,
+"name": "Gold",
+"print_run": 2026,
+"note": null
+},
+{
+"id": 13569,
+"name": "Pink Holo Foil",
+"print_run": 1200,
+"note": null
+},
+{
+"id": 13575,
+"name": "Green Holo Foil",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13581,
+"name": "Football Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13587,
+"name": "Green Rainbow Foil",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13593,
+"name": "Independence Day",
+"print_run": 76,
+"note": null
+},
+{
+"id": 13599,
+"name": "Black",
+"print_run": 70,
+"note": null
+},
+{
+"id": 13605,
+"name": "Gold Diamante",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13611,
+"name": "Gold Holo Foil",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13617,
+"name": "Gold Rainbow Foil",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13623,
+"name": "Football Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13629,
+"name": "Sandglitter Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13635,
+"name": "Canvas",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13641,
+"name": "Camo",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13647,
+"name": "Orange Diamante Foil",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13653,
+"name": "Orange Holo Foil",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13659,
+"name": "Orange Rainbow Foil",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13665,
+"name": "Football Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13671,
+"name": "Sandglitter Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13677,
+"name": "Black Diamante Foil",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13683,
+"name": "Black Holo Foil",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13689,
+"name": "Black Rainbow Foil",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13695,
+"name": "Football Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13701,
+"name": "Sandglitter Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13707,
+"name": "Red Diamante Foil",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13713,
+"name": "Red Holo Foil",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13719,
+"name": "Red Rainbow Foil",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13725,
+"name": "Football Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13731,
+"name": "Sandglitter Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13737,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+},
+{
+"id": 13743,
+"name": "Football Rose Gold",
+"print_run": 1,
+"note": null
+},
+{
+"id": 13749,
+"name": "Rose Gold Holo Foil",
+"print_run": 1,
+"note": null
+},
+{
+"id": 13755,
+"name": "Cyan Printing Plate",
+"print_run": 1,
+"note": "Printing Plates line (one odds line covers all four colors)"
+},
+{
+"id": 13761,
+"name": "Magenta Printing Plate",
+"print_run": 1,
+"note": "Printing Plates line (one odds line covers all four colors)"
+},
+{
+"id": 13767,
+"name": "Yellow Printing Plate",
+"print_run": 1,
+"note": "Printing Plates line (one odds line covers all four colors)"
+},
+{
+"id": 13773,
+"name": "Black Printing Plate",
+"print_run": 1,
+"note": "Printing Plates line (one odds line covers all four colors)"
+},
+{
+"id": 13779,
+"name": "Yellow Holo Foil",
+"print_run": 399,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13785,
+"name": "Yellow Rainbow Foil",
+"print_run": 399,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13791,
+"name": "Purple Holo Foil",
+"print_run": 250,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13797,
+"name": "Purple Rainbow Foil",
+"print_run": 250,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13803,
+"name": "Blue Holo Foil",
+"print_run": 150,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13809,
+"name": "Blue Rainbow Foil",
+"print_run": 150,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13815,
+"name": "Green Diamante Foil",
+"print_run": 99,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+}
+]
+},
+{
+"id": 2239,
+"name": "Combo Cards Golden Mirror Image Variations",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 1,
+"print_run": null,
+"parallels": []
+},
+{
+"id": 2278,
+"name": "Companion Cards",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": []
+},
+{
+"id": 2262,
+"name": "Conference Kings",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 14049,
+"name": "Blue",
+"print_run": 150,
+"note": null
+},
+{
+"id": 14050,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 14051,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 14052,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 14053,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 14054,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 14055,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2261,
+"name": "Divisional Dominance",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 14042,
+"name": "Blue",
+"print_run": 150,
+"note": null
+},
+{
+"id": 14043,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 14044,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 14045,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 14046,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 14047,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 14048,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2276,
+"name": "Fanatics Authentic Redemptions Cards",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": []
+},
+{
+"id": 2305,
+"name": "Field Fit Swatch Collection",
+"is_autograph": 0,
+"is_relic": 1,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 13946,
+"name": "Blue",
+"print_run": 150,
+"note": null
+},
+{
+"id": 13947,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13948,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13949,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13950,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13951,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13952,
+"name": "Platinum",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2313,
+"name": "Field Fit Swatch Collection Autograph Relic",
+"is_autograph": 1,
+"is_relic": 1,
+"is_base": 0,
+"print_run": 99,
+"parallels": [
+{
+"id": 13903,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13904,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13905,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13906,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13907,
+"name": "Platinum",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2286,
+"name": "Flagship First Dual Signatures",
+"is_autograph": 1,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 13831,
+"name": "Gold Ink",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13832,
+"name": "Red Ink",
+"print_run": 5,
+"note": null
+}
+]
+},
+{
+"id": 2285,
+"name": "Flagship First Signatures",
+"is_autograph": 1,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 13829,
+"name": "Gold Ink",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13830,
+"name": "Red Ink",
+"print_run": 5,
+"note": null
+}
+]
+},
+{
+"id": 2279,
+"name": "Funko Base Cards",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": []
+},
+{
+"id": 2230,
+"name": "Future Stars",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 13434,
+"name": "Aqua Holo Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13440,
+"name": "Aqua Rainbow Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13446,
+"name": "Diamante Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13452,
+"name": "Football",
+"print_run": null,
+"note": null
+},
+{
+"id": 13458,
+"name": "Holo Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13464,
+"name": "Pink Diamante Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13470,
+"name": "Rainbow Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13476,
+"name": "Sandglitter",
+"print_run": null,
+"note": null
+},
+{
+"id": 13482,
+"name": "Topps Foilboard",
+"print_run": null,
+"note": null
+},
+{
+"id": 13488,
+"name": "Union Jack Rainbow Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13494,
+"name": "Union Jack Blue Rainbow Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13500,
+"name": "Big Ben",
+"print_run": null,
+"note": null
+},
+{
+"id": 13506,
+"name": "Tudor Rose",
+"print_run": null,
+"note": null
+},
+{
+"id": 13512,
+"name": "Crown Jewels",
+"print_run": null,
+"note": null
+},
+{
+"id": 13518,
+"name": "White & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13524,
+"name": "Purple & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13530,
+"name": "Blue & Yellow",
+"print_run": null,
+"note": null
+},
+{
+"id": 13536,
+"name": "Green & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13542,
+"name": "Gold & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13548,
+"name": "Orange & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13554,
+"name": "Black & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13560,
+"name": "Gold",
+"print_run": 2026,
+"note": null
+},
+{
+"id": 13566,
+"name": "Pink Holo Foil",
+"print_run": 1200,
+"note": null
+},
+{
+"id": 13572,
+"name": "Green Holo Foil",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13578,
+"name": "Football Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13584,
+"name": "Green Rainbow Foil",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13590,
+"name": "Independence Day",
+"print_run": 76,
+"note": null
+},
+{
+"id": 13596,
+"name": "Black",
+"print_run": 70,
+"note": null
+},
+{
+"id": 13602,
+"name": "Gold Diamante",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13608,
+"name": "Gold Holo Foil",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13614,
+"name": "Gold Rainbow Foil",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13620,
+"name": "Football Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13626,
+"name": "Sandglitter Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13632,
+"name": "Canvas",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13638,
+"name": "Camo",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13644,
+"name": "Orange Diamante Foil",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13650,
+"name": "Orange Holo Foil",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13656,
+"name": "Orange Rainbow Foil",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13662,
+"name": "Football Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13668,
+"name": "Sandglitter Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13674,
+"name": "Black Diamante Foil",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13680,
+"name": "Black Holo Foil",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13686,
+"name": "Black Rainbow Foil",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13692,
+"name": "Football Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13698,
+"name": "Sandglitter Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13704,
+"name": "Red Diamante Foil",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13710,
+"name": "Red Holo Foil",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13716,
+"name": "Red Rainbow Foil",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13722,
+"name": "Football Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13728,
+"name": "Sandglitter Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13734,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+},
+{
+"id": 13740,
+"name": "Football Rose Gold",
+"print_run": 1,
+"note": null
+},
+{
+"id": 13746,
+"name": "Rose Gold Holo Foil",
+"print_run": 1,
+"note": null
+},
+{
+"id": 13752,
+"name": "Cyan Printing Plate",
+"print_run": 1,
+"note": "Printing Plates line (one odds line covers all four colors)"
+},
+{
+"id": 13758,
+"name": "Magenta Printing Plate",
+"print_run": 1,
+"note": "Printing Plates line (one odds line covers all four colors)"
+},
+{
+"id": 13764,
+"name": "Yellow Printing Plate",
+"print_run": 1,
+"note": "Printing Plates line (one odds line covers all four colors)"
+},
+{
+"id": 13770,
+"name": "Black Printing Plate",
+"print_run": 1,
+"note": "Printing Plates line (one odds line covers all four colors)"
+},
+{
+"id": 13776,
+"name": "Yellow Holo Foil",
+"print_run": 399,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13782,
+"name": "Yellow Rainbow Foil",
+"print_run": 399,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13788,
+"name": "Purple Holo Foil",
+"print_run": 250,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13794,
+"name": "Purple Rainbow Foil",
+"print_run": 250,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13800,
+"name": "Blue Holo Foil",
+"print_run": 150,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13806,
+"name": "Blue Rainbow Foil",
+"print_run": 150,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13812,
+"name": "Green Diamante Foil",
+"print_run": 99,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+}
+]
+},
+{
+"id": 2236,
+"name": "Future Stars Golden Mirror Image Variations",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 1,
+"print_run": null,
+"parallels": []
+},
+{
+"id": 2235,
+"name": "Golden Mirror Image Variations",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 1,
+"print_run": null,
+"parallels": []
+},
+{
+"id": 2240,
+"name": "Golden Mirror Rookie Image Variations",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 1,
+"print_run": null,
+"parallels": []
+},
+{
+"id": 2271,
+"name": "Greats of the Game",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 14143,
+"name": "Crackle Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 14144,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 14145,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 14146,
+"name": "Gold Crackle",
+"print_run": 50,
+"note": null
+},
+{
+"id": 14147,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 14148,
+"name": "Orange Crackle",
+"print_run": 25,
+"note": null
+},
+{
+"id": 14149,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 14150,
+"name": "Black Crackle",
+"print_run": 10,
+"note": null
+},
+{
+"id": 14151,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 14152,
+"name": "Red Crackle",
+"print_run": 5,
+"note": null
+},
+{
+"id": 14153,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2283,
+"name": "Highlight Reels",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": []
+},
+{
+"id": 2294,
+"name": "Island Ink",
+"is_autograph": 1,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 13872,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13873,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13874,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13875,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13876,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13877,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2232,
+"name": "League Leaders",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 13436,
+"name": "Aqua Holo Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13442,
+"name": "Aqua Rainbow Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13448,
+"name": "Diamante Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13454,
+"name": "Football",
+"print_run": null,
+"note": null
+},
+{
+"id": 13460,
+"name": "Holo Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13466,
+"name": "Pink Diamante Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13472,
+"name": "Rainbow Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13478,
+"name": "Sandglitter",
+"print_run": null,
+"note": null
+},
+{
+"id": 13484,
+"name": "Topps Foilboard",
+"print_run": null,
+"note": null
+},
+{
+"id": 13490,
+"name": "Union Jack Rainbow Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13496,
+"name": "Union Jack Blue Rainbow Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13502,
+"name": "Big Ben",
+"print_run": null,
+"note": null
+},
+{
+"id": 13508,
+"name": "Tudor Rose",
+"print_run": null,
+"note": null
+},
+{
+"id": 13514,
+"name": "Crown Jewels",
+"print_run": null,
+"note": null
+},
+{
+"id": 13520,
+"name": "White & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13526,
+"name": "Purple & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13532,
+"name": "Blue & Yellow",
+"print_run": null,
+"note": null
+},
+{
+"id": 13538,
+"name": "Green & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13544,
+"name": "Gold & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13550,
+"name": "Orange & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13556,
+"name": "Black & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13562,
+"name": "Gold",
+"print_run": 2026,
+"note": null
+},
+{
+"id": 13568,
+"name": "Pink Holo Foil",
+"print_run": 1200,
+"note": null
+},
+{
+"id": 13574,
+"name": "Green Holo Foil",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13580,
+"name": "Football Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13586,
+"name": "Green Rainbow Foil",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13592,
+"name": "Independence Day",
+"print_run": 76,
+"note": null
+},
+{
+"id": 13598,
+"name": "Black",
+"print_run": 70,
+"note": null
+},
+{
+"id": 13604,
+"name": "Gold Diamante",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13610,
+"name": "Gold Holo Foil",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13616,
+"name": "Gold Rainbow Foil",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13622,
+"name": "Football Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13628,
+"name": "Sandglitter Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13634,
+"name": "Canvas",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13640,
+"name": "Camo",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13646,
+"name": "Orange Diamante Foil",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13652,
+"name": "Orange Holo Foil",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13658,
+"name": "Orange Rainbow Foil",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13664,
+"name": "Football Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13670,
+"name": "Sandglitter Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13676,
+"name": "Black Diamante Foil",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13682,
+"name": "Black Holo Foil",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13688,
+"name": "Black Rainbow Foil",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13694,
+"name": "Football Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13700,
+"name": "Sandglitter Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13706,
+"name": "Red Diamante Foil",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13712,
+"name": "Red Holo Foil",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13718,
+"name": "Red Rainbow Foil",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13724,
+"name": "Football Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13730,
+"name": "Sandglitter Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13736,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+},
+{
+"id": 13742,
+"name": "Football Rose Gold",
+"print_run": 1,
+"note": null
+},
+{
+"id": 13748,
+"name": "Rose Gold Holo Foil",
+"print_run": 1,
+"note": null
+},
+{
+"id": 13754,
+"name": "Cyan Printing Plate",
+"print_run": 1,
+"note": "Printing Plates line (one odds line covers all four colors)"
+},
+{
+"id": 13760,
+"name": "Magenta Printing Plate",
+"print_run": 1,
+"note": "Printing Plates line (one odds line covers all four colors)"
+},
+{
+"id": 13766,
+"name": "Yellow Printing Plate",
+"print_run": 1,
+"note": "Printing Plates line (one odds line covers all four colors)"
+},
+{
+"id": 13772,
+"name": "Black Printing Plate",
+"print_run": 1,
+"note": "Printing Plates line (one odds line covers all four colors)"
+},
+{
+"id": 13778,
+"name": "Yellow Holo Foil",
+"print_run": 399,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13784,
+"name": "Yellow Rainbow Foil",
+"print_run": 399,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13790,
+"name": "Purple Holo Foil",
+"print_run": 250,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13796,
+"name": "Purple Rainbow Foil",
+"print_run": 250,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13802,
+"name": "Blue Holo Foil",
+"print_run": 150,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13808,
+"name": "Blue Rainbow Foil",
+"print_run": 150,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13814,
+"name": "Green Diamante Foil",
+"print_run": 99,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+}
+]
+},
+{
+"id": 2238,
+"name": "League Leaders Golden Mirror Image Variations",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 1,
+"print_run": null,
+"parallels": []
+},
+{
+"id": 2293,
+"name": "Mascot Autographs",
+"is_autograph": 1,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 13866,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13867,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13868,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13869,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13870,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13871,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2310,
+"name": "NFL Material Autograph Cards",
+"is_autograph": 1,
+"is_relic": 1,
+"is_base": 0,
+"print_run": 99,
+"parallels": [
+{
+"id": 13888,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13889,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13890,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13891,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13892,
+"name": "Platinum",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2302,
+"name": "NFL Material Cards",
+"is_autograph": 0,
+"is_relic": 1,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 13926,
+"name": "Blue",
+"print_run": 150,
+"note": null
+},
+{
+"id": 13927,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13928,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13929,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13930,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13931,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13932,
+"name": "Platinum",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2312,
+"name": "NFL Material Dual Relic Autographs",
+"is_autograph": 1,
+"is_relic": 1,
+"is_base": 0,
+"print_run": 250,
+"parallels": [
+{
+"id": 13898,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13899,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13900,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13901,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13902,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2304,
+"name": "NFL Material Dual Relic Cards",
+"is_autograph": 0,
+"is_relic": 1,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 13940,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13941,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13942,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13943,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13944,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13945,
+"name": "Platinum",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2311,
+"name": "NFL Rookie Material Autograph Cards",
+"is_autograph": 1,
+"is_relic": 1,
+"is_base": 0,
+"print_run": 99,
+"parallels": [
+{
+"id": 13893,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13894,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13895,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13896,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13897,
+"name": "Platinum",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2303,
+"name": "NFL Rookies Material Cards",
+"is_autograph": 0,
+"is_relic": 1,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 13933,
+"name": "Blue",
+"print_run": 150,
+"note": null
+},
+{
+"id": 13934,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13935,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13936,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13937,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13938,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13939,
+"name": "Platinum",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2269,
+"name": "NFL Stars",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 14122,
+"name": "Crackle Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 14123,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 14124,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 14125,
+"name": "Gold Crackle",
+"print_run": 50,
+"note": null
+},
+{
+"id": 14126,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 14127,
+"name": "Orange Crackle",
+"print_run": 25,
+"note": null
+},
+{
+"id": 14128,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 14129,
+"name": "Black Crackle",
+"print_run": 10,
+"note": null
+},
+{
+"id": 14130,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 14131,
+"name": "Red Crackle",
+"print_run": 5,
+"note": null
+},
+{
+"id": 14132,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2287,
+"name": "NFL Stars Autographs",
+"is_autograph": 1,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 13833,
+"name": "Blue",
+"print_run": 150,
+"note": null
+},
+{
+"id": 13834,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13835,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13836,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13837,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13838,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13839,
+"name": "Platinum",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2288,
+"name": "NFL Stars Dual Autographs",
+"is_autograph": 1,
+"is_relic": 0,
+"is_base": 0,
+"print_run": 10,
+"parallels": []
+},
+{
+"id": 2289,
+"name": "NFL Stars Triple Autographs",
+"is_autograph": 1,
+"is_relic": 0,
+"is_base": 0,
+"print_run": 5,
+"parallels": []
+},
+{
+"id": 2270,
+"name": "Pressure Cookers",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 14133,
+"name": "Crackle Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 14134,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 14135,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 14136,
+"name": "Gold Crackle",
+"print_run": 50,
+"note": null
+},
+{
+"id": 14137,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 14138,
+"name": "Orange Crackle",
+"print_run": 25,
+"note": null
+},
+{
+"id": 14139,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 14140,
+"name": "Black Crackle",
+"print_run": 10,
+"note": null
+},
+{
+"id": 14141,
+"name": "Red Crackle",
+"print_run": 5,
+"note": null
+},
+{
+"id": 14142,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2295,
+"name": "Real One Autographs",
+"is_autograph": 1,
+"is_relic": 0,
+"is_base": 0,
+"print_run": 250,
+"parallels": [
+{
+"id": 13817,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13818,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13819,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13820,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13821,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13822,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2308,
+"name": "Real One Relics",
+"is_autograph": 0,
+"is_relic": 1,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 13916,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13917,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13918,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13919,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13920,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2252,
+"name": "Ring of Honor",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 13975,
+"name": "Pink",
+"print_run": null,
+"note": null
+},
+{
+"id": 13976,
+"name": "Blue",
+"print_run": 150,
+"note": null
+},
+{
+"id": 13977,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13978,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13979,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13980,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13981,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13982,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2300,
+"name": "Ring of Honor Signatures",
+"is_autograph": 1,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 13885,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2244,
+"name": "Rookie Card Clear Variation",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 1,
+"print_run": 10,
+"parallels": []
+},
+{
+"id": 2248,
+"name": "Rookie Card Player Number Variations",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 1,
+"print_run": 20,
+"parallels": []
+},
+{
+"id": 2246,
+"name": "Rookie Card Team Color Border Variation",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 1,
+"print_run": null,
+"parallels": []
+},
+{
+"id": 2250,
+"name": "Rookie Card True Photo Variation",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 1,
+"print_run": null,
+"parallels": []
+},
+{
+"id": 2242,
+"name": "Rookie Card Vintage Stock Variation",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 1,
+"print_run": 99,
+"parallels": []
+},
+{
+"id": 2301,
+"name": "Rookie Premiere Autographs",
+"is_autograph": 1,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 13886,
+"name": "Green Ink",
+"print_run": null,
+"note": null
+},
+{
+"id": 13887,
+"name": "Red Ink",
+"print_run": null,
+"note": null
+}
+]
+},
+{
+"id": 2296,
+"name": "Rookie Real One Autographs",
+"is_autograph": 1,
+"is_relic": 0,
+"is_base": 0,
+"print_run": 250,
+"parallels": [
+{
+"id": 13823,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13824,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13825,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13826,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13827,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13828,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2309,
+"name": "Rookie Real One Relics",
+"is_autograph": 0,
+"is_relic": 1,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 13921,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13922,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13923,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13924,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13925,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2234,
+"name": "Rookies",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 13438,
+"name": "Aqua Holo Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13444,
+"name": "Aqua Rainbow Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13450,
+"name": "Diamante Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13456,
+"name": "Football",
+"print_run": null,
+"note": null
+},
+{
+"id": 13462,
+"name": "Holo Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13468,
+"name": "Pink Diamante Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13474,
+"name": "Rainbow Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13480,
+"name": "Sandglitter",
+"print_run": null,
+"note": null
+},
+{
+"id": 13486,
+"name": "Topps Foilboard",
+"print_run": null,
+"note": null
+},
+{
+"id": 13492,
+"name": "Union Jack Rainbow Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13498,
+"name": "Union Jack Blue Rainbow Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13504,
+"name": "Big Ben",
+"print_run": null,
+"note": null
+},
+{
+"id": 13510,
+"name": "Tudor Rose",
+"print_run": null,
+"note": null
+},
+{
+"id": 13516,
+"name": "Crown Jewels",
+"print_run": null,
+"note": null
+},
+{
+"id": 13522,
+"name": "White & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13528,
+"name": "Purple & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13534,
+"name": "Blue & Yellow",
+"print_run": null,
+"note": null
+},
+{
+"id": 13540,
+"name": "Green & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13546,
+"name": "Gold & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13552,
+"name": "Orange & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13558,
+"name": "Black & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13564,
+"name": "Gold",
+"print_run": 2026,
+"note": null
+},
+{
+"id": 13570,
+"name": "Pink Holo Foil",
+"print_run": 1200,
+"note": null
+},
+{
+"id": 13576,
+"name": "Green Holo Foil",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13582,
+"name": "Football Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13588,
+"name": "Green Rainbow Foil",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13594,
+"name": "Independence Day",
+"print_run": 76,
+"note": null
+},
+{
+"id": 13600,
+"name": "Black",
+"print_run": 70,
+"note": null
+},
+{
+"id": 13606,
+"name": "Gold Diamante",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13612,
+"name": "Gold Holo Foil",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13618,
+"name": "Gold Rainbow Foil",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13624,
+"name": "Football Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13630,
+"name": "Sandglitter Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13636,
+"name": "Canvas",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13642,
+"name": "Camo",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13648,
+"name": "Orange Diamante Foil",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13654,
+"name": "Orange Holo Foil",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13660,
+"name": "Orange Rainbow Foil",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13666,
+"name": "Football Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13672,
+"name": "Sandglitter Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13678,
+"name": "Black Diamante Foil",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13684,
+"name": "Black Holo Foil",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13690,
+"name": "Black Rainbow Foil",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13696,
+"name": "Football Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13702,
+"name": "Sandglitter Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13708,
+"name": "Red Diamante Foil",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13714,
+"name": "Red Holo Foil",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13720,
+"name": "Red Rainbow Foil",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13726,
+"name": "Football Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13732,
+"name": "Sandglitter Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13738,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+},
+{
+"id": 13744,
+"name": "Football Rose Gold",
+"print_run": 1,
+"note": null
+},
+{
+"id": 13750,
+"name": "Rose Gold Holo Foil",
+"print_run": 1,
+"note": null
+},
+{
+"id": 13756,
+"name": "Cyan Printing Plate",
+"print_run": 1,
+"note": "Printing Plates line (one odds line covers all four colors)"
+},
+{
+"id": 13762,
+"name": "Magenta Printing Plate",
+"print_run": 1,
+"note": "Printing Plates line (one odds line covers all four colors)"
+},
+{
+"id": 13768,
+"name": "Yellow Printing Plate",
+"print_run": 1,
+"note": "Printing Plates line (one odds line covers all four colors)"
+},
+{
+"id": 13774,
+"name": "Black Printing Plate",
+"print_run": 1,
+"note": "Printing Plates line (one odds line covers all four colors)"
+},
+{
+"id": 13780,
+"name": "Yellow Holo Foil",
+"print_run": 399,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13786,
+"name": "Yellow Rainbow Foil",
+"print_run": 399,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13792,
+"name": "Purple Holo Foil",
+"print_run": 250,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13798,
+"name": "Purple Rainbow Foil",
+"print_run": 250,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13804,
+"name": "Blue Holo Foil",
+"print_run": 150,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13810,
+"name": "Blue Rainbow Foil",
+"print_run": 150,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13816,
+"name": "Green Diamante Foil",
+"print_run": 99,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+}
+]
+},
+{
+"id": 2264,
+"name": "Struttin",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 14154,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2299,
+"name": "Super Bowl Champion Signatures",
+"is_autograph": 1,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 13884,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2277,
+"name": "Super Box Oversized Base Card",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": []
+},
+{
+"id": 2231,
+"name": "Team Cards",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 13435,
+"name": "Aqua Holo Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13441,
+"name": "Aqua Rainbow Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13447,
+"name": "Diamante Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13453,
+"name": "Football",
+"print_run": null,
+"note": null
+},
+{
+"id": 13459,
+"name": "Holo Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13465,
+"name": "Pink Diamante Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13471,
+"name": "Rainbow Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13477,
+"name": "Sandglitter",
+"print_run": null,
+"note": null
+},
+{
+"id": 13483,
+"name": "Topps Foilboard",
+"print_run": null,
+"note": null
+},
+{
+"id": 13489,
+"name": "Union Jack Rainbow Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13495,
+"name": "Union Jack Blue Rainbow Foil",
+"print_run": null,
+"note": null
+},
+{
+"id": 13501,
+"name": "Big Ben",
+"print_run": null,
+"note": null
+},
+{
+"id": 13507,
+"name": "Tudor Rose",
+"print_run": null,
+"note": null
+},
+{
+"id": 13513,
+"name": "Crown Jewels",
+"print_run": null,
+"note": null
+},
+{
+"id": 13519,
+"name": "White & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13525,
+"name": "Purple & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13531,
+"name": "Blue & Yellow",
+"print_run": null,
+"note": null
+},
+{
+"id": 13537,
+"name": "Green & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13543,
+"name": "Gold & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13549,
+"name": "Orange & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13555,
+"name": "Black & Blue",
+"print_run": null,
+"note": null
+},
+{
+"id": 13561,
+"name": "Gold",
+"print_run": 2026,
+"note": null
+},
+{
+"id": 13567,
+"name": "Pink Holo Foil",
+"print_run": 1200,
+"note": null
+},
+{
+"id": 13573,
+"name": "Green Holo Foil",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13579,
+"name": "Football Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13585,
+"name": "Green Rainbow Foil",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13591,
+"name": "Independence Day",
+"print_run": 76,
+"note": null
+},
+{
+"id": 13597,
+"name": "Black",
+"print_run": 70,
+"note": null
+},
+{
+"id": 13603,
+"name": "Gold Diamante",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13609,
+"name": "Gold Holo Foil",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13615,
+"name": "Gold Rainbow Foil",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13621,
+"name": "Football Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13627,
+"name": "Sandglitter Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13633,
+"name": "Canvas",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13639,
+"name": "Camo",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13645,
+"name": "Orange Diamante Foil",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13651,
+"name": "Orange Holo Foil",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13657,
+"name": "Orange Rainbow Foil",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13663,
+"name": "Football Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13669,
+"name": "Sandglitter Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13675,
+"name": "Black Diamante Foil",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13681,
+"name": "Black Holo Foil",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13687,
+"name": "Black Rainbow Foil",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13693,
+"name": "Football Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13699,
+"name": "Sandglitter Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13705,
+"name": "Red Diamante Foil",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13711,
+"name": "Red Holo Foil",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13717,
+"name": "Red Rainbow Foil",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13723,
+"name": "Football Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13729,
+"name": "Sandglitter Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13735,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+},
+{
+"id": 13741,
+"name": "Football Rose Gold",
+"print_run": 1,
+"note": null
+},
+{
+"id": 13747,
+"name": "Rose Gold Holo Foil",
+"print_run": 1,
+"note": null
+},
+{
+"id": 13753,
+"name": "Cyan Printing Plate",
+"print_run": 1,
+"note": "Printing Plates line (one odds line covers all four colors)"
+},
+{
+"id": 13759,
+"name": "Magenta Printing Plate",
+"print_run": 1,
+"note": "Printing Plates line (one odds line covers all four colors)"
+},
+{
+"id": 13765,
+"name": "Yellow Printing Plate",
+"print_run": 1,
+"note": "Printing Plates line (one odds line covers all four colors)"
+},
+{
+"id": 13771,
+"name": "Black Printing Plate",
+"print_run": 1,
+"note": "Printing Plates line (one odds line covers all four colors)"
+},
+{
+"id": 13777,
+"name": "Yellow Holo Foil",
+"print_run": 399,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13783,
+"name": "Yellow Rainbow Foil",
+"print_run": 399,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13789,
+"name": "Purple Holo Foil",
+"print_run": 250,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13795,
+"name": "Purple Rainbow Foil",
+"print_run": 250,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13801,
+"name": "Blue Holo Foil",
+"print_run": 150,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13807,
+"name": "Blue Rainbow Foil",
+"print_run": 150,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+},
+{
+"id": 13813,
+"name": "Green Diamante Foil",
+"print_run": 99,
+"note": "Listed in product information; no odds published; may or may not have been produced"
+}
+]
+},
+{
+"id": 2237,
+"name": "Team Cards Golden Mirror Image Variations",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 1,
+"print_run": null,
+"parallels": []
+},
+{
+"id": 2280,
+"name": "The Flagship Collection",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": []
+},
+{
+"id": 2282,
+"name": "The Flagship Collection Chrome",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": []
+},
+{
+"id": 2314,
+"name": "Topps Autograph Patch Cards",
+"is_autograph": 1,
+"is_relic": 1,
+"is_base": 0,
+"print_run": 99,
+"parallels": [
+{
+"id": 13908,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13909,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13910,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13911,
+"name": "Platinum",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2315,
+"name": "Topps Autograph Rookie Patch Cards",
+"is_autograph": 1,
+"is_relic": 1,
+"is_base": 0,
+"print_run": 99,
+"parallels": [
+{
+"id": 13912,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13913,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13914,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13915,
+"name": "Platinum",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2253,
+"name": "Topps Profiles",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 13983,
+"name": "Pink",
+"print_run": null,
+"note": null
+},
+{
+"id": 13984,
+"name": "Blue",
+"print_run": 150,
+"note": null
+},
+{
+"id": 13985,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13986,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13987,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13988,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13989,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13990,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2266,
+"name": "Touchdown",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 14156,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2257,
+"name": "Touchdown Machines",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 14014,
+"name": "Blue",
+"print_run": 150,
+"note": null
+},
+{
+"id": 14015,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 14016,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 14017,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 14018,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 14019,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 14020,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2292,
+"name": "Victory Ink",
+"is_autograph": 1,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 13860,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 13861,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 13862,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 13863,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 13864,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 13865,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+},
+{
+"id": 2260,
+"name": "Wild Card Moments",
+"is_autograph": 0,
+"is_relic": 0,
+"is_base": 0,
+"print_run": null,
+"parallels": [
+{
+"id": 14035,
+"name": "Blue",
+"print_run": 150,
+"note": null
+},
+{
+"id": 14036,
+"name": "Green",
+"print_run": 99,
+"note": null
+},
+{
+"id": 14037,
+"name": "Gold",
+"print_run": 50,
+"note": null
+},
+{
+"id": 14038,
+"name": "Orange",
+"print_run": 25,
+"note": null
+},
+{
+"id": 14039,
+"name": "Black",
+"print_run": 10,
+"note": null
+},
+{
+"id": 14040,
+"name": "Red",
+"print_run": 5,
+"note": null
+},
+{
+"id": 14041,
+"name": "Foilfractor",
+"print_run": 1,
+"note": null
+}
+]
+}
+]
+}
