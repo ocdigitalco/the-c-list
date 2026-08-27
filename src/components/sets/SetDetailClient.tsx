@@ -15,6 +15,8 @@ import { BreakSheetLink } from "@/components/BreakSheetLink";
 import type { CardGalleryImage } from "@/lib/cardGallery";
 import { getTeamLogo } from "@/lib/utils/teamLogo";
 import { findOddsKey } from "@/lib/oddsUtils";
+import { SubsetCard } from "./SubsetCard";
+import type { ParallelRowData } from "./ParallelTable";
 
 // ─── Types & Constants ─────────────────────────────────────────────────────────
 
@@ -1046,12 +1048,6 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
 
 // ─── Shared Odds Table ──────────────────────────────────────────────────────────
 
-function printRunDisplay(pr: number | null | undefined): string {
-  if (pr === undefined || pr === null) return "—";
-  if (pr === 1) return "1/1";
-  return `/${pr}`;
-}
-
 function EmptyTab({ label }: { label: string }) {
   return (
     <div style={{
@@ -1075,20 +1071,6 @@ function subsetInTab(s: SubsetChecklist, tab: CardTab): boolean {
   }
 }
 
-/** Muted metadata pill on subset headers (accent variant for BOOKLET). */
-function TypeChip({ label, accent = false }: { label: string; accent?: boolean }) {
-  return (
-    <span style={{
-      flexShrink: 0,
-      fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1, textTransform: "uppercase",
-      padding: "2px 6px", borderRadius: 4,
-      color: accent ? "#9A2B14" : "#8A8677",
-      background: accent ? "rgba(154,43,20,0.07)" : "#F1EFE9",
-      border: accent ? "1px solid rgba(154,43,20,0.18)" : "1px solid #E6E3D9",
-    }}>{label}</span>
-  );
-}
-
 /** Chips shown for a subset within a given tab (never removes it from anywhere). */
 function chipsFor(s: SubsetChecklist, tab: CardTab): { label: string; accent?: boolean }[] {
   const out: { label: string; accent?: boolean }[] = [];
@@ -1104,7 +1086,8 @@ function chipsFor(s: SubsetChecklist, tab: CardTab): { label: string; accent?: b
   return out;
 }
 
-/** One subset: header + type chips + always-on checklist + adaptive parallels table. */
+/** One subset on the set page: builds rows + checklist, delegates rendering to the
+ *  shared SubsetCard (no shopLink → 3-column table, identical to before). */
 function SubsetSection({ subset, tab, showNumbered, oddsFor }: {
   subset: SubsetChecklist; tab: CardTab;
   showNumbered: boolean;
@@ -1112,63 +1095,46 @@ function SubsetSection({ subset, tab, showNumbered, oddsFor }: {
 }) {
   const chips = chipsFor(subset, tab);
   const pars = subset.parallels;
-  // Per-set states: show Numbered col when the set has numbered parallels;
-  // show Pack Odds col when any of this subset's parallels resolves an odds value.
-  const oddsRows = pars.map((p) => ({ ...p, odds: oddsFor(p.name) }));
-  const showOdds = oddsRows.some((r) => r.odds != null);
-  const showNumberedCol = showNumbered && pars.some((p) => p.printRun != null);
+  const tableRows: ParallelRowData[] = pars.map((p) => {
+    const o = oddsFor(p.name);
+    return {
+      name: p.name,
+      printRun: p.printRun,
+      note: p.note,
+      odds: o ? { text: denomToDisplay(o.denom), tag: o.format && o.format !== "hobby" ? fmtBoxLabel(o.format) : null } : null,
+    };
+  });
+
+  const checklist = (
+    <div style={{ border: "1px solid #EDEAE0", borderRadius: 8, overflow: "hidden", background: "#FFFFFF" }}>
+      {subset.cards.map((c, i) => (
+        <div key={`${c.code}-${i}`} className="flex items-center gap-3"
+          style={{ padding: "8px 12px", borderTop: i > 0 ? "1px solid #F4F1E8" : "none" }}>
+          <span style={{ fontFamily: FONT_MONO, fontSize: 13, color: "#8A8677", minWidth: 54 }}>{c.code}</span>
+          <span style={{ fontSize: 15, fontWeight: 500, color: "#0F0F0E", flex: 1, minWidth: 0 }}>{c.player}</span>
+          {c.isRookie && (
+            <span style={{
+              flexShrink: 0, fontFamily: FONT_MONO, fontSize: 9, fontWeight: 700, letterSpacing: 0.5,
+              color: "#9A2B14", background: "rgba(154,43,20,0.08)", border: "1px solid rgba(154,43,20,0.2)",
+              padding: "1px 5px", borderRadius: 3,
+            }}>RC</span>
+          )}
+          {c.team && <span style={{ fontSize: 13, color: "#6B6757", flexShrink: 0, textAlign: "right" }}>{c.team}</span>}
+        </div>
+      ))}
+    </div>
+  );
 
   return (
-    <section style={{ marginBottom: 28 }}>
-      {/* Header */}
-      <div className="flex flex-wrap items-center gap-2" style={{ marginBottom: 10 }}>
-        <h3 style={{ fontFamily: FONT_DISPLAY, fontSize: 18, fontWeight: 600, color: "#0F0F0E", margin: 0 }}>
-          {subset.name}
-        </h3>
-        {chips.map((c) => <TypeChip key={c.label} label={c.label} accent={c.accent} />)}
-        <span style={{ fontFamily: FONT_MONO, fontSize: 12, color: "#8A8677" }}>
-          {subset.cards.length} card{subset.cards.length !== 1 ? "s" : ""}
-          {pars.length > 0 ? ` · ${pars.length} parallel${pars.length !== 1 ? "s" : ""}` : ""}
-        </span>
-      </div>
-
-      {/* Checklist — always on */}
-      <div style={{ border: "1px solid #EDEAE0", borderRadius: 8, overflow: "hidden", background: "#FFFFFF" }}>
-        {subset.cards.map((c, i) => (
-          <div key={`${c.code}-${i}`} className="flex items-center gap-3"
-            style={{ padding: "8px 12px", borderTop: i > 0 ? "1px solid #F4F1E8" : "none" }}>
-            <span style={{ fontFamily: FONT_MONO, fontSize: 13, color: "#8A8677", minWidth: 54 }}>{c.code}</span>
-            <span style={{ fontSize: 15, fontWeight: 500, color: "#0F0F0E", flex: 1, minWidth: 0 }}>{c.player}</span>
-            {c.isRookie && (
-              <span style={{
-                flexShrink: 0, fontFamily: FONT_MONO, fontSize: 9, fontWeight: 700, letterSpacing: 0.5,
-                color: "#9A2B14", background: "rgba(154,43,20,0.08)", border: "1px solid rgba(154,43,20,0.2)",
-                padding: "1px 5px", borderRadius: 3,
-              }}>RC</span>
-            )}
-            {c.team && <span style={{ fontSize: 13, color: "#6B6757", flexShrink: 0, textAlign: "right" }}>{c.team}</span>}
-          </div>
-        ))}
-      </div>
-
-      {/* Parallels table — only when the subset has parallels (states 2 & 3) */}
-      {pars.length > 0 && (
-        <div style={{ marginTop: 12, border: "1px solid #EDEAE0", borderRadius: 8, overflow: "hidden", background: "#FFFFFF" }}>
-          <div className="flex items-center" style={{ padding: "8px 12px", borderBottom: "1px solid #EDEAE0" }}>
-            <span style={{ flex: 1, fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.4, color: "#8A8677", textTransform: "uppercase" }}>Parallel</span>
-            {showNumberedCol && <span style={{ width: 72, textAlign: "right", fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.4, color: "#8A8677", textTransform: "uppercase" }}>Numbered</span>}
-            {showOdds && <span style={{ width: 132, textAlign: "right", fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.4, color: "#8A8677", textTransform: "uppercase" }}>Pack Odds</span>}
-          </div>
-          {oddsRows.map((r, i) => (
-            <div key={`${r.name}-${i}`} className="flex items-center" style={{ padding: "8px 12px", borderTop: i > 0 ? "1px solid #F4F1E8" : "none" }}>
-              <span style={{ flex: 1, fontSize: 14, color: "#0F0F0E", minWidth: 0 }}>{r.name}</span>
-              {showNumberedCol && <span style={{ width: 72, textAlign: "right", fontFamily: FONT_MONO, fontSize: 14, color: "#0F0F0E" }}>{printRunDisplay(r.printRun)}</span>}
-              {showOdds && <span style={{ width: 132, textAlign: "right", fontFamily: FONT_MONO, fontSize: 14, color: "#0F0F0E" }}>{r.odds != null ? (<>{denomToDisplay(r.odds.denom)}{r.odds.format && r.odds.format !== "hobby" && <span style={{ color: "#8A8677", fontSize: 11 }}> · {fmtBoxLabel(r.odds.format)}</span>}</>) : (r.note ? <span title={r.note} style={{ color: "#8A8677", borderBottom: "1px dotted #B7B2A3", cursor: "help" }}>—</span> : "—")}</span>}
-            </div>
-          ))}
-        </div>
-      )}
-    </section>
+    <SubsetCard
+      name={subset.name}
+      cardsCount={subset.cards.length}
+      parallelsCount={pars.length}
+      chips={chips}
+      checklist={checklist}
+      tableRows={tableRows}
+      showNumbered={showNumbered}
+    />
   );
 }
 

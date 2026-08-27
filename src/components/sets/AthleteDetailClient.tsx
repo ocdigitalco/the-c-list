@@ -11,6 +11,9 @@ import { trackEvent } from "@/lib/trackEvent";
 import { trackEvent as trackGaEvent } from "@/lib/analytics";
 import { getTeamLogo } from "@/lib/utils/teamLogo";
 import { findOddsKey, lookupOddsValue } from "@/lib/oddsUtils";
+import { SubsetCard } from "./SubsetCard";
+import type { ParallelRowData } from "./ParallelTable";
+import { buildEbaySearchUrl } from "@/lib/ebay/searchUrl";
 
 // ─── Constants ──────────────────────────────────────────────────────────────────
 
@@ -69,6 +72,7 @@ export interface AthleteDetailClientProps {
   // Pack odds and box config (raw JSON)
   packOddsJson: string | null;
   boxConfigJson: string | null;
+  epnCampaignId: string | null;
   // Break Hit Calculator
   packOddsSlotsByFormat: Record<string, PackOddsSlot[]>;
   boxFormats: BoxFormat[];
@@ -384,44 +388,6 @@ const BOX_FORMAT_ORDER = [
 ];
 
 // Sets that get the multi-column odds layout
-const MULTI_COLUMN_SETS = new Set(["2025-topps-chrome-football"]);
-
-function parseAllFormats(packOddsJson: string | null): Record<string, Record<string, string | number>> {
-  if (!packOddsJson) return {};
-  try {
-    const raw = JSON.parse(packOddsJson);
-    const firstVal = Object.values(raw)[0];
-    if (typeof firstVal === "object" && firstVal !== null) return raw;
-    return { hobby: raw };
-  } catch { return {}; }
-}
-
-function getActiveColumns(allFormats: Record<string, Record<string, string | number>>): { key: string; label: string }[] {
-  const seen = new Set<string>();
-  const cols: { key: string; label: string }[] = [];
-  for (const fmt of BOX_FORMAT_ORDER) {
-    if (!allFormats[fmt.key]) continue;
-    if (seen.has(fmt.label)) continue;
-    seen.add(fmt.label);
-    cols.push(fmt);
-  }
-  return cols;
-}
-
-function lookupInFormat(
-  allFormats: Record<string, Record<string, string | number>>,
-  fmtKey: string, keys: string[]
-): string | number | null {
-  const boxOdds = allFormats[fmtKey];
-  if (!boxOdds) return null;
-  for (const key of keys) {
-    if (boxOdds[key] != null) return boxOdds[key];
-    const ciKey = Object.keys(boxOdds).find((k) => k.toLowerCase() === key.toLowerCase());
-    if (ciKey && boxOdds[ciKey] != null) return boxOdds[ciKey];
-  }
-  return null;
-}
-
 function normalizeParallelNameShared(name: string): string[] {
   const candidates = [name];
   if (name.endsWith(" Refractor")) candidates.push(name.replace(/ Refractor$/, ""));
@@ -440,48 +406,31 @@ function normalizeParallelNameShared(name: string): string[] {
   return [...new Set(candidates)];
 }
 
-function buildLookupKeys(cardType: string, parallelName: string | null): string[] {
-  // Generate base name variations (singular/plural/"Cards" suffix)
-  const baseNames = [cardType];
-  if (cardType.endsWith("s")) baseNames.push(cardType.slice(0, -1));
-  else baseNames.push(cardType + "s");
-  if (!cardType.endsWith(" Cards") && !cardType.endsWith(" Card")) {
-    if (cardType.endsWith("s")) baseNames.push(cardType.slice(0, -1) + " Cards");
-    baseNames.push(cardType + " Cards");
-    baseNames.push(cardType + " Card");
-  }
-  if (cardType.endsWith(" Autographs")) {
-    baseNames.push(cardType.replace(/ Autographs$/, " Autograph Card"));
-    baseNames.push(cardType.replace(/ Autographs$/, " Autograph Cards"));
-  }
-  const uniqueBases = [...new Set(baseNames)];
+// ─── Subset tab (shared checklist table + eBay affiliate column) ─────────────────
 
-  if (!parallelName) return [...uniqueBases, "Base", "Base Cards"];
-  const names = normalizeParallelNameShared(parallelName);
-  const keys: string[] = [];
-  for (const base of uniqueBases) {
-    for (const n of names) {
-      keys.push(`${base} ${n}`, `${base} ${n} Parallel`);
-    }
-  }
-  for (const n of names) {
-    keys.push(n, `Base ${n}`, `Base Cards ${n}`, `Base Cards ${n} Parallel`);
-  }
-  return [...new Set(keys)];
+function AthleteShopDisclosure() {
+  return (
+    <p style={{ fontSize: 12, color: "#8A8677", marginTop: 4 }}>
+      Checklist² earns a commission on qualifying eBay purchases through these links.
+    </p>
+  );
 }
 
-// ─── Base Parallels Table ────────────────────────────────────────────────────────
-
-function BaseParallelsTable({ insertSets, packOddsJson, boxConfigJson, setSlug }: {
-  insertSets: InsertSetDetail[]; packOddsJson: string | null; boxConfigJson: string | null; setSlug: string;
+/**
+ * One athlete tab (Card Types / Base Parallels / Inserts / Autographs). Groups the
+ * player's rows by subset in set-page order and renders each with the shared
+ * SubsetCard + ParallelTable (identical to the set page) plus an eBay affiliate
+ * column. The format chip strip selects which format's odds show; there is no
+ * per-box computation.
+ */
+function AthleteSubsetTab({ insertSets, packOddsJson, playerName, setName, setId, athleteId, epnCampaignId }: {
+  insertSets: InsertSetDetail[]; packOddsJson: string | null;
+  playerName: string; setName: string; setId: number; athleteId: number; epnCampaignId: string | null;
 }) {
-  const baseInserts = insertSets.filter((is) => is.insertSetName.toLowerCase().includes("base"));
   const [activeIdx, setActiveIdx] = useState(0);
 
-  // Parse pack odds into { formatKey: { oddsKey: oddsValue } }
-  const { formats, ppbMap } = useMemo(() => {
+  const formats = useMemo(() => {
     const fmts: { key: string; label: string }[] = [];
-    const ppb: Record<string, number> = {};
     if (packOddsJson) {
       try {
         const raw = JSON.parse(packOddsJson);
@@ -497,712 +446,106 @@ function BaseParallelsTable({ insertSets, packOddsJson, boxConfigJson, setSlug }
         }
       } catch { /* ignore */ }
     }
-    if (boxConfigJson) {
-      try {
-        const rawBox = JSON.parse(boxConfigJson);
-        const firstBoxVal = Object.values(rawBox)[0];
-        if (typeof firstBoxVal === "object" && firstBoxVal !== null) {
-          for (const [k, cfg] of Object.entries(rawBox as Record<string, Record<string, number>>)) {
-            const label = BOX_LABEL_MAP[k] ?? k;
-            ppb[label.toLowerCase()] = cfg.packs_per_box ?? 12;
-            ppb[k] = cfg.packs_per_box ?? 12;
-          }
-        } else {
-          ppb["hobby"] = (rawBox as Record<string, number>).packs_per_box ?? 12;
-        }
-      } catch { /* ignore */ }
-    }
-    return { formats: fmts, ppbMap: ppb };
-  }, [packOddsJson, boxConfigJson]);
+    return fmts;
+  }, [packOddsJson]);
 
-  // Get odds data for active format
   const activeFormat = formats[activeIdx] ?? formats[0];
   const activeOdds = useMemo(() => {
     if (!packOddsJson || !activeFormat) return {} as Record<string, string | number>;
     try {
       const raw = JSON.parse(packOddsJson);
       const firstVal = Object.values(raw)[0];
-      if (typeof firstVal === "object" && firstVal !== null) {
-        return (raw[activeFormat.key] ?? {}) as Record<string, string | number>;
-      }
+      if (typeof firstVal === "object" && firstVal !== null) return (raw[activeFormat.key] ?? {}) as Record<string, string | number>;
       return raw as Record<string, string | number>;
     } catch { return {} as Record<string, string | number>; }
   }, [packOddsJson, activeFormat]);
 
-  const packsPerBox = activeFormat
-    ? (ppbMap[activeFormat.key] ?? ppbMap[activeFormat.label.toLowerCase()] ?? 12)
-    : 12;
-
-  function normalizeParallelName(name: string): string[] {
-    const candidates = [name];
-    if (name.endsWith(" Refractor")) candidates.push(name.replace(/ Refractor$/, ""));
-    candidates.push(name.replace("RayWave", "Ray Wave"));
-    if (name.includes("X-Fractor") && !name.includes("X-Fractor Refractor"))
-      candidates.push(name.replace("X-Fractor", "X-Fractor Refractor"));
-    if (name.includes("Xfractor") && !name.includes("Xfractor Refractor"))
-      candidates.push(name.replace("Xfractor", "Xfractor Refractor"));
-    return [...new Set(candidates)];
-  }
-
-  function lookupOdds(cardType: string, parallelName: string): string | number | null {
-    const normalizedNames = normalizeParallelName(parallelName);
-    for (const n of normalizedNames) {
-      // Try with the card type prefix
-      const result = lookupOddsValue(activeOdds as Record<string, string | number>, cardType, n);
-      if (result != null) return result;
-      // Try with "Base" prefix
-      const baseResult = lookupOddsValue(activeOdds as Record<string, string | number>, "Base", n);
-      if (baseResult != null) return baseResult;
-      // Try parallel name alone
-      const foundKey = findOddsKey(n, Object.keys(activeOdds));
-      if (foundKey && activeOdds[foundKey] != null) return activeOdds[foundKey];
+  function lookupOdds(cardType: string, parallelName: string | null): string | number | null {
+    const names = parallelName ? normalizeParallelNameShared(parallelName) : [null];
+    for (const n of names) {
+      const r = lookupOddsValue(activeOdds, cardType, n as string | null);
+      if (r != null) return r;
+      if (n) {
+        const b = lookupOddsValue(activeOdds, "Base", n);
+        if (b != null) return b;
+        const fk = findOddsKey(n, Object.keys(activeOdds));
+        if (fk && activeOdds[fk] != null) return activeOdds[fk];
+      }
     }
     return null;
   }
 
-  function perBoxStr(oddsStr: string | number): string {
-    let denom: number;
-    if (typeof oddsStr === "number") {
-      denom = oddsStr;
-    } else if (typeof oddsStr === "string") {
-      const match = oddsStr.match(/(\d[\d,]*)\s*:\s*(\d[\d,]*)/);
-      if (!match) return "";
-      const left = parseInt(match[1].replace(/,/g, ""), 10);
-      const right = parseInt(match[2].replace(/,/g, ""), 10);
-      denom = right / left;
-    } else {
-      return "";
-    }
-    if (isNaN(denom) || denom === 0) return "";
-    const v = packsPerBox / denom;
-    if (v >= 10) return `~${Math.round(v)}×`;
-    if (v >= 1) return `~${v.toFixed(1)}×`;
-    return `~${v.toFixed(2)}×`;
-  }
+  const subsets = useMemo(() => [...insertSets].sort((a, b) => a.insertSetId - b.insertSetId), [insertSets]);
+  if (subsets.length === 0) return (
+    <div style={{ padding: "40px 20px", textAlign: "center", fontSize: 16, fontStyle: "italic", color: "#8A8677" }}>
+      No cards in this category
+    </div>
+  );
 
-  // Build rows
-  interface ParallelRow {
-    cardNumber: string; cardType: string; parallelName: string; printRun: number | null; odds: string | number | null; key: string;
-  }
-  const rows: ParallelRow[] = [];
-  for (const is of baseInserts) {
-    const hasBaseParallel = is.parallels.some((p) => p.name.toLowerCase() === "base");
-    for (const app of is.appearances) {
-      if (!hasBaseParallel) {
-        rows.push({
-          cardNumber: app.cardNumber, cardType: is.insertSetName, parallelName: "Base", printRun: null,
-          odds: lookupOdds(is.insertSetName, "Base") ?? lookupOdds("Base Cards", "Base"),
-          key: `${is.insertSetId}-${app.cardNumber}-base`,
-        });
-      }
-      for (const p of is.parallels) {
-        rows.push({
-          cardNumber: app.cardNumber, cardType: is.insertSetName, parallelName: p.name, printRun: p.printRun,
-          odds: lookupOdds(is.insertSetName, p.name),
-          key: `${is.insertSetId}-${app.cardNumber}-${p.id}`,
-        });
-      }
-    }
-  }
-  // Sort by card type, then rarity (print run descending, nulls first = unnumbered first)
-  rows.sort((a, b) => {
-    const typeCmp = a.cardType.localeCompare(b.cardType);
-    if (typeCmp !== 0) return typeCmp;
-    if (a.printRun === null && b.printRun === null) return 0;
-    if (a.printRun === null) return -1;
-    if (b.printRun === null) return 1;
-    return b.printRun - a.printRun;
-  });
+  return (
+    <div className="space-y-4">
+      {formats.length > 1 && (
+        <div className="flex flex-wrap gap-1.5">
+          {formats.map((f, i) => (
+            <button key={f.key} onClick={() => setActiveIdx(i)}
+              style={{
+                borderRadius: 999, padding: "7px 12px", fontSize: 16, fontWeight: 600,
+                background: i === activeIdx ? "#0F0F0E" : "#FFFFFF",
+                color: i === activeIdx ? "#FAFAF7" : "#3A372F",
+                border: i === activeIdx ? "1px solid #0F0F0E" : "1px solid #EDEAE0",
+              }}>{f.label}</button>
+          ))}
+        </div>
+      )}
 
-  // Multi-column mode for specific sets
-  const useMultiCol = MULTI_COLUMN_SETS.has(setSlug);
-  const allFmts = useMemo(() => parseAllFormats(packOddsJson), [packOddsJson]);
-  const activeCols = useMemo(() => getActiveColumns(allFmts), [allFmts]);
+      {subsets.map((is) => {
+        const isBaseSubset = /^base cards/i.test(is.insertSetName);
+        const hasBaseParallel = is.parallels.some((p) => p.name.toLowerCase() === "base");
+        const shopFor = (parallel: string, printRun: number | null, parallelId: number | null) =>
+          buildEbaySearchUrl({
+            setName, player: playerName, subset: isBaseSubset ? null : is.insertSetName,
+            parallel, printRun, athleteId, setId, insertSetId: is.insertSetId, parallelId,
+          }, epnCampaignId);
 
-  interface MultiRow {
-    cardNumber: string; parallelName: string; printRun: number | null;
-    oddsPerFormat: Record<string, string | number | null>; key: string;
-  }
-  const multiRows: MultiRow[] = useMemo(() => {
-    if (!useMultiCol) return [];
-    const result: MultiRow[] = [];
-    for (const is of baseInserts) {
-      const hasBaseParallel = is.parallels.some((p) => p.name.toLowerCase() === "base");
-      for (const app of is.appearances) {
+        const tableRows: ParallelRowData[] = [];
         if (!hasBaseParallel) {
-          const baseKeys = buildLookupKeys(is.insertSetName, "Base");
-          const baseOdds: Record<string, string | number | null> = {};
-          for (const col of activeCols) baseOdds[col.key] = lookupInFormat(allFmts, col.key, baseKeys);
-          result.push({ cardNumber: app.cardNumber, parallelName: "Base", printRun: null, oddsPerFormat: baseOdds, key: `${is.insertSetId}-${app.cardNumber}-base` });
+          const o = lookupOdds(is.insertSetName, null);
+          tableRows.push({ name: "Base", printRun: null, odds: o != null ? { text: displayOdds(o) } : null, shopUrl: shopFor("Base", null, null) });
         }
         for (const p of is.parallels) {
-          const pKeys = buildLookupKeys(is.insertSetName, p.name);
-          const pOdds: Record<string, string | number | null> = {};
-          for (const col of activeCols) pOdds[col.key] = lookupInFormat(allFmts, col.key, pKeys);
-          result.push({ cardNumber: app.cardNumber, parallelName: p.name, printRun: p.printRun, oddsPerFormat: pOdds, key: `${is.insertSetId}-${app.cardNumber}-${p.id}` });
+          const o = lookupOdds(is.insertSetName, p.name);
+          const rare = p.name.toLowerCase().includes("superfractor") || (p.printRun != null && p.printRun <= 5);
+          tableRows.push({ name: p.name, printRun: p.printRun, rare, odds: o != null ? { text: displayOdds(o) } : null, shopUrl: shopFor(p.name, p.printRun, p.id) });
         }
-      }
-    }
-    return result;
-  }, [useMultiCol, baseInserts, activeCols, allFmts]);
 
-  const hobbyPpb = activeFormat ? (ppbMap[activeFormat.key] ?? ppbMap["hobby"] ?? 12) : 12;
-
-  if (rows.length === 0 && multiRows.length === 0) return (
-    <div style={{ padding: "40px 20px", textAlign: "center", fontSize: 16, fontStyle: "italic", color: "#8A8677" }}>
-      No base parallels found
-    </div>
-  );
-
-  const thStyle: React.CSSProperties = {
-    textAlign: "right", padding: "10px 12px", whiteSpace: "nowrap",
-    fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6,
-    color: "#8A8677", borderBottom: "1px solid #EDEAE0", textTransform: "uppercase",
-  };
-
-  function perBoxHobby(odds: string | number | null): string {
-    if (odds == null) return "—";
-    let denom: number;
-    if (typeof odds === "number") { denom = odds; }
-    else {
-      const m = odds.match(/(\d[\d,]*)\s*:\s*(\d[\d,]*)/);
-      if (!m) return "";
-      denom = parseInt(m[2].replace(/,/g, ""), 10) / parseInt(m[1].replace(/,/g, ""), 10);
-    }
-    if (isNaN(denom) || denom === 0) return "";
-    const v = hobbyPpb / denom;
-    if (v >= 10) return `~${Math.round(v)}×`;
-    if (v >= 1) return `~${v.toFixed(1)}×`;
-    return `~${v.toFixed(2)}×`;
-  }
-
-  // Multi-column desktop table for Chrome Football
-  if (useMultiCol && multiRows.length > 0) {
-    return (
-      <div className="space-y-4">
-        {/* Desktop multi-column */}
-        <div className="hidden min-[1180px]:block" style={{ overflowX: "auto" }}>
-          <table style={{ width: "100%", fontSize: 16, borderCollapse: "collapse" }}>
-            <thead>
-              <tr>
-                <th rowSpan={2} style={{ ...thStyle, textAlign: "left", width: 70 }}>CARD #</th>
-                <th rowSpan={2} style={{ ...thStyle, textAlign: "left" }}>PARALLEL TYPE</th>
-                <th rowSpan={2} style={{ ...thStyle, width: 70 }}>NUMBERED</th>
-                <th colSpan={activeCols.length} style={{ ...thStyle, textAlign: "center", borderBottom: "1px solid #EDEAE0" }}>PACK ODDS</th>
-                <th rowSpan={2} style={{ ...thStyle, width: 100 }}>{`PER BOX`}</th>
-              </tr>
-              <tr>
-                {activeCols.map((col) => (
-                  <th key={col.key} style={{ ...thStyle, fontSize: 8, letterSpacing: 1.2 }}>{col.label}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {multiRows.map((row) => (
-                <tr key={row.key} style={{ borderBottom: "1px solid #F4F1E8" }}>
-                  <td style={{ padding: "10px 12px", fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677" }}>#{row.cardNumber}</td>
-                  <td style={{ padding: "10px 12px" }}>
-                    <span style={{
-                      fontSize: 16, fontWeight: 500, padding: "3px 8px", borderRadius: 4,
-                      background: parallelTone(row.parallelName) + "18",
-                      color: parallelTone(row.parallelName),
-                      border: `1px solid ${parallelTone(row.parallelName)}30`,
-                      whiteSpace: "nowrap",
-                    }}>{row.parallelName}</span>
-                  </td>
-                  <td style={{ padding: "10px 12px", textAlign: "right", fontFamily: FONT_MONO, fontWeight: 600,
-                    color: row.printRun != null ? "#0F0F0E" : "#B7B2A3" }}>
-                    {row.printRun == null ? "—" : row.printRun === 1 ? "1/1" : `/${row.printRun}`}
-                  </td>
-                  {activeCols.map((col) => {
-                    const v = row.oddsPerFormat[col.key];
-                    return (
-                      <td key={col.key} style={{ padding: "10px 8px", textAlign: "right", fontFamily: FONT_MONO,
-                        whiteSpace: "nowrap", color: v != null ? "#0F0F0E" : "#B7B2A3", fontSize: 14 }}>
-                        {v != null ? displayOdds(v) : "—"}
-                      </td>
-                    );
-                  })}
-                  <td style={{ padding: "10px 12px", textAlign: "right", fontFamily: FONT_MONO, color: "#6B6757", fontSize: 14 }}>
-                    {perBoxHobby(row.oddsPerFormat["hobby"])}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        {/* Mobile: fallback to format selector UI */}
-        <div className="min-[1180px]:hidden space-y-4">
-          {formats.length > 1 && (
-            <div className="flex flex-wrap gap-1.5">
-              {formats.map((f, i) => (
-                <button key={f.key} onClick={() => setActiveIdx(i)}
-                  style={{
-                    borderRadius: 999, padding: "7px 12px", fontSize: 16, fontWeight: 600,
-                    background: i === activeIdx ? "#0F0F0E" : "#FFFFFF",
-                    color: i === activeIdx ? "#FAFAF7" : "#3A372F",
-                    border: i === activeIdx ? "1px solid #0F0F0E" : "1px solid #EDEAE0",
-                  }}>{f.label}</button>
-              ))}
-            </div>
-          )}
-          <div className="space-y-0">
-            {rows.map((row) => (
-              <div key={row.key} style={{ padding: "10px 0", borderBottom: "1px solid #F4F1E8" }}>
-                <div className="flex items-center gap-2">
-                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677" }}>#{row.cardNumber}</span>
-                  <span style={{
-                    fontSize: 16, fontWeight: 500, padding: "3px 8px", borderRadius: 4,
-                    background: parallelTone(row.parallelName) + "18",
-                    color: parallelTone(row.parallelName),
-                    border: `1px solid ${parallelTone(row.parallelName)}30`,
-                  }}>{row.parallelName}</span>
-                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: row.printRun != null ? "#0F0F0E" : "#B7B2A3", marginLeft: "auto" }}>
-                    {row.printRun == null ? "—" : row.printRun === 1 ? "1/1" : `/${row.printRun}`}
-                  </span>
-                </div>
-                <div className="flex items-center gap-2 mt-1">
-                  <span style={{ fontSize: 12, color: "#8A8677" }}>{row.cardType}</span>
-                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: row.odds ? "#0F0F0E" : "#B7B2A3", marginLeft: "auto" }}>{displayOdds(row.odds)}</span>
-                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#6B6757" }}>{row.odds != null ? perBoxStr(row.odds) : "—"}</span>
-                </div>
+        const checklist = (
+          <div style={{ border: "1px solid #EDEAE0", borderRadius: 8, overflow: "hidden", background: "#FFFFFF" }}>
+            {is.appearances.map((app, i) => (
+              <div key={`${is.insertSetId}-${app.cardNumber}-${i}`} className="flex items-center gap-3"
+                style={{ padding: "8px 12px", borderTop: i > 0 ? "1px solid #F4F1E8" : "none" }}>
+                <span style={{ fontFamily: FONT_MONO, fontSize: 13, color: "#8A8677", minWidth: 54 }}>#{app.cardNumber}</span>
+                <span style={{ fontSize: 15, fontWeight: 500, color: "#0F0F0E", flex: 1, minWidth: 0 }}>{playerName}</span>
+                {app.isRookie && (
+                  <span style={{ flexShrink: 0, fontFamily: FONT_MONO, fontSize: 9, fontWeight: 700, letterSpacing: 0.5,
+                    color: "#9A2B14", background: "rgba(154,43,20,0.08)", border: "1px solid rgba(154,43,20,0.2)", padding: "1px 5px", borderRadius: 3 }}>RC</span>
+                )}
+                {app.team && <span style={{ fontSize: 13, color: "#6B6757", flexShrink: 0, textAlign: "right" }}>{app.team}</span>}
               </div>
             ))}
           </div>
-        </div>
-      </div>
-    );
-  }
+        );
 
-  return (
-    <div className="space-y-4">
-      {/* Box format selector */}
-      {formats.length > 1 && (
-        <div className="flex flex-wrap gap-1.5 min-[1180px]:gap-2">
-          {formats.map((f, i) => (
-            <button key={f.key} onClick={() => setActiveIdx(i)}
-              className="min-[1180px]:rounded-md"
-              style={{
-                borderRadius: 999, padding: "7px 12px", fontSize: 16, fontWeight: 600,
-                background: i === activeIdx ? "#0F0F0E" : "#FFFFFF",
-                color: i === activeIdx ? "#FAFAF7" : "#3A372F",
-                border: i === activeIdx ? "1px solid #0F0F0E" : "1px solid #EDEAE0",
-              }}>
-              {f.label}
-            </button>
-          ))}
-        </div>
-      )}
+        return (
+          <SubsetCard key={is.insertSetId} name={is.insertSetName} cardsCount={is.appearances.length}
+            parallelsCount={is.parallels.length} checklist={checklist} tableRows={tableRows} showNumbered />
+        );
+      })}
 
-      {/* Desktop table */}
-      <div className="hidden min-[1180px]:block">
-        <table className="w-full" style={{ fontSize: 16 }}>
-          <thead>
-            <tr>
-              <th style={{ ...thStyle, textAlign: "left", width: 70 }}>CARD #</th>
-              <th style={{ ...thStyle, textAlign: "left" }}>CARD TYPE</th>
-              <th style={{ ...thStyle, textAlign: "left" }}>PARALLEL TYPE</th>
-              <th style={{ ...thStyle, width: 70 }}>NUMBERED</th>
-              <th style={{ ...thStyle, width: 100 }}>PACK ODDS</th>
-              <th style={{ ...thStyle, width: 160 }}>{`PER BOX (${packsPerBox} PACKS)`}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((row) => (
-              <tr key={row.key} style={{ borderBottom: "1px solid #F4F1E8" }}>
-                <td style={{ padding: "12px 12px", fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677" }}>
-                  #{row.cardNumber}
-                </td>
-                <td style={{ padding: "12px 12px", fontSize: 14, color: "#6B6757", whiteSpace: "nowrap" }}>
-                  {row.cardType}
-                </td>
-                <td style={{ padding: "12px 12px" }}>
-                  <span style={{
-                    fontSize: 16, fontWeight: 500, padding: "3px 8px", borderRadius: 4,
-                    background: parallelTone(row.parallelName) + "18",
-                    color: parallelTone(row.parallelName),
-                    border: `1px solid ${parallelTone(row.parallelName)}30`,
-                    whiteSpace: "nowrap",
-                  }}>
-                    {row.parallelName}
-                  </span>
-                </td>
-                <td style={{ padding: "12px 12px", textAlign: "right", fontFamily: FONT_MONO, fontWeight: 600,
-                  color: row.printRun != null ? "#0F0F0E" : "#B7B2A3" }}>
-                  {row.printRun == null ? "—" : row.printRun === 1 ? "1/1" : `/${row.printRun}`}
-                </td>
-                <td style={{ padding: "12px 12px", textAlign: "right", fontFamily: FONT_MONO,
-                  color: row.odds ? "#0F0F0E" : "#B7B2A3" }}>
-                  {displayOdds(row.odds)}
-                </td>
-                <td style={{ padding: "12px 12px", textAlign: "right", fontFamily: FONT_MONO, color: "#6B6757" }}>
-                  {row.odds != null ? perBoxStr(row.odds) : "—"}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      {/* Mobile */}
-      <div className="min-[1180px]:hidden space-y-0">
-        {rows.map((row) => (
-          <div key={row.key} style={{ padding: "10px 0", borderBottom: "1px solid #F4F1E8" }}>
-            <div className="flex items-center gap-2">
-              <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677" }}>#{row.cardNumber}</span>
-              <span style={{
-                fontSize: 16, fontWeight: 500, padding: "3px 8px", borderRadius: 4,
-                background: parallelTone(row.parallelName) + "18",
-                color: parallelTone(row.parallelName),
-                border: `1px solid ${parallelTone(row.parallelName)}30`,
-              }}>
-                {row.parallelName}
-              </span>
-              <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: row.printRun != null ? "#0F0F0E" : "#B7B2A3", marginLeft: "auto" }}>
-                {row.printRun == null ? "—" : row.printRun === 1 ? "1/1" : `/${row.printRun}`}
-              </span>
-            </div>
-            <div className="flex items-center gap-2 mt-1">
-              <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: row.odds ? "#0F0F0E" : "#B7B2A3" }}>
-                {displayOdds(row.odds)}
-              </span>
-              <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#6B6757", marginLeft: "auto" }}>
-                {row.odds != null ? perBoxStr(row.odds) : "—"}
-              </span>
-            </div>
-          </div>
-        ))}
-      </div>
+      <AthleteShopDisclosure />
     </div>
   );
 }
 
-// ─── Also Featured In ───────────────────────────────────────────────────────────
-
-// ─── Inserts / Autographs Odds Table ─────────────────────────────────────────
-
-function InsertAutoOddsTable({ headerLabel, insertSets, packOddsJson, boxConfigJson, setSlug }: {
-  headerLabel: string; insertSets: InsertSetDetail[]; packOddsJson: string | null; boxConfigJson: string | null; setSlug: string;
-}) {
-  const [activeIdx, setActiveIdx] = useState(0);
-
-  const { formats, ppbMap } = useMemo(() => {
-    const fmts: { key: string; label: string }[] = [];
-    const ppb: Record<string, number> = {};
-    if (packOddsJson) {
-      try {
-        const raw = JSON.parse(packOddsJson);
-        const firstVal = Object.values(raw)[0];
-        if (typeof firstVal === "object" && firstVal !== null) {
-          const seen = new Set<string>();
-          for (const key of Object.keys(raw)) {
-            const label = BOX_LABEL_MAP[key] ?? key.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
-            if (!seen.has(label)) { seen.add(label); fmts.push({ key, label }); }
-          }
-        } else {
-          fmts.push({ key: "hobby", label: "Hobby" });
-        }
-      } catch { /* ignore */ }
-    }
-    if (boxConfigJson) {
-      try {
-        const rawBox = JSON.parse(boxConfigJson);
-        const firstBoxVal = Object.values(rawBox)[0];
-        if (typeof firstBoxVal === "object" && firstBoxVal !== null) {
-          for (const [k, cfg] of Object.entries(rawBox as Record<string, Record<string, number>>)) {
-            ppb[k] = cfg.packs_per_box ?? 12;
-            const label = BOX_LABEL_MAP[k] ?? k;
-            ppb[label.toLowerCase()] = cfg.packs_per_box ?? 12;
-          }
-        } else {
-          ppb["hobby"] = (rawBox as Record<string, number>).packs_per_box ?? 12;
-        }
-      } catch { /* ignore */ }
-    }
-    return { formats: fmts, ppbMap: ppb };
-  }, [packOddsJson, boxConfigJson]);
-
-  const activeFormat = formats[activeIdx] ?? formats[0];
-  const activeOdds = useMemo(() => {
-    if (!packOddsJson || !activeFormat) return {} as Record<string, string | number>;
-    try {
-      const raw = JSON.parse(packOddsJson);
-      const firstVal = Object.values(raw)[0];
-      if (typeof firstVal === "object" && firstVal !== null) {
-        return (raw[activeFormat.key] ?? {}) as Record<string, string | number>;
-      }
-      return raw as Record<string, string | number>;
-    } catch { return {} as Record<string, string | number>; }
-  }, [packOddsJson, activeFormat]);
-
-  const packsPerBox = activeFormat
-    ? (ppbMap[activeFormat.key] ?? ppbMap[activeFormat.label.toLowerCase()] ?? 12)
-    : 12;
-
-  function lookupOdds(insertSetName: string, parallelName: string | null): string | number | null {
-    return lookupOddsValue(activeOdds as Record<string, string | number>, insertSetName, parallelName);
-  }
-
-  function perBoxStr(oddsStr: string | number): string {
-    let denom: number;
-    if (typeof oddsStr === "number") {
-      denom = oddsStr;
-    } else if (typeof oddsStr === "string") {
-      const match = oddsStr.match(/(\d[\d,]*)\s*:\s*(\d[\d,]*)/);
-      if (!match) return "";
-      const left = parseInt(match[1].replace(/,/g, ""), 10);
-      const right = parseInt(match[2].replace(/,/g, ""), 10);
-      denom = right / left;
-    } else {
-      return "";
-    }
-    if (isNaN(denom) || denom === 0) return "";
-    const v = packsPerBox / denom;
-    if (v >= 10) return `~${Math.round(v)}×`;
-    if (v >= 1) return `~${v.toFixed(1)}×`;
-    return `~${v.toFixed(2)}×`;
-  }
-
-  // Build rows: one row per insert set (base if no "Base" parallel exists), plus one row per parallel
-  interface OddsRow { name: string; printRun: number | null; odds: string | number | null; rare: boolean; key: string }
-  const rows: OddsRow[] = [];
-  for (const is of insertSets) {
-    const hasBaseParallel = is.parallels.some((p) => p.name.toLowerCase() === "base");
-    if (!hasBaseParallel) {
-      // Base insert row (only if parallels don't already include a "Base" entry)
-      rows.push({
-        name: is.insertSetName,
-        printRun: null,
-        odds: lookupOdds(is.insertSetName, null),
-        rare: false,
-        key: `${is.insertSetId}-base`,
-      });
-    }
-    // Parallel rows
-    for (const p of is.parallels) {
-      const odds = lookupOdds(is.insertSetName, p.name);
-      rows.push({
-        name: `${is.insertSetName} ${p.name}`,
-        printRun: p.printRun,
-        odds,
-        rare: p.name.toLowerCase().includes("superfractor") || (p.printRun != null && p.printRun <= 5),
-        key: `${is.insertSetId}-${p.id}`,
-      });
-    }
-  }
-
-  // Multi-column mode
-  const useMultiCol = MULTI_COLUMN_SETS.has(setSlug);
-  const allFmts = useMemo(() => parseAllFormats(packOddsJson), [packOddsJson]);
-  const activeCols = useMemo(() => getActiveColumns(allFmts), [allFmts]);
-
-  interface MultiOddsRow {
-    name: string; printRun: number | null; rare: boolean;
-    oddsPerFormat: Record<string, string | number | null>; key: string;
-  }
-  const multiRows: MultiOddsRow[] = useMemo(() => {
-    if (!useMultiCol) return [];
-    const result: MultiOddsRow[] = [];
-    for (const is of insertSets) {
-      const baseKeys = buildLookupKeys(is.insertSetName, null);
-      const baseOdds: Record<string, string | number | null> = {};
-      for (const col of activeCols) baseOdds[col.key] = lookupInFormat(allFmts, col.key, baseKeys);
-      result.push({ name: is.insertSetName, printRun: null, rare: false, oddsPerFormat: baseOdds, key: `${is.insertSetId}-base` });
-      for (const p of is.parallels) {
-        const pKeys = buildLookupKeys(is.insertSetName, p.name);
-        const pOdds: Record<string, string | number | null> = {};
-        for (const col of activeCols) pOdds[col.key] = lookupInFormat(allFmts, col.key, pKeys);
-        result.push({
-          name: `${is.insertSetName} ${p.name}`, printRun: p.printRun,
-          rare: p.name.toLowerCase().includes("superfractor") || (p.printRun != null && p.printRun <= 5),
-          oddsPerFormat: pOdds, key: `${is.insertSetId}-${p.id}`,
-        });
-      }
-    }
-    return result;
-  }, [useMultiCol, insertSets, activeCols, allFmts]);
-
-  const hobbyPpb2 = (() => {
-    if (!boxConfigJson) return 12;
-    try {
-      const raw = JSON.parse(boxConfigJson);
-      const firstVal = Object.values(raw)[0];
-      if (typeof firstVal === "object" && firstVal !== null) {
-        return (raw as Record<string, Record<string, number>>)["hobby"]?.packs_per_box ?? 12;
-      }
-      return (raw as Record<string, number>).packs_per_box ?? 12;
-    } catch { return 12; }
-  })();
-
-  function perBoxHobby2(odds: string | number | null): string {
-    if (odds == null) return "—";
-    let denom: number;
-    if (typeof odds === "number") { denom = odds; }
-    else {
-      const m = odds.match(/(\d[\d,]*)\s*:\s*(\d[\d,]*)/);
-      if (!m) return "";
-      denom = parseInt(m[2].replace(/,/g, ""), 10) / parseInt(m[1].replace(/,/g, ""), 10);
-    }
-    if (isNaN(denom) || denom === 0) return "";
-    const v = hobbyPpb2 / denom;
-    if (v >= 10) return `~${Math.round(v)}×`;
-    if (v >= 1) return `~${v.toFixed(1)}×`;
-    return `~${v.toFixed(2)}×`;
-  }
-
-  if (rows.length === 0 && multiRows.length === 0) return (
-    <div style={{ padding: "40px 20px", textAlign: "center", fontSize: 16, fontStyle: "italic", color: "#8A8677" }}>
-      No {headerLabel.toLowerCase()} found
-    </div>
-  );
-
-  const thStyle: React.CSSProperties = {
-    textAlign: "right", padding: "10px 12px", whiteSpace: "nowrap",
-    fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6,
-    color: "#8A8677", borderBottom: "1px solid #EDEAE0", textTransform: "uppercase",
-  };
-
-  // Multi-column desktop for Chrome Football
-  if (useMultiCol && multiRows.length > 0) {
-    return (
-      <div className="space-y-4">
-        <div className="hidden min-[1180px]:block" style={{ overflowX: "auto" }}>
-          <table style={{ width: "100%", fontSize: 16, borderCollapse: "collapse" }}>
-            <thead>
-              <tr>
-                <th rowSpan={2} style={{ ...thStyle, textAlign: "left" }}>{headerLabel}</th>
-                <th rowSpan={2} style={{ ...thStyle, width: 70 }}>NUMBERED</th>
-                <th colSpan={activeCols.length} style={{ ...thStyle, textAlign: "center", borderBottom: "1px solid #EDEAE0" }}>PACK ODDS</th>
-                <th rowSpan={2} style={{ ...thStyle, width: 100 }}>PER BOX</th>
-              </tr>
-              <tr>
-                {activeCols.map((col) => (
-                  <th key={col.key} style={{ ...thStyle, fontSize: 8, letterSpacing: 1.2 }}>{col.label}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {multiRows.map((row) => (
-                <tr key={row.key} style={{ borderBottom: "1px solid #F4F1E8" }}>
-                  <td style={{ padding: "10px 12px", color: row.rare ? "#9A2B14" : "#0F0F0E" }}>{row.name}</td>
-                  <td style={{ padding: "10px 12px", textAlign: "right", fontFamily: FONT_MONO, fontWeight: 600,
-                    color: row.printRun != null ? "#0F0F0E" : "#B7B2A3" }}>
-                    {row.printRun == null ? "—" : row.printRun === 1 ? "1/1" : `/${row.printRun}`}
-                  </td>
-                  {activeCols.map((col) => {
-                    const v = row.oddsPerFormat[col.key];
-                    return (
-                      <td key={col.key} style={{ padding: "10px 8px", textAlign: "right", fontFamily: FONT_MONO,
-                        whiteSpace: "nowrap", color: v != null ? (row.rare ? "#9A2B14" : "#0F0F0E") : "#B7B2A3", fontSize: 14 }}>
-                        {v != null ? displayOdds(v) : "—"}
-                      </td>
-                    );
-                  })}
-                  <td style={{ padding: "10px 12px", textAlign: "right", fontFamily: FONT_MONO, color: "#6B6757", fontSize: 14 }}>
-                    {perBoxHobby2(row.oddsPerFormat["hobby"])}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        {/* Mobile: fallback to format selector */}
-        <div className="min-[1180px]:hidden space-y-4">
-          {formats.length > 1 && (
-            <div className="flex flex-wrap gap-1.5">
-              {formats.map((f, i) => (
-                <button key={f.key} onClick={() => setActiveIdx(i)}
-                  style={{
-                    borderRadius: 999, padding: "7px 12px", fontSize: 16, fontWeight: 600,
-                    background: i === activeIdx ? "#0F0F0E" : "#FFFFFF",
-                    color: i === activeIdx ? "#FAFAF7" : "#3A372F",
-                    border: i === activeIdx ? "1px solid #0F0F0E" : "1px solid #EDEAE0",
-                  }}>{f.label}</button>
-              ))}
-            </div>
-          )}
-          <div className="space-y-0">
-            {rows.map((row) => (
-              <div key={row.key} className="flex items-center" style={{ padding: "10px 0", borderBottom: "1px solid #F4F1E8" }}>
-                <span style={{ flex: 1, fontSize: 16, color: row.rare ? "#9A2B14" : "#0F0F0E" }}>{row.name}</span>
-                <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 500, color: row.odds ? "#0F0F0E" : "#B7B2A3", marginLeft: 8 }}>{displayOdds(row.odds)}</span>
-                <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#6B6757", width: 90, textAlign: "right", marginLeft: "auto" }}>{row.odds != null ? perBoxStr(row.odds) : "—"}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="space-y-4">
-      {formats.length > 1 && (
-        <div className="flex flex-wrap gap-1.5 min-[1180px]:gap-2">
-          {formats.map((f, i) => (
-            <button key={f.key} onClick={() => setActiveIdx(i)}
-              className="min-[1180px]:rounded-md"
-              style={{
-                borderRadius: 999, padding: "7px 12px", fontSize: 16, fontWeight: 600,
-                background: i === activeIdx ? "#0F0F0E" : "#FFFFFF",
-                color: i === activeIdx ? "#FAFAF7" : "#3A372F",
-                border: i === activeIdx ? "1px solid #0F0F0E" : "1px solid #EDEAE0",
-              }}>
-              {f.label}
-            </button>
-          ))}
-        </div>
-      )}
-
-      {/* Desktop */}
-      <div className="hidden min-[1180px]:block">
-        <table className="w-full" style={{ fontSize: 16 }}>
-          <thead>
-            <tr>
-              <th style={{ ...thStyle, textAlign: "left" }}>{headerLabel}</th>
-              <th style={{ ...thStyle, width: 70 }}>NUMBERED</th>
-              <th style={{ ...thStyle, width: 100 }}>PACK ODDS</th>
-              <th style={{ ...thStyle, width: 160 }}>{`PER BOX (${packsPerBox} PACKS)`}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((row) => (
-              <tr key={row.key} style={{ borderBottom: "1px solid #F4F1E8" }}>
-                <td style={{ padding: "12px 12px", color: row.rare ? "#9A2B14" : "#0F0F0E" }}>{row.name}</td>
-                <td style={{ padding: "12px 12px", textAlign: "right", fontFamily: FONT_MONO, fontWeight: 600,
-                  color: row.printRun != null ? "#0F0F0E" : "#B7B2A3" }}>
-                  {row.printRun == null ? "—" : row.printRun === 1 ? "1/1" : `/${row.printRun}`}
-                </td>
-                <td style={{ padding: "12px 12px", textAlign: "right", fontFamily: FONT_MONO,
-                  color: row.odds ? (row.rare ? "#9A2B14" : "#0F0F0E") : "#B7B2A3" }}>
-                  {displayOdds(row.odds)}
-                </td>
-                <td style={{ padding: "12px 12px", textAlign: "right", fontFamily: FONT_MONO, color: "#6B6757" }}>
-                  {row.odds != null ? perBoxStr(row.odds) : "—"}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      {/* Mobile */}
-      <div className="min-[1180px]:hidden space-y-0">
-        {rows.map((row) => (
-          <div key={row.key} className="flex items-center" style={{ padding: "10px 0", borderBottom: "1px solid #F4F1E8" }}>
-            <span style={{ flex: 1, fontSize: 16, color: row.rare ? "#9A2B14" : "#0F0F0E" }}>{row.name}</span>
-            <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 500, color: row.odds ? "#0F0F0E" : "#B7B2A3", marginLeft: 8 }}>
-              {displayOdds(row.odds)}
-            </span>
-            <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#6B6757", width: 90, textAlign: "right", marginLeft: "auto" }}>
-              {row.odds != null ? perBoxStr(row.odds) : "—"}
-            </span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 // ─── Also Featured In ───────────────��───────────────────────────────────────────
 
@@ -1321,7 +664,7 @@ export function AthleteDetailClient({
   nbaPlayerId, ufcImageUrl, mlbPlayerId, imageUrl,
   setName, setSlug, setId, sport, league,
   cardTypes, totalCards, autographs, autoParallels, numberedParallels, oneOfOnes,
-  insertSets, otherSets, packOddsJson, boxConfigJson,
+  insertSets, otherSets, packOddsJson, boxConfigJson, epnCampaignId,
   packOddsSlotsByFormat, boxFormats, totalAutoCards, playerAutoCards, hasBreakCalc,
   entries, hasTeamData, subjectLabel: subjectLabelProp, subjectRole, teamLabel: teamLabelProp,
 }: AthleteDetailClientProps) {
@@ -1348,6 +691,26 @@ export function AthleteDetailClient({
       tab_name: t,
     });
   }
+
+  // Subset-grouped tab content shared by desktop + mobile (same component/styling
+  // as the set page). Filters mirror the set page's card-type tabs.
+  const baseSubsets = insertSets.filter((is) => is.insertSetName.toLowerCase().includes("base"));
+  const insertSubsets = insertSets.filter((is) => {
+    const l = is.insertSetName.toLowerCase();
+    return !l.includes("base") && !is.isAutograph;
+  });
+  const autoSubsets = insertSets.filter((is) => is.isAutograph);
+  const subsetTab = (list: InsertSetDetail[]) => (
+    <AthleteSubsetTab
+      insertSets={list}
+      packOddsJson={packOddsJson}
+      playerName={athleteName}
+      setName={setName}
+      setId={setId}
+      athleteId={athleteId}
+      epnCampaignId={epnCampaignId}
+    />
+  );
 
   const statItems = [
     { label: "Card Types", value: cardTypes },
@@ -1498,31 +861,10 @@ export function AthleteDetailClient({
                 <InsertSetsAccordion insertSets={insertSets} setSlug={setSlug} setId={setId} />
               </div>
             )}
-            {tab === "Card Types" && (
-              <InsertSetsAccordion insertSets={insertSets} setSlug={setSlug} setId={setId} />
-            )}
-            {tab === "Base Parallels" && (
-              <BaseParallelsTable insertSets={insertSets} packOddsJson={packOddsJson} boxConfigJson={boxConfigJson} setSlug={setSlug} />
-            )}
-            {tab === "Inserts" && (
-              <InsertAutoOddsTable
-                headerLabel="INSERT"
-                insertSets={insertSets.filter((is) => {
-                  const l = is.insertSetName.toLowerCase();
-                  return !l.includes("base") && !is.isAutograph;
-                })}
-                packOddsJson={packOddsJson} boxConfigJson={boxConfigJson} setSlug={setSlug}
-              />
-            )}
-            {tab === "Autographs" && (
-              <InsertAutoOddsTable
-                headerLabel="AUTOGRAPH"
-                insertSets={insertSets.filter((is) => {
-                  return is.isAutograph;
-                })}
-                packOddsJson={packOddsJson} boxConfigJson={boxConfigJson} setSlug={setSlug}
-              />
-            )}
+            {tab === "Card Types" && subsetTab(insertSets)}
+            {tab === "Base Parallels" && subsetTab(baseSubsets)}
+            {tab === "Inserts" && subsetTab(insertSubsets)}
+            {tab === "Autographs" && subsetTab(autoSubsets)}
             {tab === "Also Featured In" && <AlsoFeaturedIn otherSets={otherSets} />}
           </div>
         </div>
@@ -1649,34 +991,10 @@ export function AthleteDetailClient({
               <InsertSetsAccordion insertSets={insertSets} setSlug={setSlug} setId={setId} />
             </div>
           )}
-          {tab === "Card Types" && (
-            <InsertSetsAccordion insertSets={insertSets} setSlug={setSlug} setId={setId} />
-          )}
-          {tab === "Base Parallels" && (
-            <InsertSetsAccordion
-              insertSets={insertSets.filter((is) => is.insertSetName.toLowerCase().includes("base"))}
-              setSlug={setSlug} setId={setId}
-            />
-          )}
-          {tab === "Inserts" && (
-            <InsertAutoOddsTable
-              headerLabel="INSERT"
-              insertSets={insertSets.filter((is) => {
-                const l = is.insertSetName.toLowerCase();
-                return !l.includes("base") && !is.isAutograph;
-              })}
-              packOddsJson={packOddsJson} boxConfigJson={boxConfigJson} setSlug={setSlug}
-            />
-          )}
-          {tab === "Autographs" && (
-            <InsertAutoOddsTable
-              headerLabel="AUTOGRAPH"
-              insertSets={insertSets.filter((is) => {
-                return is.isAutograph;
-              })}
-              packOddsJson={packOddsJson} boxConfigJson={boxConfigJson} setSlug={setSlug}
-            />
-          )}
+          {tab === "Card Types" && subsetTab(insertSets)}
+          {tab === "Base Parallels" && subsetTab(baseSubsets)}
+          {tab === "Inserts" && subsetTab(insertSubsets)}
+          {tab === "Autographs" && subsetTab(autoSubsets)}
           {tab === "Also Featured In" && <AlsoFeaturedIn otherSets={otherSets} />}
         </div>
 

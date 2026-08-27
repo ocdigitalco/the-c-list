@@ -728,6 +728,7 @@ export default async function V2AthletePage({
       otherSets={otherSetsForClient}
       packOddsJson={setRow.packOdds ?? null}
       boxConfigJson={setRow.boxConfig ?? null}
+      epnCampaignId={process.env.EPN_CAMPAIGN_ID ?? null}
       packOddsSlotsByFormat={packOddsSlotsByFormat}
       boxFormats={boxFormats}
       totalAutoCards={totalAutoCards}
