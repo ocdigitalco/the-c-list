@@ -1,5 +1,7 @@
 // IMPORTANT: Add a new update entry here every time a checklist, box config,
 // odds, or feature is added to the app. Keep sorted newest first.
+// This includes UI changes and data phases — one entry per user-visible change,
+// dated to its commit.
 
 export interface Update {
   id: string;
@@ -12,6 +14,74 @@ export interface Update {
 }
 
 export const updates: Update[] = [
+  {
+    id: "249-athlete-checklist-layout-ebay",
+    title: "Athlete pages now match the checklist layout, plus Find on eBay links",
+    date: "2026-08-26T20:09:26-07:00",
+    summary:
+      "Athlete pages now use the same grouped subset tables as set pages, every parallel row has a Find on eBay link, and the old Per-box column is retired.",
+    description: `## Athlete pages: shared checklist tables + Find on eBay
+
+The **Card Types**, **Base Parallels**, **Inserts**, and **Autographs** tabs on athlete pages now render with the same grouped subset tables and styling as the set page — one card per subset with the parallel / numbered / pack-odds columns, in set-page order and scoped to the player. The old **Per-box** column has been retired.
+
+Every parallel row (and the base card) now carries a **Find on eBay** link that searches for that exact card. These are **affiliate links** — see the [Affiliate Disclosure](/affiliate-disclosure) for details.`,
+    tags: ["feature"],
+  },
+  {
+    id: "248-flagship-football-2026-official-odds",
+    title: "2026 Topps Flagship Football: official Topps pack odds",
+    date: "2026-08-26T10:08:42-07:00",
+    summary:
+      "Pack odds replaced with the official Topps odds sheet across 19 formats, with per-subset odds for Base, Future Stars, Team Cards, League Leaders, Combo Cards, and Rookies; 62 new parallels; and 9 new box formats (Silver Packs, Bulk Packs, Kids Mega, Club/Sam's, Oversized, Slip Sheets).",
+    description: `## 2026 Topps Flagship Football — official Topps odds
+
+Pack odds now come straight from the **official Topps odds sheet** — the authoritative source — replacing the earlier secondary-source odds. The sheet covers **19 formats**, with the base checklist split the way Topps prints it: separate per-subset odds for **Base Cards**, **Future Stars**, **Team Cards**, **League Leaders**, **Combo Cards**, and **Rookies**.
+
+This pass also added **62 new parallels** the official sheet publishes odds for and **9 new box formats** — Hobby/Jumbo **Silver Packs**, **Bulk Packs**, **Kids Mega**, **Club Exclusive** and **Sam's Club** boxes, their **Oversized** variants, and **GC White Slip Sheets**.
+
+Seven base foil tiers (Yellow / Purple / Blue Holo Foil, Yellow / Purple / Blue Rainbow Foil, and Green Diamante Foil) are **listed on the sheet with no published odds** and show a dash rather than a made-up number.`,
+    tags: ["odds", "checklist"],
+    setId: 870,
+  },
+  {
+    id: "247-pack-odds-all-formats-autograph-counts",
+    title: "Pack odds display: all formats, correct autograph counts",
+    date: "2026-08-25T21:19:45-07:00",
+    summary:
+      "Set pages now show odds for parallels published only in retail or exclusive formats — with the format tagged — and autograph counts now use one definition across athlete pages, leaderboards, and set pages. Athlete Numbered and 1/1 stats are fixed for Flagship.",
+    description: `## Pack odds display + autograph counts
+
+The set page's **Pack Odds** column now resolves a parallel's odds across every box format instead of a single one, so parallels published only in **retail or exclusive** formats (Jumbo, Value, London Mega, Silver Packs, Club boxes, and more) show their odds — with a small **format tag** noting where they come from.
+
+**Autograph counts** now use a single definition — the autograph flag — across **athlete pages, leaderboards, and set pages**, so a player's autograph total matches everywhere and relic-only subsets are no longer miscounted as autographs. Athlete-page **Numbered** and **1/1** stats were also recomputed and corrected for Flagship Football.`,
+    tags: ["feature", "odds"],
+  },
+  {
+    id: "246-flagship-football-2026-parallels-odds-box",
+    title: "2026 Topps Flagship Football: parallels, pack odds, and box configuration",
+    date: "2026-08-25T15:45:59-07:00",
+    summary:
+      "725 parallels with print runs, pack odds across Hobby, Jumbo, Value, Mega, Hanger, Fat Pack, Fanatics, London, and Walmart, plus box configs (cards per pack, packs per box, boxes per case, hits per box).",
+    description: `## 2026 Topps Flagship Football — parallels, odds & box config
+
+Attached the full **parallel structure — 725 rows** with published print runs, and pack odds across **Hobby, Jumbo, Value, Mega, Hanger, Fat Pack, Fanatics, London Mega, and Walmart Mega**.
+
+A follow-up pass added the **box configurations** (cards per pack, packs per box, boxes per case, and guaranteed hits per box) for each format, lighting up the box breakdown and Break Hit Calculator on the set page.`,
+    tags: ["checklist", "odds", "box-config"],
+    setId: 870,
+  },
+  {
+    id: "245-flagship-football-2026-checklist",
+    title: "2026 Topps Flagship Football Added",
+    date: "2026-08-24T13:07:41-07:00",
+    summary:
+      "Added 2026 Topps Flagship Football — the full checklist across 87 subsets and 4,042 cards. Parallels and pack odds to follow.",
+    description: `## 2026 Topps Flagship Football
+
+Phase 1 loads the complete base and insert checklist — **4,042 cards across 87 subsets** — covering the split base structure (Base Cards, Future Stars, Team Cards, League Leaders, Combo Cards, Rookies), the variation and Golden Mirror Image lines, the 1991 Topps Football and Chrome throwbacks, inserts, and the autograph and relic subsets. Parallels, print runs, and pack odds follow in later passes.`,
+    tags: ["checklist"],
+    setId: 870,
+  },
   {
     id: "244-mint-marvel-2026-box-config",
     title: "2026 Topps Mint Marvel: Hobby Box Configuration",
