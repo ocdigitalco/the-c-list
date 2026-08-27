@@ -15,6 +15,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "250-chrome-samurai-japan-2026",
+    title: "2026 Topps Chrome Samurai Japan Baseball checklist, parallels, odds, and box configuration",
+    date: "2026-08-27T09:00:00-07:00",
+    summary:
+      "Added 2026 Topps Chrome Samurai Japan Baseball — 8 subsets, 124 cards, and 23 parallels with pack odds and box configuration. Three inserts have no published odds, and the base set carries two designs of the same 37-player lineup.",
+    description: `## 2026 Topps Chrome Samurai Japan Baseball
+
+A Chrome release built around Japan's national team — **124 cards across 8 subsets** featuring 37 subjects from Sadaharu Oh and Ichiro to Shohei Ohtani, Yoshinobu Yamamoto, and Roki Sasaki, every card carrying the **Samurai Japan** team.
+
+The **base set** prints the same 37-player lineup **twice** (cards 1–37 and 38–74), followed by six **Short Prints**. Parallels run the full **23-row** Chrome ladder — Unnumbered (1:4), Green /99, Purple /75, Dark Gold /50, Orange /25, Black /10, Red /5, and Gold 1/1 — plus a **Base Card Autograph** parallel that exists only in its five numbered versions, and dual-subject **Generational Greats**. Pack odds and the Hobby box configuration (7 cards/pack, 4 packs/box, 10 boxes/case; 2 numbered parallels + 1 insert per box) are attached.
+
+Three inserts — **Generational Greats**, **Neon Nights**, and **Samurai Spirit** — are on the checklist but **not on the odds sheet**, so they carry no published pull odds.`,
+    tags: ["checklist", "odds", "box-config"],
+    setId: 871,
+  },
+  {
     id: "249-athlete-checklist-layout-ebay",
     title: "Athlete pages now match the checklist layout, plus Find on eBay links",
     date: "2026-08-26T20:09:26-07:00",

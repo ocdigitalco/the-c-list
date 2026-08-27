@@ -1,0 +1,261 @@
+{
+"Sadaharu Oh": {
+"mlb_player_id": null,
+"image_url": null,
+"slug": "sadaharu-oh",
+"subject_role": "athlete",
+"existing": true
+},
+"Munenori Kawasaki": {
+"mlb_player_id": null,
+"image_url": null,
+"slug": null,
+"subject_role": null,
+"existing": false
+},
+"Ichiro": {
+"mlb_player_id": null,
+"image_url": null,
+"slug": "ichiro",
+"subject_role": "athlete",
+"existing": true
+},
+"Yu Darvish": {
+"mlb_player_id": 506433,
+"image_url": null,
+"slug": "yu-darvish",
+"subject_role": "athlete",
+"existing": true
+},
+"Kodai Senga": {
+"mlb_player_id": 673540,
+"image_url": null,
+"slug": "kodai-senga",
+"subject_role": "athlete",
+"existing": true
+},
+"Seiya Suzuki": {
+"mlb_player_id": 673548,
+"image_url": null,
+"slug": "seiya-suzuki",
+"subject_role": "athlete",
+"existing": true
+},
+"Roki Sasaki": {
+"mlb_player_id": 808963,
+"image_url": null,
+"slug": "roki-sasaki",
+"subject_role": "athlete",
+"existing": true
+},
+"Shohei Ohtani": {
+"mlb_player_id": 660271,
+"image_url": null,
+"slug": "shohei-ohtani",
+"subject_role": "athlete",
+"existing": true
+},
+"Yoshinobu Yamamoto": {
+"mlb_player_id": 808967,
+"image_url": null,
+"slug": "yoshinobu-yamamoto",
+"subject_role": "athlete",
+"existing": true
+},
+"Shota Imanaga": {
+"mlb_player_id": 684007,
+"image_url": null,
+"slug": "shota-imanaga",
+"subject_role": "athlete",
+"existing": true
+},
+"Masataka Yoshida": {
+"mlb_player_id": 807799,
+"image_url": null,
+"slug": "masataka-yoshida",
+"subject_role": "athlete",
+"existing": true
+},
+"Chihiro Sumida": {
+"mlb_player_id": null,
+"image_url": null,
+"slug": null,
+"subject_role": null,
+"existing": false
+},
+"Hiromi Itoh": {
+"mlb_player_id": null,
+"image_url": null,
+"slug": null,
+"subject_role": null,
+"existing": false
+},
+"Yusei Kikuchi": {
+"mlb_player_id": 579328,
+"image_url": null,
+"slug": "yusei-kikuchi",
+"subject_role": "athlete",
+"existing": true
+},
+"Koki Kitayama": {
+"mlb_player_id": null,
+"image_url": null,
+"slug": null,
+"subject_role": null,
+"existing": false
+},
+"Tomoyuki Sugano": {
+"mlb_player_id": 608372,
+"image_url": null,
+"slug": "tomoyuki-sugano",
+"subject_role": "athlete",
+"existing": true
+},
+"Ryuhei Sotani": {
+"mlb_player_id": null,
+"image_url": null,
+"slug": null,
+"subject_role": null,
+"existing": false
+},
+"Taisei Ota": {
+"mlb_player_id": null,
+"image_url": null,
+"slug": null,
+"subject_role": null,
+"existing": false
+},
+"Shoma Fujihira": {
+"mlb_player_id": null,
+"image_url": null,
+"slug": null,
+"subject_role": null,
+"existing": false
+},
+"Hiroto Takahashi": {
+"mlb_player_id": null,
+"image_url": null,
+"slug": null,
+"subject_role": null,
+"existing": false
+},
+"Atsuki Taneichi": {
+"mlb_player_id": null,
+"image_url": null,
+"slug": null,
+"subject_role": null,
+"existing": false
+},
+"Yuki Matsui": {
+"mlb_player_id": null,
+"image_url": null,
+"slug": "yuki-matsui",
+"subject_role": "athlete",
+"existing": true
+},
+"Yuki Matsumoto": {
+"mlb_player_id": null,
+"image_url": null,
+"slug": null,
+"subject_role": null,
+"existing": false
+},
+"Hiroya Miyagi": {
+"mlb_player_id": null,
+"image_url": null,
+"slug": null,
+"subject_role": null,
+"existing": false
+},
+"Seishiro Sakamoto": {
+"mlb_player_id": null,
+"image_url": null,
+"slug": null,
+"subject_role": null,
+"existing": false
+},
+"Yuhei Nakamura": {
+"mlb_player_id": null,
+"image_url": null,
+"slug": null,
+"subject_role": null,
+"existing": false
+},
+"Kenya Wakatsuki": {
+"mlb_player_id": null,
+"image_url": null,
+"slug": null,
+"subject_role": null,
+"existing": false
+},
+"Kazuma Okamoto": {
+"mlb_player_id": null,
+"image_url": null,
+"slug": "kazuma-okamoto",
+"subject_role": "athlete",
+"existing": true
+},
+"Sosuke Genda": {
+"mlb_player_id": null,
+"image_url": null,
+"slug": null,
+"subject_role": null,
+"existing": false
+},
+"Kaito Kozono": {
+"mlb_player_id": null,
+"image_url": null,
+"slug": null,
+"subject_role": null,
+"existing": false
+},
+"Teruaki Sato": {
+"mlb_player_id": null,
+"image_url": null,
+"slug": null,
+"subject_role": null,
+"existing": false
+},
+"Shugo Maki": {
+"mlb_player_id": null,
+"image_url": null,
+"slug": null,
+"subject_role": null,
+"existing": false
+},
+"Taisei Makihara": {
+"mlb_player_id": null,
+"image_url": null,
+"slug": null,
+"subject_role": null,
+"existing": false
+},
+"Munetaka Murakami": {
+"mlb_player_id": null,
+"image_url": null,
+"slug": "munetaka-murakami",
+"subject_role": "athlete",
+"existing": true
+},
+"Kensuke Kondoh": {
+"mlb_player_id": null,
+"image_url": null,
+"slug": null,
+"subject_role": null,
+"existing": false
+},
+"Ukyo Shuto": {
+"mlb_player_id": null,
+"image_url": null,
+"slug": null,
+"subject_role": null,
+"existing": false
+},
+"Shota Morishita": {
+"mlb_player_id": null,
+"image_url": null,
+"slug": null,
+"subject_role": null,
+"existing": false
+}
+}
