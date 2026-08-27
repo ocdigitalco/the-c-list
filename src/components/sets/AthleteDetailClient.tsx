@@ -541,7 +541,9 @@ function AthleteSubsetTab({ insertSets, packOddsJson, playerName, setName, setId
         );
       })}
 
-      <AthleteShopDisclosure />
+      {/* Disclosure sits directly below the subset tables, shown only when the
+          eBay column is present (i.e. affiliate links were generated). */}
+      {epnCampaignId && <AthleteShopDisclosure />}
     </div>
   );
 }

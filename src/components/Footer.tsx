@@ -142,6 +142,13 @@ export function Footer() {
             <p className="text-base text-zinc-600">Created by Tyler Lawrence</p>
           </div>
           <p className="text-base text-zinc-600 leading-relaxed">
+            Some links on Checklist² are{" "}
+            <Link href="/affiliate-disclosure" className="text-zinc-400 underline hover:text-zinc-200 transition-colors">
+              affiliate links
+            </Link>
+            . We may earn a commission on qualifying purchases at no extra cost to you.
+          </p>
+          <p className="text-base text-zinc-600 leading-relaxed">
             All third-party trademarks and logos are the property of their respective owners. Checklist2 is not affiliated with, endorsed by, or sponsored by Whatnot, UFC, EPL, NBA, MLS, MLB, NFL, UEFA, WWE, WWF, Cactus Jack, Olympics, Topps, or Panini.
           </p>
         </div>

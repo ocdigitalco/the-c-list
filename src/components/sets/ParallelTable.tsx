@@ -43,27 +43,42 @@ export function ParallelTable({ rows, showNumbered }: { rows: ParallelRowData[];
     color: "#8A8677", textTransform: "uppercase",
   };
 
+  // One grid template drives BOTH the header row and every body row, so the
+  // columns register exactly (no independently-sized header/body). Tracks are
+  // added only for the columns that are present. Numbered/odds widths match the
+  // set page's previous fixed widths so it stays visually unchanged; the eBay
+  // track is fixed so it can never squeeze the odds column.
+  const tracks = ["minmax(0,1fr)"];
+  if (showNumberedCol) tracks.push("72px");
+  if (showOdds) tracks.push("132px");
+  if (showEbay) tracks.push("120px");
+  const rowGrid: React.CSSProperties = {
+    display: "grid", gridTemplateColumns: tracks.join(" "), alignItems: "center", padding: "8px 12px",
+  };
+  // eBay cell/header share left padding so the header label sits over the link.
+  const ebayCell: React.CSSProperties = { textAlign: "left", paddingLeft: 12 };
+
   return (
     <div style={{ marginTop: 12, border: "1px solid #EDEAE0", borderRadius: 8, overflow: "hidden", background: "#FFFFFF" }}>
-      <div className="flex items-center" style={{ padding: "8px 12px", borderBottom: "1px solid #EDEAE0" }}>
-        <span style={{ flex: 1, ...hCell }}>Parallel</span>
-        {showNumberedCol && <span style={{ width: 72, textAlign: "right", ...hCell }}>Numbered</span>}
-        {showOdds && <span style={{ width: 132, textAlign: "right", ...hCell }}>Pack Odds</span>}
-        {showEbay && <span style={{ flexShrink: 0, textAlign: "right", marginLeft: 12, ...hCell }}>eBay</span>}
+      <div style={{ ...rowGrid, borderBottom: "1px solid #EDEAE0" }}>
+        <span style={hCell}>Parallel</span>
+        {showNumberedCol && <span style={{ textAlign: "right", ...hCell }}>Numbered</span>}
+        {showOdds && <span style={{ textAlign: "right", ...hCell }}>Pack Odds</span>}
+        {showEbay && <span style={{ ...ebayCell, ...hCell }}>eBay</span>}
       </div>
       {rows.map((r, i) => (
-        <div key={`${r.name}-${i}`} className="flex items-center" style={{ padding: "8px 12px", borderTop: i > 0 ? "1px solid #F4F1E8" : "none" }}>
-          <span style={{ flex: 1, fontSize: 14, color: r.rare ? "#9A2B14" : "#0F0F0E", minWidth: 0 }}>{r.name}</span>
-          {showNumberedCol && <span style={{ width: 72, textAlign: "right", fontFamily: FONT_MONO, fontSize: 14, color: "#0F0F0E" }}>{printRunDisplay(r.printRun)}</span>}
+        <div key={`${r.name}-${i}`} style={{ ...rowGrid, borderTop: i > 0 ? "1px solid #F4F1E8" : undefined }}>
+          <span style={{ fontSize: 14, color: r.rare ? "#9A2B14" : "#0F0F0E", minWidth: 0 }}>{r.name}</span>
+          {showNumberedCol && <span style={{ textAlign: "right", fontFamily: FONT_MONO, fontSize: 14, color: "#0F0F0E" }}>{printRunDisplay(r.printRun)}</span>}
           {showOdds && (
-            <span style={{ width: 132, textAlign: "right", fontFamily: FONT_MONO, fontSize: 14, color: "#0F0F0E" }}>
+            <span style={{ textAlign: "right", fontFamily: FONT_MONO, fontSize: 14, color: "#0F0F0E" }}>
               {r.odds != null ? (
                 <>{r.odds.text}{r.odds.tag && <span style={{ color: "#8A8677", fontSize: 11 }}> · {r.odds.tag}</span>}</>
               ) : (r.note ? <span title={r.note} style={{ color: "#8A8677", borderBottom: "1px dotted #B7B2A3", cursor: "help" }}>—</span> : "—")}
             </span>
           )}
           {showEbay && (
-            <span style={{ flexShrink: 0, textAlign: "right", marginLeft: 12, minWidth: 24 }}>
+            <span style={ebayCell}>
               {r.shopUrl ? (
                 <a href={r.shopUrl} target="_blank" rel="sponsored noopener" aria-label="Find on eBay"
                   style={{ fontFamily: FONT_MONO, fontSize: 12, fontWeight: 600, color: "#B12C18", textDecoration: "none", whiteSpace: "nowrap" }}>
