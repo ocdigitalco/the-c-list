@@ -1,0 +1,556 @@
+{"subset": "Base Cards", "card_number": "1", "subjects": ["Shai Gilgeous-Alexander"], "team": "Oklahoma City Thunder", "rookie": false}
+{"subset": "Base Cards", "card_number": "2", "subjects": ["Jalen Williams"], "team": "Oklahoma City Thunder", "rookie": false}
+{"subset": "Base Cards", "card_number": "3", "subjects": ["Chet Holmgren"], "team": "Oklahoma City Thunder", "rookie": false}
+{"subset": "Base Cards", "card_number": "4", "subjects": ["Luguentz Dort"], "team": "Oklahoma City Thunder", "rookie": false}
+{"subset": "Base Cards", "card_number": "5", "subjects": ["Tyrese Haliburton"], "team": "Indiana Pacers", "rookie": false}
+{"subset": "Base Cards", "card_number": "6", "subjects": ["Pascal Siakam"], "team": "Indiana Pacers", "rookie": false}
+{"subset": "Base Cards", "card_number": "7", "subjects": ["T.J. McConnell"], "team": "Indiana Pacers", "rookie": false}
+{"subset": "Base Cards", "card_number": "8", "subjects": ["Bennedict Mathurin"], "team": "Indiana Pacers", "rookie": false}
+{"subset": "Base Cards", "card_number": "9", "subjects": ["Anthony Edwards"], "team": "Minnesota Timberwolves", "rookie": false}
+{"subset": "Base Cards", "card_number": "10", "subjects": ["Naz Reid"], "team": "Minnesota Timberwolves", "rookie": false}
+{"subset": "Base Cards", "card_number": "11", "subjects": ["Jaden McDaniels"], "team": "Minnesota Timberwolves", "rookie": false}
+{"subset": "Base Cards", "card_number": "12", "subjects": ["Donte DiVincenzo"], "team": "Minnesota Timberwolves", "rookie": false}
+{"subset": "Base Cards", "card_number": "13", "subjects": ["Kyrie Irving"], "team": "Dallas Mavericks", "rookie": false}
+{"subset": "Base Cards", "card_number": "14", "subjects": ["Anthony Davis"], "team": "Dallas Mavericks", "rookie": false}
+{"subset": "Base Cards", "card_number": "15", "subjects": ["Klay Thompson"], "team": "Dallas Mavericks", "rookie": false}
+{"subset": "Base Cards", "card_number": "16", "subjects": ["Stephen Curry"], "team": "Golden State Warriors", "rookie": false}
+{"subset": "Base Cards", "card_number": "17", "subjects": ["Jimmy Butler III"], "team": "Golden State Warriors", "rookie": false}
+{"subset": "Base Cards", "card_number": "18", "subjects": ["Draymond Green"], "team": "Golden State Warriors", "rookie": false}
+{"subset": "Base Cards", "card_number": "19", "subjects": ["Nikola Jokić"], "team": "Denver Nuggets", "rookie": false}
+{"subset": "Base Cards", "card_number": "20", "subjects": ["Jamal Murray"], "team": "Denver Nuggets", "rookie": false}
+{"subset": "Base Cards", "card_number": "21", "subjects": ["Aaron Gordon"], "team": "Denver Nuggets", "rookie": false}
+{"subset": "Base Cards", "card_number": "22", "subjects": ["Cade Cunningham"], "team": "Detroit Pistons", "rookie": false}
+{"subset": "Base Cards", "card_number": "23", "subjects": ["Ausar Thompson"], "team": "Detroit Pistons", "rookie": false}
+{"subset": "Base Cards", "card_number": "24", "subjects": ["Ronald Holland II"], "team": "Detroit Pistons", "rookie": false}
+{"subset": "Base Cards", "card_number": "25", "subjects": ["Donovan Mitchell"], "team": "Cleveland Cavaliers", "rookie": false}
+{"subset": "Base Cards", "card_number": "26", "subjects": ["Evan Mobley"], "team": "Cleveland Cavaliers", "rookie": false}
+{"subset": "Base Cards", "card_number": "27", "subjects": ["Lonzo Ball"], "team": "Cleveland Cavaliers", "rookie": false}
+{"subset": "Base Cards", "card_number": "28", "subjects": ["Jalen Brunson"], "team": "New York Knicks", "rookie": false}
+{"subset": "Base Cards", "card_number": "29", "subjects": ["OG Anunoby"], "team": "New York Knicks", "rookie": false}
+{"subset": "Base Cards", "card_number": "30", "subjects": ["Mikal Bridges"], "team": "New York Knicks", "rookie": false}
+{"subset": "Base Cards", "card_number": "31", "subjects": ["Karl-Anthony Towns"], "team": "New York Knicks", "rookie": false}
+{"subset": "Base Cards", "card_number": "32", "subjects": ["Cam Thomas"], "team": "Brooklyn Nets", "rookie": false}
+{"subset": "Base Cards", "card_number": "33", "subjects": ["Nic Claxton"], "team": "Brooklyn Nets", "rookie": false}
+{"subset": "Base Cards", "card_number": "34", "subjects": ["Dariq Whitehead"], "team": "Brooklyn Nets", "rookie": false}
+{"subset": "Base Cards", "card_number": "35", "subjects": ["Bam Adebayo"], "team": "Miami Heat", "rookie": false}
+{"subset": "Base Cards", "card_number": "36", "subjects": ["Tyler Herro"], "team": "Miami Heat", "rookie": false}
+{"subset": "Base Cards", "card_number": "37", "subjects": ["Kel'el Ware"], "team": "Miami Heat", "rookie": false}
+{"subset": "Base Cards", "card_number": "38", "subjects": ["Jayson Tatum"], "team": "Boston Celtics", "rookie": false}
+{"subset": "Base Cards", "card_number": "39", "subjects": ["Jaylen Brown"], "team": "Boston Celtics", "rookie": false}
+{"subset": "Base Cards", "card_number": "40", "subjects": ["Derrick White"], "team": "Boston Celtics", "rookie": false}
+{"subset": "Base Cards", "card_number": "41", "subjects": ["Hugo González"], "team": "Boston Celtics", "rookie": true}
+{"subset": "Base Cards", "card_number": "42", "subjects": ["Joel Embiid"], "team": "Philadelphia 76ers", "rookie": false}
+{"subset": "Base Cards", "card_number": "43", "subjects": ["Tyrese Maxey"], "team": "Philadelphia 76ers", "rookie": false}
+{"subset": "Base Cards", "card_number": "44", "subjects": ["Paul George"], "team": "Philadelphia 76ers", "rookie": false}
+{"subset": "Base Cards", "card_number": "45", "subjects": ["VJ Edgecombe"], "team": "Philadelphia 76ers", "rookie": true}
+{"subset": "Base Cards", "card_number": "46", "subjects": ["Scottie Barnes"], "team": "Toronto Raptors", "rookie": false}
+{"subset": "Base Cards", "card_number": "47", "subjects": ["Gradey Dick"], "team": "Toronto Raptors", "rookie": false}
+{"subset": "Base Cards", "card_number": "48", "subjects": ["Giannis Antetokounmpo"], "team": "Milwaukee Bucks", "rookie": false}
+{"subset": "Base Cards", "card_number": "49", "subjects": ["Bobby Portis"], "team": "Milwaukee Bucks", "rookie": false}
+{"subset": "Base Cards", "card_number": "50", "subjects": ["Gary Trent Jr."], "team": "Milwaukee Bucks", "rookie": false}
+{"subset": "Base Cards", "card_number": "51", "subjects": ["Josh Giddey"], "team": "Chicago Bulls", "rookie": false}
+{"subset": "Base Cards", "card_number": "52", "subjects": ["Coby White"], "team": "Chicago Bulls", "rookie": false}
+{"subset": "Base Cards", "card_number": "53", "subjects": ["Matas Buzelis"], "team": "Chicago Bulls", "rookie": false}
+{"subset": "Base Cards", "card_number": "54", "subjects": ["CJ McCollum"], "team": "Atlanta Hawks", "rookie": false}
+{"subset": "Base Cards", "card_number": "55", "subjects": ["Alex Sarr"], "team": "Washington Wizards", "rookie": false}
+{"subset": "Base Cards", "card_number": "56", "subjects": ["Tre Johnson III"], "team": "Washington Wizards", "rookie": true}
+{"subset": "Base Cards", "card_number": "57", "subjects": ["LaMelo Ball"], "team": "Charlotte Hornets", "rookie": false}
+{"subset": "Base Cards", "card_number": "58", "subjects": ["Brandon Miller"], "team": "Charlotte Hornets", "rookie": false}
+{"subset": "Base Cards", "card_number": "59", "subjects": ["Grant Williams"], "team": "Charlotte Hornets", "rookie": false}
+{"subset": "Base Cards", "card_number": "60", "subjects": ["Zaccharie Risacher"], "team": "Atlanta Hawks", "rookie": false}
+{"subset": "Base Cards", "card_number": "61", "subjects": ["Trae Young"], "team": "Washington Wizards", "rookie": false}
+{"subset": "Base Cards", "card_number": "62", "subjects": ["Jalen Johnson"], "team": "Atlanta Hawks", "rookie": false}
+{"subset": "Base Cards", "card_number": "63", "subjects": ["Dyson Daniels"], "team": "Atlanta Hawks", "rookie": false}
+{"subset": "Base Cards", "card_number": "64", "subjects": ["Jaren Jackson Jr."], "team": "Memphis Grizzlies", "rookie": false}
+{"subset": "Base Cards", "card_number": "65", "subjects": ["Ja Morant"], "team": "Memphis Grizzlies", "rookie": false}
+{"subset": "Base Cards", "card_number": "66", "subjects": ["Zach Edey"], "team": "Memphis Grizzlies", "rookie": false}
+{"subset": "Base Cards", "card_number": "67", "subjects": ["Stephon Castle"], "team": "San Antonio Spurs", "rookie": false}
+{"subset": "Base Cards", "card_number": "68", "subjects": ["Victor Wembanyama"], "team": "San Antonio Spurs", "rookie": false}
+{"subset": "Base Cards", "card_number": "69", "subjects": ["Carter Bryant"], "team": "San Antonio Spurs", "rookie": true}
+{"subset": "Base Cards", "card_number": "70", "subjects": ["Dejounte Murray"], "team": "New Orleans Pelicans", "rookie": false}
+{"subset": "Base Cards", "card_number": "71", "subjects": ["Herbert Jones"], "team": "New Orleans Pelicans", "rookie": false}
+{"subset": "Base Cards", "card_number": "72", "subjects": ["Jeremiah Fears"], "team": "New Orleans Pelicans", "rookie": true}
+{"subset": "Base Cards", "card_number": "73", "subjects": ["Keegan Murray"], "team": "Sacramento Kings", "rookie": false}
+{"subset": "Base Cards", "card_number": "74", "subjects": ["Domantas Sabonis"], "team": "Sacramento Kings", "rookie": false}
+{"subset": "Base Cards", "card_number": "75", "subjects": ["DeMar DeRozan"], "team": "Sacramento Kings", "rookie": false}
+{"subset": "Base Cards", "card_number": "76", "subjects": ["Zach LaVine"], "team": "Sacramento Kings", "rookie": false}
+{"subset": "Base Cards", "card_number": "77", "subjects": ["Devin Booker"], "team": "Phoenix Suns", "rookie": false}
+{"subset": "Base Cards", "card_number": "78", "subjects": ["Jalen Green"], "team": "Phoenix Suns", "rookie": false}
+{"subset": "Base Cards", "card_number": "79", "subjects": ["Mark Williams"], "team": "Phoenix Suns", "rookie": false}
+{"subset": "Base Cards", "card_number": "80", "subjects": ["LeBron James"], "team": "Los Angeles Lakers", "rookie": false}
+{"subset": "Base Cards", "card_number": "81", "subjects": ["Luka Dončić"], "team": "Los Angeles Lakers", "rookie": false}
+{"subset": "Base Cards", "card_number": "82", "subjects": ["Austin Reaves"], "team": "Los Angeles Lakers", "rookie": false}
+{"subset": "Base Cards", "card_number": "83", "subjects": ["Kawhi Leonard"], "team": "LA Clippers", "rookie": false}
+{"subset": "Base Cards", "card_number": "84", "subjects": ["James Harden"], "team": "LA Clippers", "rookie": false}
+{"subset": "Base Cards", "card_number": "85", "subjects": ["Ivica Zubac"], "team": "LA Clippers", "rookie": false}
+{"subset": "Base Cards", "card_number": "86", "subjects": ["Nicolas Batum"], "team": "LA Clippers", "rookie": false}
+{"subset": "Base Cards", "card_number": "87", "subjects": ["Scoot Henderson"], "team": "Portland Trail Blazers", "rookie": false}
+{"subset": "Base Cards", "card_number": "88", "subjects": ["Donovan Clingan"], "team": "Portland Trail Blazers", "rookie": false}
+{"subset": "Base Cards", "card_number": "89", "subjects": ["Shaedon Sharpe"], "team": "Portland Trail Blazers", "rookie": false}
+{"subset": "Base Cards", "card_number": "90", "subjects": ["Lauri Markkanen"], "team": "Utah Jazz", "rookie": false}
+{"subset": "Base Cards", "card_number": "91", "subjects": ["Walker Kessler"], "team": "Utah Jazz", "rookie": false}
+{"subset": "Base Cards", "card_number": "92", "subjects": ["Cody Williams"], "team": "Utah Jazz", "rookie": false}
+{"subset": "Base Cards", "card_number": "93", "subjects": ["Kevin Durant"], "team": "Houston Rockets", "rookie": false}
+{"subset": "Base Cards", "card_number": "94", "subjects": ["Amen Thompson"], "team": "Houston Rockets", "rookie": false}
+{"subset": "Base Cards", "card_number": "95", "subjects": ["Alperen Sengun"], "team": "Houston Rockets", "rookie": false}
+{"subset": "Base Cards", "card_number": "96", "subjects": ["Reed Sheppard"], "team": "Houston Rockets", "rookie": false}
+{"subset": "Base Cards", "card_number": "97", "subjects": ["Paolo Banchero"], "team": "Orlando Magic", "rookie": false}
+{"subset": "Base Cards", "card_number": "98", "subjects": ["Franz Wagner"], "team": "Orlando Magic", "rookie": false}
+{"subset": "Base Cards", "card_number": "99", "subjects": ["Desmond Bane"], "team": "Orlando Magic", "rookie": false}
+{"subset": "Base Cards", "card_number": "100", "subjects": ["Tristan da Silva"], "team": "Orlando Magic", "rookie": false}
+{"subset": "Base Cards", "card_number": "101", "subjects": ["Cooper Flagg"], "team": "Dallas Mavericks", "rookie": true}
+{"subset": "Base Cards", "card_number": "102", "subjects": ["Dylan Harper"], "team": "San Antonio Spurs", "rookie": true}
+{"subset": "Base Cards", "card_number": "103", "subjects": ["Ace Bailey"], "team": "Utah Jazz", "rookie": true}
+{"subset": "Base Cards", "card_number": "104", "subjects": ["Jahmai Mashack"], "team": "Memphis Grizzlies", "rookie": true}
+{"subset": "Base Cards", "card_number": "105", "subjects": ["Egor Dëmin"], "team": "Brooklyn Nets", "rookie": true}
+{"subset": "Base Cards", "card_number": "106", "subjects": ["Kon Knueppel"], "team": "Charlotte Hornets", "rookie": true}
+{"subset": "Base Cards", "card_number": "107", "subjects": ["Max Shulga"], "team": "Boston Celtics", "rookie": true}
+{"subset": "Base Cards", "card_number": "108", "subjects": ["Lachlan Olbrich"], "team": "Chicago Bulls", "rookie": true}
+{"subset": "Base Cards", "card_number": "109", "subjects": ["Collin Murray-Boyles"], "team": "Toronto Raptors", "rookie": true}
+{"subset": "Base Cards", "card_number": "110", "subjects": ["Khaman Maluach"], "team": "Phoenix Suns", "rookie": true}
+{"subset": "Base Cards", "card_number": "111", "subjects": ["Cedric Coward"], "team": "Memphis Grizzlies", "rookie": true}
+{"subset": "Base Cards", "card_number": "112", "subjects": ["Noa Essengue"], "team": "Chicago Bulls", "rookie": true}
+{"subset": "Base Cards", "card_number": "113", "subjects": ["Derik Queen"], "team": "New Orleans Pelicans", "rookie": true}
+{"subset": "Base Cards", "card_number": "114", "subjects": ["Taelon Peter"], "team": "Indiana Pacers", "rookie": true}
+{"subset": "Base Cards", "card_number": "115", "subjects": ["Thomas Sorber"], "team": "Oklahoma City Thunder", "rookie": true}
+{"subset": "Base Cards", "card_number": "116", "subjects": ["Yang Hansen"], "team": "Portland Trail Blazers", "rookie": true}
+{"subset": "Base Cards", "card_number": "117", "subjects": ["Joan Beringer"], "team": "Minnesota Timberwolves", "rookie": true}
+{"subset": "Base Cards", "card_number": "118", "subjects": ["Walter Clayton Jr."], "team": "Utah Jazz", "rookie": true}
+{"subset": "Base Cards", "card_number": "119", "subjects": ["Nolan Traore"], "team": "Brooklyn Nets", "rookie": true}
+{"subset": "Base Cards", "card_number": "120", "subjects": ["Kasparas Jakučionis"], "team": "Miami Heat", "rookie": true}
+{"subset": "Base Cards", "card_number": "121", "subjects": ["Will Riley"], "team": "Washington Wizards", "rookie": true}
+{"subset": "Base Cards", "card_number": "122", "subjects": ["Drake Powell"], "team": "Brooklyn Nets", "rookie": true}
+{"subset": "Base Cards", "card_number": "123", "subjects": ["Asa Newell"], "team": "Atlanta Hawks", "rookie": true}
+{"subset": "Base Cards", "card_number": "124", "subjects": ["Nique Clifford"], "team": "Sacramento Kings", "rookie": true}
+{"subset": "Base Cards", "card_number": "125", "subjects": ["Jase Richardson"], "team": "Orlando Magic", "rookie": true}
+{"subset": "Base Cards", "card_number": "126", "subjects": ["Ben Saraf"], "team": "Brooklyn Nets", "rookie": true}
+{"subset": "Base Cards", "card_number": "127", "subjects": ["Danny Wolf"], "team": "Brooklyn Nets", "rookie": true}
+{"subset": "Base Cards", "card_number": "128", "subjects": ["Will Richard"], "team": "Golden State Warriors", "rookie": true}
+{"subset": "Base Cards", "card_number": "129", "subjects": ["Liam McNeeley"], "team": "Charlotte Hornets", "rookie": true}
+{"subset": "Base Cards", "card_number": "130", "subjects": ["Yanic Konan-Niederhäuser"], "team": "LA Clippers", "rookie": true}
+{"subset": "Base Cards", "card_number": "131", "subjects": ["Rasheer Fleming"], "team": "Phoenix Suns", "rookie": true}
+{"subset": "Base Cards", "card_number": "132", "subjects": ["Noah Penda"], "team": "Orlando Magic", "rookie": true}
+{"subset": "Base Cards", "card_number": "133", "subjects": ["Sion James"], "team": "Charlotte Hornets", "rookie": true}
+{"subset": "Base Cards", "card_number": "134", "subjects": ["Ryan Kalkbrenner"], "team": "Charlotte Hornets", "rookie": true}
+{"subset": "Base Cards", "card_number": "135", "subjects": ["Johni Broome"], "team": "Philadelphia 76ers", "rookie": true}
+{"subset": "Base Cards", "card_number": "136", "subjects": ["Adou Thiero"], "team": "Los Angeles Lakers", "rookie": true}
+{"subset": "Base Cards", "card_number": "137", "subjects": ["Chaz Lanier"], "team": "Detroit Pistons", "rookie": true}
+{"subset": "Base Cards", "card_number": "138", "subjects": ["Kam Jones"], "team": "Indiana Pacers", "rookie": true}
+{"subset": "Base Cards", "card_number": "139", "subjects": ["Alijah Martin"], "team": "Toronto Raptors", "rookie": true}
+{"subset": "Base Cards", "card_number": "140", "subjects": ["Micah Peavy"], "team": "New Orleans Pelicans", "rookie": true}
+{"subset": "Base Cards", "card_number": "141", "subjects": ["Koby Brea"], "team": "Phoenix Suns", "rookie": true}
+{"subset": "Base Cards", "card_number": "142", "subjects": ["Maxime Raynaud"], "team": "Sacramento Kings", "rookie": true}
+{"subset": "Base Cards", "card_number": "143", "subjects": ["Jamir Watkins"], "team": "Washington Wizards", "rookie": true}
+{"subset": "Base Cards", "card_number": "144", "subjects": ["Brooks Barnhizer"], "team": "Oklahoma City Thunder", "rookie": true}
+{"subset": "Base Cards", "card_number": "145", "subjects": ["Amari Williams"], "team": "Boston Celtics", "rookie": true}
+{"subset": "Base Cards", "card_number": "146", "subjects": ["Javon Small"], "team": "Memphis Grizzlies", "rookie": true}
+{"subset": "Base Cards", "card_number": "147", "subjects": ["Tyrese Proctor"], "team": "Cleveland Cavaliers", "rookie": true}
+{"subset": "Base Cards", "card_number": "148", "subjects": ["Alex Toohey"], "team": "Golden State Warriors", "rookie": true}
+{"subset": "Base Cards", "card_number": "149", "subjects": ["John Tonje"], "team": "Utah Jazz", "rookie": true}
+{"subset": "Base Cards", "card_number": "150", "subjects": ["Kobe Sanders"], "team": "LA Clippers", "rookie": true}
+{"subset": "Autograph Cards", "card_number": "AU-AE", "subjects": ["Anthony Edwards"], "team": "Minnesota Timberwolves", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-AG", "subjects": ["Aaron Gordon"], "team": "Denver Nuggets", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-AS", "subjects": ["Alex Sarr"], "team": "Washington Wizards", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-BM", "subjects": ["Brandon Miller"], "team": "Charlotte Hornets", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-BP", "subjects": ["Bobby Portis"], "team": "Milwaukee Bucks", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-CC", "subjects": ["Cade Cunningham"], "team": "Detroit Pistons", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-CH", "subjects": ["Chet Holmgren"], "team": "Oklahoma City Thunder", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-CW", "subjects": ["Cody Williams"], "team": "Utah Jazz", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-CWH", "subjects": ["Coby White"], "team": "Chicago Bulls", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-DD", "subjects": ["Donte DiVincenzo"], "team": "Minnesota Timberwolves", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-DDA", "subjects": ["Dyson Daniels"], "team": "Atlanta Hawks", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-DM", "subjects": ["Donovan Mitchell"], "team": "Cleveland Cavaliers", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-FW", "subjects": ["Franz Wagner"], "team": "Orlando Magic", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-GA", "subjects": ["Giannis Antetokounmpo"], "team": "Milwaukee Bucks", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-GD", "subjects": ["Gradey Dick"], "team": "Toronto Raptors", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-IZ", "subjects": ["Ivica Zubac"], "team": "LA Clippers", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-JB", "subjects": ["Jalen Brunson"], "team": "New York Knicks", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-JG", "subjects": ["Josh Giddey"], "team": "Chicago Bulls", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-JH", "subjects": ["James Harden"], "team": "LA Clippers", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-JJ", "subjects": ["Jaren Jackson Jr."], "team": "Memphis Grizzlies", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-JM", "subjects": ["Jamal Murray"], "team": "Denver Nuggets", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-JT", "subjects": ["Jayson Tatum"], "team": "Boston Celtics", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-JW", "subjects": ["Jalen Williams"], "team": "Oklahoma City Thunder", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-KD", "subjects": ["Kevin Durant"], "team": "Houston Rockets", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-KT", "subjects": ["Karl-Anthony Towns"], "team": "New York Knicks", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-KW", "subjects": ["Kel'el Ware"], "team": "Miami Heat", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-LDO", "subjects": ["Luguentz Dort"], "team": "Oklahoma City Thunder", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-LJ", "subjects": ["LeBron James"], "team": "Los Angeles Lakers", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-MB", "subjects": ["Mikal Bridges"], "team": "New York Knicks", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-NC", "subjects": ["Nic Claxton"], "team": "Brooklyn Nets", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-NJ", "subjects": ["Nikola Jokić"], "team": "Denver Nuggets", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-NR", "subjects": ["Naz Reid"], "team": "Minnesota Timberwolves", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-OA", "subjects": ["OG Anunoby"], "team": "New York Knicks", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-PB", "subjects": ["Paolo Banchero"], "team": "Orlando Magic", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-PS", "subjects": ["Pascal Siakam"], "team": "Indiana Pacers", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-SC", "subjects": ["Stephen Curry"], "team": "Golden State Warriors", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-SCA", "subjects": ["Stephon Castle"], "team": "San Antonio Spurs", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-SG", "subjects": ["Shai Gilgeous-Alexander"], "team": "Oklahoma City Thunder", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-SH", "subjects": ["Scoot Henderson"], "team": "Portland Trail Blazers", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-SS", "subjects": ["Shaedon Sharpe"], "team": "Portland Trail Blazers", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-TH", "subjects": ["Tyrese Haliburton"], "team": "Indiana Pacers", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-TM", "subjects": ["Tyrese Maxey"], "team": "Philadelphia 76ers", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-VW", "subjects": ["Victor Wembanyama"], "team": "San Antonio Spurs", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-WK", "subjects": ["Walker Kessler"], "team": "Utah Jazz", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-ZE", "subjects": ["Zach Edey"], "team": "Memphis Grizzlies", "rookie": false}
+{"subset": "Autograph Cards", "card_number": "AU-ZR", "subjects": ["Zaccharie Risacher"], "team": "Atlanta Hawks", "rookie": false}
+{"subset": "Rookie Autographs", "card_number": "RA-AB", "subjects": ["Ace Bailey"], "team": "Utah Jazz", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-AM", "subjects": ["Alijah Martin"], "team": "Toronto Raptors", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-AN", "subjects": ["Asa Newell"], "team": "Atlanta Hawks", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-AT", "subjects": ["Adou Thiero"], "team": "Los Angeles Lakers", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-ATO", "subjects": ["Alex Toohey"], "team": "Golden State Warriors", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-AW", "subjects": ["Amari Williams"], "team": "Boston Celtics", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-BB", "subjects": ["Brooks Barnhizer"], "team": "Oklahoma City Thunder", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-BS", "subjects": ["Ben Saraf"], "team": "Brooklyn Nets", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-CC", "subjects": ["Cedric Coward"], "team": "Memphis Grizzlies", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-CF", "subjects": ["Cooper Flagg"], "team": "Dallas Mavericks", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-CL", "subjects": ["Chaz Lanier"], "team": "Detroit Pistons", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-CM", "subjects": ["Collin Murray-Boyles"], "team": "Toronto Raptors", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-DH", "subjects": ["Dylan Harper"], "team": "San Antonio Spurs", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-DP", "subjects": ["Drake Powell"], "team": "Brooklyn Nets", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-DQ", "subjects": ["Derik Queen"], "team": "New Orleans Pelicans", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-DW", "subjects": ["Danny Wolf"], "team": "Brooklyn Nets", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-ED", "subjects": ["Egor Dëmin"], "team": "Brooklyn Nets", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-JB", "subjects": ["Joan Beringer"], "team": "Minnesota Timberwolves", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-JBR", "subjects": ["Johni Broome"], "team": "Philadelphia 76ers", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-JM", "subjects": ["Jahmai Mashack"], "team": "Memphis Grizzlies", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-JR", "subjects": ["Jase Richardson"], "team": "Orlando Magic", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-JS", "subjects": ["Javon Small"], "team": "Memphis Grizzlies", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-JT", "subjects": ["John Tonje"], "team": "Utah Jazz", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-JW", "subjects": ["Jamir Watkins"], "team": "Washington Wizards", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-KB", "subjects": ["Koby Brea"], "team": "Phoenix Suns", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-KJ", "subjects": ["Kasparas Jakučionis"], "team": "Miami Heat", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-KJO", "subjects": ["Kam Jones"], "team": "Indiana Pacers", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-KK", "subjects": ["Kon Knueppel"], "team": "Charlotte Hornets", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-KM", "subjects": ["Khaman Maluach"], "team": "Phoenix Suns", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-KS", "subjects": ["Kobe Sanders"], "team": "LA Clippers", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-LM", "subjects": ["Liam McNeeley"], "team": "Charlotte Hornets", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-LO", "subjects": ["Lachlan Olbrich"], "team": "Chicago Bulls", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-MP", "subjects": ["Micah Peavy"], "team": "New Orleans Pelicans", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-MR", "subjects": ["Maxime Raynaud"], "team": "Sacramento Kings", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-MS", "subjects": ["Max Shulga"], "team": "Boston Celtics", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-NC", "subjects": ["Nique Clifford"], "team": "Sacramento Kings", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-NE", "subjects": ["Noa Essengue"], "team": "Chicago Bulls", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-NP", "subjects": ["Noah Penda"], "team": "Orlando Magic", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-NT", "subjects": ["Nolan Traore"], "team": "Brooklyn Nets", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-RF", "subjects": ["Rasheer Fleming"], "team": "Phoenix Suns", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-RK", "subjects": ["Ryan Kalkbrenner"], "team": "Charlotte Hornets", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-SJ", "subjects": ["Sion James"], "team": "Charlotte Hornets", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-TP", "subjects": ["Tyrese Proctor"], "team": "Cleveland Cavaliers", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-TPE", "subjects": ["Taelon Peter"], "team": "Indiana Pacers", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-TS", "subjects": ["Thomas Sorber"], "team": "Oklahoma City Thunder", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-WC", "subjects": ["Walter Clayton Jr."], "team": "Utah Jazz", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-WR", "subjects": ["Will Riley"], "team": "Washington Wizards", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-WRI", "subjects": ["Will Richard"], "team": "Golden State Warriors", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-YH", "subjects": ["Yang Hansen"], "team": "Portland Trail Blazers", "rookie": true}
+{"subset": "Rookie Autographs", "card_number": "RA-YK", "subjects": ["Yanic Konan-Niederhäuser"], "team": "LA Clippers", "rookie": true}
+{"subset": "Carbon Ink", "card_number": "CI-AD", "subjects": ["Ayo Dosunmu"], "team": "Chicago Bulls", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-AW", "subjects": ["Aaron Wiggins"], "team": "Oklahoma City Thunder", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-AWA", "subjects": ["Antoine Walker"], "team": "Boston Celtics", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-BW", "subjects": ["Blake Wesley"], "team": "Portland Trail Blazers", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-CL", "subjects": ["Courtney Lee"], "team": "New York Knicks", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-CW", "subjects": ["Cason Wallace"], "team": "Oklahoma City Thunder", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-DCH", "subjects": ["Doug Christie"], "team": "Sacramento Kings", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-DD", "subjects": ["DeSagana Diop"], "team": "Dallas Mavericks", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-DE", "subjects": ["Danté Exum"], "team": "Dallas Mavericks", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-DR", "subjects": ["Duop Reath"], "team": "Portland Trail Blazers", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-DT", "subjects": ["Dalen Terry"], "team": "Chicago Bulls", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-EB", "subjects": ["Elton Brand"], "team": "LA Clippers", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-EC", "subjects": ["Eddy Curry"], "team": "New York Knicks", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-GA", "subjects": ["Grayson Allen"], "team": "Phoenix Suns", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-GD", "subjects": ["Goran Dragić"], "team": "Miami Heat", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-GH", "subjects": ["Gary Harris"], "team": "Milwaukee Bucks", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-GY", "subjects": ["Guerschon Yabusele"], "team": "New York Knicks", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-IZ", "subjects": ["Ivica Zubac"], "team": "LA Clippers", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-JA", "subjects": ["Jose Alvarado"], "team": "New Orleans Pelicans", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-JJ", "subjects": ["Joe Johnson"], "team": "Atlanta Hawks", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-JN", "subjects": ["Jameer Nelson"], "team": "Orlando Magic", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-JS", "subjects": ["Jericho Sims"], "team": "Milwaukee Bucks", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-JSM", "subjects": ["J.R. Smith"], "team": "Cleveland Cavaliers", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-JW", "subjects": ["Jaylin Williams"], "team": "Oklahoma City Thunder", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-KE", "subjects": ["Keon Ellis"], "team": "Sacramento Kings", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-KM", "subjects": ["Karlo Matković"], "team": "New Orleans Pelicans", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-KO", "subjects": ["Kelly Oubre Jr."], "team": "Philadelphia 76ers", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-KW", "subjects": ["Kel'el Ware"], "team": "Miami Heat", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-LG", "subjects": ["Luka Garza"], "team": "Boston Celtics", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-LK", "subjects": ["Luke Kennard"], "team": "Atlanta Hawks", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-LN", "subjects": ["Larry Nance Jr."], "team": "Cleveland Cavaliers", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-ME", "subjects": ["Monta Ellis"], "team": "Golden State Warriors", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-MF", "subjects": ["Michael Finley"], "team": "Dallas Mavericks", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-MR", "subjects": ["Mitch Richmond"], "team": "Sacramento Kings", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-MW", "subjects": ["Moritz Wagner"], "team": "Orlando Magic", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-N", "subjects": ["Nene"], "team": "Denver Nuggets", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-NA", "subjects": ["Nickeil Alexander-Walker"], "team": "Atlanta Hawks", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-NR", "subjects": ["Nate Robinson"], "team": "Denver Nuggets", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-PW", "subjects": ["Peyton Watson"], "team": "Denver Nuggets", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-RD", "subjects": ["Ryan Dunn"], "team": "Phoenix Suns", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-SA", "subjects": ["Santi Aldama"], "team": "Memphis Grizzlies", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-SF", "subjects": ["Steve Francis"], "team": "Houston Rockets", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-SH", "subjects": ["Spencer Hawes"], "team": "Sacramento Kings", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-TF", "subjects": ["T.J. Ford"], "team": "Milwaukee Bucks", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-TP", "subjects": ["Tayshaun Prince"], "team": "Detroit Pistons", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-TS", "subjects": ["Tristan da Silva"], "team": "Orlando Magic", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-TSM", "subjects": ["Tyler Smith"], "team": "Milwaukee Bucks", "rookie": false}
+{"subset": "Carbon Ink", "card_number": "CI-WF", "subjects": ["Walt Frazier"], "team": "New York Knicks", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-AH", "subjects": ["Anfernee Hardaway"], "team": "Orlando Magic", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-AHO", "subjects": ["Al Horford"], "team": "Golden State Warriors", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-AI", "subjects": ["Allen Iverson"], "team": "Philadelphia 76ers", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-AM", "subjects": ["Alonzo Mourning"], "team": "Miami Heat", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-BI", "subjects": ["Brandon Ingram"], "team": "Toronto Raptors", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-BM", "subjects": ["Brandon Miller"], "team": "Charlotte Hornets", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-CC", "subjects": ["Cade Cunningham"], "team": "Detroit Pistons", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-CD", "subjects": ["Clyde Drexler"], "team": "Portland Trail Blazers", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-CH", "subjects": ["Chet Holmgren"], "team": "Oklahoma City Thunder", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-DA", "subjects": ["Deandre Ayton"], "team": "Los Angeles Lakers", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-DH", "subjects": ["Dwight Howard"], "team": "Orlando Magic", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-DL", "subjects": ["Dereck Lively II"], "team": "Dallas Mavericks", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-DN", "subjects": ["Dirk Nowitzki"], "team": "Dallas Mavericks", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-DW", "subjects": ["Dominique Wilkins"], "team": "Atlanta Hawks", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-FW", "subjects": ["Franz Wagner"], "team": "Orlando Magic", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-GG", "subjects": ["George Gervin"], "team": "San Antonio Spurs", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-JA", "subjects": ["Jarrett Allen"], "team": "Cleveland Cavaliers", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-JC", "subjects": ["John Collins"], "team": "LA Clippers", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-JG", "subjects": ["Josh Giddey"], "team": "Chicago Bulls", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-JH", "subjects": ["James Harden"], "team": "LA Clippers", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-JJ", "subjects": ["Jaime Jaquez Jr."], "team": "Miami Heat", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-JM", "subjects": ["Jamal Murray"], "team": "Denver Nuggets", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-JR", "subjects": ["Jalen Rose"], "team": "Chicago Bulls", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-JS", "subjects": ["John Stockton"], "team": "Utah Jazz", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-KA", "subjects": ["Kareem Abdul-Jabbar"], "team": "Los Angeles Lakers", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-KD", "subjects": ["Kevin Durant"], "team": "Houston Rockets", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-KM", "subjects": ["Karl Malone"], "team": "Utah Jazz", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-MT", "subjects": ["Myles Turner"], "team": "Milwaukee Bucks", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-PB", "subjects": ["Paolo Banchero"], "team": "Orlando Magic", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-RH", "subjects": ["Rip Hamilton"], "team": "Detroit Pistons", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-SC", "subjects": ["Stephen Curry"], "team": "Golden State Warriors", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-SCA", "subjects": ["Stephon Castle"], "team": "San Antonio Spurs", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-SO", "subjects": ["Shaquille O'Neal"], "team": "Los Angeles Lakers", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-SS", "subjects": ["Shaedon Sharpe"], "team": "Portland Trail Blazers", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-TH", "subjects": ["Tyrese Haliburton"], "team": "Indiana Pacers", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-TM", "subjects": ["Tracy McGrady"], "team": "Toronto Raptors", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-VW", "subjects": ["Victor Wembanyama"], "team": "San Antonio Spurs", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-ZE", "subjects": ["Zach Edey"], "team": "Memphis Grizzlies", "rookie": false}
+{"subset": "Ivory Autographs", "card_number": "IA-ZR", "subjects": ["Zaccharie Risacher"], "team": "Atlanta Hawks", "rookie": false}
+{"subset": "Super Futures Autographs", "card_number": "SF-AB", "subjects": ["Ace Bailey"], "team": "Utah Jazz", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-AM", "subjects": ["Alijah Martin"], "team": "Toronto Raptors", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-AN", "subjects": ["Asa Newell"], "team": "Atlanta Hawks", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-AT", "subjects": ["Alex Toohey"], "team": "Golden State Warriors", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-BB", "subjects": ["Brooks Barnhizer"], "team": "Oklahoma City Thunder", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-BS", "subjects": ["Ben Saraf"], "team": "Brooklyn Nets", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-CC", "subjects": ["Cedric Coward"], "team": "Memphis Grizzlies", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-CF", "subjects": ["Cooper Flagg"], "team": "Dallas Mavericks", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-CL", "subjects": ["Chaz Lanier"], "team": "Detroit Pistons", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-CM", "subjects": ["Collin Murray-Boyles"], "team": "Toronto Raptors", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-DH", "subjects": ["Dylan Harper"], "team": "San Antonio Spurs", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-DQ", "subjects": ["Derik Queen"], "team": "New Orleans Pelicans", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-DW", "subjects": ["Danny Wolf"], "team": "Brooklyn Nets", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-ED", "subjects": ["Egor Dëmin"], "team": "Brooklyn Nets", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-JB", "subjects": ["Joan Beringer"], "team": "Minnesota Timberwolves", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-JBR", "subjects": ["Johni Broome"], "team": "Philadelphia 76ers", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-JR", "subjects": ["Jase Richardson"], "team": "Orlando Magic", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-JT", "subjects": ["John Tonje"], "team": "Utah Jazz", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-JW", "subjects": ["Jamir Watkins"], "team": "Washington Wizards", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-KJ", "subjects": ["Kasparas Jakučionis"], "team": "Miami Heat", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-KJO", "subjects": ["Kam Jones"], "team": "Indiana Pacers", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-KK", "subjects": ["Kon Knueppel"], "team": "Charlotte Hornets", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-KM", "subjects": ["Khaman Maluach"], "team": "Phoenix Suns", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-LM", "subjects": ["Liam McNeeley"], "team": "Charlotte Hornets", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-LO", "subjects": ["Lachlan Olbrich"], "team": "Chicago Bulls", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-MP", "subjects": ["Micah Peavy"], "team": "New Orleans Pelicans", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-MR", "subjects": ["Maxime Raynaud"], "team": "Sacramento Kings", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-MS", "subjects": ["Max Shulga"], "team": "Boston Celtics", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-NC", "subjects": ["Nique Clifford"], "team": "Sacramento Kings", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-NE", "subjects": ["Noa Essengue"], "team": "Chicago Bulls", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-NP", "subjects": ["Noah Penda"], "team": "Orlando Magic", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-NT", "subjects": ["Nolan Traore"], "team": "Brooklyn Nets", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-RF", "subjects": ["Rasheer Fleming"], "team": "Phoenix Suns", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-RK", "subjects": ["Ryan Kalkbrenner"], "team": "Charlotte Hornets", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-SJ", "subjects": ["Sion James"], "team": "Charlotte Hornets", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-TP", "subjects": ["Tyrese Proctor"], "team": "Cleveland Cavaliers", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-TS", "subjects": ["Thomas Sorber"], "team": "Oklahoma City Thunder", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-WC", "subjects": ["Walter Clayton Jr."], "team": "Utah Jazz", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-YH", "subjects": ["Yang Hansen"], "team": "Portland Trail Blazers", "rookie": true}
+{"subset": "Super Futures Autographs", "card_number": "SF-YK", "subjects": ["Yanic Konan-Niederhäuser"], "team": "LA Clippers", "rookie": true}
+{"subset": "Black Fire Autographs", "card_number": "BF-AH", "subjects": ["Al Harrington"], "team": "Indiana Pacers", "rookie": false}
+{"subset": "Black Fire Autographs", "card_number": "BF-BI", "subjects": ["Brandon Ingram"], "team": "Toronto Raptors", "rookie": false}
+{"subset": "Black Fire Autographs", "card_number": "BF-CW", "subjects": ["Cason Wallace"], "team": "Oklahoma City Thunder", "rookie": false}
+{"subset": "Black Fire Autographs", "card_number": "BF-CWH", "subjects": ["Coby White"], "team": "Chicago Bulls", "rookie": false}
+{"subset": "Black Fire Autographs", "card_number": "BF-DE", "subjects": ["Danté Exum"], "team": "Dallas Mavericks", "rookie": false}
+{"subset": "Black Fire Autographs", "card_number": "BF-DM", "subjects": ["Darius Miles"], "team": "LA Clippers", "rookie": false}
+{"subset": "Black Fire Autographs", "card_number": "BF-FW", "subjects": ["Franz Wagner"], "team": "Orlando Magic", "rookie": false}
+{"subset": "Black Fire Autographs", "card_number": "BF-GD", "subjects": ["Gradey Dick"], "team": "Toronto Raptors", "rookie": false}
+{"subset": "Black Fire Autographs", "card_number": "BF-JM", "subjects": ["Jaden McDaniels"], "team": "Minnesota Timberwolves", "rookie": false}
+{"subset": "Black Fire Autographs", "card_number": "BF-JS", "subjects": ["Jeremy Sochan"], "team": "San Antonio Spurs", "rookie": false}
+{"subset": "Black Fire Autographs", "card_number": "BF-KP", "subjects": ["Kendrick Perkins"], "team": "Boston Celtics", "rookie": false}
+{"subset": "Black Fire Autographs", "card_number": "BF-LM", "subjects": ["Lauri Markkanen"], "team": "Utah Jazz", "rookie": false}
+{"subset": "Black Fire Autographs", "card_number": "BF-OT", "subjects": ["Obi Toppin"], "team": "Indiana Pacers", "rookie": false}
+{"subset": "Black Fire Autographs", "card_number": "BF-RH", "subjects": ["Robert Horry"], "team": "Los Angeles Lakers", "rookie": false}
+{"subset": "Black Fire Autographs", "card_number": "BF-RHA", "subjects": ["Rip Hamilton"], "team": "Detroit Pistons", "rookie": false}
+{"subset": "Black Fire Autographs", "card_number": "BF-SC", "subjects": ["Seth Curry"], "team": "Golden State Warriors", "rookie": false}
+{"subset": "Black Fire Autographs", "card_number": "BF-TS", "subjects": ["Tidjane Salaün"], "team": "Charlotte Hornets", "rookie": false}
+{"subset": "Black Fire Autographs", "card_number": "BF-ZE", "subjects": ["Zach Edey"], "team": "Memphis Grizzlies", "rookie": false}
+{"subset": "Black Fire Autographs", "card_number": "BF-ZR", "subjects": ["Zaccharie Risacher"], "team": "Atlanta Hawks", "rookie": false}
+{"subset": "Shrouded Signatures", "card_number": "SS-AM", "subjects": ["Alonzo Mourning"], "team": "Miami Heat", "rookie": false}
+{"subset": "Shrouded Signatures", "card_number": "SS-AS", "subjects": ["Alex Sarr"], "team": "Washington Wizards", "rookie": false}
+{"subset": "Shrouded Signatures", "card_number": "SS-ASI", "subjects": ["Anfernee Simons"], "team": "Boston Celtics", "rookie": false}
+{"subset": "Shrouded Signatures", "card_number": "SS-AV", "subjects": ["Anderson Varejao"], "team": "Cleveland Cavaliers", "rookie": false}
+{"subset": "Shrouded Signatures", "card_number": "SS-BM", "subjects": ["Brandon Miller"], "team": "Charlotte Hornets", "rookie": false}
+{"subset": "Shrouded Signatures", "card_number": "SS-BP", "subjects": ["Bobby Portis"], "team": "Milwaukee Bucks", "rookie": false}
+{"subset": "Shrouded Signatures", "card_number": "SS-CD", "subjects": ["Clyde Drexler"], "team": "Portland Trail Blazers", "rookie": false}
+{"subset": "Shrouded Signatures", "card_number": "SS-CW", "subjects": ["Cody Williams"], "team": "Utah Jazz", "rookie": false}
+{"subset": "Shrouded Signatures", "card_number": "SS-DC", "subjects": ["Doug Christie"], "team": "Sacramento Kings", "rookie": false}
+{"subset": "Shrouded Signatures", "card_number": "SS-DF", "subjects": ["Dorian Finney-Smith"], "team": "Houston Rockets", "rookie": false}
+{"subset": "Shrouded Signatures", "card_number": "SS-DH", "subjects": ["Dwight Howard"], "team": "Orlando Magic", "rookie": false}
+{"subset": "Shrouded Signatures", "card_number": "SS-GR", "subjects": ["Glen Rice"], "team": "Charlotte Hornets", "rookie": false}
+{"subset": "Shrouded Signatures", "card_number": "SS-IC", "subjects": ["Isaiah Collier"], "team": "Utah Jazz", "rookie": false}
+{"subset": "Shrouded Signatures", "card_number": "SS-JH", "subjects": ["Jett Howard"], "team": "Orlando Magic", "rookie": false}
+{"subset": "Shrouded Signatures", "card_number": "SS-JHO", "subjects": ["Jrue Holiday"], "team": "Portland Trail Blazers", "rookie": false}
+{"subset": "Shrouded Signatures", "card_number": "SS-JS", "subjects": ["John Starks"], "team": "New York Knicks", "rookie": false}
+{"subset": "Shrouded Signatures", "card_number": "SS-JW", "subjects": ["Jarace Walker"], "team": "Indiana Pacers", "rookie": false}
+{"subset": "Shrouded Signatures", "card_number": "SS-JWI", "subjects": ["Jason Williams"], "team": "Memphis Grizzlies", "rookie": false}
+{"subset": "Shrouded Signatures", "card_number": "SS-KW", "subjects": ["Kel'el Ware"], "team": "Miami Heat", "rookie": false}
+{"subset": "Shrouded Signatures", "card_number": "SS-NT", "subjects": ["Nikola Topic"], "team": "Oklahoma City Thunder", "rookie": false}
+{"subset": "Shrouded Signatures", "card_number": "SS-RH", "subjects": ["Ronald Holland II"], "team": "Detroit Pistons", "rookie": false}
+{"subset": "Shrouded Signatures", "card_number": "SS-SH", "subjects": ["Scoot Henderson"], "team": "Portland Trail Blazers", "rookie": false}
+{"subset": "Shrouded Signatures", "card_number": "SS-TA", "subjects": ["Tony Allen"], "team": "Memphis Grizzlies", "rookie": false}
+{"subset": "Shrouded Signatures", "card_number": "SS-TAR", "subjects": ["Trevor Ariza"], "team": "Houston Rockets", "rookie": false}
+{"subset": "Glow Up Signatures", "card_number": "GU-AB", "subjects": ["Ace Bailey"], "team": "Utah Jazz", "rookie": true}
+{"subset": "Glow Up Signatures", "card_number": "GU-AM", "subjects": ["Alijah Martin"], "team": "Toronto Raptors", "rookie": true}
+{"subset": "Glow Up Signatures", "card_number": "GU-AN", "subjects": ["Asa Newell"], "team": "Atlanta Hawks", "rookie": true}
+{"subset": "Glow Up Signatures", "card_number": "GU-BS", "subjects": ["Ben Saraf"], "team": "Brooklyn Nets", "rookie": true}
+{"subset": "Glow Up Signatures", "card_number": "GU-CF", "subjects": ["Cooper Flagg"], "team": "Dallas Mavericks", "rookie": true}
+{"subset": "Glow Up Signatures", "card_number": "GU-CM", "subjects": ["Collin Murray-Boyles"], "team": "Toronto Raptors", "rookie": true}
+{"subset": "Glow Up Signatures", "card_number": "GU-DH", "subjects": ["Dylan Harper"], "team": "San Antonio Spurs", "rookie": true}
+{"subset": "Glow Up Signatures", "card_number": "GU-DQ", "subjects": ["Derik Queen"], "team": "New Orleans Pelicans", "rookie": true}
+{"subset": "Glow Up Signatures", "card_number": "GU-DW", "subjects": ["Danny Wolf"], "team": "Brooklyn Nets", "rookie": true}
+{"subset": "Glow Up Signatures", "card_number": "GU-JR", "subjects": ["Jase Richardson"], "team": "Orlando Magic", "rookie": true}
+{"subset": "Glow Up Signatures", "card_number": "GU-KJO", "subjects": ["Kam Jones"], "team": "Indiana Pacers", "rookie": true}
+{"subset": "Glow Up Signatures", "card_number": "GU-KK", "subjects": ["Kon Knueppel"], "team": "Charlotte Hornets", "rookie": true}
+{"subset": "Glow Up Signatures", "card_number": "GU-MR", "subjects": ["Maxime Raynaud"], "team": "Sacramento Kings", "rookie": true}
+{"subset": "Glow Up Signatures", "card_number": "GU-NE", "subjects": ["Noa Essengue"], "team": "Chicago Bulls", "rookie": true}
+{"subset": "Glow Up Signatures", "card_number": "GU-NT", "subjects": ["Nolan Traore"], "team": "Brooklyn Nets", "rookie": true}
+{"subset": "Glow Up Signatures", "card_number": "GU-TP", "subjects": ["Tyrese Proctor"], "team": "Cleveland Cavaliers", "rookie": true}
+{"subset": "Glow Up Signatures", "card_number": "GU-TS", "subjects": ["Thomas Sorber"], "team": "Oklahoma City Thunder", "rookie": true}
+{"subset": "Glow Up Signatures", "card_number": "GU-WC", "subjects": ["Walter Clayton Jr."], "team": "Utah Jazz", "rookie": true}
+{"subset": "Glow Up Signatures", "card_number": "GU-YH", "subjects": ["Yang Hansen"], "team": "Portland Trail Blazers", "rookie": true}
+{"subset": "Glow Up Signatures", "card_number": "GU-YK", "subjects": ["Yanic Konan-Niederhäuser"], "team": "LA Clippers", "rookie": true}
+{"subset": "Rookie Design Variations", "card_number": "41", "subjects": ["Hugo González"], "team": "Boston Celtics", "rookie": true}
+{"subset": "Rookie Design Variations", "card_number": "45", "subjects": ["VJ Edgecombe"], "team": "Philadelphia 76ers", "rookie": true}
+{"subset": "Rookie Design Variations", "card_number": "56", "subjects": ["Tre Johnson III"], "team": "Washington Wizards", "rookie": true}
+{"subset": "Rookie Design Variations", "card_number": "69", "subjects": ["Carter Bryant"], "team": "San Antonio Spurs", "rookie": true}
+{"subset": "Rookie Design Variations", "card_number": "72", "subjects": ["Jeremiah Fears"], "team": "New Orleans Pelicans", "rookie": true}
+{"subset": "Rookie Design Variations", "card_number": "101", "subjects": ["Cooper Flagg"], "team": "Dallas Mavericks", "rookie": true}
+{"subset": "Rookie Design Variations", "card_number": "102", "subjects": ["Dylan Harper"], "team": "San Antonio Spurs", "rookie": true}
+{"subset": "Rookie Design Variations", "card_number": "103", "subjects": ["Ace Bailey"], "team": "Utah Jazz", "rookie": true}
+{"subset": "Rookie Design Variations", "card_number": "105", "subjects": ["Egor Dëmin"], "team": "Brooklyn Nets", "rookie": true}
+{"subset": "Rookie Design Variations", "card_number": "106", "subjects": ["Kon Knueppel"], "team": "Charlotte Hornets", "rookie": true}
+{"subset": "Rookie Design Variations", "card_number": "109", "subjects": ["Collin Murray-Boyles"], "team": "Toronto Raptors", "rookie": true}
+{"subset": "Rookie Design Variations", "card_number": "110", "subjects": ["Khaman Maluach"], "team": "Phoenix Suns", "rookie": true}
+{"subset": "Rookie Design Variations", "card_number": "111", "subjects": ["Cedric Coward"], "team": "Memphis Grizzlies", "rookie": true}
+{"subset": "Rookie Design Variations", "card_number": "112", "subjects": ["Noa Essengue"], "team": "Chicago Bulls", "rookie": true}
+{"subset": "Rookie Design Variations", "card_number": "113", "subjects": ["Derik Queen"], "team": "New Orleans Pelicans", "rookie": true}
+{"subset": "Rookie Design Variations", "card_number": "115", "subjects": ["Thomas Sorber"], "team": "Oklahoma City Thunder", "rookie": true}
+{"subset": "Rookie Design Variations", "card_number": "116", "subjects": ["Yang Hansen"], "team": "Portland Trail Blazers", "rookie": true}
+{"subset": "Rookie Design Variations", "card_number": "117", "subjects": ["Joan Beringer"], "team": "Minnesota Timberwolves", "rookie": true}
+{"subset": "Rookie Design Variations", "card_number": "118", "subjects": ["Walter Clayton Jr."], "team": "Utah Jazz", "rookie": true}
+{"subset": "Rookie Design Variations", "card_number": "119", "subjects": ["Nolan Traore"], "team": "Brooklyn Nets", "rookie": true}
+{"subset": "Rookie Design Variations", "card_number": "120", "subjects": ["Kasparas Jakučionis"], "team": "Miami Heat", "rookie": true}
+{"subset": "Rookie Design Variations", "card_number": "121", "subjects": ["Will Riley"], "team": "Washington Wizards", "rookie": true}
+{"subset": "Rookie Design Variations", "card_number": "122", "subjects": ["Drake Powell"], "team": "Brooklyn Nets", "rookie": true}
+{"subset": "Rookie Design Variations", "card_number": "123", "subjects": ["Asa Newell"], "team": "Atlanta Hawks", "rookie": true}
+{"subset": "Rookie Design Variations", "card_number": "124", "subjects": ["Nique Clifford"], "team": "Sacramento Kings", "rookie": true}
+{"subset": "Rookie Design Variations", "card_number": "125", "subjects": ["Jase Richardson"], "team": "Orlando Magic", "rookie": true}
+{"subset": "Rookie Design Variations", "card_number": "126", "subjects": ["Ben Saraf"], "team": "Brooklyn Nets", "rookie": true}
+{"subset": "Rookie Design Variations", "card_number": "127", "subjects": ["Danny Wolf"], "team": "Brooklyn Nets", "rookie": true}
+{"subset": "Rookie Design Variations", "card_number": "129", "subjects": ["Liam McNeeley"], "team": "Charlotte Hornets", "rookie": true}
+{"subset": "Rookie Design Variations", "card_number": "130", "subjects": ["Yanic Konan-Niederhäuser"], "team": "LA Clippers", "rookie": true}
+{"subset": "Black Lightning", "card_number": "BL-1", "subjects": ["Shai Gilgeous-Alexander"], "team": "Oklahoma City Thunder", "rookie": false}
+{"subset": "Black Lightning", "card_number": "BL-2", "subjects": ["Nikola Jokić"], "team": "Denver Nuggets", "rookie": false}
+{"subset": "Black Lightning", "card_number": "BL-3", "subjects": ["Cade Cunningham"], "team": "Detroit Pistons", "rookie": false}
+{"subset": "Black Lightning", "card_number": "BL-4", "subjects": ["Anthony Edwards"], "team": "Minnesota Timberwolves", "rookie": false}
+{"subset": "Black Lightning", "card_number": "BL-5", "subjects": ["Jalen Brunson"], "team": "New York Knicks", "rookie": false}
+{"subset": "Black Lightning", "card_number": "BL-6", "subjects": ["Victor Wembanyama"], "team": "San Antonio Spurs", "rookie": false}
+{"subset": "Black Lightning", "card_number": "BL-7", "subjects": ["Kyrie Irving"], "team": "Dallas Mavericks", "rookie": false}
+{"subset": "Black Lightning", "card_number": "BL-8", "subjects": ["Evan Mobley"], "team": "Cleveland Cavaliers", "rookie": false}
+{"subset": "Black Lightning", "card_number": "BL-9", "subjects": ["Devin Booker"], "team": "Phoenix Suns", "rookie": false}
+{"subset": "Black Lightning", "card_number": "BL-10", "subjects": ["Pascal Siakam"], "team": "Indiana Pacers", "rookie": false}
+{"subset": "Black Lightning", "card_number": "BL-11", "subjects": ["Trae Young"], "team": "Washington Wizards", "rookie": false}
+{"subset": "Black Lightning", "card_number": "BL-12", "subjects": ["Jaylen Brown"], "team": "Boston Celtics", "rookie": false}
+{"subset": "Black Lightning", "card_number": "BL-13", "subjects": ["LeBron James"], "team": "Los Angeles Lakers", "rookie": false}
+{"subset": "Black Lightning", "card_number": "BL-14", "subjects": ["Kevin Durant"], "team": "Houston Rockets", "rookie": false}
+{"subset": "Black Lightning", "card_number": "BL-15", "subjects": ["Paolo Banchero"], "team": "Orlando Magic", "rookie": false}
+{"subset": "Black Lightning", "card_number": "BL-16", "subjects": ["Cooper Flagg"], "team": "Dallas Mavericks", "rookie": true}
+{"subset": "Black Lightning", "card_number": "BL-17", "subjects": ["Dylan Harper"], "team": "San Antonio Spurs", "rookie": true}
+{"subset": "Black Lightning", "card_number": "BL-18", "subjects": ["VJ Edgecombe"], "team": "Philadelphia 76ers", "rookie": true}
+{"subset": "Black Lightning", "card_number": "BL-19", "subjects": ["Kon Knueppel"], "team": "Charlotte Hornets", "rookie": true}
+{"subset": "Black Lightning", "card_number": "BL-20", "subjects": ["Ace Bailey"], "team": "Utah Jazz", "rookie": true}
+{"subset": "Black Lightning", "card_number": "BL-21", "subjects": ["Tre Johnson III"], "team": "Washington Wizards", "rookie": true}
+{"subset": "Black Lightning", "card_number": "BL-22", "subjects": ["Jeremiah Fears"], "team": "New Orleans Pelicans", "rookie": true}
+{"subset": "Black Lightning", "card_number": "BL-23", "subjects": ["Yang Hansen"], "team": "Portland Trail Blazers", "rookie": true}
+{"subset": "Black Lightning", "card_number": "BL-24", "subjects": ["Egor Dëmin"], "team": "Brooklyn Nets", "rookie": true}
+{"subset": "Black Lightning", "card_number": "BL-25", "subjects": ["Collin Murray-Boyles"], "team": "Toronto Raptors", "rookie": true}
+{"subset": "Obscura", "card_number": "OB-1", "subjects": ["Luka Dončić"], "team": "Los Angeles Lakers", "rookie": false}
+{"subset": "Obscura", "card_number": "OB-2", "subjects": ["Jayson Tatum"], "team": "Boston Celtics", "rookie": false}
+{"subset": "Obscura", "card_number": "OB-3", "subjects": ["Jalen Williams"], "team": "Oklahoma City Thunder", "rookie": false}
+{"subset": "Obscura", "card_number": "OB-4", "subjects": ["Giannis Antetokounmpo"], "team": "Milwaukee Bucks", "rookie": false}
+{"subset": "Obscura", "card_number": "OB-5", "subjects": ["Stephen Curry"], "team": "Golden State Warriors", "rookie": false}
+{"subset": "Obscura", "card_number": "OB-6", "subjects": ["Tyrese Haliburton"], "team": "Indiana Pacers", "rookie": false}
+{"subset": "Obscura", "card_number": "OB-7", "subjects": ["Donovan Mitchell"], "team": "Cleveland Cavaliers", "rookie": false}
+{"subset": "Obscura", "card_number": "OB-8", "subjects": ["Anthony Davis"], "team": "Dallas Mavericks", "rookie": false}
+{"subset": "Obscura", "card_number": "OB-9", "subjects": ["Ja Morant"], "team": "Memphis Grizzlies", "rookie": false}
+{"subset": "Obscura", "card_number": "OB-10", "subjects": ["LaMelo Ball"], "team": "Charlotte Hornets", "rookie": false}
+{"subset": "Obscura", "card_number": "OB-11", "subjects": ["Cooper Flagg"], "team": "Dallas Mavericks", "rookie": true}
+{"subset": "Obscura", "card_number": "OB-12", "subjects": ["Dylan Harper"], "team": "San Antonio Spurs", "rookie": true}
+{"subset": "Obscura", "card_number": "OB-13", "subjects": ["VJ Edgecombe"], "team": "Philadelphia 76ers", "rookie": true}
+{"subset": "Obscura", "card_number": "OB-14", "subjects": ["Kon Knueppel"], "team": "Charlotte Hornets", "rookie": true}
+{"subset": "Obscura", "card_number": "OB-15", "subjects": ["Ace Bailey"], "team": "Utah Jazz", "rookie": true}
+{"subset": "Nocturnal", "card_number": "NO-1", "subjects": ["LeBron James"], "team": "Los Angeles Lakers", "rookie": false}
+{"subset": "Nocturnal", "card_number": "NO-2", "subjects": ["Shai Gilgeous-Alexander"], "team": "Oklahoma City Thunder", "rookie": false}
+{"subset": "Nocturnal", "card_number": "NO-3", "subjects": ["Nikola Jokić"], "team": "Denver Nuggets", "rookie": false}
+{"subset": "Nocturnal", "card_number": "NO-4", "subjects": ["Giannis Antetokounmpo"], "team": "Milwaukee Bucks", "rookie": false}
+{"subset": "Nocturnal", "card_number": "NO-5", "subjects": ["Luka Dončić"], "team": "Los Angeles Lakers", "rookie": false}
+{"subset": "Nocturnal", "card_number": "NO-6", "subjects": ["Stephen Curry"], "team": "Golden State Warriors", "rookie": false}
+{"subset": "Nocturnal", "card_number": "NO-7", "subjects": ["Anthony Edwards"], "team": "Minnesota Timberwolves", "rookie": false}
+{"subset": "Nocturnal", "card_number": "NO-8", "subjects": ["Tyrese Haliburton"], "team": "Indiana Pacers", "rookie": false}
+{"subset": "Nocturnal", "card_number": "NO-9", "subjects": ["Jalen Brunson"], "team": "New York Knicks", "rookie": false}
+{"subset": "Nocturnal", "card_number": "NO-10", "subjects": ["Victor Wembanyama"], "team": "San Antonio Spurs", "rookie": false}
+{"subset": "Nocturnal", "card_number": "NO-11", "subjects": ["Jayson Tatum"], "team": "Boston Celtics", "rookie": false}
+{"subset": "Nocturnal", "card_number": "NO-12", "subjects": ["Kevin Durant"], "team": "Houston Rockets", "rookie": false}
+{"subset": "Nocturnal", "card_number": "NO-13", "subjects": ["Donovan Mitchell"], "team": "Cleveland Cavaliers", "rookie": false}
+{"subset": "Nocturnal", "card_number": "NO-14", "subjects": ["Cade Cunningham"], "team": "Detroit Pistons", "rookie": false}
+{"subset": "Nocturnal", "card_number": "NO-15", "subjects": ["Paolo Banchero"], "team": "Orlando Magic", "rookie": false}
+{"subset": "Nocturnal", "card_number": "NO-16", "subjects": ["Cooper Flagg"], "team": "Dallas Mavericks", "rookie": true}
+{"subset": "Nocturnal", "card_number": "NO-17", "subjects": ["Dylan Harper"], "team": "San Antonio Spurs", "rookie": true}
+{"subset": "Nocturnal", "card_number": "NO-18", "subjects": ["Kon Knueppel"], "team": "Charlotte Hornets", "rookie": true}
+{"subset": "Nocturnal", "card_number": "NO-19", "subjects": ["Yang Hansen"], "team": "Portland Trail Blazers", "rookie": true}
+{"subset": "Nocturnal", "card_number": "NO-20", "subjects": ["Tre Johnson III"], "team": "Washington Wizards", "rookie": true}
+{"subset": "Home Court", "card_number": "HC-1", "subjects": ["LeBron James"], "team": "Los Angeles Lakers", "rookie": false}
+{"subset": "Home Court", "card_number": "HC-2", "subjects": ["Stephen Curry"], "team": "Golden State Warriors", "rookie": false}
+{"subset": "Home Court", "card_number": "HC-3", "subjects": ["Anthony Edwards"], "team": "Minnesota Timberwolves", "rookie": false}
+{"subset": "Home Court", "card_number": "HC-4", "subjects": ["Nikola Jokić"], "team": "Denver Nuggets", "rookie": false}
+{"subset": "Home Court", "card_number": "HC-5", "subjects": ["Shai Gilgeous-Alexander"], "team": "Oklahoma City Thunder", "rookie": false}
+{"subset": "Home Court", "card_number": "HC-6", "subjects": ["Kevin Durant"], "team": "Phoenix Suns", "rookie": false}
+{"subset": "Home Court", "card_number": "HC-7", "subjects": ["Victor Wembanyama"], "team": "San Antonio Spurs", "rookie": false}
+{"subset": "Home Court", "card_number": "HC-8", "subjects": ["Cooper Flagg"], "team": "Dallas Mavericks", "rookie": true}
+{"subset": "Home Court", "card_number": "HC-9", "subjects": ["Dylan Harper"], "team": "San Antonio Spurs", "rookie": true}
+{"subset": "Home Court", "card_number": "HC-10", "subjects": ["Ace Bailey"], "team": "Utah Jazz", "rookie": true}
+{"subset": "Carbon Flare", "card_number": "CF-1", "subjects": ["LeBron James"], "team": "Los Angeles Lakers", "rookie": false}
+{"subset": "Carbon Flare", "card_number": "CF-2", "subjects": ["Shai Gilgeous-Alexander"], "team": "Oklahoma City Thunder", "rookie": false}
+{"subset": "Carbon Flare", "card_number": "CF-3", "subjects": ["Nikola Jokić"], "team": "Denver Nuggets", "rookie": false}
+{"subset": "Carbon Flare", "card_number": "CF-4", "subjects": ["Giannis Antetokounmpo"], "team": "Milwaukee Bucks", "rookie": false}
+{"subset": "Carbon Flare", "card_number": "CF-5", "subjects": ["Luka Dončić"], "team": "Los Angeles Lakers", "rookie": false}
+{"subset": "Carbon Flare", "card_number": "CF-6", "subjects": ["Stephen Curry"], "team": "Golden State Warriors", "rookie": false}
+{"subset": "Carbon Flare", "card_number": "CF-7", "subjects": ["Anthony Edwards"], "team": "Minnesota Timberwolves", "rookie": false}
+{"subset": "Carbon Flare", "card_number": "CF-8", "subjects": ["Jayson Tatum"], "team": "Boston Celtics", "rookie": false}
+{"subset": "Carbon Flare", "card_number": "CF-9", "subjects": ["Kevin Durant"], "team": "Houston Rockets", "rookie": false}
+{"subset": "Carbon Flare", "card_number": "CF-10", "subjects": ["Paolo Banchero"], "team": "Orlando Magic", "rookie": false}
+{"subset": "Carbon Flare", "card_number": "CF-11", "subjects": ["Cooper Flagg"], "team": "Dallas Mavericks", "rookie": true}
+{"subset": "Carbon Flare", "card_number": "CF-12", "subjects": ["Dylan Harper"], "team": "San Antonio Spurs", "rookie": true}
+{"subset": "Carbon Flare", "card_number": "CF-13", "subjects": ["VJ Edgecombe"], "team": "Philadelphia 76ers", "rookie": true}
+{"subset": "Carbon Flare", "card_number": "CF-14", "subjects": ["Kon Knueppel"], "team": "Charlotte Hornets", "rookie": true}
+{"subset": "Carbon Flare", "card_number": "CF-15", "subjects": ["Ace Bailey"], "team": "Utah Jazz", "rookie": true}
+{"subset": "Carbon Flare", "card_number": "CF-16", "subjects": ["Tre Johnson III"], "team": "Washington Wizards", "rookie": true}
+{"subset": "Carbon Flare", "card_number": "CF-17", "subjects": ["Jeremiah Fears"], "team": "New Orleans Pelicans", "rookie": true}
+{"subset": "Carbon Flare", "card_number": "CF-18", "subjects": ["Cedric Coward"], "team": "Memphis Grizzlies", "rookie": true}
+{"subset": "Carbon Flare", "card_number": "CF-19", "subjects": ["Yang Hansen"], "team": "Portland Trail Blazers", "rookie": true}
+{"subset": "Carbon Flare", "card_number": "CF-20", "subjects": ["Kasparas Jakučionis"], "team": "Miami Heat", "rookie": true}

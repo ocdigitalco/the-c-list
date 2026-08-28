@@ -15,6 +15,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "251-chrome-black-basketball-2526",
+    title: "2025-26 Topps Chrome Black Basketball checklist, parallels, and box configuration",
+    date: "2026-08-28T09:00:00-07:00",
+    summary:
+      "Added 2025-26 Topps Chrome Black Basketball — 15 subsets, 556 cards, and 88 parallels. Hobby pack odds are not yet published; the digital Instant Packs format ships with published per-pack category rates.",
+    description: `## 2025-26 Topps Chrome Black Basketball
+
+The full checklist for this dark-design Chrome release — **556 cards across 15 subsets**. The **150-card base set** prints veterans and 55 rookies (1-100 with five embedded rookies, 101-150 the rookie run), followed by autograph subsets (Autograph Cards, Rookie Autographs, Carbon Ink, Ivory Autographs, Super Futures, Black Fire, Shrouded Signatures, Glow Up Signatures), **Rookie Design Variations**, and the Black Lightning / Obscura / Nocturnal / Home Court / Carbon Flare inserts.
+
+The **88-row parallel ladder** carries published print runs (Refractor /299 down to Superfractor 1/1, plus Home Court's **Black 1/1**); two parallels — **Teal Glitter /64** and **Black Glitter /11** — are **Instant Rips exclusives**.
+
+**Hobby pack odds are not yet published** — they'll be attached when Topps releases the odds sheet. The set also lists a digital **Instant Packs** format (buyers can have cards shipped); its published per-pack category rates (Base 2.93, Parallels 0.33, Instant Parallels 0.36, Autographs 0.31, Case Hits 0.07) are recorded in the box configuration.`,
+    tags: ["checklist", "box-config"],
+    setId: 872,
+  },
+  {
     id: "250-chrome-samurai-japan-2026",
     title: "2026 Topps Chrome Samurai Japan Baseball checklist, parallels, odds, and box configuration",
     date: "2026-08-27T09:00:00-07:00",
