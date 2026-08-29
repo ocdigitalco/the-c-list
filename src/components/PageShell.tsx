@@ -22,7 +22,7 @@ export function PageShell({ breadcrumb, title, description, children }: PageShel
             </svg>
             {breadcrumb.label}
           </Link>
-          <h1 className="text-2xl font-bold text-white tracking-tight">{title}</h1>
+          <h1 className="text-2xl font-bold text-white tracking-tight" style={{ fontFamily: "var(--brand-font-head)" }}>{title}</h1>
           {description && <p className="text-sm text-zinc-500 mt-1">{description}</p>}
         </div>
         {children}

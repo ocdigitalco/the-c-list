@@ -23,7 +23,7 @@ export default function BreakHitCalculatorPage() {
           Back
         </Link>
 
-        <h1 className="text-2xl font-bold text-white tracking-tight mb-4">
+        <h1 className="text-2xl font-bold text-white tracking-tight mb-4" style={{ fontFamily: "var(--brand-font-head)" }}>
           How the Break Hit Calculator Works
         </h1>
         <p className="text-[16px] text-zinc-400 leading-[1.75] mb-10">

@@ -1281,7 +1281,7 @@ export function SetDetailClient({
                   {eyebrow}
                 </div>
                 <h1 style={{
-                  fontFamily: FONT_DISPLAY, fontSize: 42, fontWeight: 600,
+                  fontFamily: "var(--brand-font-head)", fontSize: 34, fontWeight: 600,
                   letterSpacing: -1.2, lineHeight: 1.02, color: "#0F0F0E", margin: "8px 0 12px",
                 }}>{setName}</h1>
                 <div className="flex flex-wrap items-center gap-2">

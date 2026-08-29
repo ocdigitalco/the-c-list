@@ -764,7 +764,7 @@ export function AthleteDetailClient({
                   {eyebrow}
                 </div>
                 <h1 style={{
-                  fontFamily: FONT_DISPLAY, fontSize: 38, fontWeight: 600,
+                  fontFamily: "var(--brand-font-head)", fontSize: 38, fontWeight: 600,
                   letterSpacing: -1, lineHeight: 1.08, color: "#0F0F0E", margin: "6px 0 12px",
                   textWrap: "balance",
                 }}>{athleteName}</h1>
@@ -916,7 +916,7 @@ export function AthleteDetailClient({
                 {eyebrow}
               </div>
               <h1 style={{
-                fontFamily: FONT_DISPLAY, fontSize: 22, fontWeight: 600,
+                fontFamily: "var(--brand-font-head)", fontSize: 22, fontWeight: 600,
                 letterSpacing: -0.6, lineHeight: 1.05, color: "#0F0F0E", margin: "4px 0 8px",
               }}>{athleteName}</h1>
               <div className="flex flex-wrap items-center gap-1.5">

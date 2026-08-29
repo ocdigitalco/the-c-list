@@ -32,7 +32,7 @@ export default async function ChecklistsPage() {
         <h1
           className="cl-title"
           style={{
-            fontFamily: "var(--cl-font-display)",
+            fontFamily: "var(--brand-font-head)",
             fontSize: 48,
             fontWeight: 600,
             letterSpacing: "-1.2px",

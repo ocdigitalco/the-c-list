@@ -17,7 +17,7 @@ export const CL2 = {
   accentSoft: "#F2A192",
   slate: "#5A5247",
   fog: "#CFC8B8",
-  fontHead: '"Inter Tight", "Inter", system-ui, sans-serif',
+  fontHead: 'var(--brand-font-head)',
   fontBody: '"Inter", system-ui, sans-serif',
   fontMono: '"JetBrains Mono", ui-monospace, Menlo, monospace',
 } as const;
@@ -98,7 +98,7 @@ export function CL2Wordmark({
       <span
         style={{
           fontSize: size,
-          fontWeight: 800,
+          fontWeight: 400,
           letterSpacing: -size * 0.042,
           color: ink,
         }}
@@ -108,7 +108,7 @@ export function CL2Wordmark({
       <span
         style={{
           fontSize: supFontSize,
-          fontWeight: 900,
+          fontWeight: 400,
           color: accent,
           marginTop: -size * 0.083,
           marginLeft: size * 0.02,

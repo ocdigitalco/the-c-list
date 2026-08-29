@@ -50,10 +50,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-theme="light">
+    <html
+      lang="en"
+      data-theme="light"
+      className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${interTight.variable} ${carterOne.variable} ${jetbrainsMono.variable}`}
+    >
       <head />
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${interTight.variable} ${carterOne.variable} ${jetbrainsMono.variable} antialiased bg-zinc-950 text-zinc-100 h-screen flex flex-col overflow-hidden`}
+        className="antialiased bg-zinc-950 text-zinc-100 h-screen flex flex-col overflow-hidden"
       >
         <Header />
         <main className="flex-1 overflow-hidden">{children}</main>

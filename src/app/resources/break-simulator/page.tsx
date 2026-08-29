@@ -66,7 +66,7 @@ export default async function BreakSimulatorPage() {
     <div className="h-full overflow-y-auto">
       <div className="max-w-[800px] mx-auto px-6 py-10 space-y-6">
         <div>
-          <h1 className="text-2xl font-bold text-white tracking-tight">
+          <h1 className="text-2xl font-bold text-white tracking-tight" style={{ fontFamily: "var(--brand-font-head)" }}>
             Box Break Simulator
           </h1>
           <p className="text-sm text-zinc-500 mt-1">

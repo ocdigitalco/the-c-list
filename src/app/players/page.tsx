@@ -12,7 +12,7 @@ export default async function PlayersPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-white">All Players</h1>
+          <h1 className="text-2xl font-bold text-white" style={{ fontFamily: "var(--brand-font-head)" }}>All Players</h1>
           <p className="text-zinc-400 text-sm mt-1">{allPlayers.length} players in this set</p>
         </div>
         <Link href="/checklists" className="text-sm text-zinc-400 hover:text-white transition-colors">
