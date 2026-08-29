@@ -15,6 +15,19 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "252-brand-refresh",
+    title: "Refreshed branding: Carter One display type and unified palette",
+    date: "2026-08-28T12:00:00-07:00",
+    summary:
+      "A brand pass across the site — the Checklist² wordmark and page headings now render in Carter One, and colors are unified to the Ink / Paper / Card Red palette from the brand guidelines.",
+    description: `## Refreshed branding
+
+The site now follows the Checklist² brand guidelines. The **wordmark and page-level headings** — set names, athlete names, and page titles — render in **Carter One**, the display face, while body copy and every checklist table stay in Inter for readability.
+
+Colors are unified to the guideline palette — **Ink**, **Paper**, and **Card Red** — replacing the scattered hardcoded values. Card Red now marks the **active tab** on set and athlete pages and the **Find on eBay** links; the short-print red in parallel tables is unchanged. No layouts or checklists were affected — this is purely a type and color pass.`,
+    tags: ["announcement"],
+  },
+  {
     id: "251-chrome-black-basketball-2526",
     title: "2025-26 Topps Chrome Black Basketball checklist, parallels, and box configuration",
     date: "2026-08-28T09:00:00-07:00",

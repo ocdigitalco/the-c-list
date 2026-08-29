@@ -192,7 +192,7 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, currentAthleteId, 
                 padding: "12px 16px", fontFamily: FONT_DISPLAY, fontSize: 16,
                 fontWeight: viewMode === mode ? 600 : 500,
                 color: viewMode === mode ? "var(--brand-ink)" : "#8A8677",
-                borderBottom: viewMode === mode ? "2px solid var(--brand-ink)" : "2px solid transparent",
+                borderBottom: viewMode === mode ? "2px solid var(--brand-accent)" : "2px solid transparent",
                 marginBottom: -1, background: "transparent", cursor: "pointer", transition: "all 150ms",
               }}>{label}</button>
           ))}
@@ -835,7 +835,7 @@ export function AthleteDetailClient({
                   padding: "14px 20px", fontFamily: FONT_DISPLAY,
                   fontSize: 16, fontWeight: tab === t ? 600 : 500,
                   color: tab === t ? "var(--brand-ink)" : "#8A8677",
-                  borderBottom: tab === t ? "2px solid var(--brand-ink)" : "2px solid transparent",
+                  borderBottom: tab === t ? "2px solid var(--brand-accent)" : "2px solid transparent",
                   marginBottom: -1, background: "transparent", cursor: "pointer", transition: "all 150ms",
                 }}>
                 {t}
@@ -965,7 +965,7 @@ export function AthleteDetailClient({
                 padding: "12px 12px", flexShrink: 0, fontFamily: FONT_DISPLAY,
                 fontSize: 16, fontWeight: tab === t ? 600 : 500,
                 color: tab === t ? "var(--brand-ink)" : "#8A8677",
-                borderBottom: tab === t ? "2px solid var(--brand-ink)" : "2px solid transparent",
+                borderBottom: tab === t ? "2px solid var(--brand-accent)" : "2px solid transparent",
                 marginBottom: -1, background: "transparent", cursor: "pointer",
               }}>
               {t}

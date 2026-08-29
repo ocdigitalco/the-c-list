@@ -338,7 +338,7 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
                 fontSize: 16,
                 fontWeight: viewMode === mode ? 600 : 500,
                 color: viewMode === mode ? "var(--brand-ink)" : "#8A8677",
-                borderBottom: viewMode === mode ? "2px solid var(--brand-ink)" : "2px solid transparent",
+                borderBottom: viewMode === mode ? "2px solid var(--brand-accent)" : "2px solid transparent",
                 marginBottom: -1,
                 background: "transparent",
                 cursor: "pointer",
@@ -1328,7 +1328,7 @@ export function SetDetailClient({
                   fontFamily: FONT_DISPLAY,
                   fontSize: 16, fontWeight: activeTab === t ? 600 : 500,
                   color: activeTab === t ? "var(--brand-ink)" : "#8A8677",
-                  borderBottom: activeTab === t ? "2px solid var(--brand-ink)" : "2px solid transparent",
+                  borderBottom: activeTab === t ? "2px solid var(--brand-accent)" : "2px solid transparent",
                   marginBottom: -1, background: "transparent", cursor: "pointer",
                   transition: "all 150ms",
                 }}>
@@ -1433,7 +1433,7 @@ export function SetDetailClient({
                 fontFamily: FONT_DISPLAY,
                 fontSize: 16, fontWeight: activeTab === t ? 600 : 500,
                 color: activeTab === t ? "var(--brand-ink)" : "#8A8677",
-                borderBottom: activeTab === t ? "2px solid var(--brand-ink)" : "2px solid transparent",
+                borderBottom: activeTab === t ? "2px solid var(--brand-accent)" : "2px solid transparent",
                 marginBottom: -1, background: "transparent", cursor: "pointer",
               }}>
               {t}
