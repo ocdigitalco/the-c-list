@@ -180,13 +180,13 @@ function AthletesTable({ athletes, setSlug, setId }: {
     <div>
       {/* Filter row */}
       <div className="flex items-center justify-between" style={{ marginBottom: 16 }}>
-        <span style={{ fontFamily: FONT_DISPLAY, fontSize: 16, fontWeight: 600, color: "#0F0F0E" }}>
+        <span style={{ fontFamily: FONT_DISPLAY, fontSize: 16, fontWeight: 600, color: "var(--brand-ink)" }}>
           Athletes ({sorted.length})
         </span>
         <div className="flex items-center gap-3">
           <label className="flex items-center gap-1.5" style={{ fontSize: 16, color: "#3A372F" }}>
             <input type="checkbox" checked={rookiesOnly} onChange={() => setRookiesOnly((v) => !v)}
-              style={{ accentColor: "#0F0F0E" }} />
+              style={{ accentColor: "var(--brand-ink)" }} />
             Rookies only
           </label>
         </div>
@@ -205,7 +205,7 @@ function AthletesTable({ athletes, setSlug, setId }: {
                   style={{
                     textAlign: col.align, padding: "10px 18px", cursor: "pointer",
                     fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6,
-                    color: sortKey === col.key ? "#0F0F0E" : "#8A8677",
+                    color: sortKey === col.key ? "var(--brand-ink)" : "#8A8677",
                     borderBottom: "1px solid #EDEAE0", textTransform: "uppercase",
                   }}>
                   {col.label}{arrow(col.key)}
@@ -224,7 +224,7 @@ function AthletesTable({ athletes, setSlug, setId }: {
                     className="flex items-center gap-2.5" style={{ textDecoration: "none" }}>
                     <PlayerAvatar name={a.name} nbaPlayerId={a.nbaPlayerId} ufcImageUrl={a.ufcImageUrl}
                       mlbPlayerId={a.mlbPlayerId} imageUrl={a.imageUrl} size={30} />
-                    <span style={{ fontWeight: 500, color: "#0F0F0E" }}>{a.name}</span>
+                    <span style={{ fontWeight: 500, color: "var(--brand-ink)" }}>{a.name}</span>
                     {a.isRookie && (
                       <span style={{
                         background: "oklch(0.55 0.17 25)", color: "#FFF8F1",
@@ -239,7 +239,7 @@ function AthletesTable({ athletes, setSlug, setId }: {
                     <td key={key} style={{
                       padding: "14px 18px", textAlign: "right",
                       fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600,
-                      color: val === 0 ? "#B7B2A3" : "#0F0F0E",
+                      color: val === 0 ? "#B7B2A3" : "var(--brand-ink)",
                     }}>
                       {val === 0 ? "—" : val.toLocaleString()}
                     </td>
@@ -265,7 +265,7 @@ function AthletesTable({ athletes, setSlug, setId }: {
                 mlbPlayerId={a.mlbPlayerId} imageUrl={a.imageUrl} size={32} />
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-1.5">
-                  <span style={{ fontSize: 16, fontWeight: 500, color: "#0F0F0E" }}>{a.name}</span>
+                  <span style={{ fontSize: 16, fontWeight: 500, color: "var(--brand-ink)" }}>{a.name}</span>
                   {a.isRookie && (
                     <span style={{
                       background: "oklch(0.55 0.17 25)", color: "#FFF8F1",
@@ -288,7 +288,7 @@ function AthletesTable({ athletes, setSlug, setId }: {
                   <div style={{ fontFamily: FONT_MONO, fontSize: 8, fontWeight: 600, letterSpacing: 1.2, color: "#8A8677", textTransform: "uppercase" }}>
                     {s.l}
                   </div>
-                  <div style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: s.v === 0 ? "#B7B2A3" : "#0F0F0E", marginTop: 2 }}>
+                  <div style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: s.v === 0 ? "#B7B2A3" : "var(--brand-ink)", marginTop: 2 }}>
                     {s.v === 0 ? "—" : s.v.toLocaleString()}
                   </div>
                 </div>
@@ -329,7 +329,7 @@ function TeamsDrawer({ open, onClose, teams, currentTeam, setSlug, setId }: {
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
           </svg>
         </button>
-        <span style={{ fontFamily: FONT_DISPLAY, fontSize: 17, fontWeight: 600, letterSpacing: -0.3, color: "#0F0F0E" }}>
+        <span style={{ fontFamily: FONT_DISPLAY, fontSize: 17, fontWeight: 600, letterSpacing: -0.3, color: "var(--brand-ink)" }}>
           Teams in Set
         </span>
         <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677" }}>{teams.length}</span>
@@ -341,14 +341,14 @@ function TeamsDrawer({ open, onClose, teams, currentTeam, setSlug, setId }: {
             style={{
               padding: "12px 16px", borderBottom: "1px solid #F4F1E8", textDecoration: "none",
               background: t.name === currentTeam ? "#F4F1E8" : "transparent",
-              borderLeft: t.name === currentTeam ? "2px solid #0F0F0E" : "2px solid transparent",
+              borderLeft: t.name === currentTeam ? "2px solid var(--brand-ink)" : "2px solid transparent",
             }}>
             <TeamCrest name={t.name} size={36} />
             <div className="flex-1 min-w-0">
-              <span style={{ fontSize: 16, fontWeight: 500, color: "#0F0F0E" }}>{t.name}</span>
+              <span style={{ fontSize: 16, fontWeight: 500, color: "var(--brand-ink)" }}>{t.name}</span>
             </div>
             <div className="text-right">
-              <div style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: "#0F0F0E" }}>
+              <div style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: "var(--brand-ink)" }}>
                 {t.totalCards.toLocaleString()}
               </div>
               <div style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677" }}>
@@ -423,8 +423,8 @@ function SetWideLeaderboard({ entries, hasTeamData, setId, setSlug, sport = "" }
               style={{
                 padding: "12px 16px", fontFamily: FONT_DISPLAY, fontSize: 16,
                 fontWeight: viewMode === mode ? 600 : 500,
-                color: viewMode === mode ? "#0F0F0E" : "#8A8677",
-                borderBottom: viewMode === mode ? "2px solid #0F0F0E" : "2px solid transparent",
+                color: viewMode === mode ? "var(--brand-ink)" : "#8A8677",
+                borderBottom: viewMode === mode ? "2px solid var(--brand-ink)" : "2px solid transparent",
                 marginBottom: -1, background: "transparent", cursor: "pointer", transition: "all 150ms",
               }}>{label}</button>
           ))}
@@ -439,22 +439,22 @@ function SetWideLeaderboard({ entries, hasTeamData, setId, setSlug, sport = "" }
           <input type="text" value={query} onChange={(e) => setQuery(e.target.value)}
             placeholder={viewMode === "teams" ? "Search teams…" : "Search athletes…"}
             autoComplete="off" spellCheck={false} className="w-full outline-none"
-            style={{ background: "#F1EFE9", borderRadius: 8, padding: "7px 10px 7px 30px", fontSize: 16, border: "none", color: "#0F0F0E" }} />
+            style={{ background: "#F1EFE9", borderRadius: 8, padding: "7px 10px 7px 30px", fontSize: 16, border: "none", color: "var(--brand-ink)" }} />
         </div>
         <div className="flex flex-wrap gap-1.5">
           {LB_CHIPS.map((chip) => (
             <button key={chip.key} onClick={() => setSortKey(chip.key)}
               style={{
                 borderRadius: 4, padding: "4px 9px", fontSize: 16, fontWeight: 500,
-                background: sortKey === chip.key ? "#0F0F0E" : "transparent",
+                background: sortKey === chip.key ? "var(--brand-ink)" : "transparent",
                 color: sortKey === chip.key ? "#FAFAF7" : "#3A372F",
-                border: sortKey === chip.key ? "1px solid #0F0F0E" : "1px solid #E6E3D9",
+                border: sortKey === chip.key ? "1px solid var(--brand-ink)" : "1px solid #E6E3D9",
               }}>{chip.label}</button>
           ))}
         </div>
         {viewMode === "athletes" && (
           <label className="flex items-center gap-1.5 cursor-pointer" style={{ fontSize: 16, color: "#3A372F" }}>
-            <input type="checkbox" checked={rookiesOnly} onChange={() => setRookiesOnly((v) => !v)} style={{ accentColor: "#0F0F0E" }} />
+            <input type="checkbox" checked={rookiesOnly} onChange={() => setRookiesOnly((v) => !v)} style={{ accentColor: "var(--brand-ink)" }} />
             Rookies only
           </label>
         )}
@@ -480,13 +480,13 @@ function SetWideLeaderboard({ entries, hasTeamData, setId, setSlug, sport = "" }
                   <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677", width: 18, textAlign: "right", flexShrink: 0 }}>{idx + 1}</span>
                   <PlayerAvatar name={entry.name} nbaPlayerId={entry.nbaPlayerId} ufcImageUrl={entry.ufcImageUrl} mlbPlayerId={entry.mlbPlayerId} imageUrl={entry.imageUrl} size={30} />
                   <div className="flex-1 min-w-0">
-                    <span className="truncate block" style={{ fontSize: 16, fontWeight: 500, color: "#0F0F0E" }}>{entry.name}</span>
+                    <span className="truncate block" style={{ fontSize: 16, fontWeight: 500, color: "var(--brand-ink)" }}>{entry.name}</span>
                     {hasTeamData && entry.team && <p className="truncate" style={{ fontSize: 16, color: "#6B6757", marginTop: 1 }}>{entry.team}</p>}
                   </div>
-                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: "#0F0F0E", flexShrink: 0 }}>{entry[sortKey].toLocaleString()}</span>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: "var(--brand-ink)", flexShrink: 0 }}>{entry[sortKey].toLocaleString()}</span>
                 </Link>
               ))}
-              {!showAll && filtered.length > 50 && <button onClick={() => setShowAll(true)} className="w-full py-3" style={{ fontSize: 16, fontWeight: 600, color: "#0F0F0E" }}>Show all {filtered.length} athletes</button>}
+              {!showAll && filtered.length > 50 && <button onClick={() => setShowAll(true)} className="w-full py-3" style={{ fontSize: 16, fontWeight: 600, color: "var(--brand-ink)" }}>Show all {filtered.length} athletes</button>}
             </>
           )
         ) : (
@@ -501,10 +501,10 @@ function SetWideLeaderboard({ entries, hasTeamData, setId, setSlug, sport = "" }
                   <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677", width: 18, textAlign: "right", flexShrink: 0 }}>{idx + 1}</span>
                   <TeamLogo teamName={tr.team} sport={sport} size={30} />
                   <div className="flex-1 min-w-0">
-                    <span className="truncate block" style={{ fontSize: 16, fontWeight: 500, color: "#0F0F0E" }}>{tr.team}</span>
+                    <span className="truncate block" style={{ fontSize: 16, fontWeight: 500, color: "var(--brand-ink)" }}>{tr.team}</span>
                     <p className="truncate" style={{ fontSize: 16, color: "#6B6757", marginTop: 1 }}>{tr.athleteCount} {tr.athleteCount === 1 ? "Athlete" : "Athletes"}</p>
                   </div>
-                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: "#0F0F0E", flexShrink: 0 }}>{tr[sortKey].toLocaleString()}</span>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: "var(--brand-ink)", flexShrink: 0 }}>{tr[sortKey].toLocaleString()}</span>
                 </Link>
               ))}
             </>
@@ -557,7 +557,7 @@ export function TeamDetailClient({
                 </div>
                 <h1 style={{
                   fontFamily: FONT_DISPLAY, fontSize: 38, fontWeight: 600,
-                  letterSpacing: -1, lineHeight: 1.08, color: "#0F0F0E", margin: "6px 0 12px",
+                  letterSpacing: -1, lineHeight: 1.08, color: "var(--brand-ink)", margin: "6px 0 12px",
                   textWrap: "balance",
                 }}>{teamName}</h1>
                 <div className="flex flex-wrap items-center gap-2">
@@ -586,7 +586,7 @@ export function TeamDetailClient({
                     padding: "6px 0", borderBottom: i < arr.length - 1 ? "1px solid #F4F1E8" : "none",
                   }}>
                     <span style={{ fontSize: 16, color: "#6B6757" }}>{r.l}</span>
-                    <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: "#0F0F0E" }}>{r.v}</span>
+                    <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: "var(--brand-ink)" }}>{r.v}</span>
                   </div>
                 ))}
               </div>
@@ -604,7 +604,7 @@ export function TeamDetailClient({
                 <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase" }}>
                   {item.label}
                 </div>
-                <div style={{ fontFamily: FONT_DISPLAY, fontSize: 26, fontWeight: 600, letterSpacing: -0.6, color: "#0F0F0E", marginTop: 4 }}>
+                <div style={{ fontFamily: FONT_DISPLAY, fontSize: 26, fontWeight: 600, letterSpacing: -0.6, color: "var(--brand-ink)", marginTop: 4 }}>
                   {item.value.toLocaleString()}
                 </div>
               </div>
@@ -620,8 +620,8 @@ export function TeamDetailClient({
                 style={{
                   padding: "14px 20px", fontFamily: FONT_DISPLAY,
                   fontSize: 16, fontWeight: tab === t ? 600 : 500,
-                  color: tab === t ? "#0F0F0E" : "#8A8677",
-                  borderBottom: tab === t ? "2px solid #0F0F0E" : "2px solid transparent",
+                  color: tab === t ? "var(--brand-ink)" : "#8A8677",
+                  borderBottom: tab === t ? "2px solid var(--brand-ink)" : "2px solid transparent",
                   marginBottom: -1, background: "transparent", cursor: "pointer", transition: "all 150ms",
                 }}>
                 {t}
@@ -668,7 +668,7 @@ export function TeamDetailClient({
             style={{
               display: "flex", alignItems: "center", gap: 6,
               background: "#FFFFFF", border: "1px solid #E6E3D9", borderRadius: 8,
-              padding: "8px 12px", fontSize: 16, fontWeight: 500, color: "#0F0F0E",
+              padding: "8px 12px", fontSize: 16, fontWeight: 500, color: "var(--brand-ink)",
             }}>
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25a2.25 2.25 0 0 1-2.25-2.25v-2.25Z" />
@@ -690,7 +690,7 @@ export function TeamDetailClient({
               </div>
               <h1 style={{
                 fontFamily: FONT_DISPLAY, fontSize: 22, fontWeight: 600,
-                letterSpacing: -0.6, lineHeight: 1.05, color: "#0F0F0E", margin: "4px 0 8px",
+                letterSpacing: -0.6, lineHeight: 1.05, color: "var(--brand-ink)", margin: "4px 0 8px",
               }}>{teamName}</h1>
               <div className="flex flex-wrap items-center gap-1.5">
                 <span style={{ fontSize: 16, fontWeight: 500, padding: "3px 7px", borderRadius: 4, border: "1px solid #E6E3D9", color: "#3A372F" }}>
@@ -717,7 +717,7 @@ export function TeamDetailClient({
               <div style={{ fontFamily: FONT_MONO, fontSize: 8, fontWeight: 600, letterSpacing: 1.2, color: "#8A8677", textTransform: "uppercase" }}>
                 {item.label}
               </div>
-              <div style={{ fontFamily: FONT_DISPLAY, fontSize: 18, fontWeight: 600, letterSpacing: -0.5, color: "#0F0F0E", marginTop: 4 }}>
+              <div style={{ fontFamily: FONT_DISPLAY, fontSize: 18, fontWeight: 600, letterSpacing: -0.5, color: "var(--brand-ink)", marginTop: 4 }}>
                 {item.value.toLocaleString()}
               </div>
             </div>
@@ -735,8 +735,8 @@ export function TeamDetailClient({
               style={{
                 padding: "12px 12px", flexShrink: 0, fontFamily: FONT_DISPLAY,
                 fontSize: 16, fontWeight: tab === t ? 600 : 500,
-                color: tab === t ? "#0F0F0E" : "#8A8677",
-                borderBottom: tab === t ? "2px solid #0F0F0E" : "2px solid transparent",
+                color: tab === t ? "var(--brand-ink)" : "#8A8677",
+                borderBottom: tab === t ? "2px solid var(--brand-ink)" : "2px solid transparent",
                 marginBottom: -1, background: "transparent", cursor: "pointer",
               }}>
               {t}

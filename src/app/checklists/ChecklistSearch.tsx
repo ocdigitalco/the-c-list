@@ -222,8 +222,8 @@ export function ChecklistSearch({
                   fontSize: 13,
                   fontWeight: isActive ? 500 : 400,
                   color: isActive ? "#FAFAF7" : "#3A372F",
-                  background: isActive ? "#0F0F0E" : "transparent",
-                  border: isActive ? "1px solid #0F0F0E" : "1px solid transparent",
+                  background: isActive ? "var(--brand-ink)" : "transparent",
+                  border: isActive ? "1px solid var(--brand-ink)" : "1px solid transparent",
                   cursor: "pointer",
                   transitionDuration: "0.15s",
                 }}
@@ -266,7 +266,7 @@ export function ChecklistSearch({
               paddingLeft: 44,
               paddingRight: 40,
               fontSize: 14,
-              color: "#0F0F0E",
+              color: "var(--brand-ink)",
               outline: "none",
             }}
           />
@@ -295,7 +295,7 @@ export function ChecklistSearch({
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              background: view === "gallery" ? "#0F0F0E" : "transparent",
+              background: view === "gallery" ? "var(--brand-ink)" : "transparent",
               color: view === "gallery" ? "#FAFAF7" : "#1A1916",
               border: "none",
               cursor: "pointer",
@@ -319,7 +319,7 @@ export function ChecklistSearch({
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              background: view === "compact" ? "#0F0F0E" : "transparent",
+              background: view === "compact" ? "var(--brand-ink)" : "transparent",
               color: view === "compact" ? "#FAFAF7" : "#1A1916",
               border: "none",
               cursor: "pointer",

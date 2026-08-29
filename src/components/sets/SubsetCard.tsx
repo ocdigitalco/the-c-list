@@ -40,7 +40,7 @@ export function SubsetCard({ name, cardsCount, parallelsCount, chips = [], check
   return (
     <section style={{ marginBottom: 28 }}>
       <div className="flex flex-wrap items-center gap-2" style={{ marginBottom: 10 }}>
-        <h3 style={{ fontFamily: FONT_DISPLAY, fontSize: 18, fontWeight: 600, color: "#0F0F0E", margin: 0 }}>
+        <h3 style={{ fontFamily: FONT_DISPLAY, fontSize: 18, fontWeight: 600, color: "var(--brand-ink)", margin: 0 }}>
           {name}
         </h3>
         {chips.map((c) => <TypeChip key={c.label} label={c.label} accent={c.accent} />)}

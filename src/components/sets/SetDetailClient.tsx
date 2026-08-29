@@ -337,8 +337,8 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
                 fontFamily: FONT_DISPLAY,
                 fontSize: 16,
                 fontWeight: viewMode === mode ? 600 : 500,
-                color: viewMode === mode ? "#0F0F0E" : "#8A8677",
-                borderBottom: viewMode === mode ? "2px solid #0F0F0E" : "2px solid transparent",
+                color: viewMode === mode ? "var(--brand-ink)" : "#8A8677",
+                borderBottom: viewMode === mode ? "2px solid var(--brand-ink)" : "2px solid transparent",
                 marginBottom: -1,
                 background: "transparent",
                 cursor: "pointer",
@@ -364,7 +364,7 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
             className="w-full outline-none"
             style={{
               background: "#F1EFE9", borderRadius: 8, padding: "7px 10px 7px 30px",
-              fontSize: 16, border: "none", color: "#0F0F0E",
+              fontSize: 16, border: "none", color: "var(--brand-ink)",
             }}
           />
         </div>
@@ -375,9 +375,9 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
               style={{
                 borderRadius: isMobile ? 999 : 4, padding: "4px 9px",
                 fontSize: 16, fontWeight: 500,
-                background: sortKey === chip.key ? "#0F0F0E" : "transparent",
+                background: sortKey === chip.key ? "var(--brand-ink)" : "transparent",
                 color: sortKey === chip.key ? "#FAFAF7" : "#3A372F",
-                border: sortKey === chip.key ? "1px solid #0F0F0E" : "1px solid #E6E3D9",
+                border: sortKey === chip.key ? "1px solid var(--brand-ink)" : "1px solid #E6E3D9",
               }}>
               {chip.label}
             </button>
@@ -387,7 +387,7 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
         {viewMode === "athletes" && (
           <label className="flex items-center gap-1.5 cursor-pointer" style={{ fontSize: 16, color: "#3A372F" }}>
             <input type="checkbox" checked={rookiesOnly} onChange={() => setRookiesOnly((v) => !v)}
-              style={{ accentColor: "#0F0F0E" }} />
+              style={{ accentColor: "var(--brand-ink)" }} />
             Rookies only
           </label>
         )}
@@ -428,7 +428,7 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
                     mlbPlayerId={entry.mlbPlayerId} imageUrl={entry.imageUrl} size={avatarSize} />
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-1.5 min-w-0">
-                      <span className="truncate" style={{ fontSize: 16, fontWeight: 500, color: "#0F0F0E" }}>{entry.name}</span>
+                      <span className="truncate" style={{ fontSize: 16, fontWeight: 500, color: "var(--brand-ink)" }}>{entry.name}</span>
                       {entry.isRookie && (
                         <span className="shrink-0" style={{
                           background: "oklch(0.55 0.17 25)", color: "#FFF8F1",
@@ -441,14 +441,14 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
                       <p className="truncate" style={{ fontSize: 16, color: "#6B6757", marginTop: 1 }}>{entry.team}</p>
                     )}
                   </div>
-                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: "#0F0F0E", flexShrink: 0 }}>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: "var(--brand-ink)", flexShrink: 0 }}>
                     {entry[sortKey].toLocaleString()}
                   </span>
                 </Link>
               ))}
               {!showAll && filtered.length > 50 && (
                 <button onClick={() => setShowAll(true)}
-                  className="w-full py-3" style={{ fontSize: 16, fontWeight: 600, color: "#0F0F0E" }}>
+                  className="w-full py-3" style={{ fontSize: 16, fontWeight: 600, color: "var(--brand-ink)" }}>
                   Show all {filtered.length.toLocaleString()} {subjectLabel.toLowerCase()}
                 </button>
               )}
@@ -472,19 +472,19 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
                   </span>
                   <TeamLogo teamName={tr.team} sport={sport} size={avatarSize} />
                   <div className="flex-1 min-w-0">
-                    <span className="truncate block" style={{ fontSize: 16, fontWeight: 500, color: "#0F0F0E" }}>{tr.team}</span>
+                    <span className="truncate block" style={{ fontSize: 16, fontWeight: 500, color: "var(--brand-ink)" }}>{tr.team}</span>
                     <p className="truncate" style={{ fontSize: 16, color: "#6B6757", marginTop: 1 }}>
                       {tr.athleteCount} {tr.athleteCount === 1 ? "Athlete" : "Athletes"}
                     </p>
                   </div>
-                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: "#0F0F0E", flexShrink: 0 }}>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: "var(--brand-ink)", flexShrink: 0 }}>
                     {tr[sortKey].toLocaleString()}
                   </span>
                 </Link>
               ))}
               {!showAll && teamRows.length > 50 && (
                 <button onClick={() => setShowAll(true)}
-                  className="w-full py-3" style={{ fontSize: 16, fontWeight: 600, color: "#0F0F0E" }}>
+                  className="w-full py-3" style={{ fontSize: 16, fontWeight: 600, color: "var(--brand-ink)" }}>
                   Show all {teamRows.length.toLocaleString()} teams
                 </button>
               )}
@@ -566,7 +566,7 @@ function CoverageCard({ hasChecklist, hasNumberedParallels, hasBoxConfig, hasPac
         <div className="v2-break-sheet-pill">
           <style>{`
             .v2-break-sheet-pill > button, .v2-break-sheet-pill > a {
-              background: #0F0F0E !important; color: #FAFAF7 !important;
+              background: var(--brand-ink) !important; color: #FAFAF7 !important;
               font-size: 10px !important; font-weight: 600 !important;
               padding: 5px 10px !important; border-radius: 4px !important;
               border: none !important; cursor: pointer !important;
@@ -612,7 +612,7 @@ function StatStrip({ items }: { items: { label: string; value: number }[] }) {
             <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase" }}>
               {item.label}
             </div>
-            <div style={{ fontFamily: FONT_DISPLAY, fontSize: 26, fontWeight: 600, letterSpacing: -0.6, color: "#0F0F0E", marginTop: 4 }}>
+            <div style={{ fontFamily: FONT_DISPLAY, fontSize: 26, fontWeight: 600, letterSpacing: -0.6, color: "var(--brand-ink)", marginTop: 4 }}>
               {item.value.toLocaleString()}
             </div>
           </div>
@@ -631,7 +631,7 @@ function StatStrip({ items }: { items: { label: string; value: number }[] }) {
             <div style={{ fontFamily: FONT_MONO, fontSize: 8, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase" }}>
               {item.label}
             </div>
-            <div style={{ fontFamily: FONT_DISPLAY, fontSize: 20, fontWeight: 600, letterSpacing: -0.6, color: "#0F0F0E", marginTop: 4 }}>
+            <div style={{ fontFamily: FONT_DISPLAY, fontSize: 20, fontWeight: 600, letterSpacing: -0.6, color: "var(--brand-ink)", marginTop: 4 }}>
               {item.value.toLocaleString()}
             </div>
           </div>
@@ -792,7 +792,7 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
             <p style={{ fontSize: 16, lineHeight: 1.65, color: "#3A372F", margin: 0 }}>
               {aeoSummary.startsWith(setName) ? (
                 <>
-                  <strong style={{ color: "#0F0F0E" }}>{setName}</strong>
+                  <strong style={{ color: "var(--brand-ink)" }}>{setName}</strong>
                   {aeoSummary.slice(setName.length)}
                 </>
               ) : (
@@ -809,7 +809,7 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
               style={{
                 display: "inline-flex", alignItems: "center", gap: 5,
                 marginTop: aeoSummary ? 12 : 0, fontSize: 15, fontWeight: 600,
-                color: "#D63A20", textDecoration: "none",
+                color: "var(--brand-accent)", textDecoration: "none",
               }}
             >
               View on Topps website
@@ -831,7 +831,7 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{ fontSize: 15, fontWeight: 600, color: "#D63A20", textDecoration: "none" }}
+                      style={{ fontSize: 15, fontWeight: 600, color: "var(--brand-accent)", textDecoration: "none" }}
                     >
                       {link.title}
                     </a>
@@ -865,7 +865,7 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
             <div key={s.label} style={{
               background: "#FFFFFF", border: "1px solid #EDEAE0", borderRadius: 8, padding: "14px 16px",
             }}>
-              <div style={{ fontFamily: FONT_DISPLAY, fontSize: 26, fontWeight: 600, letterSpacing: -0.6, color: "#0F0F0E" }}>
+              <div style={{ fontFamily: FONT_DISPLAY, fontSize: 26, fontWeight: 600, letterSpacing: -0.6, color: "var(--brand-ink)" }}>
                 {s.value.toLocaleString()}
               </div>
               <div style={{ fontSize: 16, color: "#6B6757", marginTop: 2 }}>{s.label}</div>
@@ -899,7 +899,7 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
           {releaseDate && (
             <div className="mt-3 pt-3" style={{ borderTop: "1px solid #F4F1E8" }}>
               <span style={{ fontSize: 16, color: "#6B6757" }}>Release Date: </span>
-              <span style={{ fontSize: 16, fontWeight: 600, color: "#0F0F0E" }}>
+              <span style={{ fontSize: 16, fontWeight: 600, color: "var(--brand-ink)" }}>
                 {new Date(releaseDate + "T00:00:00Z").toLocaleDateString("en-US", {
                   month: "long", day: "numeric", year: "numeric", timeZone: "UTC",
                 })}
@@ -922,28 +922,28 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
                 <div key={row.label} style={{
                   background: "#FFFFFF", border: "1px solid #EDEAE0", borderRadius: 8, padding: "16px",
                 }}>
-                  <div style={{ fontFamily: FONT_DISPLAY, fontSize: 16, fontWeight: 600, color: "#0F0F0E", marginBottom: 12 }}>
+                  <div style={{ fontFamily: FONT_DISPLAY, fontSize: 16, fontWeight: 600, color: "var(--brand-ink)", marginBottom: 12 }}>
                     {row.label}
                   </div>
                   <div className="space-y-1.5">
                     {row.cardsPerPack != null && (
                       <div style={{ fontSize: 16, color: "#3A372F" }}>
-                        <span style={{ fontFamily: FONT_MONO, fontWeight: 600, color: "#0F0F0E" }}>{row.cardsPerPack}</span> cards/pack
+                        <span style={{ fontFamily: FONT_MONO, fontWeight: 600, color: "var(--brand-ink)" }}>{row.cardsPerPack}</span> cards/pack
                       </div>
                     )}
                     {row.packsPerBox != null && (
                       <div style={{ fontSize: 16, color: "#3A372F" }}>
-                        <span style={{ fontFamily: FONT_MONO, fontWeight: 600, color: "#0F0F0E" }}>{row.packsPerBox}</span> packs/box
+                        <span style={{ fontFamily: FONT_MONO, fontWeight: 600, color: "var(--brand-ink)" }}>{row.packsPerBox}</span> packs/box
                       </div>
                     )}
                     {row.boxesPerCase != null && (
                       <div style={{ fontSize: 16, color: "#3A372F" }}>
-                        <span style={{ fontFamily: FONT_MONO, fontWeight: 600, color: "#0F0F0E" }}>{row.boxesPerCase}</span> boxes/case
+                        <span style={{ fontFamily: FONT_MONO, fontWeight: 600, color: "var(--brand-ink)" }}>{row.boxesPerCase}</span> boxes/case
                       </div>
                     )}
                     {row.autosPerBox != null && (
                       <div style={{ fontSize: 16, color: "#3A372F" }}>
-                        <span style={{ fontFamily: FONT_MONO, fontWeight: 600, color: "#0F0F0E" }}>{row.autosPerBox}</span> auto{row.autosPerBox !== 1 ? "s" : ""}/box
+                        <span style={{ fontFamily: FONT_MONO, fontWeight: 600, color: "var(--brand-ink)" }}>{row.autosPerBox}</span> auto{row.autosPerBox !== 1 ? "s" : ""}/box
                       </div>
                     )}
                   </div>
@@ -962,7 +962,7 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
               <div key={row.label} style={{
                 background: "#FFFFFF", border: "1px solid #EDEAE0", borderRadius: 10, padding: "12px 14px",
               }}>
-                <div style={{ fontFamily: FONT_DISPLAY, fontSize: 16, fontWeight: 600, color: "#0F0F0E", marginBottom: 8 }}>
+                <div style={{ fontFamily: FONT_DISPLAY, fontSize: 16, fontWeight: 600, color: "var(--brand-ink)", marginBottom: 8 }}>
                   {row.label}
                 </div>
                 <div className="grid grid-cols-3 gap-2">
@@ -973,7 +973,7 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
                   ].map((s) => (
                     <div key={s.l}>
                       <div style={{ fontFamily: FONT_MONO, fontSize: 7, fontWeight: 600, letterSpacing: 1, color: "#8A8677", textTransform: "uppercase" }}>{s.l}</div>
-                      <div style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: s.v != null ? "#0F0F0E" : "#B7B2A3", marginTop: 2 }}>{s.v ?? "—"}</div>
+                      <div style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: s.v != null ? "var(--brand-ink)" : "#B7B2A3", marginTop: 2 }}>{s.v ?? "—"}</div>
                     </div>
                   ))}
                 </div>
@@ -1008,7 +1008,7 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
                 style={{ width: 100, height: 140, objectFit: "cover", borderRadius: 4, flexShrink: 0 }} />
             )}
             <div style={{ minWidth: 0 }}>
-              <div style={{ fontFamily: FONT_DISPLAY, fontSize: 16, fontWeight: 600, color: "#0F0F0E", lineHeight: 1.3 }}>
+              <div style={{ fontFamily: FONT_DISPLAY, fontSize: 16, fontWeight: 600, color: "var(--brand-ink)", lineHeight: 1.3 }}>
                 {featuredArticle.title}
               </div>
               <div style={{ fontSize: 14, color: "#6B6757", marginTop: 6, lineHeight: 1.5, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
@@ -1031,7 +1031,7 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
           <div style={{ background: "#FFFFFF", border: "1px solid #EDEAE0", borderRadius: 8 }}>
             {faqs.map((f, i) => (
               <div key={f.q} style={{ padding: "16px", borderTop: i > 0 ? "1px solid #F4F1E8" : "none" }}>
-                <h3 style={{ fontFamily: FONT_DISPLAY, fontSize: 17, fontWeight: 600, color: "#0F0F0E", margin: 0, lineHeight: 1.3 }}>
+                <h3 style={{ fontFamily: FONT_DISPLAY, fontSize: 17, fontWeight: 600, color: "var(--brand-ink)", margin: 0, lineHeight: 1.3 }}>
                   {f.q}
                 </h3>
                 <p style={{ fontSize: 15, lineHeight: 1.6, color: "#3A372F", margin: "8px 0 0" }}>
@@ -1111,7 +1111,7 @@ function SubsetSection({ subset, tab, showNumbered, oddsFor }: {
         <div key={`${c.code}-${i}`} className="flex items-center gap-3"
           style={{ padding: "8px 12px", borderTop: i > 0 ? "1px solid #F4F1E8" : "none" }}>
           <span style={{ fontFamily: FONT_MONO, fontSize: 13, color: "#8A8677", minWidth: 54 }}>{c.code}</span>
-          <span style={{ fontSize: 15, fontWeight: 500, color: "#0F0F0E", flex: 1, minWidth: 0 }}>{c.player}</span>
+          <span style={{ fontSize: 15, fontWeight: 500, color: "var(--brand-ink)", flex: 1, minWidth: 0 }}>{c.player}</span>
           {c.isRookie && (
             <span style={{
               flexShrink: 0, fontFamily: FONT_MONO, fontSize: 9, fontWeight: 700, letterSpacing: 0.5,
@@ -1282,7 +1282,7 @@ export function SetDetailClient({
                 </div>
                 <h1 style={{
                   fontFamily: "var(--brand-font-head)", fontSize: 34, fontWeight: 600,
-                  letterSpacing: -1.2, lineHeight: 1.02, color: "#0F0F0E", margin: "8px 0 12px",
+                  letterSpacing: -1.2, lineHeight: 1.02, color: "var(--brand-ink)", margin: "8px 0 12px",
                 }}>{setName}</h1>
                 <div className="flex flex-wrap items-center gap-2">
                   <span style={{ fontSize: 16, fontWeight: 500, padding: "4px 9px", borderRadius: 4, border: "1px solid #E6E3D9", color: "#3A372F" }}>
@@ -1293,7 +1293,7 @@ export function SetDetailClient({
                       {league}
                     </span>
                   )}
-                  <span style={{ fontSize: 16, fontWeight: 600, padding: "4px 9px", borderRadius: 4, background: "#0F0F0E", color: "#FAFAF7" }}>
+                  <span style={{ fontSize: 16, fontWeight: 600, padding: "4px 9px", borderRadius: 4, background: "var(--brand-ink)", color: "#FAFAF7" }}>
                     {meta.manufacturer || "Topps"}
                   </span>
                   <span style={{ fontSize: 16, color: "#6B6757" }}>
@@ -1327,8 +1327,8 @@ export function SetDetailClient({
                   padding: "14px 20px", flexShrink: 0,
                   fontFamily: FONT_DISPLAY,
                   fontSize: 16, fontWeight: activeTab === t ? 600 : 500,
-                  color: activeTab === t ? "#0F0F0E" : "#8A8677",
-                  borderBottom: activeTab === t ? "2px solid #0F0F0E" : "2px solid transparent",
+                  color: activeTab === t ? "var(--brand-ink)" : "#8A8677",
+                  borderBottom: activeTab === t ? "2px solid var(--brand-ink)" : "2px solid transparent",
                   marginBottom: -1, background: "transparent", cursor: "pointer",
                   transition: "all 150ms",
                 }}>
@@ -1366,7 +1366,7 @@ export function SetDetailClient({
             style={{
               display: "flex", alignItems: "center", gap: 6,
               background: "#FFFFFF", border: "1px solid #E6E3D9", borderRadius: 8,
-              padding: "8px 12px", fontSize: 16, fontWeight: 500, color: "#0F0F0E",
+              padding: "8px 12px", fontSize: 16, fontWeight: 500, color: "var(--brand-ink)",
             }}>
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128H5.228A2 2 0 0 1 3 17.208V5.792A2 2 0 0 1 5.228 3.872h13.544A2 2 0 0 1 21 5.792v6.625M12 10.5a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Z" />
@@ -1397,7 +1397,7 @@ export function SetDetailClient({
               </div>
               <h1 style={{
                 fontFamily: FONT_DISPLAY, fontSize: 24, fontWeight: 600,
-                letterSpacing: -0.6, lineHeight: 1.1, color: "#0F0F0E", margin: "6px 0 8px",
+                letterSpacing: -0.6, lineHeight: 1.1, color: "var(--brand-ink)", margin: "6px 0 8px",
               }}>{setName}</h1>
               <div className="flex flex-wrap items-center gap-1.5">
                 <span style={{ fontSize: 16, fontWeight: 500, padding: "3px 7px", borderRadius: 4, border: "1px solid #E6E3D9", color: "#3A372F" }}>
@@ -1432,8 +1432,8 @@ export function SetDetailClient({
                 padding: "12px 14px", flexShrink: 0,
                 fontFamily: FONT_DISPLAY,
                 fontSize: 16, fontWeight: activeTab === t ? 600 : 500,
-                color: activeTab === t ? "#0F0F0E" : "#8A8677",
-                borderBottom: activeTab === t ? "2px solid #0F0F0E" : "2px solid transparent",
+                color: activeTab === t ? "var(--brand-ink)" : "#8A8677",
+                borderBottom: activeTab === t ? "2px solid var(--brand-ink)" : "2px solid transparent",
                 marginBottom: -1, background: "transparent", cursor: "pointer",
               }}>
               {t}

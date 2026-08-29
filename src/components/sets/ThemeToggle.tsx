@@ -24,12 +24,12 @@ export function V2ThemeWrapper({ children }: { children: React.ReactNode }) {
             --v2-card-bg: #FFFFFF;
             --v2-sidebar-bg: #FFFFFF;
             --v2-border: #EDEAE0;
-            --v2-text-primary: #0F0F0E;
+            --v2-text-primary: var(--brand-ink);
             --v2-text-secondary: #6B6757;
             --v2-text-muted: #8A8677;
             --v2-text-disabled: #B7B2A3;
             --v2-text-rare: #9A2B14;
-            --v2-accent: #0F0F0E;
+            --v2-accent: var(--brand-ink);
             --v2-accent-light: #F1EFE9;
             --v2-success: #0E8A4F;
             --v2-badge-bg: #F1EFE9;
@@ -38,7 +38,7 @@ export function V2ThemeWrapper({ children }: { children: React.ReactNode }) {
             --v2-border-chip: #E6E3D9;
             --v2-hover-shadow: 0 2px 8px rgba(0,0,0,0.06);
             --v2-card-shadow: 0 1px 3px rgba(0,0,0,0.04);
-            --v2-break-sheet-bg: #0F0F0E;
+            --v2-break-sheet-bg: var(--brand-ink);
             --v2-break-sheet-hover-bg: #1A1A19;
             background: var(--v2-page-bg);
             color: var(--v2-text-primary);

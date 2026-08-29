@@ -68,10 +68,10 @@ export function ParallelTable({ rows, showNumbered }: { rows: ParallelRowData[];
       </div>
       {rows.map((r, i) => (
         <div key={`${r.name}-${i}`} style={{ ...rowGrid, borderTop: i > 0 ? "1px solid #F4F1E8" : undefined }}>
-          <span style={{ fontSize: 14, color: r.rare ? "#9A2B14" : "#0F0F0E", minWidth: 0 }}>{r.name}</span>
-          {showNumberedCol && <span style={{ textAlign: "right", fontFamily: FONT_MONO, fontSize: 14, color: "#0F0F0E" }}>{printRunDisplay(r.printRun)}</span>}
+          <span style={{ fontSize: 14, color: r.rare ? "#9A2B14" : "var(--brand-ink)", minWidth: 0 }}>{r.name}</span>
+          {showNumberedCol && <span style={{ textAlign: "right", fontFamily: FONT_MONO, fontSize: 14, color: "var(--brand-ink)" }}>{printRunDisplay(r.printRun)}</span>}
           {showOdds && (
-            <span style={{ textAlign: "right", fontFamily: FONT_MONO, fontSize: 14, color: "#0F0F0E" }}>
+            <span style={{ textAlign: "right", fontFamily: FONT_MONO, fontSize: 14, color: "var(--brand-ink)" }}>
               {r.odds != null ? (
                 <>{r.odds.text}{r.odds.tag && <span style={{ color: "#8A8677", fontSize: 11 }}> · {r.odds.tag}</span>}</>
               ) : (r.note ? <span title={r.note} style={{ color: "#8A8677", borderBottom: "1px dotted #B7B2A3", cursor: "help" }}>—</span> : "—")}
@@ -81,7 +81,7 @@ export function ParallelTable({ rows, showNumbered }: { rows: ParallelRowData[];
             <span style={ebayCell}>
               {r.shopUrl ? (
                 <a href={r.shopUrl} target="_blank" rel="sponsored noopener" aria-label="Find on eBay"
-                  style={{ fontFamily: FONT_MONO, fontSize: 12, fontWeight: 600, color: "#B12C18", textDecoration: "none", whiteSpace: "nowrap" }}>
+                  style={{ fontFamily: FONT_MONO, fontSize: 12, fontWeight: 600, color: "var(--brand-accent-deep)", textDecoration: "none", whiteSpace: "nowrap" }}>
                   <span className="hidden min-[1180px]:inline">Find on eBay </span>↗
                 </a>
               ) : null}

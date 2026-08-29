@@ -95,7 +95,7 @@ export function SearchesClient({
         {/* Title */}
         <h1
           className="cl-title"
-          style={{ fontFamily: "var(--cl-font-display)", fontSize: 48, fontWeight: 600, letterSpacing: "-1.2px", color: "#0F0F0E", margin: "12px 0 0", lineHeight: 1.1 }}
+          style={{ fontFamily: "var(--cl-font-display)", fontSize: 48, fontWeight: 600, letterSpacing: "-1.2px", color: "var(--brand-ink)", margin: "12px 0 0", lineHeight: 1.1 }}
         >
           Searches
         </h1>
@@ -116,8 +116,8 @@ export function SearchesClient({
                   borderRadius: 999, fontSize: 13,
                   fontWeight: active ? 500 : 400,
                   color: active ? "#FAFAF7" : "#3A372F",
-                  background: active ? "#0F0F0E" : "transparent",
-                  border: active ? "1px solid #0F0F0E" : "1px solid transparent",
+                  background: active ? "var(--brand-ink)" : "transparent",
+                  border: active ? "1px solid var(--brand-ink)" : "1px solid transparent",
                   cursor: "pointer", transition: "all 0.15s", flexShrink: 0,
                 }}
                 onMouseEnter={(e) => { if (!active) (e.currentTarget as HTMLElement).style.background = "#F1EFE9"; }}
@@ -142,8 +142,8 @@ export function SearchesClient({
                   borderRadius: 999, fontSize: 13,
                   fontWeight: active ? 500 : 400,
                   color: active ? "#FAFAF7" : "#3A372F",
-                  background: active ? "#0F0F0E" : "transparent",
-                  border: active ? "1px solid #0F0F0E" : "1px solid transparent",
+                  background: active ? "var(--brand-ink)" : "transparent",
+                  border: active ? "1px solid var(--brand-ink)" : "1px solid transparent",
                   cursor: "pointer", transition: "all 0.15s", flexShrink: 0,
                 }}
                 onMouseEnter={(e) => { if (!active) (e.currentTarget as HTMLElement).style.background = "#F1EFE9"; }}
@@ -219,7 +219,7 @@ function Section({
 
               {/* Info */}
               <div className="flex-1 min-w-0">
-                <p style={{ fontFamily: "var(--cl-font-display)", fontSize: 14, fontWeight: 500, color: "#0F0F0E", letterSpacing: "-0.1px" }} className="truncate">
+                <p style={{ fontFamily: "var(--cl-font-display)", fontSize: 14, fontWeight: 500, color: "var(--brand-ink)", letterSpacing: "-0.1px" }} className="truncate">
                   {entry.playerName}
                 </p>
                 <div className="flex items-center gap-1.5" style={{ marginTop: 2 }}>
@@ -230,7 +230,7 @@ function Section({
               </div>
 
               {/* Count */}
-              <span style={{ fontFamily: "var(--cl-font-mono)", fontSize: 12, fontWeight: 600, color: "#0F0F0E", flexShrink: 0 }}>
+              <span style={{ fontFamily: "var(--cl-font-mono)", fontSize: 12, fontWeight: 600, color: "var(--brand-ink)", flexShrink: 0 }}>
                 {entry.eventCount.toLocaleString()}
                 <span style={{ color: "#B7B2A3", fontWeight: 400, marginLeft: 4 }}>{countLabel}</span>
               </span>

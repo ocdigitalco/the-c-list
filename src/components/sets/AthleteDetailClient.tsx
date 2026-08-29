@@ -191,8 +191,8 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, currentAthleteId, 
               style={{
                 padding: "12px 16px", fontFamily: FONT_DISPLAY, fontSize: 16,
                 fontWeight: viewMode === mode ? 600 : 500,
-                color: viewMode === mode ? "#0F0F0E" : "#8A8677",
-                borderBottom: viewMode === mode ? "2px solid #0F0F0E" : "2px solid transparent",
+                color: viewMode === mode ? "var(--brand-ink)" : "#8A8677",
+                borderBottom: viewMode === mode ? "2px solid var(--brand-ink)" : "2px solid transparent",
                 marginBottom: -1, background: "transparent", cursor: "pointer", transition: "all 150ms",
               }}>{label}</button>
           ))}
@@ -207,22 +207,22 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, currentAthleteId, 
           <input type="text" value={query} onChange={(e) => setQuery(e.target.value)}
             placeholder={viewMode === "teams" ? `Search ${teamLabel.toLowerCase()}s…` : `Search ${subjectLabel.toLowerCase()}…`}
             autoComplete="off" spellCheck={false} className="w-full outline-none"
-            style={{ background: "#F1EFE9", borderRadius: 8, padding: "7px 10px 7px 30px", fontSize: 16, border: "none", color: "#0F0F0E" }} />
+            style={{ background: "#F1EFE9", borderRadius: 8, padding: "7px 10px 7px 30px", fontSize: 16, border: "none", color: "var(--brand-ink)" }} />
         </div>
         <div className="flex flex-wrap gap-1.5">
           {SORT_CHIPS.map((chip) => (
             <button key={chip.key} onClick={() => setSortKey(chip.key)}
               style={{
                 borderRadius: 4, padding: "4px 9px", fontSize: 16, fontWeight: 500,
-                background: sortKey === chip.key ? "#0F0F0E" : "transparent",
+                background: sortKey === chip.key ? "var(--brand-ink)" : "transparent",
                 color: sortKey === chip.key ? "#FAFAF7" : "#3A372F",
-                border: sortKey === chip.key ? "1px solid #0F0F0E" : "1px solid #E6E3D9",
+                border: sortKey === chip.key ? "1px solid var(--brand-ink)" : "1px solid #E6E3D9",
               }}>{chip.label}</button>
           ))}
         </div>
         {viewMode === "athletes" && (
           <label className="flex items-center gap-1.5 cursor-pointer" style={{ fontSize: 16, color: "#3A372F" }}>
-            <input type="checkbox" checked={rookiesOnly} onChange={() => setRookiesOnly((v) => !v)} style={{ accentColor: "#0F0F0E" }} />
+            <input type="checkbox" checked={rookiesOnly} onChange={() => setRookiesOnly((v) => !v)} style={{ accentColor: "var(--brand-ink)" }} />
             Rookies only
           </label>
         )}
@@ -249,25 +249,25 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, currentAthleteId, 
                     style={{
                       padding: "9px 18px", borderBottom: "1px solid #F4F1E8", textDecoration: "none",
                       background: isActive ? "#F4F1E8" : "transparent",
-                      borderLeft: isActive ? "2px solid #0F0F0E" : "2px solid transparent",
+                      borderLeft: isActive ? "2px solid var(--brand-ink)" : "2px solid transparent",
                     }}>
                     <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677", width: 18, textAlign: "right", flexShrink: 0 }}>{idx + 1}</span>
                     <PlayerAvatar name={entry.name} nbaPlayerId={entry.nbaPlayerId} ufcImageUrl={entry.ufcImageUrl}
                       mlbPlayerId={entry.mlbPlayerId} imageUrl={entry.imageUrl} size={30} />
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-1.5 min-w-0">
-                        <span className="truncate" style={{ fontSize: 16, fontWeight: 500, color: "#0F0F0E" }}>{entry.name}</span>
+                        <span className="truncate" style={{ fontSize: 16, fontWeight: 500, color: "var(--brand-ink)" }}>{entry.name}</span>
                         {entry.isRookie && (
                           <span className="shrink-0" style={{ background: "oklch(0.55 0.17 25)", color: "#FFF8F1", fontSize: 9, fontWeight: 700, padding: "1px 5px", borderRadius: 2 }}>RC</span>
                         )}
                       </div>
                       {hasTeamData && entry.team && <p className="truncate" style={{ fontSize: 16, color: "#6B6757", marginTop: 1 }}>{entry.team}</p>}
                     </div>
-                    <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: "#0F0F0E", flexShrink: 0 }}>{entry[sortKey].toLocaleString()}</span>
+                    <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: "var(--brand-ink)", flexShrink: 0 }}>{entry[sortKey].toLocaleString()}</span>
                   </Link>
                 );
               })}
-              {!showAll && filtered.length > 50 && <button onClick={() => setShowAll(true)} className="w-full py-3" style={{ fontSize: 16, fontWeight: 600, color: "#0F0F0E" }}>Show all {filtered.length} {subjectLabel.toLowerCase()}</button>}
+              {!showAll && filtered.length > 50 && <button onClick={() => setShowAll(true)} className="w-full py-3" style={{ fontSize: 16, fontWeight: 600, color: "var(--brand-ink)" }}>Show all {filtered.length} {subjectLabel.toLowerCase()}</button>}
             </>
           )
         ) : (
@@ -281,10 +281,10 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, currentAthleteId, 
                 <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677", width: 18, textAlign: "right", flexShrink: 0 }}>{idx + 1}</span>
                 <TeamLogoAvatar teamName={tr.team} sport={sport} size={30} />
                 <div className="flex-1 min-w-0">
-                  <span className="truncate block" style={{ fontSize: 16, fontWeight: 500, color: "#0F0F0E" }}>{tr.team}</span>
+                  <span className="truncate block" style={{ fontSize: 16, fontWeight: 500, color: "var(--brand-ink)" }}>{tr.team}</span>
                   <p className="truncate" style={{ fontSize: 16, color: "#6B6757", marginTop: 1 }}>{tr.athleteCount} {tr.athleteCount === 1 ? "Athlete" : "Athletes"}</p>
                 </div>
-                <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: "#0F0F0E", flexShrink: 0 }}>{tr[sortKey].toLocaleString()}</span>
+                <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: "var(--brand-ink)", flexShrink: 0 }}>{tr[sortKey].toLocaleString()}</span>
               </Link>
             ))
           )
@@ -303,7 +303,7 @@ function InsertSetsAccordion({ insertSets, setSlug, setId }: {
 
   return (
     <div>
-      <h3 style={{ fontFamily: FONT_DISPLAY, fontSize: 16, fontWeight: 600, color: "#0F0F0E", marginBottom: 12 }}>
+      <h3 style={{ fontFamily: FONT_DISPLAY, fontSize: 16, fontWeight: 600, color: "var(--brand-ink)", marginBottom: 12 }}>
         Card Types ({insertSets.length})
       </h3>
       <div style={{ border: "1px solid #EDEAE0", borderRadius: 8, overflow: "hidden" }}>
@@ -314,7 +314,7 @@ function InsertSetsAccordion({ insertSets, setSlug, setId }: {
               <button onClick={() => setOpenSet(isOpen ? null : is.insertSetName)}
                 className="w-full flex items-center justify-between"
                 style={{ padding: "14px 18px", background: "#FFFFFF", textAlign: "left", cursor: "pointer", border: "none" }}>
-                <span style={{ fontSize: 16, fontWeight: 500, color: "#0F0F0E" }}>{is.insertSetName}</span>
+                <span style={{ fontSize: 16, fontWeight: 500, color: "var(--brand-ink)" }}>{is.insertSetName}</span>
                 <div className="flex items-center gap-3">
                   <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677" }}>
                     {is.appearances.length} card{is.appearances.length !== 1 ? "s" : ""} · {is.parallels.length} parallels
@@ -332,7 +332,7 @@ function InsertSetsAccordion({ insertSets, setSlug, setId }: {
                       <div className="flex items-center gap-2">
                         <span style={{
                           fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600,
-                          background: "#F1EFE9", padding: "3px 7px", borderRadius: 3, color: "#0F0F0E",
+                          background: "#F1EFE9", padding: "3px 7px", borderRadius: 3, color: "var(--brand-ink)",
                         }}>#{app.cardNumber}</span>
                         <span style={{ fontSize: 16, color: "#3A372F" }}>{app.team}</span>
                         {app.subsetTag && <span style={{ fontSize: 16, color: "#8A8677" }}>({app.subsetTag})</span>}
@@ -490,9 +490,9 @@ function AthleteSubsetTab({ insertSets, packOddsJson, playerName, setName, setId
             <button key={f.key} onClick={() => setActiveIdx(i)}
               style={{
                 borderRadius: 999, padding: "7px 12px", fontSize: 16, fontWeight: 600,
-                background: i === activeIdx ? "#0F0F0E" : "#FFFFFF",
+                background: i === activeIdx ? "var(--brand-ink)" : "#FFFFFF",
                 color: i === activeIdx ? "#FAFAF7" : "#3A372F",
-                border: i === activeIdx ? "1px solid #0F0F0E" : "1px solid #EDEAE0",
+                border: i === activeIdx ? "1px solid var(--brand-ink)" : "1px solid #EDEAE0",
               }}>{f.label}</button>
           ))}
         </div>
@@ -524,7 +524,7 @@ function AthleteSubsetTab({ insertSets, packOddsJson, playerName, setName, setId
               <div key={`${is.insertSetId}-${app.cardNumber}-${i}`} className="flex items-center gap-3"
                 style={{ padding: "8px 12px", borderTop: i > 0 ? "1px solid #F4F1E8" : "none" }}>
                 <span style={{ fontFamily: FONT_MONO, fontSize: 13, color: "#8A8677", minWidth: 54 }}>#{app.cardNumber}</span>
-                <span style={{ fontSize: 15, fontWeight: 500, color: "#0F0F0E", flex: 1, minWidth: 0 }}>{playerName}</span>
+                <span style={{ fontSize: 15, fontWeight: 500, color: "var(--brand-ink)", flex: 1, minWidth: 0 }}>{playerName}</span>
                 {app.isRookie && (
                   <span style={{ flexShrink: 0, fontFamily: FONT_MONO, fontSize: 9, fontWeight: 700, letterSpacing: 0.5,
                     color: "#9A2B14", background: "rgba(154,43,20,0.08)", border: "1px solid rgba(154,43,20,0.2)", padding: "1px 5px", borderRadius: 3 }}>RC</span>
@@ -578,13 +578,13 @@ function AlsoFeaturedIn({ otherSets }: { otherSets: OtherSet[] }) {
             {otherSets.map((s) => (
               <tr key={s.id} style={{ borderBottom: "1px solid #F4F1E8" }}>
                 <td style={{ padding: "12px 10px" }}>
-                  <Link href={`/sets/${s.slug ?? s.id}`} style={{ color: "#0F0F0E", fontWeight: 500, textDecoration: "none" }}>
+                  <Link href={`/sets/${s.slug ?? s.id}`} style={{ color: "var(--brand-ink)", fontWeight: 500, textDecoration: "none" }}>
                     {s.name}
                   </Link>
                 </td>
                 <td style={{ padding: "12px 10px", textAlign: "right", color: "#6B6757" }}>{s.sport}</td>
                 <td style={{ padding: "12px 10px", textAlign: "right", fontFamily: FONT_MONO, fontWeight: 600 }}>{s.totalCards}</td>
-                <td style={{ padding: "12px 10px", textAlign: "right", fontFamily: FONT_MONO, fontWeight: 600, color: s.autographs === 0 ? "#B7B2A3" : "#0F0F0E" }}>
+                <td style={{ padding: "12px 10px", textAlign: "right", fontFamily: FONT_MONO, fontWeight: 600, color: s.autographs === 0 ? "#B7B2A3" : "var(--brand-ink)" }}>
                   {s.autographs === 0 ? "—" : s.autographs}
                 </td>
                 <td style={{ padding: "12px 10px", textAlign: "right", fontFamily: FONT_MONO, fontWeight: 600 }}>{s.parallels}</td>
@@ -600,7 +600,7 @@ function AlsoFeaturedIn({ otherSets }: { otherSets: OtherSet[] }) {
             display: "block", background: "#FFFFFF", border: "1px solid #EDEAE0",
             borderRadius: 10, padding: "12px 14px", textDecoration: "none",
           }}>
-            <div style={{ fontSize: 16, fontWeight: 500, color: "#0F0F0E" }}>{s.name}</div>
+            <div style={{ fontSize: 16, fontWeight: 500, color: "var(--brand-ink)" }}>{s.name}</div>
             <div style={{ fontSize: 16, color: "#6B6757", marginTop: 2 }}>{s.sport}</div>
             <div className="grid grid-cols-3 gap-2 mt-2" style={{
               background: "#FAFAF7", borderRadius: 8, border: "1px solid #EDEAE0", padding: "8px 10px",
@@ -608,7 +608,7 @@ function AlsoFeaturedIn({ otherSets }: { otherSets: OtherSet[] }) {
               {[{ l: "CARDS", v: s.totalCards }, { l: "AUTOS", v: s.autographs }, { l: "PARALLELS", v: s.parallels }].map((st) => (
                 <div key={st.l} className="text-center">
                   <div style={{ fontFamily: FONT_MONO, fontSize: 8, fontWeight: 600, letterSpacing: 1.2, color: "#8A8677", textTransform: "uppercase" }}>{st.l}</div>
-                  <div style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: st.v === 0 ? "#B7B2A3" : "#0F0F0E", marginTop: 2 }}>
+                  <div style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: st.v === 0 ? "#B7B2A3" : "var(--brand-ink)", marginTop: 2 }}>
                     {st.v === 0 ? "—" : st.v.toLocaleString()}
                   </div>
                 </div>
@@ -647,7 +647,7 @@ function MobileAthletesDrawer({ open, onClose, entries, hasTeamData, setId, setS
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
           </svg>
         </button>
-        <span style={{ fontFamily: FONT_DISPLAY, fontSize: 17, fontWeight: 600, letterSpacing: -0.3, color: "#0F0F0E" }}>
+        <span style={{ fontFamily: FONT_DISPLAY, fontSize: 17, fontWeight: 600, letterSpacing: -0.3, color: "var(--brand-ink)" }}>
           {subjectLabel} in Set
         </span>
         <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677" }}>{athleteCount}</span>
@@ -765,7 +765,7 @@ export function AthleteDetailClient({
                 </div>
                 <h1 style={{
                   fontFamily: "var(--brand-font-head)", fontSize: 38, fontWeight: 600,
-                  letterSpacing: -1, lineHeight: 1.08, color: "#0F0F0E", margin: "6px 0 12px",
+                  letterSpacing: -1, lineHeight: 1.08, color: "var(--brand-ink)", margin: "6px 0 12px",
                   textWrap: "balance",
                 }}>{athleteName}</h1>
                 <div className="flex flex-wrap items-center gap-2">
@@ -817,7 +817,7 @@ export function AthleteDetailClient({
                 <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase" }}>
                   {item.label}
                 </div>
-                <div style={{ fontFamily: FONT_DISPLAY, fontSize: 26, fontWeight: 600, letterSpacing: -0.6, color: "#0F0F0E", marginTop: 4 }}>
+                <div style={{ fontFamily: FONT_DISPLAY, fontSize: 26, fontWeight: 600, letterSpacing: -0.6, color: "var(--brand-ink)", marginTop: 4 }}>
                   {item.value.toLocaleString()}
                 </div>
               </div>
@@ -834,8 +834,8 @@ export function AthleteDetailClient({
                 style={{
                   padding: "14px 20px", fontFamily: FONT_DISPLAY,
                   fontSize: 16, fontWeight: tab === t ? 600 : 500,
-                  color: tab === t ? "#0F0F0E" : "#8A8677",
-                  borderBottom: tab === t ? "2px solid #0F0F0E" : "2px solid transparent",
+                  color: tab === t ? "var(--brand-ink)" : "#8A8677",
+                  borderBottom: tab === t ? "2px solid var(--brand-ink)" : "2px solid transparent",
                   marginBottom: -1, background: "transparent", cursor: "pointer", transition: "all 150ms",
                 }}>
                 {t}
@@ -883,7 +883,7 @@ export function AthleteDetailClient({
             style={{
               display: "flex", alignItems: "center", gap: 6,
               background: "#FFFFFF", border: "1px solid #E6E3D9", borderRadius: 8,
-              padding: "8px 12px", fontSize: 16, fontWeight: 500, color: "#0F0F0E",
+              padding: "8px 12px", fontSize: 16, fontWeight: 500, color: "var(--brand-ink)",
             }}>
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128H5.228A2 2 0 0 1 3 17.208V5.792A2 2 0 0 1 5.228 3.872h13.544A2 2 0 0 1 21 5.792v6.625M12 10.5a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Z" />
@@ -917,7 +917,7 @@ export function AthleteDetailClient({
               </div>
               <h1 style={{
                 fontFamily: "var(--brand-font-head)", fontSize: 22, fontWeight: 600,
-                letterSpacing: -0.6, lineHeight: 1.05, color: "#0F0F0E", margin: "4px 0 8px",
+                letterSpacing: -0.6, lineHeight: 1.05, color: "var(--brand-ink)", margin: "4px 0 8px",
               }}>{athleteName}</h1>
               <div className="flex flex-wrap items-center gap-1.5">
                 <span style={{ fontSize: 16, fontWeight: 500, padding: "3px 7px", borderRadius: 4, border: "1px solid #E6E3D9", color: "#3A372F" }}>
@@ -946,7 +946,7 @@ export function AthleteDetailClient({
               <div style={{ fontFamily: FONT_MONO, fontSize: 7, fontWeight: 600, letterSpacing: 1, color: "#8A8677", textTransform: "uppercase" }}>
                 {item.label}
               </div>
-              <div style={{ fontFamily: FONT_DISPLAY, fontSize: 16, fontWeight: 600, letterSpacing: -0.5, color: "#0F0F0E", marginTop: 4 }}>
+              <div style={{ fontFamily: FONT_DISPLAY, fontSize: 16, fontWeight: 600, letterSpacing: -0.5, color: "var(--brand-ink)", marginTop: 4 }}>
                 {item.value.toLocaleString()}
               </div>
             </div>
@@ -964,8 +964,8 @@ export function AthleteDetailClient({
               style={{
                 padding: "12px 12px", flexShrink: 0, fontFamily: FONT_DISPLAY,
                 fontSize: 16, fontWeight: tab === t ? 600 : 500,
-                color: tab === t ? "#0F0F0E" : "#8A8677",
-                borderBottom: tab === t ? "2px solid #0F0F0E" : "2px solid transparent",
+                color: tab === t ? "var(--brand-ink)" : "#8A8677",
+                borderBottom: tab === t ? "2px solid var(--brand-ink)" : "2px solid transparent",
                 marginBottom: -1, background: "transparent", cursor: "pointer",
               }}>
               {t}

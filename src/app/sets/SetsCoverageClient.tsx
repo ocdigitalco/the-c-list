@@ -147,12 +147,12 @@ function SetsCoverageInner({ rows }: { rows: CoverageRow[] }) {
         <a href="/" style={{ fontSize: 13, color: "#6B6757", textDecoration: "none", fontFamily: "var(--cl-font-display)" }}>&lsaquo; Home</a>
 
         {/* Title */}
-        <h1 className="cl-title" style={{ fontFamily: "var(--cl-font-display)", fontSize: 48, fontWeight: 600, letterSpacing: "-1.2px", color: "#0F0F0E", margin: "12px 0 0", lineHeight: 1.1 }}>
+        <h1 className="cl-title" style={{ fontFamily: "var(--cl-font-display)", fontSize: 48, fontWeight: 600, letterSpacing: "-1.2px", color: "var(--brand-ink)", margin: "12px 0 0", lineHeight: 1.1 }}>
           Sets Coverage
         </h1>
         <p style={{ fontSize: 14, color: "#6B6757", margin: "6px 0 0" }}>
-          <span style={{ color: "#0F0F0E", fontWeight: 600 }}>{totalComplete}</span> of{" "}
-          <span style={{ color: "#0F0F0E", fontWeight: 600 }}>{filtered.length}</span> sets tracked in the app
+          <span style={{ color: "var(--brand-ink)", fontWeight: 600 }}>{totalComplete}</span> of{" "}
+          <span style={{ color: "var(--brand-ink)", fontWeight: 600 }}>{filtered.length}</span> sets tracked in the app
         </p>
 
         {/* Required Coverage legend */}
@@ -169,9 +169,9 @@ function SetsCoverageInner({ rows }: { rows: CoverageRow[] }) {
             onClick={() => setShowIncomplete(!showIncomplete)}
             style={{
               padding: "6px 12px", borderRadius: 999, fontSize: 12, fontWeight: 500, cursor: "pointer",
-              background: showIncomplete ? "#0F0F0E" : "transparent",
+              background: showIncomplete ? "var(--brand-ink)" : "transparent",
               color: showIncomplete ? "#FAFAF7" : "#3A372F",
-              border: showIncomplete ? "1px solid #0F0F0E" : "1px solid #D9D5C7",
+              border: showIncomplete ? "1px solid var(--brand-ink)" : "1px solid #D9D5C7",
             }}
           >
             {showIncomplete ? "✓ " : ""}Show only incomplete
@@ -185,7 +185,7 @@ function SetsCoverageInner({ rows }: { rows: CoverageRow[] }) {
             const active = manufacturer === mfr;
             let style: React.CSSProperties = { padding: "6px 12px", borderRadius: 999, fontSize: 13, fontWeight: active ? 500 : 400, cursor: "pointer", border: "1px solid transparent", background: "transparent", transition: "all 0.15s" };
             if (mfr === "All") {
-              style = { ...style, ...(active ? { background: "#0F0F0E", color: "#FAFAF7", borderColor: "#0F0F0E" } : { color: "#3A372F" }) };
+              style = { ...style, ...(active ? { background: "var(--brand-ink)", color: "#FAFAF7", borderColor: "var(--brand-ink)" } : { color: "#3A372F" }) };
             } else if (mfr === "Topps") {
               style = { ...style, color: "#E11D48", ...(active ? { borderColor: "#E11D48" } : {}) };
             } else {
@@ -205,8 +205,8 @@ function SetsCoverageInner({ rows }: { rows: CoverageRow[] }) {
                 onClick={() => setSport(sp)}
                 style={{
                   padding: active ? "8px 16px" : "8px 14px", borderRadius: 999, fontSize: 13, fontWeight: active ? 500 : 400,
-                  color: active ? "#FAFAF7" : "#3A372F", background: active ? "#0F0F0E" : "transparent",
-                  border: active ? "1px solid #0F0F0E" : "1px solid transparent", cursor: "pointer", transition: "all 0.15s", flexShrink: 0,
+                  color: active ? "#FAFAF7" : "#3A372F", background: active ? "var(--brand-ink)" : "transparent",
+                  border: active ? "1px solid var(--brand-ink)" : "1px solid transparent", cursor: "pointer", transition: "all 0.15s", flexShrink: 0,
                 }}
                 onMouseEnter={(e) => { if (!active) (e.currentTarget as HTMLElement).style.background = "#F1EFE9"; }}
                 onMouseLeave={(e) => { if (!active) (e.currentTarget as HTMLElement).style.background = "transparent"; }}
@@ -234,7 +234,7 @@ function SetsCoverageInner({ rows }: { rows: CoverageRow[] }) {
                   <svg width={12} height={12} viewBox="0 0 24 24" fill="none" stroke="#3A372F" strokeWidth={1.6} style={{ transition: "transform 0.15s ease", transform: isOpen ? "rotate(0deg)" : "rotate(-90deg)" }}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                   </svg>
-                  <span style={{ fontFamily: "var(--cl-font-display)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.5px", color: "#0F0F0E" }}>{year}</span>
+                  <span style={{ fontFamily: "var(--cl-font-display)", fontSize: 22, fontWeight: 600, letterSpacing: "-0.5px", color: "var(--brand-ink)" }}>{year}</span>
                 </div>
                 <span style={{ fontFamily: "var(--cl-font-mono)", fontSize: 11, color: "#8A8677" }}>
                   <span style={{ fontWeight: 600 }}>{yearComplete}</span> / {yearRows.length} complete
@@ -258,7 +258,7 @@ function SetsCoverageInner({ rows }: { rows: CoverageRow[] }) {
                                 {/* Desktop layout */}
                                 <div className="hidden md:grid" style={{ gridTemplateColumns: "92px 1fr auto", gap: 18, alignItems: "center" }}>
                                   <MfrPill mfr={row.manufacturer} />
-                                  <span style={{ fontFamily: "var(--cl-font-display)", fontSize: 14, fontWeight: 500, letterSpacing: "-0.1px", color: "#0F0F0E", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                                  <span style={{ fontFamily: "var(--cl-font-display)", fontSize: 14, fontWeight: 500, letterSpacing: "-0.1px", color: "var(--brand-ink)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                                     {row.name}
                                   </span>
                                   <div className="flex items-center gap-[22px]">
@@ -285,7 +285,7 @@ function SetsCoverageInner({ rows }: { rows: CoverageRow[] }) {
                                       {isComplete(row) ? "READY" : `${missingCount(row)} MISSING`}
                                     </span>
                                   </div>
-                                  <p style={{ fontFamily: "var(--cl-font-display)", fontSize: 14, fontWeight: 600, letterSpacing: "-0.2px", color: "#0F0F0E", lineHeight: 1.25, marginBottom: 8 }}>
+                                  <p style={{ fontFamily: "var(--cl-font-display)", fontSize: 14, fontWeight: 600, letterSpacing: "-0.2px", color: "var(--brand-ink)", lineHeight: 1.25, marginBottom: 8 }}>
                                     {row.name}
                                   </p>
                                   <div className="flex gap-[3px]">

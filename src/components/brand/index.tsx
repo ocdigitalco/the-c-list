@@ -7,6 +7,9 @@
 
 // ─── Tokens ─────────────────────────────────────────────────────────────────────
 
+// NB: color values stay as literal hex — they feed SVG `fill`/`stroke`
+// *attributes* (CL2Mark/CL2AppIcon), where CSS var() does not resolve. They
+// mirror the --brand-* tokens exactly.
 export const CL2 = {
   ink: "#0E0E0E",
   paper: "#F1EDE4",

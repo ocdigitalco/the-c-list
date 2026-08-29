@@ -88,7 +88,7 @@ export default async function SheetsAdminPage({
         {/* Title */}
         <h1
           className="cl-title"
-          style={{ fontFamily: "var(--cl-font-display)", fontSize: 48, fontWeight: 600, letterSpacing: "-1.2px", color: "#0F0F0E", margin: "12px 0 0", lineHeight: 1.1 }}
+          style={{ fontFamily: "var(--cl-font-display)", fontSize: 48, fontWeight: 600, letterSpacing: "-1.2px", color: "var(--brand-ink)", margin: "12px 0 0", lineHeight: 1.1 }}
         >
           Saved Break Sheets
         </h1>
@@ -116,11 +116,11 @@ export default async function SheetsAdminPage({
                     {/* Set display name (falls back to slug; links when the set exists) */}
                     <span className="min-w-0 flex-1 truncate" style={{ fontSize: 14, fontWeight: 500, minWidth: 140 }} title={displayName ?? s.setSlug}>
                       {displayName ? (
-                        <Link href={`/sets/${s.setSlug}`} style={{ color: "#0F0F0E", textDecoration: "none" }}>
+                        <Link href={`/sets/${s.setSlug}`} style={{ color: "var(--brand-ink)", textDecoration: "none" }}>
                           {displayName}
                         </Link>
                       ) : (
-                        <span style={{ color: "#0F0F0E" }}>{s.setSlug}</span>
+                        <span style={{ color: "var(--brand-ink)" }}>{s.setSlug}</span>
                       )}
                     </span>
                     <span style={{ fontSize: 12, color: "#6B6757", width: 84 }} className="truncate" title={s.sport}>{s.sport}</span>
@@ -153,7 +153,7 @@ export default async function SheetsAdminPage({
                         <tbody>
                           {prices.map((p) => (
                             <tr key={p.id} style={{ borderTop: "1px solid #F1EEE3" }}>
-                              <td style={{ padding: "5px 16px 5px 0", color: "#0F0F0E" }}>{p.subjectName}</td>
+                              <td style={{ padding: "5px 16px 5px 0", color: "var(--brand-ink)" }}>{p.subjectName}</td>
                               <td style={{ padding: "5px 16px 5px 0", color: "#8A8677" }}>{p.subjectType}</td>
                               <td style={{ padding: "5px 0", textAlign: "right", color: "#3A372F", fontVariantNumeric: "tabular-nums" }}>{usd(p.price)}</td>
                             </tr>
