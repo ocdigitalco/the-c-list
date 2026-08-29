@@ -32,7 +32,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--brand-font-body);
 }
 
 /* ─── Hide scrollbar utility ───────────────────────────────────────────── */
@@ -73,7 +73,7 @@ body {
   --cl-accent: oklch(0.55 0.17 25);
   --cl-accent-fg: #FFF8F1;
   --cl-font-display: var(--font-inter-tight), 'Inter Tight', -apple-system, system-ui, sans-serif;
-  --cl-font-mono: var(--font-jetbrains), 'JetBrains Mono', monospace;
+  --cl-font-mono: var(--brand-font-mono);
 }
 
 /* ─── Checklists gallery responsive grid ───────────────────────────────── */
