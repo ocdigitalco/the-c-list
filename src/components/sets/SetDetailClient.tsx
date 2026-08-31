@@ -563,19 +563,7 @@ function CoverageCard({ hasChecklist, hasNumberedParallels, hasBoxConfig, hasPac
         <span style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "var(--brand-slate)", textTransform: "uppercase" }}>
           Coverage
         </span>
-        <div className="v2-break-sheet-pill">
-          <style>{`
-            .v2-break-sheet-pill > button, .v2-break-sheet-pill > a {
-              background: var(--brand-ink) !important; color: var(--brand-page) !important;
-              font-size: 10px !important; font-weight: 600 !important;
-              padding: 5px 10px !important; border-radius: 4px !important;
-              border: none !important; cursor: pointer !important;
-              line-height: 1.2 !important;
-            }
-            .v2-break-sheet-pill > button:hover, .v2-break-sheet-pill > a:hover { background: var(--brand-ink) !important; }
-          `}</style>
-          <BreakSheetLink slug={setSlug} setName={setName} sport={sport} league={league} players={breakSheetPlayers} />
-        </div>
+        <BreakSheetLink slug={setSlug} setName={setName} sport={sport} league={league} players={breakSheetPlayers} />
       </div>
       <div className="space-y-2">
         {rows.map((r) => (
@@ -1373,9 +1361,7 @@ export function SetDetailClient({
             </svg>
             Leaderboard
           </button>
-          <div className="v2-break-sheet-pill">
-            <BreakSheetLink slug={setSlug} setName={setName} sport={sport} league={league} players={breakSheetPlayers} />
-          </div>
+          <BreakSheetLink slug={setSlug} setName={setName} sport={sport} league={league} players={breakSheetPlayers} />
         </div>
 
         {/* Hero */}

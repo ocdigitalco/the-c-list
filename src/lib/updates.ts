@@ -41,7 +41,7 @@ The site now follows the Checklist² brand guidelines. The **wordmark and page-l
 
 Colors are unified to the guideline palette — **Ink**, **Paper**, and **Card Red** — replacing the scattered hardcoded values. Card Red now marks the **active tab** on set and athlete pages and the **Find on eBay** links; the short-print red in parallel tables is unchanged. No layouts or checklists were affected — this is purely a type and color pass.
 
-As a follow-up, the wordmark's **²** is now a Card-Red superscript card, page titles share one standard (Carter One, weight 400), and the index pages all render at a single consistent width. The whole site now runs on one theme — a warm-paper page, near-white header, and true-white panels — with unified buttons, filter controls, cards, and tables built from a single set of surface, border, and accent tokens.`,
+As a follow-up, the wordmark's **²** is now a Card-Red superscript card, page titles share one standard (Carter One, weight 400), and the index pages all render at a single consistent width. The whole site now runs on one theme — a warm-paper page, near-white header, and true-white panels — with unified buttons, filter controls, cards, and tables built from a single set of surface, border, and accent tokens. Manufacturer badges now share the palette instead of per-brand colors, and the Break Sheet action uses the theme's red primary button.`,
     tags: ["announcement"],
   },
   {

@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Button } from "@/components/Button";
 
 /**
  * Drop-in replacement for the set-page `BreakSheetModal` trigger. Instead of
@@ -20,10 +20,11 @@ interface BreakSheetLinkProps {
 
 export function BreakSheetLink(props: BreakSheetLinkProps) {
   return (
-    <Link
+    <Button
       href={`/break-sheet-builder?set=${encodeURIComponent(props.slug)}`}
-      className="flex items-center gap-1.5 shrink-0 text-sm font-semibold text-[var(--brand-head)] bg-[var(--brand-accent)] hover:bg-[var(--brand-accent-deep)] px-4 py-2 rounded-lg transition-colors"
-      style={{ boxShadow: "var(--brand-shadow-btn)" }}
+      variant="pri"
+      size="sm"
+      className="shrink-0"
     >
       <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path
@@ -33,6 +34,6 @@ export function BreakSheetLink(props: BreakSheetLinkProps) {
         />
       </svg>
       Break Sheet
-    </Link>
+    </Button>
   );
 }

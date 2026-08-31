@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import "./breaksheet.css";
 import { Sheet, type GridColumn, type GridRow, type SortDir } from "./Sheet";
+import { Button } from "@/components/Button";
 import { trackEvent } from "@/lib/analytics";
 import {
   breakInfo as computeBreakInfo,
@@ -522,15 +523,15 @@ export function BreakSheetBuilderClient({ setOptions, data, initialConfig }: Pro
               <div className="n">{(config.mode === "teams" ? data.teamCount : data.athleteCount).toLocaleString()}</div>
               <div className="l">{config.mode === "teams" ? "Teams" : "Athletes"}</div>
             </div>
-            <button className="btn btn-ghost" onClick={copyShareLink}>
+            <Button variant="sec" onClick={copyShareLink}>
               <Share /> {copied ? "Copied!" : "Share"}
-            </button>
-            <button className="btn btn-ghost" onClick={reset}>
+            </Button>
+            <Button variant="gho" onClick={reset}>
               Reset
-            </button>
-            <button className="btn btn-amber" onClick={download}>
+            </Button>
+            <Button variant="pri" onClick={download}>
               <Dl /> Download CSV
-            </button>
+            </Button>
           </>
         )}
       </div>
