@@ -30,8 +30,8 @@
 
 /* ─── Base body styles ───────────────────────────────────────────────────── */
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--brand-page);
+  color: var(--brand-ink);
   font-family: var(--brand-font-body);
 }
 
@@ -49,6 +49,33 @@ body {
   --brand-accent-deep: #B12C18;
   --brand-slate: #5A5247;
   --brand-fog: #CFC8B8;
+
+  /* ── Site Theme surfaces (Checklist² Site Theme — three-step hierarchy) ── */
+  --brand-head: #FDFCFA;   /* site header / chrome only */
+  --brand-page: #F7F5F0;   /* body background, every route */
+  --brand-card: #FFFFFF;   /* panels, tables, cards, stat strips, sidebars */
+  --brand-line: #E7E2D6;   /* every border and divider */
+  --brand-track: #F1EEE6;  /* control tracks, tags, table headers */
+  --brand-field: #FBFAF7;  /* input fills */
+  --brand-sel: #FAF7F0;    /* hovered / selected row */
+  --brand-ph: #FBFAF7;     /* image placeholder fill */
+  --brand-empty: #F4F1E9;  /* empty card slot */
+  --brand-stripe: #EFEBE1; /* placeholder hatch */
+  --brand-tint: #FBEDEA;   /* accent wash — nav + chip hover */
+  --brand-ok: #1F9254;     /* coverage dots, positive odds */
+
+  /* legacy cream surfaces — retained as aliases so older refs don't break */
+  --brand-paper: #F1EDE4;
+  --brand-paper-deep: #E5E0D3;
+
+  /* geometry + elevation */
+  --brand-radius-pill: 999px;    /* pills, chips, segmented, avatars */
+  --brand-radius-control: 8px;   /* buttons, inputs */
+  --brand-radius-thumb: 6px;     /* card thumbnails */
+  --brand-radius-tag: 5px;       /* tags / badges */
+  --brand-radius-panel: 0;       /* full-width panels, tables, strips */
+  --brand-shadow-btn: 0 1px 2px rgba(0, 0, 0, 0.12); /* primary red button only */
+
   --brand-font-head: var(--font-carter-one), 'Carter One', system-ui, sans-serif;
   --brand-font-body: var(--font-inter), 'Inter', system-ui, sans-serif;
   --brand-font-mono: var(--font-jetbrains), 'JetBrains Mono', ui-monospace, Menlo, monospace;
@@ -56,22 +83,23 @@ body {
 
 /* ─── Design tokens (checklists redesign) ──────────────────────────────── */
 :root {
-  --cl-bg-page: #FAFAF7;
-  --cl-bg-surface: #FFFFFF;
-  --cl-bg-raised: #FDFCF8;
-  --cl-bg-muted: #F1EFE9;
-  --cl-bg-subtle: #F4F1E8;
-  --cl-bg-placeholder: #EAE6D9;
-  --cl-text-primary: #0F0F0E;
-  --cl-text-secondary: #3A372F;
-  --cl-text-tertiary: #6B6757;
-  --cl-text-muted: #8A8677;
-  --cl-text-faint: #B7B2A3;
-  --cl-border-default: #EDEAE0;
-  --cl-border-strong: #E6E3D9;
-  --cl-border-subtle: #F4F1E8;
-  --cl-accent: oklch(0.55 0.17 25);
-  --cl-accent-fg: #FFF8F1;
+  /* repointed to the Site Theme tokens (older names kept as aliases) */
+  --cl-bg-page: var(--brand-page);
+  --cl-bg-surface: var(--brand-card);
+  --cl-bg-raised: var(--brand-sel);
+  --cl-bg-muted: var(--brand-track);
+  --cl-bg-subtle: var(--brand-empty);
+  --cl-bg-placeholder: var(--brand-ph);
+  --cl-text-primary: var(--brand-ink);
+  --cl-text-secondary: var(--brand-ink-soft);
+  --cl-text-tertiary: var(--brand-slate);
+  --cl-text-muted: var(--brand-slate);
+  --cl-text-faint: var(--brand-fog);
+  --cl-border-default: var(--brand-line);
+  --cl-border-strong: var(--brand-line);
+  --cl-border-subtle: var(--brand-line);
+  --cl-accent: var(--brand-accent);
+  --cl-accent-fg: var(--brand-head);
   --cl-font-display: var(--font-inter-tight), 'Inter Tight', -apple-system, system-ui, sans-serif;
   --cl-font-mono: var(--brand-font-mono);
 }
@@ -108,20 +136,20 @@ body {
   .page-container { padding-left: 20px; padding-right: 20px; }
 }
 
-/* .page-title is the single page-title standard: Carter One (single weight
-   400 — never synthesize bold), responsive 32 → 40 → 48px. */
+/* .page-title — Site Theme page title: Carter One (single weight 400 — never
+   synthesize bold), line-height 1, -0.015em, responsive 32 → 40 → 50px. */
 .page-title {
   font-family: var(--brand-font-head);
   font-weight: 400;
   font-synthesis-weight: none;
   color: var(--brand-ink);
-  line-height: 1.05;
-  letter-spacing: -0.01em;
+  line-height: 1;
+  letter-spacing: -0.015em;
   font-size: 2rem;
   margin: 0;
 }
 @media (min-width: 640px)  { .page-title { font-size: 2.5rem; } }
-@media (min-width: 1024px) { .page-title { font-size: 3rem; } }
+@media (min-width: 1024px) { .page-title { font-size: 3.125rem; } }
 
 /* ─── Checklists page animation ────────────────────────────────────────── */
 @keyframes cl-fadeInUp {
