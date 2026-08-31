@@ -46,15 +46,15 @@ export default function ResourcesPage() {
             <Link
               key={r.href}
               href={r.href}
-              className="group block rounded-xl border border-zinc-800 bg-zinc-900 px-6 py-5 hover:border-zinc-600 hover:bg-zinc-800/60 transition-colors"
+              className="group block rounded-xl border border-[var(--brand-line)] bg-[var(--brand-card)] px-6 py-5 hover:border-[var(--brand-slate)] hover:bg-[var(--brand-sel)] transition-colors"
             >
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <h2 className="text-base font-semibold text-white mb-1.5">{r.title}</h2>
-                  <p className="text-sm text-zinc-400 leading-relaxed">{r.description}</p>
+                  <h2 className="text-base font-semibold text-[var(--brand-ink)] mb-1.5">{r.title}</h2>
+                  <p className="text-sm text-[var(--brand-slate)] leading-relaxed">{r.description}</p>
                 </div>
                 <svg
-                  className="shrink-0 w-4 h-4 text-zinc-600 group-hover:text-zinc-400 mt-0.5 transition-colors"
+                  className="shrink-0 w-4 h-4 text-[var(--brand-fog)] group-hover:text-[var(--brand-slate)] mt-0.5 transition-colors"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"

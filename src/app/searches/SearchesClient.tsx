@@ -175,7 +175,7 @@ export function SearchesClient({ views, searches, allSports, currentRange, curre
         </div>
 
         {pool.length === 0 ? (
-          <div className={styles.tbl} style={{ borderBottom: "1px solid var(--brand-fog)", marginTop: 30 }}>
+          <div className={styles.tbl} style={{ borderBottom: "1px solid var(--brand-line)", marginTop: 30 }}>
             <div className={styles.empty}>No athletes for this range{currentSport ? ` in ${currentSport}` : ""} yet.</div>
           </div>
         ) : (
@@ -319,7 +319,7 @@ function SplitColumn({
     <div>
       <h2 className={styles.colH}>{title}</h2>
       <p className={styles.colP}>{desc}</p>
-      <div className={styles.tbl} style={{ borderBottom: "1px solid var(--brand-fog)" }}>
+      <div className={styles.tbl} style={{ borderBottom: "1px solid var(--brand-line)" }}>
         <div className={styles.hd}>
           <span className={styles.hdCell} style={{ textAlign: "center" }}>#</span>
           <span className={styles.hdCell} />

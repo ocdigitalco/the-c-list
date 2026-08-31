@@ -22,7 +22,8 @@ export function BreakSheetLink(props: BreakSheetLinkProps) {
   return (
     <Link
       href={`/break-sheet-builder?set=${encodeURIComponent(props.slug)}`}
-      className="flex items-center gap-1.5 shrink-0 text-base font-medium text-zinc-400 hover:text-white border border-zinc-700 hover:border-zinc-500 bg-zinc-900 hover:bg-zinc-800 px-3 py-1.5 rounded-md transition-colors"
+      className="flex items-center gap-1.5 shrink-0 text-sm font-semibold text-[var(--brand-head)] bg-[var(--brand-accent)] hover:bg-[var(--brand-accent-deep)] px-4 py-2 rounded-lg transition-colors"
+      style={{ boxShadow: "var(--brand-shadow-btn)" }}
     >
       <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path

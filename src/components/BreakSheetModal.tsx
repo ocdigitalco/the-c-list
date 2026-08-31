@@ -345,7 +345,7 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
                     <div
                       className="relative w-11 h-6 rounded-full transition-colors"
                       style={{
-                        background: buyersGiveaway ? "#f59e0b" : "#3f3f46",
+                        background: buyersGiveaway ? "var(--brand-slate)" : "#3f3f46",
                       }}
                     >
                       <div

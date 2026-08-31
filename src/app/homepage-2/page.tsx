@@ -183,7 +183,7 @@ function StatModals({
             >
               {s.value}
             </p>
-            <p style={{ fontSize: 24, fontFamily: "'DM Serif Display', serif", color: "#ffffff" }}>
+            <p style={{ fontSize: 24, fontFamily: "'DM Serif Display', serif", color: "var(--brand-card)" }}>
               {s.label}
             </p>
           </div>

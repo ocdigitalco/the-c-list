@@ -151,6 +151,15 @@ body {
 @media (min-width: 640px)  { .page-title { font-size: 2.5rem; } }
 @media (min-width: 1024px) { .page-title { font-size: 3.125rem; } }
 
+/* ─── Site header nav (theme states: idle soft · tint hover · ink current) ─ */
+.hdr-nav {
+  font-size: 14.5px; font-weight: 500; padding: 7px 13px; border-radius: 999px;
+  color: var(--brand-ink-soft); transition: background 120ms, color 120ms;
+}
+.hdr-nav:hover { background: var(--brand-tint); color: var(--brand-accent); }
+.hdr-nav[aria-current="page"],
+.hdr-nav[aria-current="page"]:hover { background: var(--brand-ink); color: var(--brand-head); }
+
 /* ─── Checklists page animation ────────────────────────────────────────── */
 @keyframes cl-fadeInUp {
   from { opacity: 0; transform: translateY(8px); }

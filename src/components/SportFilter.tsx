@@ -26,10 +26,10 @@ export function SportFilter({
     <div className="flex items-center gap-2 overflow-x-auto pb-0.5 [scrollbar-width:none] [-webkit-overflow-scrolling:touch]">
       <button
         onClick={() => navigate(null)}
-        className={`shrink-0 px-3 py-1.5 rounded-lg border text-sm font-medium transition-colors ${
+        className={`shrink-0 px-3 py-1.5 rounded-full border text-sm font-medium transition-colors ${
           current === null
-            ? "border-amber-500/60 bg-amber-500/10 text-amber-400"
-            : "border-zinc-800 bg-zinc-900 text-zinc-400 hover:border-zinc-600 hover:text-zinc-200"
+            ? "border-[var(--brand-ink)] bg-[var(--brand-ink)] text-[var(--brand-head)]"
+            : "border-[var(--brand-line)] bg-[var(--brand-card)] text-[var(--brand-ink-soft)] hover:border-[var(--brand-slate)]"
         }`}
       >
         All Sports
@@ -38,10 +38,10 @@ export function SportFilter({
         <button
           key={sport}
           onClick={() => navigate(sport)}
-          className={`shrink-0 px-3 py-1.5 rounded-lg border text-sm font-medium transition-colors ${
+          className={`shrink-0 px-3 py-1.5 rounded-full border text-sm font-medium transition-colors ${
             current === sport
-              ? "border-amber-500/60 bg-amber-500/10 text-amber-400"
-              : "border-zinc-800 bg-zinc-900 text-zinc-400 hover:border-zinc-600 hover:text-zinc-200"
+              ? "border-[var(--brand-ink)] bg-[var(--brand-ink)] text-[var(--brand-head)]"
+              : "border-[var(--brand-line)] bg-[var(--brand-card)] text-[var(--brand-ink-soft)] hover:border-[var(--brand-slate)]"
           }`}
         >
           {sport}

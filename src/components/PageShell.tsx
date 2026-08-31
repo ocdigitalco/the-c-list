@@ -17,7 +17,7 @@ export function PageShell({ breadcrumb, title, description, wide = false, childr
         <div>
           <Link
             href={breadcrumb.href}
-            className="inline-flex items-center gap-1 text-xs text-zinc-500 hover:text-zinc-300 transition-colors mb-4"
+            className="inline-flex items-center gap-1 text-xs text-[var(--brand-slate)] hover:text-[var(--brand-ink)] transition-colors mb-4"
           >
             <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -27,9 +27,9 @@ export function PageShell({ breadcrumb, title, description, wide = false, childr
           {wide ? (
             <h1 className="page-title">{title}</h1>
           ) : (
-            <h1 className="text-2xl font-normal text-white tracking-tight" style={{ fontFamily: "var(--brand-font-head)", fontSynthesisWeight: "none" }}>{title}</h1>
+            <h1 className="text-2xl font-normal text-[var(--brand-ink)] tracking-tight" style={{ fontFamily: "var(--brand-font-head)", fontSynthesisWeight: "none" }}>{title}</h1>
           )}
-          {description && <p className="text-sm text-zinc-500 mt-1">{description}</p>}
+          {description && <p className="text-sm text-[var(--brand-slate)] mt-1">{description}</p>}
         </div>
         {children}
       </div>

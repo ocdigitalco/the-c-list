@@ -40,7 +40,7 @@ export function ParallelTable({ rows, showNumbered }: { rows: ParallelRowData[];
 
   const hCell: React.CSSProperties = {
     fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.4,
-    color: "#8A8677", textTransform: "uppercase",
+    color: "var(--brand-slate)", textTransform: "uppercase",
   };
 
   // One grid template drives BOTH the header row and every body row, so the
@@ -59,22 +59,22 @@ export function ParallelTable({ rows, showNumbered }: { rows: ParallelRowData[];
   const ebayCell: React.CSSProperties = { textAlign: "left", paddingLeft: 12 };
 
   return (
-    <div style={{ marginTop: 12, border: "1px solid #EDEAE0", borderRadius: 8, overflow: "hidden", background: "#FFFFFF" }}>
-      <div style={{ ...rowGrid, borderBottom: "1px solid #EDEAE0" }}>
+    <div style={{ marginTop: 12, border: "1px solid var(--brand-line)", borderRadius: 8, overflow: "hidden", background: "var(--brand-card)" }}>
+      <div style={{ ...rowGrid, borderBottom: "1px solid var(--brand-line)" }}>
         <span style={hCell}>Parallel</span>
         {showNumberedCol && <span style={{ textAlign: "right", ...hCell }}>Numbered</span>}
         {showOdds && <span style={{ textAlign: "right", ...hCell }}>Pack Odds</span>}
         {showEbay && <span style={{ ...ebayCell, ...hCell }}>eBay</span>}
       </div>
       {rows.map((r, i) => (
-        <div key={`${r.name}-${i}`} style={{ ...rowGrid, borderTop: i > 0 ? "1px solid #F4F1E8" : undefined }}>
-          <span style={{ fontSize: 14, color: r.rare ? "#9A2B14" : "var(--brand-ink)", minWidth: 0 }}>{r.name}</span>
+        <div key={`${r.name}-${i}`} style={{ ...rowGrid, borderTop: i > 0 ? "1px solid var(--brand-line)" : undefined }}>
+          <span style={{ fontSize: 14, color: r.rare ? "var(--brand-accent-deep)" : "var(--brand-ink)", minWidth: 0 }}>{r.name}</span>
           {showNumberedCol && <span style={{ textAlign: "right", fontFamily: FONT_MONO, fontSize: 14, color: "var(--brand-ink)" }}>{printRunDisplay(r.printRun)}</span>}
           {showOdds && (
             <span style={{ textAlign: "right", fontFamily: FONT_MONO, fontSize: 14, color: "var(--brand-ink)" }}>
               {r.odds != null ? (
-                <>{r.odds.text}{r.odds.tag && <span style={{ color: "#8A8677", fontSize: 11 }}> · {r.odds.tag}</span>}</>
-              ) : (r.note ? <span title={r.note} style={{ color: "#8A8677", borderBottom: "1px dotted #B7B2A3", cursor: "help" }}>—</span> : "—")}
+                <>{r.odds.text}{r.odds.tag && <span style={{ color: "var(--brand-slate)", fontSize: 11 }}> · {r.odds.tag}</span>}</>
+              ) : (r.note ? <span title={r.note} style={{ color: "var(--brand-slate)", borderBottom: "1px dotted var(--brand-fog)", cursor: "help" }}>—</span> : "—")}
             </span>
           )}
           {showEbay && (

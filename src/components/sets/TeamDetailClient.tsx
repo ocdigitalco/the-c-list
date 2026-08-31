@@ -77,7 +77,7 @@ export interface TeamDetailClientProps {
 
 // ─── Helpers ────────────────────────────────────────────────────────────────────
 
-function InitialsAvatar({ name, size = 30, bg = "#EAE6D9", color = "#6B6757" }: {
+function InitialsAvatar({ name, size = 30, bg = "var(--brand-empty)", color = "var(--brand-slate)" }: {
   name: string; size?: number; bg?: string; color?: string;
 }) {
   const initials = name.split(" ").map((n) => n[0]).slice(0, 2).join("").toUpperCase();
@@ -121,7 +121,7 @@ function TeamCrest({ name, size = 96 }: { name: string; size?: number }) {
     <div className="flex items-center justify-center flex-shrink-0"
       style={{
         width: size, height: size, background: "#0B2244", borderRadius: 12,
-        color: "#FFFFFF", fontSize: size * 0.3, fontWeight: 700, letterSpacing: 1,
+        color: "var(--brand-card)", fontSize: size * 0.3, fontWeight: 700, letterSpacing: 1,
       }}>
       {initials}
     </div>
@@ -184,7 +184,7 @@ function AthletesTable({ athletes, setSlug, setId }: {
           Athletes ({sorted.length})
         </span>
         <div className="flex items-center gap-3">
-          <label className="flex items-center gap-1.5" style={{ fontSize: 16, color: "#3A372F" }}>
+          <label className="flex items-center gap-1.5" style={{ fontSize: 16, color: "var(--brand-ink-soft)" }}>
             <input type="checkbox" checked={rookiesOnly} onChange={() => setRookiesOnly((v) => !v)}
               style={{ accentColor: "var(--brand-ink)" }} />
             Rookies only
@@ -196,17 +196,17 @@ function AthletesTable({ athletes, setSlug, setId }: {
       <div className="hidden min-[1180px]:block">
         <table className="w-full" style={{ fontSize: 16, borderCollapse: "collapse" }}>
           <thead>
-            <tr style={{ background: "#FAFAF7" }}>
+            <tr style={{ background: "var(--brand-page)" }}>
               <th style={{ width: 32, padding: "10px 0 10px 18px", textAlign: "left",
                 fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6,
-                color: "#8A8677", borderBottom: "1px solid #EDEAE0", textTransform: "uppercase" }}>#</th>
+                color: "var(--brand-slate)", borderBottom: "1px solid var(--brand-line)", textTransform: "uppercase" }}>#</th>
               {columns.map((col) => (
                 <th key={col.key} onClick={() => toggleSort(col.key)}
                   style={{
                     textAlign: col.align, padding: "10px 18px", cursor: "pointer",
                     fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6,
-                    color: sortKey === col.key ? "var(--brand-ink)" : "#8A8677",
-                    borderBottom: "1px solid #EDEAE0", textTransform: "uppercase",
+                    color: sortKey === col.key ? "var(--brand-ink)" : "var(--brand-slate)",
+                    borderBottom: "1px solid var(--brand-line)", textTransform: "uppercase",
                   }}>
                   {col.label}{arrow(col.key)}
                 </th>
@@ -215,8 +215,8 @@ function AthletesTable({ athletes, setSlug, setId }: {
           </thead>
           <tbody>
             {sorted.map((a, idx) => (
-              <tr key={a.id} style={{ borderBottom: "1px solid #F4F1E8" }}>
-                <td style={{ padding: "14px 0 14px 18px", fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677" }}>
+              <tr key={a.id} style={{ borderBottom: "1px solid var(--brand-line)" }}>
+                <td style={{ padding: "14px 0 14px 18px", fontFamily: FONT_MONO, fontSize: 16, color: "var(--brand-slate)" }}>
                   {idx + 1}
                 </td>
                 <td style={{ padding: "14px 18px" }}>
@@ -227,7 +227,7 @@ function AthletesTable({ athletes, setSlug, setId }: {
                     <span style={{ fontWeight: 500, color: "var(--brand-ink)" }}>{a.name}</span>
                     {a.isRookie && (
                       <span style={{
-                        background: "oklch(0.55 0.17 25)", color: "#FFF8F1",
+                        background: "var(--brand-accent)", color: "var(--brand-head)",
                         fontSize: 9, fontWeight: 700, padding: "1px 5px", borderRadius: 2, letterSpacing: 0.5,
                       }}>RC</span>
                     )}
@@ -239,7 +239,7 @@ function AthletesTable({ athletes, setSlug, setId }: {
                     <td key={key} style={{
                       padding: "14px 18px", textAlign: "right",
                       fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600,
-                      color: val === 0 ? "#B7B2A3" : "var(--brand-ink)",
+                      color: val === 0 ? "var(--brand-fog)" : "var(--brand-ink)",
                     }}>
                       {val === 0 ? "—" : val.toLocaleString()}
                     </td>
@@ -256,11 +256,11 @@ function AthletesTable({ athletes, setSlug, setId }: {
         {sorted.map((a, idx) => (
           <Link key={a.id} href={`/sets/${setSlug || setId}/athlete/${a.slug || a.id}`}
             style={{
-              display: "block", background: "#FFFFFF", border: "1px solid #EDEAE0",
+              display: "block", background: "var(--brand-card)", border: "1px solid var(--brand-line)",
               borderRadius: 10, padding: "12px 14px", textDecoration: "none",
             }}>
             <div className="flex items-center gap-2.5">
-              <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677", width: 20 }}>{idx + 1}</span>
+              <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "var(--brand-slate)", width: 20 }}>{idx + 1}</span>
               <PlayerAvatar name={a.name} nbaPlayerId={a.nbaPlayerId} ufcImageUrl={a.ufcImageUrl}
                 mlbPlayerId={a.mlbPlayerId} imageUrl={a.imageUrl} size={32} />
               <div className="flex-1 min-w-0">
@@ -268,7 +268,7 @@ function AthletesTable({ athletes, setSlug, setId }: {
                   <span style={{ fontSize: 16, fontWeight: 500, color: "var(--brand-ink)" }}>{a.name}</span>
                   {a.isRookie && (
                     <span style={{
-                      background: "oklch(0.55 0.17 25)", color: "#FFF8F1",
+                      background: "var(--brand-accent)", color: "var(--brand-head)",
                       fontSize: 9, fontWeight: 700, padding: "1px 5px", borderRadius: 2,
                     }}>RC</span>
                   )}
@@ -276,7 +276,7 @@ function AthletesTable({ athletes, setSlug, setId }: {
               </div>
             </div>
             <div className="grid grid-cols-4 gap-1 mt-2" style={{
-              background: "#FAFAF7", borderRadius: 8, border: "1px solid #EDEAE0", padding: "8px 10px",
+              background: "var(--brand-page)", borderRadius: 8, border: "1px solid var(--brand-line)", padding: "8px 10px",
             }}>
               {[
                 { l: "CARDS", v: a.totalCards },
@@ -285,10 +285,10 @@ function AthletesTable({ athletes, setSlug, setId }: {
                 { l: "NUMBERED", v: a.numberedParallels },
               ].map((s) => (
                 <div key={s.l} className="text-center">
-                  <div style={{ fontFamily: FONT_MONO, fontSize: 8, fontWeight: 600, letterSpacing: 1.2, color: "#8A8677", textTransform: "uppercase" }}>
+                  <div style={{ fontFamily: FONT_MONO, fontSize: 8, fontWeight: 600, letterSpacing: 1.2, color: "var(--brand-slate)", textTransform: "uppercase" }}>
                     {s.l}
                   </div>
-                  <div style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: s.v === 0 ? "#B7B2A3" : "var(--brand-ink)", marginTop: 2 }}>
+                  <div style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: s.v === 0 ? "var(--brand-fog)" : "var(--brand-ink)", marginTop: 2 }}>
                     {s.v === 0 ? "—" : s.v.toLocaleString()}
                   </div>
                 </div>
@@ -318,29 +318,29 @@ function TeamsDrawer({ open, onClose, teams, currentTeam, setSlug, setId }: {
   return (
     <div role="dialog" aria-modal="true" className="fixed inset-0 z-[100]"
       style={{
-        background: "#FFFFFF", transform: open ? "translateY(0)" : "translateY(100%)",
+        background: "var(--brand-card)", transform: open ? "translateY(0)" : "translateY(100%)",
         transition: "transform 200ms ease-out", pointerEvents: open ? "auto" : "none",
       }}>
       <div className="flex items-center justify-between" style={{
-        padding: "14px 16px", borderBottom: "1px solid #EDEAE0",
+        padding: "14px 16px", borderBottom: "1px solid var(--brand-line)",
       }}>
         <button onClick={onClose} aria-label="Close" className="p-1">
-          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="#0F0F0E" strokeWidth={2}>
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="var(--brand-ink)" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
           </svg>
         </button>
         <span style={{ fontFamily: FONT_DISPLAY, fontSize: 17, fontWeight: 600, letterSpacing: -0.3, color: "var(--brand-ink)" }}>
           Teams in Set
         </span>
-        <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677" }}>{teams.length}</span>
+        <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "var(--brand-slate)" }}>{teams.length}</span>
       </div>
       <div className="flex-1 overflow-y-auto" style={{ height: "calc(100% - 56px)" }}>
         {teams.map((t) => (
           <Link key={t.name} href={`/sets/${setSlug || setId}/team/${t.slug}`} onClick={onClose}
             className="flex items-center gap-3 transition-colors"
             style={{
-              padding: "12px 16px", borderBottom: "1px solid #F4F1E8", textDecoration: "none",
-              background: t.name === currentTeam ? "#F4F1E8" : "transparent",
+              padding: "12px 16px", borderBottom: "1px solid var(--brand-line)", textDecoration: "none",
+              background: t.name === currentTeam ? "var(--brand-line)" : "transparent",
               borderLeft: t.name === currentTeam ? "2px solid var(--brand-ink)" : "2px solid transparent",
             }}>
             <TeamCrest name={t.name} size={36} />
@@ -351,7 +351,7 @@ function TeamsDrawer({ open, onClose, teams, currentTeam, setSlug, setId }: {
               <div style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: "var(--brand-ink)" }}>
                 {t.totalCards.toLocaleString()}
               </div>
-              <div style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677" }}>
+              <div style={{ fontFamily: FONT_MONO, fontSize: 16, color: "var(--brand-slate)" }}>
                 {t.athletes} athletes
               </div>
             </div>
@@ -415,15 +415,15 @@ function SetWideLeaderboard({ entries, hasTeamData, setId, setSlug, sport = "" }
   const visible = showAll ? filtered : filtered.slice(0, 50);
 
   return (
-    <div className="flex flex-col h-full" style={{ background: "#FFFFFF" }}>
+    <div className="flex flex-col h-full" style={{ background: "var(--brand-card)" }}>
       {hasTeamData && (
-        <div className="shrink-0 flex" style={{ borderBottom: "1px solid #EDEAE0", padding: "0 18px" }}>
+        <div className="shrink-0 flex" style={{ borderBottom: "1px solid var(--brand-line)", padding: "0 18px" }}>
           {([["athletes", `Athletes (${entries.length})`], ["teams", `Teams (${teamCount})`]] as const).map(([mode, label]) => (
             <button key={mode} onClick={() => { setViewMode(mode); setShowAll(false); }}
               style={{
                 padding: "12px 16px", fontFamily: FONT_DISPLAY, fontSize: 16,
                 fontWeight: viewMode === mode ? 600 : 500,
-                color: viewMode === mode ? "var(--brand-ink)" : "#8A8677",
+                color: viewMode === mode ? "var(--brand-ink)" : "var(--brand-slate)",
                 borderBottom: viewMode === mode ? "2px solid var(--brand-ink)" : "2px solid transparent",
                 marginBottom: -1, background: "transparent", cursor: "pointer", transition: "all 150ms",
               }}>{label}</button>
@@ -432,14 +432,14 @@ function SetWideLeaderboard({ entries, hasTeamData, setId, setSlug, sport = "" }
       )}
       <div className="shrink-0 space-y-3" style={{ padding: "14px 18px 12px" }}>
         <div className="relative">
-          <svg className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 pointer-events-none" style={{ color: "#8A8677" }}
+          <svg className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 pointer-events-none" style={{ color: "var(--brand-slate)" }}
             fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
           </svg>
           <input type="text" value={query} onChange={(e) => setQuery(e.target.value)}
             placeholder={viewMode === "teams" ? "Search teams…" : "Search athletes…"}
             autoComplete="off" spellCheck={false} className="w-full outline-none"
-            style={{ background: "#F1EFE9", borderRadius: 8, padding: "7px 10px 7px 30px", fontSize: 16, border: "none", color: "var(--brand-ink)" }} />
+            style={{ background: "var(--brand-track)", borderRadius: 8, padding: "7px 10px 7px 30px", fontSize: 16, border: "none", color: "var(--brand-ink)" }} />
         </div>
         <div className="flex flex-wrap gap-1.5">
           {LB_CHIPS.map((chip) => (
@@ -447,26 +447,26 @@ function SetWideLeaderboard({ entries, hasTeamData, setId, setSlug, sport = "" }
               style={{
                 borderRadius: 4, padding: "4px 9px", fontSize: 16, fontWeight: 500,
                 background: sortKey === chip.key ? "var(--brand-ink)" : "transparent",
-                color: sortKey === chip.key ? "#FAFAF7" : "#3A372F",
-                border: sortKey === chip.key ? "1px solid var(--brand-ink)" : "1px solid #E6E3D9",
+                color: sortKey === chip.key ? "var(--brand-page)" : "var(--brand-ink-soft)",
+                border: sortKey === chip.key ? "1px solid var(--brand-ink)" : "1px solid var(--brand-line)",
               }}>{chip.label}</button>
           ))}
         </div>
         {viewMode === "athletes" && (
-          <label className="flex items-center gap-1.5 cursor-pointer" style={{ fontSize: 16, color: "#3A372F" }}>
+          <label className="flex items-center gap-1.5 cursor-pointer" style={{ fontSize: 16, color: "var(--brand-ink-soft)" }}>
             <input type="checkbox" checked={rookiesOnly} onChange={() => setRookiesOnly((v) => !v)} style={{ accentColor: "var(--brand-ink)" }} />
             Rookies only
           </label>
         )}
       </div>
       <div className="shrink-0 flex justify-between items-center"
-        style={{ padding: "6px 18px", borderBottom: "1px solid #EDEAE0", fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase" }}>
+        style={{ padding: "6px 18px", borderBottom: "1px solid var(--brand-line)", fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "var(--brand-slate)", textTransform: "uppercase" }}>
         <span>{viewMode === "teams" ? "TEAM" : "ATHLETE"}</span>
         <span>{LB_CHIPS.find((c) => c.key === sortKey)?.label}</span>
       </div>
       <div className="flex-1 overflow-y-auto">
         {viewMode === "athletes" ? (
-          visible.length === 0 ? <p className="text-center py-8" style={{ fontSize: 16, color: "#8A8677", fontStyle: "italic" }}>No athletes match.</p> : (
+          visible.length === 0 ? <p className="text-center py-8" style={{ fontSize: 16, color: "var(--brand-slate)", fontStyle: "italic" }}>No athletes match.</p> : (
             <>
               {visible.map((entry, idx) => (
                 <Link key={entry.id} href={`/sets/${setSlug || setId}/athlete/${entry.slug || entry.id}`}
@@ -474,14 +474,14 @@ function SetWideLeaderboard({ entries, hasTeamData, setId, setSlug, sport = "" }
                   // page visit itself is counted as a "view" on mount.
                   onClick={() => { if (query.trim()) trackEvent(entry.id, "search"); }}
                   className="flex items-center gap-2 transition-colors"
-                  style={{ padding: "9px 18px", borderBottom: "1px solid #F4F1E8", textDecoration: "none" }}
-                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#F1EFE9"; }}
+                  style={{ padding: "9px 18px", borderBottom: "1px solid var(--brand-line)", textDecoration: "none" }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "var(--brand-track)"; }}
                   onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}>
-                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677", width: 18, textAlign: "right", flexShrink: 0 }}>{idx + 1}</span>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "var(--brand-slate)", width: 18, textAlign: "right", flexShrink: 0 }}>{idx + 1}</span>
                   <PlayerAvatar name={entry.name} nbaPlayerId={entry.nbaPlayerId} ufcImageUrl={entry.ufcImageUrl} mlbPlayerId={entry.mlbPlayerId} imageUrl={entry.imageUrl} size={30} />
                   <div className="flex-1 min-w-0">
                     <span className="truncate block" style={{ fontSize: 16, fontWeight: 500, color: "var(--brand-ink)" }}>{entry.name}</span>
-                    {hasTeamData && entry.team && <p className="truncate" style={{ fontSize: 16, color: "#6B6757", marginTop: 1 }}>{entry.team}</p>}
+                    {hasTeamData && entry.team && <p className="truncate" style={{ fontSize: 16, color: "var(--brand-slate)", marginTop: 1 }}>{entry.team}</p>}
                   </div>
                   <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: "var(--brand-ink)", flexShrink: 0 }}>{entry[sortKey].toLocaleString()}</span>
                 </Link>
@@ -490,19 +490,19 @@ function SetWideLeaderboard({ entries, hasTeamData, setId, setSlug, sport = "" }
             </>
           )
         ) : (
-          teamRows.length === 0 ? <p className="text-center py-8" style={{ fontSize: 16, color: "#8A8677", fontStyle: "italic" }}>No teams match.</p> : (
+          teamRows.length === 0 ? <p className="text-center py-8" style={{ fontSize: 16, color: "var(--brand-slate)", fontStyle: "italic" }}>No teams match.</p> : (
             <>
               {(showAll ? teamRows : teamRows.slice(0, 50)).map((tr, idx) => (
                 <Link key={tr.team} href={`/sets/${setSlug || setId}/team/${tr.team.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`}
                   className="flex items-center gap-2 transition-colors"
-                  style={{ padding: "9px 18px", borderBottom: "1px solid #F4F1E8", textDecoration: "none" }}
-                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#F1EFE9"; }}
+                  style={{ padding: "9px 18px", borderBottom: "1px solid var(--brand-line)", textDecoration: "none" }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "var(--brand-track)"; }}
                   onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}>
-                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677", width: 18, textAlign: "right", flexShrink: 0 }}>{idx + 1}</span>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "var(--brand-slate)", width: 18, textAlign: "right", flexShrink: 0 }}>{idx + 1}</span>
                   <TeamLogo teamName={tr.team} sport={sport} size={30} />
                   <div className="flex-1 min-w-0">
                     <span className="truncate block" style={{ fontSize: 16, fontWeight: 500, color: "var(--brand-ink)" }}>{tr.team}</span>
-                    <p className="truncate" style={{ fontSize: 16, color: "#6B6757", marginTop: 1 }}>{tr.athleteCount} {tr.athleteCount === 1 ? "Athlete" : "Athletes"}</p>
+                    <p className="truncate" style={{ fontSize: 16, color: "var(--brand-slate)", marginTop: 1 }}>{tr.athleteCount} {tr.athleteCount === 1 ? "Athlete" : "Athletes"}</p>
                   </div>
                   <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: "var(--brand-ink)", flexShrink: 0 }}>{tr[sortKey].toLocaleString()}</span>
                 </Link>
@@ -533,26 +533,26 @@ export function TeamDetailClient({
   ];
 
   return (
-    <div style={{ background: "#FAFAF7", minHeight: "100vh" }}>
+    <div style={{ background: "var(--brand-page)", minHeight: "100vh" }}>
       {/* ═══ DESKTOP ═══ */}
       <div className="hidden min-[1180px]:grid" style={{ gridTemplateColumns: "425px 1fr", minHeight: "100vh" }}>
         {/* Left rail — set-wide leaderboard */}
-        <aside className="sticky top-0 h-screen overflow-y-auto" style={{ borderRight: "1px solid #EDEAE0", background: "#FFFFFF" }}>
+        <aside className="sticky top-0 h-screen overflow-y-auto" style={{ borderRight: "1px solid var(--brand-line)", background: "var(--brand-card)" }}>
           <SetWideLeaderboard entries={leaderboardEntries} hasTeamData={hasLeaderboardTeamData} setId={setId} setSlug={setSlug} sport={sport} />
         </aside>
 
         {/* Right column */}
         <div className="flex flex-col">
           {/* Hero */}
-          <div style={{ background: "#FFFFFF", padding: "22px 36px 28px", borderBottom: "1px solid #EDEAE0" }}>
+          <div style={{ background: "var(--brand-card)", padding: "22px 36px 28px", borderBottom: "1px solid var(--brand-line)" }}>
             {/* Breadcrumb */}
-            <Link href={`/sets/${setSlug || setId}`} style={{ fontSize: 16, color: "#6B6757", textDecoration: "none", fontFamily: FONT_DISPLAY }}>
+            <Link href={`/sets/${setSlug || setId}`} style={{ fontSize: 16, color: "var(--brand-slate)", textDecoration: "none", fontFamily: FONT_DISPLAY }}>
               &lsaquo; {setName}
             </Link>
             <div className="grid items-center gap-8 mt-4" style={{ gridTemplateColumns: "96px 1fr 280px" }}>
               <TeamLogo teamName={teamName} sport={sport} size={96} />
               <div>
-                <div style={{ fontFamily: FONT_MONO, fontSize: 10, fontWeight: 600, letterSpacing: 2.4, color: "#8A8677", textTransform: "uppercase" }}>
+                <div style={{ fontFamily: FONT_MONO, fontSize: 10, fontWeight: 600, letterSpacing: 2.4, color: "var(--brand-slate)", textTransform: "uppercase" }}>
                   {league ?? sport}
                 </div>
                 <h1 style={{
@@ -561,19 +561,19 @@ export function TeamDetailClient({
                   textWrap: "balance",
                 }}>{teamName}</h1>
                 <div className="flex flex-wrap items-center gap-2">
-                  <span style={{ fontSize: 16, fontWeight: 500, padding: "4px 9px", borderRadius: 4, border: "1px solid #E6E3D9", color: "#3A372F" }}>
+                  <span style={{ fontSize: 16, fontWeight: 500, padding: "4px 9px", borderRadius: 4, border: "1px solid var(--brand-line)", color: "var(--brand-ink-soft)" }}>
                     {sport}
                   </span>
                   {league && (
-                    <span style={{ fontSize: 16, fontWeight: 500, padding: "4px 9px", borderRadius: 4, border: "1px solid #E6E3D9", color: "#3A372F" }}>
+                    <span style={{ fontSize: 16, fontWeight: 500, padding: "4px 9px", borderRadius: 4, border: "1px solid var(--brand-line)", color: "var(--brand-ink-soft)" }}>
                       {league}
                     </span>
                   )}
                 </div>
               </div>
               {/* Roster Summary */}
-              <div style={{ border: "2px solid #F2F0E9", padding: "14px 16px" }}>
-                <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase", marginBottom: 10 }}>
+              <div style={{ border: "2px solid var(--brand-track)", padding: "14px 16px" }}>
+                <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "var(--brand-slate)", textTransform: "uppercase", marginBottom: 10 }}>
                   Roster Summary
                 </div>
                 {[
@@ -583,9 +583,9 @@ export function TeamDetailClient({
                   { l: "Autographs", v: athletes.reduce((s, a) => s + a.autographs, 0).toString() },
                 ].map((r, i, arr) => (
                   <div key={r.l} className="flex items-center justify-between" style={{
-                    padding: "6px 0", borderBottom: i < arr.length - 1 ? "1px solid #F4F1E8" : "none",
+                    padding: "6px 0", borderBottom: i < arr.length - 1 ? "1px solid var(--brand-line)" : "none",
                   }}>
-                    <span style={{ fontSize: 16, color: "#6B6757" }}>{r.l}</span>
+                    <span style={{ fontSize: 16, color: "var(--brand-slate)" }}>{r.l}</span>
                     <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: "var(--brand-ink)" }}>{r.v}</span>
                   </div>
                 ))}
@@ -595,13 +595,13 @@ export function TeamDetailClient({
 
           {/* Stat strip */}
           <div className="grid" style={{
-            gridTemplateColumns: "repeat(4, 1fr)", borderBottom: "1px solid #EDEAE0", background: "#FFFFFF",
+            gridTemplateColumns: "repeat(4, 1fr)", borderBottom: "1px solid var(--brand-line)", background: "var(--brand-card)",
           }}>
             {statItems.map((item, i) => (
               <div key={item.label} style={{
-                padding: "18px 22px", borderRight: i < statItems.length - 1 ? "1px solid #EDEAE0" : "none",
+                padding: "18px 22px", borderRight: i < statItems.length - 1 ? "1px solid var(--brand-line)" : "none",
               }}>
-                <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase" }}>
+                <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "var(--brand-slate)", textTransform: "uppercase" }}>
                   {item.label}
                 </div>
                 <div style={{ fontFamily: FONT_DISPLAY, fontSize: 26, fontWeight: 600, letterSpacing: -0.6, color: "var(--brand-ink)", marginTop: 4 }}>
@@ -613,14 +613,14 @@ export function TeamDetailClient({
 
           {/* Tabs */}
           <div role="tablist" style={{
-            background: "#FAFAF7", padding: "0 36px", borderBottom: "1px solid #EDEAE0", display: "flex",
+            background: "var(--brand-page)", padding: "0 36px", borderBottom: "1px solid var(--brand-line)", display: "flex",
           }}>
             {TABS.map((t) => (
               <button key={t} role="tab" aria-selected={tab === t} onClick={() => setTab(t)}
                 style={{
                   padding: "14px 20px", fontFamily: FONT_DISPLAY,
                   fontSize: 16, fontWeight: tab === t ? 600 : 500,
-                  color: tab === t ? "var(--brand-ink)" : "#8A8677",
+                  color: tab === t ? "var(--brand-ink)" : "var(--brand-slate)",
                   borderBottom: tab === t ? "2px solid var(--brand-ink)" : "2px solid transparent",
                   marginBottom: -1, background: "transparent", cursor: "pointer", transition: "all 150ms",
                 }}>
@@ -646,7 +646,7 @@ export function TeamDetailClient({
                   setSlug={setSlug}
                 />
               ) : (
-                <div style={{ padding: "40px 20px", textAlign: "center", fontSize: 16, color: "#8A8677" }}>
+                <div style={{ padding: "40px 20px", textAlign: "center", fontSize: 16, color: "var(--brand-slate)" }}>
                   <p style={{ fontStyle: "italic" }}>Pack odds not yet available for this set.</p>
                   <p style={{ fontSize: 14, marginTop: 8 }}>Once pack odds are published, the Break Hit Calculator will appear here.</p>
                 </div>
@@ -661,13 +661,13 @@ export function TeamDetailClient({
         {/* Sticky app bar */}
         <div className="sticky top-0 z-10 flex items-center justify-between"
           style={{
-            padding: "12px 16px", borderBottom: "1px solid #EDEAE0",
+            padding: "12px 16px", borderBottom: "1px solid var(--brand-line)",
             background: "rgba(250,250,247,0.92)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)",
           }}>
           <button onClick={() => setDrawerOpen(true)}
             style={{
               display: "flex", alignItems: "center", gap: 6,
-              background: "#FFFFFF", border: "1px solid #E6E3D9", borderRadius: 8,
+              background: "var(--brand-card)", border: "1px solid var(--brand-line)", borderRadius: 8,
               padding: "8px 12px", fontSize: 16, fontWeight: 500, color: "var(--brand-ink)",
             }}>
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -675,17 +675,17 @@ export function TeamDetailClient({
             </svg>
             Teams
           </button>
-          <Link href={`/sets/${setSlug || setId}`} style={{ fontSize: 16, color: "#6B6757", textDecoration: "none", fontFamily: FONT_DISPLAY }}>
+          <Link href={`/sets/${setSlug || setId}`} style={{ fontSize: 16, color: "var(--brand-slate)", textDecoration: "none", fontFamily: FONT_DISPLAY }}>
             {setName} &rsaquo;
           </Link>
         </div>
 
         {/* Hero */}
-        <div style={{ background: "#FFFFFF", padding: "18px 16px 14px", borderBottom: "1px solid #EDEAE0" }}>
+        <div style={{ background: "var(--brand-card)", padding: "18px 16px 14px", borderBottom: "1px solid var(--brand-line)" }}>
           <div className="flex items-start gap-4">
             <TeamLogo teamName={teamName} sport={sport} size={72} />
             <div className="flex-1 min-w-0">
-              <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 2, color: "#8A8677", textTransform: "uppercase" }}>
+              <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 2, color: "var(--brand-slate)", textTransform: "uppercase" }}>
                 {league ?? sport}
               </div>
               <h1 style={{
@@ -693,11 +693,11 @@ export function TeamDetailClient({
                 letterSpacing: -0.6, lineHeight: 1.05, color: "var(--brand-ink)", margin: "4px 0 8px",
               }}>{teamName}</h1>
               <div className="flex flex-wrap items-center gap-1.5">
-                <span style={{ fontSize: 16, fontWeight: 500, padding: "3px 7px", borderRadius: 4, border: "1px solid #E6E3D9", color: "#3A372F" }}>
+                <span style={{ fontSize: 16, fontWeight: 500, padding: "3px 7px", borderRadius: 4, border: "1px solid var(--brand-line)", color: "var(--brand-ink-soft)" }}>
                   {sport}
                 </span>
                 {league && (
-                  <span style={{ fontSize: 16, fontWeight: 500, padding: "3px 7px", borderRadius: 4, border: "1px solid #E6E3D9", color: "#3A372F" }}>
+                  <span style={{ fontSize: 16, fontWeight: 500, padding: "3px 7px", borderRadius: 4, border: "1px solid var(--brand-line)", color: "var(--brand-ink-soft)" }}>
                     {league}
                   </span>
                 )}
@@ -708,13 +708,13 @@ export function TeamDetailClient({
 
         {/* Stat grid (mobile) */}
         <div className="grid" style={{
-          gridTemplateColumns: "repeat(4, 1fr)", borderBottom: "1px solid #EDEAE0", background: "#FFFFFF",
+          gridTemplateColumns: "repeat(4, 1fr)", borderBottom: "1px solid var(--brand-line)", background: "var(--brand-card)",
         }}>
           {statItems.map((item, i) => (
             <div key={item.label} style={{
-              padding: "12px 10px", borderRight: i < statItems.length - 1 ? "1px solid #EDEAE0" : "none",
+              padding: "12px 10px", borderRight: i < statItems.length - 1 ? "1px solid var(--brand-line)" : "none",
             }}>
-              <div style={{ fontFamily: FONT_MONO, fontSize: 8, fontWeight: 600, letterSpacing: 1.2, color: "#8A8677", textTransform: "uppercase" }}>
+              <div style={{ fontFamily: FONT_MONO, fontSize: 8, fontWeight: 600, letterSpacing: 1.2, color: "var(--brand-slate)", textTransform: "uppercase" }}>
                 {item.label}
               </div>
               <div style={{ fontFamily: FONT_DISPLAY, fontSize: 18, fontWeight: 600, letterSpacing: -0.5, color: "var(--brand-ink)", marginTop: 4 }}>
@@ -727,15 +727,15 @@ export function TeamDetailClient({
         {/* Sticky tabs */}
         <div role="tablist" className="sticky z-[5] overflow-x-auto no-scrollbar"
           style={{
-            top: 53, background: "#FAFAF7", padding: "0 16px",
-            borderBottom: "1px solid #EDEAE0", display: "flex", whiteSpace: "nowrap",
+            top: 53, background: "var(--brand-page)", padding: "0 16px",
+            borderBottom: "1px solid var(--brand-line)", display: "flex", whiteSpace: "nowrap",
           }}>
           {TABS.map((t) => (
             <button key={t} role="tab" aria-selected={tab === t} onClick={() => setTab(t)}
               style={{
                 padding: "12px 12px", flexShrink: 0, fontFamily: FONT_DISPLAY,
                 fontSize: 16, fontWeight: tab === t ? 600 : 500,
-                color: tab === t ? "var(--brand-ink)" : "#8A8677",
+                color: tab === t ? "var(--brand-ink)" : "var(--brand-slate)",
                 borderBottom: tab === t ? "2px solid var(--brand-ink)" : "2px solid transparent",
                 marginBottom: -1, background: "transparent", cursor: "pointer",
               }}>
@@ -750,7 +750,7 @@ export function TeamDetailClient({
             <AthletesTable athletes={athletes} setSlug={setSlug} setId={setId} />
           )}
           {tab === "Calculator" && (
-            <div style={{ padding: "40px 20px", textAlign: "center", fontSize: 16, fontStyle: "italic", color: "#8A8677" }}>
+            <div style={{ padding: "40px 20px", textAlign: "center", fontSize: 16, fontStyle: "italic", color: "var(--brand-slate)" }}>
               Break Hit Calculator coming soon.
             </div>
           )}

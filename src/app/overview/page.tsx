@@ -173,15 +173,17 @@ function StatCard({
   highlight?: boolean;
 }) {
   return (
-    <div className="rounded-xl border border-zinc-800 bg-zinc-900 px-6 py-5">
+    <div style={{ border: "1px solid var(--brand-line)", background: "var(--brand-card)", padding: "16px 22px 18px" }}>
       <div
-        className={`text-4xl font-bold tabular-nums tracking-tight ${
-          highlight ? "text-amber-400" : "text-white"
-        }`}
+        style={{
+          fontFamily: "var(--brand-font-head)", fontWeight: 400, fontSynthesisWeight: "none",
+          fontSize: 31, lineHeight: 1, letterSpacing: "-0.01em",
+          color: highlight ? "var(--brand-accent)" : "var(--brand-ink)",
+        }}
       >
         {value.toLocaleString()}
       </div>
-      <div className="text-sm text-zinc-500 mt-1.5 font-medium">{label}</div>
+      <div style={{ fontSize: 13, color: "var(--brand-slate)", marginTop: 7, fontWeight: 500 }}>{label}</div>
     </div>
   );
 }

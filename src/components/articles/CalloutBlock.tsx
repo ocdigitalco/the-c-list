@@ -9,13 +9,13 @@ const VARIANTS = {
     border: "border-l-red-500",
     bg: "bg-red-950/20",
     labelColor: "rgba(255,255,255,0.75)",
-    textColor: "#FFFFFF",
+    textColor: "var(--brand-card)",
   },
   exclusive: {
     border: "border-l-blue-500",
     bg: "bg-blue-950/20",
     labelColor: "rgba(255,255,255,0.75)",
-    textColor: "#FFFFFF",
+    textColor: "var(--brand-card)",
   },
   info: {
     border: "border-l-zinc-500",

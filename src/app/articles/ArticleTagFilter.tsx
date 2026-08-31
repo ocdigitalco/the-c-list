@@ -20,8 +20,8 @@ function TagFilterInner({ tags, current }: { tags: string[]; current: string | n
           textDecoration: "none",
           transition: "background 0.15s, color 0.15s",
           background: !activeTag ? "#1A1A1A" : "transparent",
-          color: !activeTag ? "#FFFFFF" : "#6B6B6B",
-          border: !activeTag ? "none" : "1px solid #E5E5E5",
+          color: !activeTag ? "var(--brand-card)" : "#6B6B6B",
+          border: !activeTag ? "none" : "1px solid var(--brand-line)",
         }}
       >
         All
@@ -38,8 +38,8 @@ function TagFilterInner({ tags, current }: { tags: string[]; current: string | n
             textDecoration: "none",
             transition: "background 0.15s, color 0.15s",
             background: activeTag === tag ? "#1A1A1A" : "transparent",
-            color: activeTag === tag ? "#FFFFFF" : "#6B6B6B",
-            border: activeTag === tag ? "none" : "1px solid #E5E5E5",
+            color: activeTag === tag ? "var(--brand-card)" : "#6B6B6B",
+            border: activeTag === tag ? "none" : "1px solid var(--brand-line)",
           }}
         >
           {tag}

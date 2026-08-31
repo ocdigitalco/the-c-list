@@ -16,9 +16,9 @@ export function TypeChip({ label, accent = false }: { label: string; accent?: bo
       flexShrink: 0,
       fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1, textTransform: "uppercase",
       padding: "2px 6px", borderRadius: 4,
-      color: accent ? "#9A2B14" : "#8A8677",
-      background: accent ? "rgba(154,43,20,0.07)" : "#F1EFE9",
-      border: accent ? "1px solid rgba(154,43,20,0.18)" : "1px solid #E6E3D9",
+      color: accent ? "var(--brand-accent-deep)" : "var(--brand-slate)",
+      background: accent ? "rgba(154,43,20,0.07)" : "var(--brand-track)",
+      border: accent ? "1px solid rgba(154,43,20,0.18)" : "1px solid var(--brand-line)",
     }}>{label}</span>
   );
 }
@@ -44,7 +44,7 @@ export function SubsetCard({ name, cardsCount, parallelsCount, chips = [], check
           {name}
         </h3>
         {chips.map((c) => <TypeChip key={c.label} label={c.label} accent={c.accent} />)}
-        <span style={{ fontFamily: FONT_MONO, fontSize: 12, color: "#8A8677" }}>
+        <span style={{ fontFamily: FONT_MONO, fontSize: 12, color: "var(--brand-slate)" }}>
           {cardsCount} card{cardsCount !== 1 ? "s" : ""}
           {parallelsCount > 0 ? ` · ${parallelsCount} parallel${parallelsCount !== 1 ? "s" : ""}` : ""}
         </span>

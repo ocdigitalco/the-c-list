@@ -226,7 +226,7 @@ function InitialsAvatar({ name, size = 30 }: { name: string; size?: number }) {
       className="rounded-full flex items-center justify-center flex-shrink-0"
       style={{
         width: size, height: size,
-        background: "#EAE6D9", color: "#6B6757",
+        background: "var(--brand-empty)", color: "var(--brand-slate)",
         fontSize: size * 0.35, fontWeight: 600,
       }}
     >
@@ -323,11 +323,11 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
   const teamCount = useMemo(() => new Set(entries.map((e) => e.team).filter(Boolean)).size, [entries]);
 
   return (
-    <div className="flex flex-col h-full" style={{ background: "#FFFFFF" }}>
+    <div className="flex flex-col h-full" style={{ background: "var(--brand-card)" }}>
       {/* Athletes / Teams tabs */}
       {hasTeamData && (
         <div className="shrink-0 flex" style={{
-          borderBottom: "1px solid #EDEAE0",
+          borderBottom: "1px solid var(--brand-line)",
           padding: isMobile ? "0 16px" : "0 18px",
         }}>
           {([["athletes", `${subjectLabel} (${entries.length})`], ["teams", `${teamLabel}s (${teamCount})`]] as const).map(([mode, label]) => (
@@ -337,7 +337,7 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
                 fontFamily: FONT_DISPLAY,
                 fontSize: 16,
                 fontWeight: viewMode === mode ? 600 : 500,
-                color: viewMode === mode ? "var(--brand-ink)" : "#8A8677",
+                color: viewMode === mode ? "var(--brand-ink)" : "var(--brand-slate)",
                 borderBottom: viewMode === mode ? "2px solid var(--brand-accent)" : "2px solid transparent",
                 marginBottom: -1,
                 background: "transparent",
@@ -352,7 +352,7 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
       <div className="shrink-0 space-y-3" style={{ padding: isMobile ? "14px 16px 12px" : "14px 18px 12px" }}>
         {/* Search */}
         <div className="relative">
-          <svg className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 pointer-events-none" style={{ color: "#8A8677" }}
+          <svg className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 pointer-events-none" style={{ color: "var(--brand-slate)" }}
             fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
           </svg>
@@ -363,7 +363,7 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
             autoComplete="off" spellCheck={false}
             className="w-full outline-none"
             style={{
-              background: "#F1EFE9", borderRadius: 8, padding: "7px 10px 7px 30px",
+              background: "var(--brand-track)", borderRadius: 8, padding: "7px 10px 7px 30px",
               fontSize: 16, border: "none", color: "var(--brand-ink)",
             }}
           />
@@ -376,8 +376,8 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
                 borderRadius: isMobile ? 999 : 4, padding: "4px 9px",
                 fontSize: 16, fontWeight: 500,
                 background: sortKey === chip.key ? "var(--brand-ink)" : "transparent",
-                color: sortKey === chip.key ? "#FAFAF7" : "#3A372F",
-                border: sortKey === chip.key ? "1px solid var(--brand-ink)" : "1px solid #E6E3D9",
+                color: sortKey === chip.key ? "var(--brand-page)" : "var(--brand-ink-soft)",
+                border: sortKey === chip.key ? "1px solid var(--brand-ink)" : "1px solid var(--brand-line)",
               }}>
               {chip.label}
             </button>
@@ -385,7 +385,7 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
         </div>
         {/* Rookies only (hidden in teams view) */}
         {viewMode === "athletes" && (
-          <label className="flex items-center gap-1.5 cursor-pointer" style={{ fontSize: 16, color: "#3A372F" }}>
+          <label className="flex items-center gap-1.5 cursor-pointer" style={{ fontSize: 16, color: "var(--brand-ink-soft)" }}>
             <input type="checkbox" checked={rookiesOnly} onChange={() => setRookiesOnly((v) => !v)}
               style={{ accentColor: "var(--brand-ink)" }} />
             Rookies only
@@ -395,8 +395,8 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
       {/* Column header */}
       <div className="shrink-0 flex justify-between items-center"
         style={{
-          padding: "6px 18px", borderBottom: "1px solid #EDEAE0",
-          fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677",
+          padding: "6px 18px", borderBottom: "1px solid var(--brand-line)",
+          fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "var(--brand-slate)",
           textTransform: "uppercase",
         }}>
         <span>{viewMode === "teams" ? teamLabel.toUpperCase() : "ATHLETE"}</span>
@@ -407,7 +407,7 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
         {viewMode === "athletes" ? (
           /* ── Athletes View ── */
           visible.length === 0 ? (
-            <p className="text-center py-8" style={{ fontSize: 16, color: "#8A8677", fontStyle: "italic" }}>No {subjectLabel.toLowerCase()} match.</p>
+            <p className="text-center py-8" style={{ fontSize: 16, color: "var(--brand-slate)", fontStyle: "italic" }}>No {subjectLabel.toLowerCase()} match.</p>
           ) : (
             <>
               {visible.map((entry, idx) => (
@@ -418,10 +418,10 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
                   // nothing here — the visit is counted as a "view" on page mount.
                   onClick={() => { if (query.trim()) trackEvent(entry.id, "search"); }}
                   className="flex items-center gap-2 transition-colors"
-                  style={{ padding: rowPy, paddingLeft: 18, paddingRight: 18, borderBottom: "1px solid #F4F1E8" }}
-                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#F1EFE9"; }}
+                  style={{ padding: rowPy, paddingLeft: 18, paddingRight: 18, borderBottom: "1px solid var(--brand-line)" }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "var(--brand-track)"; }}
                   onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}>
-                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677", width: 18, textAlign: "right", flexShrink: 0 }}>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "var(--brand-slate)", width: 18, textAlign: "right", flexShrink: 0 }}>
                     {idx + 1}
                   </span>
                   <PlayerAvatar name={entry.name} nbaPlayerId={entry.nbaPlayerId} ufcImageUrl={entry.ufcImageUrl}
@@ -431,14 +431,14 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
                       <span className="truncate" style={{ fontSize: 16, fontWeight: 500, color: "var(--brand-ink)" }}>{entry.name}</span>
                       {entry.isRookie && (
                         <span className="shrink-0" style={{
-                          background: "oklch(0.55 0.17 25)", color: "#FFF8F1",
+                          background: "var(--brand-accent)", color: "var(--brand-head)",
                           fontSize: 14, fontWeight: 700, letterSpacing: 0.6,
                           padding: "1px 4px", borderRadius: 2, lineHeight: 1.2,
                         }}>RC</span>
                       )}
                     </div>
                     {hasTeamData && entry.team && (
-                      <p className="truncate" style={{ fontSize: 16, color: "#6B6757", marginTop: 1 }}>{entry.team}</p>
+                      <p className="truncate" style={{ fontSize: 16, color: "var(--brand-slate)", marginTop: 1 }}>{entry.team}</p>
                     )}
                   </div>
                   <span style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: "var(--brand-ink)", flexShrink: 0 }}>
@@ -457,23 +457,23 @@ function AthletesRail({ entries, hasTeamData, setId, setSlug, isMobile = false, 
         ) : (
           /* ── Teams View ── */
           teamRows.length === 0 ? (
-            <p className="text-center py-8" style={{ fontSize: 16, color: "#8A8677", fontStyle: "italic" }}>No teams match.</p>
+            <p className="text-center py-8" style={{ fontSize: 16, color: "var(--brand-slate)", fontStyle: "italic" }}>No teams match.</p>
           ) : (
             <>
               {(showAll ? teamRows : teamRows.slice(0, 50)).map((tr, idx) => (
                 <Link key={tr.team}
                   href={`/sets/${setSlug || setId}/team/${tr.team.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`}
                   className="flex items-center gap-2 transition-colors"
-                  style={{ padding: rowPy, paddingLeft: 18, paddingRight: 18, borderBottom: "1px solid #F4F1E8", textDecoration: "none" }}
-                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#F1EFE9"; }}
+                  style={{ padding: rowPy, paddingLeft: 18, paddingRight: 18, borderBottom: "1px solid var(--brand-line)", textDecoration: "none" }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "var(--brand-track)"; }}
                   onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}>
-                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "#8A8677", width: 18, textAlign: "right", flexShrink: 0 }}>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: 16, color: "var(--brand-slate)", width: 18, textAlign: "right", flexShrink: 0 }}>
                     {idx + 1}
                   </span>
                   <TeamLogo teamName={tr.team} sport={sport} size={avatarSize} />
                   <div className="flex-1 min-w-0">
                     <span className="truncate block" style={{ fontSize: 16, fontWeight: 500, color: "var(--brand-ink)" }}>{tr.team}</span>
-                    <p className="truncate" style={{ fontSize: 16, color: "#6B6757", marginTop: 1 }}>
+                    <p className="truncate" style={{ fontSize: 16, color: "var(--brand-slate)", marginTop: 1 }}>
                       {tr.athleteCount} {tr.athleteCount === 1 ? "Athlete" : "Athletes"}
                     </p>
                   </div>
@@ -520,17 +520,17 @@ function MobileAthletesDrawer({ open, onClose, entries, hasTeamData, setId, setS
       role="dialog" aria-modal="true" aria-label={`${subjectLabel} in Set`}
       className="fixed inset-0 z-[100]"
       style={{
-        background: "#FFFFFF",
+        background: "var(--brand-card)",
         transform: open ? "translateY(0)" : "translateY(100%)",
         transition: "transform 200ms ease-out",
         pointerEvents: open ? "auto" : "none",
       }}>
       {/* Drawer header */}
       <div className="flex items-center" style={{
-        padding: "14px 16px", borderBottom: "none", background: "#FFFFFF",
+        padding: "14px 16px", borderBottom: "none", background: "var(--brand-card)",
       }}>
         <button onClick={onClose} aria-label="Close" className="p-1">
-          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="#0F0F0E" strokeWidth={2}>
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="var(--brand-ink)" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
           </svg>
         </button>
@@ -557,16 +557,16 @@ function CoverageCard({ hasChecklist, hasNumberedParallels, hasBoxConfig, hasPac
   ];
   return (
     <div style={{
-      background: "#FAFAF7", border: "1px solid #EDEAE0", borderRadius: 8, padding: "12px 14px",
+      background: "var(--brand-page)", border: "1px solid var(--brand-line)", borderRadius: 8, padding: "12px 14px",
     }}>
       <div className="flex items-center justify-between" style={{ marginBottom: 10 }}>
-        <span style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase" }}>
+        <span style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "var(--brand-slate)", textTransform: "uppercase" }}>
           Coverage
         </span>
         <div className="v2-break-sheet-pill">
           <style>{`
             .v2-break-sheet-pill > button, .v2-break-sheet-pill > a {
-              background: var(--brand-ink) !important; color: #FAFAF7 !important;
+              background: var(--brand-ink) !important; color: var(--brand-page) !important;
               font-size: 10px !important; font-weight: 600 !important;
               padding: 5px 10px !important; border-radius: 4px !important;
               border: none !important; cursor: pointer !important;
@@ -580,12 +580,12 @@ function CoverageCard({ hasChecklist, hasNumberedParallels, hasBoxConfig, hasPac
       <div className="space-y-2">
         {rows.map((r) => (
           <div key={r.label} className="flex items-center justify-between">
-            <span style={{ fontSize: 16, color: "#3A372F" }}>{r.label}</span>
+            <span style={{ fontSize: 16, color: "var(--brand-ink-soft)" }}>{r.label}</span>
             <span
               aria-label={r.ok ? "Present" : "Missing"}
               style={{
                 width: 8, height: 8, borderRadius: "50%",
-                background: r.ok ? "#0E8A4F" : "#B7B2A3",
+                background: r.ok ? "var(--brand-ok)" : "var(--brand-fog)",
               }}
             />
           </div>
@@ -602,14 +602,14 @@ function StatStrip({ items }: { items: { label: string; value: number }[] }) {
     <>
       {/* Desktop: 6-col */}
       <div className="hidden min-[1180px]:grid" style={{
-        gridTemplateColumns: "repeat(6, 1fr)", borderBottom: "1px solid #EDEAE0", background: "#FFFFFF",
+        gridTemplateColumns: "repeat(6, 1fr)", borderBottom: "1px solid var(--brand-line)", background: "var(--brand-card)",
       }}>
         {items.map((item, i) => (
           <div key={item.label} style={{
             padding: "18px 22px",
-            borderRight: i < items.length - 1 ? "1px solid #EDEAE0" : "none",
+            borderRight: i < items.length - 1 ? "1px solid var(--brand-line)" : "none",
           }}>
-            <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase" }}>
+            <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "var(--brand-slate)", textTransform: "uppercase" }}>
               {item.label}
             </div>
             <div style={{ fontFamily: FONT_DISPLAY, fontSize: 26, fontWeight: 600, letterSpacing: -0.6, color: "var(--brand-ink)", marginTop: 4 }}>
@@ -620,15 +620,15 @@ function StatStrip({ items }: { items: { label: string; value: number }[] }) {
       </div>
       {/* Mobile: 3×2 */}
       <div className="grid min-[1180px]:hidden" style={{
-        gridTemplateColumns: "repeat(3, 1fr)", borderBottom: "1px solid #EDEAE0", background: "#FFFFFF",
+        gridTemplateColumns: "repeat(3, 1fr)", borderBottom: "1px solid var(--brand-line)", background: "var(--brand-card)",
       }}>
         {items.map((item, i) => (
           <div key={item.label} style={{
             padding: "14px 16px",
-            borderRight: (i % 3) < 2 ? "1px solid #EDEAE0" : "none",
-            borderBottom: i < 3 ? "1px solid #EDEAE0" : "none",
+            borderRight: (i % 3) < 2 ? "1px solid var(--brand-line)" : "none",
+            borderBottom: i < 3 ? "1px solid var(--brand-line)" : "none",
           }}>
-            <div style={{ fontFamily: FONT_MONO, fontSize: 8, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase" }}>
+            <div style={{ fontFamily: FONT_MONO, fontSize: 8, fontWeight: 600, letterSpacing: 1.6, color: "var(--brand-slate)", textTransform: "uppercase" }}>
               {item.label}
             </div>
             <div style={{ fontFamily: FONT_DISPLAY, fontSize: 20, fontWeight: 600, letterSpacing: -0.6, color: "var(--brand-ink)", marginTop: 4 }}>
@@ -706,8 +706,8 @@ function CardGallery({ images, setName }: { images: CardGalleryImage[]; setName:
       type="button"
       aria-label={dir === -1 ? "Scroll gallery left" : "Scroll gallery right"}
       onClick={() => scrollByCard(dir)}
-      className="rounded-lg flex items-center justify-center border transition-colors bg-[#F1EFE9] hover:bg-[#E6E3D9]"
-      style={{ width: 28, height: 28, borderColor: "#E6E3D9", color: "#3A372F" }}
+      className="rounded-lg flex items-center justify-center border transition-colors bg-[var(--brand-track)] hover:bg-[var(--brand-line)]"
+      style={{ width: 28, height: 28, borderColor: "var(--brand-line)", color: "var(--brand-ink-soft)" }}
     >
       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d={dir === -1 ? "M15.75 19.5 8.25 12l7.5-7.5" : "m8.25 4.5 7.5 7.5-7.5 7.5"} />
@@ -718,7 +718,7 @@ function CardGallery({ images, setName }: { images: CardGalleryImage[]; setName:
   return (
     <section>
       <div className="flex items-center justify-between" style={{ marginBottom: 12 }}>
-        <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase" }}>
+        <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "var(--brand-slate)", textTransform: "uppercase" }}>
           Card Gallery
         </div>
         {(canLeft || canRight) && (
@@ -742,7 +742,7 @@ function CardGallery({ images, setName }: { images: CardGalleryImage[]; setName:
               key={src}
               data-card
               className="shrink-0"
-              style={{ height: CARD_GALLERY_H, aspectRatio: `${width} / ${height}`, overflow: "hidden", border: "1px solid #EDEAE0", background: "#F1EFE9" }}
+              style={{ height: CARD_GALLERY_H, aspectRatio: `${width} / ${height}`, overflow: "hidden", border: "1px solid var(--brand-line)", background: "var(--brand-track)" }}
             >
               <img
                 src={src}
@@ -785,11 +785,11 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
       {/* Set Summary */}
       {(aeoSummary || toppsUrl || (relatedLinks && relatedLinks.length > 0)) && (
         <section>
-          <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase", marginBottom: 12 }}>
+          <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "var(--brand-slate)", textTransform: "uppercase", marginBottom: 12 }}>
             About This Set
           </div>
           {aeoSummary && (
-            <p style={{ fontSize: 16, lineHeight: 1.65, color: "#3A372F", margin: 0 }}>
+            <p style={{ fontSize: 16, lineHeight: 1.65, color: "var(--brand-ink-soft)", margin: 0 }}>
               {aeoSummary.startsWith(setName) ? (
                 <>
                   <strong style={{ color: "var(--brand-ink)" }}>{setName}</strong>
@@ -821,7 +821,7 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
           {/* Related article backlinks (e.g. Topps RIPPED). */}
           {relatedLinks && relatedLinks.length > 0 && (
             <div style={{ marginTop: aeoSummary || toppsUrl ? 20 : 0 }}>
-              <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase", marginBottom: 10 }}>
+              <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "var(--brand-slate)", textTransform: "uppercase", marginBottom: 10 }}>
                 Read more on {relatedLinks[0].source}
               </div>
               <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 10 }}>
@@ -836,7 +836,7 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
                       {link.title}
                     </a>
                     {link.description && (
-                      <p style={{ fontSize: 13, lineHeight: 1.55, color: "#6B6757", margin: "2px 0 0" }}>
+                      <p style={{ fontSize: 13, lineHeight: 1.55, color: "var(--brand-slate)", margin: "2px 0 0" }}>
                         {link.description}
                       </p>
                     )}
@@ -850,7 +850,7 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
 
       {/* Quick Stats */}
       <div>
-        <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase", marginBottom: 12 }}>
+        <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "var(--brand-slate)", textTransform: "uppercase", marginBottom: 12 }}>
           At a Glance
         </div>
         <div className="grid grid-cols-2 min-[1180px]:grid-cols-3 gap-3">
@@ -863,12 +863,12 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
             { label: "Total Parallels", value: totalParallels, show: totalParallels > 0 },
           ].filter(s => s.show).map((s) => (
             <div key={s.label} style={{
-              background: "#FFFFFF", border: "1px solid #EDEAE0", borderRadius: 8, padding: "14px 16px",
+              background: "var(--brand-card)", border: "1px solid var(--brand-line)", borderRadius: 8, padding: "14px 16px",
             }}>
               <div style={{ fontFamily: FONT_DISPLAY, fontSize: 26, fontWeight: 600, letterSpacing: -0.6, color: "var(--brand-ink)" }}>
                 {s.value.toLocaleString()}
               </div>
-              <div style={{ fontSize: 16, color: "#6B6757", marginTop: 2 }}>{s.label}</div>
+              <div style={{ fontSize: 16, color: "var(--brand-slate)", marginTop: 2 }}>{s.label}</div>
             </div>
           ))}
         </div>
@@ -876,10 +876,10 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
 
       {/* Coverage Status */}
       <div>
-        <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase", marginBottom: 12 }}>
+        <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "var(--brand-slate)", textTransform: "uppercase", marginBottom: 12 }}>
           Coverage
         </div>
-        <div style={{ background: "#FFFFFF", border: "1px solid #EDEAE0", borderRadius: 8, padding: "14px 16px" }}>
+        <div style={{ background: "var(--brand-card)", border: "1px solid var(--brand-line)", borderRadius: 8, padding: "14px 16px" }}>
           <div className="grid grid-cols-2 min-[1180px]:grid-cols-4 gap-3">
             {[
               { label: "Athlete Checklist", ok: hasChecklist },
@@ -890,15 +890,15 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
               <div key={r.label} className="flex items-center gap-2">
                 <span aria-label={r.ok ? "Present" : "Missing"} style={{
                   width: 8, height: 8, borderRadius: "50%", flexShrink: 0,
-                  background: r.ok ? "#0E8A4F" : "#B7B2A3",
+                  background: r.ok ? "var(--brand-ok)" : "var(--brand-fog)",
                 }} />
-                <span style={{ fontSize: 16, color: "#3A372F" }}>{r.label}</span>
+                <span style={{ fontSize: 16, color: "var(--brand-ink-soft)" }}>{r.label}</span>
               </div>
             ))}
           </div>
           {releaseDate && (
-            <div className="mt-3 pt-3" style={{ borderTop: "1px solid #F4F1E8" }}>
-              <span style={{ fontSize: 16, color: "#6B6757" }}>Release Date: </span>
+            <div className="mt-3 pt-3" style={{ borderTop: "1px solid var(--brand-line)" }}>
+              <span style={{ fontSize: 16, color: "var(--brand-slate)" }}>Release Date: </span>
               <span style={{ fontSize: 16, fontWeight: 600, color: "var(--brand-ink)" }}>
                 {new Date(releaseDate + "T00:00:00Z").toLocaleDateString("en-US", {
                   month: "long", day: "numeric", year: "numeric", timeZone: "UTC",
@@ -912,7 +912,7 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
       {/* Box Configuration */}
       {boxRows.length > 0 && (
         <div>
-          <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase", marginBottom: 12 }}>
+          <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "var(--brand-slate)", textTransform: "uppercase", marginBottom: 12 }}>
             Box Configuration
           </div>
           {/* Desktop */}
@@ -920,35 +920,35 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
             <div className="grid gap-3" style={{ gridTemplateColumns: `repeat(${Math.min(boxRows.length, 3)}, 1fr)` }}>
               {boxRows.map((row) => (
                 <div key={row.label} style={{
-                  background: "#FFFFFF", border: "1px solid #EDEAE0", borderRadius: 8, padding: "16px",
+                  background: "var(--brand-card)", border: "1px solid var(--brand-line)", borderRadius: 8, padding: "16px",
                 }}>
                   <div style={{ fontFamily: FONT_DISPLAY, fontSize: 16, fontWeight: 600, color: "var(--brand-ink)", marginBottom: 12 }}>
                     {row.label}
                   </div>
                   <div className="space-y-1.5">
                     {row.cardsPerPack != null && (
-                      <div style={{ fontSize: 16, color: "#3A372F" }}>
+                      <div style={{ fontSize: 16, color: "var(--brand-ink-soft)" }}>
                         <span style={{ fontFamily: FONT_MONO, fontWeight: 600, color: "var(--brand-ink)" }}>{row.cardsPerPack}</span> cards/pack
                       </div>
                     )}
                     {row.packsPerBox != null && (
-                      <div style={{ fontSize: 16, color: "#3A372F" }}>
+                      <div style={{ fontSize: 16, color: "var(--brand-ink-soft)" }}>
                         <span style={{ fontFamily: FONT_MONO, fontWeight: 600, color: "var(--brand-ink)" }}>{row.packsPerBox}</span> packs/box
                       </div>
                     )}
                     {row.boxesPerCase != null && (
-                      <div style={{ fontSize: 16, color: "#3A372F" }}>
+                      <div style={{ fontSize: 16, color: "var(--brand-ink-soft)" }}>
                         <span style={{ fontFamily: FONT_MONO, fontWeight: 600, color: "var(--brand-ink)" }}>{row.boxesPerCase}</span> boxes/case
                       </div>
                     )}
                     {row.autosPerBox != null && (
-                      <div style={{ fontSize: 16, color: "#3A372F" }}>
+                      <div style={{ fontSize: 16, color: "var(--brand-ink-soft)" }}>
                         <span style={{ fontFamily: FONT_MONO, fontWeight: 600, color: "var(--brand-ink)" }}>{row.autosPerBox}</span> auto{row.autosPerBox !== 1 ? "s" : ""}/box
                       </div>
                     )}
                   </div>
                   {row.notes && (
-                    <div style={{ borderTop: "1px solid #F4F1E8", marginTop: 10, paddingTop: 8, fontSize: 16, fontStyle: "italic", color: "#6B6757" }}>
+                    <div style={{ borderTop: "1px solid var(--brand-line)", marginTop: 10, paddingTop: 8, fontSize: 16, fontStyle: "italic", color: "var(--brand-slate)" }}>
                       {row.notes}
                     </div>
                   )}
@@ -960,7 +960,7 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
           <div className="min-[1180px]:hidden space-y-2">
             {boxRows.map((row) => (
               <div key={row.label} style={{
-                background: "#FFFFFF", border: "1px solid #EDEAE0", borderRadius: 10, padding: "12px 14px",
+                background: "var(--brand-card)", border: "1px solid var(--brand-line)", borderRadius: 10, padding: "12px 14px",
               }}>
                 <div style={{ fontFamily: FONT_DISPLAY, fontSize: 16, fontWeight: 600, color: "var(--brand-ink)", marginBottom: 8 }}>
                   {row.label}
@@ -972,13 +972,13 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
                     { l: "BXS/CASE", v: row.boxesPerCase },
                   ].map((s) => (
                     <div key={s.l}>
-                      <div style={{ fontFamily: FONT_MONO, fontSize: 7, fontWeight: 600, letterSpacing: 1, color: "#8A8677", textTransform: "uppercase" }}>{s.l}</div>
-                      <div style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: s.v != null ? "var(--brand-ink)" : "#B7B2A3", marginTop: 2 }}>{s.v ?? "—"}</div>
+                      <div style={{ fontFamily: FONT_MONO, fontSize: 7, fontWeight: 600, letterSpacing: 1, color: "var(--brand-slate)", textTransform: "uppercase" }}>{s.l}</div>
+                      <div style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: s.v != null ? "var(--brand-ink)" : "var(--brand-fog)", marginTop: 2 }}>{s.v ?? "—"}</div>
                     </div>
                   ))}
                 </div>
                 {row.notes && (
-                  <div style={{ borderTop: "1px solid #F4F1E8", marginTop: 8, paddingTop: 6, fontSize: 16, fontStyle: "italic", color: "#6B6757" }}>
+                  <div style={{ borderTop: "1px solid var(--brand-line)", marginTop: 8, paddingTop: 6, fontSize: 16, fontStyle: "italic", color: "var(--brand-slate)" }}>
                     {row.notes}
                   </div>
                 )}
@@ -991,13 +991,13 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
       {/* Featured Article */}
       {featuredArticle && (
         <div>
-          <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase", marginBottom: 12 }}>
+          <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "var(--brand-slate)", textTransform: "uppercase", marginBottom: 12 }}>
             Featured Article
           </div>
           <a
             href={`/articles/${featuredArticle.slug}`}
             style={{
-              display: "flex", gap: 16, background: "#FFFFFF", border: "1px solid #EDEAE0",
+              display: "flex", gap: 16, background: "var(--brand-card)", border: "1px solid var(--brand-line)",
               borderRadius: 8, padding: 16, textDecoration: "none", transition: "box-shadow 0.15s",
             }}
             onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 14px rgba(15,15,14,0.08)"; }}
@@ -1011,10 +1011,10 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
               <div style={{ fontFamily: FONT_DISPLAY, fontSize: 16, fontWeight: 600, color: "var(--brand-ink)", lineHeight: 1.3 }}>
                 {featuredArticle.title}
               </div>
-              <div style={{ fontSize: 14, color: "#6B6757", marginTop: 6, lineHeight: 1.5, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
+              <div style={{ fontSize: 14, color: "var(--brand-slate)", marginTop: 6, lineHeight: 1.5, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
                 {featuredArticle.description}
               </div>
-              <div style={{ fontFamily: FONT_MONO, fontSize: 11, fontWeight: 600, color: "oklch(0.55 0.17 25)", marginTop: 10 }}>
+              <div style={{ fontFamily: FONT_MONO, fontSize: 11, fontWeight: 600, color: "var(--brand-accent)", marginTop: 10 }}>
                 READ FULL ARTICLE &rarr;
               </div>
             </div>
@@ -1025,16 +1025,16 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
       {/* FAQ / Q&A */}
       {faqs && faqs.length > 0 && (
         <section>
-          <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "#8A8677", textTransform: "uppercase", marginBottom: 12 }}>
+          <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "var(--brand-slate)", textTransform: "uppercase", marginBottom: 12 }}>
             Frequently Asked Questions
           </div>
-          <div style={{ background: "#FFFFFF", border: "1px solid #EDEAE0", borderRadius: 8 }}>
+          <div style={{ background: "var(--brand-card)", border: "1px solid var(--brand-line)", borderRadius: 8 }}>
             {faqs.map((f, i) => (
-              <div key={f.q} style={{ padding: "16px", borderTop: i > 0 ? "1px solid #F4F1E8" : "none" }}>
+              <div key={f.q} style={{ padding: "16px", borderTop: i > 0 ? "1px solid var(--brand-line)" : "none" }}>
                 <h3 style={{ fontFamily: FONT_DISPLAY, fontSize: 17, fontWeight: 600, color: "var(--brand-ink)", margin: 0, lineHeight: 1.3 }}>
                   {f.q}
                 </h3>
-                <p style={{ fontSize: 15, lineHeight: 1.6, color: "#3A372F", margin: "8px 0 0" }}>
+                <p style={{ fontSize: 15, lineHeight: 1.6, color: "var(--brand-ink-soft)", margin: "8px 0 0" }}>
                   {f.a}
                 </p>
               </div>
@@ -1052,7 +1052,7 @@ function EmptyTab({ label }: { label: string }) {
   return (
     <div style={{
       padding: "40px 20px", textAlign: "center", fontSize: 16,
-      fontStyle: "italic", color: "#8A8677",
+      fontStyle: "italic", color: "var(--brand-slate)",
     }}>{label}</div>
   );
 }
@@ -1106,20 +1106,20 @@ function SubsetSection({ subset, tab, showNumbered, oddsFor }: {
   });
 
   const checklist = (
-    <div style={{ border: "1px solid #EDEAE0", borderRadius: 8, overflow: "hidden", background: "#FFFFFF" }}>
+    <div style={{ border: "1px solid var(--brand-line)", borderRadius: 8, overflow: "hidden", background: "var(--brand-card)" }}>
       {subset.cards.map((c, i) => (
         <div key={`${c.code}-${i}`} className="flex items-center gap-3"
-          style={{ padding: "8px 12px", borderTop: i > 0 ? "1px solid #F4F1E8" : "none" }}>
-          <span style={{ fontFamily: FONT_MONO, fontSize: 13, color: "#8A8677", minWidth: 54 }}>{c.code}</span>
+          style={{ padding: "8px 12px", borderTop: i > 0 ? "1px solid var(--brand-line)" : "none" }}>
+          <span style={{ fontFamily: FONT_MONO, fontSize: 13, color: "var(--brand-slate)", minWidth: 54 }}>{c.code}</span>
           <span style={{ fontSize: 15, fontWeight: 500, color: "var(--brand-ink)", flex: 1, minWidth: 0 }}>{c.player}</span>
           {c.isRookie && (
             <span style={{
               flexShrink: 0, fontFamily: FONT_MONO, fontSize: 9, fontWeight: 700, letterSpacing: 0.5,
-              color: "#9A2B14", background: "rgba(154,43,20,0.08)", border: "1px solid rgba(154,43,20,0.2)",
+              color: "var(--brand-accent-deep)", background: "rgba(154,43,20,0.08)", border: "1px solid rgba(154,43,20,0.2)",
               padding: "1px 5px", borderRadius: 3,
             }}>RC</span>
           )}
-          {c.team && <span style={{ fontSize: 13, color: "#6B6757", flexShrink: 0, textAlign: "right" }}>{c.team}</span>}
+          {c.team && <span style={{ fontSize: 13, color: "var(--brand-slate)", flexShrink: 0, textAlign: "right" }}>{c.team}</span>}
         </div>
       ))}
     </div>
@@ -1248,11 +1248,11 @@ export function SetDetailClient({
   ].filter(Boolean).join(" · ");
 
   return (
-    <div style={{ background: "#FAFAF7", minHeight: "100vh" }}>
+    <div style={{ background: "var(--brand-page)", minHeight: "100vh" }}>
       {/* ═══ DESKTOP ═══ */}
       <div className="hidden min-[1180px]:grid" style={{ gridTemplateColumns: "425px 1fr", minHeight: "100vh" }}>
         {/* Left rail */}
-        <aside className="sticky top-0 h-screen overflow-y-auto" style={{ borderRight: "1px solid #EDEAE0" }}>
+        <aside className="sticky top-0 h-screen overflow-y-auto" style={{ borderRight: "1px solid var(--brand-line)" }}>
           <AthletesRail entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug} subjectLabel={subjectLabel} teamLabel={teamLabel} sport={sport} />
         </aside>
         {/* Right column — min-w-0 lets this 1fr grid item shrink below its
@@ -1260,7 +1260,7 @@ export function SetDetailClient({
             instead of widening the whole page. */}
         <div className="flex flex-col min-w-0">
           {/* Hero */}
-          <div style={{ background: "#FFFFFF", padding: "30px 36px", borderBottom: "1px solid #EDEAE0" }}>
+          <div style={{ background: "var(--brand-card)", padding: "30px 36px", borderBottom: "1px solid var(--brand-line)" }}>
             <div className="grid items-center gap-8" style={{
               gridTemplateColumns: sampleImageUrl ? "140px 1fr 280px" : "1fr 280px",
             }}>
@@ -1277,7 +1277,7 @@ export function SetDetailClient({
               )}
               {/* Title block */}
               <div>
-                <div style={{ fontFamily: FONT_MONO, fontSize: 10, fontWeight: 600, letterSpacing: 2.4, color: "#8A8677", textTransform: "uppercase" }}>
+                <div style={{ fontFamily: FONT_MONO, fontSize: 10, fontWeight: 600, letterSpacing: 2.4, color: "var(--brand-slate)", textTransform: "uppercase" }}>
                   {eyebrow}
                 </div>
                 <h1 style={{
@@ -1285,18 +1285,18 @@ export function SetDetailClient({
                   letterSpacing: -1.2, lineHeight: 1.02, color: "var(--brand-ink)", margin: "8px 0 12px",
                 }}>{setName}</h1>
                 <div className="flex flex-wrap items-center gap-2">
-                  <span style={{ fontSize: 16, fontWeight: 500, padding: "4px 9px", borderRadius: 4, border: "1px solid #E6E3D9", color: "#3A372F" }}>
+                  <span style={{ fontSize: 16, fontWeight: 500, padding: "4px 9px", borderRadius: 4, border: "1px solid var(--brand-line)", color: "var(--brand-ink-soft)" }}>
                     {sport}
                   </span>
                   {league && (
-                    <span style={{ fontSize: 16, fontWeight: 500, padding: "4px 9px", borderRadius: 4, border: "1px solid #E6E3D9", color: "#3A372F" }}>
+                    <span style={{ fontSize: 16, fontWeight: 500, padding: "4px 9px", borderRadius: 4, border: "1px solid var(--brand-line)", color: "var(--brand-ink-soft)" }}>
                       {league}
                     </span>
                   )}
-                  <span style={{ fontSize: 16, fontWeight: 600, padding: "4px 9px", borderRadius: 4, background: "var(--brand-ink)", color: "#FAFAF7" }}>
+                  <span style={{ fontSize: 16, fontWeight: 600, padding: "4px 9px", borderRadius: 4, background: "var(--brand-ink)", color: "var(--brand-page)" }}>
                     {meta.manufacturer || "Topps"}
                   </span>
-                  <span style={{ fontSize: 16, color: "#6B6757" }}>
+                  <span style={{ fontSize: 16, color: "var(--brand-slate)" }}>
                     {athleteCount.toLocaleString()} {subjectLabel.toLowerCase()} tracked
                   </span>
                 </div>
@@ -1317,7 +1317,7 @@ export function SetDetailClient({
           {/* Primary tabs — sticky below the site header on scroll */}
           <div role="tablist" className="overflow-x-auto no-scrollbar" style={{
             position: "sticky", top: 0, zIndex: 20,
-            background: "#FAFAF7", padding: "0 36px", borderBottom: "1px solid #EDEAE0",
+            background: "var(--brand-page)", padding: "0 36px", borderBottom: "1px solid var(--brand-line)",
             display: "flex", whiteSpace: "nowrap",
           }}>
             {tabList.map((t) => (
@@ -1327,7 +1327,7 @@ export function SetDetailClient({
                   padding: "14px 20px", flexShrink: 0,
                   fontFamily: FONT_DISPLAY,
                   fontSize: 16, fontWeight: activeTab === t ? 600 : 500,
-                  color: activeTab === t ? "var(--brand-ink)" : "#8A8677",
+                  color: activeTab === t ? "var(--brand-ink)" : "var(--brand-slate)",
                   borderBottom: activeTab === t ? "2px solid var(--brand-accent)" : "2px solid transparent",
                   marginBottom: -1, background: "transparent", cursor: "pointer",
                   transition: "all 150ms",
@@ -1359,13 +1359,13 @@ export function SetDetailClient({
         {/* Sticky app bar */}
         <div className="sticky top-0 z-10 flex items-center justify-between"
           style={{
-            padding: "12px 16px", borderBottom: "1px solid #EDEAE0",
+            padding: "12px 16px", borderBottom: "1px solid var(--brand-line)",
             background: "rgba(250,250,247,0.92)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)",
           }}>
           <button onClick={() => setDrawerOpen(true)}
             style={{
               display: "flex", alignItems: "center", gap: 6,
-              background: "#FFFFFF", border: "1px solid #E6E3D9", borderRadius: 8,
+              background: "var(--brand-card)", border: "1px solid var(--brand-line)", borderRadius: 8,
               padding: "8px 12px", fontSize: 16, fontWeight: 500, color: "var(--brand-ink)",
             }}>
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -1379,7 +1379,7 @@ export function SetDetailClient({
         </div>
 
         {/* Hero */}
-        <div style={{ background: "#FFFFFF", padding: "18px 16px 14px", borderBottom: "1px solid #EDEAE0" }}>
+        <div style={{ background: "var(--brand-card)", padding: "18px 16px 14px", borderBottom: "1px solid var(--brand-line)" }}>
           <div className="flex items-start gap-4">
             {sampleImageUrl && (
               <div className="flex-shrink-0">
@@ -1392,23 +1392,23 @@ export function SetDetailClient({
               </div>
             )}
             <div className="flex-1 min-w-0">
-              <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 2, color: "#8A8677", textTransform: "uppercase" }}>
+              <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 2, color: "var(--brand-slate)", textTransform: "uppercase" }}>
                 {eyebrow}
               </div>
               <h1 style={{
-                fontFamily: FONT_DISPLAY, fontSize: 24, fontWeight: 600,
+                fontFamily: "var(--brand-font-head)", fontSynthesisWeight: "none", fontSize: 24, fontWeight: 400,
                 letterSpacing: -0.6, lineHeight: 1.1, color: "var(--brand-ink)", margin: "6px 0 8px",
               }}>{setName}</h1>
               <div className="flex flex-wrap items-center gap-1.5">
-                <span style={{ fontSize: 16, fontWeight: 500, padding: "3px 7px", borderRadius: 4, border: "1px solid #E6E3D9", color: "#3A372F" }}>
+                <span style={{ fontSize: 16, fontWeight: 500, padding: "3px 7px", borderRadius: 4, border: "1px solid var(--brand-line)", color: "var(--brand-ink-soft)" }}>
                   {sport}
                 </span>
                 {league && (
-                  <span style={{ fontSize: 16, fontWeight: 500, padding: "3px 7px", borderRadius: 4, border: "1px solid #E6E3D9", color: "#3A372F" }}>
+                  <span style={{ fontSize: 16, fontWeight: 500, padding: "3px 7px", borderRadius: 4, border: "1px solid var(--brand-line)", color: "var(--brand-ink-soft)" }}>
                     {league}
                   </span>
                 )}
-                <span style={{ fontSize: 16, color: "#6B6757" }}>
+                <span style={{ fontSize: 16, color: "var(--brand-slate)" }}>
                   {athleteCount.toLocaleString()} {subjectLabel.toLowerCase()}
                 </span>
               </div>
@@ -1422,8 +1422,8 @@ export function SetDetailClient({
         {/* Sticky tabs */}
         <div role="tablist" className="sticky z-[5] overflow-x-auto no-scrollbar"
           style={{
-            top: 53, background: "#FAFAF7", padding: "0 16px",
-            borderBottom: "1px solid #EDEAE0", display: "flex", whiteSpace: "nowrap",
+            top: 53, background: "var(--brand-page)", padding: "0 16px",
+            borderBottom: "1px solid var(--brand-line)", display: "flex", whiteSpace: "nowrap",
           }}>
           {tabList.map((t) => (
             <button key={t} role="tab" aria-selected={activeTab === t}
@@ -1432,7 +1432,7 @@ export function SetDetailClient({
                 padding: "12px 14px", flexShrink: 0,
                 fontFamily: FONT_DISPLAY,
                 fontSize: 16, fontWeight: activeTab === t ? 600 : 500,
-                color: activeTab === t ? "var(--brand-ink)" : "#8A8677",
+                color: activeTab === t ? "var(--brand-ink)" : "var(--brand-slate)",
                 borderBottom: activeTab === t ? "2px solid var(--brand-accent)" : "2px solid transparent",
                 marginBottom: -1, background: "transparent", cursor: "pointer",
               }}>

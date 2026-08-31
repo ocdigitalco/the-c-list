@@ -27,19 +27,19 @@ interface SetCard {
 function Chip({ label, tone = "default" }: { label: string; tone?: "default" | "dark" | "accent" }) {
   const styles: Record<string, React.CSSProperties> = {
     default: {
-      background: "#F1EFE9",
-      color: "#3A372F",
-      border: "1px solid #E6E3D9",
+      background: "var(--brand-track)",
+      color: "var(--brand-ink-soft)",
+      border: "1px solid var(--brand-line)",
     },
     dark: {
-      background: "#151412",
-      color: "#F6F3EA",
-      border: "1px solid #151412",
+      background: "var(--brand-ink)",
+      color: "var(--brand-head)",
+      border: "1px solid var(--brand-ink)",
     },
     accent: {
-      background: "oklch(0.55 0.17 25)",
-      color: "#FFF8F1",
-      border: "1px solid oklch(0.5 0.17 25)",
+      background: "var(--brand-accent)",
+      color: "var(--brand-head)",
+      border: "1px solid var(--brand-accent-deep)",
     },
   };
   return (
@@ -73,8 +73,8 @@ function Ribbon({ size = "gallery" }: { size?: "gallery" | "compact" | "compact-
         position: "absolute",
         top: s.top,
         left: s.left,
-        background: "oklch(0.55 0.17 25)",
-        color: "#FFF8F1",
+        background: "var(--brand-accent)",
+        color: "var(--brand-head)",
         fontFamily: "var(--cl-font-mono)",
         fontSize: s.fontSize,
         fontWeight: 700,
@@ -221,14 +221,14 @@ export function ChecklistSearch({
                   borderRadius: 999,
                   fontSize: 13,
                   fontWeight: isActive ? 500 : 400,
-                  color: isActive ? "#FAFAF7" : "#3A372F",
+                  color: isActive ? "var(--brand-page)" : "var(--brand-ink-soft)",
                   background: isActive ? "var(--brand-ink)" : "transparent",
                   border: isActive ? "1px solid var(--brand-ink)" : "1px solid transparent",
                   cursor: "pointer",
                   transitionDuration: "0.15s",
                 }}
                 onMouseEnter={(e) => {
-                  if (!isActive) (e.currentTarget as HTMLElement).style.background = "#F1EFE9";
+                  if (!isActive) (e.currentTarget as HTMLElement).style.background = "var(--brand-track)";
                 }}
                 onMouseLeave={(e) => {
                   if (!isActive) (e.currentTarget as HTMLElement).style.background = "transparent";
@@ -247,7 +247,7 @@ export function ChecklistSearch({
           <svg
             className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none"
             width={16} height={16} fill="none" viewBox="0 0 24 24"
-            stroke="#A19D90" strokeWidth={2}
+            stroke="var(--brand-fog)" strokeWidth={2}
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
           </svg>
@@ -260,7 +260,7 @@ export function ChecklistSearch({
             style={{
               width: "100%",
               height: 48,
-              background: "#F1EFE9",
+              background: "var(--brand-track)",
               borderRadius: 10,
               border: "none",
               paddingLeft: 44,
@@ -274,7 +274,7 @@ export function ChecklistSearch({
             <button
               onClick={() => setQuery("")}
               className="absolute right-4 top-1/2 -translate-y-1/2"
-              style={{ color: "#A19D90", cursor: "pointer", background: "none", border: "none" }}
+              style={{ color: "var(--brand-fog)", cursor: "pointer", background: "none", border: "none" }}
               aria-label="Clear search"
             >
               <svg width={16} height={16} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -285,7 +285,7 @@ export function ChecklistSearch({
         </div>
 
         {/* View toggle */}
-        <div className="flex shrink-0" style={{ background: "#F1EFE9", borderRadius: 10, padding: 4 }}>
+        <div className="flex shrink-0" style={{ background: "var(--brand-track)", borderRadius: 10, padding: 4 }}>
           <button
             onClick={() => setView("gallery")}
             style={{
@@ -296,7 +296,7 @@ export function ChecklistSearch({
               alignItems: "center",
               justifyContent: "center",
               background: view === "gallery" ? "var(--brand-ink)" : "transparent",
-              color: view === "gallery" ? "#FAFAF7" : "#1A1916",
+              color: view === "gallery" ? "var(--brand-page)" : "#1A1916",
               border: "none",
               cursor: "pointer",
               transition: "all 0.15s",
@@ -320,7 +320,7 @@ export function ChecklistSearch({
               alignItems: "center",
               justifyContent: "center",
               background: view === "compact" ? "var(--brand-ink)" : "transparent",
-              color: view === "compact" ? "#FAFAF7" : "#1A1916",
+              color: view === "compact" ? "var(--brand-page)" : "#1A1916",
               border: "none",
               cursor: "pointer",
               transition: "all 0.15s",
@@ -384,7 +384,7 @@ export function ChecklistSearch({
             style={{
               fontSize: 13,
               fontWeight: 500,
-              color: "oklch(0.55 0.17 25)",
+              color: "var(--brand-accent)",
               background: "none",
               border: "none",
               cursor: "pointer",
@@ -442,7 +442,7 @@ function GalleryCard({ set: s }: { set: SetCard }) {
         className="relative overflow-hidden"
         style={{
           aspectRatio: "2/2.8",
-          background: "#EAE6D9",
+          background: "var(--brand-empty)",
           borderRadius: 0,
           boxShadow: "0 1px 2px rgba(15,15,14,0.06)",
           transition: "all 0.2s ease",
@@ -461,7 +461,7 @@ function GalleryCard({ set: s }: { set: SetCard }) {
         {s.sampleImageUrl ? (
           <img src={s.sampleImageUrl} alt={s.name} width={400} height={560} loading="lazy" decoding="async" className="w-full h-full object-cover" />
         ) : (
-          <div className="w-full h-full flex items-center justify-center" style={{ color: "#B7B2A3" }}>
+          <div className="w-full h-full flex items-center justify-center" style={{ color: "var(--brand-fog)" }}>
             <svg width={32} height={32} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
               <path strokeLinecap="round" strokeLinejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0 0 22.5 18.75V5.25A2.25 2.25 0 0 0 20.25 3H3.75A2.25 2.25 0 0 0 1.5 5.25v13.5A2.25 2.25 0 0 0 3.75 21Z" />
             </svg>
@@ -565,20 +565,20 @@ function CompactRow({ set: s }: { set: SetCard }) {
       className="flex items-center gap-[18px] transition-all"
       style={{
         padding: "14px 16px",
-        background: "#FFFFFF",
-        border: "1px solid #EDEAE0",
+        background: "var(--brand-card)",
+        border: "1px solid var(--brand-line)",
         borderRadius: 10,
         textDecoration: "none",
         transitionDuration: "0.15s",
       }}
       onMouseEnter={(e) => {
         const el = e.currentTarget;
-        el.style.background = "#FDFCF8";
+        el.style.background = "var(--brand-sel)";
         el.style.boxShadow = "0 4px 14px rgba(15,15,14,0.06)";
       }}
       onMouseLeave={(e) => {
         const el = e.currentTarget;
-        el.style.background = "#FFFFFF";
+        el.style.background = "var(--brand-card)";
         el.style.boxShadow = "none";
       }}
     >
@@ -590,14 +590,14 @@ function CompactRow({ set: s }: { set: SetCard }) {
           height: 112,
           borderRadius: 0,
           overflow: "hidden",
-          background: "#EAE6D9",
+          background: "var(--brand-empty)",
           boxShadow: "0 1px 2px rgba(15,15,14,0.08)",
         }}
       >
         {s.sampleImageUrl ? (
           <img src={s.sampleImageUrl} alt={s.name} width={80} height={112} loading="lazy" decoding="async" className="w-full h-full object-cover" />
         ) : (
-          <div className="w-full h-full flex items-center justify-center" style={{ color: "#B7B2A3" }}>
+          <div className="w-full h-full flex items-center justify-center" style={{ color: "var(--brand-fog)" }}>
             <svg width={20} height={20} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0 0 22.5 18.75V5.25A2.25 2.25 0 0 0 20.25 3H3.75A2.25 2.25 0 0 0 1.5 5.25v13.5A2.25 2.25 0 0 0 3.75 21Z" />
             </svg>
@@ -655,7 +655,7 @@ function CompactRow({ set: s }: { set: SetCard }) {
       </div>
 
       {/* Chevron */}
-      <svg width={14} height={14} fill="none" viewBox="0 0 24 24" stroke="#B7B2A3" strokeWidth={2.5} className="shrink-0 hidden md:block">
+      <svg width={14} height={14} fill="none" viewBox="0 0 24 24" stroke="var(--brand-fog)" strokeWidth={2.5} className="shrink-0 hidden md:block">
         <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
       </svg>
     </Link>

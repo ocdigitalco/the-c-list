@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { CL2 } from "@/components/brand";
 import { Wordmark } from "@/components/Wordmark";
 const navLinks = [
   { href: "/checklists", label: "Checklists" },
@@ -27,7 +26,7 @@ export function Header() {
   };
 
   return (
-    <header className="shrink-0 border-b" style={{ background: CL2.paper, borderColor: CL2.fog }}>
+    <header className="shrink-0 border-b" style={{ background: "var(--brand-head)", borderColor: "var(--brand-line)" }}>
       <div className="flex items-center justify-between px-6 h-14">
         {/* Wordmark */}
         <Link href="/" className="flex items-center" style={{ textDecoration: "none" }} aria-label="Checklist²">
@@ -45,11 +44,8 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="px-3 py-1.5 rounded-md text-sm font-bold transition-colors"
-              style={{
-                color: isActive(link.href) ? CL2.ink : CL2.slate,
-                background: isActive(link.href) ? CL2.paperDeep : "transparent",
-              }}
+              className="hdr-nav"
+              aria-current={isActive(link.href) ? "page" : undefined}
             >
               {link.label}
             </Link>
@@ -61,7 +57,7 @@ export function Header() {
           {/* Hamburger */}
           <button
             className="md:hidden p-1.5 transition-colors rounded-md"
-            style={{ color: CL2.slate }}
+            style={{ color: "var(--brand-ink-soft)" }}
             onClick={() => setMenuOpen((o) => !o)}
             aria-label="Toggle menu"
           >
@@ -80,17 +76,14 @@ export function Header() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <nav className="md:hidden px-4 py-2 flex flex-col" style={{ borderTop: `1px solid ${CL2.fog}` }}>
+        <nav className="md:hidden px-4 py-2 flex flex-col gap-0.5" style={{ borderTop: "1px solid var(--brand-line)" }}>
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="px-3 py-2.5 rounded-md text-sm font-bold transition-colors"
-              style={{
-                color: isActive(link.href) ? CL2.ink : CL2.slate,
-                background: isActive(link.href) ? CL2.paperDeep : "transparent",
-              }}
+              className="hdr-nav"
+              aria-current={isActive(link.href) ? "page" : undefined}
             >
               {link.label}
             </Link>

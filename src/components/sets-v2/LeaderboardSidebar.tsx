@@ -144,7 +144,7 @@ export function LeaderboardSidebar({ entries, hasTeamData, setId }: Props) {
               className="flex-1 text-base py-1.5 rounded-md font-medium transition-colors"
               style={{
                 background: sortKey === tab.key ? "var(--v2-accent)" : "transparent",
-                color: sortKey === tab.key ? "#FFFFFF" : "var(--v2-text-secondary)",
+                color: sortKey === tab.key ? "var(--brand-card)" : "var(--v2-text-secondary)",
               }}
             >
               {tab.label}
@@ -247,7 +247,7 @@ export function LeaderboardSidebar({ entries, hasTeamData, setId }: Props) {
                     {entry.isRookie && (
                       <span
                         className="shrink-0 text-[10px] font-bold px-1 py-0.5 rounded leading-none"
-                        style={{ color: "#F59E0B", background: "rgba(245,158,11,0.1)" }}
+                        style={{ color: "var(--brand-slate)", background: "rgba(245,158,11,0.1)" }}
                       >
                         RC
                       </span>

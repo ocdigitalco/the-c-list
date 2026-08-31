@@ -50,7 +50,7 @@ export function SetMetadataBar({ setName, sport, league, tier, athleteCount, bre
           <style>{`
             .v2-break-sheet-pill > button {
               background: var(--v2-break-sheet-bg, #111827) !important;
-              color: #FFFFFF !important;
+              color: var(--brand-card) !important;
               font-size: 1rem !important;
               font-weight: 500 !important;
               padding: 0.25rem 1rem !important;

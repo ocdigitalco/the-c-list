@@ -92,11 +92,11 @@ function OddsTableSection({
     <div>
       <h3
         className="text-base font-medium uppercase tracking-widest mb-2"
-        style={{ color: accent ? "#d97706" : "var(--v2-text-secondary)" }}
+        style={{ color: accent ? "var(--brand-slate)" : "var(--v2-text-secondary)" }}
       >
         {title}
       </h3>
-      <div className="rounded-lg overflow-hidden" style={{ border: `1px solid ${accent ? "#d9770633" : "var(--v2-border)"}` }}>
+      <div className="rounded-lg overflow-hidden" style={{ border: `1px solid ${accent ? "var(--brand-slate)33" : "var(--v2-border)"}` }}>
         <table className="w-full">
           <thead>
             <tr style={{ background: "var(--v2-card-bg)" }}>
@@ -269,7 +269,7 @@ export function PackOddsInline({ boxConfig, packOdds }: Props) {
               className="px-4 text-base py-1.5 rounded-md font-medium transition-colors"
               style={{
                 background: i === activeIdx ? "var(--v2-accent)" : "transparent",
-                color: i === activeIdx ? "#FFFFFF" : "var(--v2-text-secondary)",
+                color: i === activeIdx ? "var(--brand-card)" : "var(--v2-text-secondary)",
               }}
             >
               {f.label}

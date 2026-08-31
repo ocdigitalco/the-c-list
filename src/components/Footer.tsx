@@ -35,7 +35,7 @@ const platformLinks = [
 
 export function Footer() {
   return (
-    <footer className="shrink-0 bg-zinc-950 border-t border-zinc-800/80">
+    <footer className="shrink-0 bg-[var(--brand-page)] border-t border-[var(--brand-line)]">
       <div className="max-w-6xl mx-auto px-6 py-14">
 
         {/* Top section: wordmark + link columns */}
@@ -46,7 +46,7 @@ export function Footer() {
             <Link href="/" className="inline-flex items-center mb-3" style={{ textDecoration: "none" }} aria-label="Checklist²">
               <Wordmark size={22} />
             </Link>
-            <p className="text-sm text-zinc-500 leading-relaxed">
+            <p className="text-sm text-[var(--brand-slate)] leading-relaxed">
               The complete sports card checklist platform for collectors and breakers.
             </p>
           </div>
@@ -56,11 +56,11 @@ export function Footer() {
 
             {/* Explore */}
             <div>
-              <p className="text-xs font-semibold text-zinc-400 uppercase tracking-widest mb-4">Explore</p>
+              <p className="text-xs font-semibold text-[var(--brand-ink-soft)] uppercase tracking-widest mb-4">Explore</p>
               <ul className="space-y-3">
                 {exploreLinks.map((link) => (
                   <li key={link.href + link.label}>
-                    <Link href={link.href} className="text-sm text-zinc-500 hover:text-zinc-200 transition-colors">
+                    <Link href={link.href} className="text-sm text-[var(--brand-slate)] hover:text-[var(--brand-ink)] transition-colors">
                       {link.label}
                     </Link>
                   </li>
@@ -70,11 +70,11 @@ export function Footer() {
 
             {/* Tools */}
             <div>
-              <p className="text-xs font-semibold text-zinc-400 uppercase tracking-widest mb-4">Tools</p>
+              <p className="text-xs font-semibold text-[var(--brand-ink-soft)] uppercase tracking-widest mb-4">Tools</p>
               <ul className="space-y-3">
                 {toolLinks.map((link) => (
                   <li key={link.label}>
-                    <Link href={link.href} className="text-sm text-zinc-500 hover:text-zinc-200 transition-colors">
+                    <Link href={link.href} className="text-sm text-[var(--brand-slate)] hover:text-[var(--brand-ink)] transition-colors">
                       {link.label}
                     </Link>
                   </li>
@@ -84,11 +84,11 @@ export function Footer() {
 
             {/* Resources */}
             <div>
-              <p className="text-xs font-semibold text-zinc-400 uppercase tracking-widest mb-4">Resources</p>
+              <p className="text-xs font-semibold text-[var(--brand-ink-soft)] uppercase tracking-widest mb-4">Resources</p>
               <ul className="space-y-3">
                 {resourceLinks.map((link) => (
                   <li key={link.href + link.label}>
-                    <Link href={link.href} className="text-sm text-zinc-500 hover:text-zinc-200 transition-colors">
+                    <Link href={link.href} className="text-sm text-[var(--brand-slate)] hover:text-[var(--brand-ink)] transition-colors">
                       {link.label}
                     </Link>
                   </li>
@@ -98,11 +98,11 @@ export function Footer() {
 
             {/* Company */}
             <div>
-              <p className="text-xs font-semibold text-zinc-400 uppercase tracking-widest mb-4">Company</p>
+              <p className="text-xs font-semibold text-[var(--brand-ink-soft)] uppercase tracking-widest mb-4">Company</p>
               <ul className="space-y-3">
                 {companyLinks.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="text-sm text-zinc-500 hover:text-zinc-200 transition-colors">
+                    <Link href={link.href} className="text-sm text-[var(--brand-slate)] hover:text-[var(--brand-ink)] transition-colors">
                       {link.label}
                     </Link>
                   </li>
@@ -112,7 +112,7 @@ export function Footer() {
 
             {/* Platforms */}
             <div>
-              <p className="text-xs font-semibold text-zinc-400 uppercase tracking-widest mb-4">Platforms</p>
+              <p className="text-xs font-semibold text-[var(--brand-ink-soft)] uppercase tracking-widest mb-4">Platforms</p>
               <ul className="space-y-3">
                 {platformLinks.map((link) => (
                   <li key={link.href}>
@@ -120,7 +120,7 @@ export function Footer() {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-zinc-500 hover:text-zinc-200 transition-colors inline-flex items-center gap-1.5"
+                      className="text-sm text-[var(--brand-slate)] hover:text-[var(--brand-ink)] transition-colors inline-flex items-center gap-1.5"
                     >
                       {link.label}
                       <svg className="w-3 h-3 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -136,19 +136,19 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-6 border-t border-zinc-800/60 space-y-3">
+        <div className="mt-12 pt-6 border-t border-[var(--brand-line)] space-y-3">
           <div className="flex items-center justify-between gap-4 flex-wrap">
-            <p className="text-base text-zinc-600">© 2026 Checklist2. All rights reserved.</p>
-            <p className="text-base text-zinc-600">Created by Tyler Lawrence</p>
+            <p className="text-base text-[var(--brand-slate)]">© 2026 Checklist2. All rights reserved.</p>
+            <p className="text-base text-[var(--brand-slate)]">Created by Tyler Lawrence</p>
           </div>
-          <p className="text-base text-zinc-600 leading-relaxed">
+          <p className="text-base text-[var(--brand-slate)] leading-relaxed">
             Some links on Checklist² are{" "}
-            <Link href="/affiliate-disclosure" className="text-zinc-400 underline hover:text-zinc-200 transition-colors">
+            <Link href="/affiliate-disclosure" className="text-[var(--brand-ink-soft)] underline hover:text-[var(--brand-ink)] transition-colors">
               affiliate links
             </Link>
             . We may earn a commission on qualifying purchases at no extra cost to you.
           </p>
-          <p className="text-base text-zinc-600 leading-relaxed">
+          <p className="text-base text-[var(--brand-slate)] leading-relaxed">
             All third-party trademarks and logos are the property of their respective owners. Checklist2 is not affiliated with, endorsed by, or sponsored by Whatnot, UFC, EPL, NBA, MLS, MLB, NFL, UEFA, WWE, WWF, Cactus Jack, Olympics, Topps, or Panini.
           </p>
         </div>

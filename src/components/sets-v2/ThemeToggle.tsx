@@ -21,8 +21,8 @@ export function V2ThemeWrapper({ children }: { children: React.ReactNode }) {
         <style>{`
           .v2-root {
             --v2-page-bg: #F4F6F9;
-            --v2-card-bg: #FFFFFF;
-            --v2-sidebar-bg: #FFFFFF;
+            --v2-card-bg: var(--brand-card);
+            --v2-sidebar-bg: var(--brand-card);
             --v2-border: #E5E7EB;
             --v2-text-primary: #111827;
             --v2-text-secondary: #6B7280;

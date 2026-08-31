@@ -37,11 +37,11 @@ function OddsTableSection({
   if (rows.length === 0) return null;
   return (
     <div>
-      <h3 className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: accent ? "#d97706" : undefined }}>
+      <h3 className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: accent ? "var(--brand-slate)" : undefined }}>
         {!accent && <span className="text-zinc-400">{title}</span>}
         {accent && title}
       </h3>
-      <div className="rounded-xl border overflow-hidden" style={{ borderColor: accent ? "#d9770633" : undefined }}>
+      <div className="rounded-xl border overflow-hidden" style={{ borderColor: accent ? "var(--brand-slate)33" : undefined }}>
         <table className="w-full">
           <thead>
             <tr className="border-b border-zinc-800 bg-zinc-900/60">

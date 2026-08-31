@@ -7,13 +7,13 @@
 .bsb {
   --cream: #f1ede4;
   --cream-2: #e5e0d3;
-  --paper: #fafaf7;
-  --surface: #ffffff;
+  --paper: var(--brand-page);
+  --surface: var(--brand-card);
   --ink: #0e0e0e;
   --ink-2: #2a241c;
   --muted: #5a5247;
-  --faint: #8a8677;
-  --line: #edeae0;
+  --faint: var(--brand-slate);
+  --line: var(--brand-line);
   --line-2: #efebe0;
   --line-strong: #cfc8b8;
   --red: #d63a20;
@@ -21,7 +21,7 @@
   --amber-2: #ffa827;
   --amber-tint: rgba(247, 148, 29, 0.13);
   --amber-row: rgba(247, 148, 29, 0.06);
-  --green: #0e8a4f;
+  --green: var(--brand-ok);
   --green-soft: #e7f1e9;
   --shadow-sm: 0 1px 2px rgba(34, 30, 20, 0.05);
   --shadow-md: 0 6px 22px -8px rgba(34, 30, 20, 0.18);
@@ -75,7 +75,7 @@
   height: 58px;
   border-radius: 5px;
   flex: 0 0 auto;
-  background: repeating-linear-gradient(135deg, #e7ddd0, #e7ddd0 4px, #ddd1c0 4px, #ddd1c0 8px);
+  background: repeating-linear-gradient(135deg, var(--brand-line), var(--brand-line) 4px, #ddd1c0 4px, #ddd1c0 8px);
   border: 1px solid var(--line-strong);
   box-shadow: var(--shadow-sm);
   overflow: hidden;
@@ -992,10 +992,10 @@
   background: var(--green-soft);
 }
 .bsb .row-give .col-num .rownum .num {
-  color: #256b3d;
+  color: var(--brand-ok);
 }
 .bsb .row-give .player .pn {
-  color: #256b3d;
+  color: var(--brand-ok);
 }
 .bsb .give-ic {
   width: 30px;
@@ -1005,7 +1005,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #256b3d;
+  color: var(--brand-ok);
 }
 .bsb .typetag {
   font-size: 11px;
@@ -1023,7 +1023,7 @@
 }
 .bsb .typetag.give {
   background: var(--green-soft);
-  color: #256b3d;
+  color: var(--brand-ok);
 }
 
 /* ---------- Status bar ---------- */

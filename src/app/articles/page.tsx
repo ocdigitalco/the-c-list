@@ -42,7 +42,7 @@ function HeroArticle({ article: a }: { article: Article }) {
       </div>
       <div style={{ paddingTop: 16 }}>
         {cat && (
-          <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "oklch(0.55 0.17 25)", display: "block", marginBottom: 6 }}>
+          <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "var(--brand-accent)", display: "block", marginBottom: 6 }}>
             {cat}
           </span>
         )}
@@ -124,7 +124,7 @@ function CompactArticle({ article: a }: { article: Article }) {
   return (
     <Link href={`/articles/${a.id}`} className="group block" style={{ textDecoration: "none" }}>
       {cat && (
-        <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.1em", color: "oklch(0.55 0.17 25)", display: "block", marginBottom: 4 }}>
+        <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.1em", color: "var(--brand-accent)", display: "block", marginBottom: 4 }}>
           {cat}
         </span>
       )}
@@ -161,10 +161,10 @@ export default async function ArticlesPage({
   const remainder = filtered.slice(8);
 
   return (
-    <div className="h-full overflow-y-auto" style={{ background: "#FFFFFF" }}>
+    <div className="h-full overflow-y-auto" style={{ background: "var(--brand-card)" }}>
       <div className="page-container">
         {/* Header */}
-        <div style={{ paddingTop: 40, paddingBottom: 12, borderBottom: "1px solid #E5E5E5" }}>
+        <div style={{ paddingTop: 40, paddingBottom: 12, borderBottom: "1px solid var(--brand-line)" }}>
           <h1 style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase" as const, color: "#1A1A1A", margin: 0 }}>
             Articles
           </h1>
@@ -185,7 +185,7 @@ export default async function ArticlesPage({
             {hero && (
               <section className="flex flex-col lg:flex-row" style={{ gap: 0 }}>
                 {/* Hero (left 2/3) */}
-                <div className="lg:flex-[65] lg:border-r" style={{ borderColor: "#E5E5E5" }}>
+                <div className="lg:flex-[65] lg:border-r" style={{ borderColor: "var(--brand-line)" }}>
                   <div className="lg:mr-6">
                     <HeroArticle article={hero} />
                   </div>
@@ -199,7 +199,7 @@ export default async function ArticlesPage({
                       <div style={{
                         paddingBottom: 16,
                         marginBottom: compactSidebar.length > 0 ? 16 : 0,
-                        borderBottom: compactSidebar.length > 0 ? "1px solid #E5E5E5" : "none",
+                        borderBottom: compactSidebar.length > 0 ? "1px solid var(--brand-line)" : "none",
                       }}>
                         <FeaturedSidebarArticle article={featuredSidebar} />
                       </div>
@@ -208,7 +208,7 @@ export default async function ArticlesPage({
                         <div key={a.id} style={{
                           paddingBottom: 16,
                           marginBottom: i < compactSidebar.length - 1 ? 16 : 0,
-                          borderBottom: i < compactSidebar.length - 1 ? "1px solid #E5E5E5" : "none",
+                          borderBottom: i < compactSidebar.length - 1 ? "1px solid var(--brand-line)" : "none",
                         }}>
                           <SidebarArticle article={a} />
                         </div>
@@ -221,14 +221,14 @@ export default async function ArticlesPage({
 
             {/* ── Compact Row (positions 5-8) ── */}
             {compactRow.length > 0 && (
-              <section style={{ borderTop: "1px solid #E5E5E5", marginTop: 32, paddingTop: 24 }}>
+              <section style={{ borderTop: "1px solid var(--brand-line)", marginTop: 32, paddingTop: 24 }}>
                 <div className="grid gap-0" style={{
                   gridTemplateColumns: `repeat(${Math.min(compactRow.length, 4)}, 1fr)`,
                 }}>
                   {compactRow.map((a, i) => (
                     <div key={a.id} style={{
                       padding: "0 20px",
-                      borderLeft: i > 0 ? "1px solid #E5E5E5" : "none",
+                      borderLeft: i > 0 ? "1px solid var(--brand-line)" : "none",
                     }}>
                       <CompactArticle article={a} />
                     </div>
@@ -239,10 +239,10 @@ export default async function ArticlesPage({
 
             {/* ── Remainder (position 9+) ── */}
             {remainder.length > 0 && (
-              <section style={{ borderTop: "1px solid #E5E5E5", marginTop: 32, paddingTop: 24 }}>
+              <section style={{ borderTop: "1px solid var(--brand-line)", marginTop: 32, paddingTop: 24 }}>
                 <div className="flex flex-col">
                   {remainder.map((a) => (
-                    <div key={a.id} style={{ paddingBottom: 16, marginBottom: 16, borderBottom: "1px solid #E5E5E5" }}>
+                    <div key={a.id} style={{ paddingBottom: 16, marginBottom: 16, borderBottom: "1px solid var(--brand-line)" }}>
                       <SidebarArticle article={a} />
                     </div>
                   ))}
