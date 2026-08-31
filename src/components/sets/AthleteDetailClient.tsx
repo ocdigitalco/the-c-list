@@ -877,7 +877,7 @@ export function AthleteDetailClient({
         <div className="sticky top-0 z-10 flex items-center justify-between"
           style={{
             padding: "12px 16px", borderBottom: "1px solid var(--brand-line)",
-            background: "rgba(250,250,247,0.92)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)",
+            background: "color-mix(in srgb, var(--brand-head) 92%, transparent)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)",
           }}>
           <button onClick={() => setDrawerOpen(true)}
             style={{

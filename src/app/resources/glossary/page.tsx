@@ -207,15 +207,15 @@ export default function GlossaryPage() {
             <div
               key={item.term}
               className={`px-5 py-4 ${
-                i % 2 === 0 ? "bg-zinc-900" : "bg-zinc-900/40"
+                i % 2 === 0 ? "bg-[var(--brand-card)]" : "bg-[var(--brand-card)]"
               } ${i === 0 ? "rounded-t-xl" : ""} ${
                 i === terms.length - 1 ? "rounded-b-xl" : ""
-              } border-x border-t border-zinc-800 ${
+              } border-x border-t border-[var(--brand-line)] ${
                 i === terms.length - 1 ? "border-b" : ""
               }`}
             >
-              <dt className="text-sm font-semibold text-white mb-1">{item.term}</dt>
-              <dd className="text-sm text-zinc-400 leading-relaxed">{item.definition}</dd>
+              <dt className="text-sm font-semibold text-[var(--brand-ink)] mb-1">{item.term}</dt>
+              <dd className="text-sm text-[var(--brand-ink-soft)] leading-relaxed">{item.definition}</dd>
             </div>
           ))}
         </div>

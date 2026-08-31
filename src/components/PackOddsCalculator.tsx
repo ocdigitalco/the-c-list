@@ -294,16 +294,16 @@ function formatOneIn(p: number, unit: string): string {
 
 function oddsColor(p: number): string {
   const pct = p * 100;
-  if (pct >= 60) return "text-emerald-400";
-  if (pct >= 10) return "text-amber-400";
-  return "text-red-400";
+  if (pct >= 60) return "text-[var(--brand-ok)]";
+  if (pct >= 10) return "text-[var(--brand-accent-deep)]";
+  return "text-[var(--brand-accent)]";
 }
 
 function dotColor(p: number): string {
   const pct = p * 100;
-  if (pct >= 60) return "bg-emerald-500";
-  if (pct >= 10) return "bg-amber-500";
-  return "bg-red-500";
+  if (pct >= 60) return "bg-[var(--brand-ok)]";
+  if (pct >= 10) return "bg-[var(--brand-accent-deep)]";
+  return "bg-[var(--brand-accent)]";
 }
 
 // ─── Row ──────────────────────────────────────────────────────────────────────
@@ -328,12 +328,12 @@ function OddsRow({
       <div className="flex items-center gap-3">
         <span
           className={`shrink-0 w-2 h-2 rounded-full ${
-            active ? dotColor(p!) : "bg-zinc-700"
+            active ? dotColor(p!) : "bg-[var(--brand-track)]"
           }`}
         />
         <span
           className={`flex-1 text-sm font-medium ${
-            greyed ? "text-zinc-600" : "text-zinc-300"
+            greyed ? "text-[var(--brand-slate)]" : "text-[var(--brand-ink-soft)]"
           }`}
         >
           {label}
@@ -343,16 +343,16 @@ function OddsRow({
             <span className={`text-sm font-bold tabular-nums ${oddsColor(p!)}`}>
               {formatPct(p!)}
             </span>
-            <span className="text-xs text-zinc-500 tabular-nums min-w-[8rem] text-right">
+            <span className="text-xs text-[var(--brand-slate)] tabular-nums min-w-[8rem] text-right">
               {formatOneIn(p!, unit)}
             </span>
           </>
         ) : (
-          <span className="text-xs text-zinc-700 italic">Pack odds not available</span>
+          <span className="text-xs text-[var(--brand-fog)] italic">Pack odds not available</span>
         )}
       </div>
       {active && breakdown && (
-        <p className="mt-0.5 ml-5 text-xs text-zinc-600 leading-snug">{breakdown}</p>
+        <p className="mt-0.5 ml-5 text-xs text-[var(--brand-slate)] leading-snug">{breakdown}</p>
       )}
     </div>
   );
@@ -376,10 +376,10 @@ function SpSspRow({
       <div className="flex items-center gap-3">
         <span
           className={`shrink-0 w-2 h-2 rounded-full ${
-            active ? dotColor(result.p) : "bg-zinc-700"
+            active ? dotColor(result.p) : "bg-[var(--brand-track)]"
           }`}
         />
-        <span className="flex-1 text-sm font-medium text-zinc-300">
+        <span className="flex-1 text-sm font-medium text-[var(--brand-ink-soft)]">
           {label}
         </span>
         {active ? (
@@ -387,12 +387,12 @@ function SpSspRow({
             <span className={`text-sm font-bold tabular-nums ${oddsColor(result.p)}`}>
               {formatPct(result.p)}
             </span>
-            <span className="text-xs text-zinc-500 tabular-nums min-w-[8rem] text-right">
+            <span className="text-xs text-[var(--brand-slate)] tabular-nums min-w-[8rem] text-right">
               {formatOneIn(result.p, unit)}
             </span>
           </>
         ) : (
-          <span className="text-xs text-zinc-700 italic">
+          <span className="text-xs text-[var(--brand-fog)] italic">
             {result.inserts.length > 0 ? "Unavailable in this box type" : "Pack odds not available"}
           </span>
         )}
@@ -534,10 +534,10 @@ export function PackOddsCalculator({
     : undefined;
 
   return (
-    <div className="rounded-xl border border-zinc-700/60 bg-zinc-900 px-5 py-4">
+    <div className="rounded-xl border border-[var(--brand-line)] bg-[var(--brand-card)] px-5 py-4">
       {/* Box type toggle (only shown for multi-format sets) */}
       {showToggle && (
-        <div className="flex gap-1 rounded-lg bg-zinc-800/60 p-0.5 mb-3 overflow-x-auto">
+        <div className="flex gap-1 rounded-lg bg-[var(--brand-track)] p-0.5 mb-3 overflow-x-auto">
           {boxFormats.map((f, i) => (
             <button
               key={f.label}
@@ -545,8 +545,8 @@ export function PackOddsCalculator({
               className="shrink-0 flex-1 text-xs py-1.5 px-2 rounded-md font-semibold transition-colors"
               style={
                 i === fmtIdx
-                  ? { background: "#6366f1", color: "#fff" }
-                  : { color: "#71717a" }
+                  ? { background: "var(--brand-accent)", color: "var(--brand-head)" }
+                  : { color: "var(--brand-slate)" }
               }
             >
               {f.label}
@@ -558,13 +558,13 @@ export function PackOddsCalculator({
       {/* Header */}
       <div className="flex items-center justify-between mb-1">
         <div>
-          <span className="text-xs font-semibold text-zinc-400 uppercase tracking-widest">
+          <span className="text-xs font-semibold text-[var(--brand-ink-soft)] uppercase tracking-widest">
             Break Hit Calculator
           </span>
           <div className="flex items-center gap-3 mt-0.5">
             <a
               href="/resources/break-hit-calculator"
-              className="text-[12px] text-zinc-600 hover:text-zinc-400 hover:underline transition-colors"
+              className="text-[12px] text-[var(--brand-slate)] hover:text-[var(--brand-ink-soft)] hover:underline transition-colors"
             >
               How is this calculated?
             </a>
@@ -577,59 +577,59 @@ export function PackOddsCalculator({
           {hasCaseData && (
             <>
               <div className="flex flex-col items-center gap-0.5">
-                <span className="text-[10px] font-medium text-zinc-500 uppercase tracking-wide">Cases</span>
+                <span className="text-[10px] font-medium text-[var(--brand-slate)] uppercase tracking-wide">Cases</span>
                 <div className="flex items-center gap-1.5">
                   <button
                     onClick={() => handleCaseChange(-1)}
                     disabled={cases <= 1}
-                    className="w-6 h-6 flex items-center justify-center rounded border border-zinc-700 text-zinc-400 hover:border-zinc-500 hover:text-zinc-200 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm leading-none"
+                    className="w-6 h-6 flex items-center justify-center rounded border border-[var(--brand-line)] text-[var(--brand-ink-soft)] hover:border-[var(--brand-slate)] hover:text-[var(--brand-ink)] disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm leading-none"
                     aria-label="Decrease cases"
                   >
                     −
                   </button>
-                  <span className="text-sm font-semibold text-white tabular-nums w-6 text-center">
+                  <span className="text-sm font-semibold text-[var(--brand-ink)] tabular-nums w-6 text-center">
                     {cases % 1 === 0 ? cases : cases.toFixed(1)}
                   </span>
                   <button
                     onClick={() => handleCaseChange(1)}
                     disabled={cases >= 5}
-                    className="w-6 h-6 flex items-center justify-center rounded border border-zinc-700 text-zinc-400 hover:border-zinc-500 hover:text-zinc-200 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm leading-none"
+                    className="w-6 h-6 flex items-center justify-center rounded border border-[var(--brand-line)] text-[var(--brand-ink-soft)] hover:border-[var(--brand-slate)] hover:text-[var(--brand-ink)] disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm leading-none"
                     aria-label="Increase cases"
                   >
                     +
                   </button>
                 </div>
-                <span className="text-[10px] text-zinc-600 tabular-nums">{boxesPerCase}/case</span>
+                <span className="text-[10px] text-[var(--brand-slate)] tabular-nums">{boxesPerCase}/case</span>
               </div>
-              <div className="h-8 w-px bg-zinc-800" />
+              <div className="h-8 w-px bg-[var(--brand-track)]" />
             </>
           )}
 
           {/* Boxes stepper */}
           <div className="flex flex-col items-center gap-0.5">
-            <span className="text-[10px] font-medium text-zinc-500 uppercase tracking-wide">Boxes</span>
+            <span className="text-[10px] font-medium text-[var(--brand-slate)] uppercase tracking-wide">Boxes</span>
             <div className="flex items-center gap-1.5">
               <button
                 onClick={() => handleBoxChange(-1)}
                 disabled={boxes <= 1}
-                className="w-6 h-6 flex items-center justify-center rounded border border-zinc-700 text-zinc-400 hover:border-zinc-500 hover:text-zinc-200 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm leading-none"
+                className="w-6 h-6 flex items-center justify-center rounded border border-[var(--brand-line)] text-[var(--brand-ink-soft)] hover:border-[var(--brand-slate)] hover:text-[var(--brand-ink)] disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm leading-none"
                 aria-label="Decrease boxes"
               >
                 −
               </button>
-              <span className="text-sm font-semibold text-white tabular-nums w-8 text-center">
+              <span className="text-sm font-semibold text-[var(--brand-ink)] tabular-nums w-8 text-center">
                 {boxes}
               </span>
               <button
                 onClick={() => handleBoxChange(1)}
                 disabled={boxes >= (hasCaseData ? boxesPerCase * 5 : 60)}
-                className="w-6 h-6 flex items-center justify-center rounded border border-zinc-700 text-zinc-400 hover:border-zinc-500 hover:text-zinc-200 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm leading-none"
+                className="w-6 h-6 flex items-center justify-center rounded border border-[var(--brand-line)] text-[var(--brand-ink-soft)] hover:border-[var(--brand-slate)] hover:text-[var(--brand-ink)] disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm leading-none"
                 aria-label="Increase boxes"
               >
                 +
               </button>
             </div>
-            <span className="text-[10px] text-zinc-600 tabular-nums">
+            <span className="text-[10px] text-[var(--brand-slate)] tabular-nums">
               {(boxes * packsPerBox).toLocaleString()} packs
             </span>
           </div>
@@ -637,12 +637,12 @@ export function PackOddsCalculator({
       </div>
 
       {/* Divider */}
-      <div className="border-t border-zinc-800 mb-1" />
+      <div className="border-t border-[var(--brand-line)] mb-1" />
 
       {/* Odds rows */}
       {isPremiumOnly && !hasPackOdds && !hasAuto ? (
         // Full empty state: premium-only format with no matching inserts or autos
-        <p className="py-4 text-center text-sm text-zinc-600">
+        <p className="py-4 text-center text-sm text-[var(--brand-slate)]">
           This player does not appear in {fmt.label} exclusive inserts.
         </p>
       ) : (
@@ -658,12 +658,12 @@ export function PackOddsCalculator({
           {/* SP row */}
           {spResult.has && (
             <>
-              <div className="border-t border-zinc-800/60" />
+              <div className="border-t border-[var(--brand-line)]" />
               <SpSspRow label="Short Print (SP)" result={spResult} unit={unit} />
             </>
           )}
 
-          <div className="border-t border-zinc-800/60" />
+          <div className="border-t border-[var(--brand-line)]" />
 
           <OddsRow
             label="Numbered Parallel"
@@ -672,7 +672,7 @@ export function PackOddsCalculator({
             breakdown={numberedBreakdown}
             unit={unit}
           />
-          <div className="border-t border-zinc-800/60" />
+          <div className="border-t border-[var(--brand-line)]" />
 
           {/* Auto always shown (based on guaranteed slots, not pack odds) */}
           <OddsRow
@@ -686,7 +686,7 @@ export function PackOddsCalculator({
           {/* SSP row */}
           {sspResult.has && (
             <>
-              <div className="border-t border-zinc-800/60" />
+              <div className="border-t border-[var(--brand-line)]" />
               <SpSspRow label="Super Short Print (SSP)" result={sspResult} unit={unit} />
             </>
           )}
@@ -694,16 +694,16 @@ export function PackOddsCalculator({
       )}
 
       {/* Disclaimer */}
-      <p className="mt-3 text-xs text-zinc-700 leading-relaxed">
+      <p className="mt-3 text-xs text-[var(--brand-fog)] leading-relaxed">
         {autoFromPackOdds
           ? "All probabilities based on official pack ratios."
           : `Any Card and Numbered Parallel based on official pack ratios. Autograph based on ${guaranteedAutos} guaranteed slot${guaranteedAutos !== 1 ? "s" : ""} per box (${totalAutoCards} total auto cards in set).`}
       </p>
       {note && (
-        <p className="mt-1.5 text-xs text-zinc-600 leading-relaxed">{note}</p>
+        <p className="mt-1.5 text-xs text-[var(--brand-slate)] leading-relaxed">{note}</p>
       )}
       {(spResult.has || sspResult.has) && (
-        <p className="mt-1.5 text-xs text-zinc-700 leading-relaxed">
+        <p className="mt-1.5 text-xs text-[var(--brand-fog)] leading-relaxed">
           <span style={{ textDecoration: "line-through", opacity: 0.5 }}>Strikethrough</span> inserts not available in this box type.
         </p>
       )}

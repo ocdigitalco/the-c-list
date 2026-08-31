@@ -13,8 +13,8 @@ export default function PrivacyPage() {
       <div className="max-w-3xl mx-auto px-6 py-10 space-y-10">
         {/* Header */}
         <div>
-          <h1 className="text-2xl font-normal text-white tracking-tight mb-2" style={{ fontFamily: "var(--brand-font-head)", fontSynthesisWeight: "none" }}>Privacy Policy</h1>
-          <p className="text-xs text-zinc-600">Effective Date: March 2026</p>
+          <h1 className="text-2xl font-normal text-[var(--brand-ink)] tracking-tight mb-2" style={{ fontFamily: "var(--brand-font-head)", fontSynthesisWeight: "none" }}>Privacy Policy</h1>
+          <p className="text-xs text-[var(--brand-slate)]">Effective Date: March 2026</p>
         </div>
 
         <Section title="Introduction">
@@ -34,7 +34,7 @@ export default function PrivacyPage() {
               "Any information voluntarily submitted through feedback or contact forms",
             ].map((item) => (
               <li key={item} className="flex items-start gap-2">
-                <span className="shrink-0 text-zinc-600 mt-0.5">--</span>
+                <span className="shrink-0 text-[var(--brand-slate)] mt-0.5">--</span>
                 {item}
               </li>
             ))}
@@ -51,7 +51,7 @@ export default function PrivacyPage() {
               "For commercial purposes including sharing or selling anonymized data to third parties as described in our Terms of Use",
             ].map((item) => (
               <li key={item} className="flex items-start gap-2">
-                <span className="shrink-0 text-zinc-600 mt-0.5">--</span>
+                <span className="shrink-0 text-[var(--brand-slate)] mt-0.5">--</span>
                 {item}
               </li>
             ))}
@@ -86,7 +86,7 @@ export default function PrivacyPage() {
             You may stop using Checklist2 at any time. As no account is required, there is no
             personal profile to delete. If you have submitted personal information and wish it
             removed, contact us at{" "}
-            <span className="text-zinc-300">[contact email placeholder]</span>.
+            <span className="text-[var(--brand-ink-soft)]">[contact email placeholder]</span>.
           </p>
         </Section>
 
@@ -114,14 +114,14 @@ export default function PrivacyPage() {
         <Section title="Contact">
           <p>
             For privacy questions contact us at{" "}
-            <span className="text-zinc-300">[contact email placeholder]</span>.
+            <span className="text-[var(--brand-ink-soft)]">[contact email placeholder]</span>.
           </p>
         </Section>
 
         <div className="pt-2 pb-4">
           <Link
             href="/terms"
-            className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors"
+            className="text-sm text-[var(--brand-slate)] hover:text-[var(--brand-ink-soft)] transition-colors"
           >
             View Terms of Use
           </Link>
@@ -141,10 +141,10 @@ function Section({
 }) {
   return (
     <section>
-      <h2 className="text-base font-semibold text-white mb-3 pb-2 border-b border-zinc-800">
+      <h2 className="text-base font-semibold text-[var(--brand-ink)] mb-3 pb-2 border-b border-[var(--brand-line)]">
         {title}
       </h2>
-      <div className="text-sm text-zinc-400 leading-relaxed space-y-3">{children}</div>
+      <div className="text-sm text-[var(--brand-ink-soft)] leading-relaxed space-y-3">{children}</div>
     </section>
   );
 }

@@ -13,7 +13,7 @@ export function MarkdownContent({ content }: { content: string }) {
   const flushList = () => {
     if (listItems.length > 0) {
       elements.push(
-        <ul key={key++} className="my-3 space-y-1 pl-5 list-disc text-zinc-300 text-sm leading-relaxed">
+        <ul key={key++} className="my-3 space-y-1 pl-5 list-disc text-[var(--brand-ink-soft)] text-sm leading-relaxed">
           {listItems}
         </ul>
       );
@@ -26,10 +26,10 @@ export function MarkdownContent({ content }: { content: string }) {
     const parts = text.split(/(\*\*[^*]+\*\*|`[^`]+`)/g);
     return parts.map((part, i) => {
       if (part.startsWith("**") && part.endsWith("**")) {
-        return <strong key={i} className="text-white font-semibold">{part.slice(2, -2)}</strong>;
+        return <strong key={i} className="text-[var(--brand-ink)] font-semibold">{part.slice(2, -2)}</strong>;
       }
       if (part.startsWith("`") && part.endsWith("`")) {
-        return <code key={i} className="bg-zinc-800 text-amber-300 px-1.5 py-0.5 rounded text-xs font-mono">{part.slice(1, -1)}</code>;
+        return <code key={i} className="bg-[var(--brand-track)] text-[var(--brand-accent-deep)] px-1.5 py-0.5 rounded text-xs font-mono">{part.slice(1, -1)}</code>;
       }
       return part;
     });
@@ -41,14 +41,14 @@ export function MarkdownContent({ content }: { content: string }) {
     if (line.startsWith("## ")) {
       flushList();
       elements.push(
-        <h2 key={key++} className="text-base font-semibold text-white mt-6 mb-2 first:mt-0">
+        <h2 key={key++} className="text-base font-semibold text-[var(--brand-ink)] mt-6 mb-2 first:mt-0">
           {renderInline(line.slice(3))}
         </h2>
       );
     } else if (line.startsWith("### ")) {
       flushList();
       elements.push(
-        <h3 key={key++} className="text-sm font-semibold text-zinc-200 mt-4 mb-1.5">
+        <h3 key={key++} className="text-sm font-semibold text-[var(--brand-ink)] mt-4 mb-1.5">
           {renderInline(line.slice(4))}
         </h3>
       );
@@ -61,7 +61,7 @@ export function MarkdownContent({ content }: { content: string }) {
     } else {
       flushList();
       elements.push(
-        <p key={key++} className="text-sm text-zinc-300 leading-relaxed my-2">
+        <p key={key++} className="text-sm text-[var(--brand-ink-soft)] leading-relaxed my-2">
           {renderInline(line)}
         </p>
       );

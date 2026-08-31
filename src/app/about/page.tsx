@@ -75,12 +75,12 @@ export default function AboutPage() {
             </span>
             <h2 className="text-xs font-semibold text-[var(--brand-accent)] uppercase tracking-widest">The Problem</h2>
           </div>
-          <p className="text-base text-zinc-400 leading-relaxed">
+          <p className="text-base text-[var(--brand-ink-soft)] leading-relaxed">
             Navigating box configurations, new release checklists, and pull odds is difficult and time-consuming — even for experienced hobby enthusiasts. Without a way to combine the odds of a set with its full checklist, collectors are left sifting through PDFs and building their own spreadsheets just to understand what's available and what their chances are.
           </p>
         </section>
 
-        <div className="h-px bg-zinc-800" />
+        <div className="h-px bg-[var(--brand-track)]" />
 
         {/* ── What We Built ─────────────────────────────────────────────────────── */}
         <section>
@@ -92,12 +92,12 @@ export default function AboutPage() {
             </span>
             <h2 className="text-xs font-semibold text-[var(--brand-accent)] uppercase tracking-widest">What We Built</h2>
           </div>
-          <p className="text-base text-zinc-400 leading-relaxed">
+          <p className="text-base text-[var(--brand-ink-soft)] leading-relaxed">
             Checklist² combines set checklists, box configurations, and pack odds into a single easy lookup. Search for any athlete, browse any set, and instantly understand what cards exist and how likely you are to pull them. No spreadsheets. No PDFs. Just answers.
           </p>
         </section>
 
-        <div className="h-px bg-zinc-800" />
+        <div className="h-px bg-[var(--brand-track)]" />
 
         {/* ── Who It's For ──────────────────────────────────────────────────────── */}
         <section>
@@ -111,51 +111,51 @@ export default function AboutPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Collectors */}
-            <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
+            <div className="rounded-2xl border border-[var(--brand-line)] bg-[var(--brand-card)] p-6">
               <div className="w-9 h-9 rounded-xl bg-[var(--brand-accent)]/10 border border-[var(--brand-accent)]/20 flex items-center justify-center mb-4">
                 <svg className="w-4.5 h-4.5 text-[var(--brand-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                 </svg>
               </div>
-              <h3 className="text-base font-semibold text-white mb-2">Collectors</h3>
-              <p className="text-sm text-zinc-400 leading-relaxed">
+              <h3 className="text-base font-semibold text-[var(--brand-ink)] mb-2">Collectors</h3>
+              <p className="text-sm text-[var(--brand-ink-soft)] leading-relaxed">
                 Find the cards you want, understand how many cards an athlete has in a set, and make smarter decisions about what to pursue.
               </p>
             </div>
             {/* Breakers */}
-            <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
+            <div className="rounded-2xl border border-[var(--brand-line)] bg-[var(--brand-card)] p-6">
               <div className="w-9 h-9 rounded-xl bg-[var(--brand-accent)]/10 border border-[var(--brand-accent)]/20 flex items-center justify-center mb-4">
                 <svg className="w-4.5 h-4.5 text-[var(--brand-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" />
                 </svg>
               </div>
-              <h3 className="text-base font-semibold text-white mb-2">Breakers</h3>
-              <p className="text-sm text-zinc-400 leading-relaxed">
+              <h3 className="text-base font-semibold text-[var(--brand-ink)] mb-2">Breakers</h3>
+              <p className="text-sm text-[var(--brand-ink-soft)] leading-relaxed">
                 Access tools that make setting up breaks faster and pricing athletes easier — including downloadable break sheets formatted for Whatnot.
               </p>
             </div>
           </div>
         </section>
 
-        <div className="h-px bg-zinc-800" />
+        <div className="h-px bg-[var(--brand-track)]" />
 
         {/* ── Mission Pull Quote ─────────────────────────────────────────────────── */}
         <section>
           <blockquote className="relative rounded-2xl border border-[var(--brand-accent)]/20 bg-[var(--brand-accent)]/5 px-8 py-10 text-center">
             {/* Decorative quote mark */}
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-zinc-900 border border-[var(--brand-accent)]/30 flex items-center justify-center">
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[var(--brand-card)] border border-[var(--brand-accent)]/30 flex items-center justify-center">
               <svg className="w-4 h-4 text-[var(--brand-accent)]" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
               </svg>
             </div>
-            <p className="text-lg sm:text-xl font-medium text-white leading-relaxed">
+            <p className="text-lg sm:text-xl font-medium text-[var(--brand-ink)] leading-relaxed">
               Checklist² believes that finding a card or athlete shouldn't mean sifting through PDFs. It should be easier than that.{" "}
               <span className="text-[var(--brand-accent)]">Straightforward. Built for everyone in the hobby.</span>
             </p>
           </blockquote>
         </section>
 
-        <div className="h-px bg-zinc-800" />
+        <div className="h-px bg-[var(--brand-track)]" />
 
         {/* ── Feature Highlights ────────────────────────────────────────────────── */}
         <section>
@@ -171,14 +171,14 @@ export default function AboutPage() {
             {FEATURES.map((f) => (
               <div
                 key={f.label}
-                className="flex items-start gap-3 rounded-xl border border-zinc-800 bg-zinc-900 px-4 py-4"
+                className="flex items-start gap-3 rounded-xl border border-[var(--brand-line)] bg-[var(--brand-card)] px-4 py-4"
               >
                 <span className="shrink-0 w-8 h-8 rounded-lg bg-[var(--brand-accent)]/10 border border-[var(--brand-accent)]/20 flex items-center justify-center text-[var(--brand-accent)]">
                   {f.icon}
                 </span>
                 <div>
-                  <p className="text-sm font-semibold text-white">{f.label}</p>
-                  <p className="text-xs text-zinc-500 mt-0.5 leading-relaxed">{f.description}</p>
+                  <p className="text-sm font-semibold text-[var(--brand-ink)]">{f.label}</p>
+                  <p className="text-xs text-[var(--brand-slate)] mt-0.5 leading-relaxed">{f.description}</p>
                 </div>
               </div>
             ))}
@@ -189,7 +189,7 @@ export default function AboutPage() {
         <section className="text-center pt-4">
           <Link
             href="/checklists"
-            className="inline-flex items-center gap-2 bg-[var(--brand-accent)] hover:bg-[var(--brand-accent-deep)] text-white font-bold text-base px-8 py-3.5 rounded-xl transition-colors shadow-lg shadow-[var(--brand-accent)]/20"
+            className="inline-flex items-center gap-2 bg-[var(--brand-accent)] hover:bg-[var(--brand-accent-deep)] text-[var(--brand-ink)] font-bold text-base px-8 py-3.5 rounded-xl transition-colors shadow-lg shadow-[var(--brand-accent)]/20"
           >
             Browse Checklists
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>

@@ -84,7 +84,7 @@ export function CardThumbnail({ src, alt }: { src: string; alt: string }) {
               transform: visible ? "scale(1)" : "scale(0.97)",
               transition: "opacity 150ms ease, transform 150ms ease",
             }}
-            className="rounded-lg overflow-hidden shadow-2xl border border-white/10 bg-zinc-900"
+            className="rounded-lg overflow-hidden shadow-2xl border border-[var(--brand-line)] bg-[var(--brand-card)]"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img

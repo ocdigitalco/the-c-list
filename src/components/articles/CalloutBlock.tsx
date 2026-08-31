@@ -1,25 +1,25 @@
 const VARIANTS = {
   tip: {
     border: "border-l-amber-500",
-    bg: "bg-amber-950/20",
+    bg: "bg-[var(--brand-accent-deep)]",
     labelColor: "#444441",
     textColor: "#1A1A1A",
   },
   warning: {
     border: "border-l-red-500",
-    bg: "bg-red-950/20",
+    bg: "bg-[var(--brand-accent)]",
     labelColor: "rgba(255,255,255,0.75)",
     textColor: "var(--brand-card)",
   },
   exclusive: {
     border: "border-l-blue-500",
-    bg: "bg-blue-950/20",
+    bg: "bg-[var(--brand-slate)]",
     labelColor: "rgba(255,255,255,0.75)",
     textColor: "var(--brand-card)",
   },
   info: {
     border: "border-l-zinc-500",
-    bg: "bg-zinc-800/40",
+    bg: "bg-[var(--brand-track)]",
     labelColor: "#444441",
     textColor: "#1A1A1A",
   },

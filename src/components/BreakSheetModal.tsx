@@ -209,7 +209,7 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
       {/* ── Trigger button ── */}
       <button
         onClick={() => setOpen(true)}
-        className="flex items-center gap-1.5 shrink-0 text-base font-medium text-zinc-400 hover:text-white border border-zinc-700 hover:border-zinc-500 bg-zinc-900 hover:bg-zinc-800 px-3 py-1.5 rounded-md transition-colors"
+        className="flex items-center gap-1.5 shrink-0 text-base font-medium text-[var(--brand-ink-soft)] hover:text-[var(--brand-ink)] border border-[var(--brand-line)] hover:border-[var(--brand-slate)] bg-[var(--brand-card)] hover:bg-[var(--brand-track)] px-3 py-1.5 rounded-md transition-colors"
       >
         <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
@@ -224,17 +224,17 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
           style={{ background: "rgba(0,0,0,0.75)" }}
           onClick={(e) => { if (e.target === e.currentTarget) setOpen(false); }}
         >
-          <div className="relative bg-zinc-900 border border-zinc-700 rounded-2xl w-full max-w-2xl mx-4 max-h-[90vh] overflow-y-auto shadow-2xl">
+          <div className="relative bg-[var(--brand-card)] border border-[var(--brand-line)] rounded-2xl w-full max-w-2xl mx-4 max-h-[90vh] overflow-y-auto shadow-2xl">
 
             {/* Header */}
-            <div className="sticky top-0 bg-zinc-900 flex items-center justify-between px-5 py-3 border-b border-zinc-800 rounded-t-2xl z-10">
+            <div className="sticky top-0 bg-[var(--brand-card)] flex items-center justify-between px-5 py-3 border-b border-[var(--brand-line)] rounded-t-2xl z-10">
               <div>
-                <h2 className="text-base font-semibold text-white">Break Sheet Builder</h2>
-                <p className="text-base text-zinc-500 mt-0.5">{setName} · {players.length.toLocaleString()} athletes</p>
+                <h2 className="text-base font-semibold text-[var(--brand-ink)]">Break Sheet Builder</h2>
+                <p className="text-base text-[var(--brand-slate)] mt-0.5">{setName} · {players.length.toLocaleString()} athletes</p>
               </div>
               <button
                 onClick={() => setOpen(false)}
-                className="p-1.5 rounded-md text-zinc-500 hover:text-white hover:bg-zinc-800 transition-colors"
+                className="p-1.5 rounded-md text-[var(--brand-slate)] hover:text-[var(--brand-ink)] hover:bg-[var(--brand-track)] transition-colors"
                 aria-label="Close"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -248,7 +248,7 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
 
               {/* Break Description */}
               <div>
-                <label className="block text-base font-medium text-zinc-400 mb-1">
+                <label className="block text-base font-medium text-[var(--brand-ink-soft)] mb-1">
                   Break Description
                 </label>
                 <input
@@ -256,26 +256,26 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   placeholder={`e.g. "3 Cases! ${setName}"`}
-                  className="w-full bg-zinc-800 border border-zinc-700 text-base text-white placeholder-zinc-600 rounded-lg px-3 py-1.5 outline-none focus:border-zinc-500 transition-colors"
+                  className="w-full bg-[var(--brand-track)] border border-[var(--brand-line)] text-base text-[var(--brand-ink)] placeholder-zinc-600 rounded-lg px-3 py-1.5 outline-none focus:border-[var(--brand-slate)] transition-colors"
                 />
-                <p className="text-base text-zinc-600 mt-0.5">Optional — goes into the Description column for every row.</p>
+                <p className="text-base text-[var(--brand-slate)] mt-0.5">Optional — goes into the Description column for every row.</p>
               </div>
 
               {/* Row 1: Listing Type + Label Format */}
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-base font-medium text-zinc-400 mb-1">
+                  <label className="block text-base font-medium text-[var(--brand-ink-soft)] mb-1">
                     Listing Type
                   </label>
-                  <div className="flex rounded-lg border border-zinc-700 overflow-hidden text-base">
+                  <div className="flex rounded-lg border border-[var(--brand-line)] overflow-hidden text-base">
                     {(["Buy it Now", "Auction"] as const).map((type) => (
                       <button
                         key={type}
                         onClick={() => setListingType(type)}
                         className={`flex-1 py-1.5 font-medium transition-colors ${
                           listingType === type
-                            ? "bg-zinc-700 text-white"
-                            : "bg-zinc-800/60 text-zinc-400 hover:text-zinc-200"
+                            ? "bg-[var(--brand-track)] text-[var(--brand-ink)]"
+                            : "bg-[var(--brand-track)] text-[var(--brand-ink-soft)] hover:text-[var(--brand-ink)]"
                         }`}
                       >
                         {type}
@@ -284,18 +284,18 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
                   </div>
                 </div>
                 <div>
-                  <label className="block text-base font-medium text-zinc-400 mb-1">
+                  <label className="block text-base font-medium text-[var(--brand-ink-soft)] mb-1">
                     Label Format
                   </label>
-                  <div className="flex rounded-lg border border-zinc-700 overflow-hidden text-base">
+                  <div className="flex rounded-lg border border-[var(--brand-line)] overflow-hidden text-base">
                     {(["short", "long"] as const).map((mode) => (
                       <button
                         key={mode}
                         onClick={() => setLabelMode(mode)}
                         className={`flex-1 py-1.5 font-medium transition-colors ${
                           labelMode === mode
-                            ? "bg-zinc-700 text-white"
-                            : "bg-zinc-800/60 text-zinc-400 hover:text-zinc-200"
+                            ? "bg-[var(--brand-track)] text-[var(--brand-ink)]"
+                            : "bg-[var(--brand-track)] text-[var(--brand-ink-soft)] hover:text-[var(--brand-ink)]"
                         }`}
                       >
                         {mode === "short" ? "Short" : "Long"}
@@ -308,7 +308,7 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
               {/* Row 2: Giveaways + Buyers Giveaway */}
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-base font-medium text-zinc-400 mb-1">
+                  <label className="block text-base font-medium text-[var(--brand-ink-soft)] mb-1">
                     Giveaways
                   </label>
                   <div className="flex items-center gap-2">
@@ -317,25 +317,25 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
                       disabled={giveaways === 0}
                       className={`w-8 h-8 flex items-center justify-center rounded-md text-base font-bold transition-colors ${
                         giveaways === 0
-                          ? "bg-zinc-800/40 text-zinc-700 cursor-not-allowed"
-                          : "bg-zinc-800 text-zinc-300 hover:bg-zinc-700 hover:text-white"
+                          ? "bg-[var(--brand-track)] text-[var(--brand-fog)] cursor-not-allowed"
+                          : "bg-[var(--brand-track)] text-[var(--brand-ink-soft)] hover:bg-[var(--brand-track)] hover:text-[var(--brand-ink)]"
                       }`}
                     >
                       −
                     </button>
-                    <span className="text-base font-bold text-white tabular-nums w-8 text-center">
+                    <span className="text-base font-bold text-[var(--brand-ink)] tabular-nums w-8 text-center">
                       {giveaways}
                     </span>
                     <button
                       onClick={() => setGiveaways((v) => v + 1)}
-                      className="w-8 h-8 flex items-center justify-center rounded-md bg-zinc-800 text-zinc-300 hover:bg-zinc-700 hover:text-white text-base font-bold transition-colors"
+                      className="w-8 h-8 flex items-center justify-center rounded-md bg-[var(--brand-track)] text-[var(--brand-ink-soft)] hover:bg-[var(--brand-track)] hover:text-[var(--brand-ink)] text-base font-bold transition-colors"
                     >
                       +
                     </button>
                   </div>
                 </div>
                 <div>
-                  <label className="block text-base font-medium text-zinc-400 mb-1">
+                  <label className="block text-base font-medium text-[var(--brand-ink-soft)] mb-1">
                     Buyers Giveaway
                   </label>
                   <button
@@ -349,13 +349,13 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
                       }}
                     >
                       <div
-                        className="absolute top-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform"
+                        className="absolute top-0.5 w-5 h-5 rounded-full bg-[var(--brand-card)] shadow transition-transform"
                         style={{
                           transform: buyersGiveaway ? "translateX(22px)" : "translateX(2px)",
                         }}
                       />
                     </div>
-                    <span className="text-base text-zinc-400">
+                    <span className="text-base text-[var(--brand-ink-soft)]">
                       {buyersGiveaway ? "On" : "Off"}
                     </span>
                   </button>
@@ -364,7 +364,7 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
 
               {/* Row 3: Tag Labels — full width */}
               <div>
-                <label className="block text-base font-medium text-zinc-400 mb-1">
+                <label className="block text-base font-medium text-[var(--brand-ink-soft)] mb-1">
                   Tag Labels
                 </label>
                 <div className="grid grid-cols-4 gap-2">
@@ -377,14 +377,14 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
                     ] as [string, keyof Labels][]
                   ).map(([display, key]) => (
                     <div key={key} className="text-center">
-                      <p className="text-base text-zinc-600 mb-0.5 truncate">{display}</p>
+                      <p className="text-base text-[var(--brand-slate)] mb-0.5 truncate">{display}</p>
                       <input
                         type="text"
                         value={labels[key]}
                         onChange={(e) =>
                           setLabels((l) => ({ ...l, [key]: e.target.value }))
                         }
-                        className="w-full bg-zinc-800 border border-zinc-700 text-base text-white rounded px-1.5 py-1 outline-none focus:border-zinc-500 transition-colors text-center font-mono"
+                        className="w-full bg-[var(--brand-track)] border border-[var(--brand-line)] text-base text-[var(--brand-ink)] rounded px-1.5 py-1 outline-none focus:border-[var(--brand-slate)] transition-colors text-center font-mono"
                       />
                     </div>
                   ))}
@@ -394,27 +394,27 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
               {/* Row 4: Title Preview */}
               {previewPlayers.length > 0 && (
                 <div>
-                  <label className="block text-base font-medium text-zinc-400 mb-1">
+                  <label className="block text-base font-medium text-[var(--brand-ink-soft)] mb-1">
                     Title Preview
                   </label>
-                  <div className="rounded-lg border border-zinc-800 bg-zinc-950 divide-y divide-zinc-800 overflow-hidden">
+                  <div className="rounded-lg border border-[var(--brand-line)] bg-[var(--brand-page)] divide-y divide-zinc-800 overflow-hidden">
                     {buyersGiveaway && (
                       <div className="px-3 py-1.5">
-                        <p className="text-base font-mono text-amber-400 break-all">
+                        <p className="text-base font-mono text-[var(--brand-accent-deep)] break-all">
                           Buyers Giveaway
                         </p>
                       </div>
                     )}
                     {previewPlayers.map((p) => (
                       <div key={p.id} className="px-3 py-1.5">
-                        <p className="text-base font-mono text-zinc-300 break-all">
+                        <p className="text-base font-mono text-[var(--brand-ink-soft)] break-all">
                           {buildTitle(p, labels, labelMode)}
                         </p>
                       </div>
                     ))}
                     {(players.length > PREVIEW_COUNT || giveaways > 0) && (
                       <div className="px-3 py-1.5">
-                        <p className="text-base text-zinc-600 italic">
+                        <p className="text-base text-[var(--brand-slate)] italic">
                           +{(players.length - PREVIEW_COUNT + giveaways).toLocaleString()} more rows…
                         </p>
                       </div>
@@ -425,10 +425,10 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
             </div>
 
             {/* Footer */}
-            <div className="px-5 py-3 border-t border-zinc-800">
+            <div className="px-5 py-3 border-t border-[var(--brand-line)]">
               <button
                 onClick={downloadCSV}
-                className="w-full flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-black font-semibold text-base py-2 rounded-lg transition-colors"
+                className="w-full flex items-center justify-center gap-2 bg-[var(--brand-accent-deep)] hover:bg-[var(--brand-accent-deep)] text-black font-semibold text-base py-2 rounded-lg transition-colors"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
@@ -436,7 +436,7 @@ export function BreakSheetModal({ setName, sport, league, players }: Props) {
                 Download CSV ({totalRows.toLocaleString()} rows)
               </button>
               <div className="flex items-center justify-center gap-1.5 mt-2">
-                <span className="text-base text-zinc-500">Built for</span>
+                <span className="text-base text-[var(--brand-slate)]">Built for</span>
                 <img
                   src="/logos/whatnot-logo.png"
                   alt="Whatnot"

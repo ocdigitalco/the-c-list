@@ -16,22 +16,22 @@ function SummaryCard({
   accent: string;
 }) {
   return (
-    <div className="rounded-lg border border-zinc-800 bg-zinc-900 p-4">
+    <div className="rounded-lg border border-[var(--brand-line)] bg-[var(--brand-card)] p-4">
       <p className="text-[11px] font-bold uppercase tracking-widest mb-3" style={{ color: accent }}>
         {label}
       </p>
       <div className="space-y-1.5">
         <div className="flex justify-between text-sm">
-          <span className="text-zinc-400">Autos</span>
-          <span className="text-white font-semibold tabular-nums">{trial.autoCount}</span>
+          <span className="text-[var(--brand-ink-soft)]">Autos</span>
+          <span className="text-[var(--brand-ink)] font-semibold tabular-nums">{trial.autoCount}</span>
         </div>
         <div className="flex justify-between text-sm">
-          <span className="text-zinc-400">Numbered</span>
-          <span className="text-white font-semibold tabular-nums">{trial.numberedCount}</span>
+          <span className="text-[var(--brand-ink-soft)]">Numbered</span>
+          <span className="text-[var(--brand-ink)] font-semibold tabular-nums">{trial.numberedCount}</span>
         </div>
         <div className="flex justify-between text-sm">
-          <span className="text-zinc-400">Total cards</span>
-          <span className="text-zinc-500 tabular-nums">{trial.totalCards}</span>
+          <span className="text-[var(--brand-ink-soft)]">Total cards</span>
+          <span className="text-[var(--brand-slate)] tabular-nums">{trial.totalCards}</span>
         </div>
       </div>
     </div>
@@ -41,14 +41,14 @@ function SummaryCard({
 function DistBar({ label, pct }: { label: string; pct: number }) {
   return (
     <div className="flex items-center gap-3 py-1">
-      <span className="text-xs text-zinc-400 w-24 shrink-0 text-right tabular-nums">{label}</span>
-      <div className="flex-1 h-3 bg-zinc-800 rounded-full overflow-hidden">
+      <span className="text-xs text-[var(--brand-ink-soft)] w-24 shrink-0 text-right tabular-nums">{label}</span>
+      <div className="flex-1 h-3 bg-[var(--brand-track)] rounded-full overflow-hidden">
         <div
-          className="h-full bg-amber-500/60 rounded-full transition-all duration-300"
+          className="h-full bg-[var(--brand-accent-deep)] rounded-full transition-all duration-300"
           style={{ width: `${Math.max(pct * 100, 0.5)}%` }}
         />
       </div>
-      <span className="text-xs text-zinc-500 w-12 shrink-0 tabular-nums">
+      <span className="text-xs text-[var(--brand-slate)] w-12 shrink-0 tabular-nums">
         {(pct * 100).toFixed(1)}%
       </span>
     </div>
@@ -62,22 +62,22 @@ function PullRow({ pull }: { pull: PackPull }) {
       ? "NUMBERED"
       : "INSERT";
   const tagColor = pull.isAuto
-    ? "text-amber-400"
+    ? "text-[var(--brand-accent-deep)]"
     : pull.isNumbered
-      ? "text-blue-400"
-      : "text-zinc-500";
+      ? "text-[var(--brand-slate)]"
+      : "text-[var(--brand-slate)]";
   return (
-    <div className="flex items-center gap-3 py-1.5 border-b border-zinc-800/60 last:border-0">
-      <span className="text-[10px] text-zinc-600 tabular-nums w-12 shrink-0">
+    <div className="flex items-center gap-3 py-1.5 border-b border-[var(--brand-line)] last:border-0">
+      <span className="text-[10px] text-[var(--brand-slate)] tabular-nums w-12 shrink-0">
         Pack {pull.packNumber}
       </span>
       <span className={`text-[10px] font-bold uppercase tracking-wide w-16 shrink-0 ${tagColor}`}>
         {tag}
       </span>
-      <span className="text-sm text-zinc-300 truncate">
+      <span className="text-sm text-[var(--brand-ink-soft)] truncate">
         {pull.athleteName}
       </span>
-      <span className="text-xs text-zinc-600 truncate ml-auto">
+      <span className="text-xs text-[var(--brand-slate)] truncate ml-auto">
         {pull.insertSetName}
         {pull.parallelName ? ` — ${pull.parallelName}` : ""}
       </span>
@@ -156,9 +156,9 @@ export function BreakSimulator({
   return (
     <div className="space-y-6">
       {/* Controls */}
-      <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-4 space-y-4">
+      <div className="rounded-xl border border-[var(--brand-line)] bg-[var(--brand-card)] p-4 space-y-4">
         <div>
-          <p className="text-xs font-semibold text-zinc-400 uppercase tracking-widest mb-1">
+          <p className="text-xs font-semibold text-[var(--brand-ink-soft)] uppercase tracking-widest mb-1">
             {setName}
           </p>
         </div>
@@ -172,8 +172,8 @@ export function BreakSimulator({
                 onClick={() => { setBoxType(bt); setResult(null); }}
                 className={`text-xs font-medium px-3 py-1 rounded-full border transition-colors ${
                   boxType === bt
-                    ? "bg-zinc-200 text-zinc-900 border-zinc-300"
-                    : "bg-zinc-800 text-zinc-400 border-zinc-700 hover:border-zinc-600"
+                    ? "bg-[var(--brand-line)] text-[var(--brand-fog)] border-[var(--brand-line)]"
+                    : "bg-[var(--brand-track)] text-[var(--brand-ink-soft)] border-[var(--brand-line)] hover:border-[var(--brand-slate)]"
                 }`}
               >
                 {BOX_LABELS[bt] ?? bt}
@@ -191,8 +191,8 @@ export function BreakSimulator({
                 onClick={() => { setBoxCount(n); setResult(null); }}
                 className={`text-xs font-medium px-2.5 py-1 rounded border transition-colors ${
                   boxCount === n
-                    ? "bg-zinc-200 text-zinc-900 border-zinc-300"
-                    : "bg-zinc-800 text-zinc-400 border-zinc-700 hover:border-zinc-600"
+                    ? "bg-[var(--brand-line)] text-[var(--brand-fog)] border-[var(--brand-line)]"
+                    : "bg-[var(--brand-track)] text-[var(--brand-ink-soft)] border-[var(--brand-line)] hover:border-[var(--brand-slate)]"
                 }`}
               >
                 {n} {n === 1 ? "box" : "boxes"}
@@ -202,21 +202,21 @@ export function BreakSimulator({
           <button
             onClick={runSim}
             disabled={loading}
-            className="ml-auto px-4 py-1.5 rounded-lg bg-amber-500 text-zinc-900 text-xs font-bold hover:bg-amber-400 disabled:opacity-50 transition-colors"
+            className="ml-auto px-4 py-1.5 rounded-lg bg-[var(--brand-accent-deep)] text-[var(--brand-fog)] text-xs font-bold hover:bg-[var(--brand-accent-deep)] disabled:opacity-50 transition-colors"
           >
             {loading ? "Simulating..." : "Run Simulation"}
           </button>
         </div>
 
         {loading && (
-          <div className="h-1 bg-zinc-800 rounded-full overflow-hidden">
-            <div className="h-full bg-amber-500/60 rounded-full animate-pulse" style={{ width: "60%" }} />
+          <div className="h-1 bg-[var(--brand-track)] rounded-full overflow-hidden">
+            <div className="h-full bg-[var(--brand-accent-deep)] rounded-full animate-pulse" style={{ width: "60%" }} />
           </div>
         )}
       </div>
 
       {error && (
-        <p className="text-sm text-red-400 text-center py-4">{error}</p>
+        <p className="text-sm text-[var(--brand-accent)] text-center py-4">{error}</p>
       )}
 
       {result && (
@@ -229,24 +229,24 @@ export function BreakSimulator({
           </div>
 
           <div className="text-center space-y-0.5">
-            <p className="text-[11px] text-zinc-500">
+            <p className="text-[11px] text-[var(--brand-slate)]">
               {result.config.totalCards.toLocaleString()} cards total
               {result.config.guaranteedAutos > 0 && (
                 <> &middot; {result.config.guaranteedAutos} guaranteed auto{result.config.guaranteedAutos !== 1 ? "s" : ""}</>
               )}
             </p>
-            <p className="text-[11px] text-zinc-600">
+            <p className="text-[11px] text-[var(--brand-slate)]">
               Based on {result.config.trials.toLocaleString()} simulated breaks
             </p>
           </div>
 
           {/* Auto distribution */}
-          <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-4">
-            <p className="text-xs font-semibold text-zinc-400 uppercase tracking-widest mb-3">
+          <div className="rounded-xl border border-[var(--brand-line)] bg-[var(--brand-card)] p-4">
+            <p className="text-xs font-semibold text-[var(--brand-ink-soft)] uppercase tracking-widest mb-3">
               Auto Distribution
             </p>
             {Object.keys(result.distributions.autos).length === 0 ? (
-              <p className="text-xs text-zinc-600">No autographs available in this format</p>
+              <p className="text-xs text-[var(--brand-slate)]">No autographs available in this format</p>
             ) : (
               Object.entries(result.distributions.autos)
                 .sort(([a], [b]) => Number(a) - Number(b))
@@ -257,8 +257,8 @@ export function BreakSimulator({
           </div>
 
           {/* Numbered distribution */}
-          <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-4">
-            <p className="text-xs font-semibold text-zinc-400 uppercase tracking-widest mb-3">
+          <div className="rounded-xl border border-[var(--brand-line)] bg-[var(--brand-card)] p-4">
+            <p className="text-xs font-semibold text-[var(--brand-ink-soft)] uppercase tracking-widest mb-3">
               Numbered Parallel Distribution
             </p>
             {Object.entries(result.distributions.numbered)
@@ -271,8 +271,8 @@ export function BreakSimulator({
 
           {/* Top auto athletes */}
           {result.topAutoAthletes.length > 0 && (
-            <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-4">
-              <p className="text-xs font-semibold text-zinc-400 uppercase tracking-widest mb-3">
+            <div className="rounded-xl border border-[var(--brand-line)] bg-[var(--brand-card)] p-4">
+              <p className="text-xs font-semibold text-[var(--brand-ink-soft)] uppercase tracking-widest mb-3">
                 Most Likely Autos
               </p>
               <div className="space-y-1.5">
@@ -280,19 +280,19 @@ export function BreakSimulator({
                   const isHighlighted = highlightAthleteName && a.athleteName === highlightAthleteName;
                   return (
                     <div key={a.athleteName} className="flex items-center gap-3">
-                      <span className="text-xs text-zinc-600 w-5 text-right tabular-nums shrink-0">
+                      <span className="text-xs text-[var(--brand-slate)] w-5 text-right tabular-nums shrink-0">
                         {i + 1}
                       </span>
-                      <span className={`text-sm flex-1 truncate ${isHighlighted ? "text-amber-400 font-semibold" : "text-zinc-300"}`}>
+                      <span className={`text-sm flex-1 truncate ${isHighlighted ? "text-[var(--brand-accent-deep)] font-semibold" : "text-[var(--brand-ink-soft)]"}`}>
                         {a.athleteName}
                       </span>
-                      <div className="w-24 h-2 bg-zinc-800 rounded-full overflow-hidden shrink-0">
+                      <div className="w-24 h-2 bg-[var(--brand-track)] rounded-full overflow-hidden shrink-0">
                         <div
-                          className="h-full bg-amber-500/60 rounded-full"
+                          className="h-full bg-[var(--brand-accent-deep)] rounded-full"
                           style={{ width: `${Math.min(a.autoPercentage * 2, 100)}%` }}
                         />
                       </div>
-                      <span className="text-xs text-zinc-500 tabular-nums w-12 text-right shrink-0">
+                      <span className="text-xs text-[var(--brand-slate)] tabular-nums w-12 text-right shrink-0">
                         {a.autoPercentage}%
                       </span>
                     </div>
@@ -303,21 +303,21 @@ export function BreakSimulator({
           )}
 
           {/* Your Break */}
-          <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-4">
+          <div className="rounded-xl border border-[var(--brand-line)] bg-[var(--brand-card)] p-4">
             <div className="flex items-center justify-between mb-3">
-              <p className="text-xs font-semibold text-zinc-400 uppercase tracking-widest">
+              <p className="text-xs font-semibold text-[var(--brand-ink-soft)] uppercase tracking-widest">
                 One Simulated Break
               </p>
               <button
                 onClick={reSimSingle}
-                className="text-[11px] text-zinc-500 hover:text-zinc-300 transition-colors"
+                className="text-[11px] text-[var(--brand-slate)] hover:text-[var(--brand-ink-soft)] transition-colors"
               >
                 Re-simulate &rarr;
               </button>
             </div>
 
             {highlightAthleteName && (
-              <p className="text-xs text-zinc-500 mb-2">
+              <p className="text-xs text-[var(--brand-slate)] mb-2">
                 {notablePulls.some((p) => p.athleteName === highlightAthleteName)
                   ? `You pulled ${highlightAthleteName}!`
                   : `${highlightAthleteName} did not appear in this break.`}
@@ -330,13 +330,13 @@ export function BreakSimulator({
                   <PullRow key={i} pull={pull} />
                 ))}
                 {result.singleRandomTrial.totalCards - notablePulls.length > 0 && (
-                  <p className="text-[11px] text-zinc-700 mt-2">
+                  <p className="text-[11px] text-[var(--brand-fog)] mt-2">
                     + {result.singleRandomTrial.totalCards - notablePulls.length} base/insert cards
                   </p>
                 )}
               </div>
             ) : (
-              <p className="text-xs text-zinc-600">No notable pulls in this break. All base cards.</p>
+              <p className="text-xs text-[var(--brand-slate)]">No notable pulls in this break. All base cards.</p>
             )}
           </div>
         </>

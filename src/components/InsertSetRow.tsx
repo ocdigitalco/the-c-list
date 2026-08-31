@@ -31,7 +31,7 @@ interface Props {
 
 function parallelClasses(printRun: number | null): string {
   if (printRun === null)
-    return "text-zinc-400 bg-zinc-800 border border-zinc-700";
+    return "text-[var(--brand-ink-soft)] bg-[var(--brand-track)] border border-[var(--brand-line)]";
   const abs = Math.abs(printRun);
   if (abs === 1)
     return "text-amber-400 bg-amber-400/10 border border-amber-400/20";
@@ -56,27 +56,27 @@ export function InsertSetRow({ insertSetName, appearances, parallels, isTeamCard
   const firstAppearanceLabel = isEntertainment && subjectRole !== "athlete" ? "Debut" : "Rookie";
 
   return (
-    <div className="rounded-xl border border-zinc-800 bg-zinc-900 overflow-hidden">
+    <div className="rounded-xl border border-[var(--brand-line)] bg-[var(--brand-card)] overflow-hidden">
       {/* Collapsed header row */}
       <button
         onClick={() => setExpanded(!expanded)}
-        className="w-full flex items-center justify-between px-5 py-4 hover:bg-zinc-800/50 transition-colors text-left group"
+        className="w-full flex items-center justify-between px-5 py-4 hover:bg-[var(--brand-track)] transition-colors text-left group"
       >
         <div className="flex items-center gap-2.5 min-w-0">
-          <span className="font-semibold text-white truncate">{insertSetName}</span>
+          <span className="font-semibold text-[var(--brand-ink)] truncate">{insertSetName}</span>
           {hasRookie && (
             <span className="shrink-0 text-xs font-bold text-amber-400 bg-amber-400/10 border border-amber-400/20 px-1.5 py-0.5 rounded">
               {firstAppearanceLabel}
             </span>
           )}
-          <span className="shrink-0 text-xs text-zinc-600">
+          <span className="shrink-0 text-xs text-[var(--brand-slate)]">
             {parallels.length > 0
               ? `${parallels.length} parallel${parallels.length !== 1 ? "s" : ""}`
               : "base only"}
           </span>
         </div>
         <svg
-          className={`shrink-0 ml-4 w-4 h-4 text-zinc-500 transition-transform ${expanded ? "rotate-180" : ""}`}
+          className={`shrink-0 ml-4 w-4 h-4 text-[var(--brand-slate)] transition-transform ${expanded ? "rotate-180" : ""}`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -88,20 +88,20 @@ export function InsertSetRow({ insertSetName, appearances, parallels, isTeamCard
 
       {/* Expanded content */}
       {expanded && (
-        <div className="px-5 pb-5 border-t border-zinc-800 space-y-4">
+        <div className="px-5 pb-5 border-t border-[var(--brand-line)] space-y-4">
           {/* Card appearances */}
           <div className="pt-4 space-y-2">
             {appearances.map((a, i) => (
               <div key={i} className="space-y-1">
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
-                  <span className="font-mono text-zinc-500 text-xs">#{a.cardNumber}</span>
+                  <span className="font-mono text-[var(--brand-slate)] text-xs">#{a.cardNumber}</span>
                   {!isTeamCard && (
                     a.subsetTag ? (
-                      <span className="text-xs text-zinc-500 bg-zinc-800 px-2 py-0.5 rounded">
+                      <span className="text-xs text-[var(--brand-slate)] bg-[var(--brand-track)] px-2 py-0.5 rounded">
                         {a.subsetTag}
                       </span>
                     ) : (
-                      <span className="text-zinc-300">{a.team}</span>
+                      <span className="text-[var(--brand-ink-soft)]">{a.team}</span>
                     )
                   )}
                   {!isTeamCard && a.isRookie && (
@@ -111,14 +111,14 @@ export function InsertSetRow({ insertSetName, appearances, parallels, isTeamCard
                   )}
                 </div>
                 {a.coPlayers && a.coPlayers.length > 0 && (
-                  <div className="flex flex-wrap items-center gap-1 text-xs text-zinc-600 ml-0.5">
+                  <div className="flex flex-wrap items-center gap-1 text-xs text-[var(--brand-slate)] ml-0.5">
                     <span>↳</span>
                     {a.coPlayers.map((cp, j) => (
                       <Fragment key={cp.id}>
-                        {j > 0 && <span className="text-zinc-700">,</span>}
+                        {j > 0 && <span className="text-[var(--brand-fog)]">,</span>}
                         <Link
                           href={`?player=${cp.id}`}
-                          className="text-zinc-400 hover:text-white transition-colors"
+                          className="text-[var(--brand-ink-soft)] hover:text-[var(--brand-ink)] transition-colors"
                         >
                           {cp.name}
                         </Link>
@@ -133,7 +133,7 @@ export function InsertSetRow({ insertSetName, appearances, parallels, isTeamCard
           {/* Parallels */}
           {parallels.length > 0 && (
             <div>
-              <p className="text-xs font-semibold text-zinc-600 uppercase tracking-wider mb-2.5">
+              <p className="text-xs font-semibold text-[var(--brand-slate)] uppercase tracking-wider mb-2.5">
                 Parallels
               </p>
               <div className="flex flex-wrap gap-2">

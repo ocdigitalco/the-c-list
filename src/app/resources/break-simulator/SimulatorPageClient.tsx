@@ -27,7 +27,7 @@ function SimulatorInner({ sets }: { sets: SetOption[] }) {
 
   if (sets.length === 0) {
     return (
-      <p className="text-sm text-zinc-500 text-center py-12">
+      <p className="text-sm text-[var(--brand-slate)] text-center py-12">
         No sets with pack odds and box config are available for simulation.
       </p>
     );
@@ -37,13 +37,13 @@ function SimulatorInner({ sets }: { sets: SetOption[] }) {
     <div className="space-y-6">
       {/* Set selector */}
       <div>
-        <label className="text-xs font-semibold text-zinc-400 uppercase tracking-widest mb-2 block">
+        <label className="text-xs font-semibold text-[var(--brand-ink-soft)] uppercase tracking-widest mb-2 block">
           Select a set
         </label>
         <select
           value={selectedSetId}
           onChange={(e) => setSelectedSetId(Number(e.target.value))}
-          className="w-full rounded-lg border border-zinc-700 bg-zinc-900 text-sm text-zinc-200 px-3 py-2 focus:outline-none focus:border-zinc-500"
+          className="w-full rounded-lg border border-[var(--brand-line)] bg-[var(--brand-card)] text-sm text-[var(--brand-ink)] px-3 py-2 focus:outline-none focus:border-[var(--brand-slate)]"
         >
           {sets.map((s) => (
             <option key={s.id} value={s.id}>

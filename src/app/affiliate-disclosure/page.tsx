@@ -13,8 +13,8 @@ export default function AffiliateDisclosurePage() {
       <div className="max-w-3xl mx-auto px-6 py-10 space-y-10">
         {/* Header */}
         <div>
-          <h1 className="text-2xl font-normal text-white tracking-tight mb-2" style={{ fontFamily: "var(--brand-font-head)", fontSynthesisWeight: "none" }}>Affiliate Disclosure</h1>
-          <p className="text-xs text-zinc-600">Last updated: August 2026</p>
+          <h1 className="text-2xl font-normal text-[var(--brand-ink)] tracking-tight mb-2" style={{ fontFamily: "var(--brand-font-head)", fontSynthesisWeight: "none" }}>Affiliate Disclosure</h1>
+          <p className="text-xs text-[var(--brand-slate)]">Last updated: August 2026</p>
         </div>
 
         <Section title="Affiliate Disclosure">
@@ -34,7 +34,7 @@ export default function AffiliateDisclosurePage() {
         <div className="pt-2 pb-4">
           <Link
             href="/privacy"
-            className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors"
+            className="text-sm text-[var(--brand-slate)] hover:text-[var(--brand-ink-soft)] transition-colors"
           >
             View Privacy Policy
           </Link>
@@ -54,10 +54,10 @@ function Section({
 }) {
   return (
     <section>
-      <h2 className="text-base font-semibold text-white mb-3 pb-2 border-b border-zinc-800">
+      <h2 className="text-base font-semibold text-[var(--brand-ink)] mb-3 pb-2 border-b border-[var(--brand-line)]">
         {title}
       </h2>
-      <div className="text-sm text-zinc-400 leading-relaxed space-y-3">{children}</div>
+      <div className="text-sm text-[var(--brand-ink-soft)] leading-relaxed space-y-3">{children}</div>
     </section>
   );
 }

@@ -120,7 +120,7 @@ function TeamCrest({ name, size = 96 }: { name: string; size?: number }) {
   return (
     <div className="flex items-center justify-center flex-shrink-0"
       style={{
-        width: size, height: size, background: "#0B2244", borderRadius: 12,
+        width: size, height: size, background: "var(--brand-ink)", borderRadius: 12,
         color: "var(--brand-card)", fontSize: size * 0.3, fontWeight: 700, letterSpacing: 1,
       }}>
       {initials}
@@ -662,7 +662,7 @@ export function TeamDetailClient({
         <div className="sticky top-0 z-10 flex items-center justify-between"
           style={{
             padding: "12px 16px", borderBottom: "1px solid var(--brand-line)",
-            background: "rgba(250,250,247,0.92)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)",
+            background: "color-mix(in srgb, var(--brand-head) 92%, transparent)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)",
           }}>
           <button onClick={() => setDrawerOpen(true)}
             style={{

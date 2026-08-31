@@ -50,21 +50,21 @@ export default async function PlayerPage({ params }: Props) {
   return (
     <div className="space-y-6">
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-sm text-zinc-500">
-        <Link href="/checklists" className="hover:text-zinc-300 transition-colors">
+      <div className="flex items-center gap-2 text-sm text-[var(--brand-slate)]">
+        <Link href="/checklists" className="hover:text-[var(--brand-ink-soft)] transition-colors">
           Sets
         </Link>
         <span>/</span>
-        <Link href="/players" className="hover:text-zinc-300 transition-colors">
+        <Link href="/players" className="hover:text-[var(--brand-ink-soft)] transition-colors">
           Players
         </Link>
         <span>/</span>
-        <span className="text-zinc-300">{player.name}</span>
+        <span className="text-[var(--brand-ink-soft)]">{player.name}</span>
       </div>
 
       {/* Header */}
       <div className="flex items-start justify-between">
-        <h1 className="text-2xl font-normal text-white" style={{ fontFamily: "var(--brand-font-head)", fontSynthesisWeight: "none" }}>{player.name}</h1>
+        <h1 className="text-2xl font-normal text-[var(--brand-ink)]" style={{ fontFamily: "var(--brand-font-head)", fontSynthesisWeight: "none" }}>{player.name}</h1>
         {player.appearances.some((a) => a.isRookie) && (
           <span className="text-xs font-semibold text-amber-400 bg-amber-400/10 px-2 py-1 rounded mt-1">
             Rookie
@@ -86,25 +86,25 @@ export default async function PlayerPage({ params }: Props) {
 
       {/* Appearances */}
       <div className="space-y-4">
-        <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+        <h2 className="text-sm font-medium text-[var(--brand-ink-soft)] uppercase tracking-wider">
           Card Appearances
         </h2>
 
         {player.appearances.map((appearance) => (
           <div
             key={appearance.id}
-            className="rounded-xl border border-zinc-800 bg-zinc-900 p-5"
+            className="rounded-xl border border-[var(--brand-line)] bg-[var(--brand-card)] p-5"
           >
             <div className="flex items-start justify-between gap-4">
               <div>
                 <Link
                   href={`/sets/${setSlugMap.get(appearance.insertSet.setId) ?? appearance.insertSet.setId}`}
-                  className="font-semibold text-white hover:underline"
+                  className="font-semibold text-[var(--brand-ink)] hover:underline"
                 >
                   {appearance.insertSet.name}
                 </Link>
-                <div className="flex items-center gap-3 mt-1 text-sm text-zinc-400">
-                  <span className="font-mono text-zinc-500">#{appearance.cardNumber}</span>
+                <div className="flex items-center gap-3 mt-1 text-sm text-[var(--brand-ink-soft)]">
+                  <span className="font-mono text-[var(--brand-slate)]">#{appearance.cardNumber}</span>
                   <span>{appearance.team}</span>
                   {appearance.isRookie && (
                     <span className="text-xs font-semibold text-amber-400 bg-amber-400/10 px-1.5 py-0.5 rounded">
@@ -112,7 +112,7 @@ export default async function PlayerPage({ params }: Props) {
                     </span>
                   )}
                   {appearance.subsetTag && (
-                    <span className="text-xs text-zinc-500 bg-zinc-800 px-2 py-0.5 rounded">
+                    <span className="text-xs text-[var(--brand-slate)] bg-[var(--brand-track)] px-2 py-0.5 rounded">
                       {appearance.subsetTag}
                     </span>
                   )}
@@ -122,18 +122,18 @@ export default async function PlayerPage({ params }: Props) {
 
             {appearance.insertSet.parallels.length > 0 && (
               <div className="mt-4">
-                <p className="text-xs text-zinc-500 mb-2">Available parallels</p>
+                <p className="text-xs text-[var(--brand-slate)] mb-2">Available parallels</p>
                 <div className="flex flex-wrap gap-2">
                   {appearance.insertSet.parallels.map((p) => (
                     <div
                       key={p.id}
-                      className="flex items-center gap-1.5 bg-zinc-800 rounded px-2.5 py-1.5"
+                      className="flex items-center gap-1.5 bg-[var(--brand-track)] rounded px-2.5 py-1.5"
                     >
-                      <span className="text-xs text-zinc-200">{p.name}</span>
+                      <span className="text-xs text-[var(--brand-ink)]">{p.name}</span>
                       {p.printRun ? (
-                        <span className="text-xs text-zinc-500 font-mono">/{p.printRun}</span>
+                        <span className="text-xs text-[var(--brand-slate)] font-mono">/{p.printRun}</span>
                       ) : (
-                        <span className="text-xs text-zinc-600">∞</span>
+                        <span className="text-xs text-[var(--brand-slate)]">∞</span>
                       )}
                     </div>
                   ))}
@@ -157,11 +157,11 @@ function StatCard({
   highlight?: boolean;
 }) {
   return (
-    <div className="rounded-lg border border-zinc-800 bg-zinc-900 px-4 py-3">
-      <div className={`text-2xl font-bold ${highlight ? "text-amber-400" : "text-white"}`}>
+    <div className="rounded-lg border border-[var(--brand-line)] bg-[var(--brand-card)] px-4 py-3">
+      <div className={`text-2xl font-bold ${highlight ? "text-amber-400" : "text-[var(--brand-ink)]"}`}>
         {value}
       </div>
-      <div className="text-xs text-zinc-500 mt-0.5">{label}</div>
+      <div className="text-xs text-[var(--brand-slate)] mt-0.5">{label}</div>
     </div>
   );
 }

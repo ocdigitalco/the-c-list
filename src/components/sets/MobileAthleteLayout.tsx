@@ -82,7 +82,7 @@ export function MobileAthleteLayout({
         style={{
           width: `${100 / tabs.length}%`,
           transform: `translateX(${activeIdx * 100}%)`,
-          background: "#6366f1",
+          background: "var(--brand-ink-soft)",
         }}
       />
       {/* Bottom border for the whole bar */}

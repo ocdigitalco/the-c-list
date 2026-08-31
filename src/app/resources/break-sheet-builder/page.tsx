@@ -39,23 +39,23 @@ export default function BreakSheetBuilderPage() {
         <div className="flex items-center gap-1.5">
           <Link
             href="/resources"
-            className="flex items-center gap-1 text-xs text-zinc-500 hover:text-zinc-300 transition-colors"
+            className="flex items-center gap-1 text-xs text-[var(--brand-slate)] hover:text-[var(--brand-ink-soft)] transition-colors"
           >
             <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
             </svg>
             Resources
           </Link>
-          <span className="text-zinc-700 text-xs">/</span>
-          <span className="text-xs text-zinc-400">Break Sheet Builder</span>
+          <span className="text-[var(--brand-fog)] text-xs">/</span>
+          <span className="text-xs text-[var(--brand-ink-soft)]">Break Sheet Builder</span>
         </div>
 
         {/* Header */}
         <div>
-          <h1 className="text-2xl font-normal text-white tracking-tight mb-2" style={{ fontFamily: "var(--brand-font-head)", fontSynthesisWeight: "none" }}>
+          <h1 className="text-2xl font-normal text-[var(--brand-ink)] tracking-tight mb-2" style={{ fontFamily: "var(--brand-font-head)", fontSynthesisWeight: "none" }}>
             Break Sheet Builder
           </h1>
-          <p className="text-sm text-zinc-400 leading-relaxed">
+          <p className="text-sm text-[var(--brand-ink-soft)] leading-relaxed">
             How the Break Sheet Builder works and what each column in the downloaded CSV contains.
           </p>
         </div>
@@ -83,7 +83,7 @@ export default function BreakSheetBuilderPage() {
           <div className="space-y-3">
             <CustomizeRow label="Break Description">
               A free-text field that populates the Description column for every row (e.g.{" "}
-              <span className="font-mono text-zinc-300 text-xs">
+              <span className="font-mono text-[var(--brand-ink-soft)] text-xs">
                 3 Cases! 2024 Topps Midnight UFC -- 24 Boxes | 72 Autos
               </span>
               ).
@@ -108,14 +108,14 @@ export default function BreakSheetBuilderPage() {
             builder scans every card appearance and summarizes what that athlete has using the
             customizable tag labels. For example:
           </p>
-          <div className="rounded-lg border border-zinc-800 bg-zinc-950 divide-y divide-zinc-800 overflow-hidden">
+          <div className="rounded-lg border border-[var(--brand-line)] bg-[var(--brand-page)] divide-y divide-[var(--brand-line)] overflow-hidden">
             {[
               "Islam Makhachev (AUTOx3)(RELIC)",
               "Cooper Flagg (RC)(AUTO)",
               "Paul Skenes (AUTOx2)(MEM AUTO)",
             ].map((title) => (
               <div key={title} className="px-4 py-3">
-                <p className="text-sm font-mono text-zinc-300">{title}</p>
+                <p className="text-sm font-mono text-[var(--brand-ink-soft)]">{title}</p>
               </div>
             ))}
           </div>
@@ -123,28 +123,28 @@ export default function BreakSheetBuilderPage() {
 
         {/* CSV column table */}
         <Section title="What does each CSV column contain?">
-          <div className="rounded-xl border border-zinc-800 overflow-hidden">
+          <div className="rounded-xl border border-[var(--brand-line)] overflow-hidden">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-zinc-800 bg-zinc-900/60">
-                  <th className="text-left text-xs font-semibold text-zinc-500 uppercase tracking-wider px-4 py-2.5 w-[38%]">
+                <tr className="border-b border-[var(--brand-line)] bg-[var(--brand-card)]">
+                  <th className="text-left text-xs font-semibold text-[var(--brand-slate)] uppercase tracking-wider px-4 py-2.5 w-[38%]">
                     Column
                   </th>
-                  <th className="text-left text-xs font-semibold text-zinc-500 uppercase tracking-wider px-4 py-2.5">
+                  <th className="text-left text-xs font-semibold text-[var(--brand-slate)] uppercase tracking-wider px-4 py-2.5">
                     Value
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-zinc-800/60">
+              <tbody className="divide-y divide-[var(--brand-line)]">
                 {csvColumns.map((row, i) => (
                   <tr
                     key={row.column}
-                    className={i % 2 === 0 ? "bg-zinc-900" : "bg-zinc-900/40"}
+                    className={i % 2 === 0 ? "bg-[var(--brand-card)]" : "bg-[var(--brand-card)]"}
                   >
-                    <td className="px-4 py-2.5 text-sm font-medium text-zinc-300 align-top">
+                    <td className="px-4 py-2.5 text-sm font-medium text-[var(--brand-ink-soft)] align-top">
                       {row.column}
                     </td>
-                    <td className="px-4 py-2.5 text-sm text-zinc-500">
+                    <td className="px-4 py-2.5 text-sm text-[var(--brand-slate)]">
                       {row.value}
                     </td>
                   </tr>
@@ -165,10 +165,10 @@ export default function BreakSheetBuilderPage() {
 
         {/* Tips */}
         <Section title="Tips for breakers">
-          <ul className="space-y-2 text-sm text-zinc-400">
+          <ul className="space-y-2 text-sm text-[var(--brand-ink-soft)]">
             {tips.map((tip) => (
               <li key={tip} className="flex items-start gap-2">
-                <span className="shrink-0 text-zinc-600 mt-0.5">--</span>
+                <span className="shrink-0 text-[var(--brand-slate)] mt-0.5">--</span>
                 {tip}
               </li>
             ))}
@@ -189,10 +189,10 @@ function Section({
 }) {
   return (
     <section>
-      <h2 className="text-base font-semibold text-white mb-3 pb-2 border-b border-zinc-800">
+      <h2 className="text-base font-semibold text-[var(--brand-ink)] mb-3 pb-2 border-b border-[var(--brand-line)]">
         {title}
       </h2>
-      <div className="text-sm text-zinc-400 leading-relaxed space-y-3">{children}</div>
+      <div className="text-sm text-[var(--brand-ink-soft)] leading-relaxed space-y-3">{children}</div>
     </section>
   );
 }
@@ -205,9 +205,9 @@ function CustomizeRow({
   children: React.ReactNode;
 }) {
   return (
-    <div className="rounded-lg border border-zinc-800 bg-zinc-900 px-4 py-3">
-      <p className="text-sm font-semibold text-white mb-1">{label}</p>
-      <p className="text-sm text-zinc-400 leading-relaxed">{children}</p>
+    <div className="rounded-lg border border-[var(--brand-line)] bg-[var(--brand-card)] px-4 py-3">
+      <p className="text-sm font-semibold text-[var(--brand-ink)] mb-1">{label}</p>
+      <p className="text-sm text-[var(--brand-ink-soft)] leading-relaxed">{children}</p>
     </div>
   );
 }

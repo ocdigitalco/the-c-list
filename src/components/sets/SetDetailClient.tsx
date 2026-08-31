@@ -572,7 +572,7 @@ function CoverageCard({ hasChecklist, hasNumberedParallels, hasBoxConfig, hasPac
               border: none !important; cursor: pointer !important;
               line-height: 1.2 !important;
             }
-            .v2-break-sheet-pill > button:hover, .v2-break-sheet-pill > a:hover { background: #1A1A19 !important; }
+            .v2-break-sheet-pill > button:hover, .v2-break-sheet-pill > a:hover { background: var(--brand-ink) !important; }
           `}</style>
           <BreakSheetLink slug={setSlug} setName={setName} sport={sport} league={league} players={breakSheetPlayers} />
         </div>
@@ -1360,7 +1360,7 @@ export function SetDetailClient({
         <div className="sticky top-0 z-10 flex items-center justify-between"
           style={{
             padding: "12px 16px", borderBottom: "1px solid var(--brand-line)",
-            background: "rgba(250,250,247,0.92)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)",
+            background: "color-mix(in srgb, var(--brand-head) 92%, transparent)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)",
           }}>
           <button onClick={() => setDrawerOpen(true)}
             style={{

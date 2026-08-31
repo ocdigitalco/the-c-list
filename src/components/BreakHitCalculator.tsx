@@ -47,19 +47,19 @@ function formatOneIn(expected: number): string {
 }
 
 function oddsColor(expected: number | null, greyed: boolean): string {
-  if (greyed || expected === null) return "text-zinc-600";
+  if (greyed || expected === null) return "text-[var(--brand-slate)]";
   const pct = expected * 100;
-  if (pct >= 60) return "text-emerald-400";
-  if (pct >= 10) return "text-amber-400";
-  return "text-red-400";
+  if (pct >= 60) return "text-[var(--brand-ok)]";
+  if (pct >= 10) return "text-[var(--brand-accent-deep)]";
+  return "text-[var(--brand-accent)]";
 }
 
 function dotColor(expected: number | null, greyed: boolean): string {
-  if (greyed || expected === null) return "bg-zinc-700";
+  if (greyed || expected === null) return "bg-[var(--brand-track)]";
   const pct = expected * 100;
-  if (pct >= 60) return "bg-emerald-500";
-  if (pct >= 10) return "bg-amber-500";
-  return "bg-red-500";
+  if (pct >= 60) return "bg-[var(--brand-ok)]";
+  if (pct >= 10) return "bg-[var(--brand-accent-deep)]";
+  return "bg-[var(--brand-accent)]";
 }
 
 // ─── Row ──────────────────────────────────────────────────────────────────────
@@ -82,7 +82,7 @@ function OddsRow({
       <span className={`shrink-0 w-2 h-2 rounded-full ${dotColor(expected, greyed)}`} />
 
       {/* Label */}
-      <span className={`flex-1 text-sm font-medium ${greyed ? "text-zinc-600" : "text-zinc-300"}`}>
+      <span className={`flex-1 text-sm font-medium ${greyed ? "text-[var(--brand-slate)]" : "text-[var(--brand-ink-soft)]"}`}>
         {label}
       </span>
 
@@ -93,12 +93,12 @@ function OddsRow({
             {formatPct(expected!)}
           </span>
           {/* 1-in-X */}
-          <span className="text-xs text-zinc-500 tabular-nums min-w-[7rem] text-right">
+          <span className="text-xs text-[var(--brand-slate)] tabular-nums min-w-[7rem] text-right">
             {formatOneIn(expected!)}
           </span>
         </>
       ) : (
-        <span className="text-xs text-zinc-700 italic">no cards</span>
+        <span className="text-xs text-[var(--brand-fog)] italic">no cards</span>
       )}
     </div>
   );
@@ -136,11 +136,11 @@ export function BreakHitCalculator({
   );
 
   return (
-    <div className="rounded-xl border border-zinc-700/60 bg-zinc-900 px-5 py-4">
+    <div className="rounded-xl border border-[var(--brand-line)] bg-[var(--brand-card)] px-5 py-4">
 
       {/* Header */}
       <div className="flex items-center justify-between mb-1">
-        <span className="text-xs font-semibold text-zinc-400 uppercase tracking-widest">
+        <span className="text-xs font-semibold text-[var(--brand-ink-soft)] uppercase tracking-widest">
           Break Hit Calculator
         </span>
 
@@ -149,18 +149,18 @@ export function BreakHitCalculator({
           <button
             onClick={() => setCases((c) => Math.max(1, c - 1))}
             disabled={cases <= 1}
-            className="w-6 h-6 flex items-center justify-center rounded border border-zinc-700 text-zinc-400 hover:border-zinc-500 hover:text-zinc-200 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm leading-none"
+            className="w-6 h-6 flex items-center justify-center rounded border border-[var(--brand-line)] text-[var(--brand-ink-soft)] hover:border-[var(--brand-slate)] hover:text-[var(--brand-ink)] disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm leading-none"
             aria-label="Decrease cases"
           >
             −
           </button>
-          <span className="text-sm font-semibold text-white tabular-nums w-16 text-center">
+          <span className="text-sm font-semibold text-[var(--brand-ink)] tabular-nums w-16 text-center">
             {cases === 1 ? "1 case" : `${cases} cases`}
           </span>
           <button
             onClick={() => setCases((c) => Math.min(20, c + 1))}
             disabled={cases >= 20}
-            className="w-6 h-6 flex items-center justify-center rounded border border-zinc-700 text-zinc-400 hover:border-zinc-500 hover:text-zinc-200 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm leading-none"
+            className="w-6 h-6 flex items-center justify-center rounded border border-[var(--brand-line)] text-[var(--brand-ink-soft)] hover:border-[var(--brand-slate)] hover:text-[var(--brand-ink)] disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm leading-none"
             aria-label="Increase cases"
           >
             +
@@ -169,7 +169,7 @@ export function BreakHitCalculator({
       </div>
 
       {/* Divider */}
-      <div className="border-t border-zinc-800 mb-1" />
+      <div className="border-t border-[var(--brand-line)] mb-1" />
 
       {/* Odds rows */}
       <OddsRow
@@ -177,13 +177,13 @@ export function BreakHitCalculator({
         expected={anyCard}
         greyed={playerTotalAppearances === 0}
       />
-      <div className="border-t border-zinc-800/60" />
+      <div className="border-t border-[var(--brand-line)]" />
       <OddsRow
         label="Numbered Parallel"
         expected={serialized}
         greyed={playerSerializedPrintRun === 0}
       />
-      <div className="border-t border-zinc-800/60" />
+      <div className="border-t border-[var(--brand-line)]" />
       <OddsRow
         label="Autograph"
         expected={auto}
@@ -191,7 +191,7 @@ export function BreakHitCalculator({
       />
 
       {/* Disclaimer */}
-      <p className="mt-3 text-xs text-zinc-700 leading-relaxed">
+      <p className="mt-3 text-xs text-[var(--brand-fog)] leading-relaxed">
         Odds are estimates based on print runs and pack ratios
       </p>
     </div>

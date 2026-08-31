@@ -66,10 +66,10 @@ export default async function BreakSimulatorPage() {
     <div className="h-full overflow-y-auto">
       <div className="max-w-[800px] mx-auto px-6 py-10 space-y-6">
         <div>
-          <h1 className="text-2xl font-normal text-white tracking-tight" style={{ fontFamily: "var(--brand-font-head)", fontSynthesisWeight: "none" }}>
+          <h1 className="text-2xl font-normal text-[var(--brand-ink)] tracking-tight" style={{ fontFamily: "var(--brand-font-head)", fontSynthesisWeight: "none" }}>
             Box Break Simulator
           </h1>
-          <p className="text-sm text-zinc-500 mt-1">
+          <p className="text-sm text-[var(--brand-slate)] mt-1">
             Run 10,000 simulated breaks and see realistic outcome distributions.
             Results are based on official pack odds and checklist data.
           </p>

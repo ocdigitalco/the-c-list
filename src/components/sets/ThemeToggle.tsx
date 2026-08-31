@@ -39,7 +39,7 @@ export function V2ThemeWrapper({ children }: { children: React.ReactNode }) {
             --v2-hover-shadow: 0 2px 8px rgba(0,0,0,0.06);
             --v2-card-shadow: 0 1px 3px rgba(0,0,0,0.04);
             --v2-break-sheet-bg: var(--brand-ink);
-            --v2-break-sheet-hover-bg: #1A1A19;
+            --v2-break-sheet-hover-bg: var(--brand-ink);
             background: var(--v2-page-bg);
             color: var(--v2-text-primary);
             height: 100%;

@@ -18,10 +18,10 @@ export function BreakCalcWarning({
   }
 
   return (
-    <div className="rounded-xl border border-amber-800/40 bg-amber-950/20 px-5 py-4">
+    <div className="rounded-xl border border-[var(--brand-accent-deep)] bg-[var(--brand-accent-deep)] px-5 py-4">
       <div className="flex items-start gap-3">
         <svg
-          className="shrink-0 w-4 h-4 text-amber-500 mt-0.5"
+          className="shrink-0 w-4 h-4 text-[var(--brand-accent-deep)] mt-0.5"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -34,10 +34,10 @@ export function BreakCalcWarning({
           />
         </svg>
         <div>
-          <p className="text-xs font-semibold text-amber-400 mb-1">
+          <p className="text-xs font-semibold text-[var(--brand-accent-deep)] mb-1">
             Break Hit Calculator Unavailable
           </p>
-          <p className="text-xs text-amber-700 leading-relaxed">{message}</p>
+          <p className="text-xs text-[var(--brand-accent-deep)] leading-relaxed">{message}</p>
         </div>
       </div>
     </div>
