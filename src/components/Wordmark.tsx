@@ -31,7 +31,7 @@ export function Wordmark({
         lineHeight: 1,
       }}
     >
-      <span style={{ fontSize: size, fontWeight: 400, color: ink, lineHeight: 1 }}>
+      <span style={{ fontSize: size, fontWeight: 400, color: ink, lineHeight: 1, letterSpacing: "-0.01em" }}>
         Checklist
       </span>
       <span
@@ -52,6 +52,7 @@ export function Wordmark({
           fontSize: markFont,
           lineHeight: 1,
           borderRadius: 1,
+          letterSpacing: 0,
         }}
       >
         2
