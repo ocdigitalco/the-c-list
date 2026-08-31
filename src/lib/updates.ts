@@ -24,7 +24,9 @@ export const updates: Update[] = [
 
 The site now follows the Checklist² brand guidelines. The **wordmark and page-level headings** — set names, athlete names, and page titles — render in **Carter One**, the display face, while body copy and every checklist table stay in Inter for readability.
 
-Colors are unified to the guideline palette — **Ink**, **Paper**, and **Card Red** — replacing the scattered hardcoded values. Card Red now marks the **active tab** on set and athlete pages and the **Find on eBay** links; the short-print red in parallel tables is unchanged. No layouts or checklists were affected — this is purely a type and color pass.`,
+Colors are unified to the guideline palette — **Ink**, **Paper**, and **Card Red** — replacing the scattered hardcoded values. Card Red now marks the **active tab** on set and athlete pages and the **Find on eBay** links; the short-print red in parallel tables is unchanged. No layouts or checklists were affected — this is purely a type and color pass.
+
+As a follow-up, the wordmark's **²** is now a Card-Red superscript mark, page titles share one standard (Carter One, weight 400, responsive up to 48px on desktop), and the index pages all render at a single consistent width.`,
     tags: ["announcement"],
   },
   {

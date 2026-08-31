@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CL2Lockup, CL2 } from "@/components/brand";
+import { Wordmark } from "@/components/Wordmark";
 
 const exploreLinks = [
   { href: "/checklists", label: "Checklists" },
@@ -43,8 +43,8 @@ export function Footer() {
 
           {/* Wordmark + tagline */}
           <div className="lg:w-64 shrink-0">
-            <Link href="/" className="inline-flex items-center mb-3" style={{ textDecoration: "none" }}>
-              <CL2Lockup size={18} ink={CL2.paper} accent={CL2.accent} />
+            <Link href="/" className="inline-flex items-center mb-3" style={{ textDecoration: "none" }} aria-label="Checklist²">
+              <Wordmark size={22} />
             </Link>
             <p className="text-sm text-zinc-500 leading-relaxed">
               The complete sports card checklist platform for collectors and breakers.

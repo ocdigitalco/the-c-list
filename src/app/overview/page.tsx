@@ -135,6 +135,7 @@ export default async function OverviewPage({
 
   return (
     <PageShell
+      wide
       breadcrumb={{ label: "Home", href: "/checklists" }}
       title="Overview"
       description="Stats and insights across all sets in the app"

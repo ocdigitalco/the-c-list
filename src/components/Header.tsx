@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { CL2Wordmark, CL2 } from "@/components/brand";
+import { CL2 } from "@/components/brand";
+import { Wordmark } from "@/components/Wordmark";
 const navLinks = [
   { href: "/checklists", label: "Checklists" },
   { href: "/sets", label: "Sets" },
@@ -29,8 +30,8 @@ export function Header() {
     <header className="shrink-0 border-b" style={{ background: CL2.paper, borderColor: CL2.fog }}>
       <div className="flex items-center justify-between px-6 h-14">
         {/* Wordmark */}
-        <Link href="/" className="flex items-center" style={{ textDecoration: "none" }}>
-          <CL2Wordmark size={44} supSize={34} ink={CL2.ink} accent={CL2.accent} />
+        <Link href="/" className="flex items-center" style={{ textDecoration: "none" }} aria-label="Checklist²">
+          <Wordmark size={28} />
         </Link>
 
         {/* Desktop nav */}

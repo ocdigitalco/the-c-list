@@ -12,7 +12,7 @@ export default function TermsPage() {
     <PageShell
       breadcrumb={{ label: "Home", href: "/checklists" }}
       title="Terms of Use"
-      description="Please read these terms before using Checklist\u00B2"
+      description="Please read these terms before using Checklist²"
     >
         <p className="text-xs text-zinc-600">Effective Date: March 2026</p>
 

@@ -64,7 +64,7 @@ export default async function PlayerPage({ params }: Props) {
 
       {/* Header */}
       <div className="flex items-start justify-between">
-        <h1 className="text-2xl font-bold text-white" style={{ fontFamily: "var(--brand-font-head)" }}>{player.name}</h1>
+        <h1 className="text-2xl font-normal text-white" style={{ fontFamily: "var(--brand-font-head)", fontSynthesisWeight: "none" }}>{player.name}</h1>
         {player.appearances.some((a) => a.isRookie) && (
           <span className="text-xs font-semibold text-amber-400 bg-amber-400/10 px-2 py-1 rounded mt-1">
             Rookie

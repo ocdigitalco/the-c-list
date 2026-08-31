@@ -11,9 +11,10 @@ export const metadata: Metadata = {
 export default function UpdatesPage() {
   return (
     <PageShell
+      wide
       breadcrumb={{ label: "Home", href: "/checklists" }}
       title="Updates"
-      description="The latest additions and improvements to Checklist\u00B2"
+      description="The latest additions and improvements to Checklist²"
     >
         <UpdatesFeed updates={updates} />
     </PageShell>

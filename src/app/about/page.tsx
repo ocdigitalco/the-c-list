@@ -61,7 +61,7 @@ export default function AboutPage() {
     <PageShell
       breadcrumb={{ label: "Home", href: "/checklists" }}
       title="About"
-      description={"The story behind Checklist\u00B2"}
+      description={"The story behind Checklist²"}
     >
       <div className="space-y-20">
 

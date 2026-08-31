@@ -142,12 +142,12 @@ function SetsCoverageInner({ rows }: { rows: CoverageRow[] }) {
 
   return (
     <div className="h-full overflow-y-auto" style={{ background: "#FAFAF7" }}>
-      <div className="mx-auto cl-container" style={{ maxWidth: 1440, padding: "40px 56px 80px" }}>
+      <div className="page-container" style={{ paddingTop: 40, paddingBottom: 80 }}>
         {/* Breadcrumb */}
         <a href="/" style={{ fontSize: 13, color: "#6B6757", textDecoration: "none", fontFamily: "var(--cl-font-display)" }}>&lsaquo; Home</a>
 
         {/* Title */}
-        <h1 className="cl-title" style={{ fontFamily: "var(--cl-font-display)", fontSize: 48, fontWeight: 600, letterSpacing: "-1.2px", color: "var(--brand-ink)", margin: "12px 0 0", lineHeight: 1.1 }}>
+        <h1 className="page-title" style={{ margin: "12px 0 0" }}>
           Sets Coverage
         </h1>
         <p style={{ fontSize: 14, color: "#6B6757", margin: "6px 0 0" }}>

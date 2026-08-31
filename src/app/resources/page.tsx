@@ -36,6 +36,7 @@ const resources = [
 export default function ResourcesPage() {
   return (
     <PageShell
+      wide
       breadcrumb={{ label: "Home", href: "/checklists" }}
       title="Resources"
       description="Guides, tools, and reference material for collectors and breakers"

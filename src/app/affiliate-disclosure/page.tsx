@@ -13,7 +13,7 @@ export default function AffiliateDisclosurePage() {
       <div className="max-w-3xl mx-auto px-6 py-10 space-y-10">
         {/* Header */}
         <div>
-          <h1 className="text-2xl font-bold text-white tracking-tight mb-2" style={{ fontFamily: "var(--brand-font-head)" }}>Affiliate Disclosure</h1>
+          <h1 className="text-2xl font-normal text-white tracking-tight mb-2" style={{ fontFamily: "var(--brand-font-head)", fontSynthesisWeight: "none" }}>Affiliate Disclosure</h1>
           <p className="text-xs text-zinc-600">Last updated: August 2026</p>
         </div>
 

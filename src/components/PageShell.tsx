@@ -5,13 +5,15 @@ interface PageShellProps {
   breadcrumb: { label: string; href: string };
   title: string;
   description?: string;
+  /** Index-page standard: full page-container width + page-title (Carter One). */
+  wide?: boolean;
   children: React.ReactNode;
 }
 
-export function PageShell({ breadcrumb, title, description, children }: PageShellProps) {
+export function PageShell({ breadcrumb, title, description, wide = false, children }: PageShellProps) {
   return (
     <div className="h-full overflow-y-auto">
-      <div className="max-w-[1000px] mx-auto px-6 py-10 space-y-8">
+      <div className={wide ? "page-container py-10 space-y-8" : "max-w-[1000px] mx-auto px-6 py-10 space-y-8"}>
         <div>
           <Link
             href={breadcrumb.href}
@@ -22,7 +24,11 @@ export function PageShell({ breadcrumb, title, description, children }: PageShel
             </svg>
             {breadcrumb.label}
           </Link>
-          <h1 className="text-2xl font-bold text-white tracking-tight" style={{ fontFamily: "var(--brand-font-head)" }}>{title}</h1>
+          {wide ? (
+            <h1 className="page-title">{title}</h1>
+          ) : (
+            <h1 className="text-2xl font-normal text-white tracking-tight" style={{ fontFamily: "var(--brand-font-head)", fontSynthesisWeight: "none" }}>{title}</h1>
+          )}
           {description && <p className="text-sm text-zinc-500 mt-1">{description}</p>}
         </div>
         {children}

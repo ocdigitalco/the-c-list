@@ -162,7 +162,7 @@ export default async function ArticlesPage({
 
   return (
     <div className="h-full overflow-y-auto" style={{ background: "#FFFFFF" }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
+      <div className="page-container">
         {/* Header */}
         <div style={{ paddingTop: 40, paddingBottom: 12, borderBottom: "1px solid #E5E5E5" }}>
           <h1 style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase" as const, color: "#1A1A1A", margin: 0 }}>

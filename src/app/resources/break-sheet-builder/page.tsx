@@ -52,7 +52,7 @@ export default function BreakSheetBuilderPage() {
 
         {/* Header */}
         <div>
-          <h1 className="text-2xl font-bold text-white tracking-tight mb-2" style={{ fontFamily: "var(--brand-font-head)" }}>
+          <h1 className="text-2xl font-normal text-white tracking-tight mb-2" style={{ fontFamily: "var(--brand-font-head)", fontSynthesisWeight: "none" }}>
             Break Sheet Builder
           </h1>
           <p className="text-sm text-zinc-400 leading-relaxed">

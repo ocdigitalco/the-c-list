@@ -188,7 +188,7 @@ export const articles: Article[] = [
       },
       {
         type: "link",
-        text: "View the full checklist on Checklist\u00B2",
+        text: "View the full checklist on Checklist²",
         href: "https://www.checklist2.com/sets/2025-26-topps-chrome-cactus-jack-basketball",
       },
       {
@@ -450,7 +450,7 @@ export const articles: Article[] = [
       },
       {
         type: "link",
-        text: "View the complete 2025-26 Topps Chrome Cactus Jack Basketball checklist on Checklist\u00B2",
+        text: "View the complete 2025-26 Topps Chrome Cactus Jack Basketball checklist on Checklist²",
         href: "https://www.checklist2.com/sets/2025-26-topps-chrome-cactus-jack-basketball",
       },
     ],
