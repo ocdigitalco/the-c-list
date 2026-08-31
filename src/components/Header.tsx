@@ -27,7 +27,7 @@ export function Header() {
 
   return (
     <header className="shrink-0 border-b" style={{ background: "var(--brand-head)", borderColor: "var(--brand-line)" }}>
-      <div className="page-container flex items-center justify-between h-14">
+      <div className="flex items-center justify-between h-14 px-5 min-[640px]:px-8">
         {/* Wordmark */}
         <Link href="/" className="flex items-center" style={{ textDecoration: "none" }} aria-label="Checklist²">
           <span className="hidden min-[640px]:inline-flex">
