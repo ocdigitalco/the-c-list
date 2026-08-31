@@ -144,7 +144,7 @@ export function SearchesClient({ views, searches, allSports, currentRange, curre
             {RANGES.map((r) => {
               const on = currentRange === r.value;
               return (
-                <button key={r.value} className={on ? styles.segOn : undefined} aria-pressed={on}
+                <button key={r.value} className={on ? `${styles.segBtn} ${styles.segOn}` : styles.segBtn} aria-pressed={on}
                   onClick={() => navigate(r.value, currentSport)}>
                   {r.label}
                 </button>
@@ -153,9 +153,9 @@ export function SearchesClient({ views, searches, allSports, currentRange, curre
           </div>
           <div className={styles.rightCtl}>
             <div className={styles.seg}>
-              <button className={view === "combined" ? styles.segOn : undefined} aria-pressed={view === "combined"}
+              <button className={view === "combined" ? `${styles.segBtn} ${styles.segOn}` : styles.segBtn} aria-pressed={view === "combined"}
                 onClick={() => { setView("combined"); setExpanded(false); }}>Combined</button>
-              <button className={view === "split" ? styles.segOn : undefined} aria-pressed={view === "split"}
+              <button className={view === "split" ? `${styles.segBtn} ${styles.segOn}` : styles.segBtn} aria-pressed={view === "split"}
                 onClick={() => { setView("split"); setExpanded(false); }}>Side by side</button>
             </div>
           </div>

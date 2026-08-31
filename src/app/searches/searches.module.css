@@ -14,15 +14,19 @@
 /* controls */
 .controls { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; padding-bottom: 14px; border-bottom: 1px solid var(--brand-fog); margin-top: 30px; }
 .rightCtl { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+/* segmented toggles — single-class states (base + On) so active/hover win by
+   equal specificity + source order, never overridden by a type selector. */
 .seg { display: flex; gap: 2px; background: var(--brand-paper-deep); padding: 3px; border-radius: 999px; }
-.seg button { font: inherit; font-size: 13px; font-weight: 500; border: 0; background: transparent; color: var(--brand-ink-soft); padding: 7px 14px; border-radius: 999px; cursor: pointer; white-space: nowrap; }
-.seg button:hover { color: var(--brand-ink); }
+.segBtn { font: inherit; font-size: 13px; font-weight: 500; border: 0; background: transparent; color: var(--brand-ink); padding: 7px 14px; border-radius: 999px; cursor: pointer; white-space: nowrap; }
+.segBtn:hover { background: var(--brand-ink); color: var(--brand-paper); }
+.segBtn:focus-visible { outline: 2px solid var(--brand-accent); outline-offset: 2px; }
 .segOn, .segOn:hover { background: var(--brand-ink); color: var(--brand-paper); }
 
 /* chips */
 .chips { display: flex; gap: 8px; flex-wrap: wrap; margin: 18px 0 4px; }
-.chip { font: inherit; font-size: 13px; border: 1px solid var(--brand-fog); background: transparent; color: var(--brand-ink-soft); padding: 6px 13px; border-radius: 999px; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; text-decoration: none; }
-.chip:hover { border-color: var(--brand-slate); }
+.chip { font: inherit; font-size: 13px; border: 1px solid var(--brand-fog); background: transparent; color: var(--brand-ink); padding: 6px 13px; border-radius: 999px; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; text-decoration: none; }
+.chip:hover { background: var(--brand-ink); border-color: var(--brand-ink); color: var(--brand-paper); }
+.chip:focus-visible { outline: 2px solid var(--brand-accent); outline-offset: 2px; }
 .chipOn, .chipOn:hover { background: var(--brand-ink); border-color: var(--brand-ink); color: var(--brand-paper); }
 
 /* podium */
@@ -40,9 +44,11 @@
 .tbl { border: 1px solid var(--brand-fog); border-bottom: 0; background: var(--brand-paper); }
 .hd, .row { display: grid; grid-template-columns: 44px 40px minmax(0, 1fr) 118px 92px 92px; align-items: center; gap: 14px; padding: 0 18px; }
 .hd { height: 38px; border-bottom: 1px solid var(--brand-fog); background: var(--brand-paper-deep); }
-.hdCell, .srt { font-family: var(--brand-font-mono); font-size: 9.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--brand-slate); }
-.srt { cursor: pointer; text-align: right; background: none; border: 0; padding: 0; }
-.srt:hover, .srtOn { color: var(--brand-ink); }
+.hdCell { font-family: var(--brand-font-mono); font-size: 9.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--brand-slate); }
+.srt { font-family: var(--brand-font-mono); font-size: 9.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--brand-ink); background: transparent; border: 0; padding: 5px 9px; border-radius: 999px; cursor: pointer; justify-self: end; white-space: nowrap; }
+.srt:hover { background: var(--brand-ink); color: var(--brand-paper); }
+.srt:focus-visible { outline: 2px solid var(--brand-accent); outline-offset: 2px; }
+.srtOn, .srtOn:hover { background: var(--brand-ink); color: var(--brand-paper); }
 .row { height: 62px; border-bottom: 1px solid var(--brand-fog); cursor: pointer; text-decoration: none; color: inherit; }
 .row:hover { background: var(--brand-paper-deep); }
 .rowRk { font-family: var(--brand-font-mono); font-size: 12.5px; color: var(--brand-slate); text-align: center; }
