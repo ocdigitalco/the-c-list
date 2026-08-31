@@ -27,7 +27,7 @@ export function Header() {
 
   return (
     <header className="shrink-0 border-b" style={{ background: "var(--brand-head)", borderColor: "var(--brand-line)" }}>
-      <div className="flex items-center justify-between px-6 h-14">
+      <div className="page-container flex items-center justify-between h-14">
         {/* Wordmark */}
         <Link href="/" className="flex items-center" style={{ textDecoration: "none" }} aria-label="Checklist²">
           <span className="hidden min-[640px]:inline-flex">
@@ -52,26 +52,23 @@ export function Header() {
           ))}
         </nav>
 
-        {/* Right side: hamburger */}
-        <div className="flex items-center gap-1">
-          {/* Hamburger */}
-          <button
-            className="md:hidden p-1.5 transition-colors rounded-md"
-            style={{ color: "var(--brand-ink-soft)" }}
-            onClick={() => setMenuOpen((o) => !o)}
-            aria-label="Toggle menu"
-          >
-            {menuOpen ? (
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
-          </button>
-        </div>
+        {/* Hamburger (mobile only; on desktop it is display:none so the nav sits flush right) */}
+        <button
+          className="md:hidden p-1.5 transition-colors rounded-md"
+          style={{ color: "var(--brand-ink-soft)" }}
+          onClick={() => setMenuOpen((o) => !o)}
+          aria-label="Toggle menu"
+        >
+          {menuOpen ? (
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          )}
+        </button>
       </div>
 
       {/* Mobile menu */}
