@@ -16,18 +16,7 @@ export default async function HomePage() {
         style={{ maxWidth: 1440, padding: "40px 56px 80px" }}
       >
         {/* Title */}
-        <h1
-          className="cl-title"
-          style={{
-            fontFamily: "var(--brand-font-head)",
-            fontSize: 48,
-            fontWeight: 600,
-            letterSpacing: "-1.2px",
-            color: "var(--cl-text-primary)",
-            margin: "0",
-            lineHeight: 1.1,
-          }}
-        >
+        <h1 className="page-title">
           Checklists
         </h1>
 

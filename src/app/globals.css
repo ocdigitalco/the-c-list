@@ -116,7 +116,7 @@ body {
   font-synthesis-weight: none;
   color: var(--brand-ink);
   line-height: 1.05;
-  letter-spacing: 0;
+  letter-spacing: -0.01em;
   font-size: 2rem;
   margin: 0;
 }
