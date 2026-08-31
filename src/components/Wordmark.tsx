@@ -2,9 +2,10 @@ import React from "react";
 
 /**
  * Checklist² wordmark: the word "Checklist" in the display face (Carter One,
- * single weight 400) followed by a red superscript square "mark" — the digit
- * "2" on a Card-Red tile with white paper text, aligned to the cap height.
- * Shared by the site header and footer.
+ * single weight 400) followed by a red superscript "mark" — the digit "2" on a
+ * Card-Red portrait trading card (5:7, i.e. 2.5" × 3.5") with white paper text.
+ * The card's bottom edge sits at the cap line; its extra height rises above it,
+ * and the "2" sits in the lower ~60% of the card. Shared by header and footer.
  *
  * `size` is the font-size of "Checklist" in px; the mark scales from it.
  */
@@ -19,8 +20,13 @@ export function Wordmark({
   accent?: string;
   paper?: string;
 }) {
-  const box = Math.round(size * 0.34); // square mark ≈ 48% of cap height
+  const markW = Math.round(size * 0.34);            // width unchanged from the old square
+  const markH = Math.round((markW * 7) / 5);        // 5:7 portrait trading-card proportions
   const markFont = Math.round(size * 0.24);
+  const padBottom = Math.round(markH * 0.2);
+  const padTop = Math.round(markH * 0.4);           // ≈ 2× padBottom → glyph center ~60% of card
+  // Keep the card's BOTTOM edge where the old square sat; the added height grows upward.
+  const markMarginTop = Math.round(size * 0.05) + markW - markH;
   return (
     <span
       style={{
@@ -40,10 +46,13 @@ export function Wordmark({
           display: "inline-flex",
           alignItems: "center",
           justifyContent: "center",
-          width: box,
-          height: box,
+          boxSizing: "border-box",
+          width: markW,
+          height: markH,
+          paddingTop: padTop,
+          paddingBottom: padBottom,
           marginLeft: Math.round(size * 0.06),
-          marginTop: Math.round(size * 0.05),
+          marginTop: markMarginTop,
           background: accent,
           color: paper,
           fontFamily: "var(--brand-font-head)",
