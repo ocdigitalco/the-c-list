@@ -15,6 +15,21 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "253-searches-redesign",
+    title: "Searches page redesign: one combined ranking of views and searches",
+    date: "2026-08-30T12:00:00-07:00",
+    summary:
+      "The Searches page now merges the most-viewed and most-searched athletes into a single ranking with a top-3 podium, an attention bar, and sortable Views/Searches columns — plus a Side-by-side view that keeps the two metrics apart.",
+    description: `## Searches, redesigned
+
+The Searches page pulls the two things collectors do — **viewing athlete pages** and **searching for names** — into one place. Instead of two separate stacked lists, there's now a single **combined ranking**: every athlete on one row with both their view count and search count, a compact **attention bar**, and headers that let you **sort by Views or Searches** on the spot.
+
+A **Top 3 podium** highlights the period's standouts (ranked by combined attention — a search counts a little heavier than a view), and a **Side-by-side** toggle brings back the separate "Most viewed" and "Most searched" columns when you'd rather scan them apart. Time-range (24h → all time) and category filters work as before, and every row still links straight to that athlete's page.
+
+This is a visual and interaction refresh — the underlying view/search data is unchanged.`,
+    tags: ["feature"],
+  },
+  {
     id: "252-brand-refresh",
     title: "Refreshed branding: Carter One display type and unified palette",
     date: "2026-08-28T12:00:00-07:00",
