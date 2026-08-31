@@ -31,7 +31,12 @@ export function Header() {
       <div className="flex items-center justify-between px-6 h-14">
         {/* Wordmark */}
         <Link href="/" className="flex items-center" style={{ textDecoration: "none" }} aria-label="Checklist²">
-          <Wordmark size={28} />
+          <span className="hidden min-[640px]:inline-flex">
+            <Wordmark size={45} />
+          </span>
+          <span className="inline-flex min-[640px]:hidden">
+            <Wordmark size={36} />
+          </span>
         </Link>
 
         {/* Desktop nav */}
