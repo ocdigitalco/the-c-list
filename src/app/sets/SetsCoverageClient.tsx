@@ -60,10 +60,9 @@ function CoverageDot({ ok, letter }: { ok: boolean; letter: string }) {
 function MfrPill({ mfr, compact }: { mfr: string; compact?: boolean }) {
   const p = compact ? "2px 7px" : "4px 10px";
   const fs = compact ? 10 : 11;
-  const r = compact ? 3 : 4;
-  if (mfr === "Topps") return <span style={{ display: "inline-flex", minWidth: compact ? undefined : 56, padding: p, fontSize: fs, fontWeight: 600, letterSpacing: "0.2px", borderRadius: r, color: "#E11D48", background: "transparent", border: "1px solid #E11D48" }}>Topps</span>;
-  if (mfr === "Panini") return <span style={{ display: "inline-flex", minWidth: compact ? undefined : 56, padding: p, fontSize: fs, fontWeight: 600, letterSpacing: "0.2px", borderRadius: r, color: "#1A1916", background: "#F2C230", border: "1px solid #E0B41E" }}>Panini</span>;
-  return <span style={{ display: "inline-flex", minWidth: compact ? undefined : 56, padding: p, fontSize: fs, fontWeight: 600, letterSpacing: "0.2px", borderRadius: r, color: "var(--brand-slate)", background: "var(--brand-track)", border: "1px solid var(--brand-line)" }}>{mfr}</span>;
+  const r = compact ? 4 : 5;
+  // All manufacturers use the theme's inverted brand tag (.tag.k): ink fill, --head text, 5px radius.
+  return <span style={{ display: "inline-flex", justifyContent: "center", minWidth: compact ? undefined : 56, padding: p, fontSize: fs, fontWeight: 600, letterSpacing: "0.2px", borderRadius: r, color: "var(--brand-head)", background: "var(--brand-ink)" }}>{mfr}</span>;
 }
 
 // ─── Constants ────────────────────────────────────────────────────────────────
@@ -185,14 +184,14 @@ function SetsCoverageInner({ rows }: { rows: CoverageRow[] }) {
           <span style={{ fontFamily: "var(--cl-font-mono)", fontSize: 10, fontWeight: 500, letterSpacing: 2, color: "var(--brand-slate)", width: 110, flexShrink: 0 }}>MANUFACTURER</span>
           {MANUFACTURERS.map((mfr) => {
             const active = manufacturer === mfr;
-            let style: React.CSSProperties = { padding: "6px 12px", borderRadius: 999, fontSize: 13, fontWeight: active ? 500 : 400, cursor: "pointer", border: "1px solid transparent", background: "transparent", transition: "all 0.15s" };
-            if (mfr === "All") {
-              style = { ...style, ...(active ? { background: "var(--brand-ink)", color: "var(--brand-page)", borderColor: "var(--brand-ink)" } : { color: "var(--brand-ink-soft)" }) };
-            } else if (mfr === "Topps") {
-              style = { ...style, color: "#E11D48", ...(active ? { borderColor: "#E11D48" } : {}) };
-            } else {
-              style = { ...style, ...(active ? { background: "#F2C230", color: "#1A1916", borderColor: "#E0B41E" } : { color: "#B47A0F" }) };
-            }
+            // Uniform theme pill for every manufacturer — no per-manufacturer colors.
+            const style: React.CSSProperties = {
+              padding: "6px 12px", borderRadius: 999, fontSize: 13, fontWeight: active ? 500 : 400,
+              cursor: "pointer", transition: "all 0.15s",
+              border: active ? "1px solid var(--brand-ink)" : "1px solid var(--brand-line)",
+              background: active ? "var(--brand-ink)" : "transparent",
+              color: active ? "var(--brand-head)" : "var(--brand-ink-soft)",
+            };
             return <button key={mfr} onClick={() => setManufacturer(mfr)} style={style}>{mfr}</button>;
           })}
         </div>

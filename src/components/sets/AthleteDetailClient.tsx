@@ -817,7 +817,7 @@ export function AthleteDetailClient({
                 <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "var(--brand-slate)", textTransform: "uppercase" }}>
                   {item.label}
                 </div>
-                <div style={{ fontFamily: FONT_DISPLAY, fontSize: 26, fontWeight: 600, letterSpacing: -0.6, color: "var(--brand-ink)", marginTop: 4 }}>
+                <div style={{ fontFamily: "var(--brand-font-head)", fontSynthesisWeight: "none", fontSize: 26, fontWeight: 400, color: "var(--brand-ink)", marginTop: 4 }}>
                   {item.value.toLocaleString()}
                 </div>
               </div>
@@ -946,7 +946,7 @@ export function AthleteDetailClient({
               <div style={{ fontFamily: FONT_MONO, fontSize: 7, fontWeight: 600, letterSpacing: 1, color: "var(--brand-slate)", textTransform: "uppercase" }}>
                 {item.label}
               </div>
-              <div style={{ fontFamily: FONT_DISPLAY, fontSize: 16, fontWeight: 600, letterSpacing: -0.5, color: "var(--brand-ink)", marginTop: 4 }}>
+              <div style={{ fontFamily: "var(--brand-font-head)", fontSynthesisWeight: "none", fontSize: 16, fontWeight: 400, color: "var(--brand-ink)", marginTop: 4 }}>
                 {item.value.toLocaleString()}
               </div>
             </div>

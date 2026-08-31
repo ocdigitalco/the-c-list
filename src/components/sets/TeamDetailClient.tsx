@@ -556,7 +556,7 @@ export function TeamDetailClient({
                   {league ?? sport}
                 </div>
                 <h1 style={{
-                  fontFamily: FONT_DISPLAY, fontSize: 38, fontWeight: 600,
+                  fontFamily: "var(--brand-font-head)", fontSynthesisWeight: "none", fontSize: 38, fontWeight: 400,
                   letterSpacing: -1, lineHeight: 1.08, color: "var(--brand-ink)", margin: "6px 0 12px",
                   textWrap: "balance",
                 }}>{teamName}</h1>
@@ -604,7 +604,7 @@ export function TeamDetailClient({
                 <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "var(--brand-slate)", textTransform: "uppercase" }}>
                   {item.label}
                 </div>
-                <div style={{ fontFamily: FONT_DISPLAY, fontSize: 26, fontWeight: 600, letterSpacing: -0.6, color: "var(--brand-ink)", marginTop: 4 }}>
+                <div style={{ fontFamily: "var(--brand-font-head)", fontSynthesisWeight: "none", fontSize: 26, fontWeight: 400, color: "var(--brand-ink)", marginTop: 4 }}>
                   {item.value.toLocaleString()}
                 </div>
               </div>
@@ -689,7 +689,7 @@ export function TeamDetailClient({
                 {league ?? sport}
               </div>
               <h1 style={{
-                fontFamily: FONT_DISPLAY, fontSize: 22, fontWeight: 600,
+                fontFamily: "var(--brand-font-head)", fontSynthesisWeight: "none", fontSize: 22, fontWeight: 400,
                 letterSpacing: -0.6, lineHeight: 1.05, color: "var(--brand-ink)", margin: "4px 0 8px",
               }}>{teamName}</h1>
               <div className="flex flex-wrap items-center gap-1.5">
@@ -717,7 +717,7 @@ export function TeamDetailClient({
               <div style={{ fontFamily: FONT_MONO, fontSize: 8, fontWeight: 600, letterSpacing: 1.2, color: "var(--brand-slate)", textTransform: "uppercase" }}>
                 {item.label}
               </div>
-              <div style={{ fontFamily: FONT_DISPLAY, fontSize: 18, fontWeight: 600, letterSpacing: -0.5, color: "var(--brand-ink)", marginTop: 4 }}>
+              <div style={{ fontFamily: "var(--brand-font-head)", fontSynthesisWeight: "none", fontSize: 18, fontWeight: 400, color: "var(--brand-ink)", marginTop: 4 }}>
                 {item.value.toLocaleString()}
               </div>
             </div>

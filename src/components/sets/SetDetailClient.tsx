@@ -612,7 +612,7 @@ function StatStrip({ items }: { items: { label: string; value: number }[] }) {
             <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "var(--brand-slate)", textTransform: "uppercase" }}>
               {item.label}
             </div>
-            <div style={{ fontFamily: FONT_DISPLAY, fontSize: 26, fontWeight: 600, letterSpacing: -0.6, color: "var(--brand-ink)", marginTop: 4 }}>
+            <div style={{ fontFamily: "var(--brand-font-head)", fontSynthesisWeight: "none", fontSize: 26, fontWeight: 400, color: "var(--brand-ink)", marginTop: 4 }}>
               {item.value.toLocaleString()}
             </div>
           </div>
@@ -631,7 +631,7 @@ function StatStrip({ items }: { items: { label: string; value: number }[] }) {
             <div style={{ fontFamily: FONT_MONO, fontSize: 8, fontWeight: 600, letterSpacing: 1.6, color: "var(--brand-slate)", textTransform: "uppercase" }}>
               {item.label}
             </div>
-            <div style={{ fontFamily: FONT_DISPLAY, fontSize: 20, fontWeight: 600, letterSpacing: -0.6, color: "var(--brand-ink)", marginTop: 4 }}>
+            <div style={{ fontFamily: "var(--brand-font-head)", fontSynthesisWeight: "none", fontSize: 20, fontWeight: 400, color: "var(--brand-ink)", marginTop: 4 }}>
               {item.value.toLocaleString()}
             </div>
           </div>
@@ -865,7 +865,7 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
             <div key={s.label} style={{
               background: "var(--brand-card)", border: "1px solid var(--brand-line)", borderRadius: 8, padding: "14px 16px",
             }}>
-              <div style={{ fontFamily: FONT_DISPLAY, fontSize: 26, fontWeight: 600, letterSpacing: -0.6, color: "var(--brand-ink)" }}>
+              <div style={{ fontFamily: "var(--brand-font-head)", fontSynthesisWeight: "none", fontSize: 26, fontWeight: 400, color: "var(--brand-ink)" }}>
                 {s.value.toLocaleString()}
               </div>
               <div style={{ fontSize: 16, color: "var(--brand-slate)", marginTop: 2 }}>{s.label}</div>
