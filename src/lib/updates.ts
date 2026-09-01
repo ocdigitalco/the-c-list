@@ -15,6 +15,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-chrome-tennis-checklist",
+    title: "2026 Topps Chrome Tennis checklist and box configuration",
+    date: "2026-08-31T12:00:00-07:00",
+    summary:
+      "Added 2026 Topps Chrome Tennis — 20 subsets and 683 cards across two 100-card base sets, eight autograph subsets, and ten inserts, with 2 autographs per hobby box. Numbered parallels and pack odds are not yet published.",
+    description: `## 2026 Topps Chrome Tennis
+
+The full base checklist for Topps' 2026 Chrome tennis release — **683 cards across 20 subsets**. Two 100-card base sets (**Base Cards** 1–100 and **Base Cards II** 101–200) cover the current tour and tennis legends, followed by eight autograph subsets (Base Autographs I & II, World Number 1 Autographs, Courtscripts Signatures, Clay Court Masters, Dual Autographs, Aces Autographs, Youthquake Signatures) and ten inserts (Aces, Game Set Match, Solus, Helix, World No 1s, Destiny, Youthquake, Captured, Sapphire Infinite, Hidden Gems).
+
+The **hobby** configuration guarantees **2 autographs per box**; cards per pack, packs per box, and boxes per case are **TBA**. **Numbered parallels and pack odds are not yet published** — they'll be attached when Topps releases the odds sheet.
+
+Pre-order September 1, 2026.`,
+    tags: ["checklist", "box-config"],
+    setId: 873,
+  },
+  {
     id: "253-searches-redesign",
     title: "Searches page redesign: one combined ranking of views and searches",
     date: "2026-08-30T12:00:00-07:00",
