@@ -127,7 +127,7 @@ export function SearchesClient({ views, searches, allSports, currentRange, curre
   const hrefFor = (a: Athlete) => (a.setSlug && a.slug ? `/sets/${a.setSlug}/athlete/${a.slug}` : null);
 
   return (
-    <div className={`${styles.wrap} h-full overflow-y-auto`}>
+    <div className={`${styles.wrap} flex-1`}>
       <div className="page-container" style={{ paddingTop: 40, paddingBottom: 90 }}>
         {/* Breadcrumb */}
         <div className={styles.crumb}>‹ <a href="/">Home</a></div>

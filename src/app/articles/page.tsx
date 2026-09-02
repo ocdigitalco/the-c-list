@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { articles, getAllTags, type Article } from "@/lib/articles";
-import { Footer } from "@/components/Footer";
 import { ArticleTagFilter } from "./ArticleTagFilter";
 
 export const metadata: Metadata = {
@@ -161,7 +160,7 @@ export default async function ArticlesPage({
   const remainder = filtered.slice(8);
 
   return (
-    <div className="h-full overflow-y-auto" style={{ background: "var(--brand-card)" }}>
+    <div className="flex-1" style={{ background: "var(--brand-card)" }}>
       <div className="page-container">
         {/* Header */}
         <div style={{ paddingTop: 40, paddingBottom: 12, borderBottom: "1px solid var(--brand-line)" }}>
@@ -254,7 +253,6 @@ export default async function ArticlesPage({
           </>
         )}
       </div>
-      <Footer />
     </div>
   );
 }

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "How the Break Hit Calculator Works — Checklist2",
@@ -10,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function BreakHitCalculatorPage() {
   return (
-    <div className="h-full overflow-y-auto">
+    <div className="flex-1">
       <div style={{ maxWidth: 680, margin: "0 auto", padding: "48px 24px 80px" }}>
         {/* Back link */}
         <Link
@@ -124,7 +123,6 @@ export default function BreakHitCalculatorPage() {
           for that specific format.
         </p>
       </div>
-      <Footer />
     </div>
   );
 }

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { db } from "@/lib/db";
 import { sets } from "@/lib/schema";
 import { sql } from "drizzle-orm";
-import { Footer } from "@/components/Footer";
 import { SimulatorPageClient } from "./SimulatorPageClient";
 
 export const metadata: Metadata = {
@@ -63,7 +62,7 @@ export default async function BreakSimulatorPage() {
   });
 
   return (
-    <div className="h-full overflow-y-auto">
+    <div className="flex-1">
       <div className="max-w-[800px] mx-auto px-6 py-10 space-y-6">
         <div>
           <h1 className="text-2xl font-normal text-[var(--brand-ink)] tracking-tight" style={{ fontFamily: "var(--brand-font-head)", fontSynthesisWeight: "none" }}>
@@ -76,7 +75,6 @@ export default async function BreakSimulatorPage() {
         </div>
         <SimulatorPageClient sets={setOptions} />
       </div>
-      <Footer />
     </div>
   );
 }

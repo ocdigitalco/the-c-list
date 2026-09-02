@@ -142,7 +142,7 @@ function SetsCoverageInner({ rows }: { rows: CoverageRow[] }) {
   }, [rows]);
 
   return (
-    <div className="h-full overflow-y-auto" style={{ background: "var(--brand-page)" }}>
+    <div className="flex-1" style={{ background: "var(--brand-page)" }}>
       <div className="page-container" style={{ paddingTop: 40, paddingBottom: 80 }}>
         {/* Breadcrumb */}
         <a href="/" style={{ fontSize: 13, color: "var(--brand-slate)", textDecoration: "none", fontFamily: "var(--cl-font-display)" }}>&lsaquo; Home</a>

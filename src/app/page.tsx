@@ -8,7 +8,7 @@ export default async function HomePage() {
 
   return (
     <div
-      className="h-full overflow-y-auto"
+      className="flex-1"
       style={{ background: "var(--cl-bg-page)" }}
     >
       <div

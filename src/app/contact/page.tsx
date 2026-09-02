@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Footer } from "@/components/Footer";
 import { ContactForm } from "./ContactForm";
 
 export const metadata: Metadata = {
@@ -10,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="h-full overflow-y-auto" style={{ background: "var(--brand-page)" }}>
+    <div className="flex-1" style={{ background: "var(--brand-page)" }}>
       <div className="page-container" style={{ paddingTop: 40, paddingBottom: 80 }}>
         <h1 className="page-title" style={{ margin: 0 }}>
           Contact
@@ -30,8 +29,6 @@ export default function ContactPage() {
 
         <ContactForm />
       </div>
-
-      <Footer />
     </div>
   );
 }

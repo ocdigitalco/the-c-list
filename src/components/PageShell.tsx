@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Footer } from "./Footer";
 
 interface PageShellProps {
   breadcrumb: { label: string; href: string };
@@ -12,7 +11,7 @@ interface PageShellProps {
 
 export function PageShell({ breadcrumb, title, description, wide = false, children }: PageShellProps) {
   return (
-    <div className="h-full overflow-y-auto">
+    <div className="flex-1">
       <div className={wide ? "page-container py-10 space-y-8" : "max-w-[1000px] mx-auto px-6 py-10 space-y-8"}>
         <div>
           <Link
@@ -33,7 +32,6 @@ export function PageShell({ breadcrumb, title, description, wide = false, childr
         </div>
         {children}
       </div>
-      <Footer />
     </div>
   );
 }

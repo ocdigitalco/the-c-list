@@ -2,6 +2,7 @@
 
 import { createContext, useContext } from "react";
 import type { V2Theme } from "./types";
+import { Footer } from "@/components/Footer";
 
 interface ThemeCtx {
   theme: V2Theme;
@@ -47,6 +48,13 @@ export function V2ThemeWrapper({ children }: { children: React.ReactNode }) {
           }
         `}</style>
         {children}
+        {/* Split-pane routes keep a fixed-viewport <main>; .v2-root is their
+            single scroll container. Rendering the site Footer here (the last
+            child, after the tab content) makes it appear at the bottom of the
+            scrolled content while the sticky rail stays full-height, and keeps
+            exactly one <footer> on the page — the layout-level footer is
+            suppressed for these routes by AppShell. */}
+        <Footer />
       </div>
     </Ctx.Provider>
   );

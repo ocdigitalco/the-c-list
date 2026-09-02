@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Break Sheet Builder — Checklist2",
@@ -33,7 +32,7 @@ const tips = [
 
 export default function BreakSheetBuilderPage() {
   return (
-    <div className="h-full overflow-y-auto">
+    <div className="flex-1">
       <div className="max-w-3xl mx-auto px-6 py-10 space-y-10">
         {/* Breadcrumb */}
         <div className="flex items-center gap-1.5">
@@ -175,7 +174,6 @@ export default function BreakSheetBuilderPage() {
           </ul>
         </Section>
       </div>
-      <Footer />
     </div>
   );
 }

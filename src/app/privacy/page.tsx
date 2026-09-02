@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — Checklist2",
@@ -9,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <div className="h-full overflow-y-auto">
+    <div className="flex-1">
       <div className="max-w-3xl mx-auto px-6 py-10 space-y-10">
         {/* Header */}
         <div>
@@ -127,7 +126,6 @@ export default function PrivacyPage() {
           </Link>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }
