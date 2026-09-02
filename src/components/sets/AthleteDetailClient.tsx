@@ -365,7 +365,7 @@ function InsertSetsAccordion({ insertSets, setSlug, setId }: {
 // ─── Shared Odds Helpers ─────────────────────────────────────────────────────────
 
 const BOX_LABEL_MAP: Record<string, string> = {
-  hobby: "Hobby", jumbo: "Jumbo", breakers_delight: "Breaker's Delight",
+  hobby: "Hobby", hobby_box_topper: "Box Topper", jumbo: "Jumbo", breakers_delight: "Breaker's Delight",
   fdi: "First Day Issue", sapphire: "Sapphire", fanatics: "Fanatics",
   value_se: "Value", value_ea: "Value", value_cee: "Value", value: "Value",
   mega_se: "Mega", mega_ea: "Mega", mega_cee: "Mega", mega: "Mega",

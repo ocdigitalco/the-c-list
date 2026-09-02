@@ -114,7 +114,7 @@ export interface SubsetChecklist {
 // ─── Helpers ────────────────────────────────────────────────────────────────────
 
 const BOX_LABEL_MAP: Record<string, string> = {
-  hobby: "Hobby", jumbo: "Jumbo", mega: "Mega", blaster: "Blaster",
+  hobby: "Hobby", hobby_box_topper: "Box Topper", jumbo: "Jumbo", mega: "Mega", blaster: "Blaster",
   value: "Value", fat_pack: "Fat Pack", hanger: "Hanger",
   breakers_delight: "Breaker's Delight", first_day_issue: "First Day Issue",
   breaker: "Breaker", hobby_hybrid: "Hobby Hybrid", sapphire: "Sapphire",
@@ -132,7 +132,7 @@ function fmtBoxLabel(key: string): string {
 // some formats. Prefers what a typical buyer opens, so the shown value is the
 // most representative; the resolver tags the value when it isn't hobby.
 const ODDS_FORMAT_PREFERENCE = [
-  "hobby", "jumbo", "value", "mega", "hanger", "fat_pack", "fanatics", "london_mega", "walmart_mega",
+  "hobby", "hobby_box_topper", "jumbo", "value", "mega", "hanger", "fat_pack", "fanatics", "london_mega", "walmart_mega",
   // Phase 3 formats (official Topps sheet order); non-hobby → tagged.
   "hobby_silver_pack", "jumbo_silver_pack", "super_box", "super_box_oversized", "bulk_packs",
   "club_super_box", "club_super_box_oversized", "kids_mega", "club_ex_box_sams",

@@ -15,6 +15,25 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "chrome-black-hobby-odds",
+    title: "2025-26 Topps Chrome Black Basketball pack odds",
+    date: "2026-09-02T12:00:00-07:00",
+    summary:
+      "Attached the official hobby odds sheet for 2025-26 Topps Chrome Black Basketball — 111 sheet lines across two formats (hobby pull rates plus box-topper rates for the autograph subsets) — and set the Instant Packs box configuration at 4 cards per pack.",
+    description: `## 2025-26 Topps Chrome Black Basketball — official odds
+
+The full **official Topps hobby odds sheet** is now attached to 2025-26 Topps Chrome Black Basketball. That's **111 sheet lines** resolved to pack odds across two formats:
+
+- **Hobby** pull rates for the base set, Rookie Design Variations, and the Black Lightning / Obscura / Nocturnal / Carbon Flare / Home Court inserts.
+- **Box Topper** rates for the encased autograph subsets (Autographs, Rookie Autographs, Carbon Ink, Ivory, Super Futures, Black Fire, Glow Up, Shrouded), tagged **"Box Topper"** on the set page.
+
+Rookie-card pull rates from the sheet are recorded on the base-set parallels. Parallels with no published rate (and the Instant-exclusive Teal/Black Glitter) still show "—".
+
+The **Instant Packs** configuration is now set at **4 cards per pack** (sold direct from Fanatics), with its category guarantees kept in the notes.`,
+    tags: ["odds", "box-config"],
+    setId: 872,
+  },
+  {
     id: "newsletter-signup",
     title: "Email updates signup",
     date: "2026-09-01T13:00:00-07:00",
