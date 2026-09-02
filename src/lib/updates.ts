@@ -15,6 +15,19 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "newsletter-signup",
+    title: "Email updates signup",
+    date: "2026-09-01T13:00:00-07:00",
+    summary:
+      "You can now subscribe for email updates — new sets, odds, and features, occasionally and with no spam. Sign up from the site footer or the top of the Updates page.",
+    description: `## Get Checklist² updates by email
+
+There's now a **newsletter signup** in the site footer and at the top of this Updates page. Drop in your email to hear when we add new checklists, publish pack odds, or ship new tools — **occasionally, and never spam**.
+
+It's a single-step opt-in, and you can unsubscribe any time from any email we send.`,
+    tags: ["feature"],
+  },
+  {
     id: "contact-page",
     title: "Contact page",
     date: "2026-09-01T12:00:00-07:00",

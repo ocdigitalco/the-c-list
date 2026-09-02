@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Wordmark } from "@/components/Wordmark";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
 
 const exploreLinks = [
   { href: "/checklists", label: "Checklists" },
@@ -50,6 +51,14 @@ export function Footer() {
             <p className="text-sm text-[var(--brand-slate)] leading-relaxed">
               The complete sports card checklist platform for collectors and breakers.
             </p>
+
+            {/* Newsletter signup */}
+            <div className="mt-6">
+              <p className="text-xs font-semibold text-[var(--brand-ink-soft)] uppercase tracking-widest mb-3">
+                Get set updates by email
+              </p>
+              <NewsletterSignup />
+            </div>
           </div>
 
           {/* Link columns */}
