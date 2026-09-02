@@ -23,6 +23,7 @@ const resourceLinks = [
 
 const companyLinks = [
   { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
   { href: "/terms", label: "Terms of Use" },
   { href: "/privacy", label: "Privacy Policy" },
 ];

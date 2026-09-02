@@ -15,6 +15,19 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "contact-page",
+    title: "Contact page",
+    date: "2026-09-01T12:00:00-07:00",
+    summary:
+      "Added a Contact page — a simple form to reach the Checklist² team by email with questions, corrections, feedback, or partnership inquiries.",
+    description: `## Get in touch
+
+Checklist² now has a **/contact** page with a straightforward form — name, email, an optional subject, and your message. Submissions are delivered straight to the team by email, and we reply to the address you provide.
+
+You'll find **Contact** in the site footer under Company.`,
+    tags: ["feature"],
+  },
+  {
     id: "2026-topps-chrome-tennis-checklist",
     title: "2026 Topps Chrome Tennis checklist and box configuration",
     date: "2026-08-31T12:00:00-07:00",
