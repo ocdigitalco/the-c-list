@@ -40,8 +40,11 @@ function oddsAbsent(packOdds: string | null): boolean {
 // Verbatim from the athlete-tab affiliate disclosure (AthleteShopDisclosure).
 const DISCLOSURE = "Checklist² earns a commission on qualifying eBay purchases through these links.";
 
-// "hobby" | "hobby_box_topper" → readable lowercase format names ("hobby",
-// "hobby box topper"). pack_odds keys are the format identifiers.
+// Build the formats line from pack_odds keys. pack_odds keys are the format
+// identifiers ("hobby", "jumbo", …) but also include non-pack odds groups
+// (box toppers, loaders, case hits) that shouldn't be described as "pack odds";
+// those are excluded before building the line.
+const NON_PACK_KEY = /topper|loader|case/i;
 function formatsLine(packOdds: string | null): string {
   let keys: string[] = [];
   if (packOdds && packOdds.trim() !== "") {
@@ -52,7 +55,9 @@ function formatsLine(packOdds: string | null): string {
       /* ignore */
     }
   }
-  const names = keys.map((k) => k.toLowerCase().replace(/_/g, " "));
+  const names = keys
+    .filter((k) => !NON_PACK_KEY.test(k))
+    .map((k) => k.toLowerCase().replace(/_/g, " "));
   if (names.length === 0) return "Topps has published the pack odds for this set.";
   if (names.length === 1) return `Topps has published the ${names[0]} pack odds for this set.`;
   if (names.length === 2) return `Topps has published the ${names[0]} and ${names[1]} pack odds for this set.`;
