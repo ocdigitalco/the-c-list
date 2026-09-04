@@ -12,6 +12,7 @@
 import { createClient } from "@libsql/client";
 import { config } from "dotenv";
 import { Resend } from "resend";
+import { writeFileSync } from "fs";
 
 config({ path: ".env.local" });
 
@@ -36,28 +37,99 @@ function oddsAbsent(packOdds: string | null): boolean {
   }
 }
 
-function emailHtml(setName: string, slug: string, token: string): string {
-  const url = `${SITE}/sets/${slug}`;
-  const unsub = `${SITE}/api/alerts/unsubscribe?token=${token}`;
+// Verbatim from the athlete-tab affiliate disclosure (AthleteShopDisclosure).
+const DISCLOSURE = "Checklist² earns a commission on qualifying eBay purchases through these links.";
+
+// "hobby" | "hobby_box_topper" → readable lowercase format names ("hobby",
+// "hobby box topper"). pack_odds keys are the format identifiers.
+function formatsLine(packOdds: string | null): string {
+  let keys: string[] = [];
+  if (packOdds && packOdds.trim() !== "") {
+    try {
+      const o = JSON.parse(packOdds);
+      if (o && typeof o === "object") keys = Object.keys(o);
+    } catch {
+      /* ignore */
+    }
+  }
+  const names = keys.map((k) => k.toLowerCase().replace(/_/g, " "));
+  if (names.length === 0) return "Topps has published the pack odds for this set.";
+  if (names.length === 1) return `Topps has published the ${names[0]} pack odds for this set.`;
+  if (names.length === 2) return `Topps has published the ${names[0]} and ${names[1]} pack odds for this set.`;
+  const head = names.slice(0, -1).join(", ");
+  const last = names[names.length - 1];
+  return `Topps has published the ${head}, and ${last} pack odds for this set.`;
+}
+
+function emailHtml(setName: string, slug: string, token: string, packOdds: string | null): string {
+  const setUrl = `${SITE}/sets/${slug}`;
+  const unsubUrl = `${SITE}/api/alerts/unsubscribe?token=${token}`;
   const name = escapeHtml(setName);
-  return `<!doctype html><html><body style="margin:0;background:#F7F5F0;font-family:Inter,system-ui,-apple-system,sans-serif;color:#0E0E0E;">
-  <div style="max-width:520px;margin:0 auto;padding:32px 24px;">
-    <p style="font-size:16px;line-height:1.6;margin:0 0 20px;">
-      Good news — Topps has published the pack odds for <strong>${name}</strong>. You can now see the full pull rates for every parallel and insert.
-    </p>
-    <p style="margin:0 0 24px;">
-      <a href="${url}" style="display:inline-block;background:#D63A20;color:#ffffff;text-decoration:none;font-weight:600;font-size:15px;padding:12px 22px;border-radius:8px;">View the odds</a>
-    </p>
-    <hr style="border:none;border-top:1px solid #E7E2D6;margin:24px 0;" />
-    <p style="font-size:12px;color:#5A5247;line-height:1.6;margin:0 0 8px;">
-      Checklist² earns a commission on qualifying eBay purchases through these links.
-    </p>
-    <p style="font-size:12px;color:#5A5247;line-height:1.6;margin:0;">
-      You&rsquo;re getting this because you asked to be notified about this set.
-      <a href="${unsub}" style="color:#5A5247;">Unsubscribe</a>.
-    </p>
-  </div>
-</body></html>`;
+  const formatsLineText = escapeHtml(formatsLine(packOdds));
+  const disclosure = escapeHtml(DISCLOSURE);
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pack odds are live: ${name}</title>
+<link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body style="margin:0;padding:0;background:#F7F5F0;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F7F5F0;">
+  <tr>
+    <td align="center" style="padding:32px 16px;">
+      <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
+
+        <tr>
+          <td align="center" style="padding:0 0 18px;font-family:'Carter One',Georgia,serif;font-size:26px;line-height:1;color:#0E0E0E;">
+            Checklist<span style="display:inline-block;background:#D63A20;color:#F1EDE4;font-size:14px;line-height:1;padding:3px 5px;border-radius:3px;vertical-align:top;margin-left:2px;font-family:'Carter One',Georgia,serif;">2</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td style="background:#FFFFFF;border:1px solid #E4E0D6;border-radius:10px;padding:28px 28px 24px;">
+            <p style="margin:0 0 6px;font-family:Inter,Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#6B6860;">Odds published</p>
+            <p style="margin:0 0 14px;font-family:'Carter One',Georgia,serif;font-size:24px;line-height:1.2;color:#0E0E0E;">${name}</p>
+            <p style="margin:0 0 22px;font-family:Inter,Helvetica,Arial,sans-serif;font-size:15px;line-height:1.6;color:#0E0E0E;">${formatsLineText} Every parallel and insert now shows its pull rate, and the box breakdown is filled in.</p>
+            <table role="presentation" cellpadding="0" cellspacing="0">
+              <tr>
+                <td style="background:#0E0E0E;border-radius:6px;">
+                  <a href="${setUrl}" style="display:inline-block;padding:12px 20px;font-family:Inter,Helvetica,Arial,sans-serif;font-size:15px;font-weight:500;color:#F1EDE4;text-decoration:none;">View the odds</a>
+                </td>
+              </tr>
+            </table>
+            <p style="margin:22px 0 0;font-family:Inter,Helvetica,Arial,sans-serif;font-size:13px;line-height:1.5;color:#6B6860;">You asked for one email when this set's odds were added. This is it.</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td align="center" style="padding:18px 8px 0;font-family:Inter,Helvetica,Arial,sans-serif;font-size:12px;line-height:1.7;color:#6B6860;">
+            <p style="margin:0;">${disclosure}</p>
+            <p style="margin:0;"><a href="${unsubUrl}" style="color:#6B6860;text-decoration:underline;">Stop alerts for this set</a> &nbsp;&middot;&nbsp; <a href="https://checklist2.com/updates" style="color:#6B6860;text-decoration:underline;">Latest updates</a></p>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>`;
+}
+
+// Plain-text alternative: the three lines of copy plus the two URLs.
+function emailText(setName: string, slug: string, token: string, packOdds: string | null): string {
+  const setUrl = `${SITE}/sets/${slug}`;
+  const unsubUrl = `${SITE}/api/alerts/unsubscribe?token=${token}`;
+  return [
+    formatsLine(packOdds),
+    "Every parallel and insert now shows its pull rate, and the box breakdown is filled in.",
+    "You asked for one email when this set's odds were added. This is it.",
+    "",
+    `View the odds: ${setUrl}`,
+    `Stop alerts for this set: ${unsubUrl}`,
+  ].join("\n");
 }
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
@@ -65,9 +137,10 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 async function main() {
   const args = process.argv.slice(2);
   const dryRun = args.includes("--dry-run");
+  const preview = args.includes("--preview");
   const slug = args.find((a) => !a.startsWith("--"));
   if (!slug) {
-    console.error("Usage: npx tsx scripts/send-odds-alerts.ts <set-slug> [--dry-run]");
+    console.error("Usage: npx tsx scripts/send-odds-alerts.ts <set-slug> [--dry-run] [--preview]");
     process.exit(1);
   }
 
@@ -89,6 +162,18 @@ async function main() {
     process.exit(1);
   }
   const set = setRes.rows[0] as unknown as { id: number; name: string; pack_odds: string | null };
+
+  // Preview: render the HTML to a file with a placeholder token and exit. Works
+  // for sets with or without odds — it is a rendering check, not a send, so it
+  // runs before the odds guard and never touches subscribers.
+  if (preview) {
+    const placeholderToken = "preview-token-0000000000000000000000000000000000000000000000000000";
+    const html = emailHtml(set.name, slug, placeholderToken, set.pack_odds);
+    const out = "/tmp/odds-alert-preview.html";
+    writeFileSync(out, html, "utf8");
+    console.log(`Preview written to ${out}`);
+    return;
+  }
 
   // Guard: refuse to run if odds are still unpublished.
   if (oddsAbsent(set.pack_odds)) {
@@ -132,7 +217,8 @@ async function main() {
           from: FROM,
           to: r.email,
           subject,
-          html: emailHtml(set.name, slug, r.token),
+          html: emailHtml(set.name, slug, r.token, set.pack_odds),
+          text: emailText(set.name, slug, r.token, set.pack_odds),
         });
         if (error) {
           failed++;
