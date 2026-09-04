@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-bowman-football-checklist",
+    title: "2026 Bowman Football checklist added",
+    date: "2026-09-04T12:00:00-07:00",
+    summary:
+      "Added the full 2026 Bowman Football checklist — 46 subsets and 2,120 cards spanning NFL players, rookies, and a 200-card college prospect set. Parallels and pack odds to follow.",
+    description: `## 2026 Bowman Football
+
+Bowman's first football product combines **NFL rookies and veterans with a 200-card Bowman Prospect set** of top collegiate talent — all built around coveted 1st Bowman cards. The checklist runs **46 subsets and 2,120 cards**: two 200-card base runs (paper + Chrome), six autograph classes (base, rookie, and prospect signers plus Carbon Ink, Ivory, and cross-sport/dual/triple autos), and inserts including Spotlights, Crystallized, Etched-In Glass, Anime, GPK, and the debut of the Bowman Red Rookie Redemption.
+
+Boxes **pre-order September 8, 2026** (hobby guarantees 2 autographs; First Day Issue is also offered). **Numbered parallels and pack odds are not published yet** — they'll be attached when Topps releases the odds sheet. Sign up on the set page to be notified the moment the odds go live.`,
+    tags: ["checklist", "football"],
+    setId: 874,
+  },
+  {
     id: "set-odds-alerts",
     title: "Get notified when a set's pack odds are published",
     date: "2026-09-02T12:00:00-07:00",
