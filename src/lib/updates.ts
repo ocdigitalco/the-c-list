@@ -15,6 +15,19 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "set-odds-alerts",
+    title: "Get notified when a set's pack odds are published",
+    date: "2026-09-02T12:00:00-07:00",
+    summary:
+      "Set pages without published pack odds now have a “Notify me” form — drop in your email and we’ll send one message the moment Topps releases the odds.",
+    description: `## Never miss an odds drop
+
+Some sets go up before Topps publishes pack odds. On those set pages you'll now see a **"Odds not published yet"** box — enter your email and you'll get **one** message the moment the odds are added. No account required, and one email per set.
+
+There's an optional checkbox to also join the weekly Checklist² newsletter, and every alert email includes a one-click unsubscribe link.`,
+    tags: ["feature", "sets"],
+  },
+  {
     id: "chrome-black-hobby-odds",
     title: "2025-26 Topps Chrome Black Basketball pack odds",
     date: "2026-09-02T12:00:00-07:00",

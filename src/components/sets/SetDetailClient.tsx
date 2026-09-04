@@ -13,6 +13,7 @@ import { normalizeOddsObj, denomToDisplay } from "@/lib/parseOdds";
 import { type BreakSheetPlayer } from "@/components/BreakSheetModal";
 import { BreakSheetLink } from "@/components/BreakSheetLink";
 import type { CardGalleryImage } from "@/lib/cardGallery";
+import { SetOddsAlertForm } from "@/components/SetOddsAlertForm";
 import { getTeamLogo } from "@/lib/utils/teamLogo";
 import { findOddsKey } from "@/lib/oddsUtils";
 import { SubsetCard } from "./SubsetCard";
@@ -1235,8 +1236,26 @@ export function SetDetailClient({
     releaseDate ? formatDateShort(releaseDate) : null,
   ].filter(Boolean).join(" · ");
 
+  // Odds are "absent" when pack_odds is NULL, empty, or an object with no keys.
+  // Rendered once here (not inside the duplicated desktop/mobile blocks) so the
+  // "notify me" form never appears twice on split-pane pages.
+  const oddsAbsent = (() => {
+    if (!packOdds || packOdds.trim() === "") return true;
+    try {
+      const o = JSON.parse(packOdds);
+      return !o || typeof o !== "object" || Object.keys(o).length === 0;
+    } catch {
+      return false;
+    }
+  })();
+
   return (
     <div style={{ background: "var(--brand-page)", minHeight: "100vh" }}>
+      {oddsAbsent && (
+        <div style={{ padding: "16px 24px 0" }}>
+          <SetOddsAlertForm setSlug={setSlug || String(setId)} />
+        </div>
+      )}
       {/* ═══ DESKTOP ═══ */}
       <div className="hidden min-[1180px]:grid" style={{ gridTemplateColumns: "425px 1fr", minHeight: "100vh" }}>
         {/* Left rail */}

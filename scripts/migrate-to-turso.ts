@@ -123,6 +123,19 @@ async function createSchema() {
     "ALTER TABLE insert_sets ADD COLUMN print_run INTEGER",
     "ALTER TABLE insert_sets ADD COLUMN notes TEXT",
     "ALTER TABLE parallels ADD COLUMN note TEXT",
+    // Production-owned table (excluded from data sync below). Ensure Turso has
+    // the schema even though we never push rows into it.
+    `CREATE TABLE IF NOT EXISTS set_alerts (
+      id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+      email TEXT NOT NULL,
+      set_id INTEGER NOT NULL REFERENCES sets(id),
+      token TEXT NOT NULL,
+      created_at TEXT NOT NULL DEFAULT (datetime('now')),
+      notified_at TEXT
+    )`,
+    "CREATE UNIQUE INDEX IF NOT EXISTS set_alerts_token_unique ON set_alerts (token)",
+    "CREATE UNIQUE INDEX IF NOT EXISTS set_alerts_email_set_unq ON set_alerts (email, set_id)",
+    "CREATE INDEX IF NOT EXISTS idx_set_alerts_set_notified ON set_alerts (set_id, notified_at)",
   ];
   for (const stmt of alterStmts) {
     try {
@@ -154,7 +167,7 @@ async function createSchema() {
 // Never cleared, inserted, or verified here — pull-from-turso.ts syncs them down.
 // break_sheets / break_sheet_prices hold user-generated break sheets saved on
 // CSV export; they MUST stay here so content migrations never clobber them.
-const PROD_OWNED_TABLES = ["player_events", "break_sheets", "break_sheet_prices"];
+const PROD_OWNED_TABLES = ["player_events", "break_sheets", "break_sheet_prices", "set_alerts"];
 
 async function migrateData() {
   // Disable foreign key checks for bulk migration

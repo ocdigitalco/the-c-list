@@ -1,5 +1,5 @@
-import { sqliteTable, text, integer, real, uniqueIndex } from "drizzle-orm/sqlite-core";
-import { relations } from "drizzle-orm";
+import { sqliteTable, text, integer, real, uniqueIndex, index } from "drizzle-orm/sqlite-core";
+import { relations, sql } from "drizzle-orm";
 
 export const sets = sqliteTable("sets", {
   id: integer("id").primaryKey({ autoIncrement: true }),
@@ -109,6 +109,28 @@ export const breakSheetPrices = sqliteTable("break_sheet_prices", {
   subjectType: text("subject_type", { enum: ["athlete", "team"] }).notNull(),
   price: real("price").notNull(),
 });
+
+// Production-owned. Email-only "notify me when odds publish" subscriptions,
+// one row per (email, set). Rows are written by the live site and read by the
+// send script; Turso is the source of truth and this table is EXCLUDED from
+// migrate-to-turso sync (same class as break_sheets).
+export const setAlerts = sqliteTable(
+  "set_alerts",
+  {
+    id: integer("id").primaryKey({ autoIncrement: true }),
+    email: text("email").notNull(),
+    setId: integer("set_id")
+      .notNull()
+      .references(() => sets.id),
+    token: text("token").notNull().unique(), // 32-byte hex; one-click unsubscribe
+    createdAt: text("created_at").notNull().default(sql`(datetime('now'))`),
+    notifiedAt: text("notified_at"),
+  },
+  (t) => ({
+    emailSetUnq: uniqueIndex("set_alerts_email_set_unq").on(t.email, t.setId),
+    setNotifiedIdx: index("idx_set_alerts_set_notified").on(t.setId, t.notifiedAt),
+  })
+);
 
 export const toppsSets = sqliteTable("topps_sets", {
   id: integer("id").primaryKey({ autoIncrement: true }),
