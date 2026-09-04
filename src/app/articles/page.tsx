@@ -163,8 +163,8 @@ export default async function ArticlesPage({
     <div className="flex-1" style={{ background: "var(--brand-card)" }}>
       <div className="page-container">
         {/* Header */}
-        <div style={{ paddingTop: 40, paddingBottom: 12, borderBottom: "1px solid var(--brand-line)" }}>
-          <h1 style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase" as const, color: "#1A1A1A", margin: 0 }}>
+        <div style={{ paddingTop: 40, paddingBottom: 16, borderBottom: "1px solid var(--brand-line)" }}>
+          <h1 className="page-title" style={{ margin: 0 }}>
             Articles
           </h1>
         </div>

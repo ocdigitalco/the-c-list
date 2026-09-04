@@ -38,7 +38,7 @@ export default async function SheetsAdminPage({
     return (
       <div className="h-full overflow-y-auto bg-zinc-950 text-zinc-300">
         <div className="max-w-md mx-auto px-6 py-24 text-center">
-          <h1 className="text-lg font-semibold text-white mb-2">Unauthorized</h1>
+          <h1 className="text-2xl text-white mb-2" style={{ fontFamily: "var(--brand-font-head)", fontSynthesisWeight: "none", fontWeight: 400 }}>Unauthorized</h1>
           <p className="text-sm text-zinc-500">
             This page requires an admin secret: <code>/sheets?secret=…</code>
           </p>
@@ -86,10 +86,7 @@ export default async function SheetsAdminPage({
         </div>
 
         {/* Title */}
-        <h1
-          className="cl-title"
-          style={{ fontFamily: "var(--cl-font-display)", fontSize: 48, fontWeight: 600, letterSpacing: "-1.2px", color: "var(--brand-ink)", margin: "12px 0 0", lineHeight: 1.1 }}
-        >
+        <h1 className="page-title" style={{ margin: "12px 0 0" }}>
           Saved Break Sheets
         </h1>
         <p style={{ fontSize: 14, color: "var(--brand-slate)", margin: "6px 0 0" }}>
