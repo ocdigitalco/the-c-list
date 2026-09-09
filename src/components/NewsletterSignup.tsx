@@ -9,8 +9,11 @@ import { Button } from "@/components/Button";
  * success/error states. Uses only --brand-* tokens; compact enough for the
  * footer, and reused in a card on /updates. useId() keeps field ids unique so
  * multiple instances (footer + page) can coexist on one route.
+ *
+ * `source` is forwarded to /api/subscribe as signup attribution
+ * (e.g. "footer", "updates-page").
  */
-export function NewsletterSignup() {
+export function NewsletterSignup({ source = "footer" }: { source?: string }) {
   const uid = useId();
   const emailId = `nl-email-${uid}`;
   const hpId = `nl-website-${uid}`;
@@ -32,7 +35,7 @@ export function NewsletterSignup() {
       const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, website }),
+        body: JSON.stringify({ email, website, source }),
       });
       if (res.ok) {
         setSuccess(true);

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
+import { upsertNewsletterContact } from "@/lib/resendContacts";
 
 // Talks to Resend → Node.js runtime, never static.
 export const runtime = "nodejs";
@@ -67,54 +67,26 @@ export async function POST(req: Request) {
     );
   }
 
-  const apiKey = process.env.RESEND_NEWSLETTER_API_KEY;
-  const audienceId = process.env.RESEND_AUDIENCE_ID;
-  if (!apiKey || !audienceId) {
-    // Never leak which piece of config is missing.
-    console.error(
-      "[subscribe] Missing env:",
-      !apiKey ? "RESEND_NEWSLETTER_API_KEY" : "",
-      !audienceId ? "RESEND_AUDIENCE_ID" : ""
-    );
+  // Signup attribution — where the form lives (footer / updates-page). Fall back
+  // to a generic label rather than trusting arbitrary client input.
+  const rawSource = typeof body.source === "string" ? body.source.trim() : "";
+  const source = /^[a-z0-9_-]{1,40}$/i.test(rawSource) ? rawSource : "newsletter-form";
+
+  // Global contacts upsert: create with signup_source, segment, and topic
+  // opt-in; on "already exists" it reconciles (never leaks membership).
+  const result = await upsertNewsletterContact({ email, source });
+
+  if (result.status === "missing_config") {
     return NextResponse.json(
       { error: "Something went wrong. Please try again later." },
       { status: 500 }
     );
   }
-
-  try {
-    const resend = new Resend(apiKey);
-    const { data, error } = await resend.contacts.create({
-      email,
-      audienceId,
-      unsubscribed: false,
-    });
-
-    if (error) {
-      // Already-subscribed / duplicate → treat as success (idempotent; never
-      // leak whether an address is already a member).
-      const msg = String(
-        (error as { message?: string }).message ?? ""
-      ).toLowerCase();
-      const code = (error as { statusCode?: number }).statusCode;
-      const isDuplicate =
-        code === 409 || /already|exists|duplicate/i.test(msg);
-      if (isDuplicate) {
-        return NextResponse.json({ ok: true }, { status: 200 });
-      }
-      console.error("[subscribe] Resend error:", error);
-      return NextResponse.json(
-        { error: "We couldn't sign you up. Please try again later." },
-        { status: 502 }
-      );
-    }
-
-    return NextResponse.json({ ok: true, id: data?.id ?? null }, { status: 200 });
-  } catch (err) {
-    console.error("[subscribe] Resend threw:", err);
+  if (result.status === "error") {
     return NextResponse.json(
       { error: "We couldn't sign you up. Please try again later." },
       { status: 502 }
     );
   }
+  return NextResponse.json({ ok: true }, { status: 200 });
 }

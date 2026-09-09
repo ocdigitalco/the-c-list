@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 import { randomBytes } from "crypto";
-import { Resend } from "resend";
 import { db, rawQuery } from "@/lib/db";
 import { setAlerts } from "@/lib/schema";
+import { upsertNewsletterContact } from "@/lib/resendContacts";
 
 // Writes to the production-owned set_alerts table (Turso is source of truth).
 export const runtime = "nodejs";
@@ -39,20 +39,12 @@ function clientIp(req: Request): string {
 // Pragmatic email check: one @, non-empty local part, a dotted domain, no spaces.
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-async function subscribeToNewsletter(email: string): Promise<void> {
-  const apiKey = process.env.RESEND_NEWSLETTER_API_KEY;
-  const audienceId = process.env.RESEND_AUDIENCE_ID;
-  if (!apiKey || !audienceId) {
-    console.error("[alerts] newsletter opt-in skipped: missing RESEND_NEWSLETTER_API_KEY/RESEND_AUDIENCE_ID");
-    return;
-  }
-  try {
-    const resend = new Resend(apiKey);
-    const { error } = await resend.contacts.create({ email, audienceId, unsubscribed: false });
-    // Duplicates are fine; any error here must NOT fail the alert insert.
-    if (error) console.error("[alerts] newsletter opt-in Resend error (non-fatal):", error);
-  } catch (err) {
-    console.error("[alerts] newsletter opt-in threw (non-fatal):", err);
+async function subscribeToNewsletter(email: string, setSlug: string): Promise<void> {
+  // Attribution: source "odds-alert" and the set slug as signup_set. Best-effort;
+  // any failure here must NOT fail the alert insert.
+  const result = await upsertNewsletterContact({ email, source: "odds-alert", set: setSlug });
+  if (result.status !== "ok") {
+    console.error("[alerts] newsletter opt-in non-fatal failure:", result.status, result.error ?? "");
   }
 }
 
@@ -112,7 +104,7 @@ export async function POST(req: Request) {
 
   // Optional newsletter opt-in — best-effort; never fails the alert.
   if (body.newsletter === true) {
-    await subscribeToNewsletter(email);
+    await subscribeToNewsletter(email, setSlug);
   }
 
   return NextResponse.json({ ok: true }, { status: 200 });

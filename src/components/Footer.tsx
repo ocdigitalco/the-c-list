@@ -57,7 +57,7 @@ export function Footer() {
               <p className="text-xs font-semibold text-[var(--brand-ink-soft)] uppercase tracking-widest mb-3">
                 Get set updates by email
               </p>
-              <NewsletterSignup />
+              <NewsletterSignup source="footer" />
             </div>
           </div>
 

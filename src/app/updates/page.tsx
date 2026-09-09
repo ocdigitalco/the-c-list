@@ -22,7 +22,7 @@ export default function UpdatesPage() {
           <p className="text-sm text-[var(--brand-ink-soft)] mb-3">
             New sets, odds, and features — occasionally, no spam.
           </p>
-          <NewsletterSignup />
+          <NewsletterSignup source="updates-page" />
         </div>
 
         <UpdatesFeed updates={updates} />
