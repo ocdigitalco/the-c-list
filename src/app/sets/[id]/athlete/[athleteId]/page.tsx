@@ -212,6 +212,7 @@ export default async function V2AthletePage({
       team: playerAppearances.team,
       isRookie: playerAppearances.isRookie,
       subsetTag: playerAppearances.subsetTag,
+      formats: playerAppearances.formats,
       insertSetId: playerAppearances.insertSetId,
       insertSetName: insertSets.name,
       isAutograph: insertSets.isAutograph,
@@ -297,6 +298,7 @@ export default async function V2AthletePage({
       team: appearance.team,
       isRookie: appearance.isRookie,
       subsetTag: appearance.subsetTag,
+      formats: appearance.formats ?? null,
       coPlayers: coPlayersByAppearance.get(appearance.id) ?? [],
     });
   }

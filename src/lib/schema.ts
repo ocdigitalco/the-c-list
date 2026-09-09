@@ -69,6 +69,10 @@ export const playerAppearances = sqliteTable("player_appearances", {
   team: text("team"),
   isRookie: integer("is_rookie", { mode: "boolean" }).notNull().default(false),
   subsetTag: text("subset_tag"),
+  // Per-card format availability as a JSON array of format keys (e.g.
+  // ["hobby","breaker"], ["mega"]). NULL = available in all of a set's formats.
+  // Used when a set's Hobby/Mega checklists differ (2026 Bowman Chrome Baseball).
+  formats: text("formats"),
 });
 
 export const playerEvents = sqliteTable("player_events", {

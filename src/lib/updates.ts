@@ -15,6 +15,24 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-bowman-chrome-baseball-checklist",
+    title: "2026 Bowman Chrome Baseball checklist added",
+    date: "2026-09-09T12:00:00-07:00",
+    summary:
+      "Added the full 2026 Bowman Chrome Baseball checklist — 37 subsets and 1,276 cards across the merged Hobby and Mega Box lists. Cards flag which product they come from; parallels and pack odds to follow.",
+    description: `## 2026 Bowman Chrome Baseball
+
+2026 Bowman Chrome Baseball marks the season's second prospect-focused release, introducing collectors to the international talent pipeline. Built around coveted 1st Bowman cards, the 100-card base set features established MLB stars and emerging rookies, alongside a 100-card Bowman Prospect set. Returning favorites include Bowman GPK, Bowman Spotlights, and Crystallized. New additions such as WBC Flag Variation and Across the Seams bring fresh energy to the lineup. The Bowman Red Rookie Redemption also returns, featuring special short print Red RCs eligible for FanCash rewards tied to career milestones, beginning with MLB Rookie of the Year honors.
+
+Topps published **two distinct checklists — Hobby and Mega Box** — that don't fully overlap, so we merged them into one **37-subset, 1,276-card** list. Cards that appear in only one product carry a small **"Mega Box only"** or **"Hobby only"** tag on the checklist and on each player's page (Breaker boxes share the Hobby checklist).
+
+**Numbered parallels and pack odds are not published yet** — they'll be attached when Topps releases the odds sheet. Sign up on the set page to be notified the moment the odds go live.
+
+Sources: [Topps](https://www.topps.com/pages/bowman-chrome-baseball) · [Box Guide](https://ripped.topps.com/2026-bowman-chrome-baseball-box-guide/) · [Top Prospects](https://ripped.topps.com/collect-top-prospects-cards-2026-bowman-chrome-baseball) · [Big Break Autograph Variation](https://ripped.topps.com/2026-bowman-chrome-big-break-autograph-variation-design/)`,
+    tags: ["checklist", "baseball"],
+    setId: 875,
+  },
+  {
     id: "2026-bowman-football-checklist",
     title: "2026 Bowman Football checklist added",
     date: "2026-09-04T12:00:00-07:00",

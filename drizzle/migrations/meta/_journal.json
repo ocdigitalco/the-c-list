@@ -127,6 +127,13 @@
       "when": 1788000000000,
       "tag": "0020_set_alerts",
       "breakpoints": true
+    },
+    {
+      "idx": 21,
+      "version": "6",
+      "when": 1791000000000,
+      "tag": "0021_appearance_formats",
+      "breakpoints": true
     }
   ]
 }

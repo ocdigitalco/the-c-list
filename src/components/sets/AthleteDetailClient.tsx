@@ -12,6 +12,7 @@ import { trackEvent as trackGaEvent } from "@/lib/analytics";
 import { getTeamLogo } from "@/lib/utils/teamLogo";
 import { findOddsKey, lookupOddsValue } from "@/lib/oddsUtils";
 import { SubsetCard } from "./SubsetCard";
+import { formatAvailabilityTag } from "./SetDetailClient";
 import type { ParallelRowData } from "./ParallelTable";
 import { buildEbaySearchUrl } from "@/lib/ebay/searchUrl";
 
@@ -336,6 +337,13 @@ function InsertSetsAccordion({ insertSets, setSlug, setId }: {
                         }}>#{app.cardNumber}</span>
                         <span style={{ fontSize: 16, color: "var(--brand-ink-soft)" }}>{app.team}</span>
                         {app.subsetTag && <span style={{ fontSize: 16, color: "var(--brand-slate)" }}>({app.subsetTag})</span>}
+                        {formatAvailabilityTag(app.formats) && (
+                          <span style={{
+                            fontFamily: FONT_MONO, fontSize: 10, fontWeight: 700, letterSpacing: 0.3,
+                            color: "var(--brand-slate)", background: "var(--brand-track)", border: "1px solid var(--brand-line)",
+                            padding: "1px 6px", borderRadius: 3, whiteSpace: "nowrap",
+                          }}>{formatAvailabilityTag(app.formats)}</span>
+                        )}
                       </div>
                       {is.parallels.length > 0 && (
                         <div className="flex flex-wrap gap-1.5 mt-2">
@@ -525,6 +533,10 @@ function AthleteSubsetTab({ insertSets, packOddsJson, playerName, setName, setId
                 style={{ padding: "8px 12px", borderTop: i > 0 ? "1px solid var(--brand-line)" : "none" }}>
                 <span style={{ fontFamily: FONT_MONO, fontSize: 13, color: "var(--brand-slate)", minWidth: 54 }}>#{app.cardNumber}</span>
                 <span style={{ fontSize: 15, fontWeight: 500, color: "var(--brand-ink)", flex: 1, minWidth: 0 }}>{playerName}</span>
+                {formatAvailabilityTag(app.formats) && (
+                  <span style={{ flexShrink: 0, fontFamily: FONT_MONO, fontSize: 9, fontWeight: 700, letterSpacing: 0.3,
+                    color: "var(--brand-slate)", background: "var(--brand-track)", border: "1px solid var(--brand-line)", padding: "1px 5px", borderRadius: 3, whiteSpace: "nowrap" }}>{formatAvailabilityTag(app.formats)}</span>
+                )}
                 {app.isRookie && (
                   <span style={{ flexShrink: 0, fontFamily: FONT_MONO, fontSize: 9, fontWeight: 700, letterSpacing: 0.5,
                     color: "var(--brand-accent-deep)", background: "rgba(154,43,20,0.08)", border: "1px solid rgba(154,43,20,0.2)", padding: "1px 5px", borderRadius: 3 }}>RC</span>

@@ -108,11 +108,24 @@ export interface SubsetChecklist {
   isBase: boolean;
   isRelic: boolean;
   isBooklet: boolean;
-  cards: { code: string; player: string; team: string | null; isRookie: boolean }[];
+  cards: { code: string; player: string; team: string | null; isRookie: boolean; formats?: string | null }[];
   parallels: { name: string; printRun: number | null; note?: string | null }[];
 }
 
 // ─── Helpers ────────────────────────────────────────────────────────────────────
+
+// Per-card availability tag from player_appearances.formats (JSON array; NULL =
+// all formats). Only sets with differing Hobby/Mega checklists populate this.
+export function formatAvailabilityTag(formats?: string | null): string | null {
+  if (!formats) return null;
+  let arr: string[];
+  try { arr = JSON.parse(formats); } catch { return null; }
+  if (!Array.isArray(arr) || arr.length === 0) return null;
+  const s = new Set(arr.map((x) => String(x).toLowerCase()));
+  if (s.size === 1 && s.has("mega")) return "Mega Box only";
+  if (!s.has("mega") && s.has("hobby")) return "Hobby only";
+  return null;
+}
 
 const BOX_LABEL_MAP: Record<string, string> = {
   hobby: "Hobby", hobby_box_topper: "Box Topper", jumbo: "Jumbo", mega: "Mega", blaster: "Blaster",
@@ -1096,11 +1109,20 @@ function SubsetSection({ subset, tab, showNumbered, oddsFor }: {
 
   const checklist = (
     <div style={{ border: "1px solid var(--brand-line)", borderRadius: 8, overflow: "hidden", background: "var(--brand-card)" }}>
-      {subset.cards.map((c, i) => (
+      {subset.cards.map((c, i) => {
+        const availTag = formatAvailabilityTag(c.formats);
+        return (
         <div key={`${c.code}-${i}`} className="flex items-center gap-3"
           style={{ padding: "8px 12px", borderTop: i > 0 ? "1px solid var(--brand-line)" : "none" }}>
           <span style={{ fontFamily: FONT_MONO, fontSize: 13, color: "var(--brand-slate)", minWidth: 54 }}>{c.code}</span>
           <span style={{ fontSize: 15, fontWeight: 500, color: "var(--brand-ink)", flex: 1, minWidth: 0 }}>{c.player}</span>
+          {availTag && (
+            <span style={{
+              flexShrink: 0, fontFamily: FONT_MONO, fontSize: 9, fontWeight: 700, letterSpacing: 0.3,
+              color: "var(--brand-slate)", background: "var(--brand-track)", border: "1px solid var(--brand-line)",
+              padding: "1px 5px", borderRadius: 3, whiteSpace: "nowrap",
+            }}>{availTag}</span>
+          )}
           {c.isRookie && (
             <span style={{
               flexShrink: 0, fontFamily: FONT_MONO, fontSize: 9, fontWeight: 700, letterSpacing: 0.5,
@@ -1110,7 +1132,8 @@ function SubsetSection({ subset, tab, showNumbered, oddsFor }: {
           )}
           {c.team && <span style={{ fontSize: 13, color: "var(--brand-slate)", flexShrink: 0, textAlign: "right" }}>{c.team}</span>}
         </div>
-      ))}
+        );
+      })}
     </div>
   );
 

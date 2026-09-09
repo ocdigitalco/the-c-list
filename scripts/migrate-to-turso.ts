@@ -123,6 +123,7 @@ async function createSchema() {
     "ALTER TABLE insert_sets ADD COLUMN print_run INTEGER",
     "ALTER TABLE insert_sets ADD COLUMN notes TEXT",
     "ALTER TABLE parallels ADD COLUMN note TEXT",
+    "ALTER TABLE player_appearances ADD COLUMN formats TEXT",
     // Production-owned table (excluded from data sync below). Ensure Turso has
     // the schema even though we never push rows into it.
     `CREATE TABLE IF NOT EXISTS set_alerts (
