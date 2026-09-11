@@ -15,6 +15,17 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "sealed-box-offers",
+    title: "Live sealed-box prices from eBay on set pages",
+    date: "2026-09-11T12:00:00-07:00",
+    summary:
+      "Set pages now show the best current sealed-box price per box format, pulled live from eBay and refreshed throughout the day.",
+    description: `## Sealed boxes on eBay
+
+Each set page now surfaces the **best current price for a sealed box** in every box format (Hobby, Mega, Value, Blaster and more), pulled live from the eBay Browse API and cached, with the three cheapest listings, seller feedback, and thumbnails. Prices refresh throughout the day; the "View on eBay" links are affiliate-tagged, and formats without a live listing fall back to a tagged eBay search.`,
+    tags: ["feature", "sets"],
+  },
+  {
     id: "2026-topps-mls-chrome-soccer-odds",
     title: "2026 Topps Chrome MLS pack odds and parallels added",
     date: "2026-09-11T12:00:00-07:00",

@@ -17,6 +17,7 @@ import { SetOddsAlertForm } from "@/components/SetOddsAlertForm";
 import { getTeamLogo } from "@/lib/utils/teamLogo";
 import { findOddsKey } from "@/lib/oddsUtils";
 import { SubsetCard } from "./SubsetCard";
+import { SealedBoxOffers, type SealedBoxData } from "./SealedBoxOffers";
 import type { ParallelRowData } from "./ParallelTable";
 
 // ─── Types & Constants ─────────────────────────────────────────────────────────
@@ -76,6 +77,7 @@ export interface SetDetailClientProps {
   hasBoxConfig: boolean;
   hasPackOdds: boolean;
   boxConfig: string | null;
+  boxOffers: SealedBoxData | null;
   packOdds: string | null;
   entries: LeaderboardRow[];
   hasTeamData: boolean;
@@ -765,8 +767,8 @@ function CardGallery({ images, setName }: { images: CardGalleryImage[]; setName:
 
 // ─── Tab: Overview ──────────────────────────────────────────────────────────
 
-function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autographs, autoParallels, totalParallels, athleteCount, releaseDate, hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds, subjectLabel = "Athletes", featuredArticle, setName, aeoSummary, faqs, cardImages, toppsUrl, relatedLinks }: {
-  boxConfig: string | null; cards: number; cardTypes: number; parallelTypes: number;
+function OverviewContent({ boxConfig, boxOffers, setSlug, cards, cardTypes, parallelTypes, autographs, autoParallels, totalParallels, athleteCount, releaseDate, hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds, subjectLabel = "Athletes", featuredArticle, setName, aeoSummary, faqs, cardImages, toppsUrl, relatedLinks }: {
+  boxConfig: string | null; boxOffers: SealedBoxData | null; setSlug: string; cards: number; cardTypes: number; parallelTypes: number;
   autographs: number; autoParallels: number; totalParallels: number; athleteCount: number;
   releaseDate: string | null; hasChecklist: boolean; hasNumberedParallels: boolean;
   hasBoxConfig: boolean; hasPackOdds: boolean; subjectLabel?: string;
@@ -990,6 +992,9 @@ function OverviewContent({ boxConfig, cards, cardTypes, parallelTypes, autograph
         </div>
       )}
 
+      {/* Live sealed-box offers from eBay (under Box Configuration) */}
+      <SealedBoxOffers data={boxOffers} setSlug={setSlug} />
+
       {/* Featured Article */}
       {featuredArticle && (
         <div>
@@ -1180,7 +1185,7 @@ export function SetDetailClient({
   cards, cardTypes, parallelTypes, autographs, autoParallels, totalParallels, athleteCount,
   subjectLabel: subjectLabelProp, teamLabel: teamLabelProp,
   hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds,
-  boxConfig, packOdds, entries, hasTeamData, breakSheetPlayers, parallelsList, autographSubsetNames, featuredArticle,
+  boxConfig, boxOffers, packOdds, entries, hasTeamData, breakSheetPlayers, parallelsList, autographSubsetNames, featuredArticle,
   aeoSummary, faqs, cardImages, toppsUrl, relatedLinks, subsets = [],
 }: SetDetailClientProps) {
   const subjectLabel = subjectLabelProp ?? "Athletes";
@@ -1371,7 +1376,7 @@ export function SetDetailClient({
           {/* Content area */}
           <div style={{ padding: "28px 36px 60px" }}>
             {activeTab === "Overview" ? (
-              <OverviewContent boxConfig={boxConfig} cards={cards} cardTypes={cardTypes}
+              <OverviewContent boxConfig={boxConfig} boxOffers={boxOffers} setSlug={setSlug ?? ""} cards={cards} cardTypes={cardTypes}
                 parallelTypes={parallelTypes} autographs={autographs} autoParallels={autoParallels}
                 totalParallels={totalParallels} athleteCount={athleteCount} releaseDate={releaseDate}
                 hasChecklist={hasChecklist} hasNumberedParallels={hasNumberedParallels}
@@ -1473,7 +1478,7 @@ export function SetDetailClient({
         {/* Content */}
         <div style={{ padding: 16 }}>
           {activeTab === "Overview" ? (
-            <OverviewContent boxConfig={boxConfig} cards={cards} cardTypes={cardTypes}
+            <OverviewContent boxConfig={boxConfig} boxOffers={boxOffers} setSlug={setSlug ?? ""} cards={cards} cardTypes={cardTypes}
               parallelTypes={parallelTypes} autographs={autographs} autoParallels={autoParallels}
               totalParallels={totalParallels} athleteCount={athleteCount} releaseDate={releaseDate}
               hasChecklist={hasChecklist} hasNumberedParallels={hasNumberedParallels}

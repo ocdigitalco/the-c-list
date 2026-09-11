@@ -27,4 +27,7 @@ export const rawQuery = {
     const result = await client.execute({ sql, args: args as InValue[] });
     return result.rows as T[];
   },
+  run: async (sql: string, ...args: (string | number | null)[]) => {
+    return client.execute({ sql, args: args as InValue[] });
+  },
 };

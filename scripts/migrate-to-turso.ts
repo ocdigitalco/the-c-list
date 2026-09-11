@@ -137,6 +137,19 @@ async function createSchema() {
     "CREATE UNIQUE INDEX IF NOT EXISTS set_alerts_token_unique ON set_alerts (token)",
     "CREATE UNIQUE INDEX IF NOT EXISTS set_alerts_email_set_unq ON set_alerts (email, set_id)",
     "CREATE INDEX IF NOT EXISTS idx_set_alerts_set_notified ON set_alerts (set_id, notified_at)",
+    // Production-owned table (excluded from data sync below). Ensure Turso has
+    // the schema; the cron / refresh script populates it directly on Turso.
+    `CREATE TABLE IF NOT EXISTS ebay_box_offers (
+      id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+      set_id INTEGER NOT NULL REFERENCES sets(id),
+      format TEXT NOT NULL,
+      query TEXT,
+      fetched_at TEXT,
+      offers TEXT,
+      result_count INTEGER,
+      error TEXT
+    )`,
+    "CREATE UNIQUE INDEX IF NOT EXISTS ebay_box_offers_set_format_unq ON ebay_box_offers (set_id, format)",
   ];
   for (const stmt of alterStmts) {
     try {
@@ -168,7 +181,7 @@ async function createSchema() {
 // Never cleared, inserted, or verified here — pull-from-turso.ts syncs them down.
 // break_sheets / break_sheet_prices hold user-generated break sheets saved on
 // CSV export; they MUST stay here so content migrations never clobber them.
-const PROD_OWNED_TABLES = ["player_events", "break_sheets", "break_sheet_prices", "set_alerts"];
+const PROD_OWNED_TABLES = ["player_events", "break_sheets", "break_sheet_prices", "set_alerts", "ebay_box_offers"];
 
 async function migrateData() {
   // Disable foreign key checks for bulk migration

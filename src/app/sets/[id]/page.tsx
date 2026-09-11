@@ -15,6 +15,7 @@ import type { BreakSheetPlayer } from "@/components/BreakSheetModal";
 import { articles } from "@/lib/articles";
 import { buildSetMeta, computeSetAeo, SITE_URL } from "@/lib/setSeo";
 import { getCardGalleryImages } from "@/lib/cardGallery";
+import { getSealedBoxData, type SealedBoxData } from "@/lib/ebayRefresh";
 
 export const revalidate = 3600;
 
@@ -124,6 +125,13 @@ export default async function V2SetPage({
   if (!setRow) notFound();
 
   const setId = setRow.id;
+
+  // Live sealed-box offers (cached in ebay_box_offers). rawParam is the canonical
+  // slug at render time (numeric IDs redirect above). Null → no recognized formats.
+  let boxOffers: SealedBoxData | null = null;
+  try {
+    boxOffers = await getSealedBoxData(setId, setRow.name, rawParam, setRow.boxConfig ?? null);
+  } catch { /* offers table absent or unreadable → hide card */ }
 
   // Canonical slug for static-asset lookup. The card-image gallery lives in
   // public/sets/cards/{slug}/; read it server-side (Node runtime, works at
@@ -631,6 +639,7 @@ export default async function V2SetPage({
       subsets={subsetChecklists}
       relatedLinks={relatedLinks}
       boxConfig={setRow.boxConfig ?? null}
+      boxOffers={boxOffers}
       packOdds={setRow.packOdds ?? null}
       entries={leaderboardEntries}
       hasTeamData={hasTeamData}

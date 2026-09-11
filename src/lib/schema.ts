@@ -136,6 +136,30 @@ export const setAlerts = sqliteTable(
   })
 );
 
+// Production-owned. Cached live sealed-box listings from the eBay Browse API,
+// one row per (set, box format). Written only by the cron / manual refresh
+// script (Turso is the source of truth); EXCLUDED from migrate-to-turso sync
+// like set_alerts. `offers` is a JSON array of listing objects; on a failed
+// refresh we write `error` and leave the last good `offers` untouched.
+export const ebayBoxOffers = sqliteTable(
+  "ebay_box_offers",
+  {
+    id: integer("id").primaryKey({ autoIncrement: true }),
+    setId: integer("set_id")
+      .notNull()
+      .references(() => sets.id),
+    format: text("format").notNull(),
+    query: text("query"),
+    fetchedAt: text("fetched_at"),
+    offers: text("offers"), // JSON array of offer objects
+    resultCount: integer("result_count"),
+    error: text("error"),
+  },
+  (t) => ({
+    setFormatUnq: uniqueIndex("ebay_box_offers_set_format_unq").on(t.setId, t.format),
+  })
+);
+
 export const toppsSets = sqliteTable("topps_sets", {
   id: integer("id").primaryKey({ autoIncrement: true }),
   name: text("name").notNull(),
