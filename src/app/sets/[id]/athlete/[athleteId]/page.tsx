@@ -263,7 +263,7 @@ export default async function V2AthletePage({
 
   // Parallels per insert set
   const playerInsertSetIds = [...new Set(appearanceRows.map((a) => a.insertSetId))];
-  const parallelsByIS = new Map<number, { id: number; name: string; printRun: number | null }[]>();
+  const parallelsByIS = new Map<number, { id: number; name: string; printRun: number | null; exclusivity: string | null }[]>();
   if (playerInsertSetIds.length > 0) {
     const parallelRows = await db
       .select()
@@ -273,7 +273,7 @@ export default async function V2AthletePage({
       if (!parallelsByIS.has(row.insertSetId)) {
         parallelsByIS.set(row.insertSetId, []);
       }
-      parallelsByIS.get(row.insertSetId)!.push(row);
+      parallelsByIS.get(row.insertSetId)!.push({ id: row.id, name: row.name, printRun: row.printRun, exclusivity: row.exclusivity ?? null });
     }
   }
 

@@ -523,7 +523,7 @@ function AthleteSubsetTab({ insertSets, packOddsJson, playerName, setName, setId
         for (const p of is.parallels) {
           const o = lookupOdds(is.insertSetName, p.name);
           const rare = p.name.toLowerCase().includes("superfractor") || (p.printRun != null && p.printRun <= 5);
-          tableRows.push({ name: p.name, printRun: p.printRun, rare, odds: o != null ? { text: displayOdds(o) } : null, shopUrl: shopFor(p.name, p.printRun, p.id) });
+          tableRows.push({ name: p.name, printRun: p.printRun, rare, exclusivity: p.exclusivity ?? null, odds: o != null ? { text: displayOdds(o) } : null, shopUrl: shopFor(p.name, p.printRun, p.id) });
         }
 
         const checklist = (

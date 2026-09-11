@@ -15,6 +15,26 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-universe-wwe-checklist",
+    title: "2026 Topps Universe WWE checklist added",
+    date: "2026-09-11T12:00:00-07:00",
+    summary:
+      "Added the full 2026 Topps Universe WWE checklist — 34 subsets and 904 cards, plus 239 numbered/box-exclusive parallel rows on the base, insert, autograph and autograph-relic subsets. Pack odds to follow.",
+    description: `## 2026 Topps Universe WWE
+
+Topps Universe WWE returns for its second release, delivering another bold vision of sports entertainment collecting. This all-encompassing product features WWE legends, current champions, and rising stars brought to life throughout the collection and features a spectrum of vibrant parallels. The relic lineup features **Tag Team Relic Autographs, WWE Authentics, and Ringside Relics**, giving collectors the opportunity to own pieces of Superstar-worn gear and memorable match-used memorabilia.
+
+The checklist runs **34 subsets and 904 cards**, including a **300-card base** built from Base Cards I & II and the **100-card Peak Performance run** (the base "III" set, sorted into Legend / Speed / Power / Agility / Mic / Referee categories). Inserts span To the Nines, Grand Entrances, Lucha Lucha Lucha, Forever Factions, We Are NXT, Hit My Music and more, alongside 14 autograph subsets and 8 relic subsets.
+
+Topps has already published the **parallel lists for 19 subsets**, so this build attaches **239 parallel rows** with print runs (from Purple Glass /399 down to FoilFractor 1/1) and box exclusives — **Galaxy** (Value Blaster), **Lightning** (Mega Box), and **Flare / Rings / RWB Stars** (Hobby) — across the base, insert, autograph and autograph-relic subsets. Each format-exclusive parallel shows its box tag on the parallels table.
+
+**Pack odds are not published yet** — they'll be attached when Topps releases the odds sheet. Sign up on the set page to be notified the moment the odds go live.
+
+Source: [2026 Topps Universe WWE: Which Box Is Best?](https://ripped.topps.com/2026-topps-universe-wwe-which-box-is-best/)`,
+    tags: ["checklist"],
+    setId: 876,
+  },
+  {
     id: "2026-bowman-chrome-baseball-checklist",
     title: "2026 Bowman Chrome Baseball checklist added",
     date: "2026-09-09T12:00:00-07:00",

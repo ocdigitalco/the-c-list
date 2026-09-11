@@ -305,8 +305,8 @@ export default async function V2SetPage({
        WHERE pa.insert_set_id IN (${ph}) ORDER BY pa.insert_set_id, pa.id`,
       ...insertSetIds
     );
-    const parRows = await rawQuery.all<{ insert_set_id: number; name: string; print_run: number | null; note: string | null }>(
-      `SELECT insert_set_id, name, print_run, note FROM parallels WHERE insert_set_id IN (${ph}) ORDER BY insert_set_id, id`,
+    const parRows = await rawQuery.all<{ insert_set_id: number; name: string; print_run: number | null; note: string | null; exclusivity: string | null }>(
+      `SELECT insert_set_id, name, print_run, note, exclusivity FROM parallels WHERE insert_set_id IN (${ph}) ORDER BY insert_set_id, id`,
       ...insertSetIds
     );
     const appsBy = new Map<number, { code: string; player: string; team: string | null; isRookie: boolean; formats: string | null }[]>();
@@ -314,10 +314,10 @@ export default async function V2SetPage({
       if (!appsBy.has(a.insert_set_id)) appsBy.set(a.insert_set_id, []);
       appsBy.get(a.insert_set_id)!.push({ code: a.code, player: a.player, team: a.team, isRookie: !!a.is_rookie, formats: a.formats ?? null });
     }
-    const parsBy = new Map<number, { name: string; printRun: number | null; note: string | null }[]>();
+    const parsBy = new Map<number, { name: string; printRun: number | null; note: string | null; exclusivity: string | null }[]>();
     for (const p of parRows) {
       if (!parsBy.has(p.insert_set_id)) parsBy.set(p.insert_set_id, []);
-      parsBy.get(p.insert_set_id)!.push({ name: p.name, printRun: p.print_run ?? null, note: p.note ?? null });
+      parsBy.get(p.insert_set_id)!.push({ name: p.name, printRun: p.print_run ?? null, note: p.note ?? null, exclusivity: p.exclusivity ?? null });
     }
     subsetChecklists = subRows.map((s) => ({
       name: s.name,

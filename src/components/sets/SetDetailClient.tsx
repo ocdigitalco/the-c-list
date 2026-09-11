@@ -109,7 +109,7 @@ export interface SubsetChecklist {
   isRelic: boolean;
   isBooklet: boolean;
   cards: { code: string; player: string; team: string | null; isRookie: boolean; formats?: string | null }[];
-  parallels: { name: string; printRun: number | null; note?: string | null }[];
+  parallels: { name: string; printRun: number | null; note?: string | null; exclusivity?: string | null }[];
 }
 
 // ─── Helpers ────────────────────────────────────────────────────────────────────
@@ -1103,6 +1103,7 @@ function SubsetSection({ subset, tab, showNumbered, oddsFor }: {
       name: p.name,
       printRun: p.printRun,
       note: p.note,
+      exclusivity: p.exclusivity ?? null,
       odds: o ? { text: denomToDisplay(o.denom), tag: o.format && o.format !== "hobby" ? fmtBoxLabel(o.format) : null } : null,
     };
   });

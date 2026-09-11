@@ -25,6 +25,10 @@ export interface ParallelRowData {
   shopUrl?: string | null;
   /** Highlight the parallel name in accent red (rare parallel rule). */
   rare?: boolean;
+  /** Format exclusivity label (e.g. "Value Blaster", "Hobby"). Shown as a small
+   * tag beside the name ONLY while no odds tag carries it; once odds attach, the
+   * odds cell's `· <format>` tag takes over and this is suppressed. */
+  exclusivity?: string | null;
 }
 
 /**
@@ -68,7 +72,16 @@ export function ParallelTable({ rows, showNumbered }: { rows: ParallelRowData[];
       </div>
       {rows.map((r, i) => (
         <div key={`${r.name}-${i}`} style={{ ...rowGrid, borderTop: i > 0 ? "1px solid var(--brand-line)" : undefined }}>
-          <span style={{ fontSize: 14, color: r.rare ? "var(--brand-accent-deep)" : "var(--brand-ink)", minWidth: 0 }}>{r.name}</span>
+          <span style={{ fontSize: 14, color: r.rare ? "var(--brand-accent-deep)" : "var(--brand-ink)", minWidth: 0 }}>
+            {r.name}
+            {r.exclusivity && !(r.odds && r.odds.tag) && (
+              <span style={{
+                marginLeft: 6, fontFamily: FONT_MONO, fontSize: 9, fontWeight: 700, letterSpacing: 0.3,
+                color: "var(--brand-slate)", background: "var(--brand-track)", border: "1px solid var(--brand-line)",
+                padding: "1px 5px", borderRadius: 3, whiteSpace: "nowrap", verticalAlign: "middle",
+              }}>{r.exclusivity}</span>
+            )}
+          </span>
           {showNumberedCol && <span style={{ textAlign: "right", fontFamily: FONT_MONO, fontSize: 14, color: "var(--brand-ink)" }}>{printRunDisplay(r.printRun)}</span>}
           {showOdds && (
             <span style={{ textAlign: "right", fontFamily: FONT_MONO, fontSize: 14, color: "var(--brand-ink)" }}>

@@ -1196,5 +1196,57 @@
       "width": 750,
       "height": 1050
     }
+  ],
+  "2026-topps-universe-wwe": [
+    {
+      "file": "2026-topps-universe-wwe-1.jpg",
+      "width": 1080,
+      "height": 1520
+    },
+    {
+      "file": "2026-topps-universe-wwe-2.jpg",
+      "width": 1513,
+      "height": 1080
+    },
+    {
+      "file": "2026-topps-universe-wwe-3.jpg",
+      "width": 750,
+      "height": 1050
+    },
+    {
+      "file": "2026-topps-universe-wwe-4.jpg",
+      "width": 1514,
+      "height": 1080
+    },
+    {
+      "file": "2026-topps-universe-wwe-5.jpg",
+      "width": 875,
+      "height": 1225
+    },
+    {
+      "file": "2026-topps-universe-wwe-6.jpg",
+      "width": 1513,
+      "height": 1080
+    },
+    {
+      "file": "2026-topps-universe-wwe-7.jpg",
+      "width": 875,
+      "height": 1225
+    },
+    {
+      "file": "2026-topps-universe-wwe-8.jpg",
+      "width": 1510,
+      "height": 1080
+    },
+    {
+      "file": "2026-topps-universe-wwe-9.jpg",
+      "width": 875,
+      "height": 1225
+    },
+    {
+      "file": "2026-topps-universe-wwe-10.jpg",
+      "width": 1080,
+      "height": 1524
+    }
   ]
 }

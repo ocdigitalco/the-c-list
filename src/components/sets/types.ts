@@ -44,7 +44,7 @@ export interface InsertSetDetail {
     formats?: string | null;
     coPlayers: { id: number; name: string; slug: string | null }[];
   }[];
-  parallels: { id: number; name: string; printRun: number | null }[];
+  parallels: { id: number; name: string; printRun: number | null; exclusivity?: string | null }[];
 }
 
 export interface BoxConfigSingle {
