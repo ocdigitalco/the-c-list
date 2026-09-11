@@ -15,6 +15,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-mls-chrome-soccer-odds",
+    title: "2026 Topps Chrome MLS pack odds and parallels added",
+    date: "2026-09-11T12:00:00-07:00",
+    summary:
+      "Attached the official pack odds and 116 parallels to 2026 Topps Chrome Major League Soccer across Hobby, Value and Mania boxes, with box-format exclusives flagged.",
+    description: `## 2026 Topps Chrome MLS — Pack Odds
+
+Pack odds are now live for **2026 Topps Chrome Major League Soccer** across all three box formats — **Hobby, Value and Mania** — covering **116 parallels** over **15 subsets**. Every parallel's pull rate now shows on the set's parallels tables.
+
+Box-format exclusives are flagged where a parallel is only found in one format: **Value** (Ray Wave, all Mini Diamonds), **Mania** (Mania, the Mania Red/White/Blue autographs, all Sparkles, and every Mania Autographs parallel), and **Hobby** (Prism, the Lavas, the Waves, XI Refractor, and most Summer Clash / Dual / National Pairings autographs).
+
+Three inserts on Topps' odds sheet — **Chrome Anime, Topps x Sesame Street, and MLS Country Patch Autographed Relic Cards** — are not on Topps' published checklist for this set; they'll be added if and when a checklist appears.`,
+    tags: ["odds"],
+    setId: 867,
+  },
+  {
     id: "2026-topps-universe-wwe-checklist",
     title: "2026 Topps Universe WWE checklist added",
     date: "2026-09-11T12:00:00-07:00",
