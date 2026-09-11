@@ -19,10 +19,10 @@ export const updates: Update[] = [
     title: "2026 Topps Chrome MLS pack odds and parallels added",
     date: "2026-09-11T12:00:00-07:00",
     summary:
-      "Attached the official pack odds and 116 parallels to 2026 Topps Chrome Major League Soccer across Hobby, Value and Mania boxes, with box-format exclusives flagged.",
+      "Attached the official pack odds and 116 parallels to 2026 Topps Chrome Major League Soccer across Hobby, Value and Mania boxes — with box-format exclusives flagged, canonical parallel names, and print runs.",
     description: `## 2026 Topps Chrome MLS — Pack Odds
 
-Pack odds are now live for **2026 Topps Chrome Major League Soccer** across all three box formats — **Hobby, Value and Mania** — covering **116 parallels** over **15 subsets**. Every parallel's pull rate now shows on the set's parallels tables.
+Pack odds are now live for **2026 Topps Chrome Major League Soccer** across all three box formats — **Hobby, Value and Mania** — covering **116 parallels** over **15 subsets**. Every parallel's pull rate now shows on the set's parallels tables. The parallels now carry **Topps' canonical names** (e.g. Purple Wave Refractor, SuperFractor, Aqua Mini-Diamond Refractor) and their **print runs** from Topps' published list — from unnumbered base refractors down to the 1/1 SuperFractor.
 
 Box-format exclusives are flagged where a parallel is only found in one format: **Value** (Ray Wave, all Mini Diamonds), **Mania** (Mania, the Mania Red/White/Blue autographs, all Sparkles, and every Mania Autographs parallel), and **Hobby** (Prism, the Lavas, the Waves, XI Refractor, and most Summer Clash / Dual / National Pairings autographs).
 
