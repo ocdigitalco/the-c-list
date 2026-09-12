@@ -494,17 +494,10 @@ export default async function V2SetPage({
        CAST(MAX(CASE WHEN pa.is_rookie = 1 THEN 1 ELSE 0 END) AS INTEGER) AS isRookie,
        tm.team AS team,
        COUNT(DISTINCT CASE
-         WHEN lower(i.name) LIKE '%auto%'
-           OR lower(i.name) LIKE '%signature%'
-           OR lower(i.name) LIKE '%signed%'
-           OR lower(i.name) LIKE '%autograph%'
+         WHEN i.is_autograph = 1
          THEN pa.insert_set_id END) AS autographs,
        COUNT(DISTINCT CASE
-         WHEN i.name != 'Base Set'
-           AND lower(i.name) NOT LIKE '%auto%'
-           AND lower(i.name) NOT LIKE '%signature%'
-           AND lower(i.name) NOT LIKE '%signed%'
-           AND lower(i.name) NOT LIKE '%autograph%'
+         WHEN i.is_base = 0 AND i.is_autograph = 0
          THEN pa.insert_set_id END) AS inserts,
        COALESCE(n.cnt, 0) AS numberedParallels,
        p.nba_player_id AS nbaPlayerId,
