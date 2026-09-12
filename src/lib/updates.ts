@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-27-topps-flagship-premier-league-checklist",
+    title: "2026-27 Topps Flagship Premier League checklist added",
+    date: "2026-09-12T12:00:00-07:00",
+    summary:
+      "Added the full 2026-27 Topps Flagship Premier League checklist — 43 subsets, 1,138 cards and 409 published parallels. Pack odds to follow.",
+    description: `## 2026-27 Topps Flagship Premier League
+
+The full **2026-27 Topps Flagship Premier League** checklist is live: **43 subsets**, **1,138 cards** and **409 published parallels**. The base set spans **300 cards** (Future Stars 1–20 and Base 21–300), backed by inserts (Beast Mode, Nitro Boost, Chrome Classics, Gold Lion, Black Edge and more), box-format exclusives, and a deep autograph and relic program — Base, Future Stars, Chrome Classics, Dual and 25 Years Champions Anniversary autographs, plus Autograph Relics, Premier Class Autograph Relics and Base Relics.
+
+Parallel ladders are attached where Topps has published them (Sparkle, Mini-Diamond and Rainbow Foils, Refractors, FoilFractors and the Voltage retail exclusives), with print runs and Hobby/Retail exclusivity flagged. **Pack odds are not yet published and will be added when Topps releases them.**`,
+    tags: ["checklist"],
+    setId: 877,
+  },
+  {
     id: "sealed-box-offers",
     title: "Live sealed-box prices from eBay on set pages",
     date: "2026-09-11T12:00:00-07:00",
