@@ -30,7 +30,7 @@ const companyLinks = [
 ];
 
 const platformLinks = [
-  { href: "https://www.whatnot.com", label: "Whatnot" },
+  { href: "https://www.whatnot.com/invite/checklist2", label: "Whatnot" },
   { href: "https://www.tiktok.com", label: "TikTok" },
   { href: "https://www.ebay.com", label: "eBay" },
 ];
@@ -38,7 +38,7 @@ const platformLinks = [
 export function Footer() {
   return (
     <footer className="shrink-0 bg-[var(--brand-page)] border-t border-[var(--brand-line)]">
-      <div className="max-w-6xl mx-auto px-6 py-14">
+      <div className="px-6 py-14">
 
         {/* Top section: wordmark + link columns */}
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
