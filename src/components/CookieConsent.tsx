@@ -110,9 +110,10 @@ export function CookieConsent() {
       return; // valid current choice → no banner
     }
 
-    // No valid choice yet. GPC present → default non-essential off, show banner
-    // in "Necessary only" state, and log a gpc-default record so honoring the
-    // signal is demonstrable (without writing a cookie, so the banner still shows).
+    // No valid choice yet. GPC present → default non-essential off (the banner's
+    // "Reject all" / necessary-only state), and log a gpc-default record so
+    // honoring the signal is demonstrable (without writing a cookie, so the
+    // banner still shows).
     idRef.current = crypto.randomUUID();
     setAnalytics(false);
     if (gpc) {
@@ -203,8 +204,8 @@ gtag('js',new Date());gtag('config','${GA_ID}');`}
                 <button onClick={() => setManage((m) => !m)} aria-expanded={manage} style={btnStyle("ghost")}>
                   Manage
                 </button>
-                <button onClick={() => persist({ analytics: false }, manage ? "settings" : "banner")} style={btnStyle("ghost")}>
-                  Necessary only
+                <button onClick={() => persist({ analytics: false }, manage ? "settings" : "banner")} style={btnStyle("solid")}>
+                  Reject all
                 </button>
                 <button onClick={() => persist({ analytics: true }, manage ? "settings" : "banner")} style={btnStyle("solid")}>
                   Accept all
