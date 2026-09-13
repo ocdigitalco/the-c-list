@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Wordmark } from "@/components/Wordmark";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { CookieSettingsLink } from "@/components/CookieSettingsLink";
 
 const exploreLinks = [
   { href: "/checklists", label: "Checklists" },
@@ -117,6 +118,9 @@ export function Footer() {
                     </Link>
                   </li>
                 ))}
+                <li>
+                  <CookieSettingsLink />
+                </li>
               </ul>
             </div>
 

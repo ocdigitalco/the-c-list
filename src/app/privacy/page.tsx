@@ -57,11 +57,51 @@ export default function PrivacyPage() {
           </ul>
         </Section>
 
-        <Section title="Cookies and Tracking">
+        <Section title="Cookies and Consent">
           <p>
-            Checklist2 may use cookies or local storage to remember your preferences (such as
-            light/dark mode). We may use analytics tools to understand how the app is used. By
-            using the app you consent to this use.
+            When you first visit, a non-blocking banner lets you choose which cookies we may use.
+            Cookies fall into two categories:
+          </p>
+          <ul className="space-y-2 mt-3">
+            {[
+              "Strictly necessary — required for the site to function and to remember your cookie choice itself. These are always on and cannot be turned off.",
+              "Analytics — anonymous usage measurement via Google Analytics, which helps us understand how the site is used. Off by default; loaded only if you turn it on. We use Google Consent Mode v2 with denied defaults, so no analytics cookies are set until you consent.",
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-2">
+                <span className="shrink-0 text-[var(--brand-slate)] mt-0.5">--</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-3">
+            There is currently no advertising or ad-targeting cookie on the site. Your choice is
+            stored in a single first-party cookie named <code>c2_consent</code> for 12 months
+            (<code>SameSite=Lax</code>, <code>Secure</code>). It holds a random identifier, the
+            notice version, a timestamp, your category choices, and whether your browser sent a
+            Global Privacy Control (GPC) signal. If GPC is present we default analytics off. You
+            can change or withdraw your choice at any time via{" "}
+            <strong>Cookie settings</strong> in the footer.
+          </p>
+        </Section>
+
+        <Section title="Consent Log">
+          <p>
+            To be able to demonstrate that consent was given, we keep a minimal, non-identifying
+            record of each choice. Each entry stores only: the random consent identifier from your{" "}
+            <code>c2_consent</code> cookie, a timestamp, the notice version, your analytics and
+            advertising choices, whether a GPC signal was present, and whether the choice came
+            from the banner, the settings panel, or a GPC default.
+          </p>
+          <p className="mt-3">
+            The consent log deliberately does <strong>not</strong> store your IP address, user
+            agent, device or browser details, geolocation, referring URL, or any request headers.
+            Records are automatically deleted after 24 months. Because the identifier is random
+            and unlinked to any personal data, these entries are not tied to your identity.
+          </p>
+          <p className="mt-3">
+            You can delete your consent record at any time: open <strong>Cookie settings</strong>{" "}
+            in the footer and choose <strong>Delete my consent record</strong>. This removes all
+            log entries for your consent identifier and clears the <code>c2_consent</code> cookie.
           </p>
         </Section>
 

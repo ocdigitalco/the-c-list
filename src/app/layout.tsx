@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Carter_One, Inter, Inter_Tight, JetBrains_Mono } from "next/font/google";
-import Script from "next/script";
 import { Header } from "@/components/Header";
 import { AppShell } from "@/components/AppShell";
+import { CookieConsent } from "@/components/CookieConsent";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -62,16 +62,9 @@ export default function RootLayout({
       >
         <Header />
         <AppShell>{children}</AppShell>
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-3T45WWZ64Y"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-3T45WWZ64Y');`}
-        </Script>
+        {/* Google Analytics is loaded by CookieConsent only after Analytics
+            consent (Consent Mode v2, denied defaults). No unconditional load. */}
+        <CookieConsent />
       </body>
     </html>
   );
