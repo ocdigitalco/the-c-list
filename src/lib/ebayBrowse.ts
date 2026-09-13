@@ -171,7 +171,7 @@ export function filterAndRank(items: EbayItem[]): BoxOffer[] {
     });
   }
   offers.sort((a, b) => a.total - b.total);
-  return offers.slice(0, 3);
+  return offers.slice(0, 4); // hero + up to 3 runners-up (hero+runners-up layout)
 }
 
 export interface SearchResult { query: string; resultCount: number; offers: BoxOffer[]; }

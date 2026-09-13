@@ -55,8 +55,16 @@ export async function getRefreshPairs(opts: { slug?: string; limitSets?: number 
 const nowIso = () => new Date().toISOString();
 
 // ── Read side: build the set-page card data ──────────────────────────────────
-export interface SealedBoxFormatData { format: string; label: string; offers: BoxOffer[]; fallbackUrl: string | null; refreshedRelative: string | null; }
-export interface SealedBoxData { formats: SealedBoxFormatData[]; disclosure: string; }
+export interface SealedBoxFormatData {
+  format: string;
+  label: string;
+  offers: BoxOffer[];
+  /** Tagged eBay search URL for this box type — always present (powers "See all"
+   *  and the empty-format cross-links), independent of whether offers exist. */
+  searchUrl: string | null;
+  refreshedRelative: string | null;
+}
+export interface SealedBoxData { formats: SealedBoxFormatData[]; disclosure: string; setName: string; }
 const FOOTER_DISCLOSURE = "Checklist² may earn a commission.";
 // Two 45s cron runs clear ~146 of 168 pairs/day (eBay latency ~0.5s/call caps a
 // run at ~73), so a pair refreshes every ~28h on average. 36h (not 24h) keeps
@@ -111,7 +119,7 @@ export async function getSealedBoxData(setId: number, setName: string, slug: str
       if (ageH < STALE_HOURS) {
         try {
           const o = JSON.parse(row.offers);
-          if (Array.isArray(o) && o.length > 0) { offers = o.slice(0, 3); refreshedRelative = relativeTime(row.fetched_at); }
+          if (Array.isArray(o) && o.length > 0) { offers = o.slice(0, 4); refreshedRelative = relativeTime(row.fetched_at); }
         } catch { /* ignore */ }
       }
     }
@@ -119,12 +127,17 @@ export async function getSealedBoxData(setId: number, setName: string, slug: str
       format: nk,
       label: spec.label,
       offers,
-      fallbackUrl: offers.length ? null : boxFallbackSearchUrl(setName, slug, nk, campaignId),
+      // Always available: tagged eBay search for this box type. Powers the group
+      // "See all" link and the empty-format cross-links; the component decides
+      // whether to show a hero group (has offers) or a search link (empty).
+      searchUrl: boxFallbackSearchUrl(setName, slug, nk, campaignId),
       refreshedRelative,
     });
   }
-  if (formats.every((f) => f.offers.length === 0 && !f.fallbackUrl)) return null;
-  return { formats, disclosure: FOOTER_DISCLOSURE };
+  // Only hide entirely when the set has no recognized box formats (handled by the
+  // ordered.length check above). When formats exist but none have cached offers,
+  // we still return data so the component can show the tagged search fallback.
+  return { formats, disclosure: FOOTER_DISCLOSURE, setName };
 }
 
 /** Refresh one pair; upsert. On error, write `error` and KEEP the last good offers. */

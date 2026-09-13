@@ -1,122 +1,193 @@
 "use client";
 
+import type { ReactNode } from "react";
 import type { BoxOffer } from "@/lib/ebayBrowse";
+import type { SealedBoxData, SealedBoxFormatData } from "@/lib/ebayRefresh";
 import { trackEvent } from "@/lib/analytics";
+import styles from "./SealedBoxOffers.module.css";
 
-const FONT_MONO = "var(--cl-font-mono), 'JetBrains Mono', ui-monospace, monospace";
+// Single source of truth for the shape lives in @/lib/ebayRefresh; re-export so
+// SetDetailClient can keep importing it from this component.
+export type { SealedBoxData };
 
-export interface SealedBoxFormatData {
-  format: string;
-  label: string;
-  offers: BoxOffer[];
-  fallbackUrl: string | null;
-  refreshedRelative: string | null;
-}
-export interface SealedBoxData {
-  formats: SealedBoxFormatData[];
-  disclosure: string;
-}
+const REL = "nofollow sponsored noopener";
 
 function money(n: number, currency = "USD"): string {
   return n.toLocaleString("en-US", { style: "currency", currency });
 }
 
-function shippingLabel(o: BoxOffer): string {
-  if (o.shippingUnknown) return "+ shipping";
-  if (o.shipping === 0) return "free shipping";
-  return `+ ${money(o.shipping, o.currency)} ship`;
+/** Shipping label + seller/feedback meta. Free shipping and the feedback % render
+ *  in the success color; everything else is muted. */
+function metaNodes(o: BoxOffer): ReactNode {
+  let ship: ReactNode;
+  if (o.shippingUnknown) ship = "+ shipping";
+  else if (o.shipping === 0) ship = <span className={styles.ok}>Free shipping</span>;
+  else ship = `+ ${money(o.shipping, o.currency)} ship`;
+  return (
+    <>
+      {ship}
+      {o.seller && (
+        <>
+          {" · "}{o.seller}
+          {o.sellerFeedbackPct != null && <> <span className={styles.ok}>{o.sellerFeedbackPct}%</span></>}
+        </>
+      )}
+    </>
+  );
 }
 
 /**
- * Live sealed-box listings from the eBay Browse API (cached, EPN-tagged). One
- * row per box format that has offers; formats with none show a tagged search
- * link. Thumbnails load directly from eBay's CDN (never proxied). Hidden when
- * no format has offers or a fallback link.
+ * Live sealed-box listings from the eBay Browse API (cached, EPN-tagged).
+ * Hero + runners-up per box type: the cheapest listing (by total) is the hero,
+ * the next up-to-three are compact rows. Formats with no cached offers are shown
+ * only as footer cross-links; if no format has offers a single tagged search
+ * line is shown so new releases keep the affiliate link.
  */
 export function SealedBoxOffers({ data, setSlug }: { data: SealedBoxData | null; setSlug: string }) {
   if (!data) return null;
-  const formats = data.formats.filter((f) => f.offers.length > 0 || f.fallbackUrl);
-  if (formats.length === 0) return null;
-  const refreshed = formats.find((f) => f.refreshedRelative)?.refreshedRelative ?? null;
+  const withOffers = data.formats.filter((f) => f.offers.length > 0);
+
+  // All formats empty → one compact tagged-search line (keep the affiliate link).
+  if (withOffers.length === 0) {
+    const url = data.formats[0]?.searchUrl;
+    if (!url) return null;
+    return (
+      <section className={styles.wrap} aria-label="Sealed boxes on eBay">
+        <div className={styles.heading}>Sealed boxes on eBay</div>
+        <p className={styles.emptyLine}>
+          No sealed boxes cached yet ·{" "}
+          <a href={url} target="_blank" rel={REL} className={styles.emptyLink}
+            onClick={() => trackEvent("ebay_offer_search_click", { set_slug: setSlug, format: data.formats[0].format })}>
+            Search eBay for {data.setName} boxes ↗
+          </a>
+        </p>
+        <div className={styles.disclosure}>{data.disclosure}</div>
+      </section>
+    );
+  }
+
+  const refreshed = withOffers.find((f) => f.refreshedRelative)?.refreshedRelative ?? null;
 
   return (
-    <div style={{ marginTop: 24 }}>
-      <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "var(--brand-slate)", textTransform: "uppercase", marginBottom: 12 }}>
-        Sealed Boxes on eBay
-      </div>
-
-      <div className="space-y-3">
-        {formats.map((f) => (
-          <div key={f.format} style={{ background: "var(--brand-card)", border: "1px solid var(--brand-line)", borderRadius: 10, padding: "12px 14px" }}>
-            <div className="flex items-baseline justify-between" style={{ marginBottom: f.offers.length ? 10 : 6 }}>
-              <span style={{ fontFamily: "var(--cl-font-display), 'Inter Tight', sans-serif", fontSize: 15, fontWeight: 600, color: "var(--brand-ink)" }}>
-                {f.label}
-              </span>
-              {f.offers.length > 0 && (
-                <span style={{ fontSize: 13, color: "var(--brand-slate)" }}>
-                  from <span style={{ fontFamily: FONT_MONO, fontWeight: 600, color: "var(--brand-ink)" }}>{money(f.offers[0].total, f.offers[0].currency)}</span>
-                </span>
-              )}
-            </div>
-
-            {f.offers.length > 0 ? (
-              <div className="space-y-2">
-                {f.offers.map((o, i) => (
-                  <a
-                    key={o.itemId || i}
-                    href={o.url}
-                    target="_blank"
-                    rel="nofollow sponsored noopener"
-                    onClick={() => trackEvent("ebay_offer_click", { set_slug: setSlug, format: f.format, rank: i + 1, total: o.total })}
-                    className="flex items-center gap-3"
-                    style={{ textDecoration: "none", padding: "6px", borderRadius: 8, border: "1px solid var(--brand-line)", background: "var(--brand-page)" }}
-                  >
-                    {/* Thumbnail — loaded directly from eBay's CDN, never proxied/cached. */}
-                    {o.imageUrl ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img src={o.imageUrl} alt="" width={56} height={56} loading="lazy"
-                        style={{ width: 56, height: 56, flexShrink: 0, objectFit: "cover", borderRadius: 6, background: "var(--brand-track)" }} />
-                    ) : (
-                      <div aria-hidden style={{ width: 56, height: 56, flexShrink: 0, borderRadius: 6, background: "var(--brand-track)" }} />
-                    )}
-                    <div style={{ flex: 1, minWidth: 0 }}>
-                      <div className="flex items-center gap-2" style={{ marginBottom: 2 }}>
-                        {i === 0 && (
-                          <span style={{ flexShrink: 0, fontFamily: FONT_MONO, fontSize: 9, fontWeight: 700, letterSpacing: 0.4, color: "var(--brand-ok)", background: "rgba(31,143,74,0.10)", border: "1px solid rgba(31,143,74,0.25)", padding: "1px 5px", borderRadius: 3 }}>
-                            Best deal
-                          </span>
-                        )}
-                        <span className="truncate" style={{ fontSize: 13, color: "var(--brand-ink)", minWidth: 0 }} title={o.title}>{o.title}</span>
-                      </div>
-                      <div style={{ fontSize: 12, color: "var(--brand-slate)" }}>
-                        <span style={{ fontFamily: FONT_MONO, fontWeight: 600, color: "var(--brand-ink)" }}>{money(o.price, o.currency)}</span>
-                        {" "}<span>{shippingLabel(o)}</span>
-                        {o.seller && (
-                          <span> · {o.seller}{o.sellerFeedbackPct != null ? ` (${o.sellerFeedbackPct}%)` : ""}</span>
-                        )}
-                      </div>
-                    </div>
-                    <span style={{ flexShrink: 0, fontFamily: FONT_MONO, fontSize: 12, fontWeight: 600, color: "var(--brand-accent-deep)", whiteSpace: "nowrap" }}>View on eBay ↗</span>
-                  </a>
-                ))}
-              </div>
-            ) : (
-              <a
-                href={f.fallbackUrl!}
-                target="_blank"
-                rel="nofollow sponsored noopener"
-                onClick={() => trackEvent("ebay_offer_search_click", { set_slug: setSlug, format: f.format })}
-                style={{ fontSize: 13, fontWeight: 600, color: "var(--brand-accent-deep)", textDecoration: "none" }}
-              >
-                Search eBay for {f.label} boxes ↗
-              </a>
-            )}
-          </div>
-        ))}
-      </div>
-
-      <div style={{ fontSize: 11, color: "var(--brand-fog)", marginTop: 10 }}>
+    <section className={styles.wrap} aria-label="Sealed boxes on eBay">
+      <div className={styles.heading}>Sealed boxes on eBay</div>
+      {withOffers.map((group) => (
+        <BoxGroup key={group.format} group={group} allFormats={data.formats} setSlug={setSlug} />
+      ))}
+      <div className={styles.disclosure}>
         Prices from eBay{refreshed ? `, refreshed ${refreshed}` : ""}. {data.disclosure}
+      </div>
+    </section>
+  );
+}
+
+function BoxGroup({ group, allFormats, setSlug }: {
+  group: SealedBoxFormatData;
+  allFormats: SealedBoxFormatData[];
+  setSlug: string;
+}) {
+  const offers = group.offers;
+  const hero = offers[0];
+  const rows = offers.slice(1, 4); // up to 3 runners-up
+  const others = allFormats.filter((f) => f.format !== group.format);
+
+  return (
+    <div id={`sealed-${group.format}`} className={styles.group}>
+      <div className={styles.eyebrow}>{group.label}</div>
+
+      <div className={styles.grid} data-single={rows.length === 0 ? "1" : undefined}>
+        {/* Hero — whole card is the click target; the button is the affordance. */}
+        <a
+          className={styles.hero}
+          href={hero.url}
+          target="_blank"
+          rel={REL}
+          onClick={() => trackEvent("ebay_offer_click", { set_slug: setSlug, format: group.format, rank: 1, total: hero.total })}
+        >
+          {hero.imageUrl ? (
+            // eslint-disable-next-line @next/next/no-img-element -- eBay CDN, never proxied
+            <img className={styles.photo} src={hero.imageUrl} alt="" width={420} height={250} loading="lazy" />
+          ) : (
+            <div className={styles.photoEmpty} aria-hidden />
+          )}
+          <div className={styles.heroBody}>
+            <div className={styles.badgeRow}>
+              <span className={styles.bestDeal}>Best deal</span>
+              <span className={styles.lowestOf}>lowest of {offers.length} listing{offers.length === 1 ? "" : "s"}</span>
+            </div>
+            <div className={styles.heroTitle}>{hero.title}</div>
+            <div className={styles.priceRow}>
+              <div>
+                <div className={styles.heroPrice}>{money(hero.total, hero.currency)}</div>
+                <div className={styles.meta}>{metaNodes(hero)}</div>
+              </div>
+              <span className={styles.ctaSolid}>View on eBay ↗</span>
+            </div>
+          </div>
+        </a>
+
+        {/* Runners-up */}
+        {rows.length > 0 && (
+          <div className={styles.runners}>
+            <div className={styles.runnersHead}>Other listings</div>
+            {rows.map((o, i) => (
+              <a
+                key={o.itemId || i}
+                className={styles.row}
+                href={o.url}
+                target="_blank"
+                rel={REL}
+                onClick={() => trackEvent("ebay_offer_click", { set_slug: setSlug, format: group.format, rank: i + 2, total: o.total })}
+              >
+                {o.imageUrl ? (
+                  // eslint-disable-next-line @next/next/no-img-element -- eBay CDN, never proxied
+                  <img className={styles.thumb} src={o.imageUrl} alt="" width={96} height={96} loading="lazy" />
+                ) : (
+                  <div className={styles.thumbEmpty} aria-hidden />
+                )}
+                <div className={styles.rowMain}>
+                  <div className={styles.rowTitle}>{o.title}</div>
+                  <div className={styles.meta}>{metaNodes(o)}</div>
+                </div>
+                <div className={styles.rowRight}>
+                  <div className={styles.rowPrice}>{money(o.total, o.currency)}</div>
+                  <span className={styles.ctaOutline}>View on eBay ↗</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div className={styles.groupFooter}>
+        <span className={styles.crosslinks}>
+          {others.map((f, i) => (
+            <span key={f.format}>
+              {i > 0 && " · "}
+              {f.offers.length > 0 ? (
+                <a href={`#sealed-${f.format}`}>{f.label} from {money(f.offers[0].total, f.offers[0].currency)}</a>
+              ) : f.searchUrl ? (
+                <a href={f.searchUrl} target="_blank" rel={REL}
+                  onClick={() => trackEvent("ebay_offer_search_click", { set_slug: setSlug, format: f.format })}>
+                  {f.label} · search eBay →
+                </a>
+              ) : (
+                <span>{f.label}</span>
+              )}
+            </span>
+          ))}
+        </span>
+        {group.searchUrl && (
+          <a
+            className={styles.seeAll}
+            href={group.searchUrl}
+            target="_blank"
+            rel={REL}
+            onClick={() => trackEvent("ebay_offer_search_click", { set_slug: setSlug, format: group.format })}
+          >
+            See all sealed boxes →
+          </a>
+        )}
       </div>
     </div>
   );
