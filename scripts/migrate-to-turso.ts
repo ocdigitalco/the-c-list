@@ -150,6 +150,20 @@ async function createSchema() {
       error TEXT
     )`,
     "CREATE UNIQUE INDEX IF NOT EXISTS ebay_box_offers_set_format_unq ON ebay_box_offers (set_id, format)",
+    // Production-owned table (excluded from data sync below). Ensure Turso has
+    // the schema; /api/consent writes rows directly on Turso and they never
+    // exist locally. Stores no IP / UA / device / geo / referrer / headers.
+    `CREATE TABLE IF NOT EXISTS consent_events (
+      id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+      consent_id TEXT NOT NULL,
+      ts TEXT NOT NULL,
+      notice_version INTEGER NOT NULL,
+      analytics INTEGER NOT NULL,
+      advertising INTEGER NOT NULL,
+      gpc INTEGER NOT NULL,
+      source TEXT NOT NULL
+    )`,
+    "CREATE INDEX IF NOT EXISTS idx_consent_events_consent_id ON consent_events (consent_id)",
   ];
   for (const stmt of alterStmts) {
     try {
@@ -181,7 +195,7 @@ async function createSchema() {
 // Never cleared, inserted, or verified here — pull-from-turso.ts syncs them down.
 // break_sheets / break_sheet_prices hold user-generated break sheets saved on
 // CSV export; they MUST stay here so content migrations never clobber them.
-const PROD_OWNED_TABLES = ["player_events", "break_sheets", "break_sheet_prices", "set_alerts", "ebay_box_offers"];
+const PROD_OWNED_TABLES = ["player_events", "break_sheets", "break_sheet_prices", "set_alerts", "ebay_box_offers", "consent_events"];
 
 async function migrateData() {
   // Disable foreign key checks for bulk migration

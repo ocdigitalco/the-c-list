@@ -160,6 +160,29 @@ export const ebayBoxOffers = sqliteTable(
   })
 );
 
+// Production-owned. Minimal, non-identifying record of each cookie-consent
+// choice so consent can be demonstrated later. Written only on Turso by
+// /api/consent; EXCLUDED from migrate-to-turso sync (never exists locally).
+// Deliberately stores NO IP, user agent, device/browser, geolocation, referrer,
+// or any request header — only the consent id, timestamp, notice version, the
+// category booleans, the GPC flag, and the source of the choice.
+export const consentEvents = sqliteTable(
+  "consent_events",
+  {
+    id: integer("id").primaryKey({ autoIncrement: true }),
+    consentId: text("consent_id").notNull(), // random UUID from the c2_consent cookie
+    ts: text("ts").notNull(), // ISO timestamp of the choice
+    noticeVersion: integer("notice_version").notNull(),
+    analytics: integer("analytics").notNull(),
+    advertising: integer("advertising").notNull(), // always 0 today (no ad script to gate)
+    gpc: integer("gpc").notNull(), // 1 if navigator.globalPrivacyControl was set
+    source: text("source").notNull(), // 'banner' | 'settings' | 'gpc-default'
+  },
+  (t) => ({
+    consentIdIdx: index("idx_consent_events_consent_id").on(t.consentId),
+  })
+);
+
 export const toppsSets = sqliteTable("topps_sets", {
   id: integer("id").primaryKey({ autoIncrement: true }),
   name: text("name").notNull(),

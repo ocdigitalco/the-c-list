@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getRefreshPairs, sortPairsByFetchedAt, refreshWithinBudget } from "@/lib/ebayRefresh";
+import { deleteExpiredConsentEvents } from "@/lib/consentRetention";
 
 // Hits the eBay Browse API and writes Turso → Node runtime, never static.
 export const runtime = "nodejs";
@@ -33,5 +34,18 @@ export async function GET(req: Request) {
   const { pairs } = await getRefreshPairs({ limitSets });
   const ordered = await sortPairsByFetchedAt(pairs);
   const result = await refreshWithinBudget(ordered, { budgetMs: BUDGET_MS });
-  return NextResponse.json({ ...result, total: pairs.length });
+
+  // Piggyback the 24-month consent-log retention sweep on the 09:00 UTC run
+  // (scheduled with ?cleanup=1 in vercel.json). Fully guarded: any failure here
+  // is swallowed so it can never affect the offers walk or the response.
+  let consentCleanup: number | null = null;
+  if (url.searchParams.get("cleanup") === "1") {
+    try {
+      consentCleanup = await deleteExpiredConsentEvents();
+    } catch (err) {
+      console.error("[cron] consent_events cleanup failed (non-fatal):", err);
+    }
+  }
+
+  return NextResponse.json({ ...result, total: pairs.length, consentCleanup });
 }
