@@ -104,12 +104,15 @@ function BoxGroup({ group, allFormats, setSlug }: {
           rel={REL}
           onClick={() => trackEvent("ebay_offer_click", { set_slug: setSlug, format: group.format, rank: 1, total: hero.total })}
         >
-          {hero.imageUrl ? (
-            // eslint-disable-next-line @next/next/no-img-element -- eBay CDN, never proxied
-            <img className={styles.photo} src={hero.imageUrl} alt="" width={420} height={250} loading="lazy" />
-          ) : (
-            <div className={styles.photoEmpty} aria-hidden />
-          )}
+          {/* Fixed-aspect box; the image is absolutely filled (object-fit:cover)
+              so a tall eBay portrait can't drive the hero height. width/height
+              stay for CLS but don't affect layout. */}
+          <div className={styles.photoWrap} aria-hidden={!hero.imageUrl}>
+            {hero.imageUrl && (
+              // eslint-disable-next-line @next/next/no-img-element -- eBay CDN, never proxied
+              <img className={styles.photo} src={hero.imageUrl} alt="" width={400} height={300} loading="lazy" />
+            )}
+          </div>
           <div className={styles.heroBody}>
             <div className={styles.badgeRow}>
               <span className={styles.bestDeal}>Best deal</span>

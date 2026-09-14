@@ -61,14 +61,28 @@
 }
 .hero:hover { border-color: color-mix(in srgb, var(--brand-accent) 40%, transparent); }
 
-.photo {
+/* The wrapper (not the image) drives the photo box: eBay photos are tall
+   portraits, so we crop them into a fixed-aspect box instead of letting the
+   <img> render at natural height and inflate the hero. Base = stacked full-width
+   hero → a short 16:9 banner; overridden per container width below. */
+.photoWrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  max-height: 220px;
+  flex: 0 0 auto;
   width: 100%;
-  height: 220px;
-  object-fit: cover;
   background: var(--brand-track);
+}
+.photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   display: block;
 }
-.photoEmpty { width: 100%; height: 220px; background: var(--brand-track); }
 
 .heroBody { padding: 18px 20px 20px; }
 
@@ -219,13 +233,18 @@
 /* Wide enough for the mocked hero + runners side by side. align-items:stretch +
    the hero photo on flex:1/min-height:250 keep both columns ending flush. */
 @container sbb (min-width: 860px) {
-  .grid { grid-template-columns: 420px minmax(0, 1fr); align-items: stretch; }
+  /* Top-align both columns (align-self:start) so a single-listing hero doesn't
+     stretch and a 4-listing hero + runners simply sit top-aligned. The photo box
+     is bounded (4:3, max 320) so the hero never runs past its content. */
+  .grid { grid-template-columns: 420px minmax(0, 1fr); align-items: start; }
   .grid[data-single="1"] { grid-template-columns: 420px; }
-  .photo, .photoEmpty { height: auto; flex: 1; min-height: 250px; }
+  .hero { align-self: start; }
+  .photoWrap { aspect-ratio: 4 / 3; max-height: 320px; }
 }
 /* Narrow: compact rows — 72px thumb, price + CTA drop to a full-width line. */
 @container sbb (max-width: 520px) {
   .group { padding: 16px; }
+  .photoWrap { aspect-ratio: 4 / 3; max-height: none; }
   .row { grid-template-columns: 72px 1fr; }
   .thumb, .thumbEmpty { width: 72px; height: 72px; }
   .rowRight {
