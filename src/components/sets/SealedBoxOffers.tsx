@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import type { BoxOffer } from "@/lib/ebayBrowse";
 import type { SealedBoxData, SealedBoxFormatData } from "@/lib/ebayRefresh";
 import { trackEvent } from "@/lib/analytics";
+import { ebayImageAt } from "@/lib/ebayImage";
 import styles from "./SealedBoxOffers.module.css";
 
 // Single source of truth for the shape lives in @/lib/ebayRefresh; re-export so
@@ -112,7 +113,17 @@ function BoxGroup({ group, allFormats, setSlug }: {
           <div className={styles.photoWrap} aria-hidden={!hero.imageUrl}>
             {hero.imageUrl && (
               // eslint-disable-next-line @next/next/no-img-element -- eBay CDN, never proxied
-              <img className={styles.photo} src={hero.imageUrl} alt="" width={400} height={300} loading="lazy" />
+              <img
+                className={styles.photo}
+                src={ebayImageAt(hero.imageUrl, 960)}
+                srcSet={`${ebayImageAt(hero.imageUrl, 500)} 500w, ${ebayImageAt(hero.imageUrl, 960)} 960w, ${ebayImageAt(hero.imageUrl, 1600)} 1600w`}
+                sizes="(min-width: 860px) 420px, (min-width: 700px) 340px, 100vw"
+                alt=""
+                width={400}
+                height={300}
+                loading="lazy"
+                decoding="async"
+              />
             )}
           </div>
           <div className={styles.heroBody}>
@@ -146,7 +157,16 @@ function BoxGroup({ group, allFormats, setSlug }: {
               >
                 {o.imageUrl ? (
                   // eslint-disable-next-line @next/next/no-img-element -- eBay CDN, never proxied
-                  <img className={styles.thumb} src={o.imageUrl} alt="" width={96} height={96} loading="lazy" />
+                  <img
+                    className={styles.thumb}
+                    src={ebayImageAt(o.imageUrl, 300)}
+                    srcSet={`${ebayImageAt(o.imageUrl, 300)} 1x, ${ebayImageAt(o.imageUrl, 500)} 2x`}
+                    alt=""
+                    width={96}
+                    height={96}
+                    loading="lazy"
+                    decoding="async"
+                  />
                 ) : (
                   <div className={styles.thumbEmpty} aria-hidden />
                 )}
