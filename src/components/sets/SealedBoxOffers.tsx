@@ -47,9 +47,11 @@ export function SealedBoxOffers({ data, setSlug }: { data: SealedBoxData | null;
   if (!data) return null;
   const withOffers = data.formats.filter((f) => f.offers.length > 0);
 
-  // All formats empty → one compact tagged-search line (keep the affiliate link).
+  // No box type has cached offers (incl. sets with no recognized formats / no
+  // box_config) → one compact tagged-search line so every visible set keeps the
+  // affiliate link. Prefer the first format's tagged search, else the set-wide one.
   if (withOffers.length === 0) {
-    const url = data.formats[0]?.searchUrl;
+    const url = data.formats[0]?.searchUrl ?? data.searchUrl;
     if (!url) return null;
     return (
       <section className={styles.wrap} aria-label="Sealed boxes on eBay">
@@ -57,7 +59,7 @@ export function SealedBoxOffers({ data, setSlug }: { data: SealedBoxData | null;
         <p className={styles.emptyLine}>
           No sealed boxes cached yet ·{" "}
           <a href={url} target="_blank" rel={REL} className={styles.emptyLink}
-            onClick={() => trackEvent("ebay_offer_search_click", { set_slug: setSlug, format: data.formats[0].format })}>
+            onClick={() => trackEvent("ebay_offer_search_click", { set_slug: setSlug, format: data.formats[0]?.format ?? "any" })}>
             Search eBay for {data.setName} boxes ↗
           </a>
         </p>

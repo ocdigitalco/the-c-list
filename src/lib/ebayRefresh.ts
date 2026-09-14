@@ -64,7 +64,14 @@ export interface SealedBoxFormatData {
   searchUrl: string | null;
   refreshedRelative: string | null;
 }
-export interface SealedBoxData { formats: SealedBoxFormatData[]; disclosure: string; setName: string; }
+export interface SealedBoxData {
+  formats: SealedBoxFormatData[];
+  disclosure: string;
+  setName: string;
+  /** Generic set-wide tagged sealed-box search — the fallback when no box type
+   *  has cached offers (or the set has no recognized formats at all). */
+  searchUrl: string | null;
+}
 const FOOTER_DISCLOSURE = "Checklist² may earn a commission.";
 // Two 45s cron runs clear ~146 of 168 pairs/day (eBay latency ~0.5s/call caps a
 // run at ~73), so a pair refreshes every ~28h on average. 36h (not 24h) keeps
@@ -84,14 +91,24 @@ function relativeTime(iso: string): string {
 
 /**
  * Build the SealedBoxOffers card data for a set from its box_config + cached
- * offers. Offers older than 24 h (or empty) fall back to the tagged search link.
- * Returns null when the set has no recognized box formats (card hidden).
+ * offers. Never returns null for a real set: a set with no recognized box
+ * formats (or no box_config at all) still gets the empty shape with a generic
+ * tagged sealed-box search URL, so every visible set page shows the affiliate
+ * fallback line. Offers older than 24 h (or empty) fall back to the search link.
  */
 export async function getSealedBoxData(setId: number, setName: string, slug: string, boxConfig: string | null): Promise<SealedBoxData | null> {
-  if (!boxConfig) return null;
-  let cfg: Record<string, unknown>;
-  try { cfg = JSON.parse(boxConfig); } catch { return null; }
-  if (!cfg || typeof cfg !== "object") return null;
+  const campaignId = process.env.EPN_CAMPAIGN_ID ?? null;
+  // Set-wide tagged search ("<year> <name> box"), used when no box type has a
+  // recognized format / cached offers.
+  const genericSearchUrl = boxFallbackSearchUrl(setName, slug, "", campaignId);
+  const empty: SealedBoxData = { formats: [], disclosure: FOOTER_DISCLOSURE, setName, searchUrl: genericSearchUrl };
+
+  let cfg: Record<string, unknown> | null = null;
+  if (boxConfig) {
+    try { cfg = JSON.parse(boxConfig); } catch { cfg = null; }
+  }
+  if (!cfg || typeof cfg !== "object") return empty;
+
   const ordered: string[] = [];
   const seen = new Set<string>();
   for (const k of Object.keys(cfg)) {
@@ -100,13 +117,12 @@ export async function getSealedBoxData(setId: number, setName: string, slug: str
     if (!nk || seen.has(nk)) continue;
     seen.add(nk); ordered.push(nk);
   }
-  if (ordered.length === 0) return null;
+  if (ordered.length === 0) return empty;
 
   const rows = await rawQuery.all<{ format: string; fetched_at: string | null; offers: string | null }>(
     "SELECT format, fetched_at, offers FROM ebay_box_offers WHERE set_id = ?", setId
   );
   const byFmt = new Map(rows.map((r) => [r.format, r]));
-  const campaignId = process.env.EPN_CAMPAIGN_ID ?? null;
 
   const formats: SealedBoxFormatData[] = [];
   for (const nk of ordered) {
@@ -134,10 +150,9 @@ export async function getSealedBoxData(setId: number, setName: string, slug: str
       refreshedRelative,
     });
   }
-  // Only hide entirely when the set has no recognized box formats (handled by the
-  // ordered.length check above). When formats exist but none have cached offers,
-  // we still return data so the component can show the tagged search fallback.
-  return { formats, disclosure: FOOTER_DISCLOSURE, setName };
+  // Formats exist. When some have offers the component renders hero groups; when
+  // none do it falls back to the generic tagged search (searchUrl).
+  return { formats, disclosure: FOOTER_DISCLOSURE, setName, searchUrl: genericSearchUrl };
 }
 
 /** Refresh one pair; upsert. On error, write `error` and KEEP the last good offers. */
