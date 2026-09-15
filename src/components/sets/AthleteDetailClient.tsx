@@ -739,10 +739,10 @@ export function AthleteDetailClient({
   const eyebrow = [teams[0], league || sport].filter(Boolean).join(" · ");
 
   return (
-    <div style={{ background: "var(--brand-page)", minHeight: "calc(100vh - 56px)" }}>
+    <div style={{ background: "var(--brand-page)", minHeight: "calc(100vh - var(--header-h))" }}>
       {/* ═══ DESKTOP ═══ */}
-      <div className="hidden min-[1180px]:grid" style={{ gridTemplateColumns: "425px 1fr", minHeight: "calc(100vh - 56px)" }}>
-        <aside className="sticky top-0 overflow-y-auto" style={{ height: "calc(100vh - 56px)", borderRight: "1px solid var(--brand-line)" }}>
+      <div className="hidden min-[1180px]:grid" style={{ gridTemplateColumns: "425px 1fr", minHeight: "calc(100vh - var(--header-h))" }}>
+        <aside className="sticky top-0 overflow-y-auto" style={{ height: "calc(100vh - var(--header-h))", borderRight: "1px solid var(--brand-line)" }}>
           <AthletesRail entries={entries} hasTeamData={hasTeamData} setId={setId} setSlug={setSlug} currentAthleteId={athleteId} subjectLabel={subjectLabel} teamLabel={teamLabel} sport={sport} />
         </aside>
 

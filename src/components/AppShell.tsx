@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useLayoutEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Footer } from "@/components/Footer";
 
@@ -22,6 +23,32 @@ function isSplitPane(pathname: string | null): boolean {
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+
+  // On client navigation the root layout (and its scroll containers) persist, so
+  // main/.v2-root can arrive with a residual scrollTop that slides content up
+  // under the sticky header. Reset every scroll container before paint on each
+  // pathname change — unless the URL carries a hash, in which case we leave the
+  // browser's anchor jump alone. Runs in useLayoutEffect so it beats the paint.
+  useLayoutEffect(() => {
+    if (typeof window === "undefined") return;
+    if (window.location.hash) return;
+    window.scrollTo(0, 0);
+    document.querySelectorAll<HTMLElement>("main, .v2-root").forEach((el) => {
+      el.scrollTop = 0;
+    });
+  }, [pathname]);
+
+  // The document itself must never scroll — the app scrolls inside main/.v2-root.
+  // A hash/anchor jump into a nested scroller (e.g. #sealed-value_blaster) makes
+  // the browser scroll .v2-root correctly AND also nudge the window, which slides
+  // everything (incl. the sticky header) up. Pin the window back to 0; the nested
+  // scroller keeps its own (scroll-padding-aware) position, so the target lands
+  // just below the header.
+  useEffect(() => {
+    const pin = () => { if (window.scrollY !== 0 || window.scrollX !== 0) window.scrollTo(0, 0); };
+    window.addEventListener("scroll", pin, { passive: true });
+    return () => window.removeEventListener("scroll", pin);
+  }, []);
 
   if (isSplitPane(pathname)) {
     return <main className="flex-1 overflow-hidden">{children}</main>;

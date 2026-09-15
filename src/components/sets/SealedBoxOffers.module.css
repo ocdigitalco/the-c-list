@@ -25,7 +25,8 @@
   border-radius: 10px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
   padding: 22px;
-  scroll-margin-top: 72px; /* footer cross-links jump here under the sticky header */
+  /* Footer cross-links jump to #sealed-<format>; the scroll container's
+     scroll-padding-top: var(--header-h) keeps the eyebrow clear of the header. */
 }
 .group + .group { margin-top: 14px; }
 

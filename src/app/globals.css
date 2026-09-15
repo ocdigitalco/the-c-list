@@ -14,6 +14,11 @@
   --foreground: #0f0f10;
   color-scheme: light;
 
+  /* Sticky site header height — single source of truth. Used by AppShell's
+     scroll reset, the scroll containers' scroll-padding, and the athlete
+     split-pane sizing (calc(100vh - var(--header-h))). Matches Header's h-14. */
+  --header-h: 56px;
+
   --color-zinc-950: #fafafa;
   --color-zinc-900: #f4f4f5;
   --color-zinc-800: #e4e4e7;
@@ -34,6 +39,10 @@ body {
   color: var(--brand-ink);
   font-family: var(--brand-font-body);
 }
+
+/* Anchor/hash jumps in the app's scroll containers land below the sticky header
+   (main = normal routes, .v2-root = split-pane routes). */
+main, .v2-root { scroll-padding-top: var(--header-h); }
 
 /* ─── Hide scrollbar utility ───────────────────────────────────────────── */
 .no-scrollbar::-webkit-scrollbar { display: none; }
