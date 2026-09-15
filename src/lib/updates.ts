@@ -15,6 +15,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-chrome-formula-1-checklist",
+    title: "2026 Topps Chrome Formula 1 checklist added",
+    date: "2026-09-14T12:00:00-07:00",
+    summary:
+      "Added the 2026 Topps Chrome Formula 1 checklist — 565 cards across 21 subsets (the base checklist split into its 11 sub-groups). Pre-orders open September 15; parallels, pack odds and box configs to follow.",
+    description: `## 2026 Topps Chrome Formula 1
+
+The **2026 Topps Chrome Formula 1** checklist is live: **565 cards across 21 subsets**. The base checklist is split into its 11 Topps sub-groups (F1/F2/F3 Drivers, F1 Cars, Grand Prix Winners, Grand Prix Driver of the Day, Award Winners, Legends, Duo Cards, Team Logo Cards, Team Principals), alongside chase inserts (Speed Wheels, Helmet Collection, Dancing in the Rain, Suit Up, Home Straight, Genesis, The Grid, Helix, Abu Dhabi at Night, Chrome Anime, Art du Grand Prix, The Grail and more) and the autograph program — Chrome Autographs, Futuro Chrome Autographs, Vuelta 1 Autographs, Podium Triple Autographs (three signers per card) and the F1 Debut Patch Autograph.
+
+**Pre-orders open September 15, 2026.** Topps has not yet published parallels, pack odds or box configuration, so those are not attached yet and will be added when the sell sheet arrives.
+
+A few Topps-listed cards are still **TBD** and are not stored until confirmed: base #72–88 (17 cards), 9 Chrome Autographs, FUT-4 in both Futuro subsets, and 11 unnumbered insert cards whose subset Topps has not yet named.`,
+    tags: ["checklist"],
+    setId: 878,
+  },
+  {
     id: "2026-27-topps-flagship-premier-league-checklist",
     title: "2026-27 Topps Flagship Premier League checklist added",
     date: "2026-09-12T12:00:00-07:00",
