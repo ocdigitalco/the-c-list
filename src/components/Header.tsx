@@ -39,7 +39,7 @@ export function Header() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-1">
+        <nav className="hidden min-[1024px]:flex items-center gap-0.5">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -50,11 +50,19 @@ export function Header() {
               {link.label}
             </Link>
           ))}
+          {/* Break Sheet — solid CTA button, set apart from the text links. */}
+          <Link
+            href="/break-sheet-builder"
+            className="ui-btn ui-btn-md ui-btn-sec ml-2"
+            aria-current={isActive("/break-sheet-builder") ? "page" : undefined}
+          >
+            Break Sheet
+          </Link>
         </nav>
 
         {/* Hamburger (mobile only; on desktop it is display:none so the nav sits flush right) */}
         <button
-          className="md:hidden p-1.5 transition-colors rounded-md"
+          className="min-[1024px]:hidden p-1.5 transition-colors rounded-md"
           style={{ color: "var(--brand-ink-soft)" }}
           onClick={() => setMenuOpen((o) => !o)}
           aria-label="Toggle menu"
@@ -73,7 +81,7 @@ export function Header() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <nav className="md:hidden px-4 py-2 flex flex-col gap-0.5" style={{ borderTop: "1px solid var(--brand-line)" }}>
+        <nav className="min-[1024px]:hidden px-4 py-2 flex flex-col gap-0.5" style={{ borderTop: "1px solid var(--brand-line)" }}>
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -85,6 +93,15 @@ export function Header() {
               {link.label}
             </Link>
           ))}
+          {/* Break Sheet — full-width solid CTA, last item. */}
+          <Link
+            href="/break-sheet-builder"
+            onClick={() => setMenuOpen(false)}
+            className="ui-btn ui-btn-md ui-btn-sec w-full mt-1.5"
+            aria-current={isActive("/break-sheet-builder") ? "page" : undefined}
+          >
+            Break Sheet
+          </Link>
         </nav>
       )}
     </header>
