@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-neon-marvel-checklist",
+    title: "2026 Topps Neon Marvel checklist added",
+    date: "2026-09-16T12:00:00-07:00",
+    summary:
+      "Added the 2026 Topps Neon Marvel checklist — 846 cards across 20 subsets, plus box configs. Releases October 14; parallels and pack odds to follow.",
+    description: `## 2026 Topps Neon Marvel
+
+The debut **2026 Topps Neon Marvel** checklist is live: **846 cards across 20 subsets**. The base program spans four 200/100/20-card variations (Base, the Hobby-exclusive Chrome Neon Etch Base Variation, the Marvel Rivals Image Variation short print, and the Super Box-exclusive Base Super Box Design Variation), backed by character inserts (Glow Up, Friendly Neighborhood Spider-Man, Pet Avengers Assemble, Marvel Snap, Neon Heroines/Villains/Tarots and the lenticular Marquee Motion), artist-driven sets (Manga Madness with Rose Besch and Leirix, Marvel Murals by Tristan Eaton), the 136-card Sketch Cards, and the autograph program — Manga Madness Autograph Variation, Friendly Neighborhood Spider-Man Voice Actor Autographs, and the Giant Sized Booklet Autographs.
+
+**Releases October 14, 2026.** Box configs are attached for Hobby, Mega and Value. Topps has not yet published parallels (the Sparkle Foil and Diamante Foil families) or pack odds, so those are not attached yet and will be added when the sell sheet arrives.`,
+    tags: ["checklist"],
+    setId: 879,
+  },
+  {
     id: "2026-topps-chrome-formula-1-checklist",
     title: "2026 Topps Chrome Formula 1 checklist added",
     date: "2026-09-14T12:00:00-07:00",
