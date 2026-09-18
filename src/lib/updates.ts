@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2025-26-topps-museum-uefa-club-competitions-checklist",
+    title: "2025-26 Topps Museum Collection UEFA Club Competitions checklist added",
+    date: "2026-09-18T12:00:00-07:00",
+    summary:
+      "Added the 2025-26 Topps Museum Collection UEFA checklist — 35 subsets / 686 cards, with Hobby and Hat-Trick pack odds attached from the official sheet. Print runs to follow.",
+    description: `## 2025-26 Topps Museum Collection UEFA Club Competitions
+
+The **2025-26 Topps Museum Collection UEFA Club Competitions** checklist is live: **35 subsets across 686 cards**. A 100-card base set is backed by a deep autograph, relic and autograph-relic program — Archival, Showpiece, Museum Framed and Marbleized autographs; the on-card Legendary Ink and Marks of Excellence; jumbo relics, boot and lace relics, nameplate and UEFA Foundation patches; and the multi-signature centerpieces: Archival Dual and Hat-Trick Triple Autographs plus the ten-subject Supreme Script and Supreme Materials book cards.
+
+**Official pack odds are attached for both the Hobby and Hat-Trick box formats.** Numbered print runs are not yet published, so the **115 parallels** (Gold, Sapphire, Amethyst, Ruby, Turquoise, Blue Topaz, Black Diamond, Diamond, Emerald and more) are recorded without serial numbers for now and will be updated when Topps releases the numbered list. Releases September 18, 2026.`,
+    tags: ["checklist"],
+    setId: 880,
+  },
+  {
     id: "2025-26-topps-definitive-basketball-odds",
     title: "2025-26 Topps Definitive Basketball pack odds + parallels added",
     date: "2026-09-18T12:00:00-07:00",
