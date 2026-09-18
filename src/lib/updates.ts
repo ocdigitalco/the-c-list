@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2025-26-topps-definitive-basketball-odds",
+    title: "2025-26 Topps Definitive Basketball pack odds + parallels added",
+    date: "2026-09-18T12:00:00-07:00",
+    summary:
+      "Official pack odds for Hobby and First Day Issue, plus 114 numbered parallels, attached across all 27 autograph and relic subsets.",
+    description: `## 2025-26 Topps Definitive Basketball — official odds
+
+The official Topps odds sheet is now attached for **2025-26 Topps Definitive Basketball**, covering both the **Hobby** and **First Day Issue (FDI)** box formats across all **27 autograph and relic subsets**.
+
+Each subset's numbered parent print run is recorded (\`/35 or less\`, \`/10\`, or \`1/1\`), and the full parallel ladder — **Orange /25, Pink /15, Black /10, Red /5, Blue /2, Gold 1/1** — is stored with its print run and per-format odds (**114 parallels** in total). The First Day Issue Rookie Patch Autograph parallel is included as an FDI-only pull, and the Hobby-only Gold parallels on the Dual, Dual Rookie, Legendary, Triple and Triple Rookie autographs are flagged as such. Where the Hobby and FDI columns differ, the official sheet's value is used.`,
+    tags: ["odds"],
+    setId: 868,
+  },
+  {
     id: "2026-topps-neon-marvel-checklist",
     title: "2026 Topps Neon Marvel checklist added",
     date: "2026-09-16T12:00:00-07:00",
