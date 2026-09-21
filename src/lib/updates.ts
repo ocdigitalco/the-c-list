@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-triumphant-tennis-checklist",
+    title: "2026 Topps Triumphant Tennis checklist added",
+    date: "2026-09-21T12:00:00-07:00",
+    summary:
+      "Added the 2026 Topps Triumphant Tennis checklist — 5 subsets / 120 cards with numbered parallels and official Hobby pack odds. Releases November 17.",
+    description: `## 2026 Topps Triumphant Tennis
+
+The **2026 Topps Triumphant Tennis** checklist is live: **5 subsets across 120 cards**. Every base card is serially numbered to **/99**, matched by a 50-card Base Autographs set, and topped by the multi-signature chase — **Dynamic Doubles** (two signers), **Triumphant Trios** (three) and **Grand Slam Quad Autographs** (four signers, FoilFractor 1/1 only). The lineup spans today's stars (Alcaraz, Świątek, Sabalenka, Gauff, Sinner-era rivals) alongside legends from Borg and Graf to Sampras and Navratilova.
+
+**Official Hobby pack odds and the full numbered parallel ladder are attached** — Trophy Gold, Grass/Clay/Hard Court, Tennis Ball Yellow, Black Net, Racket Red and FoilFractor foils, each with its print run (27 parallels in all). Releases November 17, 2026.`,
+    tags: ["checklist"],
+    setId: 881,
+  },
+  {
     id: "2025-26-topps-museum-uefa-club-competitions-checklist",
     title: "2025-26 Topps Museum Collection UEFA Club Competitions checklist added",
     date: "2026-09-18T12:00:00-07:00",
