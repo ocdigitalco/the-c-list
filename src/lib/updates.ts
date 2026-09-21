@@ -15,6 +15,19 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    "id": "254-triumphant-tennis-article",
+    "title": "New Article: 2026 Topps Triumphant Tennis",
+    "date": "2026-09-21T00:00:00Z",
+    "summary": "Published article: 2026 Topps Triumphant Tennis, a checklist breakdown of the all-numbered set — card counts, versions per player, and the rarest pulls.",
+    "description": `## 2026 Topps Triumphant Tennis
+  
+  A breakdown of the second-year, fully serial-numbered tennis set: six players appear in all five subsets, every base card is **/99**, and the new **Grand Slam Quads** exist only as 1/1s. Includes card counts, versions to chase per player, and the rarest pulls.`,
+    "tags": [
+      "announcement"
+    ],
+    "setId": 881
+  },
+  {
     id: "2026-topps-triumphant-tennis-checklist",
     title: "2026 Topps Triumphant Tennis checklist added",
     date: "2026-09-21T12:00:00-07:00",

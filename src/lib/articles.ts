@@ -65,6 +65,345 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    "id": "2026-topps-triumphant-tennis-breakdown",
+    "title": "2026 Topps Triumphant Tennis: Every Card Is Numbered, and Six Players Are in Every Subset",
+    "publishedAt": "2026-09-21",
+    "description": "Six players appear in all five subsets, every base card is /99, and the new Grand Slam Quads exist only as 1/1s. Card counts, versions per player, and the rarest pulls.",
+    "heroImage": "/sets/2026-topps-triumphant-tennis.jpg",
+    "tags": [
+      "tennis",
+      "topps",
+      "checklist breakdown"
+    ],
+    "setId": 881,
+    "tldr": "Six players appear in all five subsets, every base card is /99, and the new Grand Slam Quads exist only as 1/1s. Card counts, versions per player, and the rarest pulls.",
+    "content": [
+      {
+        "type": "p",
+        "text": "Topps Triumphant Tennis returns for its second year on November 17, 2026, and the format hasn't changed: one five-card pack per hobby box, three autographs guaranteed, and nothing in the box that isn't serial-numbered. Even the base set is /99. That makes Triumphant less a set you collect by the sheet and more a set you collect by the player, so this breakdown looks at it that way: who has the most cards, who has the most versions to chase, and which pulls are the rarest in the product."
+      },
+      {
+        "type": "p",
+        "text": "Triumphant is ideal for collectors who want low-numbered tennis cards and three autographs per box, rather than a high-volume base product. It appeals to fans of current ATP and WTA stars such as Carlos Alcaraz, Coco Gauff, Novak Djokovic, and Aryna Sabalenka, as well as collectors who follow retired legends like Pete Sampras, Steffi Graf, Martina Navratilova, and John McEnroe."
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "Full checklist, parallels, and pack odds are on the <a href=\"https://www.checklist2.com/sets/2026-topps-triumphant-tennis\">2026 Topps Triumphant Tennis set page</a>."
+      },
+      {
+        "type": "h2",
+        "text": "The set at a glance"
+      },
+      {
+        "type": "table",
+        "rows": [
+          [
+            "Release date",
+            "November 17, 2026"
+          ],
+          [
+            "Hobby box",
+            "5 cards, 1 pack, 10 boxes per case"
+          ],
+          [
+            "Guaranteed",
+            "3 autographs per box, all /99 or less"
+          ],
+          [
+            "Subsets",
+            "5"
+          ],
+          [
+            "Total cards",
+            "120"
+          ],
+          [
+            "Base set",
+            "50 cards, every card /99"
+          ],
+          [
+            "Parallel tiers",
+            "27 across the five subsets"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "The <a href=\"https://www.checklist2.com/sets/2026-topps-triumphant-tennis\">checklist</a> is 50 players deep, split between the current tour (Alcaraz, Sabalenka, Gauff, Świątek, Shelton, Draper) and the legends Topps has been signing for this line (Nadal, Agassi, Graf, Evert, Navratilova, McEnroe, Becker, Edberg). Two rookies carry the RC tag: João Fonseca and Talia Gibson."
+      },
+      {
+        "type": "h2",
+        "text": "Top players by card count"
+      },
+      {
+        "type": "p",
+        "text": "There are five subsets, so the ceiling for any player is five cards. Six players hit it — they appear on a base card, a base autograph, a Dynamic Doubles dual, a Triumphant Trios triple, and a Grand Slam Quad."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Rank",
+          "Player",
+          "Cards",
+          "Base",
+          "Auto",
+          "Doubles",
+          "Trios",
+          "Quads"
+        ],
+        "rows": [
+          [
+            "1",
+            "Rafael Nadal",
+            "5",
+            "✓",
+            "✓",
+            "DA-10",
+            "TA-1",
+            "QA-4"
+          ],
+          [
+            "1",
+            "Coco Gauff",
+            "5",
+            "✓",
+            "✓",
+            "DA-2",
+            "TA-5",
+            "QA-1"
+          ],
+          [
+            "1",
+            "Aryna Sabalenka",
+            "5",
+            "✓",
+            "✓",
+            "DA-4",
+            "TA-2",
+            "QA-5"
+          ],
+          [
+            "1",
+            "Andre Agassi",
+            "5",
+            "✓",
+            "✓",
+            "DA-1",
+            "TA-4",
+            "QA-2"
+          ],
+          [
+            "1",
+            "Elena Rybakina",
+            "5",
+            "✓",
+            "✓",
+            "DA-4",
+            "TA-2",
+            "QA-1"
+          ],
+          [
+            "1",
+            "Steffi Graf",
+            "5",
+            "✓",
+            "✓",
+            "DA-1",
+            "TA-3",
+            "QA-3"
+          ],
+          [
+            "7",
+            "Novak Djokovic",
+            "4",
+            "✓",
+            "✓",
+            "—",
+            "TA-1",
+            "QA-4"
+          ],
+          [
+            "7",
+            "Carlos Alcaraz",
+            "4",
+            "✓",
+            "✓",
+            "DA-10",
+            "—",
+            "QA-4"
+          ],
+          [
+            "7",
+            "Iga Świątek",
+            "4",
+            "✓",
+            "✓",
+            "—",
+            "TA-2",
+            "QA-5"
+          ],
+          [
+            "7",
+            "Maria Sharapova",
+            "4",
+            "✓",
+            "✓",
+            "—",
+            "TA-1",
+            "QA-5"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Ten players sit at four cards; the four above are joined by John McEnroe, Pete Sampras, Mirra Andreeva, Boris Becker, Chris Evert, and Martina Navratilova. The other 34 players on the checklist have exactly two cards — a base and a base autograph — including Andy Murray, Emma Raducanu, Daniil Medvedev, and both rookies' base autographs."
+      },
+      {
+        "type": "p",
+        "text": "Worth noting: the six five-card players aren't the six biggest names. Djokovic and Alcaraz each miss one multi-signature subset, while Rybakina and Sabalenka are on everything. If you're building a player rainbow, the women's side of this checklist has more to chase."
+      },
+      {
+        "type": "h2",
+        "text": "Versions to chase, by player"
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "Card count only tells part of the story, because each subset carries a different number of <a href=\"https://www.checklist2.com/sets/2026-topps-triumphant-tennis\">parallels</a>. A base card has eight versions (base /99 plus seven parallels), a base autograph twelve, a Dynamic Doubles card six, a Trio two, and a Quad one. Counting every version a player appears on:"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Player",
+          "Total versions"
+        ],
+        "rows": [
+          [
+            "Rafael Nadal, Coco Gauff, Aryna Sabalenka, Andre Agassi, Elena Rybakina, Steffi Graf",
+            "29 each"
+          ],
+          [
+            "Mirra Andreeva, Karolína Muchová, Stefan Edberg",
+            "28 each"
+          ],
+          [
+            "Carlos Alcaraz",
+            "27"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "A full Nadal run is 29 serial-numbered cards, six of which are 1/1s."
+      },
+      {
+        "type": "h2",
+        "text": "The rarest pulls"
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "<a href=\"https://www.checklist2.com/sets/2026-topps-triumphant-tennis\">Pack odds</a> are per pack, and there's one pack per box, so these read as per-box odds too. A case is ten boxes."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Card",
+          "Odds",
+          "Roughly one per"
+        ],
+        "rows": [
+          [
+            "Triumphant Trios FoilFractor 1/1",
+            "1:1,334",
+            "133 cases"
+          ],
+          [
+            "Grand Slam Quad FoilFractor 1/1",
+            "1:1,334",
+            "133 cases"
+          ],
+          [
+            "Dynamic Doubles FoilFractor 1/1",
+            "1:572",
+            "57 cases"
+          ],
+          [
+            "Triumphant Trios Racket Red Foil /5",
+            "1:236",
+            "24 cases"
+          ],
+          [
+            "Base FoilFractor 1/1",
+            "1:118",
+            "12 cases"
+          ],
+          [
+            "Base Autograph FoilFractor 1/1",
+            "1:118",
+            "12 cases"
+          ],
+          [
+            "Dynamic Doubles Hard Court Orange Foil /25",
+            "1:118",
+            "12 cases"
+          ],
+          [
+            "Dynamic Doubles Racket Red Foil /5",
+            "1:118",
+            "12 cases"
+          ],
+          [
+            "Dynamic Doubles Black Net Foil /10",
+            "1:65",
+            "6.5 cases"
+          ],
+          [
+            "Dynamic Doubles Tennis Ball Yellow Foil /15",
+            "1:44",
+            "4.4 cases"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Two things stand out. First, the Grand Slam Quads — new for 2026 — exist only as FoilFractor 1/1s. There is no /99 or /25 version to fall back on; the five quad cards (Djokovic/Alcaraz/Nadal/Murray, Evert/Davenport/Graf/Navratilova, and so on) are five cards total in the entire print run. Second, the Trios are nearly as tight: each of the five triples exists as a Racket Red /5 and a FoilFractor 1/1, so 30 Trio cards exist in total."
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "The odd line on the sheet is Dynamic Doubles Hard Court Orange Foil, which is /25 like the Clay Court Orange but falls at 1:118 against Clay Court's 1:26. That's Topps' published number and it's what the <a href=\"https://www.checklist2.com/sets/2026-topps-triumphant-tennis\">set page</a> shows; treat the Hard Court Orange as the harder of the two /25s."
+      },
+      {
+        "type": "h2",
+        "text": "What a box actually looks like"
+      },
+      {
+        "type": "p",
+        "text": "With five cards and three autographs, a typical box is two base cards (one of them likely a parallel — Trophy Gold /50 falls 1:3, Grass Court Green /35 at 1:4) and three base autographs, one of which is probably the unnumbered-looking \"base\" version at /99 (1:2) and the others parallels. The multi-signature cards are where the box price is justified: the most common Dynamic Doubles version, Clay Court Orange /25, falls about once every 26 boxes, so roughly one in every two and a half cases has any dual at all."
+      },
+      {
+        "type": "h2",
+        "text": "Where to start"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Player collectors: the six five-card players are the deepest runs, and Rybakina, Sabalenka, and Gauff are on everything at a fraction of the price of the Nadal and Agassi cards.",
+          "Set builders: the 50-card base at /99 is a finite set — 4,950 base cards exist — which makes a complete base run a real project rather than a formality.",
+          "Rookie chasers: Fonseca and Gibson each have a base RC, a base autograph, and they share DA-6, the only dual that pairs two rookies."
+        ]
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "Pack odds, parallel print runs, and the full 120-card checklist are on the <a href=\"https://www.checklist2.com/sets/2026-topps-triumphant-tennis\">2026 Topps Triumphant Tennis set page</a>."
+      }
+    ]
+  },
+  {
     "id": "break-sheet-builder-whatnot",
     "title": "Stop Building Break Sheets by Hand: How the Checklist\u00b2 Break Sheet Builder Saves Whatnot Breakers Hours on Every Break",
     "publishedAt": "2026-08-15",
