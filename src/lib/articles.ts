@@ -65,6 +65,486 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    "id": "2025-26-topps-pristine-basketball-what-to-chase",
+    "title": "What Should Collectors Chase in 2025-26 Topps Pristine Basketball?",
+    "publishedAt": "2026-09-23",
+    "description": "A checklist breakdown of 2025-26 Topps Pristine Basketball: the most-loaded players, the rarest parallels, team counts, and where the autographs actually are.",
+    "heroImage": "/sets/cards/2025-26-topps-pristine-basketball/2025-26-topps-pristine-basketball-1.jpg",
+    "tags": [
+      "basketball",
+      "topps",
+      "checklist breakdown"
+    ],
+    "setId": 882,
+    "tldr": "A checklist breakdown of 2025-26 Topps Pristine Basketball: the most-loaded players, the rarest parallels, team counts, and where the autographs actually are.",
+    "content": [
+      {
+        "type": "p",
+        "text": "Topps Pristine Basketball returns for 2025-26 with the pitch it has always made: white chrome, encased hits, and a checklist that runs from Cooper Flagg to Wilt Chamberlain. Every box promises three encased cards, two autographs and one autograph relic, and the base set stretches 150 cards deep with 15 Refractor tiers. That is a lot of product to make sense of before the first pack is opened. We loaded the full checklist into Checklist² and ran the numbers, so instead of a summary of what Topps says is in the box, here is what the data says is worth chasing."
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "Full checklist and parallels: <a href=\"https://www.checklist2.com/sets/2025-26-topps-pristine-basketball\">2025-26 Topps Pristine Basketball on Checklist²</a>"
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "The story of the Pristine brand, from Topps: <a href=\"https://ripped.topps.com/topps-pristine-basketball-history/\">Topps Pristine Basketball history</a>"
+      },
+      {
+        "type": "h3",
+        "text": "The short answer"
+      },
+      {
+        "type": "p",
+        "text": "Chase the three headline rookies (Flagg, Harper, Knueppel), who each have 14 cards and five hits apiece, more than anyone else in the set. Chase the Pristine Pair Dual Autographs, a nine-card subset that carries the only Yao Ming and Cooper Flagg on-card pairings you will find anywhere this year. And if you are buying with resale in mind, understand that this checklist is much heavier on rookies and the Spurs than on Lakers, and that two of the biggest names in the game have no autograph in the product at all. The rest of this article is the detail behind that."
+      },
+      {
+        "type": "h3",
+        "text": "The set at a glance"
+      },
+      {
+        "type": "table",
+        "rows": [
+          [
+            "Release date",
+            "September 24, 2026"
+          ],
+          [
+            "Base set",
+            "150 cards (rookies at 111 to 150)"
+          ],
+          [
+            "Subsets",
+            "19 (1 base, 9 inserts, 6 autograph, 3 autograph relic)"
+          ],
+          [
+            "Total cards",
+            "717"
+          ],
+          [
+            "Autograph cards",
+            "245 across 6 subsets"
+          ],
+          [
+            "Autograph relic cards",
+            "127 across 3 subsets"
+          ],
+          [
+            "Subjects",
+            "241 players, 178 of them with at least one hit"
+          ],
+          [
+            "Hobby / FDI box",
+            "6 packs of 7 cards, plus 3 encased hits (2 autographs, 1 autograph relic)"
+          ],
+          [
+            "Instant Packs",
+            "4 cards: 1 Refractor and 1 numbered parallel, exclusive parallel, autograph, autograph relic, or SSP"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Pack odds have not been published yet. When Topps releases them we will attach them to the set page and the Break Hit Calculator, so the scarcity notes below are built from print runs and subset sizes, not pull rates."
+      },
+      {
+        "type": "image",
+        "src": "/sets/cards/2025-26-topps-pristine-basketball/2025-26-topps-pristine-basketball-3.jpg",
+        "alt": "2025-26 Topps Pristine Basketball",
+        "caption": "2025-26 Topps Pristine Basketball"
+      },
+      {
+        "type": "h3",
+        "text": "The 10 most-loaded players"
+      },
+      {
+        "type": "p",
+        "text": "Counting every card a player appears on across all 19 subsets, this is the top of the checklist. Ties are shown in full, which is why the table runs to 13 rows."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Player",
+          "Total cards",
+          "Base",
+          "Inserts",
+          "Autographs",
+          "Auto relics",
+          "Total hits"
+        ],
+        "rows": [
+          [
+            "Cooper Flagg (RC)",
+            "14",
+            "1",
+            "8",
+            "4",
+            "1",
+            "5"
+          ],
+          [
+            "Dylan Harper (RC)",
+            "14",
+            "1",
+            "8",
+            "4",
+            "1",
+            "5"
+          ],
+          [
+            "Kon Knueppel (RC)",
+            "14",
+            "1",
+            "8",
+            "4",
+            "1",
+            "5"
+          ],
+          [
+            "Stephen Curry",
+            "13",
+            "1",
+            "8",
+            "3",
+            "1",
+            "4"
+          ],
+          [
+            "Cade Cunningham",
+            "12",
+            "1",
+            "6",
+            "4",
+            "1",
+            "5"
+          ],
+          [
+            "Shai Gilgeous-Alexander",
+            "12",
+            "1",
+            "8",
+            "2",
+            "1",
+            "3"
+          ],
+          [
+            "Victor Wembanyama",
+            "12",
+            "1",
+            "8",
+            "2",
+            "1",
+            "3"
+          ],
+          [
+            "Ace Bailey (RC)",
+            "11",
+            "1",
+            "5",
+            "4",
+            "1",
+            "5"
+          ],
+          [
+            "Jayson Tatum",
+            "11",
+            "1",
+            "6",
+            "4",
+            "0",
+            "4"
+          ],
+          [
+            "Anthony Edwards",
+            "11",
+            "1",
+            "6",
+            "3",
+            "1",
+            "4"
+          ],
+          [
+            "Jalen Brunson",
+            "11",
+            "1",
+            "6",
+            "3",
+            "1",
+            "4"
+          ],
+          [
+            "Kevin Durant",
+            "11",
+            "1",
+            "6",
+            "3",
+            "1",
+            "4"
+          ],
+          [
+            "LeBron James",
+            "11",
+            "1",
+            "8",
+            "1",
+            "1",
+            "2"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Three things jump out."
+      },
+      {
+        "type": "p",
+        "text": "First, the top three are all rookies, and each one appears in all four rookie-eligible hit subsets plus the Pristine Pair duals. If you are a Flagg, Harper, or Knueppel collector, this is one of the deepest single-product rainbows you will get this year."
+      },
+      {
+        "type": "p",
+        "text": "Second, LeBron James is in the top group by card count but has exactly one autograph card (Pristine Autographs PA-LJ) and one autograph relic (Pristine Pieces PPA-LJ). Eight of his eleven cards are inserts. His base and insert parallels will be everywhere; his signatures will not."
+      },
+      {
+        "type": "p",
+        "text": "Third, Cade Cunningham quietly matches the rookies with five hits, including a Pristine Pair dual with Jalen Brunson. He is the most-signed veteran in the set."
+      },
+      {
+        "type": "h3",
+        "text": "Who is missing"
+      },
+      {
+        "type": "p",
+        "text": "The checklist is just as interesting for what it leaves out."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Luka Dončić has nine cards and zero hits. No autograph, no relic, in any subset. Every Luka card in this product is a base card or an insert.",
+          "VJ Edgecombe, the No. 3 pick, has nine cards and zero hits. He is in all eight rookie inserts but not in Pristine Rookie Autographs, Pristine Pieces Rookie Autograph Relics, or any other signed subset.",
+          "Giannis Antetokounmpo has six cards and no hits.",
+          "Jeremiah Fears and Tre Johnson III, both lottery picks, appear only on base and inserts."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "If you break a box hoping for a Luka or Giannis autograph, there is no such card to pull. Set your expectations accordingly, and if you are a Dončić collector, know that his best cards here are the numbered Base and insert Refractors."
+      },
+      {
+        "type": "h3",
+        "text": "The hardest cards to hit"
+      },
+      {
+        "type": "p",
+        "text": "With no odds sheet yet, scarcity comes down to print runs and how few copies of a subset exist at all."
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "<strong>One-of-ones.</strong> Every Base card and every insert card has a SuperFractor 1/1, which puts 345 one-of-ones in the product before a single autograph parallel is counted. The Base also carries a Red Refractor /5 and a Primaries Refractor /10, and each of the nine inserts has a Red Refractor /5."
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "<strong>Instant Packs exclusives.</strong> Two Base parallels exist only in the four-card Instant Packs: Teal Glitter /57 and Black Glitter /11. You cannot pull them from a hobby box. Digital Instant Packs are opened on Fanatics Collect, and if you are chasing a Glitter parallel of a specific player, that is the only place it comes from."
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "Open Instant Packs on Fanatics Collect: <a href=\"https://www.fanaticscollect.com/instant-rips/ff080986-05d8-4158-8da8-f318173c9dc0\">Pristine Instant Packs on Fanatics Collect</a>"
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "<strong>Pristine Pair Dual Autographs.</strong> This is the smallest hit subset in the product at nine cards, and every one of them is a rookie-and-veteran or star-and-star pairing on the same card. The full list:"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Card",
+          "Pairing"
+        ],
+        "rows": [
+          [
+            "PP-JC",
+            "Cooper Flagg and Jayson Tatum"
+          ],
+          [
+            "PP-KA",
+            "Ace Bailey and Kevin Durant"
+          ],
+          [
+            "PP-SD",
+            "Dylan Harper and Stephon Castle"
+          ],
+          [
+            "PP-KB",
+            "Kon Knueppel and Brandon Miller"
+          ],
+          [
+            "PP-YY",
+            "Yang Hansen and Yao Ming"
+          ],
+          [
+            "PP-SA",
+            "Stephen Curry and Anthony Edwards"
+          ],
+          [
+            "PP-CJ",
+            "Cade Cunningham and Jalen Brunson"
+          ],
+          [
+            "PP-TS",
+            "Tyrese Haliburton and Shai Gilgeous-Alexander"
+          ],
+          [
+            "PP-TP",
+            "Paolo Banchero and Trae Young"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "The Yao Ming and Yang Hansen card deserves its own mention: it is the only Yao Ming autograph in the set, and Yang Hansen is the first Chinese first-round pick since Yao. That one will travel."
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "<strong>Legend autographs.</strong> Pristine Autographs is where the retired greats sign: Larry Bird, Kareem Abdul-Jabbar, David Robinson, Dirk Nowitzki, Steve Nash, Hakeem Olajuwon, Oscar Robertson, Tracy McGrady, Karl Malone, John Stockton, Alonzo Mourning, and Anfernee Hardaway all have a card there, and Bird, Nowitzki, Robinson, and Olajuwon show up again in Pristine Pieces Autograph Relics. Note that Magic Johnson, Wilt Chamberlain, Bill Russell, and Kevin Garnett are base and insert only, with no signature in the product."
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "<strong>Autograph parallels.</strong> Topps has not published parallel tiers for the nine autograph and autograph relic subsets. Until they do, the set page lists those subsets without parallels rather than guessing."
+      },
+      {
+        "type": "image",
+        "src": "/sets/cards/2025-26-topps-pristine-basketball/2025-26-topps-pristine-basketball-6.jpg",
+        "alt": "2025-26 Topps Pristine Basketball",
+        "caption": "2025-26 Topps Pristine Basketball"
+      },
+      {
+        "type": "h3",
+        "text": "Teams with the most cards"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Team",
+          "Total cards",
+          "Hits (autos + auto relics)"
+        ],
+        "rows": [
+          [
+            "San Antonio Spurs",
+            "50",
+            "21"
+          ],
+          [
+            "Charlotte Hornets",
+            "37",
+            "19"
+          ],
+          [
+            "Los Angeles Lakers",
+            "37",
+            "9"
+          ],
+          [
+            "Utah Jazz",
+            "34",
+            "20"
+          ],
+          [
+            "Dallas Mavericks",
+            "33",
+            "14"
+          ],
+          [
+            "Boston Celtics",
+            "32",
+            "15"
+          ],
+          [
+            "Brooklyn Nets",
+            "30",
+            "17"
+          ],
+          [
+            "Toronto Raptors",
+            "29",
+            "20"
+          ],
+          [
+            "Orlando Magic",
+            "27",
+            "20"
+          ],
+          [
+            "Oklahoma City Thunder",
+            "27",
+            "16"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "The Spurs lead by a wide margin, and it is not just Wembanyama. Dylan Harper, Stephon Castle, Carter Bryant, De'Aaron Fox, and Devin Vassell, plus four retired Spurs in David Robinson, Tony Parker, Manu Ginobili, and George Gervin, push San Antonio to 50 cards and 21 hits. Team collectors in San Antonio, Charlotte, and Utah get the best return per box."
+      },
+      {
+        "type": "p",
+        "text": "The Lakers number is the trap. Thirty-seven cards ties for second, but only nine are hits: two LeBron, two Adou Thiero, one Kareem, one Shaquille O'Neal autograph relic, and Italics autographs of Jarred Vanderbilt, Trevor Ariza, and Norm Nixon. LeBron, Kareem, Magic, Shaq, and Luka drive the Lakers count with base and inserts, not signatures. Lakers collectors chasing autographs will find this product thin."
+      },
+      {
+        "type": "p",
+        "text": "One quirk worth knowing: the Seattle Supersonics appear as a team, with Gary Payton in Mark of the Moment and Nate McMillan in Italics. Sonics collectors get two autographs from a franchise that has not existed since 2008."
+      },
+      {
+        "type": "h3",
+        "text": "Where the rookies are"
+      },
+      {
+        "type": "p",
+        "text": "Forty rookies occupy base cards 111 through 150. Every one of the nine inserts leans on the class heavily, and two hit subsets are rookies only: Pristine Rookie Autographs (40 cards) and Pristine Pieces Rookie Autograph Relics (35 cards). Between those two, the veteran-mixed autograph sets, and the Pristine Pair duals, rookies account for 242 of the 726 player appearances in the product, exactly one third."
+      },
+      {
+        "type": "p",
+        "text": "The rookie autograph depth is the argument for buying Pristine early. Of the 40 rookies with a base card, 31 have a Pristine Rookie Autograph. Of the nine who don't, three (Will Richard, Kobe Sanders, and Javon Small) sign in Italics instead, and six (VJ Edgecombe, Jeremiah Fears, Tre Johnson III, Ryan Nembhard, Hugo González, and Carter Bryant) have no autograph anywhere in the product."
+      },
+      {
+        "type": "h3",
+        "text": "Italics: the sleeper autograph set"
+      },
+      {
+        "type": "p",
+        "text": "Italics is the largest autograph subset at 50 cards and the easiest to overlook, because its checklist mixes 2025 second-rounders (Alex Toohey, Amari Williams, Jahmai Mashack, Taelon Peter) with role players and a run of retired names that other products never sign: Nate Archibald, Norm Nixon, Mike Bibby, Ricky Davis, T.J. Ford, Ty Lawson, Mo Williams, Tony Allen, and Trevor Ariza. For player collectors of that era it may be the only current-year autograph available. For breakers, it is the subset most likely to fill the \"2 encased autographs\" slot on a given box, so know the names before you decide a box was a miss."
+      },
+      {
+        "type": "h3",
+        "text": "How to use this"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Player collectors: Start with the set page to see every card and parallel for your player, then check the top-ten table above to know how deep the rainbow goes. If your player has zero hits, the numbered Base Refractors are the ceiling.",
+          "Team collectors: Spurs, Hornets, Jazz, Raptors, and Magic each carry 19 to 21 hits. Lakers and Celtics collectors should buy singles.",
+          "Breakers and case buyers: Three encased hits per box is the whole economics of the product. With 372 total hit cards across 9 subsets and no odds yet, the Break Sheet Builder on Checklist² will let you price slots by team once odds land.",
+          "Instant Packs buyers: The two Glitter parallels and the guaranteed Refractor are the reason to open digital packs. Nothing else in Instant Packs is exclusive."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "The 2025-26 Topps Pristine Basketball checklist, parallels, and box configuration are live now on Checklist², and pack odds will be attached as soon as Topps publishes them."
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "View the full set: <a href=\"https://www.checklist2.com/sets/2025-26-topps-pristine-basketball\">2025-26 Topps Pristine Basketball on Checklist²</a>"
+      }
+    ]
+  },
+  {
     "id": "2026-topps-triumphant-tennis-breakdown",
     "title": "2026 Topps Triumphant Tennis: Every Card Is Numbered, and Six Players Are in Every Subset",
     "publishedAt": "2026-09-21",

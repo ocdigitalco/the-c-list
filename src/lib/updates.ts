@@ -15,6 +15,19 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    "id": "255-pristine-basketball-article",
+    "title": "New Article: 2025-26 Topps Pristine Basketball",
+    "date": "2026-09-23T00:00:00Z",
+    "summary": "Published article: What Should Collectors Chase in 2025-26 Topps Pristine Basketball? A checklist breakdown of the most-loaded players, rarest parallels, team counts, and where the autographs are.",
+    "description": `## 2025-26 Topps Pristine Basketball
+  
+  A data breakdown of the new all-numbered Pristine release: the most-loaded players (the Flagg/Harper/Knueppel rookie trio lead with 14 cards each), the stars with no autograph in the product, the nine-card Pristine Pair duals, and team-by-team hit counts.`,
+    "tags": [
+      "announcement"
+    ],
+    "setId": 882
+  },
+  {
     id: "2025-26-topps-pristine-basketball-checklist",
     title: "2025-26 Topps Pristine Basketball checklist added",
     date: "2026-09-23T12:00:00-07:00",
