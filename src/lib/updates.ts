@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2025-26-topps-pristine-basketball-checklist",
+    title: "2025-26 Topps Pristine Basketball checklist added",
+    date: "2026-09-23T12:00:00-07:00",
+    summary:
+      "2025-26 Topps Pristine Basketball checklist added — 19 subsets, 717 cards, 78 numbered parallels; box configs for Hobby/FDI and Instant Packs. Pack odds and autograph parallels to follow when Topps publishes them.",
+    description: `## 2025-26 Topps Pristine Basketball
+
+The **2025-26 Topps Pristine Basketball** checklist is live: **19 subsets, 717 cards**. A 150-card base set (every base card serial-numbered /99) sits alongside a hit-driven lineup — Pristine Autographs, Rookie Autographs, Personal Endorsements, Mark of the Moment, Italics, and the Pristine Pieces autograph-relic program, plus Dual Autographs and inserts (Stacked, Forever, Clean Court, Mixtape, Grandmaster, Monogram, Impact Frame and more).
+
+**78 numbered parallels** are attached — the Base rainbow (Refractor through SuperFractor 1/1, including the Instant Packs-exclusive Teal and Black Glitter tiers) and a seven-tier ladder on each of the nine inserts. **Box configs are set for Hobby/FDI and Instant Packs.** Pack odds are not yet published, and Topps has not released parallel tiers for the autograph and autograph-relic subsets, so both will be attached when available. Releases September 24, 2026.`,
+    tags: ["checklist", "box-config"],
+    setId: 882,
+  },
+  {
     "id": "254-triumphant-tennis-article",
     "title": "New Article: 2026 Topps Triumphant Tennis",
     "date": "2026-09-21T00:00:00Z",
