@@ -65,6 +65,585 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    "id": "2026-topps-royalty-premier-league-box-odds",
+    "title": "What Are You Actually Getting in a Box of 2026 Topps Royalty Premier League?",
+    "publishedAt": "2026-09-24",
+    "description": "The Topps odds sheet, decoded: what six autographs and two relics per box really means, which players carry the checklist, and the cards worth chasing.",
+    "heroImage": "/sets/cards/2026-topps-royalty-premier-league/2026-topps-royalty-premier-league-1.jpg",
+    "tags": [
+      "soccer",
+      "premier league",
+      "topps",
+      "checklist breakdown"
+    ],
+    "setId": 883,
+    "tldr": "The Topps odds sheet, decoded: what six autographs and two relics per box really means, which players carry the checklist, and the cards worth chasing.",
+    "content": [
+      {
+        "type": "p",
+        "text": "Topps Royalty Premier League 2026 is a single ten-card pack sold as a box, with six autographs, two relics, one numbered parallel, and one base card promised in every one. That is a simple pitch. What the pitch doesn't tell you is which autographs, from whom, and how often the cards on the sell sheet actually turn up. Topps published the full hobby odds for this product, and because there is exactly one pack per box, every odds figure is also a per-box figure. We loaded the checklist and the odds into Checklist² and did the math. Here is what a box of Royalty really contains."
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "Full checklist, parallels, and pack odds: <a href=\"https://www.checklist2.com/sets/2026-topps-royalty-premier-league\">2026 Topps Royalty Premier League on Checklist²</a>"
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "The history of the Royalty brand, from Topps: <a href=\"https://ripped.topps.com/topps-royalty-premier-league-product-history/\">Topps Royalty Premier League product history</a>"
+      },
+      {
+        "type": "h3",
+        "text": "The short answer"
+      },
+      {
+        "type": "p",
+        "text": "The odds sheet adds up. Sum the pull rates across every autograph subset and parallel and you get 5.7 autographs per box; do the same for relics and you get 1.9. Topps is telling the truth about the six and two. But more than half of those six autographs will come from just three subsets, Royalty Autographs, Royalty Relic Signatures, and Crowned Champions, and the cards that make Royalty special (Bow to Greatness, A Royal Miracle, the Crown Duals, the Match Ball) show up somewhere between one box in eight and one box in 167. The checklist also leans hard toward four clubs. If you support Arsenal, Chelsea, Liverpool, or Manchester United, this is your product. If you support anyone in the bottom half, read the team table before you buy."
+      },
+      {
+        "type": "h3",
+        "text": "The set at a glance"
+      },
+      {
+        "type": "table",
+        "rows": [
+          [
+            "Release date",
+            "September 24, 2026"
+          ],
+          [
+            "Box",
+            "1 pack of 10 cards; 4 boxes per case"
+          ],
+          [
+            "Per box",
+            "6 autographs, 2 relics, 1 numbered parallel, 1 base card"
+          ],
+          [
+            "Base set",
+            "100 cards, 5 per club, every one numbered /60"
+          ],
+          [
+            "Subsets",
+            "26 (1 base, 4 relic, 11 autograph, 9 autograph relic, 1 insert)"
+          ],
+          [
+            "Total cards",
+            "431"
+          ],
+          [
+            "Autograph cards",
+            "158 across 11 subsets, plus 89 autograph relics across 9 more"
+          ],
+          [
+            "Relic cards (no autograph)",
+            "79 across 4 subsets"
+          ],
+          [
+            "Numbered parallels",
+            "158, all with published odds"
+          ],
+          [
+            "Subjects",
+            "208, of whom 166 have at least one hit"
+          ]
+        ]
+      },
+      {
+        "type": "image",
+        "src": "/sets/cards/2026-topps-royalty-premier-league/2026-topps-royalty-premier-league-3.jpg",
+        "alt": "2026 Topps Royalty Premier League",
+        "caption": "2026 Topps Royalty Premier League"
+      },
+      {
+        "type": "h3",
+        "text": "Where your six autographs come from"
+      },
+      {
+        "type": "p",
+        "text": "Because one pack is one box, \"1:3 packs\" means one in three boxes. Adding the parent card and every parallel of each subset gives the expected number of that subset per box."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Subset",
+          "Cards",
+          "Expected per box",
+          "One in every"
+        ],
+        "rows": [
+          [
+            "Royalty Autographs",
+            "50",
+            "1.49",
+            "Most boxes have one, many have two"
+          ],
+          [
+            "Royalty Relic Signatures",
+            "33",
+            "0.95",
+            "About 1 box"
+          ],
+          [
+            "Crowned Champions",
+            "24",
+            "0.73",
+            "1.4 boxes"
+          ],
+          [
+            "Superior Relic Signatures",
+            "19",
+            "0.48",
+            "2 boxes"
+          ],
+          [
+            "Next in Line",
+            "12",
+            "0.46",
+            "2 boxes"
+          ],
+          [
+            "King for a Day",
+            "15",
+            "0.38",
+            "2.6 boxes"
+          ],
+          [
+            "Imperial Ink",
+            "13",
+            "0.31",
+            "3 boxes"
+          ],
+          [
+            "Superior Signatures",
+            "11",
+            "0.26",
+            "4 boxes"
+          ],
+          [
+            "King for a Day Autograph Relic Edition",
+            "8",
+            "0.21",
+            "5 boxes"
+          ],
+          [
+            "Rookie Jumbo Autograph Relics",
+            "5",
+            "0.15",
+            "7 boxes"
+          ],
+          [
+            "Crown Duals",
+            "6",
+            "0.13",
+            "8 boxes"
+          ],
+          [
+            "Autograph Jumbo Relic Booklet",
+            "15",
+            "0.07",
+            "14 boxes"
+          ],
+          [
+            "20 Autograph Edition",
+            "4",
+            "0.03",
+            "34 boxes"
+          ],
+          [
+            "A Royal Miracle",
+            "2",
+            "0.02",
+            "45 boxes"
+          ],
+          [
+            "20 Autograph Relic Edition",
+            "2",
+            "0.02",
+            "50 boxes"
+          ],
+          [
+            "Bow to Greatness",
+            "18",
+            "0.01",
+            "90 boxes"
+          ],
+          [
+            "Enthronement Debut Autograph Relics",
+            "4",
+            "0.01",
+            "90 boxes"
+          ],
+          [
+            "Marks of Excellence",
+            "3",
+            "0.01",
+            "111 boxes"
+          ],
+          [
+            "Max's Match Ball Autographs",
+            "1",
+            "0.006",
+            "167 boxes"
+          ],
+          [
+            "A Royal Miracle Autograph Relic Edition",
+            "2",
+            "0.003",
+            "312 boxes"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Three subsets (Royalty Autographs, Royalty Relic Signatures, Crowned Champions) account for 3.2 of your 6 autographs. That's the floor of a Royalty box, and it's a good floor: Royalty Autographs is where the Cantona, Beckham, Henry, Giggs, and Scholes signatures live alongside the current stars, and Crowned Champions is all title winners, including the only Wenger, Mourinho, and Guardiola autographs in the product."
+      },
+      {
+        "type": "p",
+        "text": "Everything below Crown Duals on that table is a case-level chase, not a box-level one. A four-box case gives you roughly a 1-in-2 shot at a Crown Dual, a 1-in-9 shot at a 20 Autograph Edition Liverpool card, and about a 1-in-22 shot at any Bow to Greatness. The Max Dowman Match Ball autograph, a single card with five numbered versions, appears once every 42 cases."
+      },
+      {
+        "type": "p",
+        "text": "For the two relics, Regalia Relics (0.81 per box) and Premier League Elite Relics (0.62) make up most of the pair, with Relic Jewels at 0.45. The 20 Relic Edition Liverpool cards fall about once every 33 boxes."
+      },
+      {
+        "type": "h3",
+        "text": "The most-loaded players"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Player",
+          "Total cards",
+          "Base",
+          "Relics",
+          "Autographs",
+          "Auto relics",
+          "Total hits"
+        ],
+        "rows": [
+          [
+            "Rio Ngumoha (RC)",
+            "9",
+            "1",
+            "1",
+            "2",
+            "4",
+            "7"
+          ],
+          [
+            "Erling Haaland",
+            "9",
+            "1",
+            "2",
+            "2",
+            "3",
+            "7"
+          ],
+          [
+            "Mohamed Salah",
+            "9",
+            "1",
+            "2",
+            "4",
+            "1",
+            "7"
+          ],
+          [
+            "Estêvão Willian (RC)",
+            "8",
+            "1",
+            "1",
+            "0",
+            "5",
+            "6"
+          ],
+          [
+            "Cole Palmer",
+            "6",
+            "1",
+            "1",
+            "1",
+            "3",
+            "5"
+          ],
+          [
+            "Max Dowman (RC)",
+            "6",
+            "1",
+            "1",
+            "1",
+            "3",
+            "5"
+          ],
+          [
+            "Virgil van Dijk",
+            "6",
+            "1",
+            "1",
+            "2",
+            "2",
+            "5"
+          ],
+          [
+            "Thierry Henry",
+            "5",
+            "0",
+            "0",
+            "4",
+            "1",
+            "5"
+          ],
+          [
+            "Harry Kane",
+            "5",
+            "0",
+            "0",
+            "3",
+            "2",
+            "5"
+          ],
+          [
+            "Kevin De Bruyne",
+            "5",
+            "0",
+            "0",
+            "3",
+            "2",
+            "5"
+          ],
+          [
+            "Wayne Rooney",
+            "5",
+            "0",
+            "0",
+            "3",
+            "2",
+            "5"
+          ],
+          [
+            "Moisés Caicedo",
+            "5",
+            "1",
+            "1",
+            "1",
+            "2",
+            "4"
+          ],
+          [
+            "Bruno Guimarães",
+            "5",
+            "1",
+            "2",
+            "1",
+            "1",
+            "4"
+          ],
+          [
+            "Bukayo Saka",
+            "5",
+            "1",
+            "1",
+            "1",
+            "1",
+            "3"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Rio Ngumoha, the Liverpool teenager, is the most-signed player in the product, with six signed cards, and he and Estêvão Willian are the only two rookies in the Autograph Jumbo Relic Booklet. Estêvão Willian is the odd one out in that table: six hits, none of them a plain autograph. Every one of his signatures comes with a relic attached, which means every one of them sits in a harder-to-pull subset."
+      },
+      {
+        "type": "p",
+        "text": "Salah is the only player with a subset to himself. Marks of Excellence is three Salah cards (MOE-SL1 through SL3), each numbered /10 or less, and the three of them together fall about once every 111 boxes. He also carries a Liquid Silver insert, two relics, and four other autographs, so he is the deepest single-player rainbow in the set."
+      },
+      {
+        "type": "p",
+        "text": "Among the legends, Thierry Henry has more signed cards than anyone else who has retired: Bow to Greatness, King for a Day, Royalty Autographs, a Crown Dual with Bergkamp, and a King for a Day Autograph Relic. Alan Shearer and Dennis Bergkamp each have four autographs and no relics."
+      },
+      {
+        "type": "h3",
+        "text": "Who is missing"
+      },
+      {
+        "type": "p",
+        "text": "Fifty-eight of the 100 base players have at least one hit, and only 40 have an autograph. The other 60 exist in this product as a /60 base card and its six parallels, full stop. That includes some names you might expect to find signing: Jack Grealish and Jordan Pickford have relics and autograph relics but no plain autograph, and Phil Foden has a Royalty Autograph but nothing else. Meanwhile 108 of the 208 subjects are not in the base set at all. That's the legends and champions, and 88 of them have an autograph, so the signature checklist is weighted toward the past, not the present."
+      },
+      {
+        "type": "p",
+        "text": "Of the 31 rookies, 21 have an autograph somewhere. The ten who don't are Veljko Milosavljević, Bradley Burrowes, Stefanos Tzimas, Joél Drakes-Thomas, Jaydee Canvot, Igor Jesus, Zach Abbott, Noah Sadiki, Tolu Arokodare, and Mateus Mané, who has three relics but no signature."
+      },
+      {
+        "type": "h3",
+        "text": "Teams: four clubs own the checklist"
+      },
+      {
+        "type": "p",
+        "text": "Every club gets exactly five base cards. After that it stops being fair."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Club",
+          "Total cards",
+          "Hits"
+        ],
+        "rows": [
+          [
+            "Arsenal",
+            "55",
+            "49"
+          ],
+          [
+            "Chelsea",
+            "53",
+            "47"
+          ],
+          [
+            "Liverpool FC",
+            "51",
+            "44"
+          ],
+          [
+            "Manchester United",
+            "50",
+            "45"
+          ],
+          [
+            "Manchester City",
+            "35",
+            "29"
+          ],
+          [
+            "Tottenham Hotspur",
+            "26",
+            "21"
+          ],
+          [
+            "Newcastle United",
+            "19",
+            "14"
+          ],
+          [
+            "Aston Villa",
+            "16",
+            "11"
+          ],
+          [
+            "Brentford",
+            "13",
+            "8"
+          ],
+          [
+            "Brighton & Hove Albion",
+            "12",
+            "7"
+          ],
+          [
+            "Everton",
+            "12",
+            "7"
+          ],
+          [
+            "AFC Bournemouth",
+            "11",
+            "6"
+          ],
+          [
+            "Burnley, Fulham, Nottingham Forest, Sunderland, West Ham, Wolves",
+            "10 each",
+            "5 each"
+          ],
+          [
+            "Crystal Palace, Leeds United",
+            "9 each",
+            "4 each"
+          ],
+          [
+            "Leicester City",
+            "6",
+            "6"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Arsenal, Chelsea, Liverpool, and Manchester United hold 209 of the 437 player appearances in the product and 185 of the 332 hit appearances. Eight clubs have five or fewer hits in the entire product, and for Crystal Palace and Leeds it's four. If you break Royalty by team, the four big slots are carrying the break, and the bottom eight are lottery tickets."
+      },
+      {
+        "type": "p",
+        "text": "Leicester City is the exception that proves the point: six cards, every one a hit, all Jamie Vardy and Riyad Mahrez, all in the A Royal Miracle subsets that mark ten years since the 2015/16 title. Those two players are the only reason a relegated club appears at all."
+      },
+      {
+        "type": "image",
+        "src": "/sets/cards/2026-topps-royalty-premier-league/2026-topps-royalty-premier-league-6.jpg",
+        "alt": "2026 Topps Royalty Premier League",
+        "caption": "2026 Topps Royalty Premier League"
+      },
+      {
+        "type": "h3",
+        "text": "The hardest cards to hit"
+      },
+      {
+        "type": "p",
+        "text": "Every parallel in this product is numbered, so \"hardest\" is a real number rather than a guess."
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "<strong>Platinum 1/1s.</strong> Every subset has at least one Platinum tier, and five subsets split it into a Manufacturer Logo and a Club Logo version. The most common Platinum is the Base at 1:56 boxes, or one every 14 cases. The rarest is the Max's Match Ball Platinum at 1:5,300, one every 1,325 cases."
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "<strong>Bow to Greatness.</strong> Eighteen legends (Henry, Bergkamp, Cantona, Beckham, Gerrard, Shearer, Kane, Son, De Bruyne, Agüero, Suárez, Drogba, Lampard, Hazard, Torres, Scholes, Keane, Vieira), and the card only exists as Tyrian Purple /3 or Platinum 1/1. That's 72 total copies across the whole print run, and a 1-in-90 box rate for any of them."
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "<strong>A Royal Miracle.</strong> Vardy and Mahrez, autograph versions from Royal Blue /25 down and autograph relic versions from Green /5 down. The autograph relic edition is the single hardest subset to pull in the product at one per 312 boxes."
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "<strong>Crown Duals.</strong> Six dual autographs, /99, and the pairings are the best storytelling in the set: Bergkamp with Henry, Rooney with Cantona, Scholes with Keane, Agüero with De Bruyne, Kane with Son, and Haaland with Shearer, the current record holder signing next to the man whose record he's chasing. One per eight boxes, so about one every two cases."
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "<strong>Base Platinum.</strong> With every base card /60 and a full parallel ladder underneath, the base set is a serious chase on its own. Expect one numbered base parallel per box (0.90 by the odds), and a Base Platinum roughly every 14 cases."
+      },
+      {
+        "type": "p",
+        "text": "A note on the odds themselves: a few lines on the Topps sheet look inverted. Crown Duals Gold /50 is listed at 1:22 while the /99 parent is 1:54, and Relic Jewels Royal Blue /25 at 1:9 beats its Gold /50 at 1:10. We store the official sheet as published rather than second-guessing it; if Topps corrects it, the set page will update."
+      },
+      {
+        "type": "h3",
+        "text": "How to use this"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Box buyers: Expect one or two Royalty Autographs, a Royalty Relic Signature, a Crowned Champion, and two or three cards from the mid-table subsets. Anything from Crown Duals down is a bonus, not an expectation.",
+          "Case buyers: Four boxes gets you meaningful odds at a Crown Dual and a Jumbo Booklet, a long shot at 20 Autograph Edition, and almost nothing at Bow to Greatness or the Match Ball. Price your case on the floor, not the ceiling.",
+          "Team breakers: Arsenal, Chelsea, Liverpool, and Manchester United are the only slots that pay for themselves. Bundle the bottom eight clubs.",
+          "Player collectors: Ngumoha, Haaland, Salah, and Estêvão have the deepest rainbows. Legend collectors should start with Royalty Autographs and Crowned Champions, which are where most retired signatures fall."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "The full 2026 Topps Royalty Premier League checklist, all 158 parallels, and the complete hobby odds are live on Checklist², and the Break Hit Calculator uses these exact odds."
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "View the full set: <a href=\"https://www.checklist2.com/sets/2026-topps-royalty-premier-league\">2026 Topps Royalty Premier League on Checklist²</a>"
+      }
+    ]
+  },
+  {
     "id": "2025-26-topps-pristine-basketball-what-to-chase",
     "title": "What Should Collectors Chase in 2025-26 Topps Pristine Basketball?",
     "publishedAt": "2026-09-23",

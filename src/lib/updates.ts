@@ -15,6 +15,19 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    "id": "256-royalty-premier-league-article",
+    "title": "New Article: 2026 Topps Royalty Premier League",
+    "date": "2026-09-24T00:00:00Z",
+    "summary": "Published article: What Are You Actually Getting in a Box of 2026 Topps Royalty Premier League? The odds sheet decoded, the players who carry the checklist, and the cards worth chasing.",
+    "description": `## 2026 Topps Royalty Premier League
+  
+  The hobby odds sheet decoded: where your six autographs and two relics per box actually come from, the most-loaded players (Ngumoha, Haaland, Salah), how four clubs own the checklist, and the hardest cards to hit.`,
+    "tags": [
+      "announcement"
+    ],
+    "setId": 883
+  },
+  {
     id: "2026-topps-royalty-premier-league-checklist",
     title: "2026 Topps Royalty Premier League checklist added",
     date: "2026-09-24T12:00:00-07:00",
