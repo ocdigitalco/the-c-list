@@ -1140,6 +1140,58 @@
       "height": 1516
     }
   ],
+  "2026-topps-heritage-football": [
+    {
+      "file": "2026-topps-heritage-football-0.png",
+      "width": 2557,
+      "height": 1662
+    },
+    {
+      "file": "2026-topps-heritage-football-1.jpg",
+      "width": 750,
+      "height": 1050
+    },
+    {
+      "file": "2026-topps-heritage-football-2.jpg",
+      "width": 1050,
+      "height": 750
+    },
+    {
+      "file": "2026-topps-heritage-football-3.jpg",
+      "width": 750,
+      "height": 1050
+    },
+    {
+      "file": "2026-topps-heritage-football-4.jpg",
+      "width": 750,
+      "height": 1050
+    },
+    {
+      "file": "2026-topps-heritage-football-5.jpg",
+      "width": 750,
+      "height": 1050
+    },
+    {
+      "file": "2026-topps-heritage-football-6.jpg",
+      "width": 750,
+      "height": 1050
+    },
+    {
+      "file": "2026-topps-heritage-football-7.jpg",
+      "width": 750,
+      "height": 1050
+    },
+    {
+      "file": "2026-topps-heritage-football-8.jpg",
+      "width": 750,
+      "height": 1050
+    },
+    {
+      "file": "2026-topps-heritage-football-9.jpg",
+      "width": 750,
+      "height": 1050
+    }
+  ],
   "2026-topps-mint-marvel": [
     {
       "file": "2026-topps-mint-marvel-1.jpg",
@@ -1374,6 +1426,11 @@
     }
   ],
   "2026-topps-royalty-premier-league": [
+    {
+      "file": "2026-topps-royalty-premier-league-0.jpg",
+      "width": 1024,
+      "height": 1434
+    },
     {
       "file": "2026-topps-royalty-premier-league-1.jpg",
       "width": 750,

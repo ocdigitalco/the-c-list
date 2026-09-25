@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-heritage-football-checklist",
+    title: "2026 Topps Heritage Football checklist added",
+    date: "2026-09-25T12:00:00-07:00",
+    summary:
+      "2026 Topps Heritage Football checklist added — 30 subsets, 1,468 cards including the full Chrome Variation and six other base variation sets; box configs for Value, Mega, and Hobby. Parallels and pack odds to follow when Topps publishes them.",
+    description: `## 2026 Topps Heritage Football
+
+The **2026 Topps Heritage Football** checklist is live: **30 subsets, 1,468 cards**. The 400-card base set is joined by the full Chrome Variation reprint and six more base-variation sets (No Name, Image, Legend, Flipped Helmet, Black and White, Alternate Jersey), plus inserts (New Age Performers, All Pro Series, Through the Years, Sweetness, The Expansion) and a deep autograph and relic program — Founding Era Ink, Heritage Rookie Autographs, Real One Autographs and Rookie Autographs, Classic Renditions, the Gridiron/Locker Room/Rookie Lineage relic and autograph-relic sets, five Walter Payton Cut Signatures, and the 34-card Walter Payton Rookie Redemption for graded 1976 Topps rookies.
+
+**Box configs are set for Value, Mega, and Hobby.** Parallels are not created yet — Topps has not published the tiers (including the Value/Mega Sparkle exclusives) or pack odds, so those will be attached when available. Releases October 21, 2026.`,
+    tags: ["checklist", "box-config"],
+    setId: 884,
+  },
+  {
     "id": "256-royalty-premier-league-article",
     "title": "New Article: 2026 Topps Royalty Premier League",
     "date": "2026-09-24T00:00:00Z",
