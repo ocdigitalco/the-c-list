@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-royalty-premier-league-checklist",
+    title: "2026 Topps Royalty Premier League checklist added",
+    date: "2026-09-24T12:00:00-07:00",
+    summary:
+      "2026 Topps Royalty Premier League checklist added — 26 subsets, 431 cards, 158 numbered parallels with full Hobby pack odds; box config for Hobby (1 pack, 10 cards, 6 autographs, 2 relics).",
+    description: `## 2026 Topps Royalty Premier League
+
+The **2026 Topps Royalty Premier League** checklist is live: **26 subsets, 431 cards**. A 100-card base set (numbered /60) anchors a hit-heavy premium product — Regalia Relics, Relic Jewels and Premier League Elite Relics; the autograph program (Royalty Autographs, Crowned Champions, King for a Day, Superior Signatures, Imperial Ink, Crown Duals); relic-autograph sets including the Autograph Jumbo Relic Booklet; and legend-driven chases like Bow to Greatness and A Royal Miracle.
+
+**158 numbered parallels are attached with full Hobby pack odds** — the Copper/Gold/Royal Blue/Red/Black/Green/Tyrian Purple ladder up to Platinum 1/1, plus the dual Platinum Manufacturer/Club Logo cards and the Instant-style Liquid Gold 1/1. Managers (Wenger, Mourinho, Guardiola, Arteta) are stored as coaches. Box config is set for the single Hobby format (1 pack of 10 cards, 6 autographs and 2 relics per box). Releases September 24, 2026.`,
+    tags: ["checklist", "odds", "box-config"],
+    setId: 883,
+  },
+  {
     "id": "255-pristine-basketball-article",
     "title": "New Article: 2025-26 Topps Pristine Basketball",
     "date": "2026-09-23T00:00:00Z",
