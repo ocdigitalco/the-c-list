@@ -15,6 +15,19 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    "id": "257-heritage-football-article",
+    "title": "New Article: 2026 Topps Heritage Football",
+    "date": "2026-09-25T00:00:00Z",
+    "summary": "Published article: Which Box of 2026 Topps Heritage Football Should You Buy? A box-by-box comparison plus the 1976 tribute inserts, the variation chase, and where the hits are.",
+    "description": `## 2026 Topps Heritage Football
+  
+  Value vs Mega vs Hobby broken down box by box, plus the 1976 tribute inserts (All Pro Series, The Expansion), the 550-card variation chase, the most-loaded rookies, and the Walter Payton redemption program.`,
+    "tags": [
+      "announcement"
+    ],
+    "setId": 884
+  },
+  {
     id: "2026-topps-heritage-football-checklist",
     title: "2026 Topps Heritage Football checklist added",
     date: "2026-09-25T12:00:00-07:00",

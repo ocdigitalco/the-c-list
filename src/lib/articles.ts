@@ -65,6 +65,473 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    "id": "2026-topps-heritage-football-which-box",
+    "title": "Which Box of 2026 Topps Heritage Football Should You Buy?",
+    "publishedAt": "2026-09-25",
+    "description": "Value, Mega, or Hobby: a checklist breakdown of 2026 Topps Heritage Football with the box-by-box comparison, the 1976 tribute inserts, the variation chase, and where the hits are.",
+    "heroImage": "/sets/cards/2026-topps-heritage-football/2026-topps-heritage-football-1.jpg",
+    "tags": [
+      "football",
+      "topps",
+      "heritage",
+      "checklist breakdown"
+    ],
+    "setId": 884,
+    "tldr": "Value, Mega, or Hobby: a checklist breakdown of 2026 Topps Heritage Football with the box-by-box comparison, the 1976 tribute inserts, the variation chase, and where the hits are.",
+    "content": [
+      {
+        "type": "p",
+        "text": "2026 Topps Heritage Football borrows the 1976 Topps design, and with it comes a question every Heritage buyer asks: Value, Mega, or Hobby? The three boxes hold the same cards and cost very different amounts, and the differences between them are not obvious from the outside of the box. We loaded the full checklist into Checklist² and laid the three formats side by side, so here is what each one actually gives you and who each one is for."
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "Full checklist and box configurations: <a href=\"https://www.checklist2.com/sets/2026-topps-heritage-football\">2026 Topps Heritage Football on Checklist²</a>"
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "The history of Heritage Football, from Topps: <a href=\"https://ripped.topps.com/topps-heritage-football-history\">Topps Heritage Football history</a>"
+      },
+      {
+        "type": "h3",
+        "text": "The short answer"
+      },
+      {
+        "type": "p",
+        "text": "Buy Hobby if you want a guaranteed autograph or relic. Buy Mega if you want the most cards per box and a shot at the Mega-only Sparkle parallels. Buy Value if you are building the 400-card base set on a budget and want the Value-only Sparkle. Topps has not published parallel tiers or pack odds yet, so the box decision comes down to cards per box, guaranteed hits, and which exclusives you care about. The table below is the whole comparison."
+      },
+      {
+        "type": "h3",
+        "text": "Box by box"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "",
+          "Value Box",
+          "Mega Box",
+          "Hobby Box"
+        ],
+        "rows": [
+          [
+            "Cards per pack",
+            "8",
+            "8",
+            "8"
+          ],
+          [
+            "Packs per box",
+            "8",
+            "17",
+            "20"
+          ],
+          [
+            "Cards per box",
+            "64",
+            "136",
+            "160"
+          ],
+          [
+            "Boxes per case",
+            "not listed",
+            "20",
+            "12"
+          ],
+          [
+            "Guaranteed hit",
+            "none",
+            "none",
+            "1 autograph or relic"
+          ],
+          [
+            "Exclusive parallels",
+            "Value Sparkle",
+            "Mega Sparkle",
+            "none listed"
+          ],
+          [
+            "Where to buy",
+            "Topps.com, retail",
+            "Topps.com, retail",
+            "Hobby shops"
+          ],
+          [
+            "Best for",
+            "Set builders on a budget, Value Sparkle chasers",
+            "Volume base and variation hunting, Mega Sparkle chasers",
+            "Anyone who wants a hit in the box"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Three things to read from that table."
+      },
+      {
+        "type": "p",
+        "text": "First, the base set is 400 cards and every box format pulls from the same pool, so a Hobby box gets you 160 cards toward the set while a Value box gets you 64. Mega sits in between at 136 and is the cheapest route to volume on a per-card basis for most buyers."
+      },
+      {
+        "type": "p",
+        "text": "Second, Hobby is the only format that promises a hit, and it is one hit per box, an autograph or a relic. Everything else is a chase. Do not buy Value or Mega expecting an autograph."
+      },
+      {
+        "type": "p",
+        "text": "Third, the Sparkle parallels are format-locked. Value Sparkle only comes from Value boxes, Mega Sparkle only from Mega boxes, and neither is in Hobby. If you want a Sparkle rainbow of your player, you are buying both retail formats."
+      },
+      {
+        "type": "image",
+        "src": "/sets/cards/2026-topps-heritage-football/2026-topps-heritage-football-3.jpg",
+        "alt": "2026 Topps Heritage Football",
+        "caption": "2026 Topps Heritage Football"
+      },
+      {
+        "type": "h3",
+        "text": "The checklist at a glance"
+      },
+      {
+        "type": "table",
+        "rows": [
+          [
+            "Release date",
+            "October 21, 2026"
+          ],
+          [
+            "Base set",
+            "400 cards, 357 different players, 100 rookies"
+          ],
+          [
+            "Base subsets",
+            "Record Breakers (1 to 8), League Leaders (201 to 208), Championship Games and Super Bowl LX (331 to 333), Team Cards (351 to 382)"
+          ],
+          [
+            "Chrome Variation",
+            "full 400-card parallel set"
+          ],
+          [
+            "Short-print variations",
+            "150 cards across six types: Image (50), Black and White (30), No Name (20), Flipped Helmet (20), Alternate Jersey (20), Legend (10)"
+          ],
+          [
+            "Inserts",
+            "5 sets, 100 cards"
+          ],
+          [
+            "Autograph cards",
+            "209 across 7 subsets"
+          ],
+          [
+            "Autograph relics",
+            "84 across 5 subsets"
+          ],
+          [
+            "Relics",
+            "91 across 4 subsets"
+          ],
+          [
+            "Total cards",
+            "1,468"
+          ],
+          [
+            "Parallels and odds",
+            "not yet published"
+          ]
+        ]
+      },
+      {
+        "type": "h3",
+        "text": "The 1976 tribute inserts"
+      },
+      {
+        "type": "p",
+        "text": "Two inserts are new this year and both are built on 1976 history."
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "<strong>All Pro Series</strong> is a 24-card homage to the 1976 Wonder Bread set, refilled with 24 All-Pros from the 2025 season. It is the one place in the product where the linemen live: Penei Sewell, Quinn Meinerz, Creed Humphrey, Joe Thuney, Garett Bolles, and Kyle Juszczyk all get a card, alongside Ja'Marr Chase, Puka Nacua, Myles Garrett, and Micah Parsons."
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "<strong>The Expansion</strong> marks the 1976 expansion era with a 28-card set, one player per franchise that existed in 1976. Since Tampa Bay and Seattle joined that year, the set is anchored by Baker Mayfield and Sam Darnold, with one current star for each of the other 26 clubs. The four teams that came later (Jacksonville, Carolina, Houston, and the modern Ravens franchise) are not in it."
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "<strong>Through the Years</strong> (20 cards) runs from Jack Lambert and Steve Largent through Montana, Marino, Elway, Sanders, and both Mannings to Brady, Burrow, Allen, and Cam Ward. <strong>Sweetness</strong> is eight running backs headlined by Emmitt Smith, Barry Sanders, and Eric Dickerson. <strong>New Age Performers</strong> is 20 current stars and two rookies, Ty Simpson and Fernando Mendoza."
+      },
+      {
+        "type": "h3",
+        "text": "The variation chase"
+      },
+      {
+        "type": "p",
+        "text": "Heritage is a variation product, and this year the variation layer is bigger than the base set: 400 Chrome Variations plus 150 short-print variations, 550 cards in total."
+      },
+      {
+        "type": "p",
+        "text": "The Chrome Variation is a straight one-to-one of the base set, including the League Leaders, Team Cards, and Super Bowl cards. The six short-print types are where the money is, and they cluster on a handful of players. Patrick Mahomes and Josh Allen each have six variations; Joe Burrow and Myles Garrett have five; Justin Jefferson, Jayden Daniels, Jaxson Dart, Jaxon Smith-Njigba, James Cook, Jahmyr Gibbs, Ja'Marr Chase, and Drake Maye have four apiece."
+      },
+      {
+        "type": "p",
+        "text": "The Legend Variation is the sleeper. Ten retired greats take over base card numbers with their original teams as printed: Fred Biletnikoff as an Oakland Raider on card 25, Terry Bradshaw on 75, Dan Fouts as a San Diego Charger on 128, Walter Payton on 148, Jack Lambert on 220, Joe Theismann as a Washington Redskin on 231, Fran Tarkenton on 279, Drew Pearson on 313, Archie Manning on 334, and Roger Staubach on 395. The Image Variation also hides a few swaps: card 21 becomes Sean Taylor, card 199 becomes Tom Brady, and in the Black and White set card 7 is Brady in a Buccaneers uniform."
+      },
+      {
+        "type": "h3",
+        "text": "The most-loaded players"
+      },
+      {
+        "type": "p",
+        "text": "Counting every card across all 30 subsets, the rookies dominate."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Player",
+          "Total cards",
+          "Base",
+          "Variations",
+          "Inserts",
+          "Autographs",
+          "Relics",
+          "Auto relics"
+        ],
+        "rows": [
+          [
+            "Fernando Mendoza (RC)",
+            "16",
+            "1",
+            "3",
+            "1",
+            "4",
+            "3",
+            "4"
+          ],
+          [
+            "Jeremiyah Love (RC)",
+            "16",
+            "1",
+            "3",
+            "1",
+            "4",
+            "3",
+            "4"
+          ],
+          [
+            "Garrett Nussmeier (RC)",
+            "15",
+            "1",
+            "3",
+            "0",
+            "4",
+            "3",
+            "4"
+          ],
+          [
+            "Ty Simpson (RC)",
+            "15",
+            "1",
+            "3",
+            "1",
+            "4",
+            "3",
+            "3"
+          ],
+          [
+            "Carnell Tate (RC)",
+            "13",
+            "1",
+            "3",
+            "0",
+            "4",
+            "2",
+            "3"
+          ],
+          [
+            "Carson Beck (RC)",
+            "13",
+            "1",
+            "2",
+            "0",
+            "4",
+            "3",
+            "3"
+          ],
+          [
+            "Makai Lemon (RC)",
+            "12",
+            "1",
+            "3",
+            "0",
+            "3",
+            "2",
+            "3"
+          ],
+          [
+            "Jordyn Tyson (RC)",
+            "12",
+            "1",
+            "3",
+            "1",
+            "2",
+            "2",
+            "3"
+          ],
+          [
+            "Drake Maye",
+            "12",
+            "2",
+            "4",
+            "2",
+            "1",
+            "2",
+            "1"
+          ],
+          [
+            "Cade Klubnik (RC)",
+            "11",
+            "1",
+            "2",
+            "0",
+            "4",
+            "2",
+            "2"
+          ],
+          [
+            "Drew Allar (RC)",
+            "11",
+            "1",
+            "3",
+            "0",
+            "3",
+            "2",
+            "2"
+          ],
+          [
+            "Bo Nix",
+            "11",
+            "1",
+            "4",
+            "2",
+            "2",
+            "1",
+            "1"
+          ],
+          [
+            "Caleb Williams",
+            "11",
+            "1",
+            "3",
+            "3",
+            "2",
+            "1",
+            "1"
+          ],
+          [
+            "Cam Ward",
+            "11",
+            "1",
+            "3",
+            "3",
+            "1",
+            "2",
+            "1"
+          ],
+          [
+            "Jayden Daniels",
+            "11",
+            "1",
+            "4",
+            "2",
+            "1",
+            "2",
+            "1"
+          ],
+          [
+            "Josh Allen",
+            "11",
+            "2",
+            "6",
+            "2",
+            "1",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Walter Payton is not in that table because he would break it: 40 cards, all of them chase material. That is 34 Walter Payton Rookie Redemption cards, each redeemable for a graded 1976 Topps Payton rookie (one PSA 10, three PSA 9s, five PSA 8s, twelve PSA 7s, thirteen PSA 6s), plus five Cut Signatures and the Legend Variation on card 148. There is no Payton base card or plain autograph; every one of his 40 cards is a premium pull."
+      },
+      {
+        "type": "p",
+        "text": "Fernando Mendoza and Jeremiyah Love lead the rookie class with 16 cards and 11 hits each, and both appear in all five rookie hit subsets plus the veteran Locker Room and Bicentennial sets. The quarterback class as a whole is deep: Mendoza, Nussmeier, Simpson, Beck, Klubnik, and Allar all have four autographs apiece."
+      },
+      {
+        "type": "p",
+        "text": "Of the 100 rookies in the base set, 53 have an autograph somewhere in the product. Of the 357 base-set players, only 121 have any hit at all. The other 236 are base and variation only."
+      },
+      {
+        "type": "image",
+        "src": "/sets/cards/2026-topps-heritage-football/2026-topps-heritage-football-6.jpg",
+        "alt": "2026 Topps Heritage Football",
+        "caption": "2026 Topps Heritage Football"
+      },
+      {
+        "type": "h3",
+        "text": "Where the legend autographs are"
+      },
+      {
+        "type": "p",
+        "text": "Classic Renditions Autograph is the retired-star signature set. Tom Brady headlines it, joined by Boomer Esiason, Donovan McNabb, Eddie George, Howie Long as a Los Angeles Raider, Julian Edelman, Jack Ham, Mike Singletary, Mike Vick, Phil Simms, Randall Cunningham, Tony Romo, and Andre Johnson, mixed with current names like Jalen Hurts, Caleb Williams, and Bo Nix."
+      },
+      {
+        "type": "p",
+        "text": "Flashbacks Autographed Relics is four cards only: Dan Fouts, Drew Pearson, Roger Staubach, and Terry Bradshaw, each with a relic. Bicentennial Relic Autographs adds Earl Campbell as a Houston Oiler, Eric Dickerson, and Thurman Thomas next to twelve current players and rookies."
+      },
+      {
+        "type": "p",
+        "text": "Real One Autographs, the Heritage staple, is 38 current players from Josh Allen and Justin Jefferson to Jaxson Dart and Cam Ward, and Real One Rookie Autographs is the deepest rookie signature set at 45 cards."
+      },
+      {
+        "type": "h3",
+        "text": "Teams"
+      },
+      {
+        "type": "p",
+        "text": "Every team gets between eight and sixteen base cards, but the hit distribution is lopsided. Arizona (23 hits), Tennessee (22), and Kansas City, Cleveland, Philadelphia, and the New York Jets (20 each) lead, mostly on the strength of their rookie quarterbacks and receivers. At the other end, Indianapolis, Minnesota, and Green Bay have two hits each, and Cincinnati and Houston have three, despite Cincinnati having Burrow and Chase on the checklist. Neither Burrow nor Chase has an autograph in this product, which is worth knowing before a Bengals team break."
+      },
+      {
+        "type": "p",
+        "text": "Chicago tops the raw card count at 84, but 40 of those are Walter Payton."
+      },
+      {
+        "type": "h3",
+        "text": "How to use this"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Set builders: 400 base cards at 160 per Hobby box means roughly three boxes for a first pass before duplicates, or two Mega boxes plus trading. Budget for the 150 short prints separately; they are the hard part of a master set.",
+          "Rookie collectors: Mendoza, Love, Nussmeier, and Simpson have the deepest rainbows. If your rookie is one of the 47 base rookies without an autograph, the variations are the ceiling.",
+          "Team breakers: Hobby only, and price the Cardinals, Titans, Chiefs, Browns, Eagles, and Jets slots on the hits. Bundle the Colts, Vikings, Packers, Bengals, and Texans.",
+          "Legend collectors: Classic Renditions and Flashbacks carry the retired signatures. The Legend Variations are the only retired-player base-numbered cards."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "The complete 2026 Topps Heritage Football checklist, all 30 subsets, and the three box configurations are live on Checklist². Parallels and pack odds will be added as soon as Topps publishes them."
+      },
+      {
+        "type": "p",
+        "html": true,
+        "text": "View the full set: <a href=\"https://www.checklist2.com/sets/2026-topps-heritage-football\">2026 Topps Heritage Football on Checklist²</a>"
+      }
+    ]
+  },
+  {
     "id": "2026-topps-royalty-premier-league-box-odds",
     "title": "What Are You Actually Getting in a Box of 2026 Topps Royalty Premier League?",
     "publishedAt": "2026-09-24",
