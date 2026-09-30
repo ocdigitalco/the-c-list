@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-bowman-football-odds",
+    title: "2026 Bowman Football pack odds added (six formats)",
+    date: "2026-09-30T12:00:00-07:00",
+    summary:
+      "2026 Bowman Football: full pack odds attached across Hobby, FDI, Breaker, Jumbo, Mega, and Value from the Topps sheet; format-exclusive parallels (Mojo, Geometric, X-Fractor, FDI Refractor, FireFractor, Mini-Diamond) flagged; Mega-only and Value-only subsets marked.",
+    description: `## 2026 Bowman Football — six-format pack odds
+
+Attached the official Topps odds sheet to **2026 Bowman Football** across all six box formats: **Hobby, First Day Issue, Breaker Delight, Jumbo, Mega, and Value** (1,796 odds figures). 494 parallels were created — the full Refractor and Reptilian/Shimmer ladders through SuperFractor, plus the **format-exclusive** tiers now flagged: **Mega-only** Mojo and FireFractor, **Breaker-only** Geometric, **Jumbo-only** X-Fractor and Gridiron, **FDI-only** FDI Refractor, and **Hobby-only** Mini-Diamond.
+
+Mega-only subsets (Mega Rookies, Mega Prospects) and Value-only subsets (the Paper Autographs) are flagged so the checklist reflects where each lives, along with the Hobby/FDI/Breaker/Jumbo-only Dual and Triple autographs. Box configs for **Breaker Delight, Jumbo, Mega, and Value are pending** (keys added so odds attach; numbers to follow). One sheet subset, **Base Chrome RetroFractor Autograph**, has no checklist in the DB yet, so its odds were held back for reconciliation when a checklist source appears. Print runs are unchanged (not on this sheet).`,
+    tags: ["odds"],
+    setId: 874,
+  },
+  {
     id: "2026-topps-chrome-tennis-odds",
     title: "2026 Topps Chrome Tennis pack odds + print runs added",
     date: "2026-09-30T12:00:00-07:00",
