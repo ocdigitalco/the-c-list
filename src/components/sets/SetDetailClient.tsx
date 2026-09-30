@@ -162,12 +162,106 @@ function subjectChip(coCount: number): string | null {
   return total === 2 ? "DUAL" : total === 3 ? "TRIPLE" : total === 4 ? "QUAD" : `${total}-SUBJECT`;
 }
 
+// ─── "What each box can hit": per-format exclusivity model ─────────────────────
+export interface FormatHitCard {
+  key: string; label: string;
+  exclusive: { name: string; hit: boolean }[];
+  shared: { name: string; hit: boolean; others: string[] }[];
+  parallels: string[];
+}
+export interface FormatHits { formats: FormatHitCard[]; faqs: { q: string; a: string }[]; }
+
+// Top-level format keys of a MULTI-format box_config (values are objects), in order.
+function multiFormatKeys(boxConfig: string | null): string[] {
+  if (!boxConfig) return [];
+  let raw: Record<string, unknown>;
+  try { raw = JSON.parse(boxConfig); } catch { return []; }
+  const vals = Object.values(raw);
+  if (vals.length < 2 || typeof vals[0] !== "object" || vals[0] === null) return [];
+  return Object.keys(raw);
+}
+
+export function buildFormatHits(
+  subsets: SubsetChecklist[], boxConfig: string | null, packOdds: string | null, setName: string,
+): FormatHits | null {
+  const keys = multiFormatKeys(boxConfig);
+  if (keys.length < 2) return null;
+  const labelOf = (k: string) => fmtBoxLabel(k);
+  let odds: Record<string, Record<string, unknown>> = {};
+  if (packOdds) { try { const p = JSON.parse(packOdds); if (p && typeof Object.values(p)[0] === "object") odds = p; } catch { /* flat/none */ } }
+
+  // Map a parallels.exclusivity string to one format key by case-insensitive
+  // label-prefix match (longest wins). Unmatched → warn + skip.
+  const exclusivityToKey = (excl: string): string | null => {
+    const low = excl.trim().toLowerCase();
+    let best: string | null = null, bestLen = 0;
+    for (const k of keys) {
+      const lab = labelOf(k).toLowerCase();
+      if (low.startsWith(lab) && lab.length > bestLen) { best = k; bestLen = lab.length; }
+    }
+    if (!best) console.warn(`[format-hits] unmapped parallel exclusivity "${excl}" (box formats: ${keys.join(", ")})`);
+    return best;
+  };
+
+  const exclusive: Record<string, { name: string; hit: boolean }[]> = {};
+  const shared: Record<string, { name: string; hit: boolean; others: string[] }[]> = {};
+  for (const k of keys) { exclusive[k] = []; shared[k] = []; }
+  // Per parallel NAME → the set of formats it appears in anywhere in the set. A
+  // name is exclusive to a format only when it never appears in another format
+  // (so shared tiers like "Aqua Refractor" are not falsely listed).
+  const nameFormats = new Map<string, Set<string>>();
+  const addNameFmt = (name: string, k: string) => {
+    if (!nameFormats.has(name)) nameFormats.set(name, new Set());
+    nameFormats.get(name)!.add(k);
+  };
+
+  for (const s of subsets) {
+    const hit = s.isAutograph || s.isRelic;
+    // Subset format restriction = union of non-null card formats (∩ this set's formats).
+    const union = new Set<string>();
+    let anyNull = false;
+    for (const c of s.cards) {
+      if (!c.formats) { anyNull = true; continue; }
+      try { for (const f of JSON.parse(c.formats)) union.add(String(f)); } catch { /* skip */ }
+    }
+    const fmts = [...union].filter((f) => keys.includes(f));
+    if (fmts.length && !anyNull) {
+      if (fmts.length === 1) exclusive[fmts[0]].push({ name: s.name, hit });
+      else for (const f of fmts) shared[f].push({ name: s.name, hit, others: fmts.filter((x) => x !== f).map(labelOf) });
+    }
+    // Parallel presence: pack_odds keys per format + the exclusivity field.
+    for (const p of s.parallels) {
+      for (const k of keys) if (odds[k] && Object.prototype.hasOwnProperty.call(odds[k], `${s.name} ${p.name}`)) addNameFmt(p.name, k);
+      if (p.exclusivity) { const k = exclusivityToKey(p.exclusivity); if (k) addNameFmt(p.name, k); }
+    }
+  }
+
+  const parByFormat = new Map<string, string[]>(keys.map((k) => [k, []]));
+  for (const [name, fset] of nameFormats) if (fset.size === 1) parByFormat.get([...fset][0])!.push(name);
+
+  const formats: FormatHitCard[] = keys.map((k) => ({
+    key: k, label: labelOf(k),
+    exclusive: exclusive[k], shared: shared[k], parallels: parByFormat.get(k)!.sort(),
+  }));
+  const hasContent = formats.some((f) => f.exclusive.length || f.shared.length || f.parallels.length);
+  if (!hasContent) return null;
+
+  const faqs = formats
+    .filter((f) => f.exclusive.length > 0)
+    .map((f) => ({
+      q: `Which cards are exclusive to ${f.label} boxes in ${setName}?`,
+      a: `${f.label} boxes are the only place to pull ${f.exclusive.map((e) => e.name).join(", ")}.`,
+    }));
+  return { formats, faqs };
+}
+
 const BOX_LABEL_MAP: Record<string, string> = {
   hobby: "Hobby", hobby_box_topper: "Box Topper", jumbo: "Jumbo", mega: "Mega", blaster: "Blaster",
   value: "Value", fat_pack: "Fat Pack", hanger: "Hanger",
   breakers_delight: "Breaker's Delight", first_day_issue: "First Day Issue",
   breaker: "Breaker", hobby_hybrid: "Hobby Hybrid", sapphire: "Sapphire",
   hongbao: "Hongbao", logofractor: "Logofractor", ffnyc: "FFNYC", fdi: "First Day Issue",
+  mania: "Mania", instant: "Instant Packs",
   value_se: "Value", value_ea: "Value", value_cee: "Value",
   mega_se: "Mega", mega_ea: "Mega", mega_cee: "Mega",
   hanger_se: "Hanger", hanger_ea: "Hanger", hanger_cee: "Hanger",
@@ -800,7 +894,7 @@ function CardGallery({ images, setName }: { images: CardGalleryImage[]; setName:
 
 // ─── Tab: Overview ──────────────────────────────────────────────────────────
 
-function OverviewContent({ boxConfig, boxOffers, setSlug, cards, cardTypes, parallelTypes, autographs, autoParallels, totalParallels, athleteCount, releaseDate, hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds, subjectLabel = "Athletes", featuredArticle, setName, aeoSummary, faqs, cardImages, toppsUrl, relatedLinks }: {
+function OverviewContent({ boxConfig, boxOffers, setSlug, cards, cardTypes, parallelTypes, autographs, autoParallels, totalParallels, athleteCount, releaseDate, hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds, subjectLabel = "Athletes", featuredArticle, setName, aeoSummary, faqs, cardImages, toppsUrl, relatedLinks, subsets = [], packOdds = null }: {
   boxConfig: string | null; boxOffers: SealedBoxData | null; setSlug: string; cards: number; cardTypes: number; parallelTypes: number;
   autographs: number; autoParallels: number; totalParallels: number; athleteCount: number;
   releaseDate: string | null; hasChecklist: boolean; hasNumberedParallels: boolean;
@@ -808,8 +902,11 @@ function OverviewContent({ boxConfig, boxOffers, setSlug, cards, cardTypes, para
   featuredArticle?: { slug: string; title: string; description: string; heroImage: string } | null;
   setName: string; aeoSummary?: string | null; faqs?: { q: string; a: string }[];
   cardImages?: CardGalleryImage[]; toppsUrl?: string | null; relatedLinks?: RelatedLink[];
+  subsets?: SubsetChecklist[]; packOdds?: string | null;
 }) {
   const boxRows = boxConfig ? buildBoxRows(boxConfig) : [];
+  const formatHits = buildFormatHits(subsets, boxConfig, packOdds, setName);
+  const allFaqs = [...(faqs ?? []), ...(formatHits?.faqs ?? [])];
 
   return (
     <div className="space-y-8">
@@ -1025,6 +1122,57 @@ function OverviewContent({ boxConfig, boxOffers, setSlug, cards, cardTypes, para
         </div>
       )}
 
+      {/* What each box can hit — format-exclusivity map (multi-format sets only) */}
+      {formatHits && (
+        <div>
+          <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "var(--brand-slate)", textTransform: "uppercase", marginBottom: 12 }}>
+            What Each Box Can Hit
+          </div>
+          <div className="grid gap-3" style={{ gridTemplateColumns: `repeat(${Math.min(formatHits.formats.length, 3)}, minmax(0, 1fr))` }}>
+            {formatHits.formats.map((f) => (
+              <div key={f.key} style={{ background: "var(--brand-card)", border: "1px solid var(--brand-line)", borderRadius: 8, padding: 16 }}>
+                <div style={{ fontFamily: FONT_DISPLAY, fontSize: 16, fontWeight: 600, color: "var(--brand-ink)", marginBottom: 10 }}>{f.label}</div>
+                {f.exclusive.length > 0 && (
+                  <div style={{ marginBottom: 10 }}>
+                    <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 700, letterSpacing: 0.5, color: "var(--brand-slate)", textTransform: "uppercase", marginBottom: 6 }}>Exclusive to {f.label}</div>
+                    <ul className="space-y-1">
+                      {f.exclusive.map((s) => (
+                        <li key={s.name} style={{ fontSize: 14, color: "var(--brand-ink-soft)", display: "flex", alignItems: "center", gap: 6 }}>
+                          {s.hit && <span title="Autograph / relic" aria-label="hit" style={{ flexShrink: 0 }}>🖊</span>}
+                          <span>{s.name}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {f.shared.length > 0 && (
+                  <div style={{ marginBottom: 10 }}>
+                    <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 700, letterSpacing: 0.5, color: "var(--brand-slate)", textTransform: "uppercase", marginBottom: 6 }}>Shared</div>
+                    <ul className="space-y-1">
+                      {f.shared.map((s) => (
+                        <li key={s.name} style={{ fontSize: 14, color: "var(--brand-ink-soft)", display: "flex", alignItems: "center", gap: 6 }}>
+                          {s.hit && <span title="Autograph / relic" aria-label="hit" style={{ flexShrink: 0 }}>🖊</span>}
+                          <span>{s.name} <span style={{ color: "var(--brand-slate)" }}>· with {s.others.join(" + ")}</span></span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {f.parallels.length > 0 && (
+                  <details>
+                    <summary style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 700, letterSpacing: 0.5, color: "var(--brand-slate)", textTransform: "uppercase", cursor: "pointer" }}>
+                      Parallels ({f.parallels.length})
+                    </summary>
+                    <div style={{ fontSize: 13, color: "var(--brand-slate)", marginTop: 6, lineHeight: 1.6 }}>{f.parallels.join(", ")}</div>
+                  </details>
+                )}
+              </div>
+            ))}
+          </div>
+          <p style={{ fontSize: 13, color: "var(--brand-slate)", marginTop: 10 }}>Everything else appears in all formats.</p>
+        </div>
+      )}
+
       {/* Live sealed-box offers from eBay (under Box Configuration) */}
       <SealedBoxOffers data={boxOffers} setSlug={setSlug} />
 
@@ -1063,13 +1211,13 @@ function OverviewContent({ boxConfig, boxOffers, setSlug, cards, cardTypes, para
       )}
 
       {/* FAQ / Q&A */}
-      {faqs && faqs.length > 0 && (
+      {allFaqs.length > 0 && (
         <section>
           <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "var(--brand-slate)", textTransform: "uppercase", marginBottom: 12 }}>
             Frequently Asked Questions
           </div>
           <div style={{ background: "var(--brand-card)", border: "1px solid var(--brand-line)", borderRadius: 8 }}>
-            {faqs.map((f, i) => (
+            {allFaqs.map((f, i) => (
               <div key={f.q} style={{ padding: "16px", borderTop: i > 0 ? "1px solid var(--brand-line)" : "none" }}>
                 <h3 style={{ fontFamily: FONT_DISPLAY, fontSize: 17, fontWeight: 600, color: "var(--brand-ink)", margin: 0, lineHeight: 1.3 }}>
                   {f.q}
@@ -1441,7 +1589,7 @@ export function SetDetailClient({
                 totalParallels={totalParallels} athleteCount={athleteCount} releaseDate={releaseDate}
                 hasChecklist={hasChecklist} hasNumberedParallels={hasNumberedParallels}
                 hasBoxConfig={hasBoxConfig} hasPackOdds={hasPackOdds} subjectLabel={subjectLabel}
-                featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} cardImages={cardImages} toppsUrl={toppsUrl} relatedLinks={relatedLinks} />
+                featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} cardImages={cardImages} toppsUrl={toppsUrl} relatedLinks={relatedLinks} subsets={subsets} packOdds={packOdds} />
             ) : (
               <CardTypeTabContent tab={activeTab as CardTab} subsets={subsets}
                 hasNumberedParallels={hasNumberedParallels} oddsResolver={oddsResolver} setId={setId} setSlug={setSlug ?? undefined} />
@@ -1543,7 +1691,7 @@ export function SetDetailClient({
               totalParallels={totalParallels} athleteCount={athleteCount} releaseDate={releaseDate}
               hasChecklist={hasChecklist} hasNumberedParallels={hasNumberedParallels}
               hasBoxConfig={hasBoxConfig} hasPackOdds={hasPackOdds} subjectLabel={subjectLabel}
-              featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} cardImages={cardImages} toppsUrl={toppsUrl} relatedLinks={relatedLinks} />
+              featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} cardImages={cardImages} toppsUrl={toppsUrl} relatedLinks={relatedLinks} subsets={subsets} packOdds={packOdds} />
           ) : (
             <CardTypeTabContent tab={activeTab as CardTab} subsets={subsets}
               hasNumberedParallels={hasNumberedParallels} oddsResolver={oddsResolver} setId={setId} setSlug={setSlug ?? undefined} />
