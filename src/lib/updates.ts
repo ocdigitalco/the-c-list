@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-mls-chrome-reconcile",
+    title: "2026 Topps MLS Chrome reconciled + Hobby/Value/Mania odds",
+    date: "2026-09-29T12:00:00-07:00",
+    summary:
+      "2026 Topps MLS Chrome checklist reconciled against the Topps PDF — 50 cards added, full Hobby, Value, and Mania pack odds attached, format exclusivity flagged per subset.",
+    description: `## 2026 Topps MLS Chrome — reconciled
+
+Reconciled the **2026 Topps Chrome Major League Soccer** checklist against the official Topps PDF: **50 cards added**, including the previously missing Chrome Anime subset (Müller A-4 and the rest), the Topps x Sesame Street inserts, the MLS Country Patch Autographed Relic Cards, and the second sides of the Chrome Dual and National Pairings dual autographs (now fully bidirectional).
+
+**Full pack odds are attached for all three formats — Hobby, Value, and Mania** — with each parallel and base version keyed per format and format exclusivity flagged on every card (Mania-only autographs, Hobby-only patches, and so on). The **Mania box configuration** is now published: 12 cards per pack, 1 pack per box, 5 boxes per case, with 4 encased autographs per box. Numbered print runs for the newly added parallels are still to come.`,
+    tags: ["checklist", "odds"],
+    setId: 867,
+  },
+  {
     "id": "257-heritage-football-article",
     "title": "New Article: 2026 Topps Heritage Football",
     "date": "2026-09-25T00:00:00Z",
