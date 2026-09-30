@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2025-26-topps-pristine-basketball-odds",
+    title: "2025-26 Topps Pristine Basketball pack odds + hit parallels added",
+    date: "2026-09-30T12:00:00-07:00",
+    summary:
+      "2025-26 Topps Pristine Basketball: Hobby, First Day Issue, and Instant Wax pack odds attached from the Topps sheet (331 figures); the 50 autograph and autograph-relic hit parallels created; FDI-exclusive and Instant-exclusive tiers flagged; Popular Demand marked Hobby + Instant.",
+    description: `## 2025-26 Topps Pristine Basketball — three-format odds + hit parallels
+
+Attached the official Topps odds sheet to **2025-26 Topps Pristine Basketball** across all three box formats: **Hobby, First Day Issue, and Instant Wax** (331 odds figures, 19 subsets). A dedicated **First Day Issue** box config was added mirroring Hobby (7 cards/pack, 6 packs, 3 encased hits per box).
+
+The **50 hit-subset parallels** that ship in the encased autographs and autograph relics are now in the checklist — the Aqua→Black ladders on Pristine Autographs and Pristine Rookie Autographs, the Red/Black pairs on the dual and personal-endorsement autos, the SuperFractors on Mark of the Moment and Italics, and the Purple→Black + FDI Molten Mercury tiers on both Pristine Pieces relic subsets. **FDI-exclusive** parallels (FDI Fourth Quarter, FDI In the Paint, FDI Molten Mercury) and the **Instant-exclusive** Teal and Black Glitter are flagged, and **Popular Demand** is marked Hobby + Instant. Print runs on the new hit parallels are pending (not on this sheet); existing numbered print runs are unchanged.`,
+    tags: ["odds"],
+    setId: 882,
+  },
+  {
     id: "2026-bowman-football-odds",
     title: "2026 Bowman Football pack odds added (six formats)",
     date: "2026-09-30T12:00:00-07:00",
