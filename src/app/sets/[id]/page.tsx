@@ -199,8 +199,10 @@ export default async function V2SetPage({
   // For entertainment sets the "team" field holds a movie/franchise, not a sports team.
   const teamLabel = dominantRoleRow?.role === "character" ? "Movie" : "Team";
 
+  // Distinct physical cards (multi-subject cards share one card_number, so count
+  // distinct (insert_set_id, card_number) rather than appearance rows).
   const [cardCountRow] = await db
-    .select({ count: sql<number>`cast(count(*) as integer)` })
+    .select({ count: sql<number>`cast(count(distinct ${playerAppearances.insertSetId} || '|' || ${playerAppearances.cardNumber}) as integer)` })
     .from(playerAppearances)
     .where(
       insertSetIds.length > 0
@@ -306,21 +308,37 @@ export default async function V2SetPage({
       setId
     );
     const appRows = await rawQuery.all<{
-      insert_set_id: number; code: string; player: string; team: string | null; is_rookie: number; formats: string | null;
+      aid: number; insert_set_id: number; code: string; player: string; player_ref: string; team: string | null; is_rookie: number; formats: string | null;
     }>(
-      `SELECT pa.insert_set_id, pa.card_number AS code, p.name AS player, pa.team, pa.is_rookie, pa.formats
+      `SELECT pa.id AS aid, pa.insert_set_id, pa.card_number AS code, p.name AS player,
+              COALESCE(NULLIF(p.slug, ''), CAST(p.id AS TEXT)) AS player_ref,
+              pa.team, pa.is_rookie, pa.formats
        FROM player_appearances pa JOIN players p ON p.id = pa.player_id
        WHERE pa.insert_set_id IN (${ph}) ORDER BY pa.insert_set_id, pa.id`,
       ...insertSetIds
     );
+    // Co-subjects per appearance (multi-subject cards): name + link ref, in link order.
+    const coRows = await rawQuery.all<{ appearance_id: number; name: string; ref: string }>(
+      `SELECT acp.appearance_id, cp.name, COALESCE(NULLIF(cp.slug, ''), CAST(cp.id AS TEXT)) AS ref
+       FROM appearance_co_players acp
+       JOIN player_appearances pa ON pa.id = acp.appearance_id
+       JOIN players cp ON cp.id = acp.co_player_id
+       WHERE pa.insert_set_id IN (${ph}) ORDER BY acp.id`,
+      ...insertSetIds
+    );
+    const coBy = new Map<number, { name: string; ref: string }[]>();
+    for (const c of coRows) {
+      if (!coBy.has(c.appearance_id)) coBy.set(c.appearance_id, []);
+      coBy.get(c.appearance_id)!.push({ name: c.name, ref: c.ref });
+    }
     const parRows = await rawQuery.all<{ insert_set_id: number; name: string; print_run: number | null; note: string | null; exclusivity: string | null }>(
       `SELECT insert_set_id, name, print_run, note, exclusivity FROM parallels WHERE insert_set_id IN (${ph}) ORDER BY insert_set_id, id`,
       ...insertSetIds
     );
-    const appsBy = new Map<number, { code: string; player: string; team: string | null; isRookie: boolean; formats: string | null }[]>();
+    const appsBy = new Map<number, { code: string; player: string; playerRef: string; team: string | null; isRookie: boolean; formats: string | null; coPlayers: { name: string; ref: string }[] }[]>();
     for (const a of appRows) {
       if (!appsBy.has(a.insert_set_id)) appsBy.set(a.insert_set_id, []);
-      appsBy.get(a.insert_set_id)!.push({ code: a.code, player: a.player, team: a.team, isRookie: !!a.is_rookie, formats: a.formats ?? null });
+      appsBy.get(a.insert_set_id)!.push({ code: a.code, player: a.player, playerRef: a.player_ref, team: a.team, isRookie: !!a.is_rookie, formats: a.formats ?? null, coPlayers: coBy.get(a.aid) ?? [] });
     }
     const parsBy = new Map<number, { name: string; printRun: number | null; note: string | null; exclusivity: string | null }[]>();
     for (const p of parRows) {

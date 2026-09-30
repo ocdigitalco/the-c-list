@@ -110,23 +110,56 @@ export interface SubsetChecklist {
   isBase: boolean;
   isRelic: boolean;
   isBooklet: boolean;
-  cards: { code: string; player: string; team: string | null; isRookie: boolean; formats?: string | null }[];
+  cards: { code: string; player: string; playerRef?: string; team: string | null; isRookie: boolean; formats?: string | null; coPlayers?: { name: string; ref: string }[] }[];
   parallels: { name: string; printRun: number | null; note?: string | null; exclusivity?: string | null }[];
 }
 
 // ─── Helpers ────────────────────────────────────────────────────────────────────
 
 // Per-card availability tag from player_appearances.formats (JSON array; NULL =
-// all formats). Only sets with differing Hobby/Mega checklists populate this.
+// all formats → no chip). Labels come from the actual formats: a single format
+// reads "Hobby only" / "Mania only" / "Mega Box only"; multiple formats read
+// "Hobby + Value" using the shared box labels.
 export function formatAvailabilityTag(formats?: string | null): string | null {
   if (!formats) return null;
   let arr: string[];
   try { arr = JSON.parse(formats); } catch { return null; }
   if (!Array.isArray(arr) || arr.length === 0) return null;
-  const s = new Set(arr.map((x) => String(x).toLowerCase()));
-  if (s.size === 1 && s.has("mega")) return "Mega Box only";
-  if (!s.has("mega") && s.has("hobby")) return "Hobby only";
-  return null;
+  const keys = [...new Set(arr.map((x) => String(x).toLowerCase()))];
+  if (keys.length === 1) {
+    const k = keys[0];
+    return k === "mega" ? "Mega Box only" : `${fmtBoxLabel(k)} only`;
+  }
+  return keys.map(fmtBoxLabel).join(" + ");
+}
+
+// Natural, stable sort of checklist rows by card_number so "RG-2" precedes
+// "RG-10" and every appearance of one card (multi-subject rows) stays adjacent
+// in its original (primary-first) order.
+function naturalCode(code: string): (string | number)[] {
+  return (code.match(/\d+|\D+/g) ?? []).map((t) => (/^\d+$/.test(t) ? Number(t) : t.toLowerCase()));
+}
+function sortByCard<T extends { code: string }>(cards: T[]): T[] {
+  return cards
+    .map((c, i) => ({ c, i }))
+    .sort((a, b) => {
+      const pa = naturalCode(a.c.code), pb = naturalCode(b.c.code);
+      for (let k = 0; k < Math.max(pa.length, pb.length); k++) {
+        const x = pa[k], y = pb[k];
+        if (x === undefined) return -1;
+        if (y === undefined) return 1;
+        if (x !== y) return x < y ? -1 : 1;
+      }
+      return a.i - b.i; // stable: equal card numbers keep primary-first order
+    })
+    .map((w) => w.c);
+}
+
+// Multi-subject chip label from the co-subject count (own subject + co-players).
+function subjectChip(coCount: number): string | null {
+  if (coCount <= 0) return null;
+  const total = coCount + 1;
+  return total === 2 ? "DUAL" : total === 3 ? "TRIPLE" : total === 4 ? "QUAD" : `${total}-SUBJECT`;
 }
 
 const BOX_LABEL_MAP: Record<string, string> = {
@@ -1095,10 +1128,11 @@ function chipsFor(s: SubsetChecklist, tab: CardTab): { label: string; accent?: b
 
 /** One subset on the set page: builds rows + checklist, delegates rendering to the
  *  shared SubsetCard (no shopLink → 3-column table, identical to before). */
-function SubsetSection({ subset, tab, showNumbered, oddsFor }: {
+function SubsetSection({ subset, tab, showNumbered, oddsFor, setId, setSlug }: {
   subset: SubsetChecklist; tab: CardTab;
   showNumbered: boolean;
   oddsFor: (parallelName: string) => { denom: number; format: string | null } | null;
+  setId: number; setSlug?: string;
 }) {
   const chips = chipsFor(subset, tab);
   const pars = subset.parallels;
@@ -1113,15 +1147,38 @@ function SubsetSection({ subset, tab, showNumbered, oddsFor }: {
     };
   });
 
+  const setBase = `/sets/${setSlug || setId}/athlete`;
+  const sorted = sortByCard(subset.cards);
+  // Distinct physical cards: multi-subject cards share one card_number.
+  const distinctCards = new Set(subset.cards.map((c) => c.code)).size;
+  const linkStyle: React.CSSProperties = { color: "inherit", textDecoration: "none" };
+
   const checklist = (
     <div style={{ border: "1px solid var(--brand-line)", borderRadius: 8, overflow: "hidden", background: "var(--brand-card)" }}>
-      {subset.cards.map((c, i) => {
+      {sorted.map((c, i) => {
         const availTag = formatAvailabilityTag(c.formats);
+        const cos = c.coPlayers ?? [];
+        const chip = subjectChip(cos.length);
         return (
         <div key={`${c.code}-${i}`} className="flex items-center gap-3"
           style={{ padding: "8px 12px", borderTop: i > 0 ? "1px solid var(--brand-line)" : "none" }}>
           <span style={{ fontFamily: FONT_MONO, fontSize: 13, color: "var(--brand-slate)", minWidth: 54 }}>{c.code}</span>
-          <span style={{ fontSize: 15, fontWeight: 500, color: "var(--brand-ink)", flex: 1, minWidth: 0 }}>{c.player}</span>
+          <span style={{ fontSize: 15, fontWeight: 500, color: "var(--brand-ink)", flex: 1, minWidth: 0 }}>
+            {c.playerRef ? <a href={`${setBase}/${c.playerRef}`} style={{ ...linkStyle, borderBottom: "1px solid var(--brand-line)" }}>{c.player}</a> : c.player}
+            {cos.map((co) => (
+              <React.Fragment key={co.ref + co.name}>
+                <span style={{ color: "var(--brand-fog)" }}> / </span>
+                <a href={`${setBase}/${co.ref}`} style={{ ...linkStyle, borderBottom: "1px solid var(--brand-line)" }}>{co.name}</a>
+              </React.Fragment>
+            ))}
+          </span>
+          {chip && (
+            <span style={{
+              flexShrink: 0, fontFamily: FONT_MONO, fontSize: 9, fontWeight: 700, letterSpacing: 0.5,
+              color: "var(--brand-slate)", background: "var(--brand-track)", border: "1px solid var(--brand-line)",
+              padding: "1px 5px", borderRadius: 3, whiteSpace: "nowrap",
+            }}>{chip}</span>
+          )}
           {availTag && (
             <span style={{
               flexShrink: 0, fontFamily: FONT_MONO, fontSize: 9, fontWeight: 700, letterSpacing: 0.3,
@@ -1146,7 +1203,7 @@ function SubsetSection({ subset, tab, showNumbered, oddsFor }: {
   return (
     <SubsetCard
       name={subset.name}
-      cardsCount={subset.cards.length}
+      cardsCount={distinctCards}
       parallelsCount={pars.length}
       chips={chips}
       checklist={checklist}
@@ -1156,10 +1213,11 @@ function SubsetSection({ subset, tab, showNumbered, oddsFor }: {
   );
 }
 
-function CardTypeTabContent({ tab, subsets, hasNumberedParallels, oddsResolver }: {
+function CardTypeTabContent({ tab, subsets, hasNumberedParallels, oddsResolver, setId, setSlug }: {
   tab: CardTab; subsets: SubsetChecklist[];
   hasNumberedParallels: boolean;
   oddsResolver: (subsetName: string, parallelName: string) => { denom: number; format: string | null } | null;
+  setId: number; setSlug?: string;
 }) {
   const members = subsets.filter((s) => subsetInTab(s, tab));
   if (members.length === 0) return <EmptyTab label="No cards in this category" />;
@@ -1172,6 +1230,8 @@ function CardTypeTabContent({ tab, subsets, hasNumberedParallels, oddsResolver }
           tab={tab}
           showNumbered={hasNumberedParallels}
           oddsFor={(parallelName) => oddsResolver(s.name, parallelName)}
+          setId={setId}
+          setSlug={setSlug}
         />
       ))}
     </div>
@@ -1384,7 +1444,7 @@ export function SetDetailClient({
                 featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} cardImages={cardImages} toppsUrl={toppsUrl} relatedLinks={relatedLinks} />
             ) : (
               <CardTypeTabContent tab={activeTab as CardTab} subsets={subsets}
-                hasNumberedParallels={hasNumberedParallels} oddsResolver={oddsResolver} />
+                hasNumberedParallels={hasNumberedParallels} oddsResolver={oddsResolver} setId={setId} setSlug={setSlug ?? undefined} />
             )}
           </div>
         </div>
@@ -1486,7 +1546,7 @@ export function SetDetailClient({
               featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} cardImages={cardImages} toppsUrl={toppsUrl} relatedLinks={relatedLinks} />
           ) : (
             <CardTypeTabContent tab={activeTab as CardTab} subsets={subsets}
-              hasNumberedParallels={hasNumberedParallels} oddsResolver={oddsResolver} />
+              hasNumberedParallels={hasNumberedParallels} oddsResolver={oddsResolver} setId={setId} setSlug={setSlug ?? undefined} />
           )}
         </div>
 
