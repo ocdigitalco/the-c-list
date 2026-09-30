@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-chrome-tennis-odds",
+    title: "2026 Topps Chrome Tennis pack odds + print runs added",
+    date: "2026-09-30T12:00:00-07:00",
+    summary:
+      "2026 Topps Chrome Tennis: full Hobby, Breaker Delight, and Value Blaster pack odds attached from the Topps sheet, print runs added for every numbered parallel; Breaker-only Geometric and Value-only RayWave/Shimmer parallels added; six autograph subsets flagged Hobby/Breaker only.",
+    description: `## 2026 Topps Chrome Tennis — odds + print runs
+
+Attached the official Topps odds sheet to **2026 Topps Chrome Tennis** across all three box formats: **Hobby, Breaker Delight, and Value Blaster**. 153 parallels were created with their print runs — the Base and autograph Refractor ladders (through SuperFractor 1/1), the FrozenFractor (numbered /5 and lower), the **Breaker-only Geometric** parallels, and the **Value-only RayWave and Shimmer** tiers. The full base ladder covers both base subsets (Base Cards I and II).
+
+The six premium autograph subsets — World Number 1, Courtscripts, Dual, Aces, and Youthquake Signatures plus Clay Court Masters — are **numbered /25 and flagged Hobby/Breaker only** (no Value). Two sheet artifacts were handled per the source: the "1:0" Value entries for Prism and Negative Refractors were dropped (not real rates), and the combined FrozenFractor figure (1:476) is stored on the single FrozenFractor row. **The Breaker Delight box configuration is still pending** and will be filled when Topps publishes it. Releases September 30, 2026.`,
+    tags: ["odds", "checklist"],
+    setId: 873,
+  },
+  {
     id: "2026-topps-mls-chrome-reconcile",
     title: "2026 Topps MLS Chrome reconciled + Hobby/Value/Mania odds",
     date: "2026-09-29T12:00:00-07:00",
