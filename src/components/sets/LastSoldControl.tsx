@@ -19,6 +19,19 @@ function priceLabel(cents: number): string {
   return `$${Math.round(cents / 100).toLocaleString("en-US")}`;
 }
 
+/** Price-basis explanation for the "i" tooltip, or null when the sale type is unknown. */
+function basisText(type: LastSoldSummary["type"], boaHydrated?: number | null): string | null {
+  switch (type) {
+    case "best_offer":
+      return boaHydrated === 1
+        ? "Best Offer sale. Price shown is the accepted offer."
+        : "Best Offer sale. eBay didn't report the accepted amount, so the listed price is shown; the actual sale may have been lower.";
+    case "auction": return "Final auction price.";
+    case "bin": return "Buy It Now price.";
+    default: return null;
+  }
+}
+
 type Phase = "button" | "loading" | "priced" | "no_sales" | "capped" | "error";
 
 // Right-cluster "Last sold" control for a checklist row. State 1 is a compact
@@ -33,6 +46,7 @@ export function LastSoldControl({
 }) {
   const [phase, setPhase] = useState<Phase>(initial?.priceCents != null ? "priced" : "button");
   const [summary, setSummary] = useState<LastSoldSummary | null>(initial ?? null);
+  const [tipOpen, setTipOpen] = useState(false); // tap-to-toggle for touch (hover uses title)
 
   async function fetchPrice() {
     if (phase === "loading") return;
@@ -67,19 +81,36 @@ export function LastSoldControl({
 
   if (phase === "priced" && summary) {
     const meta = `${shortDate(summary.soldAt)}${summary.soldAt ? " · " : ""}raw`;
+    const tip = basisText(summary.type, summary.boaHydrated);
     return (
-      <span style={{ flexShrink: 0, textAlign: "right", lineHeight: 1.15 }} aria-label="Last sold price">
-        {summary.url ? (
-          <a href={summary.url} target="_blank" rel="nofollow noopener"
-            style={{ fontFamily: FONT_MONO, fontSize: 13, fontWeight: 700, color: "var(--brand-ink)", textDecoration: "none", whiteSpace: "nowrap" }}>
-            {priceLabel(summary.priceCents)} <span style={{ fontWeight: 500, color: "var(--brand-slate)" }}>last sold</span>
-          </a>
-        ) : (
-          <span style={{ fontFamily: FONT_MONO, fontSize: 13, fontWeight: 700, color: "var(--brand-ink)", whiteSpace: "nowrap" }}>
-            {priceLabel(summary.priceCents)} <span style={{ fontWeight: 500, color: "var(--brand-slate)" }}>last sold</span>
-          </span>
+      <span style={{ flexShrink: 0, textAlign: "right", lineHeight: 1.15, position: "relative" }} aria-label="Last sold price">
+        {/* Price is ALWAYS plain text (never the affiliate link). */}
+        <span style={{ fontFamily: FONT_MONO, fontSize: 13, fontWeight: 700, color: "var(--brand-ink)", whiteSpace: "nowrap" }}>
+          {priceLabel(summary.priceCents)} <span style={{ fontWeight: 500, color: "var(--brand-slate)" }}>last sold</span>
+        </span>
+        {tip && (
+          <button type="button" aria-label={tip} title={tip}
+            onClick={() => setTipOpen((o) => !o)} onBlur={() => setTipOpen(false)}
+            style={{
+              marginLeft: 4, cursor: "help", border: "none", background: "transparent", padding: 0,
+              fontFamily: FONT_MONO, fontSize: 10, fontWeight: 700, color: "var(--brand-slate)", verticalAlign: "middle",
+            }}>ⓘ</button>
         )}
         <span style={{ display: "block", fontFamily: FONT_MONO, fontSize: 9, color: "var(--brand-slate)" }}>{meta}</span>
+        {summary.url && (
+          <a href={summary.url} target="_blank" rel="nofollow noopener sponsored"
+            style={{ display: "block", fontFamily: FONT_MONO, fontSize: 10, fontWeight: 600, color: "var(--brand-accent-deep)", textDecoration: "none", whiteSpace: "nowrap" }}>
+            View on eBay ↗
+          </a>
+        )}
+        {tip && tipOpen && (
+          <span role="tooltip" style={{
+            position: "absolute", top: "100%", right: 0, zIndex: 20, marginTop: 4, maxWidth: 240, width: "max-content",
+            textAlign: "left", whiteSpace: "normal", fontFamily: FONT_MONO, fontSize: 10, lineHeight: 1.3,
+            color: "var(--brand-ink)", background: "var(--brand-card)", border: "1px solid var(--brand-line)",
+            borderRadius: 6, padding: "6px 8px", boxShadow: "0 4px 12px rgba(0,0,0,0.12)",
+          }}>{tip}</span>
+        )}
       </span>
     );
   }

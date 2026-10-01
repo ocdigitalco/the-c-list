@@ -124,6 +124,9 @@ async function createSchema() {
     "ALTER TABLE insert_sets ADD COLUMN notes TEXT",
     "ALTER TABLE parallels ADD COLUMN note TEXT",
     "ALTER TABLE player_appearances ADD COLUMN formats TEXT",
+    // sold_comps gained boa_hydrated after its initial create (0025); ensure
+    // pre-existing Turso tables get the column (duplicate-column is ignored).
+    "ALTER TABLE sold_comps ADD COLUMN boa_hydrated INTEGER",
     // Production-owned table (excluded from data sync below). Ensure Turso has
     // the schema even though we never push rows into it.
     `CREATE TABLE IF NOT EXISTS set_alerts (
@@ -183,6 +186,7 @@ async function createSchema() {
       count_30d INTEGER,
       low_30d_cents INTEGER,
       high_30d_cents INTEGER,
+      boa_hydrated INTEGER,
       raw_items_json TEXT,
       fetched_at TEXT,
       source TEXT NOT NULL DEFAULT 'sold-comps'

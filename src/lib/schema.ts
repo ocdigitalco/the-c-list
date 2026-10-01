@@ -207,6 +207,10 @@ export const soldComps = sqliteTable(
     count30d: integer("count_30d"),
     low30dCents: integer("low_30d_cents"),
     high30dCents: integer("high_30d_cents"),
+    // Best Offer hydration of the latest sale: 1 = soldPrice is the accepted
+    // offer; 0 = Best Offer sale but accepted amount unreported (listed price
+    // shown); null = not a Best Offer sale (auction / BIN).
+    boaHydrated: integer("boa_hydrated"),
     rawItemsJson: text("raw_items_json"), // full items array
     fetchedAt: text("fetched_at"),
     source: text("source").notNull().default("sold-comps"),

@@ -51,3 +51,28 @@ export function buildEbaySearchUrl(f: EbayLinkFields, campaignId: string | null 
   u.searchParams.set("customid", customid);
   return u.toString();
 }
+
+/**
+ * Wrap a concrete eBay ITEM URL (e.g. a sold listing) with EPN tracking params.
+ * Preserves whatever query the API already attached (e.g. `?nordt=true`) and
+ * appends the same `mkevt/mkcid/mkrid/campid/toolid/customid` set as the search
+ * link. Pass `customId` as the a:/s:/i:/p: sub-id (append `|src:sold` so EPN
+ * reports can separate sold-listing clicks from search clicks). Returns null when
+ * no campaign id is configured or the item URL is missing/unparseable.
+ */
+export function buildEbayItemUrl(
+  itemUrl: string | null | undefined,
+  campaignId: string | null | undefined,
+  customId?: string | null
+): string | null {
+  if (!itemUrl || !campaignId) return null;
+  let u: URL;
+  try { u = new URL(itemUrl); } catch { return null; }
+  u.searchParams.set("mkevt", "1");
+  u.searchParams.set("mkcid", "1");
+  u.searchParams.set("mkrid", ROVER_US);
+  u.searchParams.set("campid", campaignId);
+  u.searchParams.set("toolid", "10001");
+  if (customId) u.searchParams.set("customid", customId.slice(0, 256));
+  return u.toString();
+}

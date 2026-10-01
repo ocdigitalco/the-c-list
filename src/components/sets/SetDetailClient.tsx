@@ -111,8 +111,9 @@ export interface RelatedLink {
 export interface LastSoldSummary {
   priceCents: number;
   soldAt: string | null; // YYYY-MM-DD
-  url: string | null;
+  url: string | null; // EPN-wrapped affiliate item URL, or null
   type: "auction" | "bin" | "best_offer" | null;
+  boaHydrated?: number | null; // 1 = accepted offer shown; 0 = BO, listed price shown; null = n/a
 }
 
 export interface SubsetChecklist {

@@ -78,6 +78,18 @@ export interface SoldItem {
   soldPrice?: string | null; // dollars, decimal string
   buyingFormat?: string | null;
   bestOfferAccepted?: boolean | null;
+  boaHydrated?: boolean | null; // present only when hydrateBoa=true && bestOfferAccepted
+}
+
+/**
+ * Best Offer hydration flag for a sale: 1 = soldPrice is the accepted offer,
+ * 0 = Best Offer sale with the accepted amount unreported (listed price shown),
+ * null = not a Best Offer sale.
+ */
+export function boaHydratedFlag(item: { boaHydrated?: boolean | null; bestOfferAccepted?: boolean | null }): number | null {
+  if (item.boaHydrated === true) return 1;
+  if (item.bestOfferAccepted === true) return 0;
+  return null;
 }
 
 export interface SoldSummary {
@@ -85,6 +97,7 @@ export interface SoldSummary {
   soldAt: string | null;
   url: string | null;
   type: SaleType;
+  boaHydrated: number | null; // 1 | 0 | null (see boaHydratedFlag)
   median30dCents: number | null;
   count30d: number;
   low30dCents: number | null;
@@ -113,6 +126,7 @@ export function summarizeItems(items: SoldItem[], now: Date): SoldSummary | null
     soldAt: latest.endedAt,
     url: latest.it.url ?? null,
     type: mapSaleType(latest.it),
+    boaHydrated: boaHydratedFlag(latest.it),
     median30dCents: median(within),
     count30d: within.length,
     low30dCents: within.length ? Math.min(...within) : null,

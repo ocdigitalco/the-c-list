@@ -16,6 +16,7 @@ import { articles } from "@/lib/articles";
 import { buildSetMeta, computeSetAeo, SITE_URL } from "@/lib/setSeo";
 import { getCardGalleryImages } from "@/lib/cardGallery";
 import { getSealedBoxData, type SealedBoxData } from "@/lib/ebayRefresh";
+import { buildEbayItemUrl } from "@/lib/ebay/searchUrl";
 
 export const revalidate = 3600;
 
@@ -322,25 +323,29 @@ export default async function V2SetPage({
     // so a failure degrades to "no cache" (every row renders State 1) rather than
     // breaking the page. Keyed by `${insert_set_id}|${card_number}|${player_id}`.
     const soldCompsEnabled = process.env.SOLD_COMPS_ENABLED === "true";
-    const lastSoldBy = new Map<string, { priceCents: number; soldAt: string | null; url: string | null; type: "auction" | "bin" | "best_offer" | null }>();
+    const epnCampaignId = process.env.EPN_CAMPAIGN_ID ?? null;
+    const lastSoldBy = new Map<string, { priceCents: number; soldAt: string | null; url: string | null; type: "auction" | "bin" | "best_offer" | null; boaHydrated: number | null }>();
     if (soldCompsEnabled) {
       try {
         const scRows = await rawQuery.all<{
           insert_set_id: number; card_number: string; player_id: number;
-          last_sold_price_cents: number | null; last_sold_at: string | null; last_sold_url: string | null; last_sold_type: string | null;
+          last_sold_price_cents: number | null; last_sold_at: string | null; last_sold_url: string | null; last_sold_type: string | null; boa_hydrated: number | null;
         }>(
-          `SELECT insert_set_id, card_number, player_id, last_sold_price_cents, last_sold_at, last_sold_url, last_sold_type
+          `SELECT insert_set_id, card_number, player_id, last_sold_price_cents, last_sold_at, last_sold_url, last_sold_type, boa_hydrated
            FROM sold_comps WHERE set_id = ? AND grade_filter = 'raw'`,
           setId
         );
         for (const r of scRows) {
           if (r.last_sold_price_cents == null) continue; // priced-but-no-sales row → stays State 1
           const t = r.last_sold_type;
+          // EPN-wrap the stored raw item URL (|src:sold sub-id); null if no campaign id.
+          const customId = `a:${r.player_id}|s:${setId}|i:${r.insert_set_id}|p:base|src:sold`;
           lastSoldBy.set(`${r.insert_set_id}|${r.card_number}|${r.player_id}`, {
             priceCents: r.last_sold_price_cents,
             soldAt: r.last_sold_at,
-            url: r.last_sold_url,
+            url: buildEbayItemUrl(r.last_sold_url, epnCampaignId, customId),
             type: t === "auction" || t === "bin" || t === "best_offer" ? t : null,
+            boaHydrated: r.boa_hydrated,
           });
         }
       } catch { /* table absent / query failed → no cached summaries */ }
