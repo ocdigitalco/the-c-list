@@ -183,6 +183,64 @@ export const consentEvents = sqliteTable(
   })
 );
 
+// Production-owned. Cached eBay sold-listing comps per card-per-subject, served
+// from Turso. Written ONLY by /api/sold-comps on an explicit user click (never on
+// page load); EXCLUDED from migrate-to-turso sync like ebay_box_offers. Prices are
+// stored in cents. `grade_filter` is 'raw' only in phase 1. Unique per
+// (set, insert_set, card_number, player_id, grade_filter) so dual cards key on
+// each subject's own player_id.
+export const soldComps = sqliteTable(
+  "sold_comps",
+  {
+    id: integer("id").primaryKey({ autoIncrement: true }),
+    setId: integer("set_id").notNull().references(() => sets.id),
+    insertSetId: integer("insert_set_id").notNull().references(() => insertSets.id),
+    cardNumber: text("card_number").notNull(),
+    playerId: integer("player_id").notNull().references(() => players.id),
+    gradeFilter: text("grade_filter").notNull().default("raw"),
+    keyword: text("keyword"),
+    lastSoldPriceCents: integer("last_sold_price_cents"),
+    lastSoldAt: text("last_sold_at"), // endedAt (YYYY-MM-DD)
+    lastSoldUrl: text("last_sold_url"),
+    lastSoldType: text("last_sold_type"), // 'auction' | 'bin' | 'best_offer' | null
+    median30dCents: integer("median_30d_cents"),
+    count30d: integer("count_30d"),
+    low30dCents: integer("low_30d_cents"),
+    high30dCents: integer("high_30d_cents"),
+    rawItemsJson: text("raw_items_json"), // full items array
+    fetchedAt: text("fetched_at"),
+    source: text("source").notNull().default("sold-comps"),
+  },
+  (t) => ({
+    keyUnq: uniqueIndex("sold_comps_key_unq").on(t.setId, t.insertSetId, t.cardNumber, t.playerId, t.gradeFilter),
+  })
+);
+
+// Production-owned. One row per UTC day: fresh-call count, credit estimate, and
+// the last-seen X-Usage/X-Credit/X-RateLimit response headers (JSON).
+export const soldCompsUsage = sqliteTable("sold_comps_usage", {
+  day: text("day").primaryKey(), // YYYY-MM-DD
+  calls: integer("calls").notNull().default(0),
+  creditsUsedEstimate: integer("credits_used_estimate").notNull().default(0),
+  lastXUsageJson: text("last_x_usage_json"),
+});
+
+// Production-owned. Fresh-call log for per-IP rate limiting. Stores only a salted
+// hash of the IP (raw IP never stored); rows older than 24h are purged in-route.
+export const soldCompsRequests = sqliteTable(
+  "sold_comps_requests",
+  {
+    id: integer("id").primaryKey({ autoIncrement: true }),
+    ipHash: text("ip_hash").notNull(),
+    requestedAt: text("requested_at").notNull(), // ISO 8601
+    cacheKey: text("cache_key").notNull(),
+  },
+  (t) => ({
+    timeIdx: index("sold_comps_requests_time_idx").on(t.requestedAt),
+    ipIdx: index("sold_comps_requests_ip_idx").on(t.ipHash),
+  })
+);
+
 export const toppsSets = sqliteTable("topps_sets", {
   id: integer("id").primaryKey({ autoIncrement: true }),
   name: text("name").notNull(),

@@ -164,6 +164,44 @@ async function createSchema() {
       source TEXT NOT NULL
     )`,
     "CREATE INDEX IF NOT EXISTS idx_consent_events_consent_id ON consent_events (consent_id)",
+    // Production-owned tables (excluded from data sync below). Ensure Turso has
+    // the schema; /api/sold-comps writes rows directly on Turso and they never
+    // need to exist locally except for dev. Prices in cents.
+    `CREATE TABLE IF NOT EXISTS sold_comps (
+      id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+      set_id INTEGER NOT NULL REFERENCES sets(id),
+      insert_set_id INTEGER NOT NULL REFERENCES insert_sets(id),
+      card_number TEXT NOT NULL,
+      player_id INTEGER NOT NULL REFERENCES players(id),
+      grade_filter TEXT NOT NULL DEFAULT 'raw',
+      keyword TEXT,
+      last_sold_price_cents INTEGER,
+      last_sold_at TEXT,
+      last_sold_url TEXT,
+      last_sold_type TEXT,
+      median_30d_cents INTEGER,
+      count_30d INTEGER,
+      low_30d_cents INTEGER,
+      high_30d_cents INTEGER,
+      raw_items_json TEXT,
+      fetched_at TEXT,
+      source TEXT NOT NULL DEFAULT 'sold-comps'
+    )`,
+    "CREATE UNIQUE INDEX IF NOT EXISTS sold_comps_key_unq ON sold_comps (set_id, insert_set_id, card_number, player_id, grade_filter)",
+    `CREATE TABLE IF NOT EXISTS sold_comps_usage (
+      day TEXT PRIMARY KEY NOT NULL,
+      calls INTEGER NOT NULL DEFAULT 0,
+      credits_used_estimate INTEGER NOT NULL DEFAULT 0,
+      last_x_usage_json TEXT
+    )`,
+    `CREATE TABLE IF NOT EXISTS sold_comps_requests (
+      id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+      ip_hash TEXT NOT NULL,
+      requested_at TEXT NOT NULL,
+      cache_key TEXT NOT NULL
+    )`,
+    "CREATE INDEX IF NOT EXISTS sold_comps_requests_time_idx ON sold_comps_requests (requested_at)",
+    "CREATE INDEX IF NOT EXISTS sold_comps_requests_ip_idx ON sold_comps_requests (ip_hash)",
   ];
   for (const stmt of alterStmts) {
     try {
@@ -195,7 +233,7 @@ async function createSchema() {
 // Never cleared, inserted, or verified here — pull-from-turso.ts syncs them down.
 // break_sheets / break_sheet_prices hold user-generated break sheets saved on
 // CSV export; they MUST stay here so content migrations never clobber them.
-const PROD_OWNED_TABLES = ["player_events", "break_sheets", "break_sheet_prices", "set_alerts", "ebay_box_offers", "consent_events"];
+const PROD_OWNED_TABLES = ["player_events", "break_sheets", "break_sheet_prices", "set_alerts", "ebay_box_offers", "consent_events", "sold_comps", "sold_comps_usage", "sold_comps_requests"];
 
 async function migrateData() {
   // Disable foreign key checks for bulk migration

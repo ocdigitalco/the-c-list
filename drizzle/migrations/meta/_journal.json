@@ -148,6 +148,13 @@
       "when": 1795000000000,
       "tag": "0023_consent_events",
       "breakpoints": true
+    },
+    {
+      "idx": 24,
+      "version": "6",
+      "when": 1797000000000,
+      "tag": "0024_sold_comps",
+      "breakpoints": true
     }
   ]
 }

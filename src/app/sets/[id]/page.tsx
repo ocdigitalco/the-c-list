@@ -308,15 +308,43 @@ export default async function V2SetPage({
       setId
     );
     const appRows = await rawQuery.all<{
-      aid: number; insert_set_id: number; code: string; player: string; player_ref: string; team: string | null; is_rookie: number; formats: string | null;
+      aid: number; insert_set_id: number; player_id: number; code: string; player: string; player_ref: string; team: string | null; is_rookie: number; formats: string | null;
     }>(
-      `SELECT pa.id AS aid, pa.insert_set_id, pa.card_number AS code, p.name AS player,
+      `SELECT pa.id AS aid, pa.insert_set_id, pa.player_id, pa.card_number AS code, p.name AS player,
               COALESCE(NULLIF(p.slug, ''), CAST(p.id AS TEXT)) AS player_ref,
               pa.team, pa.is_rookie, pa.formats
        FROM player_appearances pa JOIN players p ON p.id = pa.player_id
        WHERE pa.insert_set_id IN (${ph}) ORDER BY pa.insert_set_id, pa.id`,
       ...insertSetIds
     );
+    // Cached sold-comp summaries for this set's rows (one query, no API calls).
+    // Guarded by the feature flag; the table may not exist in every environment,
+    // so a failure degrades to "no cache" (every row renders State 1) rather than
+    // breaking the page. Keyed by `${insert_set_id}|${card_number}|${player_id}`.
+    const soldCompsEnabled = process.env.SOLD_COMPS_ENABLED === "true";
+    const lastSoldBy = new Map<string, { priceCents: number; soldAt: string | null; url: string | null; type: "auction" | "bin" | "best_offer" | null }>();
+    if (soldCompsEnabled) {
+      try {
+        const scRows = await rawQuery.all<{
+          insert_set_id: number; card_number: string; player_id: number;
+          last_sold_price_cents: number | null; last_sold_at: string | null; last_sold_url: string | null; last_sold_type: string | null;
+        }>(
+          `SELECT insert_set_id, card_number, player_id, last_sold_price_cents, last_sold_at, last_sold_url, last_sold_type
+           FROM sold_comps WHERE set_id = ? AND grade_filter = 'raw'`,
+          setId
+        );
+        for (const r of scRows) {
+          if (r.last_sold_price_cents == null) continue; // priced-but-no-sales row → stays State 1
+          const t = r.last_sold_type;
+          lastSoldBy.set(`${r.insert_set_id}|${r.card_number}|${r.player_id}`, {
+            priceCents: r.last_sold_price_cents,
+            soldAt: r.last_sold_at,
+            url: r.last_sold_url,
+            type: t === "auction" || t === "bin" || t === "best_offer" ? t : null,
+          });
+        }
+      } catch { /* table absent / query failed → no cached summaries */ }
+    }
     // Co-subjects per appearance (multi-subject cards): name + link ref, in link order.
     const coRows = await rawQuery.all<{ appearance_id: number; name: string; ref: string }>(
       `SELECT acp.appearance_id, cp.name, COALESCE(NULLIF(cp.slug, ''), CAST(cp.id AS TEXT)) AS ref
@@ -335,10 +363,15 @@ export default async function V2SetPage({
       `SELECT insert_set_id, name, print_run, note, exclusivity FROM parallels WHERE insert_set_id IN (${ph}) ORDER BY insert_set_id, id`,
       ...insertSetIds
     );
-    const appsBy = new Map<number, { code: string; player: string; playerRef: string; team: string | null; isRookie: boolean; formats: string | null; coPlayers: { name: string; ref: string }[] }[]>();
+    const appsBy = new Map<number, SubsetChecklist["cards"]>();
     for (const a of appRows) {
       if (!appsBy.has(a.insert_set_id)) appsBy.set(a.insert_set_id, []);
-      appsBy.get(a.insert_set_id)!.push({ code: a.code, player: a.player, playerRef: a.player_ref, team: a.team, isRookie: !!a.is_rookie, formats: a.formats ?? null, coPlayers: coBy.get(a.aid) ?? [] });
+      appsBy.get(a.insert_set_id)!.push({
+        code: a.code, player: a.player, playerRef: a.player_ref, team: a.team, isRookie: !!a.is_rookie,
+        formats: a.formats ?? null, coPlayers: coBy.get(a.aid) ?? [],
+        insertSetId: a.insert_set_id, playerId: a.player_id,
+        lastSold: soldCompsEnabled ? (lastSoldBy.get(`${a.insert_set_id}|${a.code}|${a.player_id}`) ?? null) : undefined,
+      });
     }
     const parsBy = new Map<number, { name: string; printRun: number | null; note: string | null; exclusivity: string | null }[]>();
     for (const p of parRows) {
@@ -648,6 +681,7 @@ export default async function V2SetPage({
       hasBoxConfig={!!setRow.boxConfig}
       hasPackOdds={!!setRow.packOdds}
       subsets={subsetChecklists}
+      soldCompsEnabled={process.env.SOLD_COMPS_ENABLED === "true"}
       relatedLinks={relatedLinks}
       boxConfig={setRow.boxConfig ?? null}
       boxOffers={boxOffers}

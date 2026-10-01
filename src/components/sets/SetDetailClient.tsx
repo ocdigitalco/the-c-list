@@ -17,6 +17,7 @@ import { SetOddsAlertForm } from "@/components/SetOddsAlertForm";
 import { getTeamLogo } from "@/lib/utils/teamLogo";
 import { findOddsKey } from "@/lib/oddsUtils";
 import { SubsetCard } from "./SubsetCard";
+import { LastSoldControl } from "./LastSoldControl";
 import { SealedBoxOffers, type SealedBoxData } from "./SealedBoxOffers";
 import type { ParallelRowData } from "./ParallelTable";
 
@@ -95,6 +96,8 @@ export interface SetDetailClientProps {
   relatedLinks?: RelatedLink[];
   /** Per-subset checklists for the card-type tabs. */
   subsets?: SubsetChecklist[];
+  /** Sold-comps "Last sold" feature flag (SOLD_COMPS_ENABLED). Off → no control renders. */
+  soldCompsEnabled?: boolean;
 }
 
 export interface RelatedLink {
@@ -104,13 +107,28 @@ export interface RelatedLink {
   description: string;
 }
 
+/** Cached eBay sold-comp summary for a checklist row (State 2). */
+export interface LastSoldSummary {
+  priceCents: number;
+  soldAt: string | null; // YYYY-MM-DD
+  url: string | null;
+  type: "auction" | "bin" | "best_offer" | null;
+}
+
 export interface SubsetChecklist {
   name: string;
   isAutograph: boolean;
   isBase: boolean;
   isRelic: boolean;
   isBooklet: boolean;
-  cards: { code: string; player: string; playerRef?: string; team: string | null; isRookie: boolean; formats?: string | null; coPlayers?: { name: string; ref: string }[] }[];
+  cards: {
+    code: string; player: string; playerRef?: string; team: string | null; isRookie: boolean;
+    formats?: string | null; coPlayers?: { name: string; ref: string }[];
+    // Identity for the sold-comps cache key / POST (present when the feature is on).
+    insertSetId?: number; playerId?: number;
+    // Cached sold-comp summary, or null when nothing is cached yet (State 1).
+    lastSold?: LastSoldSummary | null;
+  }[];
   parallels: { name: string; printRun: number | null; note?: string | null; exclusivity?: string | null }[];
 }
 
@@ -1276,12 +1294,17 @@ function chipsFor(s: SubsetChecklist, tab: CardTab): { label: string; accent?: b
 
 /** One subset on the set page: builds rows + checklist, delegates rendering to the
  *  shared SubsetCard (no shopLink → 3-column table, identical to before). */
-function SubsetSection({ subset, tab, showNumbered, oddsFor, setId, setSlug }: {
+function SubsetSection({ subset, tab, showNumbered, oddsFor, setId, setSlug, soldCompsEnabled }: {
   subset: SubsetChecklist; tab: CardTab;
   showNumbered: boolean;
   oddsFor: (parallelName: string) => { denom: number; format: string | null } | null;
-  setId: number; setSlug?: string;
+  setId: number; setSlug?: string; soldCompsEnabled?: boolean;
 }) {
+  // Attribution footer shows once any row in THIS table is priced — on load
+  // (a cached summary) or after a click (bumps the counter).
+  const [pricedBump, setPricedBump] = useState(0);
+  const initiallyPriced = soldCompsEnabled && subset.cards.some((c) => c.lastSold?.priceCents != null);
+  const showAttribution = !!soldCompsEnabled && (initiallyPriced || pricedBump > 0);
   const chips = chipsFor(subset, tab);
   const pars = subset.parallels;
   const tableRows: ParallelRowData[] = pars.map((p) => {
@@ -1342,9 +1365,24 @@ function SubsetSection({ subset, tab, showNumbered, oddsFor, setId, setSlug }: {
             }}>RC</span>
           )}
           {c.team && <span style={{ fontSize: 13, color: "var(--brand-slate)", flexShrink: 0, textAlign: "right" }}>{c.team}</span>}
+          {soldCompsEnabled && c.insertSetId != null && c.playerId != null && (
+            <LastSoldControl
+              setId={setId}
+              insertSetId={c.insertSetId}
+              cardNumber={c.code}
+              playerId={c.playerId}
+              initial={c.lastSold ?? null}
+              onPriced={() => setPricedBump((n) => n + 1)}
+            />
+          )}
         </div>
         );
       })}
+      {showAttribution && (
+        <div style={{ padding: "6px 12px", fontFamily: FONT_MONO, fontSize: 9, color: "var(--brand-slate)", borderTop: "1px solid var(--brand-line)" }}>
+          Sold prices from eBay sold listings via sold-comps
+        </div>
+      )}
     </div>
   );
 
@@ -1361,11 +1399,11 @@ function SubsetSection({ subset, tab, showNumbered, oddsFor, setId, setSlug }: {
   );
 }
 
-function CardTypeTabContent({ tab, subsets, hasNumberedParallels, oddsResolver, setId, setSlug }: {
+function CardTypeTabContent({ tab, subsets, hasNumberedParallels, oddsResolver, setId, setSlug, soldCompsEnabled }: {
   tab: CardTab; subsets: SubsetChecklist[];
   hasNumberedParallels: boolean;
   oddsResolver: (subsetName: string, parallelName: string) => { denom: number; format: string | null } | null;
-  setId: number; setSlug?: string;
+  setId: number; setSlug?: string; soldCompsEnabled?: boolean;
 }) {
   const members = subsets.filter((s) => subsetInTab(s, tab));
   if (members.length === 0) return <EmptyTab label="No cards in this category" />;
@@ -1380,6 +1418,7 @@ function CardTypeTabContent({ tab, subsets, hasNumberedParallels, oddsResolver, 
           oddsFor={(parallelName) => oddsResolver(s.name, parallelName)}
           setId={setId}
           setSlug={setSlug}
+          soldCompsEnabled={soldCompsEnabled}
         />
       ))}
     </div>
@@ -1394,7 +1433,7 @@ export function SetDetailClient({
   subjectLabel: subjectLabelProp, teamLabel: teamLabelProp,
   hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds,
   boxConfig, boxOffers, packOdds, entries, hasTeamData, breakSheetPlayers, parallelsList, autographSubsetNames, featuredArticle,
-  aeoSummary, faqs, cardImages, toppsUrl, relatedLinks, subsets = [],
+  aeoSummary, faqs, cardImages, toppsUrl, relatedLinks, subsets = [], soldCompsEnabled = false,
 }: SetDetailClientProps) {
   const subjectLabel = subjectLabelProp ?? "Athletes";
   const teamLabel = teamLabelProp ?? "Team";
@@ -1592,7 +1631,7 @@ export function SetDetailClient({
                 featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} cardImages={cardImages} toppsUrl={toppsUrl} relatedLinks={relatedLinks} subsets={subsets} packOdds={packOdds} />
             ) : (
               <CardTypeTabContent tab={activeTab as CardTab} subsets={subsets}
-                hasNumberedParallels={hasNumberedParallels} oddsResolver={oddsResolver} setId={setId} setSlug={setSlug ?? undefined} />
+                hasNumberedParallels={hasNumberedParallels} oddsResolver={oddsResolver} setId={setId} setSlug={setSlug ?? undefined} soldCompsEnabled={soldCompsEnabled} />
             )}
           </div>
         </div>
@@ -1694,7 +1733,7 @@ export function SetDetailClient({
               featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} cardImages={cardImages} toppsUrl={toppsUrl} relatedLinks={relatedLinks} subsets={subsets} packOdds={packOdds} />
           ) : (
             <CardTypeTabContent tab={activeTab as CardTab} subsets={subsets}
-              hasNumberedParallels={hasNumberedParallels} oddsResolver={oddsResolver} setId={setId} setSlug={setSlug ?? undefined} />
+              hasNumberedParallels={hasNumberedParallels} oddsResolver={oddsResolver} setId={setId} setSlug={setSlug ?? undefined} soldCompsEnabled={soldCompsEnabled} />
           )}
         </div>
 
