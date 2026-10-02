@@ -1,31 +1,35 @@
 /**
- * Cover-image gate for the set-build flow.
+ * Cover-image gate.
  *
- * For each set in range, asserts:
- *   1. sample_image_url is non-NULL and non-empty;
- *   2. the file it points at exists under public/;
- *   3. the file's magic-byte signature matches its extension
- *      (.jpg/.jpeg → JPEG, .png → PNG, .webp → WebP).
+ * For a local cover (sample_image_url begins with "/"), asserts the file exists
+ * under public/ and its magic-byte signature matches its extension
+ * (.jpg/.jpeg → JPEG, .png → PNG, .webp → WebP). This is what caught set 885
+ * shipping a WebP saved as .jpg.
  *
- * Usage:
- *   npx tsx scripts/check-cover-images.ts            # all visible sets
- *   npx tsx scripts/check-cover-images.ts 880 885    # inclusive id range
+ * Two modes:
+ *   • prebuild (no args): checks only local-file covers among VISIBLE sets.
+ *     NULL/empty and remote (http…) covers are skipped — most of the existing
+ *     catalog stores NULL or a remote URL, so failing those would break every
+ *     build. Fails only on a broken local cover.
+ *   • strict range (two ids): `npx tsx scripts/check-cover-images.ts 880 885`
+ *     — for a newly built set every cover must be a valid LOCAL file, so here
+ *     NULL/empty AND remote URLs also fail. Use this in the set-build flow.
  *
- * Exits non-zero if any checked set fails, so it can gate a set build.
+ * Exits non-zero if any checked set fails.
  */
 import Database from "better-sqlite3";
 import { readSync, openSync, closeSync, existsSync } from "fs";
 import path from "path";
 
 const db = new Database("the-c-list.db", { readonly: true });
-
 const [lo, hi] = process.argv.slice(2).map((n) => parseInt(n, 10));
-const rows = (lo && hi
+const strict = Number.isInteger(lo) && Number.isInteger(hi);
+
+const rows = (strict
   ? db.prepare("SELECT id, slug, sample_image_url FROM sets WHERE id BETWEEN ? AND ? ORDER BY id").all(lo, hi)
   : db.prepare("SELECT id, slug, sample_image_url FROM sets WHERE is_visible = 1 ORDER BY id").all()
 ) as { id: number; slug: string | null; sample_image_url: string | null }[];
 
-/** Read the leading bytes and classify the image signature. */
 function signatureOf(file: string): "jpeg" | "png" | "webp" | "unknown" {
   const fd = openSync(file, "r");
   try {
@@ -37,22 +41,33 @@ function signatureOf(file: string): "jpeg" | "png" | "webp" | "unknown" {
     return "unknown";
   } finally { closeSync(fd); }
 }
-
 const EXT_SIG: Record<string, string> = { ".jpg": "jpeg", ".jpeg": "jpeg", ".png": "png", ".webp": "webp" };
 
-let failures = 0;
+let failures = 0, checked = 0, skippedNull = 0, skippedRemote = 0;
 for (const r of rows) {
   const url = (r.sample_image_url ?? "").trim();
-  if (!url) { console.log(`FAIL  ${r.id} ${r.slug} — sample_image_url is NULL/empty`); failures++; continue; }
+  if (!url) {
+    if (strict) { console.log(`FAIL  ${r.id} ${r.slug} — sample_image_url is NULL/empty`); failures++; }
+    else skippedNull++;
+    continue;
+  }
+  if (/^https?:\/\//i.test(url)) {
+    if (strict) { console.log(`FAIL  ${r.id} ${r.slug} — remote cover URL (expected a local /sets file): ${url}`); failures++; }
+    else skippedRemote++;
+    continue;
+  }
+  checked++;
   const file = path.join("public", url.replace(/^\//, ""));
   if (!existsSync(file)) { console.log(`FAIL  ${r.id} ${r.slug} — file not found: ${file}`); failures++; continue; }
   const ext = path.extname(url).toLowerCase();
   const want = EXT_SIG[ext];
-  const sig = signatureOf(file);
   if (!want) { console.log(`FAIL  ${r.id} ${r.slug} — unsupported extension ${ext}`); failures++; continue; }
+  const sig = signatureOf(file);
   if (sig !== want) { console.log(`FAIL  ${r.id} ${r.slug} — ${ext} but bytes are ${sig}`); failures++; continue; }
-  console.log(`ok    ${r.id} ${r.slug} — ${ext} / ${sig}`);
 }
-console.log(`\n${rows.length} checked, ${failures} failed`);
+console.log(
+  `cover-image gate (${strict ? `strict ${lo}-${hi}` : "prebuild"}): ${checked} local covers checked, ${failures} failed` +
+  (strict ? "" : `; skipped ${skippedNull} NULL + ${skippedRemote} remote`)
+);
 db.close();
 process.exit(failures ? 1 : 0);

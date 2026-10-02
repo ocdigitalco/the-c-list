@@ -6,7 +6,7 @@
     "gallery:manifest": "tsx scripts/generate-card-gallery-manifest.ts",
     "predev": "tsx scripts/generate-card-gallery-manifest.ts",
     "dev": "next dev",
-    "prebuild": "tsx scripts/generate-card-gallery-manifest.ts",
+    "prebuild": "tsx scripts/generate-card-gallery-manifest.ts && tsx scripts/check-cover-images.ts",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
