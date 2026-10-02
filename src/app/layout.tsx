@@ -1,26 +1,33 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { Carter_One, Inter, JetBrains_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import { Header } from "@/components/Header";
 import { AppShell } from "@/components/AppShell";
 import { CookieConsent } from "@/components/CookieConsent";
 import "./globals.css";
 
-const geistSans = Geist({
+// All fonts self-hosted via next/font/local (latin woff2 in public/fonts/) — no
+// next/font/google network fetch at build time. CSS variable names + weights are
+// unchanged, so globals.css and all components are untouched. Geist, Geist Mono,
+// Inter and JetBrains Mono are variable fonts (one woff2 per weight range).
+const geistSans = localFont({
+  src: "../../public/fonts/geist-latin.woff2",
   variable: "--font-geist-sans",
-  subsets: ["latin"],
+  weight: "100 900",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
+const geistMono = localFont({
+  src: "../../public/fonts/geist-mono-latin.woff2",
   variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: "100 900",
+  display: "swap",
 });
 
-const inter = Inter({
+const inter = localFont({
+  src: "../../public/fonts/inter-latin.woff2",
   variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: "400 700",
+  display: "swap",
 });
 
 // Self-hosted Inter Tight (latin variable woff2) — no next/font/google network
@@ -32,16 +39,18 @@ const interTight = localFont({
   display: "swap",
 });
 
-const carterOne = Carter_One({
+const carterOne = localFont({
+  src: "../../public/fonts/carter-one-latin.woff2",
   variable: "--font-carter-one",
-  subsets: ["latin"],
-  weight: ["400"],
+  weight: "400",
+  display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const jetbrainsMono = localFont({
+  src: "../../public/fonts/jetbrains-mono-latin.woff2",
   variable: "--font-jetbrains",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: "400 700",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
