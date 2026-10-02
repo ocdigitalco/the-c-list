@@ -15,6 +15,17 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "last-sold-prices",
+    title: "Last sold prices on checklist rows",
+    date: "2026-10-01T12:00:00-07:00",
+    summary:
+      "Every card row on a set page now has a \"Last sold\" control that looks up recent eBay sold listings and shows the most recent sale price, the sale date, and a link to the listing.",
+    description: `## Last sold prices
+
+Every card row on a set page now has a **"Last sold"** control. Click it and we look up recent eBay sold listings for that card and show the most recent sale price, the sale date, and a **"View on eBay"** link to the listing. An info icon explains whether a sale was an auction, Buy It Now, or an accepted Best Offer. Once a card has been priced, every visitor sees the price with no waiting. Sold data comes from eBay sold listings via sold-comps.`,
+    tags: ["feature", "sets"],
+  },
+  {
     id: "2025-26-topps-pristine-basketball-odds",
     title: "2025-26 Topps Pristine Basketball pack odds + hit parallels added",
     date: "2026-09-30T12:00:00-07:00",
