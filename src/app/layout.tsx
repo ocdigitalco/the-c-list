@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Carter_One, Inter, Inter_Tight, JetBrains_Mono } from "next/font/google";
+import { Carter_One, Inter, JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { Header } from "@/components/Header";
 import { AppShell } from "@/components/AppShell";
 import { CookieConsent } from "@/components/CookieConsent";
@@ -22,10 +23,13 @@ const inter = Inter({
   weight: ["400", "500", "600", "700"],
 });
 
-const interTight = Inter_Tight({
+// Self-hosted Inter Tight (latin variable woff2) — no next/font/google network
+// fetch at build time. Same CSS variable so globals.css / components are unchanged.
+const interTight = localFont({
+  src: "../../public/fonts/inter-tight-latin.woff2",
   variable: "--font-inter-tight",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: "400 900",
+  display: "swap",
 });
 
 const carterOne = Carter_One({
