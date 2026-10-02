@@ -7,13 +7,15 @@
  * shipping a WebP saved as .jpg.
  *
  * Two modes:
- *   • prebuild (no args): checks only local-file covers among VISIBLE sets.
- *     NULL/empty and remote (http…) covers are skipped — most of the existing
- *     catalog stores NULL or a remote URL, so failing those would break every
- *     build. Fails only on a broken local cover.
+ *   • prebuild (no args): over VISIBLE sets. Sets with id >= NEW_SET_CUTOFF are
+ *     every set built under the current pipeline, which specify a local cover —
+ *     these must have a valid LOCAL cover (NULL/empty and remote URLs fail).
+ *     Older sets (id < cutoff) are format-checked only: a broken local cover
+ *     fails, but NULL/remote are skipped (773 of the catalog store NULL and 29
+ *     store a remote URL, so failing those would break every build).
  *   • strict range (two ids): `npx tsx scripts/check-cover-images.ts 880 885`
- *     — for a newly built set every cover must be a valid LOCAL file, so here
- *     NULL/empty AND remote URLs also fail. Use this in the set-build flow.
+ *     — every cover in range must be a valid LOCAL file (NULL/remote fail),
+ *     regardless of id. Use this in the set-build flow.
  *
  * Exits non-zero if any checked set fails.
  */
@@ -24,6 +26,9 @@ import path from "path";
 const db = new Database("the-c-list.db", { readonly: true });
 const [lo, hi] = process.argv.slice(2).map((n) => parseInt(n, 10));
 const strict = Number.isInteger(lo) && Number.isInteger(hi);
+// Sets at/after this id were all built under the current pipeline with a
+// specified local cover, so prebuild requires a valid local cover for them.
+const NEW_SET_CUTOFF = 880;
 
 const rows = (strict
   ? db.prepare("SELECT id, slug, sample_image_url FROM sets WHERE id BETWEEN ? AND ? ORDER BY id").all(lo, hi)
@@ -45,14 +50,16 @@ const EXT_SIG: Record<string, string> = { ".jpg": "jpeg", ".jpeg": "jpeg", ".png
 
 let failures = 0, checked = 0, skippedNull = 0, skippedRemote = 0;
 for (const r of rows) {
+  // Require a local cover in strict mode, or in prebuild for new-pipeline sets.
+  const requireLocal = strict || r.id >= NEW_SET_CUTOFF;
   const url = (r.sample_image_url ?? "").trim();
   if (!url) {
-    if (strict) { console.log(`FAIL  ${r.id} ${r.slug} — sample_image_url is NULL/empty`); failures++; }
+    if (requireLocal) { console.log(`FAIL  ${r.id} ${r.slug} — sample_image_url is NULL/empty`); failures++; }
     else skippedNull++;
     continue;
   }
   if (/^https?:\/\//i.test(url)) {
-    if (strict) { console.log(`FAIL  ${r.id} ${r.slug} — remote cover URL (expected a local /sets file): ${url}`); failures++; }
+    if (requireLocal) { console.log(`FAIL  ${r.id} ${r.slug} — remote cover URL (expected a local /sets file): ${url}`); failures++; }
     else skippedRemote++;
     continue;
   }
@@ -66,8 +73,8 @@ for (const r of rows) {
   if (sig !== want) { console.log(`FAIL  ${r.id} ${r.slug} — ${ext} but bytes are ${sig}`); failures++; continue; }
 }
 console.log(
-  `cover-image gate (${strict ? `strict ${lo}-${hi}` : "prebuild"}): ${checked} local covers checked, ${failures} failed` +
-  (strict ? "" : `; skipped ${skippedNull} NULL + ${skippedRemote} remote`)
+  `cover-image gate (${strict ? `strict ${lo}-${hi}` : `prebuild, require-local id>=${NEW_SET_CUTOFF}`}): ${checked} local covers checked, ${failures} failed` +
+  (strict ? "" : `; skipped ${skippedNull} NULL + ${skippedRemote} remote (all id<${NEW_SET_CUTOFF})`)
 );
 db.close();
 process.exit(failures ? 1 : 0);
