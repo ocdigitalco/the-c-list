@@ -173,6 +173,16 @@ export default async function V2SetPage({
     }
   } catch { /* related_links column may not exist yet, or invalid JSON */ }
 
+  // Optional per-set YouTube embed id/URL (added via ALTER; read defensively).
+  let videoUrl: string | null = null;
+  try {
+    const vRow = await rawQuery.get<{ video_url: string | null }>(
+      "SELECT video_url FROM sets WHERE id = ?",
+      setId
+    );
+    videoUrl = vRow?.video_url ?? null;
+  } catch { /* video_url column may not exist yet */ }
+
   // Insert set IDs
   const insertSetIdRows = await db
     .select({ id: insertSets.id })
@@ -687,6 +697,7 @@ export default async function V2SetPage({
       hasPackOdds={!!setRow.packOdds}
       subsets={subsetChecklists}
       soldCompsEnabled={process.env.SOLD_COMPS_ENABLED === "true"}
+      videoUrl={videoUrl}
       relatedLinks={relatedLinks}
       boxConfig={setRow.boxConfig ?? null}
       boxOffers={boxOffers}

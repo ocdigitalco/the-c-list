@@ -98,6 +98,17 @@ export interface SetDetailClientProps {
   subsets?: SubsetChecklist[];
   /** Sold-comps "Last sold" feature flag (SOLD_COMPS_ENABLED). Off → no control renders. */
   soldCompsEnabled?: boolean;
+  /** Optional YouTube embed id or URL rendered in the Overview below the gallery. */
+  videoUrl?: string | null;
+}
+
+/** Extract an 11-char YouTube video id from a bare id or any common YouTube URL. */
+function youTubeId(v: string | null | undefined): string | null {
+  if (!v) return null;
+  const s = v.trim();
+  if (/^[A-Za-z0-9_-]{11}$/.test(s)) return s;
+  const m = s.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([A-Za-z0-9_-]{11})/);
+  return m ? m[1] : null;
 }
 
 export interface RelatedLink {
@@ -913,7 +924,7 @@ function CardGallery({ images, setName }: { images: CardGalleryImage[]; setName:
 
 // ─── Tab: Overview ──────────────────────────────────────────────────────────
 
-function OverviewContent({ boxConfig, boxOffers, setSlug, cards, cardTypes, parallelTypes, autographs, autoParallels, totalParallels, athleteCount, releaseDate, hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds, subjectLabel = "Athletes", featuredArticle, setName, aeoSummary, faqs, cardImages, toppsUrl, relatedLinks, subsets = [], packOdds = null }: {
+function OverviewContent({ boxConfig, boxOffers, setSlug, cards, cardTypes, parallelTypes, autographs, autoParallels, totalParallels, athleteCount, releaseDate, hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds, subjectLabel = "Athletes", featuredArticle, setName, aeoSummary, faqs, cardImages, toppsUrl, relatedLinks, subsets = [], packOdds = null, videoUrl = null }: {
   boxConfig: string | null; boxOffers: SealedBoxData | null; setSlug: string; cards: number; cardTypes: number; parallelTypes: number;
   autographs: number; autoParallels: number; totalParallels: number; athleteCount: number;
   releaseDate: string | null; hasChecklist: boolean; hasNumberedParallels: boolean;
@@ -921,8 +932,9 @@ function OverviewContent({ boxConfig, boxOffers, setSlug, cards, cardTypes, para
   featuredArticle?: { slug: string; title: string; description: string; heroImage: string } | null;
   setName: string; aeoSummary?: string | null; faqs?: { q: string; a: string }[];
   cardImages?: CardGalleryImage[]; toppsUrl?: string | null; relatedLinks?: RelatedLink[];
-  subsets?: SubsetChecklist[]; packOdds?: string | null;
+  subsets?: SubsetChecklist[]; packOdds?: string | null; videoUrl?: string | null;
 }) {
+  const ytId = youTubeId(videoUrl);
   const boxRows = boxConfig ? buildBoxRows(boxConfig) : [];
   const formatHits = buildFormatHits(subsets, boxConfig, packOdds, setName);
   const allFaqs = [...(faqs ?? []), ...(formatHits?.faqs ?? [])];
@@ -933,6 +945,22 @@ function OverviewContent({ boxConfig, boxOffers, setSlug, cards, cardTypes, para
           public/sets/cards/{slug}/. Display-only horizontal scroll row. */}
       {cardImages && cardImages.length > 0 && (
         <CardGallery images={cardImages} setName={setName} />
+      )}
+
+      {/* Overview video — responsive 16:9 YouTube embed */}
+      {ytId && (
+        <section>
+          <div style={{ position: "relative", width: "100%", paddingTop: "56.25%", borderRadius: 8, overflow: "hidden", border: "1px solid var(--brand-line)", background: "var(--brand-track)" }}>
+            <iframe
+              src={`https://www.youtube.com/embed/${ytId}`}
+              title={`${setName} — box break & review`}
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }}
+            />
+          </div>
+        </section>
       )}
 
       {/* Set Summary */}
@@ -1434,7 +1462,7 @@ export function SetDetailClient({
   subjectLabel: subjectLabelProp, teamLabel: teamLabelProp,
   hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds,
   boxConfig, boxOffers, packOdds, entries, hasTeamData, breakSheetPlayers, parallelsList, autographSubsetNames, featuredArticle,
-  aeoSummary, faqs, cardImages, toppsUrl, relatedLinks, subsets = [], soldCompsEnabled = false,
+  aeoSummary, faqs, cardImages, toppsUrl, relatedLinks, subsets = [], soldCompsEnabled = false, videoUrl = null,
 }: SetDetailClientProps) {
   const subjectLabel = subjectLabelProp ?? "Athletes";
   const teamLabel = teamLabelProp ?? "Team";
@@ -1629,7 +1657,7 @@ export function SetDetailClient({
                 totalParallels={totalParallels} athleteCount={athleteCount} releaseDate={releaseDate}
                 hasChecklist={hasChecklist} hasNumberedParallels={hasNumberedParallels}
                 hasBoxConfig={hasBoxConfig} hasPackOdds={hasPackOdds} subjectLabel={subjectLabel}
-                featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} cardImages={cardImages} toppsUrl={toppsUrl} relatedLinks={relatedLinks} subsets={subsets} packOdds={packOdds} />
+                featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} cardImages={cardImages} toppsUrl={toppsUrl} relatedLinks={relatedLinks} subsets={subsets} packOdds={packOdds} videoUrl={videoUrl} />
             ) : (
               <CardTypeTabContent tab={activeTab as CardTab} subsets={subsets}
                 hasNumberedParallels={hasNumberedParallels} oddsResolver={oddsResolver} setId={setId} setSlug={setSlug ?? undefined} soldCompsEnabled={soldCompsEnabled} />
@@ -1731,7 +1759,7 @@ export function SetDetailClient({
               totalParallels={totalParallels} athleteCount={athleteCount} releaseDate={releaseDate}
               hasChecklist={hasChecklist} hasNumberedParallels={hasNumberedParallels}
               hasBoxConfig={hasBoxConfig} hasPackOdds={hasPackOdds} subjectLabel={subjectLabel}
-              featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} cardImages={cardImages} toppsUrl={toppsUrl} relatedLinks={relatedLinks} subsets={subsets} packOdds={packOdds} />
+              featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} cardImages={cardImages} toppsUrl={toppsUrl} relatedLinks={relatedLinks} subsets={subsets} packOdds={packOdds} videoUrl={videoUrl} />
           ) : (
             <CardTypeTabContent tab={activeTab as CardTab} subsets={subsets}
               hasNumberedParallels={hasNumberedParallels} oddsResolver={oddsResolver} setId={setId} setSlug={setSlug ?? undefined} soldCompsEnabled={soldCompsEnabled} />

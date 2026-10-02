@@ -117,6 +117,7 @@ async function createSchema() {
     "ALTER TABLE insert_sets ADD COLUMN is_autograph INTEGER NOT NULL DEFAULT 0",
     "ALTER TABLE sets ADD COLUMN topps_url TEXT",
     "ALTER TABLE sets ADD COLUMN related_links TEXT",
+    "ALTER TABLE sets ADD COLUMN video_url TEXT",
     "ALTER TABLE insert_sets ADD COLUMN is_base INTEGER NOT NULL DEFAULT 0",
     "ALTER TABLE insert_sets ADD COLUMN is_relic INTEGER NOT NULL DEFAULT 0",
     "ALTER TABLE insert_sets ADD COLUMN is_booklet INTEGER NOT NULL DEFAULT 0",

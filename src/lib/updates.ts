@@ -15,6 +15,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-chrome-star-wars-checklist",
+    title: "2026 Topps Chrome Star Wars checklist added",
+    date: "2026-10-01T12:00:00-07:00",
+    summary:
+      "2026 Topps Chrome Star Wars: 29 subsets and 1,482 cards — 182 actor autographs, 41 duo and triple autographs, 173 sketch artists, and the 200-card Aurebesh, HothFractor, and Printing Plate sets — with full pack odds for Hobby, Breaker Delight, Value Blaster, and Sapphire.",
+    description: `## 2026 Topps Chrome Star Wars
+
+Added the full **2026 Topps Chrome Star Wars** checklist: **29 subsets, 1,482 cards**. The 200-card Base set is joined by its three parallel-style 200-card companions — **Aurebesh**, the /5 **HothFractor**, and the 1/1 **Printing Plate Book Cards** — plus inserts spanning Andor Season 2, Star Wars: Visions Season 3, The Mandalorian & Grogu, Oblivion, Cosmic Crystals, Galaxy's Cutest, and more.
+
+On the hit side: **182 Characters Autographs** (signed by the actors), the **Andor / Mando & Grogu / Visions** autograph subsets, **22 Duo** and **19 Triple** autographs, and **173 sketch artists**. Every numbered parallel carries its print run and the full Refractor ladder through SuperFractor 1/1, with **Breaker Delight–exclusive** Geometric parallels, **Value-exclusive** RayWave, and the **Sapphire-exclusive** tiers flagged.
+
+Full pack odds are attached across **Hobby, Breaker Delight, Value Blaster, and Sapphire** (451 odds figures). The **Super Box Design Variation** checklists and the **Kyber Carvings** Sapphire subsets will follow when Topps publishes them.`,
+    tags: ["checklist", "odds", "box-config"],
+    setId: 885,
+  },
+  {
     id: "last-sold-prices",
     title: "Last sold prices on checklist rows",
     date: "2026-10-01T12:00:00-07:00",

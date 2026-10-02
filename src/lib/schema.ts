@@ -12,6 +12,7 @@ export const sets = sqliteTable("sets", {
   packOdds: text("pack_odds"),
   boxConfig: text("box_config"),
   releaseDate: text("release_date"),
+  videoUrl: text("video_url"), // optional YouTube embed id/URL shown in the Overview
   // slug: text("slug"), // Added via ALTER TABLE, not in Drizzle schema to avoid query errors on Turso pre-migration
 });
 
