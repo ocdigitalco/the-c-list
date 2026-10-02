@@ -6,6 +6,12 @@
  * (.jpg/.jpeg → JPEG, .png → PNG, .webp → WebP). This is what caught set 885
  * shipping a WebP saved as .jpg.
  *
+ * DB resolution mirrors src/lib/db.ts: Turso via @libsql/client when
+ * TURSO_DATABASE_URL and TURSO_AUTH_TOKEN are set (the Vercel build env), else a
+ * local better-sqlite3 file. If NEITHER is available (e.g. a CI checkout with no
+ * DB), it prints "cover check skipped: no database" and exits 0 so a missing DB
+ * never fails the build. Whenever a DB is reachable the gate runs strictly.
+ *
  * Two modes:
  *   • prebuild (no args): over VISIBLE sets. Sets with id >= NEW_SET_CUTOFF are
  *     every set built under the current pipeline, which specify a local cover —
@@ -19,21 +25,42 @@
  *
  * Exits non-zero if any checked set fails.
  */
-import Database from "better-sqlite3";
 import { readSync, openSync, closeSync, existsSync } from "fs";
 import path from "path";
 
-const db = new Database("the-c-list.db", { readonly: true });
 const [lo, hi] = process.argv.slice(2).map((n) => parseInt(n, 10));
 const strict = Number.isInteger(lo) && Number.isInteger(hi);
 // Sets at/after this id were all built under the current pipeline with a
 // specified local cover, so prebuild requires a valid local cover for them.
 const NEW_SET_CUTOFF = 880;
+const LOCAL_DB = "the-c-list.db";
 
-const rows = (strict
-  ? db.prepare("SELECT id, slug, sample_image_url FROM sets WHERE id BETWEEN ? AND ? ORDER BY id").all(lo, hi)
-  : db.prepare("SELECT id, slug, sample_image_url FROM sets WHERE is_visible = 1 ORDER BY id").all()
-) as { id: number; slug: string | null; sample_image_url: string | null }[];
+interface Row { id: number; slug: string | null; sample_image_url: string | null }
+
+/** Load the sets to check, from Turso or local SQLite — same precedence as the app. */
+async function loadRows(): Promise<Row[] | null> {
+  const sql = strict
+    ? "SELECT id, slug, sample_image_url FROM sets WHERE id BETWEEN ? AND ? ORDER BY id"
+    : "SELECT id, slug, sample_image_url FROM sets WHERE is_visible = 1 ORDER BY id";
+  const args: (number)[] = strict ? [lo, hi] : [];
+
+  if (process.env.TURSO_DATABASE_URL && process.env.TURSO_AUTH_TOKEN) {
+    const { createClient } = await import("@libsql/client");
+    const db = createClient({ url: process.env.TURSO_DATABASE_URL, authToken: process.env.TURSO_AUTH_TOKEN });
+    try {
+      const res = await db.execute({ sql, args });
+      return res.rows as unknown as Row[];
+    } finally { db.close(); }
+  }
+  if (existsSync(LOCAL_DB)) {
+    const Database = (await import("better-sqlite3")).default;
+    const db = new Database(LOCAL_DB, { readonly: true });
+    try {
+      return db.prepare(sql).all(...args) as Row[];
+    } finally { db.close(); }
+  }
+  return null; // no database reachable
+}
 
 function signatureOf(file: string): "jpeg" | "png" | "webp" | "unknown" {
   const fd = openSync(file, "r");
@@ -48,33 +75,42 @@ function signatureOf(file: string): "jpeg" | "png" | "webp" | "unknown" {
 }
 const EXT_SIG: Record<string, string> = { ".jpg": "jpeg", ".jpeg": "jpeg", ".png": "png", ".webp": "webp" };
 
-let failures = 0, checked = 0, skippedNull = 0, skippedRemote = 0;
-for (const r of rows) {
-  // Require a local cover in strict mode, or in prebuild for new-pipeline sets.
-  const requireLocal = strict || r.id >= NEW_SET_CUTOFF;
-  const url = (r.sample_image_url ?? "").trim();
-  if (!url) {
-    if (requireLocal) { console.log(`FAIL  ${r.id} ${r.slug} — sample_image_url is NULL/empty`); failures++; }
-    else skippedNull++;
-    continue;
+async function main() {
+  const rows = await loadRows();
+  if (rows === null) {
+    console.log("cover check skipped: no database");
+    process.exit(0);
   }
-  if (/^https?:\/\//i.test(url)) {
-    if (requireLocal) { console.log(`FAIL  ${r.id} ${r.slug} — remote cover URL (expected a local /sets file): ${url}`); failures++; }
-    else skippedRemote++;
-    continue;
+
+  let failures = 0, checked = 0, skippedNull = 0, skippedRemote = 0;
+  for (const r of rows) {
+    // Require a local cover in strict mode, or in prebuild for new-pipeline sets.
+    const requireLocal = strict || r.id >= NEW_SET_CUTOFF;
+    const url = (r.sample_image_url ?? "").trim();
+    if (!url) {
+      if (requireLocal) { console.log(`FAIL  ${r.id} ${r.slug} — sample_image_url is NULL/empty`); failures++; }
+      else skippedNull++;
+      continue;
+    }
+    if (/^https?:\/\//i.test(url)) {
+      if (requireLocal) { console.log(`FAIL  ${r.id} ${r.slug} — remote cover URL (expected a local /sets file): ${url}`); failures++; }
+      else skippedRemote++;
+      continue;
+    }
+    checked++;
+    const file = path.join("public", url.replace(/^\//, ""));
+    if (!existsSync(file)) { console.log(`FAIL  ${r.id} ${r.slug} — file not found: ${file}`); failures++; continue; }
+    const ext = path.extname(url).toLowerCase();
+    const want = EXT_SIG[ext];
+    if (!want) { console.log(`FAIL  ${r.id} ${r.slug} — unsupported extension ${ext}`); failures++; continue; }
+    const sig = signatureOf(file);
+    if (sig !== want) { console.log(`FAIL  ${r.id} ${r.slug} — ${ext} but bytes are ${sig}`); failures++; continue; }
   }
-  checked++;
-  const file = path.join("public", url.replace(/^\//, ""));
-  if (!existsSync(file)) { console.log(`FAIL  ${r.id} ${r.slug} — file not found: ${file}`); failures++; continue; }
-  const ext = path.extname(url).toLowerCase();
-  const want = EXT_SIG[ext];
-  if (!want) { console.log(`FAIL  ${r.id} ${r.slug} — unsupported extension ${ext}`); failures++; continue; }
-  const sig = signatureOf(file);
-  if (sig !== want) { console.log(`FAIL  ${r.id} ${r.slug} — ${ext} but bytes are ${sig}`); failures++; continue; }
+  console.log(
+    `cover-image gate (${strict ? `strict ${lo}-${hi}` : `prebuild, require-local id>=${NEW_SET_CUTOFF}`}): ${checked} local covers checked, ${failures} failed` +
+    (strict ? "" : `; skipped ${skippedNull} NULL + ${skippedRemote} remote (all id<${NEW_SET_CUTOFF})`)
+  );
+  process.exit(failures ? 1 : 0);
 }
-console.log(
-  `cover-image gate (${strict ? `strict ${lo}-${hi}` : `prebuild, require-local id>=${NEW_SET_CUTOFF}`}): ${checked} local covers checked, ${failures} failed` +
-  (strict ? "" : `; skipped ${skippedNull} NULL + ${skippedRemote} remote (all id<${NEW_SET_CUTOFF})`)
-);
-db.close();
-process.exit(failures ? 1 : 0);
+
+main().catch((e) => { console.error("cover-image gate error:", e); process.exit(1); });
