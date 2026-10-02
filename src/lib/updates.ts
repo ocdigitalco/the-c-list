@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-bowman-football-print-runs",
+    title: "2026 Bowman Football print runs + Chrome RetroFractor Autographs",
+    date: "2026-10-02T12:00:00-07:00",
+    summary:
+      "2026 Bowman Football: print runs added for every numbered parallel across all 47 subsets, and the previously sheet-only Chrome RetroFractor Autographs (Joe Anoa'I) is now in the checklist with its odds.",
+    description: `## 2026 Bowman Football — print runs + a reconciled subset
+
+Every numbered parallel in **2026 Bowman Football** now carries its print run — **447 numbered parallels** across all 47 subsets, from the base Paper and Chrome ladders (Refractor /499 down to SuperFractor 1/1) through the Reptilian, Shimmer, X-Fractor, Geometric, Mojo, and Crystal lines. Unnumbered tiers (Speckle, Mini-Diamond, the Geometric/Mojo/Refractor parents, and the parallel-free Etched In Glass variations) stay unnumbered.
+
+We also reconciled the one subset held back during the odds pass: **Chrome RetroFractor Autographs** (Joe Anoa'I) is now in the checklist with its Gold /50 · Orange /25 · Black /10 · Red /5 · SuperFractor 1/1 parallels and full Hobby / FDI / Breaker Delight / Jumbo / Value odds. Joe Anoa'I was also added to the non-autograph Base Chrome RetroFractor subset alongside Walter Payton, matching the product listing.`,
+    tags: ["checklist", "odds"],
+    setId: 874,
+  },
+  {
     id: "2026-topps-chrome-star-wars-checklist",
     title: "2026 Topps Chrome Star Wars checklist added",
     date: "2026-10-01T12:00:00-07:00",
