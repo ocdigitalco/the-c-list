@@ -15,6 +15,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-chrome-formula-1-parallels",
+    title: "2026 Topps Chrome Formula 1 box config + numbered parallels",
+    date: "2026-10-03T12:00:00-07:00",
+    summary:
+      "2026 Topps Chrome Formula 1: release dates (FDI Oct 9, Hobby Oct 15), full box configuration for Hobby, FDI, Mega, Value Blaster, and Hongbao, and numbered parallels across every subset — including Hobby-only Prism, Mega-only Checker Flag, and Blaster-only RayWave tiers.",
+    description: `## 2026 Topps Chrome Formula 1 — box config + parallels
+
+Added the configuration for **2026 Topps Chrome Formula 1**: two release dates — **First Day Issue October 9, Hobby October 15, 2026** — and full box breakdowns for **Hobby, First Day Issue, Mega, Value Blaster, and Hongbao**.
+
+Every subset now carries its numbered parallels: the base Refractor ladder (Pink /250 down to Red /5, Full Grid /22, Printing Plates, SuperFractor 1/1) plus the **Hobby-only Prism**, **Mega-only Checker Flag**, and **Value-Blaster-only RayWave** tiers, applied across all eleven base subsets and the insert and autograph sets. Retail-exclusive inserts (Art du Grand Prix, Home Straight, Suit Up, The Grid) are flagged Mega + Value Blaster. Three Red /10 print runs are stored as Topps listed them (likely typos for /5) with a note.
+
+Still to come: the **FDI Molten Mercury** and **Hongbao** (Red / Gold Flash / Stealth Foil / Kaleidoscope Foil) parallel lists, pack odds, and a checklist reconcile (Base 194 vs 200, Futuro 3 vs 4, Futuro Chrome Autographs 3 vs 4) once Topps publishes the full lists.`,
+    tags: ["checklist", "box-config"],
+    setId: 878,
+  },
+  {
     id: "2026-topps-cosmic-chrome-baseball-checklist",
     title: "2026 Topps Cosmic Chrome Baseball checklist added",
     date: "2026-10-02T12:00:00-07:00",
