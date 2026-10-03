@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-cosmic-chrome-baseball-checklist",
+    title: "2026 Topps Cosmic Chrome Baseball checklist added",
+    date: "2026-10-02T12:00:00-07:00",
+    summary:
+      "2026 Topps Cosmic Chrome Baseball: 32 subsets and 890 cards — 200-card base, Constellation and Anti-Gravity variations, Dual and Triple Star Clusters, the ten-planet Planetary Pursuit inserts, five autograph sets, and Cosmic Explorers cut signatures — with Hobby and Lunar pack odds.",
+    description: `## 2026 Topps Cosmic Chrome Baseball
+
+Added the full **2026 Topps Cosmic Chrome Baseball** checklist: **32 subsets, 890 cards**. The 200-card base set is joined by the **Constellation** and **Anti-Gravity** variations, inserts spanning Stellar Stars, Forces of the Diamond, Extraterrestrial Talent, Launched Into Orbit, Stars in the Night, Stella Nova, Cosmic Dust, Mars Attacks MLB, Planetarium, StarFractor and Supernova, the **Dual** and **Triple Star Clusters** multi-player cards, and the ten-planet **Planetary Pursuit** chase (Sun 1:120 down to Pluto 1:28,000).
+
+On the hit side: five autograph sets — Cosmic Chrome, Extraterrestrial Talent, Launched Into Orbit, Stellar Stars and Star Clusters Dual autographs — plus **Cosmic Explorers Cut Signatures** of astronauts and scientists (Armstrong, Aldrin, Einstein, Sagan and more). Full **Hobby and Lunar** pack odds are attached, with the Lunar-box-exclusive **Lunar Eclipse Refractor** parallels flagged. Print runs are unnumbered for now and will follow when Topps publishes them.`,
+    tags: ["checklist", "odds", "box-config"],
+    setId: 886,
+  },
+  {
     id: "2026-bowman-football-print-runs",
     title: "2026 Bowman Football print runs + Chrome RetroFractor Autographs",
     date: "2026-10-02T12:00:00-07:00",
