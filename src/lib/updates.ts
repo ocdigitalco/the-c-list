@@ -15,6 +15,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-panini-prizm-wnba-checklist",
+    title: "2026 Panini Prizm WNBA checklist added",
+    date: "2026-10-06T12:00:00-07:00",
+    summary:
+      "2026 Panini Prizm WNBA checklist added — 200-card base with 59 Prizm parallels and print runs, autographed base Prizms, ten inserts with full Prizm ladders, and Signatures, Prizmatrix Signatures, and Throwback Signatures autographs. Panini does not publish pack odds.",
+    description: `## 2026 Panini Prizm WNBA
+
+Added the full **2026 Panini Prizm WNBA** checklist: **17 subsets, 602 cards, 211 parallels** with print runs. The **200-card base set** carries 59 Prizm parallels — from the Silver base through numbered tiers like Mojo /25, Gold /10, the Seismic, Pulsar, Velocity, and Ice families, down to Gold Vinyl and Black Finite 1/1s — plus three First Off The Line parallels (Cherry Blossom /20, Lotus Flower /3, Plum Blossom /8) and a Premium Box Set /99.
+
+Inserts span **Abstract, Color Blast, Dual Color Blast, Fearless, Fireworks, Fractal, Groovy, Kaleidoscopic, Sublime, Top Tier,** and the /15 **Top Selections**, most with their full 15-step Prizm ladder. On the signature side: autographed **Base Prizms** (Silver parent with Green, Mojo /25, Gold /10, Black /1), the **Signatures, Prizmatrix Signatures,** and **Throwback Signatures** sets, and the **Top Selections Triple Autographs** of Bueckers / Clark / Fudd /5.
+
+**Panini does not publish pack odds**, so odds stay unlisted for this product.`,
+    tags: ["checklist", "box-config"],
+    setId: 889,
+  },
+  {
     id: "2026-topps-holiday-football-checklist",
     title: "2026 Topps Holiday Football checklist added",
     date: "2026-10-05T12:00:00-07:00",
