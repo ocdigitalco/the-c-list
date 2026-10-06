@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-inception-football-checklist",
+    title: "2026 Topps Inception Football checklist added",
+    date: "2026-10-05T12:00:00-07:00",
+    summary:
+      "2026 Topps Inception Football: 16 subsets, 523 cards — a 200-card base with 50 rookies, Launch and Rookie Short Print inserts, and 13 autograph subsets including Provenance Patch, Rookie Jumbo Relic, Genesis, and the Dual Rookie Relic Autographed Book.",
+    description: `## 2026 Topps Inception Football
+
+Added the full **2026 Topps Inception Football** checklist: **16 subsets, 523 cards**. The 200-card base set (rookies 151–200 flagged) is joined by the **Launch** and **Rookie Short Prints** inserts and thirteen autograph subsets — Rookie Autographs and Variations, Inception Silver Signings, Dawn of Greatness (legends), Immersion, Charged Particles, Dual Rookie, and the NFL Draft Commissioner Combo — plus the autograph-relic hits: **Provenance Patch Autographs, Rookie Jumbo Relic Autographs, Genesis, the Dual Rookie Relic Autographed Book, and NFL First Milestone Autograph Relic**.
+
+Box configuration is set for **Hobby and First Day Issue** (one autograph per 7-card box; FDI adds a Patch Autograph /22 and FDI /18 parallels). **Parallels and pack odds are not yet published** and will follow when Topps releases them.`,
+    tags: ["checklist", "box-config"],
+    setId: 887,
+  },
+  {
     id: "2026-topps-chrome-formula-1-parallels",
     title: "2026 Topps Chrome Formula 1 box config + numbered parallels",
     date: "2026-10-03T12:00:00-07:00",
