@@ -15,6 +15,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-holiday-football-checklist",
+    title: "2026 Topps Holiday Football checklist added",
+    date: "2026-10-05T12:00:00-07:00",
+    summary:
+      "2026 Topps Holiday Football checklist added — 200-card base with Chrome, Holiday Back Short Print, and Holiday Spirit variations, four holiday inserts, 134 autographs, and Dear Santa rookie autographs. Parallels and pack odds to follow when Topps publishes them.",
+    description: `## 2026 Topps Holiday Football
+
+Added the full **2026 Topps Holiday Football** checklist: **10 subsets, 763 cards**. The **200-card base set** (rookies 151–200 flagged) is joined by three variations that reuse the base numbering — the **Chrome Variation**, the hard-signed-chase **Holiday Back Variation Short Prints**, and the **Holiday Spirit Variation** — plus four holiday inserts: **Hidden Elf, Snow Globe Moments, Deck the Fields, and Frozen Fields** (25 cards each).
+
+On the hit side: **134 Autographs** (veterans and 40 rookies) and the **Dear Santa** rookie autograph set. Box configuration is set for the **Hobby mega box** (10 cards per pack, 10 packs per box) — look for the Base Holiday Variation Short Prints.
+
+**Parallels and pack odds are not yet published** and will follow when Topps releases them.`,
+    tags: ["checklist", "box-config"],
+    setId: 888,
+  },
+  {
     id: "2026-topps-inception-football-checklist",
     title: "2026 Topps Inception Football checklist added",
     date: "2026-10-05T12:00:00-07:00",
