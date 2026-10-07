@@ -356,7 +356,7 @@ function extractMeta(name: string, sport: string) {
     restWords.pop();
     sportWords.pop();
   }
-  return { manufacturer: manufacturer.toUpperCase(), brand: restWords.join(" ").toUpperCase() || manufacturer.toUpperCase() };
+  return { manufacturer: manufacturer.toUpperCase(), manufacturerName: manufacturer, brand: restWords.join(" ").toUpperCase() || manufacturer.toUpperCase() };
 }
 
 function buildBoxRows(boxConfig: string): BoxRow[] {
@@ -981,7 +981,9 @@ function OverviewContent({ boxConfig, boxOffers, setSlug, cards, cardTypes, para
               )}
             </p>
           )}
-          {/* Topps product backlink — only when a URL is set for this set. */}
+          {/* Manufacturer product backlink — only when a URL is set for this set.
+              Label follows the set's manufacturer (derived from the name), falling
+              back to the generic word when it can't be determined. */}
           {toppsUrl && (
             <a
               href={toppsUrl}
@@ -993,7 +995,7 @@ function OverviewContent({ boxConfig, boxOffers, setSlug, cards, cardTypes, para
                 color: "var(--brand-accent)", textDecoration: "none",
               }}
             >
-              View on Topps website
+              View on {extractMeta(setName, "").manufacturerName || "manufacturer"} website
               <svg width={13} height={13} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
               </svg>

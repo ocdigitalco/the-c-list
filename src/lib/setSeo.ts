@@ -94,7 +94,8 @@ function extractYearAndManufacturer(setName: string): { year: string; manufactur
   const yearMatch = setName.match(/^\d{4}(?:-\d{2})?/);
   const year = yearMatch ? yearMatch[0] : "";
   const manMatch = setName.match(/\b(Topps|Bowman|Panini|Upper Deck|Leaf|Donruss)\b/i);
-  const manufacturer = manMatch ? manMatch[0] : "Topps";
+  // Derive from the name; do not assume Topps when no brand word is present.
+  const manufacturer = manMatch ? manMatch[0] : "";
   return { year, manufacturer };
 }
 
@@ -522,7 +523,8 @@ export async function computeSetAeo(input: SetAeoInput): Promise<SetAeoResult> {
   if (autographCount > 0) includingParts.push(`${num(autographCount)} autograph cards`);
   if (parallelTypes > 0) includingParts.push(`${num(parallelTypes)} parallel types`);
 
-  let summary = `${setName} is a ${year ? `${year} ` : ""}${manufacturer} ${sportNoun} release featuring ${num(totalCards)} cards across ${num(subsetCount)} subsets`;
+  const mfrToken = manufacturer ? `${manufacturer} ` : "";
+  let summary = `${setName} is a ${year ? `${year} ` : ""}${mfrToken}${sportNoun} release featuring ${num(totalCards)} cards across ${num(subsetCount)} subsets`;
   if (includingParts.length > 0) summary += `, including ${joinList(includingParts)}`;
   summary += ".";
   if (releaseDate) {
