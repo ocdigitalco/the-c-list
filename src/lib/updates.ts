@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-bowman-chrome-baseball-chrome-prospects-print-runs",
+    title: "2026 Bowman Chrome Baseball: Chrome Prospects print runs added",
+    date: "2026-10-06T12:00:00-07:00",
+    summary:
+      "2026 Bowman Chrome Baseball: Chrome Prospects print runs added; other subsets to follow.",
+    description: `## 2026 Bowman Chrome Baseball — Chrome Prospects print runs
+
+Added print runs to the **Bowman Chrome Prospects** parallel ladder from the Topps product listing: **48 numbered parallels**, from the base Refractor /499 down through the Reptilian, Wave, Pulsar, and Shimmer tiers to Red /5 and the SuperFractor 1/1, plus the Hobby-exclusive Pulsar/Wave/Shimmer runs and the full Breaker-Delight-exclusive Geometric ladder (Geometric /499 to Red Geometric /5). The Snack-pack food refractors (Gum Ball, Sunflower Seeds, Peanuts, Popcorn) are flagged Snack Pack, and League LogoFractor, Chrome Shimmer, X-Fractor, and the Mega Lazer stay unnumbered. The Chrome Prospect Packfractor Variation is numbered /89.
+
+The Sapphire tiers, Player Proof, and the Mega-box Mojo refractors on this subset stay unnumbered until their own listings arrive; **every other subset's print runs are still to follow**.`,
+    tags: ["odds"],
+    setId: 875,
+  },
+  {
     id: "2026-bowman-chrome-baseball-odds",
     title: "2026 Bowman Chrome Baseball pack odds added",
     date: "2026-10-06T12:00:00-07:00",
