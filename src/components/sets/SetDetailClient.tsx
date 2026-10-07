@@ -16,6 +16,7 @@ import type { CardGalleryImage } from "@/lib/cardGallery";
 import { SetOddsAlertForm } from "@/components/SetOddsAlertForm";
 import { getTeamLogo } from "@/lib/utils/teamLogo";
 import { findOddsKey } from "@/lib/oddsUtils";
+import { label as fmtBoxLabel } from "@/lib/boxLabels";
 import { SubsetCard } from "./SubsetCard";
 import { LastSoldControl } from "./LastSoldControl";
 import { SealedBoxOffers, type SealedBoxData } from "./SealedBoxOffers";
@@ -285,21 +286,6 @@ export function buildFormatHits(
   return { formats, faqs };
 }
 
-const BOX_LABEL_MAP: Record<string, string> = {
-  hobby: "Hobby", hobby_box_topper: "Box Topper", jumbo: "Jumbo", mega: "Mega", blaster: "Blaster",
-  value: "Value", fat_pack: "Fat Pack", hanger: "Hanger",
-  breakers_delight: "Breaker's Delight", first_day_issue: "First Day Issue",
-  delight: "Breaker Delight", breaker: "Breaker Delight", hobby_hybrid: "Hobby Hybrid", sapphire: "Sapphire",
-  hongbao: "Hongbao", logofractor: "Logofractor", ffnyc: "FFNYC", fdi: "First Day Issue",
-  mania: "Mania", instant: "Instant Packs",
-  value_se: "Value", value_ea: "Value", value_cee: "Value",
-  mega_se: "Mega", mega_ea: "Mega", mega_cee: "Mega",
-  hanger_se: "Hanger", hanger_ea: "Hanger", hanger_cee: "Hanger",
-};
-
-function fmtBoxLabel(key: string): string {
-  return BOX_LABEL_MAP[key] ?? key.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
-}
 
 // Order the Pack Odds column falls through when a parallel's odds live in only
 // some formats. Prefers what a typical buyer opens, so the shown value is the

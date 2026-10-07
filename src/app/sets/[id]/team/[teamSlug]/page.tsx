@@ -3,6 +3,7 @@ import { sets } from "@/lib/schema";
 import { notFound, redirect } from "next/navigation";
 import { TeamDetailClient } from "@/components/sets/TeamDetailClient";
 import { findOddsKey } from "@/lib/oddsUtils";
+import { label as boxLabel } from "@/lib/boxLabels";
 import type { PackOddsSlot, BoxFormat } from "@/components/PackOddsCalculator";
 
 export const revalidate = 3600;
@@ -243,13 +244,8 @@ export default async function TeamDetailPage({
   if (hasBoxConfig) {
     try {
       const rawBox = JSON.parse(setRow.boxConfig!);
-      const BOX_LABEL_MAP: Record<string, string> = {
-        hobby: "Hobby", jumbo: "Jumbo", hobby_jumbo: "Hobby Jumbo",
-        mega: "Mega", blaster: "Blaster", value: "Value",
-        breakers_delight: "Breaker's Delight",
-      };
       for (const [k, cfg] of Object.entries(rawBox as Record<string, Record<string, number | null>>)) {
-        const label = BOX_LABEL_MAP[k] ?? k.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+        const label = boxLabel(k);
         boxFormats.push({
           label,
           boxesPerCase: (cfg.boxes_per_case as number) ?? 8,
@@ -338,9 +334,7 @@ export default async function TeamDetailPage({
 
     if (isNestedOdds) {
       for (const [key, data] of Object.entries(rawOdds as Record<string, Record<string, unknown>>)) {
-        const label = key.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
-        const BOX_LABEL_MAP: Record<string, string> = { hobby: "Hobby", hobby_jumbo: "Hobby Jumbo", mega: "Mega", value: "Value", breakers_delight: "Breaker's Delight", delight: "Breaker Delight", breaker: "Breaker Delight" };
-        const resolvedLabel = BOX_LABEL_MAP[key] ?? label;
+        const resolvedLabel = boxLabel(key);
         if (!(resolvedLabel in packOddsSlotsByFormat)) {
           packOddsSlotsByFormat[resolvedLabel] = buildSlots(normalizeOddsObj(data));
         }

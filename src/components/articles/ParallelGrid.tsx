@@ -1,16 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
-const FORMAT_LABELS: Record<string, string> = {
-  hobby: "Hobby",
-  fdi: "FDI",
-  mega: "Mega",
-  value: "Value",
-  breakers: "Breaker's Delight",
-  sapphire: "Sapphire",
-  logofractor: "Logofractor",
-};
+import { label as formatLabel } from "@/lib/boxLabels";
 
 export function ParallelGrid({
   parallels,
@@ -58,7 +49,7 @@ export function ParallelGrid({
                 : "bg-zinc-800 text-zinc-400 border-zinc-700 hover:border-zinc-600"
             }`}
           >
-            {FORMAT_LABELS[f] ?? f}
+            {formatLabel(f)}
           </button>
         ))}
       </div>

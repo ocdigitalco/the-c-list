@@ -10,6 +10,7 @@ import { getMLBHeadshotUrl } from "@/lib/mlb-headshot";
 import { trackEvent } from "@/lib/trackEvent";
 import { trackEvent as trackGaEvent } from "@/lib/analytics";
 import { getTeamLogo } from "@/lib/utils/teamLogo";
+import { label as boxLabel } from "@/lib/boxLabels";
 import { findOddsKey, lookupOddsValue } from "@/lib/oddsUtils";
 import { SubsetCard } from "./SubsetCard";
 import { formatAvailabilityTag } from "./SetDetailClient";
@@ -372,15 +373,6 @@ function InsertSetsAccordion({ insertSets, setSlug, setId }: {
 
 // ─── Shared Odds Helpers ─────────────────────────────────────────────────────────
 
-const BOX_LABEL_MAP: Record<string, string> = {
-  hobby: "Hobby", hobby_box_topper: "Box Topper", jumbo: "Jumbo", breakers_delight: "Breaker's Delight",
-  delight: "Breaker Delight", breaker: "Breaker Delight",
-  fdi: "First Day Issue", sapphire: "Sapphire", fanatics: "Fanatics",
-  value_se: "Value", value_ea: "Value", value_cee: "Value", value: "Value",
-  mega_se: "Mega", mega_ea: "Mega", mega_cee: "Mega", mega: "Mega",
-  hanger_se: "Hanger", hanger_ea: "Hanger", hanger: "Hanger",
-};
-
 const BOX_FORMAT_ORDER = [
   { key: "hobby", label: "Hobby" },
   { key: "fdi", label: "FDI" },
@@ -447,7 +439,7 @@ function AthleteSubsetTab({ insertSets, packOddsJson, playerName, setName, setId
         if (typeof firstVal === "object" && firstVal !== null) {
           const seen = new Set<string>();
           for (const key of Object.keys(raw)) {
-            const label = BOX_LABEL_MAP[key] ?? key.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+            const label = boxLabel(key);
             if (!seen.has(label)) { seen.add(label); fmts.push({ key, label }); }
           }
         } else {

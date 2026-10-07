@@ -8,6 +8,7 @@ import {
   appearanceCoPlayers,
 } from "@/lib/schema";
 import { eq, inArray, asc, sql, and } from "drizzle-orm";
+import { label as formatBoxLabel } from "@/lib/boxLabels";
 import { notFound, redirect } from "next/navigation";
 import type { LeaderboardRow, InsertSetDetail, BoxConfigSingle, BoxConfigMulti, BoxFormatSummary } from "@/components/sets/types";
 import { findOddsKey } from "@/lib/oddsUtils";
@@ -56,40 +57,6 @@ const ODDS_KEY_OVERRIDES: Record<string, string> = {
   "Starfractor": "StarFractor",
   "Re Entry": "Re-Entry",
 };
-
-const BOX_LABEL_MAP: Record<string, string> = {
-  hobby: "Hobby",
-  jumbo: "Jumbo",
-  mega: "Mega",
-  blaster: "Blaster",
-  value: "Value",
-  fat_pack: "Fat Pack",
-  hanger: "Hanger",
-  breakers_delight: "Breaker's Delight",
-  first_day_issue: "First Day Issue",
-  delight: "Breaker Delight",
-  breaker: "Breaker Delight",
-  hobby_hybrid: "Hobby Hybrid",
-  sapphire: "Sapphire",
-  hongbao: "Hongbao",
-  logofractor: "Logofractor",
-  ffnyc: "FFNYC",
-  fdi: "First Day Issue",
-  // Retail exclusive variants (SE/EA/CEE) map to their base box type
-  value_se: "Value",
-  value_ea: "Value",
-  value_cee: "Value",
-  mega_se: "Mega",
-  mega_ea: "Mega",
-  mega_cee: "Mega",
-  hanger_se: "Hanger",
-  hanger_ea: "Hanger",
-  hanger_cee: "Hanger",
-};
-
-function formatBoxLabel(key: string): string {
-  return BOX_LABEL_MAP[key] ?? key.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
-}
 
 function isMultiConfig(cfg: BoxConfigSingle | BoxConfigMulti): cfg is BoxConfigMulti {
   const first = Object.values(cfg)[0];
@@ -405,10 +372,6 @@ export default async function V2AthletePage({
       for (const row of rows) totalAppsByIS.set(row.insert_set_id, row.total_apps);
     }
 
-    const ODDS_TO_FORMAT_LABEL: Record<string, string> = {
-      delight: "Breaker Delight",
-      breaker: "Breaker Delight",
-    };
 
     function resolvePrefix(name: string, packOddsData: Record<string, number>): string {
       if (name === "Base Set") return findOddsKey("Base Set", Object.keys(packOddsData)) ?? "Base";
@@ -463,7 +426,7 @@ export default async function V2AthletePage({
 
     if (isNestedOdds) {
       for (const [key, data] of Object.entries(rawOdds as Record<string, Record<string, unknown>>)) {
-        const label = ODDS_TO_FORMAT_LABEL[key] ?? formatBoxLabel(key);
+        const label = formatBoxLabel(key);
         // First pack_odds key for a given label wins (e.g. value_se before value_ea)
         if (!(label in packOddsSlotsByFormat)) {
           packOddsSlotsByFormat[label] = buildSlots(normalizeOddsObj(data));

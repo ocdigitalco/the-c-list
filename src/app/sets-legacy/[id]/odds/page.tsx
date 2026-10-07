@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { OddsTabView } from "./OddsTabView";
 import { normalizeOddsObj, denomToDisplay } from "@/lib/parseOdds";
+import { label as formatBoxLabel } from "@/lib/boxLabels";
 
 export const dynamic = "force-dynamic";
 
@@ -45,37 +46,6 @@ function formatFieldName(key: string): string {
     .replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
-const BOX_LABEL_MAP: Record<string, string> = {
-  hobby: "Hobby",
-  jumbo: "Jumbo",
-  mega: "Mega",
-  blaster: "Blaster",
-  value: "Value",
-  fat_pack: "Fat Pack",
-  hanger: "Hanger",
-  breakers_delight: "Breaker's Delight",
-  first_day_issue: "First Day Issue",
-  breaker: "Breaker",
-  hobby_hybrid: "Hobby Hybrid",
-  sapphire: "Sapphire",
-  hongbao: "Hongbao",
-  logofractor: "Logofractor",
-  ffnyc: "FFNYC",
-  fdi: "First Day Issue",
-  // Retail exclusive variants (SE/EA/CEE) map to their base box type
-  value_se: "Value",
-  value_ea: "Value",
-  value_cee: "Value",
-  mega_se: "Mega",
-  mega_ea: "Mega",
-  mega_cee: "Mega",
-  hanger_se: "Hanger",
-  hanger_ea: "Hanger",
-  hanger_cee: "Hanger",
-};
-function formatBoxLabel(key: string): string {
-  return BOX_LABEL_MAP[key] ?? key.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
-}
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
 

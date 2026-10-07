@@ -3,6 +3,7 @@
 import { useState, useCallback } from "react";
 import type { SimConfig, SimulationResult, BreakTrial, PackPull } from "@/lib/breakSimulatorClient";
 import { runSimulation } from "@/lib/breakSimulatorClient";
+import { label as boxLabel } from "@/lib/boxLabels";
 
 // ─── Sub-components ──────────────────────────────────────────────────────────
 
@@ -95,14 +96,6 @@ interface Props {
   highlightAthleteName?: string;
 }
 
-const BOX_LABELS: Record<string, string> = {
-  hobby: "Hobby", jumbo: "Jumbo", mega: "Mega", blaster: "Blaster",
-  value: "Value", hanger: "Hanger", breakers_delight: "Breaker's Delight",
-  delight: "Breaker Delight", breaker: "Breaker Delight",
-  first_day_issue: "First Day Issue", sapphire: "Sapphire",
-  logofractor: "Logofractor", diamond_anniversary: "Diamond Anniversary",
-};
-
 const BOX_COUNTS = [1, 3, 6, 12];
 
 export function BreakSimulator({
@@ -177,7 +170,7 @@ export function BreakSimulator({
                     : "bg-[var(--brand-track)] text-[var(--brand-ink-soft)] border-[var(--brand-line)] hover:border-[var(--brand-slate)]"
                 }`}
               >
-                {BOX_LABELS[bt] ?? bt}
+                {boxLabel(bt)}
               </button>
             ))}
           </div>

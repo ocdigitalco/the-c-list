@@ -17,6 +17,7 @@ import {
   type BoxFormatConfig,
 } from "./athleteOdds";
 import { denomToDisplay } from "./parseOdds";
+import { label as fmtBoxLabel } from "./boxLabels";
 
 export const SITE_URL = "https://www.checklist2.com";
 
@@ -68,17 +69,6 @@ function cardsWord(n: number): string {
   return `${num(n)} card${n !== 1 ? "s" : ""}`;
 }
 
-const BOX_LABELS: Record<string, string> = {
-  hobby: "Hobby", jumbo: "Jumbo", mega: "Mega", blaster: "Blaster",
-  value: "Value", fat_pack: "Fat Pack", hanger: "Hanger",
-  breakers_delight: "Breaker's Delight", first_day_issue: "First Day Issue",
-  breaker: "Breaker", hobby_hybrid: "Hobby Hybrid", sapphire: "Sapphire",
-  hongbao: "Hongbao", logofractor: "Logofractor", ffnyc: "FFNYC", fdi: "First Day Issue",
-};
-
-function fmtBoxLabel(key: string): string {
-  return BOX_LABELS[key] ?? key.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
-}
 
 function normKey(k: string): string {
   return k.toLowerCase().replace(/[\s_]/g, "");
