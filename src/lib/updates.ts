@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-bowman-chrome-baseball-odds",
+    title: "2026 Bowman Chrome Baseball pack odds added",
+    date: "2026-10-06T12:00:00-07:00",
+    summary:
+      "2026 Bowman Chrome Baseball: full pack odds attached for Hobby, Breaker Delight, Sapphire, and Mega Box from the Topps sheet (Mega SE and EA share odds); Mega-exclusive Mojo and Lazer, Breaker-exclusive Geometric, and Sapphire-exclusive parallels flagged.",
+    description: `## 2026 Bowman Chrome Baseball — pack odds
+
+Attached the full Topps odds sheet for **2026 Bowman Chrome Baseball** across four box formats — **Hobby, Breaker Delight, Sapphire, and Mega Box** (the sheet's Mega Box SE and EA columns are identical and attach as one Mega key). 480 odds figures now sit on 270 parallels across the set, from the base Refractor ladder through the Hobby-only Pulsar/Wave/Shimmer tiers, the **Breaker-exclusive Geometric** refractors, the **Sapphire** parallels, and the **Mega-exclusive Mojo and Lazer** refractors — each flagged to its format.
+
+Four Sapphire-only families on the Topps sheet — **Base Cards Image Variations, Bowman Sapphire Chrome Prospects Autographs, Sapphire Selections Autographs, and Hidden Gems** — have no matching subset in the checklist yet and remain unattached; they'll be added if the checklist gains those subsets. Print runs are not on the odds sheet and are unchanged.`,
+    tags: ["odds"],
+    setId: 875,
+  },
+  {
     id: "2025-panini-impeccable-liv-golf-checklist",
     title: "2025 Panini Impeccable LIV Golf checklist added",
     date: "2026-10-06T12:00:00-07:00",

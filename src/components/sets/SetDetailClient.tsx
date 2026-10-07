@@ -289,7 +289,7 @@ const BOX_LABEL_MAP: Record<string, string> = {
   hobby: "Hobby", hobby_box_topper: "Box Topper", jumbo: "Jumbo", mega: "Mega", blaster: "Blaster",
   value: "Value", fat_pack: "Fat Pack", hanger: "Hanger",
   breakers_delight: "Breaker's Delight", first_day_issue: "First Day Issue",
-  breaker: "Breaker", hobby_hybrid: "Hobby Hybrid", sapphire: "Sapphire",
+  delight: "Breaker Delight", breaker: "Breaker Delight", hobby_hybrid: "Hobby Hybrid", sapphire: "Sapphire",
   hongbao: "Hongbao", logofractor: "Logofractor", ffnyc: "FFNYC", fdi: "First Day Issue",
   mania: "Mania", instant: "Instant Packs",
   value_se: "Value", value_ea: "Value", value_cee: "Value",

@@ -98,6 +98,7 @@ interface Props {
 const BOX_LABELS: Record<string, string> = {
   hobby: "Hobby", jumbo: "Jumbo", mega: "Mega", blaster: "Blaster",
   value: "Value", hanger: "Hanger", breakers_delight: "Breaker's Delight",
+  delight: "Breaker Delight", breaker: "Breaker Delight",
   first_day_issue: "First Day Issue", sapphire: "Sapphire",
   logofractor: "Logofractor", diamond_anniversary: "Diamond Anniversary",
 };

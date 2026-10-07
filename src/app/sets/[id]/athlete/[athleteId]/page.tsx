@@ -67,7 +67,8 @@ const BOX_LABEL_MAP: Record<string, string> = {
   hanger: "Hanger",
   breakers_delight: "Breaker's Delight",
   first_day_issue: "First Day Issue",
-  breaker: "Breaker",
+  delight: "Breaker Delight",
+  breaker: "Breaker Delight",
   hobby_hybrid: "Hobby Hybrid",
   sapphire: "Sapphire",
   hongbao: "Hongbao",
@@ -405,7 +406,8 @@ export default async function V2AthletePage({
     }
 
     const ODDS_TO_FORMAT_LABEL: Record<string, string> = {
-      breaker: "Breaker's Delight",
+      delight: "Breaker Delight",
+      breaker: "Breaker Delight",
     };
 
     function resolvePrefix(name: string, packOddsData: Record<string, number>): string {

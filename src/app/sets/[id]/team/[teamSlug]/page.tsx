@@ -339,7 +339,7 @@ export default async function TeamDetailPage({
     if (isNestedOdds) {
       for (const [key, data] of Object.entries(rawOdds as Record<string, Record<string, unknown>>)) {
         const label = key.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
-        const BOX_LABEL_MAP: Record<string, string> = { hobby: "Hobby", hobby_jumbo: "Hobby Jumbo", mega: "Mega", value: "Value", breakers_delight: "Breaker's Delight" };
+        const BOX_LABEL_MAP: Record<string, string> = { hobby: "Hobby", hobby_jumbo: "Hobby Jumbo", mega: "Mega", value: "Value", breakers_delight: "Breaker's Delight", delight: "Breaker Delight", breaker: "Breaker Delight" };
         const resolvedLabel = BOX_LABEL_MAP[key] ?? label;
         if (!(resolvedLabel in packOddsSlotsByFormat)) {
           packOddsSlotsByFormat[resolvedLabel] = buildSlots(normalizeOddsObj(data));
