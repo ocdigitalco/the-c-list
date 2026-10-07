@@ -6,6 +6,10 @@
  * (.jpg/.jpeg → JPEG, .png → PNG, .webp → WebP). This is what caught set 885
  * shipping a WebP saved as .jpg.
  *
+ * JPEG covers are additionally checked for color space: a 4-component (CMYK/YCCK)
+ * JPEG renders with wrong/inverted colors in browsers, so it fails the gate with
+ * a clear message. This caught set 890 shipping a CMYK cover from Photoshop.
+ *
  * DB resolution mirrors src/lib/db.ts: Turso via @libsql/client when
  * TURSO_DATABASE_URL and TURSO_AUTH_TOKEN are set (the Vercel build env), else a
  * local better-sqlite3 file. If NEITHER is available (e.g. a CI checkout with no
@@ -75,6 +79,35 @@ function signatureOf(file: string): "jpeg" | "png" | "webp" | "unknown" {
 }
 const EXT_SIG: Record<string, string> = { ".jpg": "jpeg", ".jpeg": "jpeg", ".png": "png", ".webp": "webp" };
 
+/**
+ * Number of color components in a JPEG (1 = grayscale, 3 = YCbCr/RGB, 4 = CMYK/YCCK),
+ * read from the SOFn frame header. Returns null if no SOF marker is found.
+ */
+function jpegComponents(file: string): number | null {
+  const fd = openSync(file, "r");
+  try {
+    const b = Buffer.alloc(256 * 1024);
+    const n = readSync(fd, b, 0, b.length, 0);
+    let pos = 2; // skip SOI (FFD8)
+    while (pos + 9 < n) {
+      if (b[pos] !== 0xff) { pos++; continue; }
+      let marker = b[pos + 1];
+      // skip fill bytes (0xFF padding)
+      while (marker === 0xff && pos + 1 < n) { pos++; marker = b[pos + 1]; }
+      // SOF markers carry the component count; exclude DHT(C4), JPG(C8), DAC(CC)
+      const isSOF = marker >= 0xc0 && marker <= 0xcf && marker !== 0xc4 && marker !== 0xc8 && marker !== 0xcc;
+      if (isSOF) return b[pos + 9]; // marker(2)+len(2)+precision(1)+height(2)+width(2) → components
+      if (marker === 0xda || marker === 0xd9) return null; // SOS/EOI: no SOF seen
+      // standalone markers (RSTn D0-D7, TEM 01) have no length payload
+      if ((marker >= 0xd0 && marker <= 0xd7) || marker === 0x01) { pos += 2; continue; }
+      const len = (b[pos + 2] << 8) | b[pos + 3];
+      if (len < 2) return null;
+      pos += 2 + len;
+    }
+    return null;
+  } finally { closeSync(fd); }
+}
+
 async function main() {
   const rows = await loadRows();
   if (rows === null) {
@@ -105,6 +138,10 @@ async function main() {
     if (!want) { console.log(`FAIL  ${r.id} ${r.slug} — unsupported extension ${ext}`); failures++; continue; }
     const sig = signatureOf(file);
     if (sig !== want) { console.log(`FAIL  ${r.id} ${r.slug} — ${ext} but bytes are ${sig}`); failures++; continue; }
+    if (sig === "jpeg") {
+      const comps = jpegComponents(file);
+      if (comps === 4) { console.log(`FAIL  ${r.id} ${r.slug} — CMYK JPEG cover (4 components); re-encode to sRGB RGB: ${file}`); failures++; continue; }
+    }
   }
   console.log(
     `cover-image gate (${strict ? `strict ${lo}-${hi}` : `prebuild, require-local id>=${NEW_SET_CUTOFF}`}): ${checked} local covers checked, ${failures} failed` +

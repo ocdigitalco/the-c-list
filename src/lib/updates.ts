@@ -15,6 +15,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2025-panini-impeccable-liv-golf-checklist",
+    title: "2025 Panini Impeccable LIV Golf checklist added",
+    date: "2026-10-06T12:00:00-07:00",
+    summary:
+      "2025 Panini Impeccable LIV Golf checklist added — 50-card base and photo variations numbered /99, metal LIV and team logo cards, Stainless Stars, and 13 autograph and memorabilia subsets including Team Quad Autographs, with print runs on every card. Panini does not publish pack odds.",
+    description: `## 2025 Panini Impeccable LIV Golf
+
+Added the full **2025 Panini Impeccable LIV Golf** checklist: **22 subsets, 563 cards, 49 parallels**, every card carrying its print run. The **50-card base** and **Base Photo Variations** are numbered /99 with an eight-step parallel ladder (Silver /25 down to Platinum 1/1), joined by the metal **Gold / Silver LIV Logo** and **Team Logos** patch cards (1/1 and /30) and **Stainless Stars**.
+
+The hit lineup runs deep for an 8-card box: **Stainless Stars Autographs**, **Canvas Creations, Impeccable Birdies / Fairways / Greens / LIV / Team Logos / Watercolor Signatures**, **Extravagance** and **LIV Luminaries Autographs**, the **Elegance Jumbo** and **Elegance Memorabilia Autographs** (auto + relic), **Impeccable Jumbo Memorabilia** and **Scorecard Swatches** relics, and the four-player **Team Quad Autographs** (/25). First Off The Line boxes add Green FOTL /4 autograph parallels. Players are LIV Golf stars — Rahm, DeChambeau, Koepka, Niemann, Mickelson — grouped by team.
+
+**Panini does not publish pack odds**, so odds stay unlisted for this product.`,
+    tags: ["checklist", "box-config"],
+    setId: 890,
+  },
+  {
     id: "2026-panini-prizm-wnba-checklist",
     title: "2026 Panini Prizm WNBA checklist added",
     date: "2026-10-06T12:00:00-07:00",
