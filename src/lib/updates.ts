@@ -15,6 +15,24 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-allen-ginter-baseball-checklist",
+    title: "2026 Topps Allen & Ginter Baseball checklist added",
+    date: "2026-10-07T12:00:00-07:00",
+    summary:
+      "2026 Topps Allen & Ginter Baseball checklist added — 36 subsets, 2,815 cards, 67 parallels, and three-format pack odds (Hobby, Value Blaster, Fat Pack). The usual A&G mix: 300-card base with minis and chrome/metal/stained-glass variations, Rip and Double Rip cards, the N34/N43 and Career 250 inserts, framed mini and full-size relics, and a deep autograph run from Cut Signatures to Dynasty Autographed Patch Cards.",
+    description: `## 2026 Topps Allen & Ginter Baseball
+
+Added the full **2026 Topps Allen & Ginter Baseball** checklist: **36 subsets, 2,815 cards, 67 parallels**. The **300-card base** set carries its mini counterpart plus Daguerreotype, Tin Type, Chrome, Mini Chrome, Mini Metal, and Mini Stained Glass variations, with the Mini Exclusives Metal / Stained Glass / Wood as parallels. Insert staples return — **Rip Cards and Double Rip Cards, N34, N43, Career 250, Wicked Power, Uniform Countdown, 50 Ways to Say Hello, and Musical Methods** — alongside the non-baseball celebrity subjects A&G is known for.
+
+The hit lineup is deep: **Framed Mini Relics, Full-Size Relics, and Lineup Card Relics**; **Cut Signatures and Relic Cut Signatures**; the big **Mini Baseball / Non-Baseball / Employee Autographs** runs; **Dual and Quintuple Autographs**; and the premium **Carte De Visite Autographs, Autograph Relics, Dual Autograph Relics, Autographed Lineup Card Relics, and Dynasty Autographed Patch Cards**.
+
+**Pack odds** are attached across three retail formats — **Hobby, Value Blaster, and Fat Pack** — with 262 odds figures spanning the parallel ladder and insert hits, and Hobby/Retail exclusivity flagged where it applies.
+
+Topps has not published a firm **release date** for this product yet; it will be added once announced.`,
+    tags: ["checklist", "box-config", "odds"],
+    setId: 891,
+  },
+  {
     id: "2026-bowman-chrome-baseball-chrome-prospects-print-runs",
     title: "2026 Bowman Chrome Baseball: Chrome Prospects print runs added",
     date: "2026-10-06T12:00:00-07:00",
