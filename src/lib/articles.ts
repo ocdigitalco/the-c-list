@@ -65,6 +65,115 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    "id": "2026-topps-allen-ginter-celebrity-cards",
+    "title": "2026 Allen & Ginter: The Celebrity Cards, and What It Takes to Pull Them",
+    "publishedAt": "2026-10-08",
+    "description": "The non-baseball side of 2026 Allen & Ginter: the 56 base celebrities, the 59-card Mini Non-Baseball Autographs chase, the Linkin Park and The Maine band cards, the Miley Cyrus, Seth Meyers, and Tony Hawk Dynasty patches, celebrity cut signatures, and the hobby odds for every tier.",
+    "heroImage": "/articles/2026-topps-allen-ginter-top-celebrities-hero.png",
+    "tags": [
+      "baseball",
+      "topps",
+      "allen-ginter",
+      "checklist breakdown"
+    ],
+    "setId": 891,
+    "tldr": "The non-baseball side of 2026 Allen & Ginter: the 56 base celebrities, the 59-card Mini Non-Baseball Autographs chase, the Linkin Park and The Maine band cards, the Miley Cyrus, Seth Meyers, and Tony Hawk Dynasty patches, celebrity cut signatures, and the hobby odds for every tier.",
+    "content": [
+      {
+        "type": "p",
+        "text": "Allen & Ginter has always been the Topps product where a Hall of Famer shares a checklist with a game show winner, and 2026 leans into it harder than most years. Fifty-six of the 300 base cards are non-baseball subjects, there are 59 non-baseball mini autographs, two full band autograph cards, a Dynasty patch trio of Miley Cyrus, Seth Meyers, and Tony Hawk, and cut signatures of Abraham Lincoln and Winston Churchill. This piece walks the non-baseball side of the checklist and puts odds on each tier, so you know what a hobby box can and cannot reach."
+      },
+      {
+        "type": "h2",
+        "text": "The base cards: 56 of 300"
+      },
+      {
+        "type": "p",
+        "text": "Base celebrities are the easy part. They sit in every pack type at the same rate as the players, and they take the same parallel ladder: Foil Filigree at 1:24 in hobby packs, then Blue /150, Green /99, Gold /50, Orange /25, Black /10, Red /5, and the Purple Foil Filigree and Glossy 1/1s. Silver Portrait (1:5) is hobby-only."
+      },
+      {
+        "type": "p",
+        "text": "The names cover a lot of ground. Actors and comedians: Anne Hathaway (126), Rob Lowe (46), David Spade (88), Geena Davis (179), Jesse Eisenberg (257), Lori Petty (297), Colin Jost (216), Kyle Mooney (213), and Matt Rife (225). Musicians: Nelly (78), Tim McGraw (92), Luke Combs (119), Moby (122), Steve Aoki (191), Xzibit (137), Yandel (147), Mannie Fresh (255), Trombone Shorty (267), Erick the Architect (32), Skeme (205), Mark Morrison (195), and John Oates (116), plus the full current Linkin Park lineup across five cards (Mike Shinoda 141, Joe Hahn 117, Dave Farrell 241, Emily Armstrong 279, Colin Brittain 283) and The Maine across five more. Reality television is well represented with Survivor's Parvati Shallow (13), Tyson Apostol (52), Rob Cesternino (187), Eva Erickson (125), and Kyle Fraser (260), and The Challenge's Tori Deal (237), Devin Walker (140), and Darrell Taylor (108). Broadcasters and writers: Rich Eisen (295), Maria Taylor (193), Bob Nightengale (39), Tim Kurkjian (66), Kevin Wildes (275), and Chris Van Vliet (121). And then the cards that make A&G what it is: Steve Burns of Blue's Clues (58), NBA superfan Jimmy Goldstein (276), pole vaulter Alysha Newman (28), and rodeo champion Shad Mayfield (294)."
+      },
+      {
+        "type": "p",
+        "text": "Every one of the 56 also has a Base Mini, and the 150-card Mini Metal and Mini Stained Glass variations and the 100-card Chrome, Mini Chrome, Tin Type, and Daguerreotype variations each pull from the same 300, so some celebrities show up in those ladders too."
+      },
+      {
+        "type": "h2",
+        "text": "Mini Non-Baseball Autographs: the realistic chase"
+      },
+      {
+        "type": "p",
+        "text": "This is where most of the value sits. The 59-card set falls at 1:150 hobby packs, which with 24 packs per box works out to roughly one in every six hobby boxes. Blaster boxes are 1:1,254 packs and fat packs 1:463, so hobby is the practical route."
+      },
+      {
+        "type": "p",
+        "text": "The checklist is nearly the same roster as the base celebrities, with a few names that only appear here: Megan Fox (MA-MFX), Patrick Stewart (MA-PST), and all six Linkin Park members individually, including Brad Delson (MA-BD), who does not have a base card. Anne Hathaway, Rob Lowe, Geena Davis, Jesse Eisenberg, Colin Jost, Tim McGraw, Luke Combs, and Nelly all sign."
+      },
+      {
+        "type": "p",
+        "text": "The parallel ladder is Green Frame /99 (1:368 hobby), Blue Frame /50 (1:676), Black Frame /25 (1:1,368), then two hobby-only tiers: Red Ink /10 at 1:2,689 and the Purple Frame 1/1 at 1:25,708. A Red Ink Patrick Stewart or Anne Hathaway is the kind of card that defines a case break."
+      },
+      {
+        "type": "h2",
+        "text": "The band cards"
+      },
+      {
+        "type": "p",
+        "text": "Two \"Quintuple Autographs\" cards are new this year and hobby-only at 1:60,670 packs: AA-LP is signed by six members of Linkin Park (Shinoda, Hahn, Farrell, Delson, Brittain, Armstrong), and AA-TM by the five members of The Maine. Topps calls them quintuples even though the Linkin Park card carries six signatures. Each has a Red Ink /10 version at 1:151,675. At those rates they are case-level pulls, not box-level, and they will be the most discussed celebrity cards in the product."
+      },
+      {
+        "type": "p",
+        "text": "A single Dual Autograph (DA-WD) pairs Tori Deal and Devin Walker from The Challenge at 1:275,773 hobby packs, with its own Red Ink /10."
+      },
+      {
+        "type": "h2",
+        "text": "Dynasty Autographed Patch Cards"
+      },
+      {
+        "type": "p",
+        "text": "Nine redemption cards numbered /10: three each for Miley Cyrus, Seth Meyers, and Tony Hawk, with Silver /5 and Gold 1/1 parallels. The base version is 1:50,558 hobby packs. All nine are redemptions, and the Miley Cyrus cards in particular will be the headline celebrity pulls of the release."
+      },
+      {
+        "type": "h2",
+        "text": "Cut Signatures"
+      },
+      {
+        "type": "p",
+        "text": "Fifty-one 1/1 cut signatures at 1:89,221 hobby packs, and seven of them are not baseball players: Abraham Lincoln, Winston Churchill, Ronald Reagan, Marlon Brando, John Wayne, Alexander Graham Bell, and Vin Scully. The rest are mostly deceased Hall of Famers (Babe Ruth, Lou Gehrig, Honus Wagner, Roberto Clemente, Jackie Robinson). One per card, one of each, and essentially none will be pulled by anyone reading this; they are the reason the hobby box has a chance at something nobody else will own."
+      },
+      {
+        "type": "h2",
+        "text": "Relics and the Topps employees"
+      },
+      {
+        "type": "p",
+        "text": "Celebrity relics are spread thinly. Framed Mini Relics II carries ten non-baseball subjects, including Moby, Tyson Apostol, Chris Van Vliet, Eva Erickson, Bonnie-Jill Laflin, and the five members of The Maine. Full-Size Relics B adds Tim McGraw, Xzibit, Jesse Eisenberg, Josh Sneed, and Jimmy Goldstein. The relic subsets fall at 1:70 hobby packs combined with their baseball subjects, so a celebrity relic is a pleasant surprise rather than a target."
+      },
+      {
+        "type": "p",
+        "text": "Then there are the Mini Employee Autographs: 13 Topps employees signing their own cards, at 1:34,868 hobby packs. They are a running A&G tradition, numbered to nothing, and they trade for more than their odds suggest because almost nobody pulls one."
+      },
+      {
+        "type": "h2",
+        "text": "What a hobby box actually gets you"
+      },
+      {
+        "type": "p",
+        "text": "A hobby box is 24 packs of 8 with two hits promised, where \"hit\" means an autograph, relic, Rip card, or printing plate. Across the 192 cards you should see about one Foil Filigree parallel, four or five Silver Portraits, and a handful of the mini inserts. The non-baseball autograph is a one-in-six-boxes proposition. The band cards, the Dynasty patches, and the cut signatures are case odds and beyond."
+      },
+      {
+        "type": "p",
+        "text": "If celebrity cards are why you are opening A&G, the practical advice is simple: hobby only, because the Red Ink, Purple Frame, Silver Portrait, Wood, Rip, and band autographs do not exist in blasters or fat packs. Blasters are fine for the base celebrities and the minis, which is where the fun of the product lives anyway."
+      },
+      {
+        "type": "p",
+        "text": "The full 2,815-card checklist, every parallel with its print run, and pack odds for all three formats are on the set page."
+      }
+    ]
+  },
+  {
     "id": "2026-topps-heritage-football-which-box",
     "title": "Which Box of 2026 Topps Heritage Football Should You Buy?",
     "publishedAt": "2026-09-25",
