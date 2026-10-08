@@ -26,9 +26,7 @@ Added the full **2026 Topps Allen & Ginter Baseball** checklist: **36 subsets, 2
 
 The hit lineup is deep: **Framed Mini Relics, Full-Size Relics, and Lineup Card Relics**; **Cut Signatures and Relic Cut Signatures**; the big **Mini Baseball / Non-Baseball / Employee Autographs** runs; **Dual and Quintuple Autographs**; and the premium **Carte De Visite Autographs, Autograph Relics, Dual Autograph Relics, Autographed Lineup Card Relics, and Dynasty Autographed Patch Cards**.
 
-**Pack odds** are attached across three retail formats — **Hobby, Value Blaster, and Fat Pack** — with 262 odds figures spanning the parallel ladder and insert hits, and Hobby/Retail exclusivity flagged where it applies.
-
-Topps has not published a firm **release date** for this product yet; it will be added once announced.`,
+**Pack odds** are attached across three retail formats — **Hobby, Value Blaster, and Fat Pack** — with 262 odds figures spanning the parallel ladder and insert hits, and Hobby/Retail exclusivity flagged where it applies.`,
     tags: ["checklist", "box-config", "odds"],
     setId: 891,
   },
