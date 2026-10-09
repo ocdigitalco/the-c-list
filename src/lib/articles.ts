@@ -65,6 +65,113 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    "id": "2026-topps-midnight-football-checklist-breakdown",
+    "title": "2026 Topps Midnight Football: The Checklist, the Chases, and Who Shows Up Most",
+    "publishedAt": "2026-10-09",
+    "description": "A full breakdown of 2026 Topps Midnight Football: 636 cards across 20 subsets, eight inserts (three short-printed), eleven autograph subsets making up more than half the checklist, the Constellations legend-and-star pairings, and who shows up most, led by Fernando Mendoza.",
+    "heroImage": "/articles/2026-topps-midnight-football-hero.jpg",
+    "tags": [
+      "football",
+      "topps",
+      "midnight",
+      "checklist breakdown"
+    ],
+    "setId": 893,
+    "tldr": "A full breakdown of 2026 Topps Midnight Football: 636 cards across 20 subsets, eight inserts (three short-printed), eleven autograph subsets making up more than half the checklist, the Constellations legend-and-star pairings, and who shows up most, led by Fernando Mendoza.",
+    "content": [
+      {
+        "type": "p",
+        "text": "Topps Midnight came to football last year with a black Chrome look and a hit-heavy box, and the 2026 edition keeps that shape: seven cards, one pack, three autographs and two parallels guaranteed, eight boxes to a case. Pre-orders opened October 9 with the release date still to be announced. The full checklist is out, though, and it tells you most of what you need to decide whether this is a product for you."
+      },
+      {
+        "type": "h2",
+        "text": "What a Midnight card actually is"
+      },
+      {
+        "type": "p",
+        "text": "Midnight sits between Topps's paper and Chrome lines and doesn't quite belong to either. The stock is thick and rigid, the finish is harder and darker than a standard Chrome card, and the designs lean into the brand's after-hours theme: deep blacks, saturated accents, and layouts that treat the photo as part of a scene rather than a portrait on a background. The result is a card that feels premium in hand before you turn it over to check the number, which is a large part of why the brand has found an audience quickly."
+      },
+      {
+        "type": "h2",
+        "text": "The structure"
+      },
+      {
+        "type": "p",
+        "text": "The checklist runs to 636 cards across 20 subsets. The base set is 100 cards, with 37 rookies in it. Eight inserts cover 200 cards, and eleven autograph subsets account for 336 signed cards, which is more than half the checklist. That ratio is the point of the product: three autographs in a seven-card box means the signatures are not a lottery ticket, they are the box."
+      },
+      {
+        "type": "p",
+        "text": "Pack odds and the parallel ladder haven't been published yet. Topps promises two numbered parallels per box, and the tier names and print runs will go on the set page as soon as they're announced."
+      },
+      {
+        "type": "h2",
+        "text": "The inserts, and the two new short prints"
+      },
+      {
+        "type": "p",
+        "text": "Topps calls out three of the eight inserts as short prints: the returning Twilight (25 cards) and two new ones, Night Night (25) and Celestial Roots (25). All three draw from the same pool of stars and top rookies, and Night Night adds a legends layer with Tom Brady, Peyton Manning, Eli Manning, Joe Montana, and John Elway alongside the current names. Celestial Roots is quarterback-heavy: Lamar Jackson, Josh Allen, Joe Burrow, Patrick Mahomes, Jayden Daniels, and the rookie passers."
+      },
+      {
+        "type": "p",
+        "text": "Constellations is the insert worth a second look. Its 15 cards pair a franchise legend with a current star on the same card: Josh Allen with Jim Kelly, Justin Jefferson with Randy Moss, Jahmyr Gibbs with Barry Sanders, Jalen Hurts with Randall Cunningham, Jaxon Smith-Njigba with Steve Largent, Drake Maye with Tom Brady, and Cam Ward with Warren Moon across the Oilers-to-Titans line. Both players are indexed on each card, so they show up on both athlete pages."
+      },
+      {
+        "type": "p",
+        "text": "The other inserts are Dream Land (25), Earthshine (25), Insomnia (30), and Nightball (30). Earthshine and Insomnia carry most of the rookie insert slots, with 16 and 15 rookies respectively."
+      },
+      {
+        "type": "h2",
+        "text": "The autographs"
+      },
+      {
+        "type": "p",
+        "text": "Four autograph sets return from last year: Rookie Horizon Signatures (35 cards, the deepest rookie signature set in the product), Horizon Signatures (19 veterans), Stroke of Midnight Autographs (15), and Rookie Jersey Autographs (31). Three make their football debut: Midnight Oil Marks (28), Moonlit Materials Signatures (24, with a relic), and Dark Matter Autographs (30). Rounding out the group are Base Autographs (75 of the 100 base subjects sign), Countdown Calligraphy (36), Tenebrous Traces (20), and REM Relic Autographs (23)."
+      },
+      {
+        "type": "p",
+        "text": "The three relic autograph sets (Moonlit Materials, REM, Rookie Jersey) are almost entirely rookies. The veteran and legend signatures concentrate in Horizon Signatures, Dark Matter, and Countdown Calligraphy, which is where Tom Brady, Barry Sanders, and Warren Moon sign."
+      },
+      {
+        "type": "h2",
+        "text": "Who shows up most"
+      },
+      {
+        "type": "p",
+        "text": "Counting every card across every subset, the players with the most cards in the product are all rookies except one tie at the bottom:"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "Fernando Mendoza, 14 cards",
+          "Jeremiyah Love, 13",
+          "Carnell Tate, 12",
+          "Jordyn Tyson, 11",
+          "Cam Ward, Drake Maye, and Caleb Downs, 10 each"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Mendoza's 14 includes seven autographs, which is also the most in the set: Base Autographs, Midnight Oil Marks, Rookie Horizon Signatures, Tenebrous Traces, Moonlit Materials, REM Relic, and Rookie Jersey. Behind him, fourteen players have six signed cards apiece: Jeremiyah Love, Jordyn Tyson, Carson Beck, Carnell Tate, Caleb Downs, Cade Klubnik, Ty Simpson, Garrett Nussmeier, Makai Lemon, KC Concepcion, Chris Brazzell II, Denzel Boston, Drew Allar, and Germie Bernard. Every one of them is a rookie, which tells you where Topps expects the demand."
+      },
+      {
+        "type": "p",
+        "text": "Among veterans, the deepest presence belongs to Cam Ward, Drake Maye, Jaxson Dart, and Caleb Williams, each with nine or ten cards and three autographs apiece. Patrick Mahomes and Josh Allen are in every one of the star-level inserts (Celestial Roots, Constellations, Dream Land, Night Night, Twilight) but Mahomes does not sign in this product; Allen has two autographs."
+      },
+      {
+        "type": "h2",
+        "text": "What to expect from a box"
+      },
+      {
+        "type": "p",
+        "text": "With three autographs guaranteed and 336 signed cards spread across 184 players, the realistic expectation is one rookie signature from the deep sets (Rookie Horizon, Rookie Jersey, Midnight Oil Marks) and two from the broader pool, with a legend or star autograph being the box's upside rather than its baseline. Two numbered parallels per box give every box a second kind of hit, and the three short-printed inserts are the chase on the non-autograph side."
+      },
+      {
+        "type": "p",
+        "text": "The full checklist, every subject, and the box configuration are on the set page; parallels and pack odds will be added when Topps publishes them."
+      }
+    ]
+  },
+  {
     "id": "2026-topps-allen-ginter-celebrity-cards",
     "title": "2026 Allen & Ginter: The Celebrity Cards, and What It Takes to Pull Them",
     "publishedAt": "2026-10-08",
