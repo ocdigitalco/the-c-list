@@ -15,6 +15,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-mars-attacks-christmas-checklist",
+    title: "2026 Topps Mars Attacks Christmas checklist added",
+    date: "2026-10-08T12:00:00-07:00",
+    summary:
+      "2026 Topps Mars Attacks Christmas checklist added — 100-card base with a 13-tier parallel ladder, Headlines, Battle Ready, Cryptids Alliance, and Mars Invasion Chrome inserts, Caught in the Crossfire celebrity cards and autographs, Invasion Worn relics, box toppers, Present Rip cards, and 77 sketch artists; hobby pack odds attached.",
+    description: `## 2026 Topps Mars Attacks Christmas
+
+Added the full **2026 Topps Mars Attacks Christmas** checklist: **14 subsets, 316 cards, 56 parallels**. The **100-card base** set (50 painted invasion scenes plus the Characters A and B runs) carries a deep **13-tier parallel ladder**, from the unnumbered Red through Green /350, Candy Cane /299, and on down to Martian Blood /10, Snowcaps /5, and the 1/1 FoilFractor.
+
+The inserts lean into the holiday-horror theme: **Headlines, Battle Ready, Cryptids Alliance, and Mars Invasion Chrome**, the **Caught in the Crossfire** celebrity cards (Jeff Goldblum, Will Smith, Mike Tyson, Dennis Rodman, Tony Hawk, Bill Nye and more) with their real **Autograph Variations**, printed-signature **Cryptids Alliance Facsimile Autographs**, manufactured **Invasion Worn Relics** (Santa's Suit, Reindeer Antler, Yeti Fur), **Greeting Card** and **Present Rip Card** box toppers with the **Present Mini Cards** inside, a **Lump of Coal** die cut, and **77 sketch artists**.
+
+**Pack odds** are attached for the **Hobby** format from the Topps sheet, 65 keys across the base ladder, inserts, autographs, relics, box toppers, and sketch cards.`,
+    tags: ["checklist", "odds", "box-config"],
+    setId: 892,
+  },
+  {
     id: "2026-topps-allen-ginter-baseball-checklist",
     title: "2026 Topps Allen & Ginter Baseball checklist added",
     date: "2026-10-07T12:00:00-07:00",
