@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-x-street-fighter-checklist",
+    title: "2026 Topps x Street Fighter checklist added",
+    date: "2026-10-09T13:00:00-07:00",
+    summary:
+      "2026 Topps x Street Fighter checklist added — 17 characters with a six-tier foil parallel ladder and pack odds.",
+    description: `## 2026 Topps x Street Fighter
+
+Added the **2026 Topps x Street Fighter** checklist: a **17-card base set** of the fighters, from Akuma and Ryu to Chun-Li, Guile, M. Bison, and Zangief. Every base card carries a **six-tier foil parallel ladder** — **Rainbow Foil** (unnumbered), **Gold Foil /50, Orange Foil /25, Black Foil /10, Red Foil /5**, and the **FoilFractor 1/1** — with hobby pack odds attached for all six, from 1:2 Rainbow Foil down to 1:470 for the FoilFractor.
+
+The product is a single 5-card pack (4 base cards and 1 parallel). **Release date and product link are to be announced** and will be added when Topps publishes them.`,
+    tags: ["checklist", "odds", "box-config"],
+    setId: 894,
+  },
+  {
     id: "2026-topps-midnight-football-checklist",
     title: "2026 Topps Midnight Football checklist added",
     date: "2026-10-09T12:00:00-07:00",

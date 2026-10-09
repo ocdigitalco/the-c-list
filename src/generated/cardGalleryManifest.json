@@ -2172,5 +2172,42 @@
       "width": 1080,
       "height": 1524
     }
+  ],
+  "2026-topps-x-street-fighter": [
+    {
+      "file": "2026-topps-x-street-fighter-0.png",
+      "width": 635,
+      "height": 1000
+    },
+    {
+      "file": "2026-topps-x-street-fighter-1.jpg",
+      "width": 1024,
+      "height": 1434
+    },
+    {
+      "file": "2026-topps-x-street-fighter-2.jpg",
+      "width": 1024,
+      "height": 1434
+    },
+    {
+      "file": "2026-topps-x-street-fighter-3.jpg",
+      "width": 1024,
+      "height": 1434
+    },
+    {
+      "file": "2026-topps-x-street-fighter-4.jpg",
+      "width": 1024,
+      "height": 1434
+    },
+    {
+      "file": "2026-topps-x-street-fighter-5.jpg",
+      "width": 1024,
+      "height": 1434
+    },
+    {
+      "file": "2026-topps-x-street-fighter-6.jpg",
+      "width": 1024,
+      "height": 1434
+    }
   ]
 }
