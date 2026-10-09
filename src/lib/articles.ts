@@ -14,6 +14,10 @@ export interface ArticleSection {
   alt?: string;
   caption?: string;
   items?: string[];
+  // video
+  provider?: "youtube";
+  id?: string;
+  title?: string;
   href?: string;
   headers?: string[];
   rows?: string[][];
@@ -64,6 +68,101 @@ export interface Article {
 }
 
 export const articles: Article[] = [
+  {
+    "id": "2026-topps-x-street-fighter-checklist",
+    "title": "2026 Topps x Street Fighter: A 17-Card Set You Can Actually Finish",
+    "publishedAt": "2026-10-09",
+    "description": "2026 Topps x Street Fighter is a 17-card base set of the fighters with a six-tier foil parallel ladder and nothing else: no autographs, relics, or inserts. A look at the roster, the one-parallel-per-pack odds, and roughly how many of each card exist.",
+    "heroImage": "/articles/2026-topps-x-street-fighter-hero.png",
+    "tags": [
+      "entertainment",
+      "topps",
+      "street fighter",
+      "checklist breakdown"
+    ],
+    "setId": 894,
+    "tldr": "2026 Topps x Street Fighter is a 17-card base set of the fighters with a six-tier foil parallel ladder and nothing else: no autographs, relics, or inserts. A look at the roster, the one-parallel-per-pack odds, and roughly how many of each card exist.",
+    "content": [
+      {
+        "type": "p",
+        "text": "Topps's crossover line has put KAWS, Bob Ross, and Lids on cardboard, and the newest entry is Street Fighter. It is a small product by design: a single five-card pack, a 17-card base set of the franchise's fighters in full-color art, and one parallel in every pack. There are no autographs, no relics, and no inserts. The whole set is the base set and its foil ladder, which makes it one of the few Topps releases where completing the thing is a realistic goal rather than a slogan."
+      },
+      {
+        "type": "video",
+        "provider": "youtube",
+        "id": "Xt4X4FvXk2A",
+        "title": "2026 Topps x Street Fighter"
+      },
+      {
+        "type": "h2",
+        "text": "The roster"
+      },
+      {
+        "type": "p",
+        "text": "Seventeen fighters, numbered 1 to 17 in alphabetical order: Akuma, Balrog, Blanka, Cammy, Chun-Li, Dan Hibiki, Dhalsim, Don Sauvage, E. Honda, Guile, Joe, Juli, Ken, M. Bison, Ryu, Vega, and Zangief. The core of the World Warrior cast is here (Ryu, Ken, Chun-Li, Guile, Blanka, Dhalsim, E. Honda, Zangief) alongside the Shadaloo bosses (M. Bison, Balrog, Vega), Akuma, Cammy, and a few deeper cuts that longtime players will recognize before anyone else does."
+      },
+      {
+        "type": "h2",
+        "text": "The pack"
+      },
+      {
+        "type": "p",
+        "text": "Every pack is five cards: four base and one parallel. With 17 base cards and four per pack, the base set takes a minimum of five packs, and realistically more once duplicates start showing up. The parallel slot is where the odds live:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Rainbow Foil, unnumbered, 1:2 packs",
+          "Gold Foil /50, 1:10",
+          "Orange Foil /25, 1:20",
+          "Black Foil /10, 1:48",
+          "Red Foil /5, 1:96",
+          "FoilFractor 1/1, 1:470"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Read that as a ladder for the one parallel in each pack: half the time it is a Rainbow, one pack in ten gives a Gold, and the 1/1 FoilFractor shows up roughly once in 470 packs. Since every fighter exists at every tier, a Ryu or Chun-Li FoilFractor is the card the set will be remembered for, and there is exactly one of each."
+      },
+      {
+        "type": "h2",
+        "text": "How many cards exist"
+      },
+      {
+        "type": "p",
+        "text": "The odds let you work backwards to the size of the print run. Seventeen FoilFractors (one per fighter) at 1:470 packs means about 7,990 packs were made, which at five cards each is about 39,950 cards. The numbered tiers are fixed by their print runs; the rest is the Rainbow slot and the base cards."
+      },
+      {
+        "type": "table",
+        "headers": ["Tier", "Per fighter", "Total", "How it's known"],
+        "rows": [
+          ["FoilFractor 1/1", "1", "17", "print run"],
+          ["Red Foil /5", "5", "85", "print run"],
+          ["Black Foil /10", "10", "170", "print run"],
+          ["Orange Foil /25", "25", "425", "print run"],
+          ["Gold Foil /50", "50", "850", "print run"],
+          ["Rainbow Foil", "about 235", "about 3,995", "1:2 pack odds"],
+          ["Base", "about 2,024", "about 34,408", "the remainder"]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Those estimates follow the odds sheet exactly. There is one thing the odds don't quite explain: every pack has one parallel, so there should be about 7,990 parallels in total, but the six published rates only add up to about 5,540. Either the Rainbow rate is rounded well below its true value (which would put Rainbows closer to 6,400 and base cards closer to 1,880 per fighter), or some of the parallel slots carry something not on the sheet. Either way, the numbered tiers are what they are: 50 Golds, 25 Oranges, 10 Blacks, 5 Reds, and one FoilFractor per fighter, and roughly 8,000 packs to find them in."
+      },
+      {
+        "type": "h2",
+        "text": "Who it is for"
+      },
+      {
+        "type": "p",
+        "text": "This is a set for people who want the characters, not the chase. The art is the draw, the pack is cheap to open, and the collation math is honest: a handful of packs builds the base set, and the foils give the pack-ripping some tension without turning it into a lottery. If you want a complete rainbow of a single fighter, the numbered tiers (/50 down to 1/1) make that a finite, trackable project, which is more than most products can say."
+      },
+      {
+        "type": "p",
+        "text": "The full checklist, parallel ladder, and pack odds are on the set page. Release date and Topps product link will be added when Topps publishes them."
+      }
+    ]
+  },
   {
     "id": "2026-topps-midnight-football-checklist-breakdown",
     "title": "2026 Topps Midnight Football: The Checklist, the Chases, and Who Shows Up Most",

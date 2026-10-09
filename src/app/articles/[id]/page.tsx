@@ -277,15 +277,24 @@ function ArticleContent({
         </div>
       );
     case "video": {
-      const ytId = section.src ? isYouTube(section.src) : null;
+      // Prefer the explicit { provider: "youtube", id } shape; fall back to a
+      // src URL (watch / youtu.be / embed) for older blocks.
+      const ytId =
+        section.provider === "youtube" && section.id
+          ? section.id
+          : section.src
+          ? isYouTube(section.src)
+          : null;
       if (ytId) {
         return (
           <div className="aspect-video rounded-lg overflow-hidden border border-zinc-800 mb-6">
             <iframe
               src={`https://www.youtube.com/embed/${ytId}`}
-              title={section.alt ?? "Video"}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              title={section.title ?? section.alt ?? "Video"}
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
+              referrerPolicy="strict-origin-when-cross-origin"
               className="w-full h-full"
             />
           </div>
