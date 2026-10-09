@@ -15,6 +15,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-midnight-football-checklist",
+    title: "2026 Topps Midnight Football checklist added",
+    date: "2026-10-09T12:00:00-07:00",
+    summary:
+      "2026 Topps Midnight Football checklist added — 100-card base, eight inserts, and eleven autograph subsets including Base Autographs, Rookie Horizon Signatures, and three autograph relic sets. Parallels and pack odds to follow when Topps publishes them; release date TBA (pre-order open).",
+    description: `## 2026 Topps Midnight Football
+
+Added the full **2026 Topps Midnight Football** checklist: **20 subsets, 651 cards, 184 subjects**. The **100-card base** set is joined by eight inserts — **Celestial Roots, Constellations, Dream Land, Earthshine, Insomnia, Night Night, Nightball, and Twilight** — with the dual-player Constellations cards split into one row per signer.
+
+The hit lineup is deep for a 7-card box: **eleven autograph subsets**, led by **Base Autographs** (75 of the base subjects sign) and **Rookie Horizon Signatures**, plus **Countdown Calligraphy, Dark Matter Autographs, Horizon Signatures, Midnight Oil Marks, Stroke of Midnight Autographs, and Tenebrous Traces**, and three **autograph relic** sets — **Moonlit Materials Signatures, REM Relic Autographs, and Rookie Jersey Autographs**.
+
+**Parallels and pack odds are not published yet** and will be added when Topps releases them. The **release date is TBA**; pre-orders opened October 9, 2026. Both Hobby and First Day Issue (FDI) box configurations are listed.`,
+    tags: ["checklist", "box-config"],
+    setId: 893,
+  },
+  {
     id: "2026-topps-mars-attacks-christmas-checklist",
     title: "2026 Topps Mars Attacks Christmas checklist added",
     date: "2026-10-08T12:00:00-07:00",
