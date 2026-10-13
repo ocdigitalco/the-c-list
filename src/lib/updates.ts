@@ -15,6 +15,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-27-topps-flagship-bundesliga-checklist",
+    title: "2026-27 Topps Flagship Bundesliga checklist added",
+    date: "2026-10-12T12:00:00-07:00",
+    summary:
+      "2026-27 Topps Flagship Bundesliga checklist added — 200-card base with Future Stars, 2. Bundesliga, and League Leaders groups, 18 inserts, 11 autograph subsets including Base Card Legend and Class of 75/76 autographs, and Base Card Relics. Pre-order opens October 13; release date, box configuration, parallels, and pack odds to follow.",
+    description: `## 2026-27 Topps Flagship Bundesliga
+
+Added the full **2026-27 Topps Flagship Bundesliga** checklist: **31 subsets, 877 cards**. The **200-card base** set runs the Bundesliga veterans and rookies 1-144, then the **Future Stars** (145-159), **2. Bundesliga Veterans and Rookies** (160-195), and **League Leaders** (196-200) groups, the last led by an FC Bayern München team card.
+
+Eighteen inserts fill the middle of the checklist — **Global Gladiators, Beast Mode, Matchwinner, Stars of the Bundesliga, Chrome Icons, Vision, On Fire, Limited Edition, Kinetic, Ultra Beast Mode, Home Pitch, Prime Time, Tifo, All Kings, Diamond Rookies, Black Edge**, and the **Golden Spektrum** base and redemption sets. The signature side is deep: **eleven autograph subsets**, from **Base Card Autographs** (120) and **Matchwinner / Black Edge / On Fire / Vision / Stars of the Bundesliga / Future Stars** autographs down to **Base Card Legend Autographs** and the **Class of 75/76 Autographs**, plus **Base Card Relics**.
+
+**Parallels, pack odds, and the box configuration are not published yet** and will be added when Topps releases them. **Pre-orders open October 13**; the release date is still to be announced.`,
+    tags: ["checklist"],
+    setId: 895,
+  },
+  {
     id: "2026-topps-x-street-fighter-checklist",
     title: "2026 Topps x Street Fighter checklist added",
     date: "2026-10-09T13:00:00-07:00",
