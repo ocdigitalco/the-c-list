@@ -15,6 +15,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-27-topps-flagship-basketball-checklist",
+    title: "2026-27 Topps Flagship Basketball checklist added",
+    date: "2026-10-13T12:00:00-07:00",
+    summary:
+      "2026-27 Topps Flagship Basketball checklist added — 64 subsets, 3,244 cards, and eight box configurations. Releases November 5; parallels and pack odds to follow.",
+    description: `## 2026-27 Topps Flagship Basketball
+
+Added the full **2026-27 Topps Flagship Basketball** checklist: **64 subsets, 3,244 cards, 360 subjects**. The **300-card base** set (45 rookies) is joined by a full **Base Cards Blackout** run and six base-numbered variation subsets (Clear, Golden Mirror Image I/II/III, Player Number, Team Color Border) plus **Base Facsimile Autographs**.
+
+Inserts and programs include **The Flagship Collection** (Base, Project Rookie, Chrome Base, Break Point), the throwback **1981-82 Topps Basketball** and **1981-82 Topps Chrome** sets, and the usual deep insert run (All Kings, Bounce, Comic Court, Drivers, Levitation, Stars of the NBA, and more). The autograph and relic side is large: **Flagship Real One** autographs and relics on base numbers, the 1981-82 autograph sets, Contemporary Marks, Game Script, Rookie Photo Shoot autographs and duals, and relic sets from Impact Relics to Rookie Roundball Remnants.
+
+**Eight box configurations** are listed — Hobby, Jumbo, Mega, Value, All-Star Game Mega, Black Friday Value Blaster, Fanatics Value Blaster, and Hanger. **Parallels and pack odds are not published yet** and will be added when Topps releases them. **Releases November 5, 2026.**`,
+    tags: ["checklist"],
+    setId: 896,
+  },
+  {
     id: "2026-27-topps-flagship-bundesliga-checklist",
     title: "2026-27 Topps Flagship Bundesliga checklist added",
     date: "2026-10-12T12:00:00-07:00",
