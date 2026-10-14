@@ -15,6 +15,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-mint-disney-checklist",
+    title: "2026 Topps Mint Disney checklist added",
+    date: "2026-10-13T12:00:00-07:00",
+    summary:
+      "2026 Topps Mint Disney checklist added — 15 subsets / 442 cards, including 61 Chrome Autographs and 68 sketch artists. Releases November 4; parallels and pack odds to follow.",
+    description: `## 2026 Topps Mint Disney
+
+Added the full **2026 Topps Mint Disney** checklist: **15 subsets, 442 cards, 284 subjects**. The base set is tiered — **Bronze (1-50), Silver (51-75), Gold (76-100), and Platinum (101-125)** — each with a matching **Chrome Variation**, spanning the Disney, Pixar, and Disney Channel catalogs from Mickey & Friends to Toy Story 5, Zootopia 2, and Hoppers.
+
+On the hit side: **Minted Posters** (film-poster cards), **Minted in Magic**, an **NYCC Exclusive** Jack Skellington, **61 Chrome Autographs** (voice actors signing as their characters, from Tom Hanks as Woody to Auli'i Cravalho as Moana), a **Clarence Nash Donald Duck Cut Signature**, a **Donald Duck and Friends Comic Cut** relic, and **68 sketch artists**.
+
+**Parallels and pack odds are not published yet** and will be added when Topps releases them. **Releases November 4, 2026.**`,
+    tags: ["checklist"],
+    setId: 897,
+  },
+  {
     id: "2026-27-topps-flagship-basketball-checklist",
     title: "2026-27 Topps Flagship Basketball checklist added",
     date: "2026-10-13T12:00:00-07:00",
