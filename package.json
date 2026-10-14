@@ -9,6 +9,7 @@
     "prebuild": "tsx scripts/generate-card-gallery-manifest.ts && tsx scripts/check-cover-images.ts",
     "build": "next build",
     "start": "next start",
+    "test": "playwright test",
     "lint": "eslint",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
@@ -29,6 +30,7 @@
     "resend": "^6.25.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.64.0",
     "@tailwindcss/postcss": "^4",
     "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^20",
