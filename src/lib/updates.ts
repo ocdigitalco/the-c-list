@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-neon-marvel-odds",
+    title: "2026 Topps Neon Marvel parallels + pack odds attached",
+    date: "2026-10-15T12:00:00-07:00",
+    summary:
+      "2026 Topps Neon Marvel: 111 numbered parallels with print runs and official pack odds for Hobby, Value, Mega, Super Box, and the Super Box bonus pack.",
+    description: `## 2026 Topps Neon Marvel — parallels + pack odds
+
+Attached **111 numbered parallels** (print runs from the product listing, 5 unnumbered: the Rainbow, Sparkle, Diamante, Magenta, and Red & Blue foils) and the official Topps odds sheet (dated 2026-10-14) across **five formats — Hobby, Value, Mega, Super Box, and the Super Box bonus pack**. The base foil ladder runs from Rainbow through the FoilFractor 1/1, with the Sparkle family Hobby-exclusive, Diamante Retail-exclusive, Magenta Super Box-only, and Red & Blue exclusive to the Super Box bonus pack.
+
+The **Super Box** and **Super Box Bonus Pack** formats were added to the box configuration (the bonus pack is where the Base Super Box Design Variation and Red & Blue foils live). Neon Villains is numbered /99 as a subset; the Chrome Neon Etch, Marvel Snap XL, and Base Super Box Design subsets are format-exclusive. Print runs are published, so parallels carry real runs.`,
+    tags: ["odds"],
+    setId: 879,
+  },
+  {
     id: "2026-topps-chrome-formula-1-odds",
     title: "2026 Topps Chrome Formula 1 pack odds attached",
     date: "2026-10-15T12:00:00-07:00",
