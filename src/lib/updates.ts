@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-chrome-formula-1-odds",
+    title: "2026 Topps Chrome Formula 1 pack odds attached",
+    date: "2026-10-15T12:00:00-07:00",
+    summary:
+      "2026 Topps Chrome Formula 1: official Hobby, FDI, Value, and Mega pack odds attached from the Topps sheet, across the base ladder and inserts. Sapphire, Hongbao, and LogoFrac formats are listed on the sheet without odds; Women of the Paddock has published odds but no checklist; a few sheet parallels have no matching card yet.",
+    description: `## 2026 Topps Chrome Formula 1 — pack odds
+
+Attached the official Topps odds sheet (dated 2026-10-08) for **2026 Topps Chrome Formula 1** across the four formats that carry figures — **Hobby, First Day Issue, Value, and Mega** — with **1,187 odds entries** spanning the base Refractor ladder (replicated across all eleven base sub-groups), the insert parallels, and the autograph subsets. The **Molten Mercury** FDI tier was added to each base sub-group (print run not yet published). **The Grail** publishes per-card odds; its G-1 figure is stored as the subset's base odds with G-4/G-7 recorded in the subset notes.
+
+**Print runs are unchanged** (the previously published parallel ladder stays intact). Three formats on the sheet carry no figures and are **not** added as box configurations — **Sapphire, Hongbao** (Hongbao already has a box config), and **LogoFrac**. **Women of the Paddock** appears on the odds sheet but has no checklist/subset yet, so no cards were created. A handful of sheet parallels have no matching card in the current checklist and their odds were not attached pending the cards: **Speed Wheels** (its full ladder), **Home Straight** (Blue/Purple RayWave + Checker Flag), **Suit Up** (Purple RayWave + Checker Flag), and **Chrome Autographs** (Molten Mercury).`,
+    tags: ["odds"],
+    setId: 878,
+  },
+  {
     id: "2026-topps-mint-disney-checklist",
     title: "2026 Topps Mint Disney checklist added",
     date: "2026-10-13T12:00:00-07:00",
