@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-chrome-football-checklist",
+    title: "2026 Topps Chrome Football checklist added",
+    date: "2026-10-16T12:00:00-07:00",
+    summary:
+      "2026 Topps Chrome Football: full checklist of 56 subsets / 2,367 cards with the First Day Issue box configuration. Release date, parallels, and odds to follow.",
+    description: `## 2026 Topps Chrome Football — checklist
+
+Added the complete **2026 Topps Chrome Football** checklist: **56 subsets and 2,367 cards** across the 300-card base, the 100-card Rookie run (301–400), the Lightboard Logo / Team Camo / Etch / Image variations, the retro-design inserts (1991 Topps Football, 2016/2017/2018 Chrome Football), and the full autograph and relic lineup including Dual Autographs, Chromographs, the Gold Shield auto-relic, and the 93-card Fanatics Authentics redemption checklist.
+
+The **First Day Issue** box configuration is live (11 cards/pack, 12 packs/box, 3 autographs and 4 parallels guaranteed per box). **Release date is TBD**, and **parallels and pack odds are not yet published** — they'll be attached once the official odds sheet is out.`,
+    tags: ["checklist"],
+    setId: 898,
+  },
+  {
     id: "2026-topps-neon-marvel-odds",
     title: "2026 Topps Neon Marvel parallels + pack odds attached",
     date: "2026-10-15T12:00:00-07:00",

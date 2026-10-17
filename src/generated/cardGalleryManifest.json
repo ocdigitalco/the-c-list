@@ -1006,6 +1006,43 @@
       "height": 560
     }
   ],
+  "2026-topps-chrome-football": [
+    {
+      "file": "2026-topps-chrome-football-0.png",
+      "width": 750,
+      "height": 852
+    },
+    {
+      "file": "2026-topps-chrome-football-1.jpg",
+      "width": 1080,
+      "height": 1515
+    },
+    {
+      "file": "2026-topps-chrome-football-2.jpg",
+      "width": 1080,
+      "height": 1545
+    },
+    {
+      "file": "2026-topps-chrome-football-3.jpg",
+      "width": 1080,
+      "height": 1517
+    },
+    {
+      "file": "2026-topps-chrome-football-4.jpg",
+      "width": 1080,
+      "height": 1518
+    },
+    {
+      "file": "2026-topps-chrome-football-5.jpg",
+      "width": 1080,
+      "height": 1535
+    },
+    {
+      "file": "2026-topps-chrome-football-6.jpg",
+      "width": 1080,
+      "height": 1515
+    }
+  ],
   "2026-topps-chrome-formula-1": [
     {
       "file": "2026-topps-chrome-formula-1-1.jpg",
