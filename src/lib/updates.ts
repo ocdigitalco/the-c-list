@@ -15,6 +15,21 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "data-cleanup-2026-10-17",
+    title: "Data cleanup: subject names and roles normalized",
+    date: "2026-10-17T12:00:00-07:00",
+    summary:
+      "Normalized the Fanatics Authentics Redemption Card subset name across four sets, aligned Winnie the Pooh's spelling across Disney sets, and corrected team and race subjects on 2025 Topps Chrome Formula 1 to their proper roles.",
+    description: `## Data cleanup — batch 1
+
+Three consistency fixes across the catalog:
+
+- **Fanatics Authentics Redemption Card** — the redemption subset was stored under six different spellings. Normalized every set to the single canonical name (2026 Topps Series 1 Baseball, 2025-26 Topps Basketball, 2025 Topps Chrome Football, 2026 Topps Chrome Baseball, 2026 Topps Flagship Football, and 2026-27 Topps Flagship Basketball; 2026 Topps Chrome Football was already correct), rewriting the Flagship Football pack-odds key to match.
+- **Winnie the Pooh** — 2026 Topps Mint Disney stored "Winnie The Pooh" with a capital T; aligned it to the spelling used across the other Disney sets so the character now links as one subject.
+- **2025 Topps Chrome Formula 1 roles** — the ten constructor Team Logo cards are now tagged as teams and the nine Grand Prix / Tribute Collector's Edition cards as events, so they no longer appear in the driver (athlete) list.`,
+    tags: ["data"],
+  },
+  {
     id: "2026-topps-chrome-football-checklist",
     title: "2026 Topps Chrome Football checklist added",
     date: "2026-10-16T12:00:00-07:00",
