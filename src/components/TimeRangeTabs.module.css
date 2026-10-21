@@ -1,0 +1,7 @@
+/* Segmented time-range pill — extracted verbatim from searches.module.css so
+   /searches renders identically and /sheets shares one source of truth. */
+.seg { display: flex; gap: 2px; background: var(--brand-track); padding: 3px; border-radius: 999px; }
+.segBtn { font: inherit; font-size: 13px; font-weight: 500; border: 0; background: transparent; color: var(--brand-ink); padding: 7px 14px; border-radius: 999px; cursor: pointer; white-space: nowrap; }
+.segBtn:hover { color: var(--brand-ink); }
+.segBtn:focus-visible { outline: 2px solid var(--brand-accent); outline-offset: 2px; }
+.segOn, .segOn:hover { background: var(--brand-ink); color: var(--brand-head); }

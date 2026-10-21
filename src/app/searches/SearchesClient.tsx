@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { LeaderboardEntry } from "./page";
+import { TimeRangeTabs } from "@/components/TimeRangeTabs";
 import styles from "./searches.module.css";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -69,14 +70,6 @@ function Avatar({ a }: { a: Athlete }) {
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
-const RANGES = [
-  { label: "24h", value: "24h" },
-  { label: "7 days", value: "7d" },
-  { label: "30 days", value: "30d" },
-  { label: "1 year", value: "1y" },
-  { label: "All time", value: "all" },
-];
-
 const SPORTS = ["All", "Basketball", "Baseball", "Soccer", "MMA", "Wrestling", "Racing", "Football", "Entertainment", "Other"];
 
 const attention = (a: Athlete) => a.views + a.searches * 2;
@@ -140,17 +133,11 @@ export function SearchesClient({ views, searches, allSports, currentRange, curre
 
         {/* Controls: time range · view toggle */}
         <div className={styles.controls}>
-          <div className={styles.seg}>
-            {RANGES.map((r) => {
-              const on = currentRange === r.value;
-              return (
-                <button key={r.value} className={on ? `${styles.segBtn} ${styles.segOn}` : styles.segBtn} aria-pressed={on}
-                  onClick={() => navigate(r.value, currentSport)}>
-                  {r.label}
-                </button>
-              );
-            })}
-          </div>
+          <TimeRangeTabs
+            current={currentRange}
+            basePath="/searches"
+            params={currentSport ? { sport: currentSport } : {}}
+          />
           <div className={styles.rightCtl}>
             <div className={styles.seg}>
               <button className={view === "combined" ? `${styles.segBtn} ${styles.segOn}` : styles.segBtn} aria-pressed={view === "combined"}
