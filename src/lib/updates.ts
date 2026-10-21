@@ -15,6 +15,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-vault-disney-checklist",
+    title: "2026 Topps Vault Disney checklist added",
+    date: "2026-10-20T12:00:00-07:00",
+    summary:
+      "2026 Topps Vault Disney: an all-hits product — 22 subsets / 466 cards with 55 parallels and official per-pack odds (Pack #1 relics & sketches, Pack #2 autographs, box toppers). Releases October 21.",
+    description: `## 2026 Topps Vault Disney — checklist, parallels & odds
+
+Added the full **2026 Topps Vault Disney** build. There is **no base set** — every card is an autograph, relic, sketch, or box topper across **22 subsets and 466 cards**, with **55 numbered parallels** (Black /10, Red or Bronze /5, Gold 1/1, plus Immortal's Chrome refractor ladder).
+
+Because a hobby box is two one-card packs plus a topper, Topps publishes odds **per pack slot**, so the odds are stored and shown that way — **Pack #1 (Relics & Sketches)**, **Pack #2 (Autographs)**, and **Box Topper** — rather than per box format.
+
+Highlights: Disney Diamonds, the multi-actor Disney Duals and Triples autographs (each actor tagged with their character), Retro Blockbuster booklet autographs, Vault Relics prop relics, Gems of Wonder 1/1 autograph relics, Vault Cut Signatures, and the Premiere Sketch Cards (Pack #1) and Oversized Premiere Sketch Cards (box topper). The set **releases October 21, 2026**.`,
+    tags: ["checklist"],
+    setId: 900,
+  },
+  {
     id: "2026-topps-holiday-baseball-checklist",
     title: "2026 Topps Holiday Baseball checklist added",
     date: "2026-10-20T12:00:00-07:00",

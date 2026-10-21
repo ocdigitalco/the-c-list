@@ -296,6 +296,8 @@ const ODDS_FORMAT_PREFERENCE = [
   "hobby_silver_pack", "jumbo_silver_pack", "super_box", "super_box_bonus", "super_box_oversized", "bulk_packs",
   "club_super_box", "club_super_box_oversized", "kids_mega", "club_ex_box_sams",
   "club_ex_box_sams_oversized", "gc_white_slip_sheets",
+  // Vault Disney per-pack-slot odds (all-hits product, single hobby box_config).
+  "pack_1", "pack_2", "topper",
 ];
 
 function isMultiConfig(cfg: BoxConfigSingle | BoxConfigMulti): cfg is BoxConfigMulti {

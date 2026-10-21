@@ -23,6 +23,10 @@ export const BOX_LABELS: Record<string, string> = {
   super_box_bonus: "Super Box Bonus Pack",
   tin: "Collector Tin",
   advent: "Advent Calendar",
+  // Topps Vault Disney publishes odds per pack slot, not per box format.
+  pack_1: "Pack #1 (Relics & Sketches)",
+  pack_2: "Pack #2 (Autographs)",
+  topper: "Box Topper",
   // All Breaker's Delight key spellings render "Breaker Delight" — the form
   // Topps uses on its product listings (the apostrophe version was ours).
   breakers_delight: "Breaker Delight",
