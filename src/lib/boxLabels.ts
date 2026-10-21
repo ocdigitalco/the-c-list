@@ -21,6 +21,8 @@ export const BOX_LABELS: Record<string, string> = {
   fanatics_value: "Fanatics Value Blaster",
   super_box: "Super Box",
   super_box_bonus: "Super Box Bonus Pack",
+  tin: "Collector Tin",
+  advent: "Advent Calendar",
   // All Breaker's Delight key spellings render "Breaker Delight" — the form
   // Topps uses on its product listings (the apostrophe version was ours).
   breakers_delight: "Breaker Delight",

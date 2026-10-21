@@ -15,6 +15,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-holiday-baseball-checklist",
+    title: "2026 Topps Holiday Baseball checklist added",
+    date: "2026-10-20T12:00:00-07:00",
+    summary:
+      "2026 Topps Holiday Baseball: 15 subsets / 640 cards with 52 numbered parallels and official Mega, Collector Tin, and Advent Calendar pack odds. Three autograph subsets await checklists. Releases October 21.",
+    description: `## 2026 Topps Holiday Baseball — checklist, parallels & odds
+
+Added the full **2026 Topps Holiday Baseball** build in one pass: **15 subsets, 640 cards, 52 numbered parallels** (print runs and box exclusivity from the product listing) and the official Topps odds sheet across **three formats — Hobby Mega Box, Collector Tin, and Advent Calendar**.
+
+Highlights: the 200-card base run, the Mega-exclusive **Base Chrome Variation** refractor ladder (with an Advent-only Plaid Refractor ladder), four Holiday Variation SP/SSP subsets, the holiday inserts (Die-Cut Ornament, Hidden Elf, Making the Nice List, Oversized Die-Cut Ornament), Holiday Relics and the five character **Holiday Faux Relics** (Elf, Gingerbread Man, Mrs. Claus, Nutcracker, Santa Claus).
+
+**Three autograph subsets — Base Autographs, Holiday Relic Autographs, and Holiday Faux Relic Autographs — have no published checklist yet**; their odds and parallels are stored so they render as soon as Topps posts the card lists. The set **releases October 21, 2026**.`,
+    tags: ["checklist"],
+    setId: 899,
+  },
+  {
     id: "data-cleanup-2026-10-17",
     title: "Data cleanup: subject names and roles normalized",
     date: "2026-10-17T12:00:00-07:00",

@@ -291,7 +291,7 @@ export function buildFormatHits(
 // some formats. Prefers what a typical buyer opens, so the shown value is the
 // most representative; the resolver tags the value when it isn't hobby.
 const ODDS_FORMAT_PREFERENCE = [
-  "hobby", "hobby_box_topper", "jumbo", "value", "mega", "hanger", "fat_pack", "fanatics", "london_mega", "walmart_mega",
+  "hobby", "hobby_box_topper", "jumbo", "value", "mega", "tin", "advent", "hanger", "fat_pack", "fanatics", "london_mega", "walmart_mega",
   // Phase 3 formats (official Topps sheet order); non-hobby → tagged.
   "hobby_silver_pack", "jumbo_silver_pack", "super_box", "super_box_bonus", "super_box_oversized", "bulk_packs",
   "club_super_box", "club_super_box_oversized", "kids_mega", "club_ex_box_sams",
