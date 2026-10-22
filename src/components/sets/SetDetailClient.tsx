@@ -1544,9 +1544,14 @@ export function SetDetailClient({
     }
   })();
 
+  // Panini never publishes pack odds, so the "notify me when odds are added"
+  // form is a false promise there — suppress it for Panini sets (odds absence
+  // is permanent, not pending). Manufacturer is inferred from the set name.
+  const oddsWillNeverPublish = meta.manufacturer === "Panini";
+
   return (
     <div style={{ background: "var(--brand-page)", minHeight: "100vh" }}>
-      {oddsAbsent && (
+      {oddsAbsent && !oddsWillNeverPublish && (
         <div style={{ padding: "16px 24px 0" }}>
           <SetOddsAlertForm setSlug={setSlug || String(setId)} />
         </div>
@@ -1595,9 +1600,11 @@ export function SetDetailClient({
                       {league}
                     </span>
                   )}
-                  <span style={{ fontSize: 16, fontWeight: 600, padding: "4px 9px", borderRadius: 4, background: "var(--brand-ink)", color: "var(--brand-page)" }}>
-                    {meta.manufacturer || "Topps"}
-                  </span>
+                  {meta.manufacturer && (
+                    <span style={{ fontSize: 16, fontWeight: 600, padding: "4px 9px", borderRadius: 4, background: "var(--brand-ink)", color: "var(--brand-page)" }}>
+                      {meta.manufacturer}
+                    </span>
+                  )}
                   <span style={{ fontSize: 16, color: "var(--brand-slate)" }}>
                     {athleteCount.toLocaleString()} {subjectLabel.toLowerCase()} tracked
                   </span>

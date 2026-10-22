@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-panini-par-three-liv-golf-checklist",
+    title: "2026 Panini Par Three LIV Golf checklist added",
+    date: "2026-10-21T12:00:00-07:00",
+    summary:
+      "2026 Panini Par Three LIV Golf: 21 subsets / 312 cards with 70 numbered parallels and per-card print runs, plus the hobby box config. Panini publishes no pack odds.",
+    description: `## 2026 Panini Par Three LIV Golf — checklist & parallels
+
+Added the full **2026 Panini Par Three LIV Golf** build — a slabbed, hits-only product (three graded cards per box). **21 subsets, 312 cards, 70 numbered parallels**, including the Base refractor-style ladder, the Clubhouse/Global/Prolific/Team Titan autograph lineups, Souvenir and Quad Team swatch relics, the five Cleat Peek swatch subsets, and the unnumbered Downtown inserts.
+
+Because Panini numbers **each card individually**, the serial run varies within many subsets — those print runs are stored per card (e.g. Clubhouse Collection Signatures runs from /99 down to a /10), with the per-subset distribution noted. **Panini does not publish pack odds**, so there is no odds panel; the Purple FOTL parallels are tagged First Off The Line.`,
+    tags: ["checklist"],
+    setId: 901,
+  },
+  {
     id: "2026-topps-vault-disney-checklist",
     title: "2026 Topps Vault Disney checklist added",
     date: "2026-10-20T12:00:00-07:00",
