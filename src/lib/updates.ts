@@ -15,6 +15,23 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-heritage-football-odds",
+    title: "2026 Topps Heritage Football: final checklist, parallels & odds",
+    date: "2026-10-21T12:00:00-07:00",
+    summary:
+      "2026 Topps Heritage Football reconciled to Topps' final checklist, with 58 numbered parallels and official Hobby, Value, Mega, and Fat Pack pack odds. Fat Pack configuration TBA.",
+    description: `## 2026 Topps Heritage Football — final checklist, parallels & odds
+
+Reconciled **2026 Topps Heritage Football** against Topps' final checklist (three cards added) and attached the full parallel and odds picture:
+
+- **58 numbered parallels** with published print runs — the Base border ladder (Bicentennial /200, Color of the Year /76) and the Chrome Variation refractor ladder (Blue /150 down to a SuperFractor 1/1), plus Holo inserts, Sparkle parallels, and the autograph/relic Red, Patch, and Border parallels (serial runs unpublished).
+- **Official Topps pack odds** across **four formats — Hobby, Value, Mega, and Fat Pack** (new to this set) — 259 odds entries. Fat Pack's box configuration is not yet published, so it is listed as "Configuration TBA" so its odds can attach.
+
+The Expansion insert lists only its Holo version on the odds sheet.`,
+    tags: ["odds"],
+    setId: 884,
+  },
+  {
     id: "2026-panini-par-three-liv-golf-checklist",
     title: "2026 Panini Par Three LIV Golf checklist added",
     date: "2026-10-21T12:00:00-07:00",
