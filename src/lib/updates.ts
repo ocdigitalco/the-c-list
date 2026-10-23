@@ -15,6 +15,23 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-stadium-club-wwe-checklist",
+    title: "2026 Topps Stadium Club WWE: checklist, parallels & odds",
+    date: "2026-10-23T13:00:00-07:00",
+    summary:
+      "2026 Topps Stadium Club WWE: 26 subsets / 930 cards with 96 parallels and official Hobby, Value Blaster, and Mega odds; Base Chrome Autographs II awaits its checklist.",
+    description: `## 2026 Topps Stadium Club WWE — checklist, parallels & odds
+
+The full **2026 Topps Stadium Club WWE** checklist is live: **26 subsets** and **930 cards**, reconciled to Topps' official checklist and odds sheet.
+
+- **96 numbered and unnumbered parallels** — from the 17-parallel Base rainbow (through Gold Rainbow Foilboard 1/1 and Printing Plates) to the Chrome refractors and the autograph parallel ladders.
+- **Official pack odds in all three formats** — Hobby, Value Blaster, and Mega — stored exactly as Topps published them.
+- **Box configurations** for all three formats, plus the autograph and relic-free Beam Team, Triumvirates, and Triumvirates Nicknames format restrictions.
+- **Base Chrome Autographs II** is listed with its published odds and parallels; its card checklist is still TBA from Topps and will be filled in when released.`,
+    tags: ["checklist"],
+    setId: 902,
+  },
+  {
     id: "last-sold-limits-2026-10-23",
     title: "Last Sold: more checks per visitor, clearer limit messages",
     date: "2026-10-23T12:00:00-07:00",
