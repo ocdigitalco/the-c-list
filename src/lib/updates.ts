@@ -15,6 +15,21 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "box-config-table-2026-10-22",
+    title: "Box configuration is now a table on set pages",
+    date: "2026-10-22T12:00:00-07:00",
+    summary:
+      "Box configuration on set pages is now a table: one row per format, a computed cards-per-box column, and clear marks where a figure hasn't been published.",
+    description: `## Box configuration as a table
+
+The **Box Configuration** section on each set's Overview tab is now a single table instead of a grid of cards — one row per box format, with columns for cards per pack, packs per box, a **computed cards per box**, boxes per case, and the per-box guarantee.
+
+- Figures a manufacturer hasn't published show a clear **"—"** rather than a blank, so a missing number reads as "not yet published," not "zero."
+- Formats appear in the same order as the pack-odds panel, so the two sections line up.
+- On phones the table collapses to Format · Pack · Box · Case, with the per-box guarantee on its own line beneath each format.`,
+    tags: ["feature"],
+  },
+  {
     id: "caching-2026-10-22",
     title: "Faster set pages with on-demand caching",
     date: "2026-10-22T12:00:00-07:00",

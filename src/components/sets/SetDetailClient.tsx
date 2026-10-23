@@ -3,7 +3,6 @@
 import React, { useState, useMemo, useRef, useEffect } from "react";
 import Link from "next/link";
 import type { LeaderboardRow } from "./types";
-import type { BoxConfigSingle, BoxConfigMulti } from "./types";
 import { getNBAHeadshotUrl } from "@/lib/nba-headshot";
 import { getUFCHeadshotUrl } from "@/lib/ufc-headshot";
 import { getMLBHeadshotUrl } from "@/lib/mlb-headshot";
@@ -18,6 +17,7 @@ import { getTeamLogo } from "@/lib/utils/teamLogo";
 import { findOddsKey } from "@/lib/oddsUtils";
 import { label as fmtBoxLabel } from "@/lib/boxLabels";
 import { SubsetCard } from "./SubsetCard";
+import { BoxConfigTable } from "./BoxConfigTable";
 import { LastSoldControl } from "./LastSoldControl";
 import { SealedBoxOffers, type SealedBoxData } from "./SealedBoxOffers";
 import type { ParallelRowData } from "./ParallelTable";
@@ -44,16 +44,6 @@ const FONT_MONO = "var(--cl-font-mono), 'JetBrains Mono', ui-monospace, monospac
 interface ParallelInfo {
   name: string;
   printRun: number | null;
-}
-
-interface BoxRow {
-  label: string;
-  cardsPerPack: number | null;
-  packsPerBox: number | null;
-  boxesPerCase: number | null;
-  packsPerCase: string;
-  autosPerBox: number | null;
-  notes?: string;
 }
 
 export interface SetDetailClientProps {
@@ -300,16 +290,6 @@ const ODDS_FORMAT_PREFERENCE = [
   "pack_1", "pack_2", "topper",
 ];
 
-function isMultiConfig(cfg: BoxConfigSingle | BoxConfigMulti): cfg is BoxConfigMulti {
-  const first = Object.values(cfg)[0];
-  return first !== null && typeof first === "object";
-}
-
-function getAutosPerBox(fmt: BoxConfigSingle): number | null {
-  return fmt.autos_per_box ?? fmt.autos_or_memorabilia_per_box ??
-    fmt.autos_or_relics_per_box ?? fmt.autos_or_auto_relics_per_box ?? null;
-}
-
 // `autoNames` is the set of lowercased subset names flagged is_autograph in the
 // DB — the single source of truth. An odds key belongs to an autograph subset
 // when it equals, or is prefixed by, one of those names (e.g. "Cactus Ink" and
@@ -345,37 +325,6 @@ function extractMeta(name: string, sport: string) {
     sportWords.pop();
   }
   return { manufacturer: manufacturer.toUpperCase(), manufacturerName: manufacturer, brand: restWords.join(" ").toUpperCase() || manufacturer.toUpperCase() };
-}
-
-function buildBoxRows(boxConfig: string): BoxRow[] {
-  const raw = JSON.parse(boxConfig) as BoxConfigSingle | BoxConfigMulti;
-  if (isMultiConfig(raw)) {
-    return Object.entries(raw).map(([key, fmt]) => {
-      const ppb = fmt.packs_per_box ?? null;
-      const bpc = fmt.boxes_per_case ?? null;
-      return {
-        label: fmtBoxLabel(key),
-        cardsPerPack: fmt.cards_per_pack ?? null,
-        packsPerBox: ppb,
-        boxesPerCase: bpc,
-        packsPerCase: ppb != null && bpc != null ? (ppb * bpc).toLocaleString() : "—",
-        autosPerBox: getAutosPerBox(fmt),
-        notes: fmt.notes ?? fmt.note ?? undefined,
-      };
-    });
-  }
-  const fmt = raw as BoxConfigSingle;
-  const ppb = fmt.packs_per_box ?? null;
-  const bpc = fmt.boxes_per_case ?? null;
-  return [{
-    label: "Hobby",
-    cardsPerPack: fmt.cards_per_pack ?? null,
-    packsPerBox: ppb,
-    boxesPerCase: bpc,
-    packsPerCase: ppb != null && bpc != null ? (ppb * bpc).toLocaleString() : "—",
-    autosPerBox: getAutosPerBox(fmt),
-    notes: fmt.notes ?? fmt.note ?? undefined,
-  }];
 }
 
 // ─── Avatar ─────────────────────────────────────────────────────────────────────
@@ -923,7 +872,7 @@ function OverviewContent({ boxConfig, boxOffers, setSlug, cards, cardTypes, para
   subsets?: SubsetChecklist[]; packOdds?: string | null; videoUrl?: string | null;
 }) {
   const ytId = youTubeId(videoUrl);
-  const boxRows = boxConfig ? buildBoxRows(boxConfig) : [];
+  const boxManufacturer = extractMeta(setName, "").manufacturerName;
   const formatHits = buildFormatHits(subsets, boxConfig, packOdds, setName);
   const allFaqs = [...(faqs ?? []), ...(formatHits?.faqs ?? [])];
 
@@ -1081,83 +1030,7 @@ function OverviewContent({ boxConfig, boxOffers, setSlug, cards, cardTypes, para
       </div>
 
       {/* Box Configuration */}
-      {boxRows.length > 0 && (
-        <div>
-          <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "var(--brand-slate)", textTransform: "uppercase", marginBottom: 12 }}>
-            Box Configuration
-          </div>
-          {/* Desktop */}
-          <div className="hidden min-[1180px]:block">
-            <div className="grid gap-3" style={{ gridTemplateColumns: `repeat(${Math.min(boxRows.length, 3)}, 1fr)` }}>
-              {boxRows.map((row) => (
-                <div key={row.label} style={{
-                  background: "var(--brand-card)", border: "1px solid var(--brand-line)", borderRadius: 8, padding: "16px",
-                }}>
-                  <div style={{ fontFamily: FONT_DISPLAY, fontSize: 16, fontWeight: 600, color: "var(--brand-ink)", marginBottom: 12 }}>
-                    {row.label}
-                  </div>
-                  <div className="space-y-1.5">
-                    {row.cardsPerPack != null && (
-                      <div style={{ fontSize: 16, color: "var(--brand-ink-soft)" }}>
-                        <span style={{ fontFamily: FONT_MONO, fontWeight: 600, color: "var(--brand-ink)" }}>{row.cardsPerPack}</span> cards/pack
-                      </div>
-                    )}
-                    {row.packsPerBox != null && (
-                      <div style={{ fontSize: 16, color: "var(--brand-ink-soft)" }}>
-                        <span style={{ fontFamily: FONT_MONO, fontWeight: 600, color: "var(--brand-ink)" }}>{row.packsPerBox}</span> packs/box
-                      </div>
-                    )}
-                    {row.boxesPerCase != null && (
-                      <div style={{ fontSize: 16, color: "var(--brand-ink-soft)" }}>
-                        <span style={{ fontFamily: FONT_MONO, fontWeight: 600, color: "var(--brand-ink)" }}>{row.boxesPerCase}</span> boxes/case
-                      </div>
-                    )}
-                    {row.autosPerBox != null && (
-                      <div style={{ fontSize: 16, color: "var(--brand-ink-soft)" }}>
-                        <span style={{ fontFamily: FONT_MONO, fontWeight: 600, color: "var(--brand-ink)" }}>{row.autosPerBox}</span> auto{row.autosPerBox !== 1 ? "s" : ""}/box
-                      </div>
-                    )}
-                  </div>
-                  {row.notes && (
-                    <div style={{ borderTop: "1px solid var(--brand-line)", marginTop: 10, paddingTop: 8, fontSize: 16, fontStyle: "italic", color: "var(--brand-slate)" }}>
-                      {row.notes}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-          {/* Mobile */}
-          <div className="min-[1180px]:hidden space-y-2">
-            {boxRows.map((row) => (
-              <div key={row.label} style={{
-                background: "var(--brand-card)", border: "1px solid var(--brand-line)", borderRadius: 10, padding: "12px 14px",
-              }}>
-                <div style={{ fontFamily: FONT_DISPLAY, fontSize: 16, fontWeight: 600, color: "var(--brand-ink)", marginBottom: 8 }}>
-                  {row.label}
-                </div>
-                <div className="grid grid-cols-3 gap-2">
-                  {[
-                    { l: "CARDS/PK", v: row.cardsPerPack },
-                    { l: "PKS/BOX", v: row.packsPerBox },
-                    { l: "BXS/CASE", v: row.boxesPerCase },
-                  ].map((s) => (
-                    <div key={s.l}>
-                      <div style={{ fontFamily: FONT_MONO, fontSize: 7, fontWeight: 600, letterSpacing: 1, color: "var(--brand-slate)", textTransform: "uppercase" }}>{s.l}</div>
-                      <div style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 600, color: s.v != null ? "var(--brand-ink)" : "var(--brand-fog)", marginTop: 2 }}>{s.v ?? "—"}</div>
-                    </div>
-                  ))}
-                </div>
-                {row.notes && (
-                  <div style={{ borderTop: "1px solid var(--brand-line)", marginTop: 8, paddingTop: 6, fontSize: 16, fontStyle: "italic", color: "var(--brand-slate)" }}>
-                    {row.notes}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
+      <BoxConfigTable boxConfig={boxConfig} packOdds={packOdds} manufacturer={boxManufacturer} />
 
       {/* What each box can hit — format-exclusivity map (multi-format sets only) */}
       {formatHits && (
