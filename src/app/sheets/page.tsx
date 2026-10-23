@@ -3,6 +3,7 @@ import Link from "next/link";
 import { desc, gte } from "drizzle-orm";
 import { db, rawQuery } from "@/lib/db";
 import { breakSheets, breakSheetPrices } from "@/lib/schema";
+import { dailyCap } from "@/lib/soldComps";
 import { TimeRangeTabs } from "@/components/TimeRangeTabs";
 import { VolumeChart, type Bucket, type VolumeStat } from "./VolumeChart";
 
@@ -220,6 +221,20 @@ export default async function SheetsAdminPage({
 
   const chart = await buildChart(range, now, cutoff, nameBySlug);
 
+  // One-line Last Sold daily usage for admin visibility. Production-owned table;
+  // a missing row (or none locally) means no lookups today.
+  const soldCompsEnabled = process.env.SOLD_COMPS_ENABLED === "true";
+  let soldCompsToday = 0;
+  if (soldCompsEnabled) {
+    try {
+      const u = await rawQuery.get<{ calls: number }>(
+        `SELECT calls FROM sold_comps_usage WHERE day = ?`,
+        new Date(now).toISOString().slice(0, 10)
+      );
+      soldCompsToday = u?.calls ?? 0;
+    } catch { /* table may not exist locally */ }
+  }
+
   return (
     <div className="h-full overflow-y-auto" style={{ background: "var(--brand-page)" }}>
       <div className="mx-auto cl-container" style={{ maxWidth: 1440, padding: "40px 56px 80px" }}>
@@ -239,6 +254,11 @@ export default async function SheetsAdminPage({
         <p style={{ fontSize: 14, color: "var(--brand-slate)", margin: "6px 0 0" }}>
           {sheets.length.toLocaleString()} sheet{sheets.length === 1 ? "" : "s"} · newest first · anonymous
         </p>
+        {soldCompsEnabled && (
+          <p style={{ fontSize: 14, color: "var(--brand-slate)", margin: "4px 0 0" }}>
+            Last Sold today: {soldCompsToday.toLocaleString()} / {dailyCap().toLocaleString()} lookups
+          </p>
+        )}
 
         {/* Time range + daily volume chart */}
         <div style={{ marginTop: 24, display: "flex", justifyContent: "flex-end" }}>

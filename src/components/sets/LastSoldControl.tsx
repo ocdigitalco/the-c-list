@@ -1,7 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import type { LastSoldSummary } from "./SetDetailClient";
+
+// One sentence shown on the "i" of a rate-limited row.
+const RATE_LIMIT_TIP = "Prices come from recent eBay sales and are rate-limited to keep lookups fair.";
 
 const FONT_MONO = "var(--cl-font-mono), 'JetBrains Mono', ui-monospace, monospace";
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -32,7 +35,7 @@ function basisText(type: LastSoldSummary["type"], boaHydrated?: number | null): 
   }
 }
 
-type Phase = "button" | "loading" | "priced" | "no_sales" | "capped" | "error";
+type Phase = "button" | "loading" | "priced" | "no_sales" | "ip_limit" | "daily_cap" | "upstream_error" | "error";
 
 // Right-cluster "Last sold" control for a checklist row. State 1 is a compact
 // chip-height button; State 2 is a two-line price block. The fetch happens ONLY
@@ -47,6 +50,18 @@ export function LastSoldControl({
   const [phase, setPhase] = useState<Phase>(initial?.priceCents != null ? "priced" : "button");
   const [summary, setSummary] = useState<LastSoldSummary | null>(initial ?? null);
   const [tipOpen, setTipOpen] = useState(false); // tap-to-toggle for touch (hover uses title)
+  // When a limit was hit, the ms-timestamp the control re-enables itself at.
+  const [reEnableAt, setReEnableAt] = useState<number | null>(null);
+
+  // Auto re-enable after a rate-limit window elapses (ip_limit: retryAfterSeconds;
+  // daily_cap: resetsAt). Nothing is persisted — a reload resets to the button.
+  useEffect(() => {
+    if ((phase !== "ip_limit" && phase !== "daily_cap") || reEnableAt == null) return;
+    const ms = reEnableAt - Date.now();
+    if (ms <= 0) { setPhase("button"); setReEnableAt(null); return; }
+    const t = setTimeout(() => { setPhase("button"); setReEnableAt(null); }, ms);
+    return () => clearTimeout(t);
+  }, [phase, reEnableAt]);
 
   async function fetchPrice() {
     if (phase === "loading") return;
@@ -57,15 +72,26 @@ export function LastSoldControl({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ set_id: setId, insert_set_id: insertSetId, card_number: cardNumber, player_id: playerId }),
       });
+      // The body carries the outcome even on 429/502/503, so we key on `reason`
+      // (falling back to `status`), not the HTTP status.
       const data = await res.json().catch(() => null);
+      const reason: string | undefined = data?.reason;
       if (data?.status === "ok" && data.summary) {
         setSummary(data.summary as LastSoldSummary);
         setPhase("priced");
         onPriced?.();
       } else if (data?.status === "no_sales") {
         setPhase("no_sales");
-      } else if (data?.status === "capped") {
-        setPhase("capped");
+      } else if (reason === "ip_limit") {
+        const secs = Number(data?.retryAfterSeconds);
+        setReEnableAt(Date.now() + (Number.isFinite(secs) && secs > 0 ? secs : 3600) * 1000);
+        setPhase("ip_limit");
+      } else if (reason === "daily_cap") {
+        const t = data?.resetsAt ? Date.parse(data.resetsAt) : NaN;
+        setReEnableAt(Number.isFinite(t) ? t : null);
+        setPhase("daily_cap");
+      } else if (reason === "upstream_error") {
+        setPhase("upstream_error");
       } else {
         setPhase("error");
       }
@@ -124,11 +150,30 @@ export function LastSoldControl({
     );
   }
 
-  if (phase === "capped") {
+  // A rate-limited row: the reason-specific message, disabled until it re-enables,
+  // with an "i" explaining the limit in one sentence.
+  if (phase === "ip_limit" || phase === "daily_cap") {
+    const message = phase === "ip_limit"
+      ? "Pricing limit reached — try again in about an hour"
+      : "Daily pricing budget used — back tomorrow";
     return (
-      <span style={{ ...chipBase, color: "var(--brand-slate)", background: "var(--brand-track)", border: "1px solid var(--brand-line)" }}
-        title="Daily pricing limit reached — try again tomorrow">
-        Pricing paused today
+      <span style={{ ...chipBase, position: "relative", color: "var(--brand-slate)", background: "var(--brand-track)", border: "1px solid var(--brand-line)" }}
+        title={message}>
+        {message}
+        <button type="button" aria-label={RATE_LIMIT_TIP} title={RATE_LIMIT_TIP}
+          onClick={() => setTipOpen((o) => !o)} onBlur={() => setTipOpen(false)}
+          style={{
+            marginLeft: 4, cursor: "help", border: "none", background: "transparent", padding: 0,
+            fontFamily: FONT_MONO, fontSize: 10, fontWeight: 700, color: "var(--brand-slate)", verticalAlign: "middle",
+          }}>ⓘ</button>
+        {tipOpen && (
+          <span role="tooltip" style={{
+            position: "absolute", top: "100%", right: 0, zIndex: 20, marginTop: 4, maxWidth: 240, width: "max-content",
+            textAlign: "left", whiteSpace: "normal", fontFamily: FONT_MONO, fontSize: 10, lineHeight: 1.3,
+            color: "var(--brand-ink)", background: "var(--brand-card)", border: "1px solid var(--brand-line)",
+            borderRadius: 6, padding: "6px 8px", boxShadow: "0 4px 12px rgba(0,0,0,0.12)",
+          }}>{RATE_LIMIT_TIP}</span>
+        )}
       </span>
     );
   }
@@ -141,16 +186,23 @@ export function LastSoldControl({
     );
   }
 
-  // "button" and "error" are both retryable clicks.
+  // "button", "error" and "upstream_error" are all retryable clicks.
+  const isError = phase === "error" || phase === "upstream_error";
+  const label = phase === "upstream_error"
+    ? "Pricing unavailable right now"
+    : phase === "error" ? "Couldn't price this card" : "Last sold";
+  const aria = phase === "upstream_error"
+    ? "Pricing unavailable right now — retry"
+    : phase === "error" ? "Couldn't price this card — retry" : "Show last sold price";
   return (
     <button type="button" onClick={fetchPrice}
       style={{
         ...chipBase, cursor: "pointer",
-        color: phase === "error" ? "var(--brand-accent-deep)" : "var(--brand-slate)",
+        color: isError ? "var(--brand-accent-deep)" : "var(--brand-slate)",
         background: "var(--brand-track)", border: "1px solid var(--brand-line)",
       }}
-      aria-label={phase === "error" ? "Couldn't price this card — retry" : "Show last sold price"}>
-      {phase === "error" ? "Couldn't price this card" : "Last sold"}
+      aria-label={aria}>
+      {label}
     </button>
   );
 }

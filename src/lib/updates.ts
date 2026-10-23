@@ -15,6 +15,21 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "last-sold-limits-2026-10-23",
+    title: "Last Sold: more checks per visitor, clearer limit messages",
+    date: "2026-10-23T12:00:00-07:00",
+    summary:
+      "Last Sold lookups allow more checks per visitor each hour and now say whether a limit is hourly or daily.",
+    description: `## Last Sold — higher per-visitor limit and clearer messages
+
+The **Last Sold** price lookups on checklist rows now allow more checks per visitor in an hour, and each limit says what it means instead of one catch-all "paused" message:
+
+- The per-visitor hourly allowance is higher, so clicking through a checklist in one sitting no longer trips a limit meant for heavy traffic.
+- When a limit is reached, the row now says whether it's the **hourly** per-visitor limit ("try again in about an hour") or the shared **daily** budget ("back tomorrow"), and re-enables itself once the window passes.
+- Cached prices never count against either limit, and the daily budget is unchanged.`,
+    tags: ["feature"],
+  },
+  {
     id: "box-config-table-2026-10-22",
     title: "Box configuration is now a table on set pages",
     date: "2026-10-22T12:00:00-07:00",

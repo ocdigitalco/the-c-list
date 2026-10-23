@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 import { rawQuery } from "@/lib/db";
 import {
-  SOLD_COMPS_ENDPOINT, CACHE_TTL_DAYS, PER_IP_HOURLY_CAP, API_TIMEOUT_MS,
-  dailyCap, buildKeyword, hashIp, clientIpFrom, summarizeItems, collectUsageHeaders,
+  SOLD_COMPS_ENDPOINT, CACHE_TTL_DAYS, API_TIMEOUT_MS,
+  dailyCap, ipHourlyCap, buildKeyword, hashIp, clientIpFrom, summarizeItems, collectUsageHeaders,
   type SoldItem, type SoldSummary,
 } from "@/lib/soldComps";
 import { buildEbayItemUrl } from "@/lib/ebay/searchUrl";
@@ -38,10 +38,11 @@ function toClientSummary(s: {
 }
 
 export async function POST(req: Request) {
-  // Feature flag: off → the route does not exist.
-  if (!flagOn()) return NextResponse.json({ error: "Not found" }, { status: 404 });
+  // Feature flag: off → the route does not exist. (The control is hidden when the
+  // flag is off, so the client never sees this; the reason is for completeness.)
+  if (!flagOn()) return NextResponse.json({ status: "disabled", reason: "disabled" }, { status: 404 });
   if (!process.env.SOLD_COMPS_API_KEY) {
-    return NextResponse.json({ status: "error" }, { status: 500 });
+    return NextResponse.json({ status: "error", reason: "upstream_error" }, { status: 500 });
   }
 
   let body: Body;
@@ -113,11 +114,27 @@ export async function POST(req: Request) {
     ipHash, cutoff1h
   );
   const usageRow = await rawQuery.get<{ calls: number }>(`SELECT calls FROM sold_comps_usage WHERE day = ?`, today);
-  const overIp = (ipCount?.n ?? 0) >= PER_IP_HOURLY_CAP;
+  const overIp = (ipCount?.n ?? 0) >= ipHourlyCap();
   const overDaily = (usageRow?.calls ?? 0) >= dailyCap();
   if (overIp || overDaily) {
+    // A stale cache row still serves (status ok/no_sales) — the priced row shows
+    // the sale date, so staleness is visible. Only a cacheless refusal reports a cap.
     const c = cachedResponse();
-    return c ?? NextResponse.json({ status: "capped" });
+    if (c) return c;
+    if (overDaily) {
+      // daily_cap binds the whole site and outlasts the per-IP window, so it wins
+      // when both are over. Resets at the next UTC midnight (matches the UTC day key).
+      const resetsAt = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + 1)).toISOString();
+      return NextResponse.json({ status: "capped", reason: "daily_cap", resetsAt }, { status: 429 });
+    }
+    // ip_limit: seconds until the oldest in-window request ages out of the rolling hour.
+    const oldest = await rawQuery.get<{ requested_at: string }>(
+      `SELECT requested_at FROM sold_comps_requests WHERE ip_hash = ? AND requested_at >= ? ORDER BY requested_at ASC LIMIT 1`,
+      ipHash, cutoff1h
+    );
+    const freeAtMs = oldest?.requested_at ? new Date(oldest.requested_at).getTime() + 60 * 60 * 1000 : now.getTime() + 60 * 60 * 1000;
+    const retryAfterSeconds = Math.min(3600, Math.max(1, Math.ceil((freeAtMs - now.getTime()) / 1000)));
+    return NextResponse.json({ status: "capped", reason: "ip_limit", retryAfterSeconds }, { status: 429 });
   }
 
   // ── Fresh call ───────────────────────────────────────────────────────────────
@@ -151,13 +168,16 @@ export async function POST(req: Request) {
       await new Promise((r) => setTimeout(r, retryAfter * 1000));
       res = await callOnce();
     } else {
-      return NextResponse.json({ status: "error" });
+      // Upstream is rate-limiting / out of quota — a bad response, not unreachable.
+      return NextResponse.json({ status: "error", reason: "upstream_error" }, { status: 502 });
     }
   }
-  if (!res || !res.ok) return NextResponse.json({ status: "error" });
+  // No response at all (timeout / network) → unreachable (503); a non-ok response → bad gateway (502).
+  if (!res) return NextResponse.json({ status: "error", reason: "upstream_error" }, { status: 503 });
+  if (!res.ok) return NextResponse.json({ status: "error", reason: "upstream_error" }, { status: 502 });
 
   let payload: { items?: SoldItem[] };
-  try { payload = await res.json(); } catch { return NextResponse.json({ status: "error" }); }
+  try { payload = await res.json(); } catch { return NextResponse.json({ status: "error", reason: "upstream_error" }, { status: 502 }); }
   const items = Array.isArray(payload.items) ? payload.items : [];
   const summary: SoldSummary | null = summarizeItems(items, now);
 

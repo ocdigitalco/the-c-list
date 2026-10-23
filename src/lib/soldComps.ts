@@ -5,7 +5,7 @@ import { createHash } from "crypto";
 // Real endpoint; overridable via env for staging / local verification (unset in prod).
 export const SOLD_COMPS_ENDPOINT = process.env.SOLD_COMPS_ENDPOINT || "https://api.sold-comps.com/v1/scrape";
 export const CACHE_TTL_DAYS = 14;
-export const PER_IP_HOURLY_CAP = 5;
+export const DEFAULT_IP_HOURLY_CAP = 20;
 export const DEFAULT_DAILY_CAP = 150;
 export const API_TIMEOUT_MS = 10_000;
 /** Terms appended to every keyword to cut lots / reprints / digital / breaks. */
@@ -15,6 +15,13 @@ export function dailyCap(): number {
   const raw = process.env.SOLD_COMPS_DAILY_CAP;
   const n = raw ? parseInt(raw, 10) : NaN;
   return Number.isFinite(n) && n > 0 ? n : DEFAULT_DAILY_CAP;
+}
+
+/** Per-IP rolling-hour cap. Tunable via SOLD_COMPS_IP_HOURLY_CAP (default 20). */
+export function ipHourlyCap(): number {
+  const raw = process.env.SOLD_COMPS_IP_HOURLY_CAP;
+  const n = raw ? parseInt(raw, 10) : NaN;
+  return Number.isFinite(n) && n > 0 ? n : DEFAULT_IP_HOURLY_CAP;
 }
 
 // ── Pure helpers ─────────────────────────────────────────────────────────────

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { rawQuery } from "@/lib/db";
-import { dailyCap } from "@/lib/soldComps";
+import { dailyCap, ipHourlyCap } from "@/lib/soldComps";
 
 // Reads Turso → Node runtime, never static.
 export const runtime = "nodejs";
@@ -33,6 +33,8 @@ export async function GET(req: Request) {
     day: today,
     calls: row?.calls ?? 0,
     cap: dailyCap(),
+    dailyCap: dailyCap(),
+    ipHourlyCap: ipHourlyCap(),
     creditsUsedEstimate: row?.credits_used_estimate ?? 0,
     lastXUsage,
   });
