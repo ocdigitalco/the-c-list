@@ -15,6 +15,23 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "caching-2026-10-22",
+    title: "Faster set pages with on-demand caching",
+    date: "2026-10-22T12:00:00-07:00",
+    summary:
+      "Set, athlete, and team pages now serve straight from the CDN and refresh on demand when their data changes, so pages load faster and updates appear right after a sync.",
+    description: `## Faster pages with on-demand caching
+
+Set, athlete, and team pages are now cached at the edge and refreshed **on demand** rather than on a fixed timer:
+
+- **Set pages** are cached indefinitely and re-rendered the moment their data changes — after a checklist sync, or when a sealed-box eBay offer is refreshed — so updates surface immediately instead of waiting out a cache window.
+- **Athlete and team pages** render once and then serve from the CDN for up to seven days, self-healing within a week of any data change.
+- The homepage, checklist index, and sets-coverage pages hold a 24-hour cache and are also refreshed on demand after each sync.
+
+No content changed — pages just load faster and reflect updates sooner.`,
+    tags: ["feature"],
+  },
+  {
     id: "2026-topps-heritage-football-odds",
     title: "2026 Topps Heritage Football: final checklist, parallels & odds",
     date: "2026-10-21T12:00:00-07:00",

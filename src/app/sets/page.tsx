@@ -3,7 +3,7 @@ import { sets } from "@/lib/schema";
 import type { Metadata } from "next";
 import { SetsCoverageClient } from "./SetsCoverageClient";
 
-export const revalidate = 3600;
+export const revalidate = 86400; // 24h; / and /checklists also revalidated on demand by the migration
 
 export const metadata: Metadata = {
   title: "Sets Coverage — Checklist2",

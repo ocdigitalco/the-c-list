@@ -16,7 +16,18 @@ import type { PackOddsSlot, BoxFormat } from "@/components/PackOddsCalculator";
 import { AthleteDetailClient } from "@/components/sets/AthleteDetailClient";
 
 
-export const revalidate = 3600;
+// 7-day on-demand ISR. ~31k athlete URLs: each renders once on first crawl, then
+// serves from the CDN for a week (no write/invocation on repeat views). The
+// migration does not enumerate these (no reusable URL helper — hrefs are built
+// inline across components and ~1/3 of players have no slug), so they self-heal
+// within 7 days of a data change rather than instantly.
+export const revalidate = 604800;
+export const dynamicParams = true;
+// Empty = prebuild nothing but mark the route on-demand ISR (cacheable), not
+// per-request dynamic. See the set page for the full rationale.
+export function generateStaticParams() {
+  return [];
+}
 
 const ODDS_KEY_OVERRIDES: Record<string, string> = {
   "Base Chrome": "Base Chrome Variations",

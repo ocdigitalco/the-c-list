@@ -1,7 +1,7 @@
 import { listSets } from "@/lib/queries/listSets";
 import { ChecklistSearch } from "./ChecklistSearch";
 
-export const revalidate = 3600;
+export const revalidate = 86400; // 24h; / and /checklists also revalidated on demand by the migration
 
 export default async function ChecklistsPage() {
   const { sets, allSports } = await listSets();

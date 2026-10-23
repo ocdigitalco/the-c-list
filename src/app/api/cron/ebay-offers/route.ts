@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { getRefreshPairs, sortPairsByFetchedAt, refreshWithinBudget } from "@/lib/ebayRefresh";
 import { deleteExpiredConsentEvents } from "@/lib/consentRetention";
 
@@ -35,6 +36,17 @@ export async function GET(req: Request) {
   const ordered = await sortPairsByFetchedAt(pairs);
   const result = await refreshWithinBudget(ordered, { budgetMs: BUDGET_MS });
 
+  // Set pages are cached indefinitely (revalidate = false), so on-demand revalidate
+  // exactly the set pages whose sealed-box offers changed this run (a few dozen/day)
+  // — otherwise refreshed offers would never surface.
+  for (const slug of result.refreshedSlugs) {
+    try {
+      revalidatePath(`/sets/${slug}`, "page");
+    } catch (err) {
+      console.error(`[cron] revalidate /sets/${slug} failed (non-fatal):`, err);
+    }
+  }
+
   // Piggyback the 24-month consent-log retention sweep on the 09:00 UTC run
   // (scheduled with ?cleanup=1 in vercel.json). Fully guarded: any failure here
   // is swallowed so it can never affect the offers walk or the response.
@@ -47,5 +59,5 @@ export async function GET(req: Request) {
     }
   }
 
-  return NextResponse.json({ ...result, total: pairs.length, consentCleanup });
+  return NextResponse.json({ ...result, revalidated: result.refreshedSlugs.length, total: pairs.length, consentCleanup });
 }

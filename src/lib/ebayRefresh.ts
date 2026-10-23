@@ -209,18 +209,21 @@ export async function sortPairsByFetchedAt(pairs: RefreshPair[]): Promise<Refres
 export async function refreshWithinBudget(
   pairs: RefreshPair[],
   opts: { budgetMs?: number; gapMs?: number } = {}
-): Promise<{ refreshed: number; errors: number; remaining: number; processed: number; durationMs: number }> {
+): Promise<{ refreshed: number; errors: number; remaining: number; processed: number; durationMs: number; refreshedSlugs: string[] }> {
   const budgetMs = opts.budgetMs ?? 45_000;
   const gapMs = opts.gapMs ?? 100;
   const start = Date.now();
   const token = await getAppToken();
   let refreshed = 0, errors = 0, processed = 0;
+  // Distinct slugs whose offers were refreshed this run — the cron revalidates
+  // exactly these set pages so updated offers surface without a time-based window.
+  const slugs = new Set<string>();
   for (let i = 0; i < pairs.length; i++) {
     if (Date.now() - start >= budgetMs) break;
     const r = await refreshPair(pairs[i], token);
     processed++;
-    if (r.ok) refreshed++; else errors++;
+    if (r.ok) { refreshed++; slugs.add(pairs[i].slug); } else errors++;
     if (i < pairs.length - 1 && Date.now() - start < budgetMs) await sleep(gapMs);
   }
-  return { refreshed, errors, remaining: pairs.length - processed, processed, durationMs: Date.now() - start };
+  return { refreshed, errors, remaining: pairs.length - processed, processed, durationMs: Date.now() - start, refreshedSlugs: [...slugs] };
 }

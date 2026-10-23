@@ -6,7 +6,14 @@ import { findOddsKey } from "@/lib/oddsUtils";
 import { label as boxLabel } from "@/lib/boxLabels";
 import type { PackOddsSlot, BoxFormat } from "@/components/PackOddsCalculator";
 
-export const revalidate = 3600;
+// 7-day on-demand ISR (same rationale as the athlete page).
+export const revalidate = 604800;
+export const dynamicParams = true;
+// Empty = prebuild nothing but mark the route on-demand ISR (cacheable). See the
+// set page for the full rationale.
+export function generateStaticParams() {
+  return [];
+}
 
 function slugify(text: string): string {
   return text.toLowerCase().replace(/[^\w\s-]/g, "").replace(/[\s_]+/g, "-").replace(/-+/g, "-").trim();

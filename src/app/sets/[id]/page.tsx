@@ -18,7 +18,17 @@ import { getCardGalleryImages } from "@/lib/cardGallery";
 import { getSealedBoxData, type SealedBoxData } from "@/lib/ebayRefresh";
 import { buildEbayItemUrl } from "@/lib/ebay/searchUrl";
 
-export const revalidate = 3600;
+// Cached indefinitely; refreshed on demand only — by the migration script after a
+// data change (revalidates /sets/<slug>) and by the eBay cron for slugs whose
+// offers changed. Avoids an ISR write per crawl.
+export const revalidate = false;
+export const dynamicParams = true;
+// Empty list = prebuild nothing, but still mark the route as on-demand ISR
+// (cacheable), not per-request dynamic. Without this a dynamic segment with no
+// static params renders dynamically on every hit (no CDN cache).
+export function generateStaticParams() {
+  return [];
+}
 
 export async function generateMetadata({
   params,
