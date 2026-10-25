@@ -15,6 +15,21 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "live-breaks-spots-2026-10-24",
+    title: "Live breaks: expand a break to see every spot and its price",
+    date: "2026-10-24T15:00:00-07:00",
+    summary:
+      "Live breaks on set pages now expand to show every spot in a break with its price, sortable by price or name.",
+    description: `## See every spot in a break, with its price
+
+Each live break on a set page now expands to the **full list of spots** for sale:
+
+- Tap **Show N spots** to open a grid of every active spot in that break — each one showing the **team or spot name** and its **price**, and linking straight to that eBay listing.
+- Sort the spots by **price** (default) or **A–Z**, and reveal the rest when a break has more than 16.
+- Breaks are now split by their **break number** when the breaker lists one, so each separate break stands on its own with its own spots and starting price.`,
+    tags: ["feature"],
+  },
+  {
     id: "live-breaks-2026-10-24",
     title: "Live breaks on eBay: find a spot on the set and athlete pages",
     date: "2026-10-24T12:00:00-07:00",

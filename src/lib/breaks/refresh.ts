@@ -9,9 +9,11 @@
  */
 import { rawQuery } from "@/lib/db";
 import { searchBreakListings, breaksFallbackSearchUrl } from "./ebay";
+import { spotLabel, extractBreakRef, commonAffix } from "./spotLabel";
 
 export const WHATNOT_INVITE_URL = "https://www.whatnot.com/invite/checklist2";
-const DISCLOSURE = "Checklist² may earn a commission.";
+const DISCLOSURE =
+  "Checklist² may earn a commission on eBay purchases and a referral credit on Whatnot sign-ups.";
 // Offers/breaks stay visible across the cron cadence; on-demand refresh kicks in
 // past this age so a set page never shows very stale breaks.
 export const STALE_HOURS = 6;
@@ -157,8 +159,16 @@ export async function refreshBreaksWithinBudget(
 }
 
 // ── Read model ────────────────────────────────────────────────────────────────
+export interface BreakSpot {
+  id: string; // item_id
+  label: string;
+  priceCents: number | null;
+  url: string | null; // full EPN affiliate URL
+  buyingOption: string | null;
+}
 export interface Break {
   seller: string;
+  breakRef: string | null; // "Break #1026-14" identifier when parsed from titles
   sellerFeedbackPct: number | null;
   spotCount: number;
   startingPriceCents: number | null;
@@ -170,6 +180,7 @@ export interface Break {
   viewUrl: string | null;
   imageUrl: string | null;
   namesPlayer: boolean; // athlete mode: a spot in this group names the player
+  spots: BreakSpot[]; // every active spot in this break, price ascending
 }
 export interface BreaksPayload {
   enabled: boolean;
@@ -184,7 +195,7 @@ export interface BreaksPayload {
 }
 
 interface Row {
-  item_id: string; seller: string | null; seller_feedback_pct: number | null;
+  item_id: string; title: string | null; seller: string | null; seller_feedback_pct: number | null;
   price_cents: number | null; currency: string | null; buying_option: string | null;
   format_guess: string | null; matched_player_ids: string | null; item_url: string | null;
   item_web_url: string | null; image_url: string | null; listed_at: string | null;
@@ -224,7 +235,7 @@ export async function getBreaksForSet(opts: {
   };
 
   const rows = await rawQuery.all<Row>(
-    `SELECT item_id, seller, seller_feedback_pct, price_cents, currency, buying_option,
+    `SELECT item_id, title, seller, seller_feedback_pct, price_cents, currency, buying_option,
             format_guess, matched_player_ids, item_url, item_web_url, image_url, listed_at
      FROM break_listings WHERE set_id = ? AND active = 1`,
     opts.setId
@@ -235,20 +246,44 @@ export async function getBreaksForSet(opts: {
   base.refreshedRelative = state?.last_fetched_at ? relativeTime(state.last_fetched_at) : null;
   if (rows.length === 0) return base;
 
-  // Group by seller.
-  const groups = new Map<string, Row[]>();
+  // Per-seller common boilerplate (computed on break-ref-stripped titles) so the
+  // spot labels drop any repeated prefix/suffix a seller puts on every listing.
+  const sellerRests = new Map<string, string[]>();
   for (const r of rows) {
-    const key = r.seller ?? "";
-    if (!key) continue;
+    const seller = r.seller ?? "";
+    if (!seller) continue;
+    let arr = sellerRests.get(seller);
+    if (!arr) { arr = []; sellerRests.set(seller, arr); }
+    arr.push(extractBreakRef(r.title ?? "").rest);
+  }
+  const affixBySeller = new Map<string, { prefix: string; suffix: string }>();
+  for (const [seller, rests] of sellerRests) affixBySeller.set(seller, commonAffix(rests));
+
+  // Group by seller + break_ref — one break per seller per parsed identifier
+  // (listings with no ref fall back to seller-only grouping).
+  const groups = new Map<string, { seller: string; breakRef: string | null; rows: Row[] }>();
+  for (const r of rows) {
+    const seller = r.seller ?? "";
+    if (!seller) continue;
+    const breakRef = extractBreakRef(r.title ?? "").breakRef;
+    const key = `${seller}\u0000${breakRef ?? ""}`;
     let g = groups.get(key);
-    if (!g) { g = []; groups.set(key, g); }
-    g.push(r);
+    if (!g) { g = { seller, breakRef, rows: [] }; groups.set(key, g); }
+    g.rows.push(r);
   }
 
   const breaks: Break[] = [];
-  for (const [seller, list] of groups) {
+  for (const { seller, breakRef, rows: list } of groups.values()) {
     list.sort((a, b) => (a.price_cents ?? Infinity) - (b.price_cents ?? Infinity));
     const hero = list[0];
+    const affix = affixBySeller.get(seller) ?? { prefix: "", suffix: "" };
+    const spots: BreakSpot[] = list.map((r) => ({
+      id: r.item_id,
+      label: spotLabel(r.title ?? "", { setName: opts.setName, commonPrefix: affix.prefix, commonSuffix: affix.suffix }).label,
+      priceCents: r.price_cents,
+      url: r.item_url || r.item_web_url,
+      buyingOption: r.buying_option,
+    }));
     const prices = list.map((r) => r.price_cents).filter((p): p is number => p != null);
     // Majority format guess.
     const fmtCounts = new Map<string, number>();
@@ -272,6 +307,7 @@ export async function getBreaksForSet(opts: {
     }
     breaks.push({
       seller,
+      breakRef,
       sellerFeedbackPct: hero.seller_feedback_pct,
       spotCount: list.length,
       startingPriceCents: prices.length ? Math.min(...prices) : null,
@@ -283,6 +319,7 @@ export async function getBreaksForSet(opts: {
       viewUrl: hero.item_url || hero.item_web_url,
       imageUrl: hero.image_url,
       namesPlayer,
+      spots,
     });
   }
 

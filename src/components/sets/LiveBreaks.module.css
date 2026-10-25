@@ -96,6 +96,108 @@
 }
 .card:hover .cta { background: color-mix(in srgb, var(--brand-accent) 8%, var(--brand-card)); }
 
+/* ── Spot accordion (set page) ──────────────────────────────────────────── */
+/* Expanded break reads as one unit on the darker paper. */
+.cardExpanded { background: var(--brand-track); border-color: color-mix(in srgb, var(--brand-accent) 35%, var(--brand-line)); }
+
+/* The "Show N spots" toggle — mirrors .cta, flips to solid red when open. */
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--brand-accent);
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--brand-accent) 35%, transparent);
+  border-radius: 7px;
+  padding: 8px 13px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+.toggle:hover { background: color-mix(in srgb, var(--brand-accent) 8%, var(--brand-card)); }
+.toggleOpen {
+  color: var(--brand-head);
+  background: var(--brand-accent);
+  border-color: var(--brand-accent);
+}
+.toggleOpen:hover { background: var(--brand-accent-deep); border-color: var(--brand-accent-deep); }
+
+/* The revealed grid of spot chips, spanning the full card width. */
+.spotsPanel { grid-column: 1 / -1; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--brand-line); }
+.spotsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 11.5px;
+  color: var(--brand-slate);
+  margin-bottom: 10px;
+}
+
+/* Price ↑ / A–Z segmented sort. */
+.sortToggle { display: inline-flex; border: 1px solid var(--brand-line); border-radius: 7px; overflow: hidden; }
+.sortBtn, .sortActive {
+  font-family: var(--cl-font-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 5px 10px;
+  border: none;
+  background: var(--brand-card);
+  color: var(--brand-slate);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.sortBtn + .sortBtn, .sortBtn + .sortActive, .sortActive + .sortBtn { border-left: 1px solid var(--brand-line); }
+.sortActive { background: var(--brand-accent); color: var(--brand-head); }
+
+.chipGrid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+.spotChip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 10px;
+  background: var(--brand-card);
+  border: 1px solid var(--brand-line);
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 150ms ease, background-color 150ms ease;
+}
+.spotChip:hover { border-color: color-mix(in srgb, var(--brand-accent) 45%, transparent); background: color-mix(in srgb, var(--brand-accent) 6%, var(--brand-card)); }
+.spotName { font-size: 12.5px; color: var(--brand-ink); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.spotPrice { font-family: var(--cl-font-mono); font-size: 12.5px; font-weight: 600; color: var(--brand-ink); white-space: nowrap; }
+
+.showAll {
+  display: block;
+  margin: 12px auto 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--brand-accent);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+}
+.showAll:hover { color: var(--brand-accent-deep); }
+
+.toggle:focus-visible,
+.sortBtn:focus-visible,
+.sortActive:focus-visible,
+.spotChip:focus-visible,
+.showAll:focus-visible { outline: 2px solid var(--brand-accent); outline-offset: 2px; border-radius: 8px; }
+
 /* Whatnot referral row. */
 .whatnot {
   display: flex;
@@ -113,10 +215,21 @@
   transition: border-color 150ms ease, background-color 150ms ease;
 }
 .whatnot:hover { border-color: var(--brand-accent); background: color-mix(in srgb, var(--brand-accent) 5%, var(--brand-card)); }
-.whatnotText { font-size: 13.5px; color: var(--brand-ink); min-width: 0; }
+.whatnotText { font-size: 13.5px; color: var(--brand-slate); min-width: 0; }
 .whatnotText b { font-weight: 600; }
-.whatnotCta { font-size: 12.5px; font-weight: 600; color: var(--brand-accent); white-space: nowrap; }
-.whatnot:hover .whatnotCta { color: var(--brand-accent-deep); }
+.whatnotTitle { display: block; color: var(--brand-ink); margin-bottom: 2px; }
+/* Solid red call-to-action. */
+.whatnotCta {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--brand-head);
+  background: var(--brand-accent);
+  border-radius: 7px;
+  padding: 8px 13px;
+  white-space: nowrap;
+  transition: background-color 150ms ease;
+}
+.whatnot:hover .whatnotCta { background: var(--brand-accent-deep); }
 
 /* Footer: "See all" + disclosure. */
 .footer {
@@ -154,4 +267,6 @@
     margin-top: 2px;
   }
   .cta { min-height: 44px; display: inline-flex; align-items: center; }
+  .toggle { min-height: 44px; }
+  .chipGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }

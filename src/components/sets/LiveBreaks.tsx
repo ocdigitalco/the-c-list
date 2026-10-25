@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useId, useMemo, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
 import { ebayImageAt } from "@/lib/ebayImage";
 import type { Break, BreaksPayload } from "@/lib/breaks/refresh";
@@ -40,6 +40,13 @@ function withPlayerRef(url: string | null | undefined, playerId: number | undefi
 function money(cents: number | null, currency = "USD"): string {
   if (cents == null) return "—";
   return (cents / 100).toLocaleString("en-US", { style: "currency", currency, maximumFractionDigits: 0 });
+}
+
+// Exact price (with cents) for an individual, purchasable spot chip — unlike the
+// row's rounded "from" summary, the listed buy price is shown to the cent.
+function moneyExact(cents: number | null, currency = "USD"): string {
+  if (cents == null) return "—";
+  return (cents / 100).toLocaleString("en-US", { style: "currency", currency });
 }
 
 function relativeLabel(iso: string | null): string | null {
@@ -123,20 +130,140 @@ function BreakCard({ b, setSlug, playerId, playerName }: {
   );
 }
 
-function WhatnotRow({ url, setSlug, playerId }: { url: string; setSlug: string; playerId?: number }) {
+function WhatnotRow({ url, setSlug }: { url: string; setSlug: string }) {
   return (
     <a
       className={styles.whatnot}
       href={url}
       target="_blank"
       rel={REL}
-      onClick={() => trackEvent("break_click", { source: "whatnot", set: setSlug, ...(playerId != null ? { player: playerId } : {}) })}
+      onClick={() => trackEvent("break_click", { source: "whatnot", set: setSlug })}
     >
       <span className={styles.whatnotText}>
-        <b>Prefer live video breaks?</b> Join real-time breaks on Whatnot.
+        <b className={styles.whatnotTitle}>New to Whatnot? Get $25 toward your first break</b>
+        Sign up with our invite and a $25 credit is applied to your first purchase.
       </span>
-      <span className={styles.whatnotCta}>Open Whatnot ↗</span>
+      <span className={styles.whatnotCta}>Claim $25 on Whatnot ↗</span>
     </a>
+  );
+}
+
+// ── Set page: one break as an expandable row of per-spot chips ────────────────
+const SPOTS_COLLAPSED = 16;
+
+function SpotAccordionRow({ b, setSlug }: { b: Break; setSlug: string }) {
+  const [open, setOpen] = useState(false);
+  const [showAll, setShowAll] = useState(false);
+  const [sort, setSort] = useState<"price" | "az">("price");
+  const panelId = useId();
+
+  const listed = relativeLabel(b.listedAt);
+  const fmt = b.formatGuess ? FORMAT_LABELS[b.formatGuess] ?? "Break" : "Break";
+
+  const sorted = useMemo(() => {
+    const s = [...b.spots];
+    if (sort === "az") s.sort((x, y) => x.label.localeCompare(y.label, "en", { numeric: true }));
+    else s.sort((x, y) => (x.priceCents ?? Infinity) - (y.priceCents ?? Infinity));
+    return s;
+  }, [b.spots, sort]);
+  const visible = showAll ? sorted : sorted.slice(0, SPOTS_COLLAPSED);
+
+  return (
+    <div className={`${styles.card} ${open ? styles.cardExpanded : ""}`}>
+      {b.imageUrl ? (
+        // eslint-disable-next-line @next/next/no-img-element -- eBay CDN, never proxied
+        <img className={styles.thumb} src={ebayImageAt(b.imageUrl, 200)} alt="" width={64} height={64} loading="lazy" decoding="async" />
+      ) : (
+        <div className={styles.thumbEmpty} aria-hidden />
+      )}
+
+      <div className={styles.main}>
+        <div className={styles.titleRow}>
+          <span className={styles.seller}>{b.seller}</span>
+          {b.sellerFeedbackPct != null && <span className={styles.feedback}>{b.sellerFeedbackPct}%</span>}
+          <span className={styles.chip}>{fmt}</span>
+          <span className={styles.chip}>{b.buyingLabel}</span>
+        </div>
+        <div className={styles.meta}>
+          {b.spotCount} spot{b.spotCount === 1 ? "" : "s"}
+          {listed && (
+            <>
+              {" "}<span className={styles.sep}>·</span>{" "}
+              <span className={b.listedToday ? styles.today : undefined}>listed {listed}</span>
+            </>
+          )}
+          {b.breakRef && (
+            <>
+              {" "}<span className={styles.sep}>·</span>{" "}Break #{b.breakRef}
+            </>
+          )}
+        </div>
+      </div>
+
+      <div className={styles.right}>
+        <span className={styles.priceWrap}>
+          <span className={styles.priceLabel}>from</span>
+          <span className={styles.price}>{money(b.startingPriceCents, b.currency)}</span>
+        </span>
+        <button
+          type="button"
+          className={`${styles.toggle} ${open ? styles.toggleOpen : ""}`}
+          aria-expanded={open}
+          aria-controls={panelId}
+          onClick={() => setOpen((v) => !v)}
+        >
+          {open ? "Hide spots ▴" : `Show ${b.spotCount} spot${b.spotCount === 1 ? "" : "s"} ▾`}
+        </button>
+      </div>
+
+      {open && (
+        <div className={styles.spotsPanel} id={panelId}>
+          <div className={styles.spotsHeader}>
+            <span>{b.spotCount} spots · tap a spot to open its eBay listing</span>
+            <span className={styles.sortToggle} role="group" aria-label="Sort spots">
+              <button
+                type="button"
+                className={sort === "price" ? styles.sortActive : styles.sortBtn}
+                aria-pressed={sort === "price"}
+                onClick={() => setSort("price")}
+              >
+                Price ↑
+              </button>
+              <button
+                type="button"
+                className={sort === "az" ? styles.sortActive : styles.sortBtn}
+                aria-pressed={sort === "az"}
+                onClick={() => setSort("az")}
+              >
+                A–Z
+              </button>
+            </span>
+          </div>
+          <ul className={styles.chipGrid}>
+            {visible.map((s) => (
+              <li key={s.id}>
+                <a
+                  className={styles.spotChip}
+                  href={s.url ?? undefined}
+                  target="_blank"
+                  rel={REL}
+                  title={s.label}
+                  onClick={() => trackEvent("break_click", { source: "ebay", set: setSlug, seller: b.seller, spot: s.label })}
+                >
+                  <span className={styles.spotName}>{s.label}</span>
+                  <span className={styles.spotPrice}>{moneyExact(s.priceCents, b.currency)}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+          {sorted.length > SPOTS_COLLAPSED && !showAll && (
+            <button type="button" className={styles.showAll} onClick={() => setShowAll(true)}>
+              Show all {sorted.length} spots ▾
+            </button>
+          )}
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -168,7 +295,7 @@ export function LiveBreaksSet({ setSlug, enabled, max = 6 }: { setSlug: string; 
             )}
           </p>
         ) : (
-          shown.map((b) => <BreakCard key={b.seller} b={b} setSlug={setSlug} />)
+          shown.map((b) => <SpotAccordionRow key={`${b.seller}:${b.breakRef ?? ""}`} b={b} setSlug={setSlug} />)
         )}
         <div className={styles.footer}>
           {data.searchUrl && shown.length > 0 && (
@@ -204,9 +331,8 @@ export function LiveBreaksAthlete({ setSlug, playerId, enabled, max = 5 }: {
         Live breaks on eBay <span className={styles.subhead}>— break this set{name ? ` to pull ${name}` : ""}</span>
       </div>
       <div className={styles.panel}>
-        <WhatnotRow url={data.whatnotUrl} setSlug={setSlug} playerId={playerId} />
         {shown.map((b) => (
-          <BreakCard key={b.seller} b={b} setSlug={setSlug} playerId={playerId} playerName={name} />
+          <BreakCard key={`${b.seller}:${b.breakRef ?? ""}`} b={b} setSlug={setSlug} playerId={playerId} playerName={name} />
         ))}
         <div className={styles.footer}>
           {data.searchUrl && (
