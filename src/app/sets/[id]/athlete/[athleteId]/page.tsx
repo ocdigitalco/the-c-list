@@ -717,6 +717,7 @@ export default async function V2AthletePage({
       subjectLabel={subjectLabel}
       subjectRole={subjectRole}
       teamLabel={teamLabel}
+      liveBreaksEnabled={process.env.LIVE_BREAKS_ENABLED === "true"}
     />
   );
 }

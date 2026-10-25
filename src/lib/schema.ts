@@ -246,6 +246,50 @@ export const soldCompsRequests = sqliteTable(
   })
 );
 
+// Production-owned. Cached live break-spot listings from the eBay Browse API
+// (Trading Card Box & Case Breaks, category 261334), one row per (set, item).
+// Written only by the cron / on-demand refresh (Turso is the source of truth);
+// EXCLUDED from migrate-to-turso sync like ebay_box_offers. Grouped by seller at
+// read time into "breaks". bid_count/quantity/end_time are intentionally absent:
+// eBay's Browse API does not expose them for these fixed-price spot listings.
+export const breakListings = sqliteTable(
+  "break_listings",
+  {
+    id: integer("id").primaryKey({ autoIncrement: true }),
+    source: text("source").notNull().default("ebay"),
+    setId: integer("set_id").notNull().references(() => sets.id),
+    itemId: text("item_id").notNull(),
+    seller: text("seller"),
+    sellerFeedbackPct: real("seller_feedback_pct"),
+    title: text("title").notNull(),
+    priceCents: integer("price_cents"),
+    currency: text("currency").notNull().default("USD"),
+    buyingOption: text("buying_option"), // 'FIXED_PRICE' | 'BEST_OFFER' | 'AUCTION'
+    formatGuess: text("format_guess"), // 'PYT' | 'PYP' | 'PYD' | 'random' | 'team' | 'case' | null
+    matchedPlayerIds: text("matched_player_ids"), // JSON array of player ids named in the title
+    itemUrl: text("item_url"), // EPN affiliate URL (itemAffiliateWebUrl)
+    itemWebUrl: text("item_web_url"), // plain eBay URL (fallback)
+    imageUrl: text("image_url"),
+    listedAt: text("listed_at"), // itemCreationDate (ISO)
+    firstSeenAt: text("first_seen_at"),
+    fetchedAt: text("fetched_at").notNull(),
+    active: integer("active").notNull().default(1),
+  },
+  (t) => ({
+    setItemUnq: uniqueIndex("break_listings_set_item_unq").on(t.setId, t.itemId),
+    setIdx: index("break_listings_set_idx").on(t.setId, t.active),
+  })
+);
+
+// Production-owned. One row per set: when its break listings were last refreshed,
+// for staleness-ordered cron + on-demand refresh. EXCLUDED from migrate-to-turso.
+export const breakRefreshState = sqliteTable("break_refresh_state", {
+  setId: integer("set_id").primaryKey().references(() => sets.id),
+  lastFetchedAt: text("last_fetched_at"),
+  lastResultCount: integer("last_result_count"),
+  lastError: text("last_error"),
+});
+
 export const toppsSets = sqliteTable("topps_sets", {
   id: integer("id").primaryKey({ autoIncrement: true }),
   name: text("name").notNull(),

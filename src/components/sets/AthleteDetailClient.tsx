@@ -4,6 +4,7 @@ import React, { useState, useMemo, useRef, useEffect } from "react";
 import Link from "next/link";
 import type { LeaderboardRow, InsertSetDetail } from "./types";
 import { PackOddsCalculator, type PackOddsSlot, type BoxFormat } from "@/components/PackOddsCalculator";
+import { LiveBreaksAthlete } from "./LiveBreaks";
 import { getNBAHeadshotUrl } from "@/lib/nba-headshot";
 import { getUFCHeadshotUrl } from "@/lib/ufc-headshot";
 import { getMLBHeadshotUrl } from "@/lib/mlb-headshot";
@@ -87,6 +88,8 @@ export interface AthleteDetailClientProps {
   subjectLabel?: string;
   subjectRole?: string;
   teamLabel?: string;
+  /** Live-breaks feature flag (LIVE_BREAKS_ENABLED). Off → the breaks block never mounts. */
+  liveBreaksEnabled?: boolean;
 }
 
 // ─── Helpers ────────────────────────────────────────────────────────────────────
@@ -674,6 +677,7 @@ export function AthleteDetailClient({
   insertSets, otherSets, packOddsJson, boxConfigJson, epnCampaignId,
   packOddsSlotsByFormat, boxFormats, totalAutoCards, playerAutoCards, hasBreakCalc,
   entries, hasTeamData, subjectLabel: subjectLabelProp, subjectRole, teamLabel: teamLabelProp,
+  liveBreaksEnabled = false,
 }: AthleteDetailClientProps) {
   const subjectLabel = subjectLabelProp ?? "Athletes";
   const teamLabel = teamLabelProp ?? "Team";
@@ -865,6 +869,7 @@ export function AthleteDetailClient({
                     />
                   </div>
                 )}
+                <LiveBreaksAthlete setSlug={setSlug} playerId={athleteId} enabled={liveBreaksEnabled} />
                 <InsertSetsAccordion insertSets={insertSets} setSlug={setSlug} setId={setId} />
               </div>
             )}

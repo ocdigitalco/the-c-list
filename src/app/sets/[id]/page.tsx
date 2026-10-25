@@ -707,6 +707,7 @@ export default async function V2SetPage({
       hasPackOdds={!!setRow.packOdds}
       subsets={subsetChecklists}
       soldCompsEnabled={process.env.SOLD_COMPS_ENABLED === "true"}
+      liveBreaksEnabled={process.env.LIVE_BREAKS_ENABLED === "true"}
       videoUrl={videoUrl}
       relatedLinks={relatedLinks}
       boxConfig={setRow.boxConfig ?? null}

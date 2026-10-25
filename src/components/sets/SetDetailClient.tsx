@@ -20,6 +20,7 @@ import { SubsetCard } from "./SubsetCard";
 import { BoxConfigTable } from "./BoxConfigTable";
 import { LastSoldControl } from "./LastSoldControl";
 import { SealedBoxOffers, type SealedBoxData } from "./SealedBoxOffers";
+import { LiveBreaksSet } from "./LiveBreaks";
 import type { ParallelRowData } from "./ParallelTable";
 
 // ─── Types & Constants ─────────────────────────────────────────────────────────
@@ -89,6 +90,8 @@ export interface SetDetailClientProps {
   subsets?: SubsetChecklist[];
   /** Sold-comps "Last sold" feature flag (SOLD_COMPS_ENABLED). Off → no control renders. */
   soldCompsEnabled?: boolean;
+  /** Live-breaks feature flag (LIVE_BREAKS_ENABLED). Off → the breaks block never mounts. */
+  liveBreaksEnabled?: boolean;
   /** Optional YouTube embed id or URL rendered in the Overview below the gallery. */
   videoUrl?: string | null;
 }
@@ -861,7 +864,7 @@ function CardGallery({ images, setName }: { images: CardGalleryImage[]; setName:
 
 // ─── Tab: Overview ──────────────────────────────────────────────────────────
 
-function OverviewContent({ boxConfig, boxOffers, setSlug, cards, cardTypes, parallelTypes, autographs, autoParallels, totalParallels, athleteCount, releaseDate, hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds, subjectLabel = "Athletes", featuredArticle, setName, aeoSummary, faqs, cardImages, toppsUrl, relatedLinks, subsets = [], packOdds = null, videoUrl = null }: {
+function OverviewContent({ boxConfig, boxOffers, setSlug, cards, cardTypes, parallelTypes, autographs, autoParallels, totalParallels, athleteCount, releaseDate, hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds, subjectLabel = "Athletes", featuredArticle, setName, aeoSummary, faqs, cardImages, toppsUrl, relatedLinks, subsets = [], packOdds = null, liveBreaksEnabled = false, videoUrl = null }: {
   boxConfig: string | null; boxOffers: SealedBoxData | null; setSlug: string; cards: number; cardTypes: number; parallelTypes: number;
   autographs: number; autoParallels: number; totalParallels: number; athleteCount: number;
   releaseDate: string | null; hasChecklist: boolean; hasNumberedParallels: boolean;
@@ -869,7 +872,7 @@ function OverviewContent({ boxConfig, boxOffers, setSlug, cards, cardTypes, para
   featuredArticle?: { slug: string; title: string; description: string; heroImage: string } | null;
   setName: string; aeoSummary?: string | null; faqs?: { q: string; a: string }[];
   cardImages?: CardGalleryImage[]; toppsUrl?: string | null; relatedLinks?: RelatedLink[];
-  subsets?: SubsetChecklist[]; packOdds?: string | null; videoUrl?: string | null;
+  subsets?: SubsetChecklist[]; packOdds?: string | null; liveBreaksEnabled?: boolean; videoUrl?: string | null;
 }) {
   const ytId = youTubeId(videoUrl);
   const boxManufacturer = extractMeta(setName, "").manufacturerName;
@@ -1082,6 +1085,9 @@ function OverviewContent({ boxConfig, boxOffers, setSlug, cards, cardTypes, para
           <p style={{ fontSize: 13, color: "var(--brand-slate)", marginTop: 10 }}>Everything else appears in all formats.</p>
         </div>
       )}
+
+      {/* Live break spots from eBay (client-fetched; above Sealed Boxes) */}
+      <LiveBreaksSet setSlug={setSlug} enabled={liveBreaksEnabled} />
 
       {/* Live sealed-box offers from eBay (under Box Configuration) */}
       <SealedBoxOffers data={boxOffers} setSlug={setSlug} />
@@ -1325,7 +1331,7 @@ export function SetDetailClient({
   subjectLabel: subjectLabelProp, teamLabel: teamLabelProp,
   hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds,
   boxConfig, boxOffers, packOdds, entries, hasTeamData, breakSheetPlayers, parallelsList, autographSubsetNames, featuredArticle,
-  aeoSummary, faqs, cardImages, toppsUrl, relatedLinks, subsets = [], soldCompsEnabled = false, videoUrl = null,
+  aeoSummary, faqs, cardImages, toppsUrl, relatedLinks, subsets = [], soldCompsEnabled = false, liveBreaksEnabled = false, videoUrl = null,
 }: SetDetailClientProps) {
   const subjectLabel = subjectLabelProp ?? "Athletes";
   const teamLabel = teamLabelProp ?? "Team";
@@ -1527,7 +1533,7 @@ export function SetDetailClient({
                 totalParallels={totalParallels} athleteCount={athleteCount} releaseDate={releaseDate}
                 hasChecklist={hasChecklist} hasNumberedParallels={hasNumberedParallels}
                 hasBoxConfig={hasBoxConfig} hasPackOdds={hasPackOdds} subjectLabel={subjectLabel}
-                featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} cardImages={cardImages} toppsUrl={toppsUrl} relatedLinks={relatedLinks} subsets={subsets} packOdds={packOdds} videoUrl={videoUrl} />
+                featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} cardImages={cardImages} toppsUrl={toppsUrl} relatedLinks={relatedLinks} subsets={subsets} packOdds={packOdds} liveBreaksEnabled={liveBreaksEnabled} videoUrl={videoUrl} />
             ) : (
               <CardTypeTabContent tab={activeTab as CardTab} subsets={subsets}
                 hasNumberedParallels={hasNumberedParallels} oddsResolver={oddsResolver} setId={setId} setSlug={setSlug ?? undefined} soldCompsEnabled={soldCompsEnabled} />
@@ -1629,7 +1635,7 @@ export function SetDetailClient({
               totalParallels={totalParallels} athleteCount={athleteCount} releaseDate={releaseDate}
               hasChecklist={hasChecklist} hasNumberedParallels={hasNumberedParallels}
               hasBoxConfig={hasBoxConfig} hasPackOdds={hasPackOdds} subjectLabel={subjectLabel}
-              featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} cardImages={cardImages} toppsUrl={toppsUrl} relatedLinks={relatedLinks} subsets={subsets} packOdds={packOdds} videoUrl={videoUrl} />
+              featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} cardImages={cardImages} toppsUrl={toppsUrl} relatedLinks={relatedLinks} subsets={subsets} packOdds={packOdds} liveBreaksEnabled={liveBreaksEnabled} videoUrl={videoUrl} />
           ) : (
             <CardTypeTabContent tab={activeTab as CardTab} subsets={subsets}
               hasNumberedParallels={hasNumberedParallels} oddsResolver={oddsResolver} setId={setId} setSlug={setSlug ?? undefined} soldCompsEnabled={soldCompsEnabled} />

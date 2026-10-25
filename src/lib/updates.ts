@@ -15,6 +15,23 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "live-breaks-2026-10-24",
+    title: "Live breaks on eBay: find a spot on the set and athlete pages",
+    date: "2026-10-24T12:00:00-07:00",
+    summary:
+      "Set and athlete pages now surface live group breaks for sale on eBay — grouped by breaker, with a starting price and a link straight to the spots — plus a Whatnot option.",
+    description: `## Live breaks — buy into a case break without leaving the page
+
+Set pages now show **live group breaks for sale on eBay**, pulled from eBay's Box & Case Breaks category and grouped by breaker:
+
+- Each break shows the **breaker and their feedback**, the **break format** (pick-your-team, random, mixer, case break…), how many **spots** are listed, the **starting price**, and when it was **listed** — with a link straight to the spots.
+- On an athlete's page, the same breaks appear framed around that player: most spots are team or random breaks that don't name anyone, so breaking the set is itself how you pull them, and any listing that does name the player is flagged and sorted first.
+- Prefer live video breaks? A **Whatnot** link sits alongside the eBay breaks.
+
+Listings refresh in the background and whenever a page is viewed, so what you see is current. Checklist² may earn a commission on breaks you buy through these links.`,
+    tags: ["feature"],
+  },
+  {
     id: "2026-topps-stadium-club-wwe-checklist",
     title: "2026 Topps Stadium Club WWE: checklist, parallels & odds",
     date: "2026-10-23T13:00:00-07:00",

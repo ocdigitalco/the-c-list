@@ -207,6 +207,38 @@ async function createSchema() {
     )`,
     "CREATE INDEX IF NOT EXISTS sold_comps_requests_time_idx ON sold_comps_requests (requested_at)",
     "CREATE INDEX IF NOT EXISTS sold_comps_requests_ip_idx ON sold_comps_requests (ip_hash)",
+    // Production-owned tables (excluded from data sync below). Ensure Turso has
+    // the schema; the cron / on-demand /api/breaks writes rows directly on Turso.
+    // Live eBay break spots (category 261334), grouped by seller at read time.
+    `CREATE TABLE IF NOT EXISTS break_listings (
+      id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+      source TEXT NOT NULL DEFAULT 'ebay',
+      set_id INTEGER NOT NULL REFERENCES sets(id),
+      item_id TEXT NOT NULL,
+      seller TEXT,
+      seller_feedback_pct REAL,
+      title TEXT NOT NULL,
+      price_cents INTEGER,
+      currency TEXT NOT NULL DEFAULT 'USD',
+      buying_option TEXT,
+      format_guess TEXT,
+      matched_player_ids TEXT,
+      item_url TEXT,
+      item_web_url TEXT,
+      image_url TEXT,
+      listed_at TEXT,
+      first_seen_at TEXT,
+      fetched_at TEXT NOT NULL,
+      active INTEGER NOT NULL DEFAULT 1
+    )`,
+    "CREATE UNIQUE INDEX IF NOT EXISTS break_listings_set_item_unq ON break_listings (set_id, item_id)",
+    "CREATE INDEX IF NOT EXISTS break_listings_set_idx ON break_listings (set_id, active)",
+    `CREATE TABLE IF NOT EXISTS break_refresh_state (
+      set_id INTEGER PRIMARY KEY NOT NULL REFERENCES sets(id),
+      last_fetched_at TEXT,
+      last_result_count INTEGER,
+      last_error TEXT
+    )`,
   ];
   for (const stmt of alterStmts) {
     try {
@@ -238,7 +270,7 @@ async function createSchema() {
 // Never cleared, inserted, or verified here — pull-from-turso.ts syncs them down.
 // break_sheets / break_sheet_prices hold user-generated break sheets saved on
 // CSV export; they MUST stay here so content migrations never clobber them.
-const PROD_OWNED_TABLES = ["player_events", "break_sheets", "break_sheet_prices", "set_alerts", "ebay_box_offers", "consent_events", "sold_comps", "sold_comps_usage", "sold_comps_requests"];
+const PROD_OWNED_TABLES = ["player_events", "break_sheets", "break_sheet_prices", "set_alerts", "ebay_box_offers", "consent_events", "sold_comps", "sold_comps_usage", "sold_comps_requests", "break_listings", "break_refresh_state"];
 
 async function migrateData() {
   // Disable foreign key checks for bulk migration
