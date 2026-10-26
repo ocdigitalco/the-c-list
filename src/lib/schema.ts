@@ -54,9 +54,35 @@ export const players = sqliteTable("players", {
   mlbPlayerId: integer("mlb_player_id"),
   subjectRole: text("subject_role", { enum: ["athlete", "coach", "celebrity", "character", "sketch_artist", "attraction"] }).notNull().default("athlete"),
   // slug: text("slug"), // Added via ALTER TABLE, not in Drizzle schema to avoid query errors on Turso pre-migration
+  // athlete_id: integer("athlete_id").references(() => athletes.id), // Added via ALTER TABLE (0028); omitted here, same reason as slug — nothing queries it yet
 }, (t) => [
   uniqueIndex("players_set_name_unique").on(t.setId, t.name),
 ]);
+
+// Canonical athlete identity (Stage 1 of athlete pages). One row per real-world
+// subject; every players row points here via players.athlete_id. Built by
+// scripts/build-athletes.ts from the reviewed merge queue, then full-reloaded to
+// Turso. Nothing user-facing reads it yet. page_kind is derived from the
+// canonical subject_role: athlete/coach → player, character/attraction →
+// character, celebrity/sketch_artist → person, team → team, event → none.
+export const athletes = sqliteTable(
+  "athletes",
+  {
+    id: integer("id").primaryKey({ autoIncrement: true }),
+    slug: text("slug").notNull(),
+    name: text("name").notNull(),
+    sport: text("sport").notNull(),
+    subjectRole: text("subject_role").notNull(),
+    pageKind: text("page_kind", { enum: ["player", "character", "person", "team", "none"] }).notNull(),
+    aliases: text("aliases"), // JSON array of the distinct source names folded in
+    setCount: integer("set_count").notNull().default(0),
+    cardCount: integer("card_count").notNull().default(0),
+    firstYear: integer("first_year"),
+    rookieYear: integer("rookie_year"),
+    createdAt: text("created_at"),
+  },
+  (t) => [uniqueIndex("athletes_slug_unq").on(t.slug)]
+);
 
 export const playerAppearances = sqliteTable("player_appearances", {
   id: integer("id").primaryKey({ autoIncrement: true }),

@@ -4,6 +4,16 @@
  * Usage: npx tsx scripts/migrate-to-turso.ts
  *
  * Requires TURSO_DATABASE_URL and TURSO_AUTH_TOKEN in .env.local
+ *
+ * ── Canonical athletes convention (Stage 1 of athlete pages) ─────────────────
+ * Every players row must carry a non-null `athlete_id` pointing at the canonical
+ * `athletes` table before it is pushed. The mapping is built on the LOCAL db by
+ * scripts/build-athletes.ts (idempotent: it rebuilds `athletes` and reassigns
+ * every players.athlete_id from data/athlete-review-queue.csv). After seeding a
+ * NEW set — which inserts players with a NULL athlete_id — re-run that script so
+ * the new names are grouped (by the reviewed queue, else one athlete per
+ * name+sport+role) before migrating. This script ABORTS if any players row is
+ * still missing an athlete_id, so stale/new rows can't ship unlinked.
  */
 
 import dotenv from "dotenv";
@@ -239,6 +249,27 @@ async function createSchema() {
       last_result_count INTEGER,
       last_error TEXT
     )`,
+    // Canonical athlete identity (0028). `athletes` is also picked up by the
+    // table loop above (new table); listed here so the ALTER + indexes land on a
+    // pre-existing Turso `players`. ALTER must precede its index (a swallowed
+    // "no such column" would otherwise skip it). Rows are migrated below.
+    `CREATE TABLE IF NOT EXISTS athletes (
+      id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+      slug TEXT NOT NULL,
+      name TEXT NOT NULL,
+      sport TEXT NOT NULL,
+      subject_role TEXT NOT NULL,
+      page_kind TEXT NOT NULL,
+      aliases TEXT,
+      set_count INTEGER NOT NULL DEFAULT 0,
+      card_count INTEGER NOT NULL DEFAULT 0,
+      first_year INTEGER,
+      rookie_year INTEGER,
+      created_at TEXT
+    )`,
+    "CREATE UNIQUE INDEX IF NOT EXISTS athletes_slug_unq ON athletes (slug)",
+    "ALTER TABLE players ADD COLUMN athlete_id INTEGER REFERENCES athletes(id)",
+    "CREATE INDEX IF NOT EXISTS players_athlete_idx ON players (athlete_id)",
   ];
   for (const stmt of alterStmts) {
     try {
@@ -279,7 +310,7 @@ async function migrateData() {
   console.log("\nClearing Turso tables...");
   const clearOrder = [
     "appearance_co_players", "player_appearances",
-    "parallels", "players", "insert_sets", "topps_sets", "sets",
+    "parallels", "players", "athletes", "insert_sets", "topps_sets", "sets",
   ];
   for (const table of PROD_OWNED_TABLES) {
     console.log(`  ⏭ ${table}: skipped (production-owned table)`);
@@ -306,16 +337,19 @@ async function migrateData() {
   // 3. parallels (depends on insert_sets)
   await batchInsert("parallels", readAll("parallels"));
 
-  // 4. players (depends on sets)
+  // 4. athletes (standalone; players.athlete_id references it)
+  await batchInsert("athletes", readAll("athletes"));
+
+  // 5. players (depends on sets, athletes)
   await batchInsert("players", readAll("players"));
 
-  // 5. player_appearances (depends on players, insert_sets)
+  // 6. player_appearances (depends on players, insert_sets)
   await batchInsert("player_appearances", readAll("player_appearances"));
 
-  // 6. appearance_co_players (depends on player_appearances, players)
+  // 7. appearance_co_players (depends on player_appearances, players)
   await batchInsert("appearance_co_players", readAll("appearance_co_players"));
 
-  // 7. topps_sets (standalone)
+  // 8. topps_sets (standalone)
   await batchInsert("topps_sets", readAll("topps_sets"));
 
   // player_events is production-owned (live analytics writes) — never pushed up.
@@ -333,7 +367,7 @@ async function verify() {
   console.log("\nVerifying row counts...");
 
   const tables = [
-    "sets", "insert_sets", "parallels", "players",
+    "sets", "insert_sets", "parallels", "athletes", "players",
     "player_appearances", "appearance_co_players", "topps_sets",
   ];
 
@@ -446,6 +480,20 @@ async function main() {
 
   console.log("Recomputing player stats (local)...");
   recomputePlayerStats();
+
+  // Invariant guard: every players row must be linked to a canonical athlete.
+  // (Build/refresh the mapping with scripts/build-athletes.ts — see header.)
+  const nullAthletes = (
+    localDb.prepare("SELECT COUNT(*) AS n FROM players WHERE athlete_id IS NULL").get() as { n: number }
+  ).n;
+  if (nullAthletes > 0) {
+    console.error(
+      `\n✗ ${nullAthletes} players row(s) have a NULL athlete_id — refusing to migrate.\n` +
+      `  Run: npx tsx scripts/build-athletes.ts  (then re-run this migration).`
+    );
+    localDb.close();
+    process.exit(1);
+  }
 
   await createSchema();
   await migrateData();
