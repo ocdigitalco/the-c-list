@@ -314,9 +314,13 @@ export function AthleteMasterClient({
 
   return (
     <div style={{ background: "var(--brand-page)" }}>
-      <div className="grid grid-cols-1 min-[980px]:grid-cols-[300px_minmax(0,1fr)]">
-        {/* Rail — desktop */}
-        <aside className="hidden min-[980px]:block" style={{ borderRight: "1px solid var(--brand-line)", background: "var(--brand-head)", alignSelf: "start", position: "sticky", top: "var(--header-h, 56px)" }}>
+      <div className="grid grid-cols-1 min-[980px]:grid-cols-[425px_minmax(0,1fr)]">
+        {/* Rail — desktop. 425px matches the set-athlete page's athlete-list rail
+            (AthleteDetailClient's "425px 1fr" grid). The rail is sticky at top:0
+            like that page — the global <header> is itself sticky top:0, so the
+            rail's tab bar sits flush under the header border. (A top:var(--header-h)
+            inset here double-offsets and leaves a ~56px gap above the tabs.) */}
+        <aside className="hidden min-[980px]:block" style={{ borderRight: "1px solid var(--brand-line)", background: "var(--brand-head)", alignSelf: "start", position: "sticky", top: 0 }}>
           {railNode}
         </aside>
 
