@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { MonogramBadge } from "./MonogramTile";
+import { AthleteBadge } from "./AthleteAvatar";
 import { LastSoldControl } from "@/components/sets/LastSoldControl";
 import { sportTint } from "@/lib/athletes/util";
 import type { AthletePageData, AllCardRow } from "@/lib/athletes/queries";
@@ -343,7 +343,7 @@ export function AthleteMasterClient({
 
           {/* Header */}
           <div style={{ display: "flex", flexWrap: "wrap", gap: 26, alignItems: "flex-start", padding: "16px 16px 22px" }}>
-            <MonogramBadge name={athlete.name} sport={athlete.sport} />
+            <AthleteBadge name={athlete.name} sport={athlete.sport} headshotUrl={athlete.headshotUrl} />
             <div style={{ flex: 1, minWidth: 240, paddingTop: 4 }}>
               {teams.length > 0 && (
                 <div style={{ ...lbl, marginBottom: 8 }}>{teams.slice(0, 3).map((t) => t.name).join(" · ").toUpperCase()}</div>

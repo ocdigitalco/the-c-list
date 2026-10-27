@@ -26,6 +26,7 @@ export interface AthleteCore {
   cardCount: number;
   firstYear: number | null;
   rookieYear: number | null;
+  headshotUrl: string | null;
 }
 
 function parseAliases(raw: string | null): string[] {
@@ -51,6 +52,7 @@ function coreFromRow(r: Record<string, unknown>): AthleteCore {
     cardCount: (r.card_count as number) ?? 0,
     firstYear: (r.first_year as number | null) ?? null,
     rookieYear: (r.rookie_year as number | null) ?? null,
+    headshotUrl: (r.headshot_url as string | null) ?? null,
   };
 }
 
@@ -59,7 +61,7 @@ function coreFromRow(r: Record<string, unknown>): AthleteCore {
 export async function getAthleteBySlug(slug: string): Promise<AthleteCore | null> {
   const row = await rawQuery.get<Record<string, unknown>>(
     `SELECT id, slug, name, sport, subject_role, page_kind, aliases,
-            set_count, card_count, first_year, rookie_year
+            set_count, card_count, first_year, rookie_year, headshot_url
      FROM athletes WHERE slug = ?`,
     slug
   );
@@ -658,6 +660,7 @@ export interface AthleteTile {
   cardCount: number;
   rookieYear: number | null;
   trending: boolean;
+  headshotUrl: string | null;
 }
 
 export type AthleteSort = "cards" | "az" | "newest" | "trending";
@@ -759,7 +762,7 @@ export async function getAthleteIndex(params: AthleteIndexParams): Promise<Athle
   const total = countRow?.n ?? 0;
 
   const rows = await rawQuery.all<Record<string, unknown>>(
-    `SELECT a.slug, a.name, a.sport, a.page_kind, a.set_count, a.card_count, a.rookie_year,
+    `SELECT a.slug, a.name, a.sport, a.page_kind, a.set_count, a.card_count, a.rookie_year, a.headshot_url,
             ${leagueExpr} AS league${sort === "trending" ? ", COALESCE(t.v,0) AS trend" : ""}
      FROM athletes a
      ${trendJoin}
@@ -782,6 +785,7 @@ export async function getAthleteIndex(params: AthleteIndexParams): Promise<Athle
     cardCount: (r.card_count as number) ?? 0,
     rookieYear: (r.rookie_year as number | null) ?? null,
     trending: sort === "trending" ? ((r.trend as number) ?? 0) > 0 : false,
+    headshotUrl: (r.headshot_url as string | null) ?? null,
   }));
 
   return {

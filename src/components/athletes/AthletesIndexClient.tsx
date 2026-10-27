@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { MonogramTile } from "./MonogramTile";
+import { AthleteAvatar } from "./AthleteAvatar";
 import { athleteHref, isRecentRookie } from "@/lib/athletes/util";
 import type { AthleteTile, AthleteSort } from "@/lib/athletes/queries";
 
@@ -189,7 +189,7 @@ export function AthletesIndexClient({
             const rookieChip = isRecentRookie(t.rookieYear);
             return (
               <Link key={`${t.pageKind}-${t.slug}`} href={href} style={{ display: "flex", flexDirection: "column", gap: 10, color: "var(--brand-ink)" }}>
-                <MonogramTile name={t.name} sport={t.sport} league={t.league} trending={t.trending} />
+                <AthleteAvatar name={t.name} sport={t.sport} league={t.league} trending={t.trending} headshotUrl={t.headshotUrl} />
                 <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                   <span style={{ font: `600 15px/1.25 ${FONT_DISPLAY}`, letterSpacing: "-0.01em" }}>{t.name}</span>
                   <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>

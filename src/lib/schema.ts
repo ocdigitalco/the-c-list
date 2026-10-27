@@ -80,6 +80,9 @@ export const athletes = sqliteTable(
     firstYear: integer("first_year"),
     rookieYear: integer("rookie_year"),
     createdAt: text("created_at"),
+    // Resolved headshot URL (newest player row with any image id), written by
+    // build-athletes. NULL = no source → the UI shows a sport-tinted monogram.
+    headshotUrl: text("headshot_url"),
   },
   (t) => [uniqueIndex("athletes_slug_unq").on(t.slug)]
 );

@@ -15,6 +15,23 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "athlete-headshots-2026-10-27",
+    title: "Player photos on athlete pages and the Athletes index",
+    date: "2026-10-27T15:00:00-07:00",
+    summary:
+      "Player photos now appear on athlete pages and the Athletes index, and new sets get photos automatically when added.",
+    description: `## Faces, not just initials
+
+Athlete pages and the **Athletes** index now show a **player photo** whenever one is available — NBA, MLB, NFL, and UFC headshots — falling back to the sport-tinted monogram when there isn't a source.
+
+- Every athlete's photo is the most recent one across all their sets, so it stays current as new releases are added.
+- Photos were backfilled across the sets added since the spring, including the newest Football, Baseball, and Basketball checklists.
+- New sets now pick up photos automatically: when a set is added, each player inherits a photo from their earlier cards, and new faces are matched to their league's headshot source.
+
+Some sports — Racing, Golf, Soccer, Wrestling, Tennis, Hockey, Boxing, and the Olympics — don't have a photo source yet, so those keep the monogram.`,
+    tags: ["feature"],
+  },
+  {
     id: "2026-topps-finest-formula-1-checklist",
     title: "2026 Topps Finest Formula 1: full checklist",
     date: "2026-10-27T13:00:00-07:00",

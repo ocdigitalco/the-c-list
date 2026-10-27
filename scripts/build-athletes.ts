@@ -29,6 +29,7 @@
 import Database from "better-sqlite3";
 import fs from "fs";
 import path from "path";
+import { resolveHeadshot } from "../src/lib/headshot";
 
 const db = new Database(path.join(process.cwd(), "the-c-list.db"));
 // Controlled local rebuild (repoint + delete orphan player rows); mirror the
@@ -342,6 +343,50 @@ const run = db.transaction(() => {
 db.exec("DELETE FROM athletes");
 db.exec("UPDATE players SET athlete_id = NULL");
 run();
+
+// ── Headshot URL per athlete ───────────────────────────────────────────────
+// The athlete's photo = the resolved headshot from their newest player row that
+// carries any image id (newest set first by release/created date). NULL when no
+// source → the UI falls back to a sport-tinted monogram.
+{
+  const rows = db
+    .prepare(
+      `SELECT a.id AS athlete_id, p.nba_player_id, p.mlb_player_id, p.ufc_image_url, p.image_url
+       FROM athletes a
+       JOIN players p ON p.athlete_id = a.id
+       JOIN sets s ON s.id = p.set_id
+       WHERE p.nba_player_id IS NOT NULL OR p.mlb_player_id IS NOT NULL
+          OR (p.ufc_image_url IS NOT NULL AND p.ufc_image_url != '')
+          OR (p.image_url IS NOT NULL AND p.image_url != '')
+       ORDER BY a.id, COALESCE(s.release_date, s.created_at) DESC, p.id DESC`
+    )
+    .all() as {
+      athlete_id: number;
+      nba_player_id: number | null;
+      mlb_player_id: number | null;
+      ufc_image_url: string | null;
+      image_url: string | null;
+    }[];
+  const upd = db.prepare("UPDATE athletes SET headshot_url = ? WHERE id = ?");
+  const seen = new Set<number>();
+  const tx = db.transaction(() => {
+    for (const r of rows) {
+      if (seen.has(r.athlete_id)) continue; // first row per athlete = newest-set
+      const url = resolveHeadshot({
+        nbaPlayerId: r.nba_player_id,
+        ufcImageUrl: r.ufc_image_url,
+        mlbPlayerId: r.mlb_player_id,
+        imageUrl: r.image_url,
+      });
+      if (url) {
+        upd.run(url, r.athlete_id);
+        seen.add(r.athlete_id);
+      }
+    }
+  });
+  tx();
+  console.log(`  headshot_url set on ${seen.size} athletes.`);
+}
 
 // ── Report ───────────────────────────────────────────────────────────────────
 const nulls = (db.prepare("SELECT COUNT(*) AS n FROM players WHERE athlete_id IS NULL").get() as { n: number }).n;

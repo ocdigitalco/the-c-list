@@ -8,12 +8,18 @@
  * ── Canonical athletes convention (Stage 1 of athlete pages) ─────────────────
  * Every players row must carry a non-null `athlete_id` pointing at the canonical
  * `athletes` table before it is pushed. The mapping is built on the LOCAL db by
- * scripts/build-athletes.ts (idempotent: it rebuilds `athletes` and reassigns
- * every players.athlete_id from data/athlete-review-queue.csv). After seeding a
- * NEW set — which inserts players with a NULL athlete_id — re-run that script so
- * the new names are grouped (by the reviewed queue, else one athlete per
- * name+sport+role) before migrating. This script ABORTS if any players row is
- * still missing an athlete_id, so stale/new rows can't ship unlinked.
+ * scripts/build-athletes.ts (idempotent: it rebuilds `athletes`, reassigns every
+ * players.athlete_id from data/athlete-review-queue.csv, and writes
+ * athletes.headshot_url). After seeding a NEW set, run the full post-seed chain
+ * instead of bare build-athletes:
+ *
+ *     npx tsx scripts/post-seed.ts --set <slug>
+ *
+ * which does build-athletes → backfill-headshots (--set: sibling-copy image ids
+ * from the same athletes' older rows, external-match the set's remaining NULLs,
+ * normalize UFC urls; EXACT matches only — fuzzy go to scratchpad/headshot-
+ * fuzzy.csv for review) → build-athletes. This script ABORTS if any players row
+ * is still missing an athlete_id, so stale/new rows can't ship unlinked.
  */
 
 import dotenv from "dotenv";
@@ -124,6 +130,7 @@ async function createSchema() {
     "ALTER TABLE parallels ADD COLUMN exclusivity TEXT",
     "ALTER TABLE players ADD COLUMN subject_role TEXT NOT NULL DEFAULT 'athlete'",
     "ALTER TABLE sets ADD COLUMN created_at TEXT",
+    "ALTER TABLE athletes ADD COLUMN headshot_url TEXT",
     "ALTER TABLE insert_sets ADD COLUMN is_autograph INTEGER NOT NULL DEFAULT 0",
     "ALTER TABLE sets ADD COLUMN topps_url TEXT",
     "ALTER TABLE sets ADD COLUMN related_links TEXT",
