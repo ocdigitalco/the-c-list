@@ -15,6 +15,24 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-finest-formula-1-checklist",
+    title: "2026 Topps Finest Formula 1: full checklist",
+    date: "2026-10-27T13:00:00-07:00",
+    summary:
+      "2026 Topps Finest Formula 1 checklist: four-tier chrome base, die-cut inserts, autographs and relics.",
+    description: `## 2026 Topps Finest Formula 1 — full checklist
+
+The full **2026 Topps Finest Formula 1** checklist is live: **25 subsets** and **736 cards**, parsed from Topps' official checklist.
+
+- A **four-tier chrome base** — Common, Uncommon, Rare, and the new **Super Rare** tier — covering current F1 drivers and their cars, team principals, F2 drivers, and 23 legends.
+- **10 insert sets** including Finest Drivers, World's Finest, Nightmare Fuel, The Man, and the 3-card **The Grail**.
+- **5 autograph** subsets (including Finest Duos dual signatures) and **5 relic** subsets, with Finest Autograph Relics carrying both.
+
+Release date, pack odds, and numbered parallels are still TBA from Topps and will be added when published.`,
+    tags: ["checklist"],
+    setId: 903,
+  },
+  {
     id: "checklists-recently-added-2026-10-27",
     title: "Checklists: a Recently Added row, and cleaner results",
     date: "2026-10-27T12:00:00-07:00",
