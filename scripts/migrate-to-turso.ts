@@ -388,7 +388,7 @@ async function verify() {
 
 // ── Revalidation ─────────────────────────────────────────────────────────────
 
-async function triggerRevalidation(setSlug?: string) {
+async function triggerRevalidation(setSlug?: string, athletePaths: string[] = []) {
   const productionUrl = process.env.PRODUCTION_URL ?? "https://www.checklist2.com";
   const secret = process.env.REVALIDATE_SECRET;
 
@@ -398,7 +398,12 @@ async function triggerRevalidation(setSlug?: string) {
   }
 
   try {
-    const body = setSlug ? { setSlug } : { paths: ["/", "/checklists", "/articles"] };
+    // When a set slug is given we revalidate its standard paths AND each of its
+    // athletes' master pages (capped at the set's athlete count), so a migrated
+    // set's canonical athlete pages refresh immediately rather than on ISR.
+    const body = setSlug
+      ? { setSlug, paths: athletePaths }
+      : { paths: ["/", "/checklists", "/articles"] };
     const response = await fetch(`${productionUrl}/api/revalidate`, {
       method: "POST",
       headers: { "Content-Type": "application/json", Authorization: `Bearer ${secret}` },
@@ -499,6 +504,32 @@ async function main() {
   await migrateData();
   const ok = await verify();
 
+  // Build the migrated set's athlete master-page paths while the local db is open.
+  const setSlugArg = process.argv[2];
+  let athletePaths: string[] = [];
+  if (setSlugArg) {
+    const KIND_SEG: Record<string, string | null> = {
+      player: "athletes", character: "characters", person: "people", team: "teams", none: null,
+    };
+    try {
+      const rows = localDb
+        .prepare(
+          `SELECT DISTINCT a.slug AS slug, a.page_kind AS page_kind
+           FROM athletes a
+           JOIN players p ON p.athlete_id = a.id
+           JOIN sets s ON s.id = p.set_id
+           WHERE s.slug = ? AND a.page_kind != 'none'`
+        )
+        .all(setSlugArg) as { slug: string; page_kind: string }[];
+      athletePaths = rows
+        .map((r) => {
+          const seg = KIND_SEG[r.page_kind];
+          return seg ? `/${seg}/${r.slug}` : null;
+        })
+        .filter((p): p is string => p != null);
+    } catch { /* athletes table may not exist yet */ }
+  }
+
   localDb.close();
 
   if (ok) {
@@ -509,7 +540,7 @@ async function main() {
 
   // Revalidate cached pages — optional set slug as CLI arg.
   // Must fire even on mismatch: data has already been written to Turso.
-  await triggerRevalidation(process.argv[2]);
+  await triggerRevalidation(setSlugArg, athletePaths);
 
   if (!ok) process.exit(1);
 }

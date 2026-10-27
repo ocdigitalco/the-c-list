@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/setSeo";
 
 // Block training / bulk-scraping crawlers that cost a function invocation + a
 // cache write per page across a ~34k-URL surface, while keeping real search and
@@ -28,5 +29,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/sets-v2/", "/sets-legacy/"],
       },
     ],
+    sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }

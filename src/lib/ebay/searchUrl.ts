@@ -53,6 +53,32 @@ export function buildEbaySearchUrl(f: EbayLinkFields, campaignId: string | null 
 }
 
 /**
+ * Build a tracked eBay search for a whole athlete ("every card" header link on the
+ * master athlete page). Query is `<name> <sport> cards`; EPN attribution rides in
+ * `customid` as `athlete:<slug>` (the per-page reference id the master page carries).
+ * Returns null when no campaign id is configured.
+ */
+export function buildEbayAthleteSearchUrl(
+  name: string,
+  sport: string | null,
+  slug: string,
+  campaignId: string | null | undefined
+): string | null {
+  if (!campaignId) return null;
+  const query = [name, sport, "cards"].filter(Boolean).join(" ").replace(/\s+/g, " ").trim();
+  const u = new URL("https://www.ebay.com/sch/i.html");
+  u.searchParams.set("_nkw", query);
+  u.searchParams.set("_sacat", CAT_SPORTS_CARDS);
+  u.searchParams.set("mkevt", "1");
+  u.searchParams.set("mkcid", "1");
+  u.searchParams.set("mkrid", ROVER_US);
+  u.searchParams.set("campid", campaignId);
+  u.searchParams.set("toolid", "10001");
+  u.searchParams.set("customid", `athlete:${slug}`.slice(0, 256));
+  return u.toString();
+}
+
+/**
  * Wrap a concrete eBay ITEM URL (e.g. a sold listing) with EPN tracking params.
  * Preserves whatever query the API already attached (e.g. `?nordt=true`) and
  * appends the same `mkevt/mkcid/mkrid/campid/toolid/customid` set as the search

@@ -14,6 +14,16 @@ const nextConfig: NextConfig = {
     "*": ["public/sets/cards/**"],
     "/sets/[id]": ["public/sets/cards/**"],
   },
+  // The legacy per-set player routes are retired in favour of the canonical
+  // athlete pages (Stage 2). Nothing links to them and `/players/:id` was a
+  // per-set integer with no canonical target, so both 301 to the new index.
+  // Static config redirects cost zero function invocations.
+  async redirects() {
+    return [
+      { source: "/players", destination: "/athletes", statusCode: 301 },
+      { source: "/players/:id", destination: "/athletes", statusCode: 301 },
+    ];
+  },
 };
 
 export default nextConfig;

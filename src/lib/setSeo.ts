@@ -80,7 +80,7 @@ function formatDate(dateStr: string): string {
   });
 }
 
-function extractYearAndManufacturer(setName: string): { year: string; manufacturer: string } {
+export function extractYearAndManufacturer(setName: string): { year: string; manufacturer: string } {
   const yearMatch = setName.match(/^\d{4}(?:-\d{2})?/);
   const year = yearMatch ? yearMatch[0] : "";
   const manMatch = setName.match(/\b(Topps|Bowman|Panini|Upper Deck|Leaf|Donruss)\b/i);

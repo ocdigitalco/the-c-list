@@ -90,6 +90,9 @@ export interface AthleteDetailClientProps {
   teamLabel?: string;
   /** Live-breaks feature flag (LIVE_BREAKS_ENABLED). Off → the breaks block never mounts. */
   liveBreaksEnabled?: boolean;
+  /** Canonical master-page URL (Stage 2) + name, or null if unresolved. */
+  masterHref?: string | null;
+  masterName?: string | null;
 }
 
 // ─── Helpers ────────────────────────────────────────────────────────────────────
@@ -677,7 +680,7 @@ export function AthleteDetailClient({
   insertSets, otherSets, packOddsJson, boxConfigJson, epnCampaignId,
   packOddsSlotsByFormat, boxFormats, totalAutoCards, playerAutoCards, hasBreakCalc,
   entries, hasTeamData, subjectLabel: subjectLabelProp, subjectRole, teamLabel: teamLabelProp,
-  liveBreaksEnabled = false,
+  liveBreaksEnabled = false, masterHref = null, masterName = null,
 }: AthleteDetailClientProps) {
   const subjectLabel = subjectLabelProp ?? "Athletes";
   const teamLabel = teamLabelProp ?? "Team";
@@ -796,6 +799,11 @@ export function AthleteDetailClient({
                     featured in {otherSets.length + 1} set{otherSets.length !== 0 ? "s" : ""}
                   </span>
                 </div>
+                {masterHref && (
+                  <a href={masterHref} style={{ display: "inline-block", marginTop: 10, fontSize: 15, fontWeight: 600, color: "var(--brand-accent-deep)" }}>
+                    View all {masterName ?? athleteName} cards across every set →
+                  </a>
+                )}
               </div>
               {/* Team Details panel */}
               {teams.length > 0 && (

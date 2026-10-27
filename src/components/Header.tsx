@@ -7,6 +7,7 @@ import { Wordmark } from "@/components/Wordmark";
 const navLinks = [
   { href: "/checklists", label: "Checklists" },
   { href: "/sets", label: "Sets" },
+  { href: "/athletes", label: "Athletes" },
   { href: "/overview", label: "Overview" },
   { href: "/searches", label: "Searches" },
   { href: "/resources", label: "Resources" },

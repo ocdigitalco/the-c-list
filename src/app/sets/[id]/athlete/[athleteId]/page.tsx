@@ -14,6 +14,7 @@ import type { LeaderboardRow, InsertSetDetail, BoxConfigSingle, BoxConfigMulti, 
 import { findOddsKey } from "@/lib/oddsUtils";
 import type { PackOddsSlot, BoxFormat } from "@/components/PackOddsCalculator";
 import { AthleteDetailClient } from "@/components/sets/AthleteDetailClient";
+import { athleteHref } from "@/lib/athletes/util";
 
 
 // 7-day on-demand ISR. ~31k athlete URLs: each renders once on first crawl, then
@@ -497,11 +498,26 @@ export default async function V2AthletePage({
        )) AS numberedParallels
      FROM players p
      JOIN sets s ON s.id = p.set_id
-     WHERE p.name = ? AND p.set_id != ?
+     WHERE p.athlete_id = (SELECT athlete_id FROM players WHERE id = ?) AND p.set_id != ?
      ORDER BY s.season DESC, s.name`,
-    playerData.name,
+    playerData.id,
     setId
   );
+
+  // ── Canonical athlete (Stage 2): link up to the master page across all sets ──
+  let masterHref: string | null = null;
+  let masterName: string | null = null;
+  try {
+    const canonical = await rawQuery.get<{ slug: string; name: string; page_kind: string }>(
+      `SELECT a.slug, a.name, a.page_kind FROM athletes a
+       JOIN players p ON p.athlete_id = a.id WHERE p.id = ?`,
+      playerData.id
+    );
+    if (canonical) {
+      masterHref = athleteHref(canonical.page_kind, canonical.slug);
+      masterName = canonical.name;
+    }
+  } catch { /* athletes table may not exist yet */ }
 
   // ── Leaderboard ─────────────────────────────────────────────────────────────
   const leaderboardRaw = await rawQuery.all<{
@@ -718,6 +734,8 @@ export default async function V2AthletePage({
       subjectRole={subjectRole}
       teamLabel={teamLabel}
       liveBreaksEnabled={process.env.LIVE_BREAKS_ENABLED === "true"}
+      masterHref={masterHref}
+      masterName={masterName}
     />
   );
 }

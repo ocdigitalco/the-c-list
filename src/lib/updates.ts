@@ -15,6 +15,23 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "athlete-pages-2026-10-26",
+    title: "Every athlete now has one page with all their cards",
+    date: "2026-10-26T12:00:00-07:00",
+    summary:
+      "Every athlete, character, and creator now has one page with all their cards across every set — autographs, numbered parallels, rookie cards, teams, and cards by year — plus a browsable Athletes index.",
+    description: `## One page per athlete, every card, every set
+
+Every player, character, and creator now has a single master page that gathers **all of their cards across every set** — no more hopping set to set:
+
+- A rail of **their sets** (search, re-sort by cards / autos / inserts / numbered / 1-1s, rookie-year filter) and tabs for **All Cards, By Set, Autographs, Numbered, Rookies, and Teams**.
+- A top-line of **sets, total cards, autographs, numbered, 1/1s, and rookie cards**, plus **cards by set**, **teams on their cards**, **cards per year**, and their **hardest-to-pull** parallels.
+- **Recent sales** fill in from cached Last-Sold lookups, and every card keeps a **Find on eBay** link.
+
+Browse everyone from the new **Athletes** index — filter by sport (the Entertainment chip surfaces characters and creators), search by name, team, or league, flag **rookies**, and sort by most cards, newest sets, or trending. Each set's athlete page now links up to the master page, and the master page links back down to every set.`,
+    tags: ["feature"],
+  },
+  {
     id: "live-breaks-spots-2026-10-24",
     title: "Live breaks: expand a break to see every spot and its price",
     date: "2026-10-24T15:00:00-07:00",

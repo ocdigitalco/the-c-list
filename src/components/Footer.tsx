@@ -6,6 +6,7 @@ import { CookieSettingsLink } from "@/components/CookieSettingsLink";
 const exploreLinks = [
   { href: "/checklists", label: "Checklists" },
   { href: "/sets", label: "Sets" },
+  { href: "/athletes", label: "Athletes" },
   { href: "/overview", label: "Overview" },
   { href: "/searches", label: "Searches" },
 ];
