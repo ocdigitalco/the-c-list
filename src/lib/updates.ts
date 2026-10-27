@@ -15,6 +15,23 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "checklists-recently-added-2026-10-27",
+    title: "Checklists: a Recently Added row, and cleaner results",
+    date: "2026-10-27T12:00:00-07:00",
+    summary:
+      "New sets now appear in a Recently Added row at the top of Checklists for two weeks, and sets without card art are hidden from the grid.",
+    description: `## The newest sets, right at the top
+
+The **Checklists** page now opens with a **Recently Added** row:
+
+- Every set added in the **last 14 days** shows up here first, newest first, each tagged with the day it was added (e.g. *ADDED OCT 23*).
+- The row follows your **sport filter and search** just like the grid, and tucks away entirely when nothing is new.
+- Those sets still keep their spot in **All Sets** by release date, with the usual *Recently Added* flag.
+
+Sets that have **no card art yet** — empty placeholders with no checklist — are no longer shown in the grid, so the set count reflects what you can actually open.`,
+    tags: ["feature"],
+  },
+  {
     id: "athlete-pages-2026-10-26",
     title: "Every athlete now has one page with all their cards",
     date: "2026-10-26T12:00:00-07:00",

@@ -3,6 +3,7 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import Link from "next/link";
 import { trackEvent } from "@/lib/analytics";
+import { parseUtcMs } from "@/lib/parseTimestamp";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -60,7 +61,7 @@ function Chip({ label, tone = "default" }: { label: string; tone?: "default" | "
   );
 }
 
-function Ribbon({ size = "gallery" }: { size?: "gallery" | "compact" | "compact-mobile" }) {
+function Ribbon({ size = "gallery", label }: { size?: "gallery" | "compact" | "compact-mobile"; label?: string }) {
   const s = size === "gallery"
     ? { top: 10, left: -4, padding: "4px 8px 4px 10px", fontSize: 9, letterSpacing: 1.5, clipOff: 4 }
     : size === "compact"
@@ -84,12 +85,33 @@ function Ribbon({ size = "gallery" }: { size?: "gallery" | "compact" | "compact-
         boxShadow: "0 2px 6px rgba(0,0,0,0.18)",
         zIndex: 2,
         lineHeight: "1.4",
+        whiteSpace: "nowrap",
       }}
     >
-      <span className="hidden sm:inline">RECENTLY ADDED</span>
-      <span className="sm:hidden">NEW</span>
+      {/* Default (All Sets): "RECENTLY ADDED", "NEW" when cramped on phone.
+          A dated label ("ADDED OCT 23") is passed only by the Recently Added
+          row and shown verbatim. */}
+      {label ? (
+        label
+      ) : (
+        <>
+          <span className="hidden sm:inline">RECENTLY ADDED</span>
+          <span className="sm:hidden">NEW</span>
+        </>
+      )}
     </div>
   );
+}
+
+// "2026-10-23T00:00:00Z" → "ADDED OCT 23" (the dated tag used in the top row).
+// Uses the same UTC normalizer as the window so the shown day matches the one
+// that decided membership.
+function addedLabel(iso: string | null): string {
+  const ms = parseUtcMs(iso);
+  if (!ms) return "RECENTLY ADDED";
+  const d = new Date(ms);
+  const m = d.toLocaleDateString("en-US", { month: "short", timeZone: "UTC" }).toUpperCase();
+  return `ADDED ${m} ${d.getUTCDate()}`;
 }
 
 // ─── Constants ────────────────────────────────────────────────────────────────
@@ -103,9 +125,11 @@ const SPORT_ORDER = [
 
 export function ChecklistSearch({
   sets,
+  recentlyAdded = [],
   allSports,
 }: {
   sets: SetCard[];
+  recentlyAdded?: SetCard[];
   allSports: string[];
 }) {
   const [query, setQuery] = useState("");
@@ -177,6 +201,28 @@ export function ChecklistSearch({
       return a.name.localeCompare(b.name);
     });
   }, [sets, query, activeSport]);
+
+  // Recently Added row: the last-14-days sets, obeying the same sport + search
+  // state as the grid, capped at 6 (the desktop grid's column count). Order is
+  // newest-added first (already sorted server-side); filtering preserves it.
+  // Hidden entirely when nothing qualifies.
+  const filteredRecent = useMemo(() => {
+    let r = recentlyAdded;
+    if (activeSport) r = r.filter((s) => s.sport === activeSport);
+    if (query.trim()) {
+      const q = query.toLowerCase();
+      r = r.filter(
+        (s) =>
+          s.name?.toLowerCase().includes(q) ||
+          s.sport?.toLowerCase().includes(q) ||
+          s.league?.toLowerCase().includes(q) ||
+          s.tier?.toLowerCase().includes(q) ||
+          s.season?.toLowerCase().includes(q)
+      );
+    }
+    return r.slice(0, 6);
+  }, [recentlyAdded, query, activeSport]);
+  const showRecent = filteredRecent.length > 0;
 
   const resultLabel = query.trim()
     ? `${filtered.length} SETS MATCHING "${query.toUpperCase()}"`
@@ -336,8 +382,62 @@ export function ChecklistSearch({
         </div>
       </div>
 
+      {/* ── Recently Added row (hidden when nothing qualifies) ── */}
+      {showRecent && (
+        <section style={{ marginTop: 36 }}>
+          <div className="flex items-baseline justify-between gap-3" style={{ marginBottom: 16 }}>
+            <div className="flex items-baseline gap-2 min-w-0">
+              <span
+                style={{
+                  fontFamily: "var(--cl-font-mono)",
+                  fontSize: 10,
+                  fontWeight: 600,
+                  letterSpacing: 2,
+                  color: "var(--brand-accent-deep)",
+                }}
+              >
+                RECENTLY ADDED
+              </span>
+              <span
+                style={{
+                  fontFamily: "var(--cl-font-mono)",
+                  fontSize: 10,
+                  fontWeight: 600,
+                  letterSpacing: 2,
+                  color: "var(--cl-text-faint)",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                LAST 14 DAYS · {filteredRecent.length} SET{filteredRecent.length !== 1 ? "S" : ""}
+              </span>
+            </div>
+            <Link
+              href="/updates"
+              className="shrink-0"
+              style={{
+                fontFamily: "var(--cl-font-mono)",
+                fontSize: 10,
+                fontWeight: 600,
+                letterSpacing: 1.5,
+                color: "var(--cl-text-tertiary)",
+                textDecoration: "none",
+                whiteSpace: "nowrap",
+              }}
+            >
+              All updates &rarr;
+            </Link>
+          </div>
+          <div className="cl-recent-row">
+            {filteredRecent.map((s) => (
+              <GalleryCard key={s.id} set={s} tagLabel={addedLabel(s.createdAt)} />
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* ── Results header ── */}
-      <div style={{ marginTop: 36 }}>
+      {showRecent && <hr style={{ margin: "32px 0 0", border: 0, borderTop: "1px solid var(--brand-line)" }} />}
+      <div style={{ marginTop: showRecent ? 20 : 36 }}>
         <span
           style={{
             fontFamily: "var(--cl-font-mono)",
@@ -360,7 +460,21 @@ export function ChecklistSearch({
               marginLeft: 8,
             }}
           >
-            {countLabel}
+            {showRecent ? "· " : ""}{countLabel}
+          </span>
+        )}
+        {showRecent && (
+          <span
+            style={{
+              fontFamily: "var(--cl-font-mono)",
+              fontSize: 10,
+              fontWeight: 600,
+              letterSpacing: 2,
+              color: "var(--cl-text-faint)",
+              marginLeft: 8,
+            }}
+          >
+            · BY RELEASE DATE
           </span>
         )}
       </div>
@@ -430,7 +544,7 @@ function GalleryView({ sets }: { sets: SetCard[] }) {
   );
 }
 
-function GalleryCard({ set: s }: { set: SetCard }) {
+function GalleryCard({ set: s, tagLabel }: { set: SetCard; tagLabel?: string }) {
   return (
     <Link
       href={`/sets/${s.slug ?? s.id}`}
@@ -468,7 +582,7 @@ function GalleryCard({ set: s }: { set: SetCard }) {
           </div>
         )}
 
-        {s.featured && <Ribbon size="gallery" />}
+        {(s.featured || tagLabel) && <Ribbon size="gallery" label={tagLabel} />}
 
         {/* Hover overlay */}
         <div

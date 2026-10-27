@@ -1,8 +1,12 @@
 import { db, rawQuery } from "@/lib/db";
 import { sets, players, playerAppearances } from "@/lib/schema";
 import { eq, sql } from "drizzle-orm";
+import { parseUtcMs } from "@/lib/parseTimestamp";
 
-const FIVE_DAYS_MS = 5 * 24 * 60 * 60 * 1000;
+// "Recently added" window. Drives the `featured` flag → the RECENTLY ADDED
+// corner ribbon on tiles, and (via listChecklistPage) membership of the
+// Checklists page's Recently Added row. 14 days matches that row's window.
+const RECENT_WINDOW_MS = 14 * 24 * 60 * 60 * 1000;
 
 export interface SetListItem {
   id: number;
@@ -81,12 +85,12 @@ export async function listSets(): Promise<{
   } catch { /* created_at column may not exist yet */ }
 
   const now = Date.now();
-  const fiveDaysAgo = now - FIVE_DAYS_MS;
+  const recentCutoff = now - RECENT_WINDOW_MS;
 
   const setCards: SetListItem[] = setRows.map((s) => {
     const createdAt = createdAtMap.get(s.id);
-    const createdMs = createdAt ? new Date(createdAt).getTime() : 0;
-    const isRecent = createdMs > fiveDaysAgo;
+    const createdMs = parseUtcMs(createdAt); // UTC-normalized (see parseTimestamp)
+    const isRecent = createdMs > recentCutoff;
 
     return {
       ...s,

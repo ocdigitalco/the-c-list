@@ -124,6 +124,29 @@ main, .v2-root { scroll-padding-top: var(--header-h); }
 @media (max-width: 900px)  { .cl-gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 600px)  { .cl-gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 22px; } }
 
+/* ─── Recently Added row ─────────────────────────────────────────────────
+   Desktop: one row, up to 6 tiles at the same column width as the grid.
+   ≤900px (phones + small tablets): horizontal scroll with x scroll-snap,
+   fixed ~170px tiles, so the row never squeezes and the page doesn't
+   overflow sideways. */
+.cl-recent-row {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  column-gap: 14px;
+}
+@media (max-width: 900px) {
+  .cl-recent-row {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 170px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+  }
+  .cl-recent-row > * { scroll-snap-align: start; }
+}
+
 /* ─── Checklists mobile container override ─────────────────────────────── */
 @media (max-width: 640px) {
   .cl-container { padding-left: 20px !important; padding-right: 20px !important; padding-top: 24px !important; }

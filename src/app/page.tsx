@@ -1,10 +1,10 @@
-import { listSets } from "@/lib/queries/listSets";
+import { listChecklistPage } from "@/lib/queries/listChecklistPage";
 import { ChecklistSearch } from "./checklists/ChecklistSearch";
 
 export const revalidate = 86400; // 24h; / and /checklists also revalidated on demand by the migration
 
 export default async function HomePage() {
-  const { sets, allSports } = await listSets();
+  const { sets, recentlyAdded, allSports } = await listChecklistPage();
 
   return (
     <div
@@ -31,7 +31,7 @@ export default async function HomePage() {
           Browse all sports card sets in the app
         </p>
 
-        <ChecklistSearch sets={sets} allSports={allSports} />
+        <ChecklistSearch sets={sets} recentlyAdded={recentlyAdded} allSports={allSports} />
       </div>
     </div>
   );
