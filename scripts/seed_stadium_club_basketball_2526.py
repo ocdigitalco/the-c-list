@@ -45,6 +45,14 @@ NAME_FIX = {
     "Egor Dёmin": "Egor Dëmin",
 }
 
+# Approved fuzzy headshot matches (reviewed in scratchpad/headshot-fuzzy.csv).
+# backfill-headshots holds sub-100 matches; these were human-approved and are
+# written here so a fresh re-seed reproduces them (and backfill then skips them,
+# since the id is no longer NULL). J.R. Smith -> nba id 2747 ("jr smith", 89).
+APPROVED_NBA_IDS = {
+    "J.R. Smith": 2747,
+}
+
 # (a) 6 is_base subsets
 BASE_SUBSETS = {
     "Base",
@@ -205,6 +213,12 @@ def main():
                         "INSERT INTO appearance_co_players (appearance_id, co_player_id) VALUES (?, ?)",
                         (app_id, other_pid))
                     link_count += 1
+
+        # ── approved fuzzy headshot matches (see APPROVED_NBA_IDS) ──
+        for approved_name, nba_id in APPROVED_NBA_IDS.items():
+            db.execute(
+                "UPDATE players SET nba_player_id=? WHERE set_id=? AND name=?",
+                (nba_id, set_id, canon(approved_name)))
 
         db.commit()
 
