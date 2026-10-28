@@ -15,6 +15,24 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2025-26-topps-stadium-club-basketball-checklist",
+    title: "2025-26 Topps Stadium Club Basketball: full checklist",
+    date: "2026-10-27T16:00:00-07:00",
+    summary:
+      "2025-26 Topps Stadium Club Basketball checklist: a 200-card base with Members Only and photo/design variations, the Stadium Club Collection sub-brand, 19 inserts, and 13 autograph subsets.",
+    description: `## 2025-26 Topps Stadium Club Basketball — full checklist
+
+The full **2025-26 Topps Stadium Club Basketball** checklist is live: **38 subsets** and **1,554 cards**, parsed from Topps' official final checklist.
+
+- A **200-card base** — veterans, rookies, and legends (Seattle Supersonics and New Jersey Nets as printed) — with **Members Only**, **Rookie Photo**, and **Image / Design** variations alongside it.
+- The **Stadium Club Collection** sub-brand (its own SBC and chrome SCA runs), plus **19 inserts** — Beam Team, Pure Focus, Triumvirates, The Main Stage, Net Effect, and more.
+- **13 autograph** subsets, including **Cosigners** dual autographs, Fresh Frames, Ink Exposure, and Members Only Marks.
+
+Pack odds, numbered parallels, case sizes, and the final release date are still TBA from Topps and will be added when published.`,
+    tags: ["checklist"],
+    setId: 904,
+  },
+  {
     id: "athlete-headshots-2026-10-27",
     title: "Player photos on athlete pages and the Athletes index",
     date: "2026-10-27T15:00:00-07:00",
