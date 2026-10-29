@@ -15,6 +15,24 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-chrome-sapphire-tennis-checklist",
+    title: "2026 Topps Chrome Sapphire Tennis: full checklist",
+    date: "2026-10-28T12:00:00-07:00",
+    summary:
+      "2026 Topps Chrome Sapphire Tennis checklist added as its own set: 200-card Sapphire base, two autograph subsets, Sapphire Infinite and Hidden Gems (moved from Chrome Tennis).",
+    description: `## 2026 Topps Chrome Sapphire Tennis — full checklist
+
+**2026 Topps Chrome Sapphire Tennis** is now its own set — a separate Sapphire-edition product with its own box and parallel ladder, no longer folded into Chrome Tennis. **6 subsets** and **405 cards**, parsed from Topps' official Sapphire checklist (26TCTN).
+
+- A **200-card Sapphire base** across Base Cards (1–100) and Base Cards II (101–200), sharing the Chrome checklist's numbering.
+- Two autograph subsets — **Base Autographs I** and **Base Autographs II** — totaling **185 on-card signatures**.
+- **Sapphire Infinite** and **Hidden Gems**, the two Sapphire-exclusive inserts, now live here where they belong — moved over from Chrome Tennis, whose checklist they were never part of.
+
+Box configuration, pack odds, numbered parallel print runs, and the release date are still TBA from Topps and will be added when published.`,
+    tags: ["checklist"],
+    setId: 905,
+  },
+  {
     id: "2025-26-topps-stadium-club-basketball-checklist",
     title: "2025-26 Topps Stadium Club Basketball: full checklist",
     date: "2026-10-27T16:00:00-07:00",
