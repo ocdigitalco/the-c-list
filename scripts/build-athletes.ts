@@ -15,6 +15,13 @@
  *      group's merge/premerge rows sharing a `canonical` are unioned together
  *      (so merges may span sports — celebrity/cross-sport cameos); keep_separate
  *      rows add no edge; everything else defaults to one athlete per (name,sport).
+ *      action=split_by_team carves the OTHER way: for two different people who
+ *      share (name, sport) but not team (e.g. a current college prospect vs a
+ *      retired legend), it routes the player rows whose appearance teams all fall
+ *      in `team_filter` (pipe-separated) to their own athlete under `canonical_slug`
+ *      (display name = `canonical`), and NULLs those rows' five image-id columns so
+ *      the carved person can't inherit the namesake's photo. The unmatched rows stay
+ *      on the normal (name, sport) node and keep any merge/keep_separate applied to it.
  *   3. Canonical role = most-frequent subject_role across the athlete's rows, with
  *      player→athlete folded first and attraction↔character → character; a queue
  *      note of the form "role <x>" overrides it. page_kind is derived from role.
@@ -84,7 +91,10 @@ function yearOf(season: string | null): number | null {
 const table = parseCSV(fs.readFileSync(CSV, "utf8"));
 const H = table[0];
 const col = Object.fromEntries(H.map((h, k) => [h, k])) as Record<string, number>;
-type QRow = { qid: string; sport: string; name: string; action: string; canonical: string; note: string };
+type QRow = {
+  qid: string; sport: string; name: string; action: string; canonical: string; note: string;
+  teamFilter: string; canonicalSlug: string;
+};
 const queue: QRow[] = table.slice(1).map((r) => ({
   qid: r[col.queue_id],
   sport: r[col.sport],
@@ -92,6 +102,8 @@ const queue: QRow[] = table.slice(1).map((r) => ({
   action: r[col.action],
   canonical: r[col.canonical],
   note: r[col.note],
+  teamFilter: r[col.team_filter] ?? "",     // split_by_team: pipe-separated team strings
+  canonicalSlug: r[col.canonical_slug] ?? "", // split_by_team: forced slug for the carved athlete
 }));
 
 // ── Union-find over (name, sport) keys ───────────────────────────────────────
@@ -184,7 +196,49 @@ const run = db.transaction(() => {
     )
     .all() as { id: number; name: string; set_id: number; role: string; sport: string; season: string | null }[];
 
-  for (const p of allPlayers) find(key(p.name, p.sport)); // seed one node per (name,sport)
+  // ── split_by_team: carve same-(name, sport) different-people apart by team ──
+  // A carved player row gets its own node (keyed by the rule's canonical_slug)
+  // instead of the shared (name, sport) node, so the union-find below never folds
+  // it in with the namesake. Match = the row has appearances and all of its
+  // distinct teams fall inside the rule's team_filter set.
+  const splitRules = queue
+    .filter((q) => q.action === "split_by_team" && q.teamFilter && q.canonicalSlug)
+    .map((q) => ({
+      name: q.name, sport: q.sport, slug: q.canonicalSlug,
+      display: q.canonical || q.name,
+      teams: new Set(q.teamFilter.split("|").map((t) => t.trim()).filter(Boolean)),
+    }));
+  const splitNode = (slug: string) => `\u0001split\u0000${slug}`;
+  const playerSplitNode = new Map<number, string>(); // player id -> carved node
+  const rootForcedSlug = new Map<string, string>();   // carved node -> slug
+  const rootForcedName = new Map<string, string>();    // carved node -> display name
+  if (splitRules.length) {
+    const selNS = db.prepare(`SELECT p.id FROM players p JOIN sets s ON s.id = p.set_id WHERE p.name = ? AND s.sport = ?`);
+    const teamsOf = db.prepare(`SELECT DISTINCT team FROM player_appearances WHERE player_id = ? AND team IS NOT NULL`);
+    const clearImg = db.prepare(
+      `UPDATE players SET nba_player_id = NULL, mlb_player_id = NULL, sleeper_id = NULL,
+              image_url = NULL, ufc_image_url = NULL WHERE id = ?`
+    );
+    let carved = 0;
+    for (const rule of splitRules) {
+      const node = splitNode(rule.slug);
+      rootForcedSlug.set(node, rule.slug);
+      rootForcedName.set(node, rule.display);
+      for (const { id } of selNS.all(rule.name, rule.sport) as { id: number }[]) {
+        const teams = (teamsOf.all(id) as { team: string }[]).map((r) => r.team);
+        if (teams.length && teams.every((t) => rule.teams.has(t))) {
+          playerSplitNode.set(id, node);
+          clearImg.run(id); // general mechanism: never inherit the namesake's photo
+          carved++;
+        }
+      }
+    }
+    if (carved) console.log(`  split_by_team: carved ${carved} player row(s) into ${rootForcedSlug.size} athlete(s).`);
+  }
+  const playerKey = (p: { id: number; name: string; sport: string }) =>
+    playerSplitNode.get(p.id) ?? key(p.name, p.sport);
+
+  for (const p of allPlayers) find(playerKey(p)); // seed one node per (name,sport)/carve
 
   // Union merge/premerge rows that share a canonical within a queue group.
   const byQidCanon = new Map<string, QRow[]>();
@@ -239,7 +293,7 @@ const run = db.transaction(() => {
   );
   const agg = new Map<string, Agg>();
   for (const p of allPlayers) {
-    const root = find(key(p.name, p.sport));
+    const root = find(playerKey(p));
     const a = agg.get(root) ?? {
       players: [] as typeof allPlayers, names: new Set<string>(),
       sportApps: new Map(), sportSets: new Map(), roleCount: new Map(),
@@ -274,7 +328,9 @@ const run = db.transaction(() => {
     // canonical name
     let name: string;
     const votes = canonVote.get(root);
-    if (votes && votes.size) {
+    if (rootForcedName.has(root)) {
+      name = rootForcedName.get(root)!; // split_by_team: carved athlete's display name
+    } else if (votes && votes.size) {
       name = [...votes.entries()].sort((x, y) => y[1] - x[1] || (x[0] < y[0] ? -1 : 1))[0][0];
     } else {
       name = a.players[0].name; // default singleton / pure keep_separate
@@ -309,7 +365,7 @@ const run = db.transaction(() => {
     const pageKind = noPage.has(root) ? "none" : (PAGE_KIND[role] ?? "person");
 
     // slug
-    let slug = nameSlug.get(name) ?? kebab(name);
+    let slug = rootForcedSlug.get(root) ?? nameSlug.get(name) ?? kebab(name);
     if (usedSlugs.has(slug)) {
       const withSport = `${kebab(name)}-${kebab(sport)}`;
       if (!usedSlugs.has(withSport)) slug = withSport;

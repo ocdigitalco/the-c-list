@@ -1,4 +1,4 @@
-queue_id,norm,sport,exact_name,subject_role,set_count,example_sets,suggested_action,canonical_suggestion,canonical_rule,action,canonical,note
+queue_id,norm,sport,exact_name,subject_role,set_count,example_sets,suggested_action,canonical_suggestion,canonical_rule,action,canonical,note,team_filter,canonical_slug
 1,agustin ojeda,Soccer,Agustín Ojeda,athlete,1,2025-topps-chrome-mls,merge,Agustín Ojeda,diacritic-form,merge,Agustín Ojeda,
 1,agustin ojeda,Soccer,Agustin Ojeda,athlete,1,2026-topps-mls-chrome-soccer,merge,Agustín Ojeda,diacritic-form,merge,Agustín Ojeda,
 2,benjamin cremaschi,Soccer,Benjamín Cremaschi,athlete,1,2025-topps-chrome-mls,merge,Benjamín Cremaschi,diacritic-form,merge,Benjamín Cremaschi,
@@ -734,3 +734,4 @@ queue_id,norm,sport,exact_name,subject_role,set_count,example_sets,suggested_act
 359,walter,Wrestling,Walter,athlete,1,2026-topps-chrome-wwe,keep_separate,Walter,cross-sport,keep_separate,Walter,Muppet vs wrestler
 360,will smith,Baseball,Will Smith,athlete,16,2025-bowmans-best-baseball|2026-topps-series-1-baseball|2026-topps-heritage-baseball,keep_separate,Will Smith,cross-sport,keep_separate,Will Smith,Dodgers catcher vs actor — different people
 360,will smith,Entertainment,Will Smith,celebrity,3,2026-topps-mars-attacks-christmas|2026-topps-mint-disney|2026-topps-vault-disney,keep_separate,Will Smith,cross-sport,keep_separate,Will Smith,Dodgers catcher vs actor — different people
+361,bo jackson,Football,Bo Jackson,athlete,2,2026-bowman-football|2026-bowman-football-sapphire-edition,split_by_team,Bo Jackson,team-split,split_by_team,Bo Jackson,"Ohio State RB prospect — different person from the Royals/Raiders legend (athlete bo-jackson); routes Ohio State rows to their own athlete.",Ohio State,bo-jackson-ohio-state

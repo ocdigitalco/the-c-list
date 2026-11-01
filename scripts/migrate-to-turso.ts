@@ -20,6 +20,14 @@
  * normalize UFC urls; EXACT matches only — fuzzy go to scratchpad/headshot-
  * fuzzy.csv for review) → build-athletes. This script ABORTS if any players row
  * is still missing an athlete_id, so stale/new rows can't ship unlinked.
+ *
+ * Review-queue actions (data/athlete-review-queue.csv, applied by build-athletes):
+ *   premerge      — collapse in-set spelling twins to one player row.
+ *   merge         — union rows sharing a `canonical` into one athlete (may span sports).
+ *   keep_separate — no edge; one athlete per (name, sport).
+ *   split_by_team — split one (name, sport) into two people by team: rows whose teams
+ *                   all fall in `team_filter` become their own athlete (`canonical_slug`,
+ *                   display `canonical`), with their five image-id columns cleared.
  */
 
 import dotenv from "dotenv";
