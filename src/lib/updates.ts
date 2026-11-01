@@ -15,6 +15,25 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-bowman-football-sapphire-edition-checklist",
+    title: "2026 Bowman Football Sapphire Edition: full checklist",
+    date: "2026-11-01T12:00:00-07:00",
+    summary:
+      "2026 Bowman Football Sapphire Edition: full checklist with Sapphire parallel print runs and hobby pack odds.",
+    description: `## 2026 Bowman Football Sapphire Edition — full checklist
+
+The full **2026 Bowman Football Sapphire Edition** checklist is live — a standalone Sapphire release built off 2026 Bowman Football. **11 subsets** and **608 cards**, parsed from Topps' official checklist and odds sheets.
+
+- A **Sapphire Chrome base** — Chrome Prospects (BCP-1…201, Arch Manning at 201), Chrome NFL Base, and Chrome Rookie Base.
+- **Inserts** Hidden Gems, Treasured Talent NFL, and Treasured Talent NIL.
+- **Five autograph** subsets, including Sapphire Selections Autographs (NFL and NIL).
+- **Sapphire parallel print runs** — Gold /50, White /30, Orange /25, Black /10, Red /5, and Padparadscha /1 — created per subset exactly where the odds sheet lists them, plus **hobby pack odds** for every base and parallel.
+
+Hidden Gems' Emerald / Onyx / Ruby / Padparadscha print runs are not yet published and will be added when Topps releases them.`,
+    tags: ["checklist"],
+    setId: 907,
+  },
+  {
     id: "2026-topps-chrome-sapphire-tennis-checklist",
     title: "2026 Topps Chrome Sapphire Tennis: full checklist",
     date: "2026-10-28T12:00:00-07:00",
