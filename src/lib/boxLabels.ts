@@ -8,6 +8,7 @@
  */
 export const BOX_LABELS: Record<string, string> = {
   hobby: "Hobby",
+  members_only: "Members Only", // Stadium Club Chrome UCL exclusive box
   hobby_box_topper: "Box Topper",
   jumbo: "Jumbo",
   hobby_jumbo: "Hobby Jumbo",

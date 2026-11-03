@@ -15,6 +15,25 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2025-26-topps-stadium-club-chrome-uefa-champions-league-checklist",
+    title: "2025-26 Topps Stadium Club Chrome UEFA Champions League: full checklist",
+    date: "2026-11-02T12:00:00-07:00",
+    summary:
+      "2025-26 Topps Stadium Club Chrome UEFA Champions League checklist with Hobby, Members Only, and Value Blaster box configurations and parallel print runs.",
+    description: `## 2025-26 Topps Stadium Club Chrome UEFA Champions League — full checklist
+
+The full **2025-26 Topps Stadium Club Chrome UEFA Champions League** checklist is live — **18 subsets** and **459 cards**, parsed from Topps' official checklist.
+
+- A **100-card Chrome base** of current stars, rookies, and UCL legends (Cruyff, Maradona, Henry…), with the full Refractor ladder plus Hobby-only **Electric**, Members Only **Geometric**, and Value Blaster **Mini-Diamonds** parallel runs.
+- **Ten inserts** — Say Cheese, That UCL Feeling, Debut Shots, Cup Hunters, Warp Speed, Postcard, Beam Team, Star Attitude, the **UCL Final Stadium** venue card (Puskás Aréna), and the one-card **The Grail** (Zlatan Ibrahimović).
+- **Five autograph** subsets — Chrome, Behind the Lens, Dual, Classic Kits (/99), and Marks of Excellence (/99) — plus **Stadium Spirit** Seat Relics and Autographed Relics.
+- **Three box configurations** — Hobby, Members Only, and Value Blaster — with numbered parallel print runs throughout.
+
+Pack odds and the Members Only Champions Club / Image Variations subsets are still TBA from Topps and will be added when published.`,
+    tags: ["checklist"],
+    setId: 908,
+  },
+  {
     id: "2026-bowman-football-sapphire-edition-checklist",
     title: "2026 Bowman Football Sapphire Edition: full checklist",
     date: "2026-11-01T12:00:00-07:00",

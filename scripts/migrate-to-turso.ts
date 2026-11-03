@@ -330,12 +330,31 @@ async function migrateData() {
   for (const table of PROD_OWNED_TABLES) {
     console.log(`  ⏭ ${table}: skipped (production-owned table)`);
   }
-  for (const table of clearOrder) {
-    try {
-      await exec(`DELETE FROM "${table}"`);
-    } catch (err: unknown) {
-      const msg = err instanceof Error ? err.message : String(err);
-      console.warn(`  Warning clearing ${table}: ${msg}`);
+  // Clear child→parent. On remote libsql, foreign-key enforcement is per
+  // request: PRAGMA foreign_keys=OFF set via execute() or batch() does NOT
+  // persist to the next call, and a batch is a transaction (where the PRAGMA is
+  // ignored). So `players` — referenced by the production-owned `player_events`
+  // — cannot be emptied, and `athletes` (referenced by players) can't either;
+  // the athletes load then fails because INSERT OR REPLACE on the regenerated-id
+  // slug collision has to delete a stale athlete that stale players still point
+  // at. executeMultiple() runs the script on a SINGLE non-transactional stream,
+  // so the PRAGMA holds for the DELETEs that follow it — the reliable way to
+  // turn FK off here. player_events rows dangle only until players reload with
+  // their (verbatim) ids; FK is immediate, so there is no commit-time recheck.
+  const clearScript =
+    "PRAGMA foreign_keys=OFF;\n" +
+    clearOrder.map((t) => `DELETE FROM "${t}";`).join("\n");
+  try {
+    await turso.executeMultiple(clearScript);
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err);
+    console.warn(`  executeMultiple clear failed (${msg}); falling back to per-table.`);
+    for (const table of clearOrder) {
+      try {
+        await exec(`DELETE FROM "${table}"`);
+      } catch (e: unknown) {
+        console.warn(`  Warning clearing ${table}: ${e instanceof Error ? e.message : String(e)}`);
+      }
     }
   }
   console.log("  Cleared all tables.");
