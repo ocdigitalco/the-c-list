@@ -15,6 +15,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-cosmic-chrome-baseball-print-runs",
+    title: "2026 Topps Cosmic Chrome Baseball: parallel print runs",
+    date: "2026-11-04T12:00:00-07:00",
+    summary:
+      "2026 Topps Cosmic Chrome Baseball: print runs added to all numbered parallels.",
+    description: `## 2026 Topps Cosmic Chrome Baseball — parallel print runs
+
+Every **numbered parallel** in **2026 Topps Cosmic Chrome Baseball** now shows its print run — **103 numbered parallels** across the base ladder, inserts, and autograph subsets.
+
+- The base Refractor ladder from **Magenta Cosmos /299** down through **Red Flare /5** and the **SuperFractor 1/1**, including the Hobby/Lunar-split odds already on the set.
+- The **Lunar Eclipse Refractor /10** (Lunar-exclusive) is flagged as such on every subset it appears in.
+- The three unnumbered base Refractors (Refractor, Nucleus, White Hole) stay unnumbered, and **Planetarium Black Eclipse** keeps no print run — Topps hasn't published one.`,
+    tags: ["checklist"],
+    setId: 886,
+  },
+  {
     id: "sold-comps-release-guard-2026-11-03",
     title: "Last Sold waits for release day",
     date: "2026-11-03T12:00:00-07:00",

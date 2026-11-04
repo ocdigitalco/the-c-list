@@ -4,7 +4,11 @@
  * Usage:
  *   npx tsx scripts/migrate-to-turso.ts --set <slug>      (scoped, recommended)
  *   npx tsx scripts/migrate-to-turso.ts <slug>            (shorthand for --set)
+ *   npx tsx scripts/migrate-to-turso.ts --set <slug> --dry-run  (plan only, no writes)
  *   npx tsx scripts/migrate-to-turso.ts --full --confirm-outage   (whole-DB reload)
+ *
+ * --dry-run prints the scoped/full plan and statement counts and writes nothing
+ * (and skips the local stat recompute + Turso schema-ensure, which both mutate).
  *
  * Requires TURSO_DATABASE_URL and TURSO_AUTH_TOKEN in .env.local
  *
@@ -408,8 +412,8 @@ async function countOrphans(): Promise<Record<string, number>> {
 type SyncResult = { ok: boolean; committed: boolean };
 const ABORT: SyncResult = { ok: false, committed: false };
 
-async function migrateSet(slug: string): Promise<SyncResult> {
-  console.log(`\nScoped sync: set "${slug}"`);
+async function migrateSet(slug: string, dryRun = false): Promise<SyncResult> {
+  console.log(`\nScoped sync: set "${slug}"${dryRun ? " [DRY RUN]" : ""}`);
 
   // ---- LOCAL read ----------------------------------------------------------
   const localSet = localDb.prepare(`SELECT * FROM sets WHERE slug = ?`).get(slug) as Row | undefined;
@@ -563,6 +567,19 @@ async function migrateSet(slug: string): Promise<SyncResult> {
 
   console.log(`  batch: ${stmts.length} statements (${isNewSet ? "NEW set" : "existing set, ids preserved"})`);
 
+  if (dryRun) {
+    console.log("\n[DRY RUN] plan — nothing written:");
+    console.log(`  set:            ${isNewSet ? `NEW (would allocate id ${tursoSetId})` : `existing (id ${tursoSetId}, upsert in place)`}`);
+    console.log(`  insert_sets:    ${localInsertSets.length} upserted${removedInsertSetIds.length ? `, ${removedInsertSetIds.length} removed` : ""}`);
+    console.log(`  players:        ${localPlayers.length} upserted${removedPlayerIds.length ? `, ${removedPlayerIds.length} removed` : ""}`);
+    console.log(`  athletes:       ${touchedSlugs.size} upserted (by slug)`);
+    console.log(`  parallels:      ${localParallels.length} delete+reinsert`);
+    console.log(`  appearances:    ${localAppearances.length} delete+reinsert`);
+    console.log(`  co-players:     ${localCoPlayers.length} delete+reinsert`);
+    console.log(`  → ${stmts.length} statements in one atomic migrate() batch. Re-run without --dry-run to apply.`);
+    return { ok: true, committed: false };
+  }
+
   // ---- Orphan baseline, atomic commit, orphan recheck ----------------------
   const before = await countOrphans();
   try {
@@ -655,10 +672,19 @@ async function reportOrphans(before: Record<string, number>): Promise<boolean> {
 
 // ── Full reload (whole DB) ───────────────────────────────────────────────────
 
-async function migrateFull(confirmOutage: boolean): Promise<SyncResult> {
+async function migrateFull(confirmOutage: boolean, dryRun = false): Promise<SyncResult> {
   const totalRows = CONTENT_CLEAR_ORDER.reduce(
     (sum, t) => sum + Number((localDb.prepare(`SELECT COUNT(*) n FROM "${t}"`).get() as { n: number }).n), 0);
   const atomic = totalRows <= FULL_ATOMIC_CEILING;
+
+  if (dryRun) {
+    console.log(`\n[DRY RUN] --full would ${atomic ? "atomically load" : "clear-then-load"} ${totalRows} rows (ceiling ${FULL_ATOMIC_CEILING}); nothing written:`);
+    for (const t of [...CONTENT_CLEAR_ORDER].reverse()) {
+      console.log(`  ${t}: ${Number((localDb.prepare(`SELECT COUNT(*) n FROM "${t}"`).get() as { n: number }).n)}`);
+    }
+    if (!atomic && !confirmOutage) console.log("  (would REFUSE without --confirm-outage)");
+    return { ok: true, committed: false };
+  }
 
   if (!atomic && !confirmOutage) {
     console.error(
@@ -819,19 +845,20 @@ function athletePathsForSet(slug: string): string[] {
 // ── Main ─────────────────────────────────────────────────────────────────────
 
 function parseArgs(argv: string[]) {
-  let full = false, confirmOutage = false, set: string | undefined;
+  let full = false, confirmOutage = false, dryRun = false, set: string | undefined;
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === "--full") full = true;
     else if (a === "--confirm-outage") confirmOutage = true;
+    else if (a === "--dry-run") dryRun = true;
     else if (a === "--set") set = argv[++i];
     else if (!a.startsWith("--") && !set) set = a; // bare slug → scoped
   }
-  return { full, confirmOutage, set };
+  return { full, confirmOutage, dryRun, set };
 }
 
 async function main() {
-  const { full, confirmOutage, set } = parseArgs(process.argv.slice(2));
+  const { full, confirmOutage, dryRun, set } = parseArgs(process.argv.slice(2));
 
   if (!full && !set) {
     console.error(
@@ -844,10 +871,14 @@ async function main() {
 
   console.log(`Migrating local SQLite → Turso`);
   console.log(`Target: ${TURSO_URL}`);
-  console.log(`Mode: ${full ? "FULL reload" : `scoped set "${set}"`}\n`);
+  console.log(`Mode: ${full ? "FULL reload" : `scoped set "${set}"`}${dryRun ? " [DRY RUN — no writes]" : ""}\n`);
 
-  console.log("Recomputing player stats (local)...");
-  recomputePlayerStats();
+  // Dry run is read-only end-to-end: skip the local stat recompute and the
+  // Turso schema-ensure (both mutate), keep the read-only guards and plan.
+  if (!dryRun) {
+    console.log("Recomputing player stats (local)...");
+    recomputePlayerStats();
+  }
 
   // Invariant guard: every players row must be linked to a canonical athlete.
   const nullAthletes = (
@@ -861,11 +892,11 @@ async function main() {
     process.exit(1);
   }
 
-  await createSchema();
+  if (!dryRun) await createSchema();
 
   const athletePaths = set ? athletePathsForSet(set) : [];
 
-  const res = full ? await migrateFull(confirmOutage) : await migrateSet(set!);
+  const res = full ? await migrateFull(confirmOutage, dryRun) : await migrateSet(set!, dryRun);
 
   localDb.close();
 
