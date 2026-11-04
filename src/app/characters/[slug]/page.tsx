@@ -5,10 +5,11 @@ import { AthleteMasterPage } from "@/components/athletes/AthleteMasterPage";
 
 const SEGMENT = "characters"; // page_kind = character
 
-// Static on first request, cached until the data changes (the migration
-// revalidates each touched athlete's path). No cookies/searchParams are read in
-// the server render, so the page is fully cacheable.
-export const revalidate = false;
+// Static on first request. On-demand revalidation (the migration revalidates
+// each touched path) refreshes the page when the data changes; the 7-day timer
+// is a safety net so a bad render can't persist indefinitely. No
+// cookies/searchParams are read in the server render, so the page is fully cacheable.
+export const revalidate = 604800; // 7 days
 export const dynamicParams = true;
 export function generateStaticParams() {
   return [];
