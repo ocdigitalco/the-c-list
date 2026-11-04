@@ -30,6 +30,29 @@
  * brief-blank-window) clear-then-load path, which then REQUIRES
  * `--confirm-outage` so it cannot run by accident. Prefer `--set`.
  *
+ * ── Rename map (in-place insert_set / player renames) ────────────────────────
+ * Scoped mode matches insert_sets and players by (set_id, name), so RENAMING a
+ * subset or player locally looks like "old gone, new added" — a delete+reinsert
+ * that allocates a fresh id and would orphan any production market rows keyed to
+ * the old id (sold_comps.insert_set_id / sold_comps.player_id / player_events).
+ * To rename safely, drop an OPTIONAL file at:
+ *
+ *     scratchpad/<slug>-renames.json
+ *
+ * mapping old names to new. Both keys are optional:
+ *
+ *     {
+ *       "insert_sets": { "Old Subset Name": "New Subset Name" },
+ *       "players":     { "Old Player Name":  "New Player Name"  }
+ *     }
+ *
+ * (A bare top-level "Old": "New" string pair is also read as an insert_set
+ * rename, so { "Old Subset": "New Subset", "players": { … } } works too.) When
+ * present, the scoped push RENAMES the matching Turso row IN PLACE — its id is
+ * kept, so every FK pointing at it stays valid — then proceeds normally. Each
+ * applied rename is logged; a rename whose old name isn't on Turso is skipped,
+ * and a rename whose new name is already taken by a different row aborts the run.
+ *
  * ── Canonical athletes convention (Stage 1 of athlete pages) ─────────────────
  * Every players row must carry a non-null `athlete_id` pointing at the canonical
  * `athletes` table before it is pushed. The mapping is built on the LOCAL db by
@@ -58,6 +81,7 @@ dotenv.config({ path: ".env.local" });
 import Database from "better-sqlite3";
 import { createClient, type InStatement } from "@libsql/client";
 import path from "path";
+import fs from "fs";
 
 // ── Setup ────────────────────────────────────────────────────────────────────
 
@@ -407,6 +431,80 @@ async function countOrphans(): Promise<Record<string, number>> {
   return out;
 }
 
+// ── Rename map (in-place insert_set / player renames) ────────────────────────
+// Optional scratchpad/<slug>-renames.json lets a scoped push rename a Turso
+// insert_set or player in place (keeping its id), instead of the delete+reinsert
+// that a (set_id, name) change would otherwise cause and that would orphan
+// sold_comps / player_events rows keyed to the old id. See the header comment
+// for the file format.
+
+type RenameMap = { insert_sets: Map<string, string>; players: Map<string, string> };
+
+function loadRenameMap(slug: string): RenameMap {
+  const out: RenameMap = { insert_sets: new Map(), players: new Map() };
+  const file = path.join(process.cwd(), "scratchpad", `${slug}-renames.json`);
+  if (!fs.existsSync(file)) return out;
+
+  let raw: unknown;
+  try {
+    raw = JSON.parse(fs.readFileSync(file, "utf8"));
+  } catch (err) {
+    throw new Error(`rename map ${file} is not valid JSON: ${err instanceof Error ? err.message : String(err)}`);
+  }
+  if (!raw || typeof raw !== "object" || Array.isArray(raw)) {
+    throw new Error(`rename map ${file} must be a JSON object.`);
+  }
+  const asPairs = (v: unknown, into: Map<string, string>, where: string) => {
+    if (v == null) return;
+    if (typeof v !== "object" || Array.isArray(v)) {
+      throw new Error(`rename map ${file}: "${where}" must be an object of "old":"new" pairs.`);
+    }
+    for (const [o, n] of Object.entries(v as Record<string, unknown>)) {
+      if (typeof n !== "string") throw new Error(`rename map ${file}: "${where}"."${o}" must map to a string.`);
+      into.set(o, n);
+    }
+  };
+  for (const [k, v] of Object.entries(raw as Record<string, unknown>)) {
+    if (k === "insert_sets") asPairs(v, out.insert_sets, "insert_sets");
+    else if (k === "players") asPairs(v, out.players, "players");
+    else if (typeof v === "string") out.insert_sets.set(k, v); // bare pair → insert_set rename
+    else throw new Error(`rename map ${file}: top-level "${k}" must be a string, or the "insert_sets"/"players" object.`);
+  }
+  if (out.insert_sets.size || out.players.size) {
+    console.log(`  rename map: scratchpad/${slug}-renames.json (${out.insert_sets.size} insert_set, ${out.players.size} player)`);
+  }
+  return out;
+}
+
+// Relabel freshly-fetched Turso rows IN PLACE so natural-key resolution keeps
+// the existing id through a rename (the later INSERT OR REPLACE rewrites the row
+// with the new name under that same id). Returns false on a collision (the new
+// name already belongs to a different row). A rename whose old name isn't on
+// Turso is logged and skipped (already applied, or the row is new this push).
+function applyRenames(kind: "insert_set" | "player", rows: Row[], renames: Map<string, string>): boolean {
+  if (renames.size === 0) return true;
+  const byName = new Map(rows.map((r) => [String(r.name), r]));
+  let ok = true;
+  for (const [oldName, newName] of renames) {
+    const row = byName.get(oldName);
+    if (!row) {
+      console.log(`  rename (${kind}): "${oldName}" not on Turso — skipped (already applied, or new this push).`);
+      continue;
+    }
+    const clash = byName.get(newName);
+    if (clash && clash !== row) {
+      console.error(`✗ rename (${kind}): cannot rename "${oldName}" → "${newName}" — a different row already holds that name on Turso (id ${clash.id}). Resolve the collision first.`);
+      ok = false;
+      continue;
+    }
+    console.log(`  rename (${kind}): "${oldName}" → "${newName}" (Turso id ${row.id} kept in place)`);
+    byName.delete(oldName);
+    row.name = newName;
+    byName.set(newName, row);
+  }
+  return ok;
+}
+
 // ── Scoped sync (one set, atomic) ────────────────────────────────────────────
 
 type SyncResult = { ok: boolean; committed: boolean };
@@ -482,9 +580,18 @@ async function migrateSet(slug: string, dryRun = false): Promise<SyncResult> {
 
   const tursoSetId = isNewSet ? alloc("sets") : Number(tSet.id);
 
-  // Existing per-set rows on Turso, keyed by natural key → stable id.
-  const tInsertSets = isNewSet ? [] : await tRows(`SELECT id, name FROM insert_sets WHERE set_id = ?`, [tursoSetId]);
-  const tPlayers = isNewSet ? [] : await tRows(`SELECT id, name FROM players WHERE set_id = ?`, [tursoSetId]);
+  // Existing per-set rows on Turso, keyed by natural key → stable id. Copied to
+  // plain mutable objects so the rename map (below) can relabel them in place.
+  const tInsertSets: Row[] = isNewSet ? [] : (await tRows(`SELECT id, name FROM insert_sets WHERE set_id = ?`, [tursoSetId])).map((r) => ({ id: Number(r.id), name: String(r.name) }));
+  const tPlayers: Row[] = isNewSet ? [] : (await tRows(`SELECT id, name FROM players WHERE set_id = ?`, [tursoSetId])).map((r) => ({ id: Number(r.id), name: String(r.name) }));
+
+  // Optional in-place renames: relabel matching Turso rows so a (set_id, name)
+  // change preserves the existing id instead of delete+reinsert (which would
+  // orphan prod market rows). Must run BEFORE the name→id maps are built.
+  const renameMap = loadRenameMap(slug);
+  if (!applyRenames("insert_set", tInsertSets, renameMap.insert_sets)) return ABORT;
+  if (!applyRenames("player", tPlayers, renameMap.players)) return ABORT;
+
   const tInsertSetByName = new Map(tInsertSets.map((r) => [String(r.name), Number(r.id)]));
   const tPlayerByName = new Map(tPlayers.map((r) => [String(r.name), Number(r.id)]));
 
