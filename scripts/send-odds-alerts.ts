@@ -3,7 +3,7 @@
  *
  * Sends the one-time "pack odds are live" email to everyone who signed up for a
  * set's odds alert. Run MANUALLY, against Turso only, AFTER
- *   npx tsx scripts/migrate-to-turso.ts <set-slug>
+ *   npx tsx scripts/migrate-to-turso.ts --set <set-slug>
  * has attached the odds. Refuses to run if the set still has no odds.
  *
  * set_alerts is production-owned (Turso is the source of truth); this script

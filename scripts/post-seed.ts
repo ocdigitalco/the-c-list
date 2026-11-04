@@ -32,4 +32,4 @@ function run(cmd: string, a: string[]) {
 run("npx", ["tsx", "scripts/build-athletes.ts"]);
 run("npx", ["tsx", "scripts/backfill-headshots.ts", "--set", slug, ...(noExternal ? ["--no-external"] : [])]);
 run("npx", ["tsx", "scripts/build-athletes.ts"]);
-console.log("\n✓ post-seed complete. Review scratchpad/headshot-fuzzy.csv, then run migrate-to-turso.ts.");
+console.log(`\n✓ post-seed complete. Review scratchpad/headshot-fuzzy.csv, then run:\n    npx tsx scripts/migrate-to-turso.ts --set ${slug}`);

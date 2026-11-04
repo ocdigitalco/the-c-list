@@ -29,8 +29,9 @@
  *      queue note win; collisions get `-<sport>` then `-2`, `-3`, …
  *
  * READ-ONLY on Turso (never connects). Run before migrate-to-turso.ts, which
- * full-reloads the result up. Re-run after seeding a new set so its players get
- * an athlete_id (see the migrate-to-turso.ts header convention).
+ * pushes the result up (scoped `--set <slug>` by default; `--full` reloads
+ * everything). Re-run after seeding a new set so its players get an athlete_id
+ * (see the migrate-to-turso.ts header convention).
  */
 
 import Database from "better-sqlite3";
