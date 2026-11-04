@@ -272,7 +272,7 @@ export function AthleteMasterClient({
       </span>
       <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", gap: 10 }}>
         {soldCompsEnabled && (
-          <LastSoldControl setId={c.setId} insertSetId={c.insertSetId} cardNumber={c.cardNumber} playerId={c.playerId} />
+          <LastSoldControl setId={c.setId} insertSetId={c.insertSetId} cardNumber={c.cardNumber} playerId={c.playerId} availableFrom={c.availableFrom} />
         )}
         {c.ebayUrl && (
           <a href={c.ebayUrl} target="_blank" rel="sponsored noopener" style={{ font: `600 12px ${FONT_MONO}`, color: "var(--brand-accent-deep)", whiteSpace: "nowrap" }}>

@@ -256,6 +256,8 @@ export const soldCompsUsage = sqliteTable("sold_comps_usage", {
   day: text("day").primaryKey(), // YYYY-MM-DD
   calls: integer("calls").notNull().default(0),
   creditsUsedEstimate: integer("credits_used_estimate").notNull().default(0),
+  // Credit-free lookups skipped because the set isn't yet sellable (release guard).
+  unreleased: integer("unreleased").notNull().default(0),
   lastXUsageJson: text("last_x_usage_json"),
 });
 

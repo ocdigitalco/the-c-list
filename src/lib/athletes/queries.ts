@@ -10,6 +10,7 @@
  * read, so the pages stay statically cacheable (revalidate=false / 86400).
  */
 import { rawQuery } from "@/lib/db";
+import { isSellable, availableFromDate } from "@/lib/soldComps";
 import { extractYearAndManufacturer } from "@/lib/setSeo";
 import { buildEbaySearchUrl, buildEbayItemUrl } from "@/lib/ebay/searchUrl";
 import type { PageKind } from "./util";
@@ -149,6 +150,8 @@ export interface AllCardRow {
   isRookie: boolean;
   isOneOfOne: boolean;
   releaseYear: number | null;
+  // Release + grace date (YYYY-MM-DD) when this set isn't yet sellable; null when it is.
+  availableFrom: string | null;
   ebayUrl: string | null;
 }
 
@@ -502,6 +505,7 @@ export async function getAthletePage(athlete: AthleteCore): Promise<AthletePageD
   const aliasesExtra = athlete.aliases.filter((a) => a !== athlete.name);
 
   // ── All cards (per-appearance rows for the tabs) ───────────────────────────
+  const soldNow = new Date();
   const allCards: AllCardRow[] = apps
     .map((a) => {
       const pars = parallelsByInsertSet.get(a.insert_set_id) ?? [];
@@ -543,6 +547,7 @@ export async function getAthletePage(athlete: AthleteCore): Promise<AthletePageD
         isRookie: !!a.is_rookie,
         isOneOfOne: isOne,
         releaseYear: releaseYear(a.release_date, a.set_season),
+        availableFrom: isSellable(a.release_date, soldNow) ? null : availableFromDate(a.release_date),
         ebayUrl,
       };
     })

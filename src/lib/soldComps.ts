@@ -24,6 +24,57 @@ export function ipHourlyCap(): number {
   return Number.isFinite(n) && n > 0 ? n : DEFAULT_IP_HOURLY_CAP;
 }
 
+// ── Release guard ────────────────────────────────────────────────────────────
+// A set isn't worth a sold-comps lookup until it has had a few days on the
+// market for eBay sales to appear. A NULL release_date is treated as sellable
+// (most of the catalog predates the release_date column and is long released);
+// only a KNOWN date later than today − grace gates the control and the API.
+// Grace is env-overridable (SOLD_COMPS_RELEASE_GRACE_DAYS, default 3).
+export const SOLD_COMPS_RELEASE_GRACE_DAYS: number = (() => {
+  const raw = process.env.SOLD_COMPS_RELEASE_GRACE_DAYS;
+  const n = raw ? parseInt(raw, 10) : NaN;
+  return Number.isFinite(n) && n >= 0 ? n : 3;
+})();
+
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+/** Parse "YYYY-MM-DD" to a UTC-midnight epoch, or null when not a plain date. */
+function parseDateUtc(d: string | null | undefined): number | null {
+  if (!d) return null;
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(d);
+  if (!m) return null;
+  return Date.UTC(Number(m[1]), Number(m[2]) - 1, Number(m[3]));
+}
+
+/**
+ * The date (YYYY-MM-DD) a set's cards become sellable: release_date + grace.
+ * Null when release_date is NULL/unparseable (nothing to wait for). Used for the
+ * UI "Sales from …" copy, the API `availableFrom`, and the pre-release-miss check.
+ */
+export function availableFromDate(
+  releaseDate: string | null,
+  graceDays: number = SOLD_COMPS_RELEASE_GRACE_DAYS
+): string | null {
+  const ms = parseDateUtc(releaseDate);
+  if (ms == null) return null;
+  return new Date(ms + graceDays * DAY_MS).toISOString().slice(0, 10);
+}
+
+/**
+ * Whether a set's cards are worth a price lookup now. NULL/unparseable release
+ * date → true (sellable). A known date gates until now ≥ release + grace.
+ * `now` is injected so callers/tests are deterministic.
+ */
+export function isSellable(
+  releaseDate: string | null,
+  now: Date,
+  graceDays: number = SOLD_COMPS_RELEASE_GRACE_DAYS
+): boolean {
+  const ms = parseDateUtc(releaseDate);
+  if (ms == null) return true;
+  return now.getTime() >= ms + graceDays * DAY_MS;
+}
+
 // ── Pure helpers ─────────────────────────────────────────────────────────────
 
 /**

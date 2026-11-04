@@ -3,6 +3,7 @@ import { rawQuery } from "@/lib/db";
 import {
   SOLD_COMPS_ENDPOINT, CACHE_TTL_DAYS, API_TIMEOUT_MS,
   dailyCap, ipHourlyCap, buildKeyword, hashIp, clientIpFrom, summarizeItems, collectUsageHeaders,
+  isSellable, availableFromDate,
   type SoldItem, type SoldSummary,
 } from "@/lib/soldComps";
 import { buildEbayItemUrl } from "@/lib/ebay/searchUrl";
@@ -53,9 +54,10 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Bad request" }, { status: 400 });
   }
 
-  // Validate the tuple exists and belongs together; fetch names for the keyword.
-  const appearance = await rawQuery.get<{ set_name: string; player_name: string }>(
-    `SELECT s.name AS set_name, p.name AS player_name
+  // Validate the tuple exists and belongs together; fetch names (keyword) and the
+  // set's release_date (release guard — see below).
+  const appearance = await rawQuery.get<{ set_name: string; player_name: string; release_date: string | null }>(
+    `SELECT s.name AS set_name, p.name AS player_name, s.release_date AS release_date
      FROM player_appearances pa
      JOIN insert_sets i ON i.id = pa.insert_set_id
      JOIN sets s ON s.id = i.set_id
@@ -68,6 +70,8 @@ export async function POST(req: Request) {
 
   const cacheKey = `${setId}|${insertSetId}|${cardNumber}|${playerId}|raw`;
   const now = new Date();
+  const today = now.toISOString().slice(0, 10);
+  const sellable = isSellable(appearance.release_date, now);
   // EPN sub-id for sold-listing clicks (|src:sold separates them from search clicks).
   const customId = `a:${playerId}|s:${setId}|i:${insertSetId}|p:base|src:sold`;
   const wrap = (raw: string | null) => buildEbayItemUrl(raw, process.env.EPN_CAMPAIGN_ID, customId);
@@ -86,7 +90,15 @@ export async function POST(req: Request) {
   const cacheFresh = (() => {
     if (!cached?.fetched_at) return false;
     const ageMs = now.getTime() - new Date(cached.fetched_at).getTime();
-    return Number.isFinite(ageMs) && ageMs < CACHE_TTL_DAYS * 24 * 60 * 60 * 1000;
+    if (!(Number.isFinite(ageMs) && ageMs < CACHE_TTL_DAYS * 24 * 60 * 60 * 1000)) return false;
+    // A zero-result row cached before the set's sell date (release + grace) is a
+    // pre-release miss — stale, so it never masks sales that only begin once the
+    // set is actually out. (A priced row is always valid; see the serve below.)
+    if (cached.last_sold_price_cents == null) {
+      const from = availableFromDate(appearance.release_date);
+      if (from && cached.fetched_at.slice(0, 10) < from) return false;
+    }
+    return true;
   })();
   const cachedResponse = () => {
     if (!cached) return null;
@@ -99,10 +111,30 @@ export async function POST(req: Request) {
       }),
     });
   };
+  // A cached PRICED row always serves — a real sale proves the set is sellable,
+  // so the price shows even while the release date still reads "unreleased".
+  if (cached?.last_sold_price_cents != null && (cacheFresh || !sellable)) return cachedResponse()!;
+  // A fresh zero-result serves "no sales" (pre-release misses were excluded above).
   if (cacheFresh) return cachedResponse()!;
 
+  // ── Release guard ────────────────────────────────────────────────────────────
+  // Not yet sellable and nothing priced is cached → report "unreleased" without a
+  // credit, an upstream call, or a sold_comps_requests row (so the per-IP hourly
+  // allowance is untouched). Counted in sold_comps_usage.unreleased for visibility.
+  if (!sellable) {
+    await rawQuery.run(
+      `INSERT INTO sold_comps_usage (day, calls, credits_used_estimate, unreleased)
+       VALUES (?, 0, 0, 1)
+       ON CONFLICT(day) DO UPDATE SET unreleased = unreleased + 1`,
+      today
+    );
+    return NextResponse.json(
+      { status: "unreleased", reason: "unreleased", availableFrom: availableFromDate(appearance.release_date) },
+      { headers: { "Cache-Control": "s-maxage=3600" } }
+    );
+  }
+
   // ── Caps (checked before any fresh call) ─────────────────────────────────────
-  const today = now.toISOString().slice(0, 10);
   const ipHash = hashIp(clientIpFrom(req.headers));
   // Purge >24h request log rows opportunistically.
   const cutoff24h = new Date(now.getTime() - 24 * 60 * 60 * 1000).toISOString();

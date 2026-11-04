@@ -10,6 +10,7 @@ import { eq, inArray, sql, and } from "drizzle-orm";
 import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
 import { SetDetailClient, type RelatedLink, type SubsetChecklist } from "@/components/sets/SetDetailClient";
+import { isSellable, availableFromDate } from "@/lib/soldComps";
 import type { LeaderboardRow } from "@/components/sets/types";
 import type { BreakSheetPlayer } from "@/components/BreakSheetModal";
 import { articles } from "@/lib/articles";
@@ -689,6 +690,11 @@ export default async function V2SetPage({
       league={setRow.league ?? null}
       tier={setRow.tier}
       releaseDate={setRow.releaseDate ?? null}
+      soldCompsAvailableFrom={
+        process.env.SOLD_COMPS_ENABLED === "true" && !isSellable(setRow.releaseDate ?? null, new Date())
+          ? availableFromDate(setRow.releaseDate ?? null)
+          : null
+      }
       setId={setId}
       setSlug={rawParam}
       sampleImageUrl={setRow.sampleImageUrl ?? null}

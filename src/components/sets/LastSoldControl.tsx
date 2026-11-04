@@ -41,17 +41,23 @@ type Phase = "button" | "loading" | "priced" | "no_sales" | "ip_limit" | "daily_
 // chip-height button; State 2 is a two-line price block. The fetch happens ONLY
 // on click (never on load/hover/tab switch); page-load summaries arrive via props.
 export function LastSoldControl({
-  setId, insertSetId, cardNumber, playerId, initial, onPriced,
+  setId, insertSetId, cardNumber, playerId, initial, onPriced, availableFrom,
 }: {
   setId: number; insertSetId: number; cardNumber: string; playerId: number;
   initial?: LastSoldSummary | null;
   onPriced?: () => void;
+  // When set (release + grace, YYYY-MM-DD), the set isn't yet sellable: the control
+  // renders disabled and never fetches. Null/undefined → normal live control.
+  availableFrom?: string | null;
 }) {
   const [phase, setPhase] = useState<Phase>(initial?.priceCents != null ? "priced" : "button");
   const [summary, setSummary] = useState<LastSoldSummary | null>(initial ?? null);
   const [tipOpen, setTipOpen] = useState(false); // tap-to-toggle for touch (hover uses title)
   // When a limit was hit, the ms-timestamp the control re-enables itself at.
   const [reEnableAt, setReEnableAt] = useState<number | null>(null);
+  // Server-reported sell date if a click ever hits the release guard (defensive:
+  // the control is normally gated from the `availableFrom` prop and not clickable).
+  const [respFrom, setRespFrom] = useState<string | null>(null);
 
   // Auto re-enable after a rate-limit window elapses (ip_limit: retryAfterSeconds;
   // daily_cap: resetsAt). Nothing is persisted — a reload resets to the button.
@@ -90,6 +96,10 @@ export function LastSoldControl({
         const t = data?.resetsAt ? Date.parse(data.resetsAt) : NaN;
         setReEnableAt(Number.isFinite(t) ? t : null);
         setPhase("daily_cap");
+      } else if (reason === "unreleased") {
+        // Set isn't sellable yet — flip to the disabled "Sales from …" state.
+        setRespFrom(typeof data?.availableFrom === "string" ? data.availableFrom : "");
+        setPhase("button");
       } else if (reason === "upstream_error") {
         setPhase("upstream_error");
       } else {
@@ -137,6 +147,25 @@ export function LastSoldControl({
             borderRadius: 6, padding: "6px 8px", boxShadow: "0 4px 12px rgba(0,0,0,0.12)",
           }}>{tip}</span>
         )}
+      </span>
+    );
+  }
+
+  // Not yet released (server release guard): a disabled chip, no fetch on click.
+  // A cached priced row is handled by the `priced` branch above, so a real sale is
+  // never hidden. Same chip metrics as the live button → no layout shift.
+  const gatedFrom = availableFrom ?? respFrom;
+  if (gatedFrom != null) {
+    const label = gatedFrom ? `Sales from ${shortDate(gatedFrom)}` : "Available after release";
+    const tip = gatedFrom
+      ? `Newly released — eBay sold prices appear here from ${shortDate(gatedFrom)}.`
+      : "Sold prices appear here once this set has released.";
+    return (
+      <span
+        style={{ ...chipBase, color: "var(--brand-slate)", background: "var(--brand-track)", border: "1px solid var(--brand-line)", cursor: "default" }}
+        aria-disabled="true" title={tip} aria-label={label}
+      >
+        {label}
       </span>
     );
   }

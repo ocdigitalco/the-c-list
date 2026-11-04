@@ -22,8 +22,8 @@ export async function GET(req: Request) {
   }
 
   const today = new Date().toISOString().slice(0, 10);
-  const row = await rawQuery.get<{ calls: number; credits_used_estimate: number; last_x_usage_json: string | null }>(
-    `SELECT calls, credits_used_estimate, last_x_usage_json FROM sold_comps_usage WHERE day = ?`,
+  const row = await rawQuery.get<{ calls: number; credits_used_estimate: number; unreleased: number; last_x_usage_json: string | null }>(
+    `SELECT calls, credits_used_estimate, unreleased, last_x_usage_json FROM sold_comps_usage WHERE day = ?`,
     today
   );
   let lastXUsage: Record<string, string> | null = null;
@@ -36,6 +36,7 @@ export async function GET(req: Request) {
     dailyCap: dailyCap(),
     ipHourlyCap: ipHourlyCap(),
     creditsUsedEstimate: row?.credits_used_estimate ?? 0,
+    unreleased: row?.unreleased ?? 0,
     lastXUsage,
   });
 }

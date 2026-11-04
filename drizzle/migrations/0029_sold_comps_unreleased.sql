@@ -1,0 +1,1 @@
+ALTER TABLE `sold_comps_usage` ADD `unreleased` integer DEFAULT 0 NOT NULL;

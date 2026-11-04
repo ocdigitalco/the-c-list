@@ -15,6 +15,21 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "sold-comps-release-guard-2026-11-03",
+    title: "Last Sold waits for release day",
+    date: "2026-11-03T12:00:00-07:00",
+    summary:
+      "Last Sold now waits until a set has released before looking up prices, so credits aren't spent on products with no sales yet.",
+    description: `## Last Sold now waits until a set has released
+
+The **Last Sold** price lookup now checks a set's release date first. For a set that hasn't been out for a few days yet, the control shows **"Sales from <date>"** and makes no lookup — eBay has no sales to report until a product is actually on the market, so there is nothing to find and no reason to spend a lookup.
+
+- Sets with no recorded release date are unaffected (treated as released).
+- A real recorded sale always shows, even on a just-released set.
+- Once a set has been out a few days, Last Sold works exactly as before.`,
+    tags: ["feature"],
+  },
+  {
     id: "2025-26-topps-stadium-club-chrome-uefa-champions-league-checklist",
     title: "2025-26 Topps Stadium Club Chrome UEFA Champions League: full checklist",
     date: "2026-11-02T12:00:00-07:00",
