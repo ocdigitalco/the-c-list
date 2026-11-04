@@ -8,6 +8,7 @@
  */
 export const BOX_LABELS: Record<string, string> = {
   hobby: "Hobby",
+  nycc: "NYCC", // New York Comic Con exclusive box (Mint Disney set 897)
   members_only: "Members Only", // Stadium Club Chrome UCL exclusive box
   hobby_box_topper: "Box Topper",
   jumbo: "Jumbo",

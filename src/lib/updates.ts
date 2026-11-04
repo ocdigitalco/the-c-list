@@ -15,6 +15,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-mint-disney-odds-parallels",
+    title: "2026 Topps Mint Disney: Hobby & NYCC pack odds and numbered parallels",
+    date: "2026-11-04T12:30:00-07:00",
+    summary:
+      "2026 Topps Mint Disney: Hobby and NYCC pack odds plus numbered parallels with print runs.",
+    description: `## 2026 Topps Mint Disney — pack odds and numbered parallels
+
+**2026 Topps Mint Disney** now carries full pack odds for both box types — **Hobby** and the **NYCC** New York Comic Con exclusive — alongside **65 numbered parallels** with their print runs.
+
+- The **Bronze / Silver / Gold** base ladders each run **Sky Blue Foil /100** down through **Red Foil /5**, the Hobby-exclusive **Orange & Red Diamante** foils, a **FoilFractor 1/1** and a **Printing Plate 1/1**; **Platinum** base is numbered **/99** with the NYCC-exclusive **Blue & Red Electric Dots /10** and Hobby-exclusive **Black Diamante /10**.
+- **Chrome Encased** (Bronze /100, Silver /75, Gold /50, Platinum /25), **Chrome Autographs**, **Minted in Magic /99**, **Minted Posters**, **Comic Cuts 1/1**, and **Sketch Cards** — with **Minted Sketch Cards** odds tracked as a second line.
+- **All Hail The Pumpkin King** (Jack Skellington) is an NYCC exclusive, carrying its Black Lava /10, Red Lava /5, and SuperFractor 1/1 parallels on the NYCC odds only.`,
+    tags: ["odds"],
+    setId: 897,
+  },
+  {
     id: "2026-topps-cosmic-chrome-baseball-print-runs",
     title: "2026 Topps Cosmic Chrome Baseball: parallel print runs",
     date: "2026-11-04T12:00:00-07:00",
