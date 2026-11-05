@@ -21,6 +21,12 @@ export const BOX_LABELS: Record<string, string> = {
   all_star_mega: "All-Star Game Mega",
   black_friday_value: "Black Friday Value Blaster",
   fanatics_value: "Fanatics Value Blaster",
+  // Flagship Basketball (set 896) retail/regional formats
+  promo_silver: "Promo Silver Packs",
+  costco: "Costco Flagship Collection",
+  china_wave1: "China Exclusive Wave 1",
+  china_wave2: "China Exclusive Wave 2",
+  sams_club: "Sam's Club Box",
   super_box: "Super Box",
   super_box_bonus: "Super Box Bonus Pack",
   tin: "Collector Tin",

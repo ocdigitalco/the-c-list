@@ -15,6 +15,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-27-topps-flagship-basketball-odds-parallels",
+    title: "2026-27 Topps Flagship Basketball: pack odds across 14 formats + full parallel lineup",
+    date: "2026-11-05T12:00:00-07:00",
+    summary:
+      "2026-27 Topps Flagship Basketball: pack odds for all 14 box formats and the full parallel lineup (print runs to follow).",
+    description: `## 2026-27 Topps Flagship Basketball — pack odds and parallels
+
+**2026-27 Topps Flagship Basketball** now carries pack odds across all **14 box formats** — Hobby, Jumbo, Hanger, Fat Pack, Value, Mega, Fanatics Value Blaster, Promo Silver Packs, Black Friday Value Blaster, Costco, the two **China** waves, All-Star Game Mega, and Sam's Club — alongside the complete **383-parallel** lineup.
+
+- The full **Base** ladder (Gold, Black, Rainbow Foilboard, Wood and the rest) plus every insert and autograph subset, each with its per-format odds where Topps published them.
+- **Format-exclusive** parallels are tagged — Hobby, Jumbo, Hanger, Value, Fanatics, Promo Silver, Black Friday, and All-Star Game Mega one-offs — and anything confined to the China market (either wave) is flagged **China Exclusive**.
+- Print runs are **not yet published** for these parallels; they'll be added as soon as Topps releases the numbered list. The six retail/regional box configurations (Fat Pack, Promo Silver, Costco, both China waves, Sam's Club) are also **Configuration TBA** pending Topps.`,
+    tags: ["odds"],
+    setId: 896,
+  },
+  {
     id: "2026-topps-mint-disney-odds-parallels",
     title: "2026 Topps Mint Disney: Hobby & NYCC pack odds and numbered parallels",
     date: "2026-11-04T12:30:00-07:00",
