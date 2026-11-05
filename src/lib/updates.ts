@@ -15,6 +15,24 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-27-topps-flagship-basketball-print-runs",
+    title: "2026-27 Topps Flagship Basketball: parallel print runs from the Education Sheet",
+    date: "2026-11-05T13:00:00-07:00",
+    summary:
+      "2026-27 Topps Flagship Basketball: print runs added for the base, insert, and autograph parallel ladders published by Topps.",
+    description: `## 2026-27 Topps Flagship Basketball — parallel print runs
+
+Topps' Wave 2 Education Sheet published the three parallel ladders, so **184 parallels** across **2026-27 Topps Flagship Basketball** now show their print runs.
+
+- **Base Cards**: Gold **/2026**, Black **/75**, Gold Rainbow **/50**, Wood **/25**, Black Holo Foil **/10**, Red Sandglitter **/5**, plus a new **First Card 1/1** (listed on the sheet with no pack odds).
+- **Insert parallels**: Green **/99**, Yellow **/75**, Gold **/50**, Orange **/25**, Black **/10**, Red **/5**, FoilFractor **1/1** — including the Green Rainbow → Red Rainbow ladders carried by inserts and relics.
+- **Autograph parallels**: the same Green **/99** → Red **/5** + FoilFractor **1/1** ladder.
+
+The remaining parallels — the Diamante, Season Tip-Off, All-Star Game, Blackout and other tiers Topps hasn't numbered yet — stay unnumbered until a fuller list is published.`,
+    tags: ["checklist"],
+    setId: 896,
+  },
+  {
     id: "2026-27-topps-flagship-basketball-odds-parallels",
     title: "2026-27 Topps Flagship Basketball: pack odds across 14 formats + full parallel lineup",
     date: "2026-11-05T12:00:00-07:00",
