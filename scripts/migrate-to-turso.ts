@@ -926,26 +926,38 @@ function recomputePlayerStats() {
   console.log(`  Recomputed stats for ${players.length} players.`);
 }
 
-// Build a set's athlete master-page paths (for on-demand revalidation).
-function athletePathsForSet(slug: string): string[] {
+// Per-run cap on how many individual athlete master pages a scoped push
+// revalidates on demand. A set with hundreds of athletes would otherwise fan
+// out an unbounded burst of revalidatePath() calls (CPU rule); the rest refresh
+// on natural ISR expiry. The set page, /, /checklists, /athletes, /articles are
+// always revalidated regardless of this cap.
+const ATHLETE_REVALIDATION_CAP = 50;
+
+// Build a set's athlete master-page paths (for on-demand revalidation), capped
+// at ATHLETE_REVALIDATION_CAP with the highest card_count first, so the busiest
+// pages refresh immediately. Returns the capped paths plus how many were dropped.
+function athletePathsForSet(slug: string): { paths: string[]; total: number; skipped: number } {
   const KIND_SEG: Record<string, string | null> = {
     player: "athletes", character: "characters", person: "people", team: "teams", none: null,
   };
   try {
     const rows = localDb
       .prepare(
-        `SELECT DISTINCT a.slug AS slug, a.page_kind AS page_kind
+        `SELECT DISTINCT a.slug AS slug, a.page_kind AS page_kind, a.card_count AS card_count
          FROM athletes a
          JOIN players p ON p.athlete_id = a.id
          JOIN sets s ON s.id = p.set_id
-         WHERE s.slug = ? AND a.page_kind != 'none'`
+         WHERE s.slug = ? AND a.page_kind != 'none'
+         ORDER BY a.card_count DESC`
       )
-      .all(slug) as { slug: string; page_kind: string }[];
-    return rows
+      .all(slug) as { slug: string; page_kind: string; card_count: number }[];
+    const all = rows
       .map((r) => { const seg = KIND_SEG[r.page_kind]; return seg ? `/${seg}/${r.slug}` : null; })
       .filter((p): p is string => p != null);
+    const paths = all.slice(0, ATHLETE_REVALIDATION_CAP);
+    return { paths, total: all.length, skipped: all.length - paths.length };
   } catch {
-    return [];
+    return { paths: [], total: 0, skipped: 0 };
   }
 }
 
@@ -1001,7 +1013,19 @@ async function main() {
 
   if (!dryRun) await createSchema();
 
-  const athletePaths = set ? athletePathsForSet(set) : [];
+  // Capped athlete master-page paths + the always-on /athletes index. The set
+  // page, /, /checklists, /articles are added by the revalidate endpoint from
+  // setSlug; /athletes is added here so the full always-on set is covered.
+  const athleteResult = set ? athletePathsForSet(set) : { paths: [], total: 0, skipped: 0 };
+  const revalidationPaths = set ? ["/athletes", ...athleteResult.paths] : [];
+  if (set) {
+    console.log(
+      `  revalidation plan: set page + /, /checklists, /athletes, /articles + ` +
+      `${athleteResult.paths.length} athlete path(s) ` +
+      `(cap ${ATHLETE_REVALIDATION_CAP}; ${athleteResult.skipped} of ${athleteResult.total} athlete paths skipped) ` +
+      `= ${revalidationPaths.length + 4} path(s) total.`
+    );
+  }
 
   const res = full ? await migrateFull(confirmOutage, dryRun) : await migrateSet(set!, dryRun);
 
@@ -1018,7 +1042,7 @@ async function main() {
   // existing cache is still correct and we skip the revalidation call. A
   // committed-but-flagged push (e.g. new orphans) DID change live content, so
   // it still revalidates.
-  if (res.committed) await triggerRevalidation(set, athletePaths);
+  if (res.committed) await triggerRevalidation(set, revalidationPaths);
 
   if (!res.ok) process.exit(1);
 }
