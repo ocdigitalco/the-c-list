@@ -15,6 +15,25 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-stadium-club-football-checklist",
+    title: "2026 Topps Stadium Club Football checklist",
+    date: "2026-11-08T12:00:00-08:00",
+    summary:
+      "2026 Topps Stadium Club Football checklist: 300-card base with Design Variations, 18 inserts, and 16 autograph subsets including Cosigners duals.",
+    description: `## 2026 Topps Stadium Club Football — full checklist
+
+**2026 Topps Stadium Club Football** is live with all **1,329 cards** across **37 subsets**.
+
+- **Base**: a 300-card run — **Base Cards** (1–200, veterans and legends) and **Rookie** (201–300) — plus the 50-card **Design Variation** short-print set.
+- **18 inserts**: Airspace, Angry Runs, Beam Team, Concentration, First Down, Framed Greatness, Ground Control, Homefield, In Case of Emergency, No Ceiling, Pure Focus, Ring Leaders, Stadium Credentials, Stadium Intros, Stadium Squad, Transparent Talent, Triumvirates, and Warp Speed.
+- **16 autograph subsets**, including **Base Cards** and **Rookie Autographs**, the **Cosigners** and **Rookie Cosigners** dual signatures, Abstract, Ink Exposure, Legends of the Lens, Lonestar, Polaroids, and the on-card insert autographs.
+- Legends are listed with their era's team as printed, and multi-team subjects (Tom Brady, Aaron Rodgers) appear on each of their teams.
+
+Pre-order opens **2026-11-09** with an estimated release of **2026-12-09**. Box configuration, numbered parallels, and pack odds are **To Be Announced** and will be added once Topps publishes them.`,
+    tags: ["checklist"],
+    setId: 909,
+  },
+  {
     id: "2026-27-topps-flagship-basketball-print-runs",
     title: "2026-27 Topps Flagship Basketball: parallel print runs from the Education Sheet",
     date: "2026-11-05T13:00:00-07:00",
