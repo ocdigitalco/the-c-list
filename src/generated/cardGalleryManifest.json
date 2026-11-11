@@ -2869,5 +2869,72 @@
       "width": 750,
       "height": 1050
     }
+  ],
+  "2026-topps-royalty-ufc": [
+    {
+      "file": "2026-topps-royalty-ufc-1.jpg",
+      "width": 750,
+      "height": 1050
+    },
+    {
+      "file": "2026-topps-royalty-ufc-2.jpg",
+      "width": 1050,
+      "height": 750
+    },
+    {
+      "file": "2026-topps-royalty-ufc-4.jpg",
+      "width": 750,
+      "height": 1050
+    },
+    {
+      "file": "2026-topps-royalty-ufc-5.jpg",
+      "width": 1598,
+      "height": 1080
+    },
+    {
+      "file": "2026-topps-royalty-ufc-6.jpg",
+      "width": 1516,
+      "height": 1080
+    },
+    {
+      "file": "2026-topps-royalty-ufc-7.jpg",
+      "width": 750,
+      "height": 1050
+    },
+    {
+      "file": "2026-topps-royalty-ufc-8.jpg",
+      "width": 1508,
+      "height": 1080
+    },
+    {
+      "file": "2026-topps-royalty-ufc-9.jpg",
+      "width": 358,
+      "height": 501
+    },
+    {
+      "file": "2026-topps-royalty-ufc-10.jpg",
+      "width": 702,
+      "height": 501
+    },
+    {
+      "file": "2026-topps-royalty-ufc-11.jpg",
+      "width": 550,
+      "height": 770
+    },
+    {
+      "file": "2026-topps-royalty-ufc-12.jpg",
+      "width": 550,
+      "height": 770
+    },
+    {
+      "file": "2026-topps-royalty-ufc-13.jpg",
+      "width": 550,
+      "height": 770
+    },
+    {
+      "file": "2026-topps-royalty-ufc-14.jpg",
+      "width": 358,
+      "height": 501
+    }
   ]
 }

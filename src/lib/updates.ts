@@ -15,6 +15,27 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-royalty-ufc-checklist",
+    title: "2026 Topps Royalty UFC checklist + odds",
+    date: "2026-11-10T13:00:00-08:00",
+    summary:
+      "2026 Topps Royalty UFC checklist: a 100-card base, 24 autograph and 16 relic subsets with three booklets, 104 numbered parallels, and hobby pack odds.",
+    description: `## 2026 Topps Royalty UFC — full checklist, parallels, and odds
+
+**2026 Topps Royalty UFC** is live with all **785 cards** across **32 subsets** in this Premium release.
+
+- **Base**: a **100-card** set numbered to **/99**, with the rookie class flagged.
+- **24 autograph subsets**, from the Royalty, Royal Precedence, Pursuit of Greatness, and Crowned Champions on-card signatures to the **Dual**, **Triple**, and **Welcome to the Club** multi-signature cards — **ten of them are also relics**, including Rookie Relic Autographs, the Regalia and Superior Relic Signatures, Royal Arms, Dual Fighter, and the USA 250 Patch Autographs.
+- **16 relic subsets** in all, including Star Relics, Octagon Treasures, Grand Royal, Regalia, and the Rookie Jumbo Relics.
+- **3 booklet cards** — Autographed Jumbo Relic Booklets, Letterman Booklet Autographs, and the 1/1 USA 250 Dual Patch Autographs Booklet.
+- **Liquid Silver** anchors the lone insert, and promoter **Dana White**, UFC executive **Hunter Campbell**, and **Donald J. Trump** appear on the USA 250 and Dual Autographs cards as non-fighter subjects.
+- **104 numbered parallels** across the base and insert ladders, plus **Hobby pack odds** for every subset and parallel.
+
+Release is estimated for **2026-12-13**. Hobby boxes deliver **5 autographs, 3 relics, and 2 base cards** across ten cards per pack, four boxes per case.`,
+    tags: ["checklist", "odds"],
+    setId: 911,
+  },
+  {
     id: "2026-27-topps-hoops-basketball-checklist",
     title: "2026-27 Topps Hoops Basketball checklist",
     date: "2026-11-10T12:00:00-08:00",

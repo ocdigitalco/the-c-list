@@ -741,3 +741,4 @@ queue_id,norm,sport,exact_name,subject_role,set_count,example_sets,suggested_act
 363,jimmy butler,Basketball,Jimmy Butler III,athlete,16,,merge,Jimmy Butler III,suffix-form,merge,Jimmy Butler III,,,
 364,jr smith,Basketball,J.R. Smith,athlete,2,2025-26-topps-chrome-black-basketball|2025-26-topps-stadium-club-basketball,merge,J.R. Smith,punctuation-form,merge,J.R. Smith,Merged duplicate identity with JR Smith (no-period form) — same person. Surfaced by the 2026-27 Hoops slug-collision swap.,,
 364,jr smith,Basketball,JR Smith,athlete,3,2025-26-topps-definitive-basketball|2026-27-topps-flagship-basketball|2026-27-topps-hoops-basketball,merge,J.R. Smith,punctuation-form,merge,J.R. Smith,,,
+365,hunter campbell,MMA,Hunter Campbell,athlete,2,2025-topps-royalty-ufc|2025-topps-stadium-club-ufc,review,Hunter Campbell,role-override,keep_separate,Hunter Campbell,UFC executive and non-fighter; seeded celebrity in 2026 Royalty UFC; role celebrity,,
