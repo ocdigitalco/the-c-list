@@ -15,6 +15,25 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-royalty-ufc-rarest-pulls-article",
+    title: "New article: the rarest pulls and print run of 2026 Topps Royalty UFC",
+    date: "2026-11-10T14:00:00-08:00",
+    summary:
+      "A breakdown of 2026 Topps Royalty UFC: who leads the checklist, the five hardest pulls on the odds sheet, and how many cards and hobby boxes the numbers add up to.",
+    description: `## New article — 2026 Topps Royalty UFC by the numbers
+
+Every card in **2026 Topps Royalty UFC** is serial numbered and every subset has published hobby odds, so the checklist can be solved like a set of equations. The new article walks through:
+
+- **The checklist leader** — Islam Makhachev on 16 cards (14 autographs), with Ilia Topuria right behind.
+- **The five rarest pulls**, ranked by the longest published odds, topped by the Dual Fighter Relic and Triple Autograph Platinums at 1:2,675.
+- **How many cards exist** — roughly 131,000 serial-numbered cards across the base, parallels, and hits.
+- **How many boxes** — about 12,000 hobby boxes, or 3,000 cases, triangulated from the odds sheet.
+
+Read it on the [2026 Topps Royalty UFC article](/articles/2026-topps-royalty-ufc-rarest-pulls-and-print-run).`,
+    tags: ["announcement"],
+    setId: 911,
+  },
+  {
     id: "2026-topps-royalty-ufc-checklist",
     title: "2026 Topps Royalty UFC checklist + odds",
     date: "2026-11-10T13:00:00-08:00",
