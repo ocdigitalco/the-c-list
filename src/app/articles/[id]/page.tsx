@@ -6,6 +6,7 @@ import type { ArticleSection } from "@/lib/articles";
 import { PageShell } from "@/components/PageShell";
 import { db } from "@/lib/db";
 import { rawQuery } from "@/lib/db";
+import { SITE_URL } from "@/lib/setSeo";
 import { sets, insertSets, players, playerAppearances } from "@/lib/schema";
 import { eq, sql, count } from "drizzle-orm";
 import { SetInfoCard } from "@/components/articles/SetInfoCard";
@@ -27,9 +28,37 @@ export async function generateMetadata({
   const { id } = await params;
   const article = getArticleById(id);
   if (!article) return {};
+  const canonical = `${SITE_URL}/articles/${article.id}`;
+  // metaDescription wins; cap at 160 as a safety net (trim on a word boundary).
+  const rawDesc = article.metaDescription ?? article.description ?? article.tldr;
+  const description =
+    rawDesc.length > 160 ? rawDesc.slice(0, 160).replace(/\s+\S*$/, "") : rawDesc;
+  const heroAbs = article.heroImage.startsWith("http")
+    ? article.heroImage
+    : `${SITE_URL}${article.heroImage}`;
+  const heroAlt = article.heroAlt ?? article.title;
+  const modified = article.updatedAt ?? article.publishedAt;
   return {
-    title: `${article.title} — Checklist2`,
-    description: article.description,
+    title: `${article.title} | Checklist²`,
+    description,
+    alternates: { canonical },
+    openGraph: {
+      type: "article",
+      title: article.title,
+      description,
+      url: canonical,
+      publishedTime: article.publishedAt,
+      modifiedTime: modified,
+      authors: ["Checklist²"],
+      tags: article.tags,
+      images: [{ url: heroAbs, alt: heroAlt }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: article.title,
+      description,
+      images: [heroAbs],
+    },
   };
 }
 
@@ -353,7 +382,74 @@ export default async function ArticlePage({
   const { prev, next } = getAdjacentArticles(id);
   const { setInfoMap, leaderboardMap } = await prefetchArticleData(article.content);
 
+  // ── SEO/AEO structured data: Article + BreadcrumbList + FAQPage in one @graph ──
+  const canonical = `${SITE_URL}/articles/${article.id}`;
+  const heroAbs = article.heroImage.startsWith("http")
+    ? article.heroImage
+    : `${SITE_URL}${article.heroImage}`;
+  const modified = article.updatedAt ?? article.publishedAt;
+
+  let about: { name: string; url: string } | null = null;
+  if (article.setId) {
+    const setRow = await rawQuery.get<{ name: string; slug: string | null }>(
+      `SELECT name, slug FROM sets WHERE id = ?`,
+      article.setId
+    );
+    if (setRow) {
+      about = { name: setRow.name, url: `${SITE_URL}/sets/${setRow.slug ?? article.setId}` };
+    }
+  }
+
+  const org = {
+    "@type": "Organization",
+    name: "Checklist²",
+    url: SITE_URL,
+    logo: `${SITE_URL}/checklist2-light.svg`,
+  };
+  const articleLd = {
+    "@type": "Article",
+    headline: article.title,
+    description: article.metaDescription ?? article.description ?? article.tldr,
+    image: heroAbs,
+    datePublished: article.publishedAt,
+    dateModified: modified,
+    author: org,
+    publisher: org,
+    mainEntityOfPage: canonical,
+    keywords: article.tags.join(", "),
+    ...(about ? { about: { "@type": "Thing", name: about.name, url: about.url } } : {}),
+  };
+  const breadcrumbLd = {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Articles", item: `${SITE_URL}/articles` },
+      { "@type": "ListItem", position: 3, name: article.title, item: canonical },
+    ],
+  };
+  const faqLd =
+    article.faq && article.faq.length >= 2
+      ? {
+          "@type": "FAQPage",
+          mainEntity: article.faq.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }
+      : null;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [articleLd, breadcrumbLd, ...(faqLd ? [faqLd] : [])],
+  };
+  const toJsonLd = (obj: unknown) => JSON.stringify(obj).replace(/</g, "\\u003c");
+
   return (
+    <>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: toJsonLd(jsonLd) }}
+    />
     <PageShell
       breadcrumb={{ label: "Articles", href: "/articles" }}
       title={article.title}
@@ -418,6 +514,21 @@ export default async function ArticlePage({
           ))}
         </div>
 
+        {/* FAQ (visible; mirrors the FAQPage JSON-LD 1:1) */}
+        {article.faq && article.faq.length > 0 && (
+          <section>
+            <h2 className="text-xl font-bold text-white tracking-tight mt-10 mb-4">
+              Frequently asked questions
+            </h2>
+            {article.faq.map((f, i) => (
+              <div key={i}>
+                <h3 className="text-lg font-semibold text-white mt-8 mb-3">{f.q}</h3>
+                <p className="text-sm text-zinc-400 leading-relaxed mb-4">{f.a}</p>
+              </div>
+            ))}
+          </section>
+        )}
+
         {/* Prev / Next navigation */}
         {(prev || next) && (
           <div className="mt-4 pt-8 border-t border-zinc-800 grid grid-cols-2 gap-4">
@@ -450,5 +561,6 @@ export default async function ArticlePage({
           </div>
         )}
     </PageShell>
+    </>
   );
 }

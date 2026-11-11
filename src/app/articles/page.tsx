@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { articles, getAllTags, type Article } from "@/lib/articles";
 import { ArticleTagFilter } from "./ArticleTagFilter";
+import { SITE_URL } from "@/lib/setSeo";
 
 export const metadata: Metadata = {
   title: "Articles — Checklist2",
@@ -159,8 +160,24 @@ export default async function ArticlesPage({
   const compactRow = filtered.slice(4, 8);
   const remainder = filtered.slice(8);
 
+  const itemListLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: articles.map((a, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: `${SITE_URL}/articles/${a.id}`,
+      name: a.title,
+    })),
+  };
+  const toJsonLd = (obj: unknown) => JSON.stringify(obj).replace(/</g, "\\u003c");
+
   return (
     <div className="flex-1" style={{ background: "var(--brand-card)" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: toJsonLd(itemListLd) }}
+      />
       <div className="page-container">
         {/* Header */}
         <div style={{ paddingTop: 40, paddingBottom: 16, borderBottom: "1px solid var(--brand-line)" }}>

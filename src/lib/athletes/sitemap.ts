@@ -1,4 +1,5 @@
 import { rawQuery } from "@/lib/db";
+import { articles } from "@/lib/articles";
 
 // Shared sitemap data for the index + chunk route handlers.
 // Chunk 0 = static top-level routes; chunks 1..N = indexed athlete URLs, ≤10,000
@@ -19,6 +20,18 @@ export const STATIC_SITEMAP_PATHS = [
   "/articles",
   "/updates",
 ];
+
+/**
+ * Per-article sitemap entries for chunk 0 (there are only a few dozen, well under
+ * the 50,000-URL chunk limit). lastmod is the article's own updatedAt ?? publishedAt
+ * (a date, not generation time), so search engines see real article freshness.
+ */
+export function articleSitemapEntries(): { path: string; lastmod: string }[] {
+  return articles.map((a) => ({
+    path: `/articles/${a.id}`,
+    lastmod: a.updatedAt ?? a.publishedAt,
+  }));
+}
 
 const KIND_SEG: Record<string, string | null> = {
   player: "athletes",

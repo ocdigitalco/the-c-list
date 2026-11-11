@@ -1,5 +1,5 @@
 import { SITE_URL } from "@/lib/setSeo";
-import { STATIC_SITEMAP_PATHS, athleteChunkPaths, xmlEscape } from "@/lib/athletes/sitemap";
+import { STATIC_SITEMAP_PATHS, athleteChunkPaths, articleSitemapEntries, xmlEscape } from "@/lib/athletes/sitemap";
 
 // A single sitemap child. `/sitemaps/0.xml` = static routes; `/sitemaps/N.xml` =
 // athlete chunk N (≤10,000 URLs). Cached, not per-request dynamic.
@@ -13,9 +13,14 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
   }
 
   const now = new Date().toISOString();
-  let entries: { path: string; freq: string }[];
+  let entries: { path: string; freq: string; lastmod?: string }[];
   if (chunk === 0) {
-    entries = STATIC_SITEMAP_PATHS.map((p) => ({ path: p, freq: "daily" }));
+    // Static top-level routes (generation-time lastmod) + every article page
+    // (per-article lastmod from updatedAt ?? publishedAt).
+    entries = [
+      ...STATIC_SITEMAP_PATHS.map((p) => ({ path: p, freq: "daily" })),
+      ...articleSitemapEntries().map((a) => ({ path: a.path, freq: "weekly", lastmod: a.lastmod })),
+    ];
   } else {
     const paths = await athleteChunkPaths(chunk);
     entries = paths.map((p) => ({ path: p, freq: "weekly" }));
@@ -27,7 +32,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
     entries
       .map(
         (e) =>
-          `  <url><loc>${xmlEscape(`${SITE_URL}${e.path}`)}</loc><lastmod>${now}</lastmod><changefreq>${e.freq}</changefreq></url>`
+          `  <url><loc>${xmlEscape(`${SITE_URL}${e.path}`)}</loc><lastmod>${e.lastmod ?? now}</lastmod><changefreq>${e.freq}</changefreq></url>`
       )
       .join("\n") +
     `\n</urlset>\n`;

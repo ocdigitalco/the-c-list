@@ -61,8 +61,13 @@ export interface Article {
   publishedAt: string;
   updatedAt?: string;
   heroImage: string;
+  heroAlt?: string;
   tags: string[];
   tldr: string;
+  /** When present, used for <meta name="description"> / OG instead of description/tldr. Capped to 160 at render. */
+  metaDescription?: string;
+  /** Plain-text FAQ. When present with >= 2 items, renders a visible FAQ section + FAQPage JSON-LD. */
+  faq?: { q: string; a: string }[];
   content: ArticleSection[];
   setId?: number;
 }
@@ -70,118 +75,300 @@ export interface Article {
 export const articles: Article[] = [
   {
     "id": "2026-topps-royalty-ufc-rarest-pulls-and-print-run",
-    "title": "2026 Topps Royalty UFC: The Five Rarest Pulls, the Fighter Who Owns the Checklist, and How Many Boxes Exist",
+    "title": "2026 Topps Royalty UFC Checklist Breakdown: Rarest Cards, Print Run, and Box Count",
     "publishedAt": "2026-11-10",
-    "description": "Every card in Royalty UFC is numbered and every subset has published odds, which means we can do the math: who leads the checklist, which five cards are hardest to pull, how many cards Topps printed, and how many hobby boxes that works out to.",
+    "updatedAt": "2026-11-10",
+    "description": "Every card in 2026 Topps Royalty UFC is serial numbered and every subset has published hobby odds. This breakdown uses those numbers to show who leads the checklist, the five rarest cards, how many cards Topps printed, and how many hobby boxes exist.",
+    "metaDescription": "2026 Topps Royalty UFC: 785 cards, 104 numbered parallels, about 131,000 cards printed and roughly 12,000 hobby boxes. Rarest pulls, top fighters, hobby odds.",
     "heroImage": "/sets/cards/2026-topps-royalty-ufc/2026-topps-royalty-ufc-10.jpg",
+    "heroAlt": "2026 Topps Royalty UFC hobby box and cards",
     "tags": [
       "ufc",
       "mma",
       "topps",
       "checklist breakdown",
-      "odds"
+      "odds",
+      "print run"
     ],
     "setId": 911,
-    "tldr": "Every card in Royalty UFC is numbered and every subset has published odds, which means we can do the math: who leads the checklist, which five cards are hardest to pull, how many cards Topps printed, and how many hobby boxes that works out to.",
+    "tldr": "Every card in 2026 Topps Royalty UFC is serial numbered and every subset has published hobby odds. This breakdown uses those numbers to show who leads the checklist, the five rarest cards, how many cards Topps printed, and how many hobby boxes exist.",
+    "faq": [
+      {
+        "q": "When does 2026 Topps Royalty UFC release?",
+        "a": "2026 Topps Royalty UFC releases on December 13, 2026, as a hobby-only product. Each hobby box is one 10-card pack with 5 autographs and 3 relics, and a case holds 4 boxes."
+      },
+      {
+        "q": "How many cards are in the 2026 Topps Royalty UFC checklist?",
+        "a": "The 2026 Topps Royalty UFC checklist has 785 cards across 32 subsets, plus 104 serial-numbered parallels. The base set is 100 cards, each numbered to 99, and includes 50 rookies."
+      },
+      {
+        "q": "What is the rarest card in 2026 Topps Royalty UFC?",
+        "a": "By published odds, the rarest cards in 2026 Topps Royalty UFC are the Platinum 1/1 parallels of Dual Fighter Relic Autographs and Triple Autographs, each at 1:2,675 packs. The USA 250 Dual Patch Autographs Booklet (Dana White and Donald J. Trump, 1/1) has no published odds and is likely scarcer still."
+      },
+      {
+        "q": "Who has the most cards in 2026 Topps Royalty UFC?",
+        "a": "Islam Makhachev has the most cards in 2026 Topps Royalty UFC with 16, including 14 autographs. Ilia Topuria is second with 13 cards and 12 autographs."
+      },
+      {
+        "q": "How many 2026 Topps Royalty UFC boxes were made?",
+        "a": "Topps does not publish production numbers, but the hobby odds and print runs point to roughly 12,000 hobby boxes of 2026 Topps Royalty UFC, or about 3,000 four-box cases. Different methods bracket the figure between about 10,000 and 13,700 boxes."
+      },
+      {
+        "q": "How many cards did Topps print for 2026 Topps Royalty UFC?",
+        "a": "About 131,000 cards. The 29 numbered subsets and 104 numbered parallels add up to 130,761 serial-numbered cards, and the three unnumbered lines (Liquid Silver, Letterman Booklet Autographs, Welcome to the Club) add roughly 170 more based on their odds."
+      },
+      {
+        "q": "What comes in a 2026 Topps Royalty UFC hobby box?",
+        "a": "A 2026 Topps Royalty UFC hobby box contains one pack of 10 cards: 5 autographs, 3 relics, and 2 base-type cards, which on average means one base card numbered to 99 and one numbered base parallel."
+      },
+      {
+        "q": "Are all cards in 2026 Topps Royalty UFC numbered?",
+        "a": "Yes. Every base card in 2026 Topps Royalty UFC is numbered to 99 and all 104 parallels are serial numbered, from Red /75 down to Platinum 1/1. Only three lines (Liquid Silver, Letterman Booklet Autographs, Welcome to the Club Dual Autographs) have print runs Topps has not published."
+      }
+    ],
     "content": [
       {
         "type": "p",
-        "text": "Topps Royalty UFC lands December 13, 2026 as a one-pack hobby box: 10 cards, 5 autographs, 3 relics, and the base and parallel cards that fill out the pack. Four boxes make a case. There is no retail version and no second format, so the hobby odds sheet describes the entire product."
+        "html": true,
+        "text": "<strong>2026 Topps Royalty UFC releases December 13, 2026, as a hobby-only product: one 10-card pack per box with 5 autographs and 3 relics, 4 boxes per case. The checklist has 785 cards across 32 subsets and 104 serial-numbered parallels. Using the published print runs and hobby odds, Topps printed about 131,000 cards, which works out to roughly 12,000 hobby boxes. Islam Makhachev leads the checklist with 16 cards, and the rarest pulls are the Platinum 1/1 Dual Fighter Relic Autographs and Triple Autographs at 1:2,675 packs.</strong>"
       },
       {
         "type": "p",
-        "text": "That matters for this article. Because every card in the set is serial numbered and Topps published odds for every subset and parallel, the checklist is not just a list of names. It is a set of equations. Multiply cards by print runs and you get the total number of cards that exist. Divide copies by odds and you get the number of packs, which here is the number of boxes. Below is what those equations say, along with the fighter who dominates the checklist and the five cards you are least likely to see."
+        "text": "That paragraph is the short version. The rest of this article shows the math behind each number, because Royalty UFC is unusual: every card is numbered and every subset and parallel has an odds line on the Topps hobby odds sheet. Multiply cards by print runs and you get the number of cards that exist. Divide copies by odds and you get the number of packs, which for a one-pack box is the number of boxes."
       },
       {
         "type": "p",
         "html": true,
-        "text": "The full <a href=\"https://www.checklist2.com/sets/2026-topps-royalty-ufc\">2026 Topps Royalty UFC checklist</a> is live with all 785 cards, 104 parallels, and hobby odds on every line."
+        "text": "The full <a href=\"https://www.checklist2.com/sets/2026-topps-royalty-ufc\">2026 Topps Royalty UFC checklist</a> on Checklist² lists all 785 cards, all 104 parallels, and the hobby odds on every line. Every figure below comes from that checklist and the official Topps odds sheet."
       },
       {
         "type": "h2",
-        "text": "Release at a glance"
+        "text": "2026 Topps Royalty UFC at a glance"
       },
       {
         "type": "table",
         "rows": [
-          ["Release date", "December 13, 2026"],
-          ["Format", "Hobby only, 1 pack of 10 cards per box, 4 boxes per case"],
-          ["Per box", "5 autographs, 3 relics"],
-          ["Base set", "100 cards, all /99, 50 rookies"],
-          ["Subsets", "32 (24 autograph, 16 relic, 10 of them both)"],
-          ["Total cards on the checklist", "785"],
-          ["Parallels", "104, every one serial numbered"],
-          ["Fighters and people on the checklist", "250"]
+          [
+            "Release date",
+            "December 13, 2026"
+          ],
+          [
+            "Manufacturer",
+            "Topps"
+          ],
+          [
+            "Sport / league",
+            "MMA / UFC"
+          ],
+          [
+            "Format",
+            "Hobby only: 1 pack of 10 cards per box, 4 boxes per case"
+          ],
+          [
+            "Guaranteed per box",
+            "5 autographs, 3 relics"
+          ],
+          [
+            "Base set",
+            "100 cards, all numbered to 99, 50 rookies"
+          ],
+          [
+            "Subsets",
+            "32 (24 autograph, 16 relic, 10 of them both, 3 booklets, 1 insert)"
+          ],
+          [
+            "Cards on the checklist",
+            "785"
+          ],
+          [
+            "Parallels",
+            "104, every one serial numbered"
+          ],
+          [
+            "Fighters and people on the checklist",
+            "250"
+          ],
+          [
+            "Estimated cards printed",
+            "About 131,000"
+          ],
+          [
+            "Estimated hobby boxes",
+            "About 12,000 (about 3,000 cases)"
+          ]
         ]
       },
       {
         "type": "h2",
-        "text": "The checklist belongs to Islam Makhachev"
+        "text": "What comes in a 2026 Topps Royalty UFC hobby box?"
       },
       {
         "type": "p",
-        "text": "Islam Makhachev appears on 16 cards in this set, more than any other fighter, and 14 of them are autographs. He shows up in eight different subsets: Base, Crowned Champions Autographs, Superior Relic Signatures, Regal Ink, Octagon Treasures Relics, Autographed Jumbo Relic Booklets, Triple Autographs, and Welcome to the Club Dual Autographs."
+        "text": "A 2026 Topps Royalty UFC hobby box is a single 10-card pack. Topps guarantees 5 autographs and 3 relics per box. The remaining two slots are base-type cards: the odds sheet lists the base card numbered to 99 at 1:1 and the six base parallels at odds that sum to about 1.4 per pack, so the typical box delivers one base card and one numbered base parallel. A case is 4 boxes."
       },
       {
         "type": "p",
-        "text": "Welcome to the Club is where he really takes over. The 17-card dual autograph subset pairs current champions with the legends who came before them, and Makhachev is on eight of the 17 cards, signing alongside Jon Jones, Georges St-Pierre, Daniel Cormier, Henry Cejudo, Amanda Nunes, BJ Penn, Conor McGregor, and Alex Pereira."
+        "text": "This is the same shape as 2026 Topps Royalty Premier League and the 2025 Topps Royalty UFC release that preceded it. There is no retail version, no jumbo, and no second odds format, so the hobby odds sheet describes the entire product."
+      },
+      {
+        "type": "h2",
+        "text": "Who has the most cards in 2026 Topps Royalty UFC?"
       },
       {
         "type": "p",
-        "text": "The rest of the top of the checklist:"
+        "text": "Islam Makhachev has the most cards in 2026 Topps Royalty UFC: 16 cards, 14 of them autographs, across eight subsets (Base, Crowned Champions Autographs, Superior Relic Signatures, Regal Ink, Octagon Treasures Relics, Autographed Jumbo Relic Booklets, Triple Autographs, and Welcome to the Club Dual Autographs)."
+      },
+      {
+        "type": "p",
+        "text": "Welcome to the Club is where he takes over. The 17-card dual autograph subset pairs current champions with the legends who came before them, and Makhachev is on 8 of the 17 cards, signing alongside Jon Jones, Georges St-Pierre, Daniel Cormier, Henry Cejudo, Amanda Nunes, BJ Penn, Conor McGregor, and Alex Pereira. Ilia Topuria is on the other seven."
+      },
+      {
+        "type": "p",
+        "text": "The ten fighters with the most cards in 2026 Topps Royalty UFC:"
       },
       {
         "type": "table",
-        "headers": ["Fighter", "Cards", "Autographs", "Relics"],
+        "headers": [
+          "Fighter",
+          "Cards",
+          "Autographs",
+          "Relics"
+        ],
         "rows": [
-          ["Islam Makhachev", "16", "14", "3"],
-          ["Ilia Topuria", "13", "12", "0"],
-          ["Conor McGregor", "10", "7", "3"],
-          ["Amanda Nunes", "10", "7", "5"],
-          ["Alex Pereira", "9", "6", "4"],
-          ["Dustin Poirier", "9", "7", "2"],
-          ["Jon Jones", "8", "6", "2"],
-          ["Sean O'Malley", "8", "5", "5"],
-          ["Justin Gaethje", "8", "5", "4"],
-          ["Max Holloway", "8", "5", "3"]
+          [
+            "Islam Makhachev",
+            "16",
+            "14",
+            "3"
+          ],
+          [
+            "Ilia Topuria",
+            "13",
+            "12",
+            "0"
+          ],
+          [
+            "Conor McGregor",
+            "10",
+            "7",
+            "3"
+          ],
+          [
+            "Amanda Nunes",
+            "10",
+            "7",
+            "5"
+          ],
+          [
+            "Alex Pereira",
+            "9",
+            "6",
+            "4"
+          ],
+          [
+            "Dustin Poirier",
+            "9",
+            "7",
+            "2"
+          ],
+          [
+            "Jon Jones",
+            "8",
+            "6",
+            "2"
+          ],
+          [
+            "Sean O'Malley",
+            "8",
+            "5",
+            "5"
+          ],
+          [
+            "Justin Gaethje",
+            "8",
+            "5",
+            "4"
+          ],
+          [
+            "Max Holloway",
+            "8",
+            "5",
+            "3"
+          ]
         ]
       },
       {
         "type": "p",
-        "text": "Ilia Topuria is the second name on the sheet with 13 cards and 12 autographs, including the other seven Welcome to the Club duals. Amanda Nunes, Sean O'Malley, and Ciryl Gane lead on relic cards with five each."
+        "text": "Amanda Nunes, Sean O'Malley, and Ciryl Gane lead on relic cards with five each. Makhachev and Topuria together account for 29 cards and 26 autographs."
       },
       {
         "type": "p",
-        "text": "The 50-card rookie class is spread thin by comparison. Jacqueline Cavalcanti, Oban Elliott, Lone'er Kavanagh, Youssef Zalal, Wang Cong, Ibo Aslan, Elijah Smith, and Tallison Teixeira each appear five times, which is the ceiling for a rookie here: Base, Rookie Autographs, Rookie Relic Autographs, Rookie Jumbo Relics, and one more subset depending on the fighter."
+        "text": "The 50 rookies in 2026 Topps Royalty UFC are spread thin by comparison. Jacqueline Cavalcanti, Oban Elliott, Lone'er Kavanagh, Youssef Zalal, Wang Cong, Ibo Aslan, Elijah Smith, and Tallison Teixeira each appear five times, which is the ceiling for a rookie here: Base, Rookie Autographs, Rookie Relic Autographs, Rookie Jumbo Relics, and one further subset depending on the fighter."
       },
       {
         "type": "h2",
-        "text": "The five rarest cards in the set"
+        "text": "What are the rarest cards in 2026 Topps Royalty UFC?"
       },
       {
         "type": "p",
-        "text": "Every parallel in Royalty is numbered, so \"rarest\" here means the longest published pack odds, not a guess from a print run. These are the five hardest pulls on the hobby odds sheet."
+        "text": "The five rarest cards in 2026 Topps Royalty UFC by published hobby odds are the Platinum 1/1 Dual Fighter Relic Autographs (1:2,675), the Platinum 1/1 Triple Autographs (1:2,675), the Liquid Gold 1/1 parallel of Liquid Silver (1:2,140), the USA 250 Patch Autographs 1/1s (1:1,189), and the Platinum 1/1 Prodigious Pairings Relics (1:1,189). Because every parallel in the set is numbered, these rankings come from the odds sheet rather than from guessed print runs."
       },
       {
         "type": "table",
-        "headers": ["Rank", "Card", "Print run", "Hobby odds"],
+        "headers": [
+          "Rank",
+          "Card",
+          "Print run",
+          "Hobby odds",
+          "Approx. cases per copy"
+        ],
         "rows": [
-          ["1", "Dual Fighter Relic Autographs Platinum", "1/1", "1:2,675"],
-          ["1", "Triple Autographs Platinum", "1/1", "1:2,675"],
-          ["3", "Liquid Silver Liquid Gold", "1/1", "1:2,140"],
-          ["4", "USA 250 Patch Autographs", "1/1", "1:1,189"],
-          ["4", "Prodigious Pairings Relics Platinum", "1/1", "1:1,189"]
+          [
+            "1",
+            "Dual Fighter Relic Autographs Platinum",
+            "1/1",
+            "1:2,675",
+            "1 in 669"
+          ],
+          [
+            "1",
+            "Triple Autographs Platinum",
+            "1/1",
+            "1:2,675",
+            "1 in 669"
+          ],
+          [
+            "3",
+            "Liquid Silver Liquid Gold",
+            "1/1",
+            "1:2,140",
+            "1 in 535"
+          ],
+          [
+            "4",
+            "USA 250 Patch Autographs",
+            "1/1",
+            "1:1,189",
+            "1 in 297"
+          ],
+          [
+            "4",
+            "Prodigious Pairings Relics Platinum",
+            "1/1",
+            "1:1,189",
+            "1 in 297"
+          ]
         ]
       },
       {
         "type": "p",
         "html": true,
-        "text": "<strong>Dual Fighter Relic Autographs Platinum (1:2,675).</strong> Four cards, each pairing two fighters with dual relics and dual signatures: Mackenzie Dern and Virna Jandiroba, Valentina Shevchenko and Amanda Nunes, Alex Pereira and Charles Oliveira, Carlos Prates and Jean Silva. One Platinum copy of each exists. At 1:2,675 packs, roughly one in every 670 cases holds one."
+        "text": "<strong>Dual Fighter Relic Autographs Platinum (1:2,675).</strong> Four cards, each pairing two fighters with dual relics and dual signatures: Mackenzie Dern and Virna Jandiroba, Valentina Shevchenko and Amanda Nunes, Alex Pereira and Charles Oliveira, Carlos Prates and Jean Silva. One Platinum copy of each exists. At 1:2,675 packs, roughly one in every 669 cases holds one."
       },
       {
         "type": "p",
         "html": true,
-        "text": "<strong>Triple Autographs Platinum (1:2,675).</strong> The same odds and the same four-card structure, with three signatures per card. The checklist is a highlight reel: Cormier, Cruz, and Bisping; Topuria, Makhachev, and Volkanovski; Poirier, Khabib Nurmagomedov, and McGregor; Moreno, Van, and Pantoja. The Poirier/Khabib/McGregor triple on Platinum is a strong candidate for the single most sought-after card in the product."
+        "text": "<strong>Triple Autographs Platinum (1:2,675).</strong> The same odds and the same four-card structure, with three signatures per card: Daniel Cormier, Dominick Cruz, and Michael Bisping; Ilia Topuria, Islam Makhachev, and Alexander Volkanovski; Dustin Poirier, Khabib Nurmagomedov, and Conor McGregor; Brandon Moreno, Joshua Van, and Alexandre Pantoja. The Poirier, Khabib, and McGregor triple on Platinum is a strong candidate for the single most sought-after card in the product."
       },
       {
         "type": "p",
@@ -191,17 +378,17 @@ export const articles: Article[] = [
       {
         "type": "p",
         "html": true,
-        "text": "<strong>USA 250 Patch Autographs (1:1,189).</strong> Eight 1/1 patch autographs built around the United States semiquincentennial: Aiemann Zahabi, Bo Nickal, Ciryl Gane, Diego Lopes, Justin Gaethje, Michael Chandler, Mauricio Santos, and Sean O'Malley. There is no parallel ladder here; the base card is the 1/1."
+        "text": "<strong>USA 250 Patch Autographs (1:1,189).</strong> Eight 1/1 patch autographs marking the United States semiquincentennial: Aiemann Zahabi, Bo Nickal, Ciryl Gane, Diego Lopes, Justin Gaethje, Michael Chandler, Mauricio Santos, and Sean O'Malley. There is no parallel ladder; the base card is the 1/1."
       },
       {
         "type": "image",
         "src": "/sets/cards/2026-topps-royalty-ufc/2026-topps-royalty-ufc-11.jpg",
-        "alt": "Justin Gaethje USA 250 Patch Autograph 1/1, 2026 Topps Royalty UFC",
-        "caption": "Justin Gaethje USA 250 Patch Autograph 1/1, 2026 Topps Royalty UFC"
+        "alt": "Justin Gaethje USA 250 Patch Autograph 1/1 from 2026 Topps Royalty UFC",
+        "caption": "Justin Gaethje USA 250 Patch Autograph 1/1 from 2026 Topps Royalty UFC"
       },
       {
         "type": "p",
-        "text": "The Gaethje card above shows the format: a full-size patch window with the USA 250 mark and an on-card signature, one copy in the entire production run."
+        "text": "The Justin Gaethje USA 250 Patch Autograph above is one of the eight, one copy in the entire production run."
       },
       {
         "type": "p",
@@ -211,81 +398,118 @@ export const articles: Article[] = [
       {
         "type": "p",
         "html": true,
-        "text": "One card sits outside this list because Topps published no odds for it: the <strong>USA 250 Dual Patch Autographs Booklet</strong>, a single 1/1 pairing Dana White with Donald J. Trump. With one copy and no odds line, it is almost certainly the scarcest card in the product, but it cannot be ranked by the odds sheet."
+        "text": "One card sits outside this list because Topps published no odds for it: the <strong>USA 250 Dual Patch Autographs Booklet</strong>, a single 1/1 pairing Dana White with Donald J. Trump. With one copy and no odds line, it is almost certainly the scarcest card in 2026 Topps Royalty UFC, but it cannot be ranked by the odds sheet."
       },
       {
         "type": "p",
-        "text": "Just below the top five: Royal Heir Autographs Platinum (1:823), Golden Hall Autographs Platinum and Regal Ink Platinum (both 1:764), and the Welcome to the Club duals at 1:764, which carry no printed number but whose odds work out to about one copy per card."
+        "text": "Just below the top five: Royal Heir Autographs Platinum (1:823), Golden Hall Autographs Platinum and Regal Ink Platinum (both 1:764), and the Welcome to the Club Dual Autographs at 1:764, which carry no printed number but whose odds work out to about one copy per card."
       },
       {
         "type": "h2",
-        "text": "How many cards exist"
+        "text": "How many cards did Topps print for 2026 Topps Royalty UFC?"
       },
       {
         "type": "p",
-        "text": "This is the part Royalty makes possible. Of the 32 subsets, 29 carry a published print run, and all 104 parallels do. Multiply each line's card count by its print run and add them up:"
+        "text": "Topps printed about 131,000 cards for 2026 Topps Royalty UFC. Of the 32 subsets, 29 carry a published print run, and all 104 parallels do. Multiply each line's card count by its print run and add them up:"
       },
       {
         "type": "table",
-        "headers": ["Group", "Cards printed"],
+        "headers": [
+          "Group",
+          "Cards printed"
+        ],
         "rows": [
-          ["Base set (100 cards x /99)", "9,900"],
-          ["Base parallels (Red /75 through Platinum 1/1)", "16,600"],
-          ["Autograph subsets and parallels", "68,345"],
-          ["Relic-only subsets and parallels", "35,910"],
-          ["Liquid Gold 1/1s and the USA 250 Dual Patch Booklet", "6"],
-          ["Total serial-numbered cards", "130,761"]
+          [
+            "Base set (100 cards, each /99)",
+            "9,900"
+          ],
+          [
+            "Base parallels (Red /75 through Platinum 1/1)",
+            "16,600"
+          ],
+          [
+            "Autograph subsets and parallels",
+            "68,345"
+          ],
+          [
+            "Relic-only subsets and parallels",
+            "35,910"
+          ],
+          [
+            "Liquid Gold 1/1s and the USA 250 Dual Patch Booklet",
+            "6"
+          ],
+          [
+            "Total serial-numbered cards",
+            "130,761"
+          ]
         ]
       },
       {
         "type": "p",
-        "html": true,
-        "text": "Three lines have odds but no published number: Liquid Silver (1:107), Letterman Booklet Autographs (1:202), and Welcome to the Club (1:764). Working backward from the odds, those add roughly 100, 55, and 17 copies respectively, so the whole product is about <strong>131,000 cards</strong>."
+        "text": "Three lines have odds but no published number: Liquid Silver (1:107), Letterman Booklet Autographs (1:202), and Welcome to the Club Dual Autographs (1:764). Working backward from the odds, those add roughly 100, 55, and 17 copies respectively, so the whole product is about 131,000 cards."
       },
       {
         "type": "p",
-        "text": "For scale, the base set alone is 9,900 cards, and a single base parallel tier like Red /75 adds 7,500 more. The hits outnumber the base cards four to one, which is exactly what a 10-card pack with 8 guaranteed hits should look like."
+        "text": "For scale, the base set alone is 9,900 cards, and a single base parallel tier like Red /75 adds 7,500 more. The hits outnumber the base cards four to one, which is what a 10-card pack with 8 guaranteed hits should look like."
       },
       {
         "type": "h2",
-        "text": "How many boxes"
+        "text": "How many boxes of 2026 Topps Royalty UFC were made?"
       },
       {
         "type": "p",
-        "text": "One pack per box means the pack count is the box count, and the odds sheet gives several ways to estimate it. They do not agree perfectly, because Topps rounds its odds, but they bracket the answer."
+        "text": "Roughly 12,000 hobby boxes, or about 3,000 cases. Topps does not publish production numbers, but one pack per box means the pack count is the box count, and the odds sheet gives several ways to estimate it. They do not agree perfectly, because Topps rounds its odds, but they bracket the answer."
       },
       {
         "type": "table",
-        "headers": ["Method", "Boxes"],
+        "headers": [
+          "Method",
+          "Boxes"
+        ],
         "rows": [
-          ["Base /99 at 1:1 (9,900 copies, one per pack)", "9,900"],
-          ["Base parallels (copies x odds, six tiers)", "10,000 to 11,000"],
-          ["All numbered lines, weighted by odds", "11,800"],
-          ["Relic copies divided by 3 guaranteed per box", "11,970"],
-          ["Autograph copies divided by 5 guaranteed per box", "13,700"]
+          [
+            "Base /99 at 1:1 (9,900 copies, one per pack)",
+            "9,900"
+          ],
+          [
+            "Base parallels (copies times odds, six tiers)",
+            "10,000 to 11,000"
+          ],
+          [
+            "All numbered lines, weighted by odds",
+            "11,800"
+          ],
+          [
+            "Relic copies divided by 3 guaranteed per box",
+            "11,970"
+          ],
+          [
+            "Autograph copies divided by 5 guaranteed per box",
+            "13,700"
+          ]
         ]
       },
       {
         "type": "p",
-        "html": true,
-        "text": "The base lines give a floor near 10,000 and the hit guarantees give a ceiling near 13,700. The autograph figure runs high because some boxes deliver a sixth autograph (the odds sum to about 5.5 autographs per pack), and the base figure runs low because 1:1 is the coarsest odds line Topps prints. Taken together, the production run lands at roughly <strong>12,000 hobby boxes</strong>, or about <strong>3,000 cases</strong>."
+        "text": "The base lines give a floor near 10,000 and the hit guarantees give a ceiling near 13,700. The autograph figure runs high because some boxes deliver a sixth autograph (the odds sum to about 5.5 autographs per pack), and the base figure runs low because 1:1 is the coarsest odds line Topps prints. Taken together, the production run lands at roughly 12,000 hobby boxes of 2026 Topps Royalty UFC."
       },
       {
         "type": "p",
-        "text": "That is the number to keep in mind when reading the parallel ladder. A Base Gold /10 at 1:11 sounds common until you remember there are 100 of them per tier across 12,000 boxes. A Platinum 1/1 from any of the 23 hit subsets with a Platinum tier is, on average, one card per 55 to 670 cases depending on the subset (Star Relics Platinum at 1:223 is the most common; the two multi-fighter Platinums at 1:2,675 are the rarest)."
+        "text": "That is the number to keep in mind when reading the parallel ladder. A Base Gold /10 at 1:11 sounds common until you remember there are 100 of them per tier across 12,000 boxes. A Platinum 1/1 from any of the 23 hit subsets with a Platinum tier is, on average, one card per 55 to 669 cases depending on the subset (Star Relics Platinum at 1:223 is the most common; the two multi-fighter Platinums at 1:2,675 are the rarest)."
       },
       {
         "type": "h2",
-        "text": "Where this leaves the product"
+        "text": "How this was calculated"
       },
       {
         "type": "p",
-        "text": "Royalty UFC is a hit box by design, and the odds sheet confirms the structure: every pack is 5 autographs and 3 relics with a numbered base card and a numbered parallel wrapped around them. The chase is concentrated at the top of the ladder, where Platinum 1/1s on the multi-fighter cards run past 1:2,500, and the checklist is concentrated on two fighters, with Makhachev and Topuria combining for 29 cards and 26 autographs."
+        "text": "Every number in this article comes from two published sources: the official 2026 Topps Royalty UFC checklist and the Topps hobby odds sheet, both loaded into the Checklist² set page. Cards printed is the sum of cards in each subset multiplied by its print run, across every numbered subset and parallel. Box estimates divide the total copies of a line by its odds (one copy per N packs), with one pack per box. Where a line has odds but no published print run, copies are inferred from the odds and labeled as estimates. Topps rounds odds to whole numbers, so figures derived from them carry a margin of roughly 10 percent."
       },
       {
         "type": "p",
         "html": true,
-        "text": "Odds for every subset and parallel, the full 785-card checklist, and the Break Hit Calculator for this set are on the <a href=\"https://www.checklist2.com/sets/2026-topps-royalty-ufc\">2026 Topps Royalty UFC page</a>."
+        "text": "Odds for every subset and parallel, the full 785-card checklist, and the Break Hit Calculator for this set are on the <a href=\"https://www.checklist2.com/sets/2026-topps-royalty-ufc\">2026 Topps Royalty UFC page</a> on Checklist²."
       }
     ]
   },
