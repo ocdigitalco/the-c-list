@@ -15,6 +15,24 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-27-topps-hoops-basketball-checklist",
+    title: "2026-27 Topps Hoops Basketball checklist",
+    date: "2026-11-10T12:00:00-08:00",
+    summary:
+      "2026-27 Topps Hoops Basketball checklist: 300-card base with Highlights and All Stars, 22 inserts including the Finals Pursuit program, and 10 autograph subsets with rookie duals and triples.",
+    description: `## 2026-27 Topps Hoops Basketball — full checklist
+
+**2026-27 Topps Hoops Basketball** is live with all **1,115 cards** across **35 subsets**.
+
+- **Base**: a continuous 300-card run as printed — **Base Cards** (1–260, with the 2026 rookie class flagged from #211), **Base Cards Highlights** (261–270), and **Base Cards All Stars** (271–300).
+- **22 inserts**: Bounce House, Cathedral, Checkmate, Digitized, Elevation Nation, Hardwired, Hoopers, Hooptopia, Jam Packed, Kaleido Court, Net to Net, Next Episode, Oasis, Smooth Operators, and There It Is — plus the seven-tier **Finals Pursuit** program (First Round, Second Round, Semi Finals, The Finals, NBA Championship Players, the NBA Championship Team card, and the Final MVP) tracing the Knicks' title run.
+- **10 autograph subsets**, including Base Hoops Signatures, Base Hoops Signatures Rookies, Curated Signatures, Hoops Hyper Signatures, Hoops Rookie First Signs, Hoops Rookie Signatures, and Hoops Signs, plus the **Hoops Rookie Duals**, **Hoops Rookie Triples**, and **Hoops Rookie Veteran Duals** multi-signature cards built around the 2026 draft class.
+
+Release is estimated for **2026-12-10** across Hobby, Mega, Value, and Hanger configurations. Numbered parallels and pack odds are **To Be Announced** and will be added once Topps publishes them.`,
+    tags: ["checklist"],
+    setId: 910,
+  },
+  {
     id: "2026-topps-stadium-club-football-checklist",
     title: "2026 Topps Stadium Club Football checklist",
     date: "2026-11-08T12:00:00-08:00",

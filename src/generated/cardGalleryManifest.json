@@ -2837,5 +2837,37 @@
       "width": 1024,
       "height": 1434
     }
+  ],
+  "2026-27-topps-hoops-basketball": [
+    {
+      "file": "2026-27-topps-hoops-basketball-0.png",
+      "width": 750,
+      "height": 1050
+    },
+    {
+      "file": "2026-27-topps-hoops-basketball-1.jpg",
+      "width": 1080,
+      "height": 1515
+    },
+    {
+      "file": "2026-27-topps-hoops-basketball-2.jpg",
+      "width": 750,
+      "height": 1050
+    },
+    {
+      "file": "2026-27-topps-hoops-basketball-5.jpg",
+      "width": 750,
+      "height": 1050
+    },
+    {
+      "file": "2026-27-topps-hoops-basketball-6.jpg",
+      "width": 1080,
+      "height": 1518
+    },
+    {
+      "file": "2026-27-topps-hoops-basketball-7.jpg",
+      "width": 750,
+      "height": 1050
+    }
   ]
 }
