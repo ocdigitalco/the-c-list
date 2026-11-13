@@ -15,6 +15,27 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-allen-ginter-x-baseball-checklist",
+    title: "2026 Topps Allen & Ginter X Baseball checklist + odds",
+    date: "2026-11-12T12:00:00-08:00",
+    summary:
+      "2026 Topps Allen & Ginter X Baseball: 1,226 cards across 12 subsets with hobby pack odds, mini parallels, and 236 framed mini autographs.",
+    description: `## 2026 Topps Allen & Ginter X Baseball — full checklist, parallels, and odds
+
+**2026 Topps Allen & Ginter X Baseball** is live with all **1,226 cards** across **12 subsets**.
+
+- **Base**: a **300-card** set (1–300), with the rookie class flagged.
+- **Base variations** — **Base Minis** (the standard mini, listed on the odds sheet as the "Base Card Mini Sized Black Parallel"), **Chrome Variation** (100), and **Mini Chrome Variation** (100).
+- **Numbered parallels**: **Red /5** and **Silver 1/1** on the Base Minis — the only two serial-numbered cards in the product.
+- **Mini inserts**: 50 Ways to Say Hello (50), Musical Methods (20), Rookie Design Variations (20), N34 (50), N43 (20), and Wicked Power (30).
+- **236 mini autographs** — **Mini Baseball Autographs** (177) and **Mini Non-Baseball Autographs** (59), each in three frame versions: Silver Frame Black, Black Frame Black, and Silver Frame Black Gold Ink.
+- **Hobby pack odds** for every subset and all eight parallels.
+
+Release is estimated for **2026-11-11**. Hobby boxes deliver **1 autograph** across eight cards per pack, 18 packs per box.`,
+    tags: ["checklist", "odds"],
+    setId: 912,
+  },
+  {
     id: "2026-topps-royalty-ufc-rarest-pulls-article",
     title: "New article: the rarest pulls and print run of 2026 Topps Royalty UFC",
     date: "2026-11-10T14:00:00-08:00",

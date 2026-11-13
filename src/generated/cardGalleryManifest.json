@@ -785,6 +785,38 @@
       "height": 1190
     }
   ],
+  "2026-27-topps-hoops-basketball": [
+    {
+      "file": "2026-27-topps-hoops-basketball-0.png",
+      "width": 750,
+      "height": 1050
+    },
+    {
+      "file": "2026-27-topps-hoops-basketball-1.jpg",
+      "width": 1080,
+      "height": 1515
+    },
+    {
+      "file": "2026-27-topps-hoops-basketball-2.jpg",
+      "width": 750,
+      "height": 1050
+    },
+    {
+      "file": "2026-27-topps-hoops-basketball-5.jpg",
+      "width": 750,
+      "height": 1050
+    },
+    {
+      "file": "2026-27-topps-hoops-basketball-6.jpg",
+      "width": 1080,
+      "height": 1518
+    },
+    {
+      "file": "2026-27-topps-hoops-basketball-7.jpg",
+      "width": 750,
+      "height": 1050
+    }
+  ],
   "2026-bowman-chrome-baseball": [
     {
       "file": "2026-bowman-chrome-baseball-1.jpg",
@@ -1080,6 +1112,48 @@
       "file": "2026-topps-allen-ginter-baseball-12.jpg",
       "width": 300,
       "height": 420
+    }
+  ],
+  "2026-topps-allen-ginter-x-baseball": [
+    {
+      "file": "2026-topps-allen-ginter-x-baseball-1.jpg",
+      "width": 750,
+      "height": 1050
+    },
+    {
+      "file": "2026-topps-allen-ginter-x-baseball-2.jpg",
+      "width": 750,
+      "height": 1050
+    },
+    {
+      "file": "2026-topps-allen-ginter-x-baseball-4.jpg",
+      "width": 750,
+      "height": 1050
+    },
+    {
+      "file": "2026-topps-allen-ginter-x-baseball-5.jpg",
+      "width": 440,
+      "height": 806
+    },
+    {
+      "file": "2026-topps-allen-ginter-x-baseball-6.jpg",
+      "width": 750,
+      "height": 1050
+    },
+    {
+      "file": "2026-topps-allen-ginter-x-baseball-7.jpg",
+      "width": 441,
+      "height": 806
+    },
+    {
+      "file": "2026-topps-allen-ginter-x-baseball-8.jpg",
+      "width": 750,
+      "height": 1050
+    },
+    {
+      "file": "2026-topps-allen-ginter-x-baseball-9.jpg",
+      "width": 750,
+      "height": 1050
     }
   ],
   "2026-topps-chrome-baseball": [
@@ -2457,6 +2531,73 @@
       "height": 1434
     }
   ],
+  "2026-topps-royalty-ufc": [
+    {
+      "file": "2026-topps-royalty-ufc-1.jpg",
+      "width": 750,
+      "height": 1050
+    },
+    {
+      "file": "2026-topps-royalty-ufc-2.jpg",
+      "width": 1050,
+      "height": 750
+    },
+    {
+      "file": "2026-topps-royalty-ufc-4.jpg",
+      "width": 750,
+      "height": 1050
+    },
+    {
+      "file": "2026-topps-royalty-ufc-5.jpg",
+      "width": 1598,
+      "height": 1080
+    },
+    {
+      "file": "2026-topps-royalty-ufc-6.jpg",
+      "width": 1516,
+      "height": 1080
+    },
+    {
+      "file": "2026-topps-royalty-ufc-7.jpg",
+      "width": 750,
+      "height": 1050
+    },
+    {
+      "file": "2026-topps-royalty-ufc-8.jpg",
+      "width": 1508,
+      "height": 1080
+    },
+    {
+      "file": "2026-topps-royalty-ufc-9.jpg",
+      "width": 358,
+      "height": 501
+    },
+    {
+      "file": "2026-topps-royalty-ufc-10.jpg",
+      "width": 702,
+      "height": 501
+    },
+    {
+      "file": "2026-topps-royalty-ufc-11.jpg",
+      "width": 550,
+      "height": 770
+    },
+    {
+      "file": "2026-topps-royalty-ufc-12.jpg",
+      "width": 550,
+      "height": 770
+    },
+    {
+      "file": "2026-topps-royalty-ufc-13.jpg",
+      "width": 550,
+      "height": 770
+    },
+    {
+      "file": "2026-topps-royalty-ufc-14.jpg",
+      "width": 358,
+      "height": 501
+    }
+  ],
   "2026-topps-stadium-club-football": [
     {
       "file": "2026-topps-stadium-club-football-1.jpg",
@@ -2836,105 +2977,6 @@
       "file": "2026-topps-x-street-fighter-6.jpg",
       "width": 1024,
       "height": 1434
-    }
-  ],
-  "2026-27-topps-hoops-basketball": [
-    {
-      "file": "2026-27-topps-hoops-basketball-0.png",
-      "width": 750,
-      "height": 1050
-    },
-    {
-      "file": "2026-27-topps-hoops-basketball-1.jpg",
-      "width": 1080,
-      "height": 1515
-    },
-    {
-      "file": "2026-27-topps-hoops-basketball-2.jpg",
-      "width": 750,
-      "height": 1050
-    },
-    {
-      "file": "2026-27-topps-hoops-basketball-5.jpg",
-      "width": 750,
-      "height": 1050
-    },
-    {
-      "file": "2026-27-topps-hoops-basketball-6.jpg",
-      "width": 1080,
-      "height": 1518
-    },
-    {
-      "file": "2026-27-topps-hoops-basketball-7.jpg",
-      "width": 750,
-      "height": 1050
-    }
-  ],
-  "2026-topps-royalty-ufc": [
-    {
-      "file": "2026-topps-royalty-ufc-1.jpg",
-      "width": 750,
-      "height": 1050
-    },
-    {
-      "file": "2026-topps-royalty-ufc-2.jpg",
-      "width": 1050,
-      "height": 750
-    },
-    {
-      "file": "2026-topps-royalty-ufc-4.jpg",
-      "width": 750,
-      "height": 1050
-    },
-    {
-      "file": "2026-topps-royalty-ufc-5.jpg",
-      "width": 1598,
-      "height": 1080
-    },
-    {
-      "file": "2026-topps-royalty-ufc-6.jpg",
-      "width": 1516,
-      "height": 1080
-    },
-    {
-      "file": "2026-topps-royalty-ufc-7.jpg",
-      "width": 750,
-      "height": 1050
-    },
-    {
-      "file": "2026-topps-royalty-ufc-8.jpg",
-      "width": 1508,
-      "height": 1080
-    },
-    {
-      "file": "2026-topps-royalty-ufc-9.jpg",
-      "width": 358,
-      "height": 501
-    },
-    {
-      "file": "2026-topps-royalty-ufc-10.jpg",
-      "width": 702,
-      "height": 501
-    },
-    {
-      "file": "2026-topps-royalty-ufc-11.jpg",
-      "width": 550,
-      "height": 770
-    },
-    {
-      "file": "2026-topps-royalty-ufc-12.jpg",
-      "width": 550,
-      "height": 770
-    },
-    {
-      "file": "2026-topps-royalty-ufc-13.jpg",
-      "width": 550,
-      "height": 770
-    },
-    {
-      "file": "2026-topps-royalty-ufc-14.jpg",
-      "width": 358,
-      "height": 501
     }
   ]
 }
