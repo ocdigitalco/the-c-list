@@ -10,6 +10,7 @@
     "build": "next build",
     "start": "next start",
     "test": "playwright test",
+    "test:unit": "node --import tsx --test $(find src -name '*.test.ts')",
     "lint": "eslint",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",

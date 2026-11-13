@@ -15,7 +15,7 @@ import type { CardGalleryImage } from "@/lib/cardGallery";
 import { SetOddsAlertForm } from "@/components/SetOddsAlertForm";
 import { getTeamLogo } from "@/lib/utils/teamLogo";
 import { findOddsKey } from "@/lib/oddsUtils";
-import { label as fmtBoxLabel } from "@/lib/boxLabels";
+import { label as fmtBoxLabel, ODDS_FORMAT_PREFERENCE } from "@/lib/boxLabels";
 import { SubsetCard } from "./SubsetCard";
 import { BoxConfigTable } from "./BoxConfigTable";
 import { LastSoldControl } from "./LastSoldControl";
@@ -282,20 +282,8 @@ export function buildFormatHits(
 }
 
 
-// Order the Pack Odds column falls through when a parallel's odds live in only
-// some formats. Prefers what a typical buyer opens, so the shown value is the
-// most representative; the resolver tags the value when it isn't hobby.
-const ODDS_FORMAT_PREFERENCE = [
-  "hobby", "members_only", "hobby_box_topper", "jumbo", "value", "mega", "tin", "advent", "hanger", "fat_pack", "fanatics", "london_mega", "walmart_mega",
-  // Flagship Basketball (set 896) retail/regional formats; non-hobby → tagged.
-  "fanatics_value", "all_star_mega", "black_friday_value", "promo_silver", "costco", "sams_club", "china_wave1", "china_wave2",
-  // Phase 3 formats (official Topps sheet order); non-hobby → tagged.
-  "hobby_silver_pack", "jumbo_silver_pack", "super_box", "super_box_bonus", "super_box_oversized", "bulk_packs",
-  "club_super_box", "club_super_box_oversized", "kids_mega", "club_ex_box_sams",
-  "club_ex_box_sams_oversized", "gc_white_slip_sheets",
-  // Vault Disney per-pack-slot odds (all-hits product, single hobby box_config).
-  "pack_1", "pack_2", "topper",
-];
+// Pack Odds column fall-through order lives in boxLabels.ts (ODDS_FORMAT_PREFERENCE),
+// shared with the set-scoped athlete page so both resolve a figure the same way.
 
 // `autoNames` is the set of lowercased subset names flagged is_autograph in the
 // DB — the single source of truth. An odds key belongs to an autograph subset

@@ -12,7 +12,7 @@ import { trackEvent } from "@/lib/trackEvent";
 import { trackEvent as trackGaEvent } from "@/lib/analytics";
 import { getTeamLogo } from "@/lib/utils/teamLogo";
 import { label as boxLabel } from "@/lib/boxLabels";
-import { findOddsKey, lookupOddsValue } from "@/lib/oddsUtils";
+import { buildOrderedFormats, resolveOddsRow, type ResolvedOdds } from "@/lib/athleteOddsResolver";
 import { SubsetCard } from "./SubsetCard";
 import { formatAvailabilityTag } from "./SetDetailClient";
 import type { ParallelRowData } from "./ParallelTable";
@@ -394,25 +394,6 @@ const BOX_FORMAT_ORDER = [
   { key: "sapphire", label: "Sapphire" },
 ];
 
-// Sets that get the multi-column odds layout
-function normalizeParallelNameShared(name: string): string[] {
-  const candidates = [name];
-  if (name.endsWith(" Refractor")) candidates.push(name.replace(/ Refractor$/, ""));
-  candidates.push(name.replace("RayWave", "Ray Wave"));
-  // X-Fractor (hyphen) → Xfractor (no hyphen) and vice versa
-  if (name.includes("X-Fractor")) {
-    candidates.push(name.replace(/X-Fractor/g, "Xfractor"));
-    if (!name.includes("X-Fractor Refractor"))
-      candidates.push(name.replace("X-Fractor", "X-Fractor Refractor"));
-  }
-  if (name.includes("Xfractor") && !name.includes("X-Fractor")) {
-    candidates.push(name.replace(/Xfractor/g, "X-Fractor"));
-    if (!name.includes("Xfractor Refractor"))
-      candidates.push(name.replace("Xfractor", "Xfractor Refractor"));
-  }
-  return [...new Set(candidates)];
-}
-
 // ─── Subset tab (shared checklist table + eBay affiliate column) ─────────────────
 
 function AthleteShopDisclosure() {
@@ -457,29 +438,30 @@ function AthleteSubsetTab({ insertSets, packOddsJson, playerName, setName, setId
   }, [packOddsJson]);
 
   const activeFormat = formats[activeIdx] ?? formats[0];
-  const activeOdds = useMemo(() => {
-    if (!packOddsJson || !activeFormat) return {} as Record<string, string | number>;
-    try {
-      const raw = JSON.parse(packOddsJson);
-      const firstVal = Object.values(raw)[0];
-      if (typeof firstVal === "object" && firstVal !== null) return (raw[activeFormat.key] ?? {}) as Record<string, string | number>;
-      return raw as Record<string, string | number>;
-    } catch { return {} as Record<string, string | number>; }
-  }, [packOddsJson, activeFormat]);
 
-  function lookupOdds(cardType: string, parallelName: string | null): string | number | null {
-    const names = parallelName ? normalizeParallelNameShared(parallelName) : [null];
-    for (const n of names) {
-      const r = lookupOddsValue(activeOdds, cardType, n as string | null);
-      if (r != null) return r;
-      if (n) {
-        const b = lookupOddsValue(activeOdds, "Base", n);
-        if (b != null) return b;
-        const fk = findOddsKey(n, Object.keys(activeOdds));
-        if (fk && activeOdds[fk] != null) return activeOdds[fk];
-      }
-    }
-    return null;
+  // All formats as {key, odds}, ordered: the selected chip's format first (so it
+  // is "tried first"), then ODDS_FORMAT_PREFERENCE order, then any remaining
+  // formats in their JSON order. Flat (non-nested) pack_odds → one unlabeled
+  // format. A row resolves against the first format in this list that carries
+  // its key; the figure is tagged when that format isn't the selected one.
+  const orderedFormats = useMemo(
+    () => buildOrderedFormats(packOddsJson, activeFormat?.key ?? null),
+    [packOddsJson, activeFormat]
+  );
+
+  const resolveRow = (subset: string, parallelName: string | null) =>
+    resolveOddsRow(orderedFormats, subset, parallelName);
+
+  // Build the odds cell: the figure, tagged with the source format's label when
+  // it came from a format other than the selected chip (never tagged for flat
+  // odds or when the figure is from the selected format).
+  function cellFor(r: ResolvedOdds | null): { text: string; tag?: string | null } | null {
+    if (!r) return null;
+    const tag =
+      r.formatKey !== "__flat__" && r.formatKey !== activeFormat?.key
+        ? formatAvailabilityTag(JSON.stringify([r.formatKey]))
+        : null;
+    return { text: displayOdds(r.value), tag };
   }
 
   const subsets = useMemo(() => [...insertSets].sort((a, b) => a.insertSetId - b.insertSetId), [insertSets]);
@@ -516,13 +498,11 @@ function AthleteSubsetTab({ insertSets, packOddsJson, playerName, setName, setId
 
         const tableRows: ParallelRowData[] = [];
         if (!hasBaseParallel) {
-          const o = lookupOdds(is.insertSetName, null);
-          tableRows.push({ name: "Base", printRun: null, odds: o != null ? { text: displayOdds(o) } : null, shopUrl: shopFor("Base", null, null) });
+          tableRows.push({ name: "Base", printRun: null, odds: cellFor(resolveRow(is.insertSetName, null)), shopUrl: shopFor("Base", null, null) });
         }
         for (const p of is.parallels) {
-          const o = lookupOdds(is.insertSetName, p.name);
           const rare = p.name.toLowerCase().includes("superfractor") || (p.printRun != null && p.printRun <= 5);
-          tableRows.push({ name: p.name, printRun: p.printRun, rare, exclusivity: p.exclusivity ?? null, odds: o != null ? { text: displayOdds(o) } : null, shopUrl: shopFor(p.name, p.printRun, p.id) });
+          tableRows.push({ name: p.name, printRun: p.printRun, rare, exclusivity: p.exclusivity ?? null, odds: cellFor(resolveRow(is.insertSetName, p.name)), shopUrl: shopFor(p.name, p.printRun, p.id) });
         }
 
         const checklist = (

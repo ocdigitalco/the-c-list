@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "athlete-page-parallel-odds-resolver-fix",
+    title: "Fixed parallel pack odds on athlete pages",
+    date: "2026-11-12T20:00:00-08:00",
+    summary:
+      "Parallel odds on set-scoped athlete pages now resolve the subset's own per-format figure instead of borrowing the base set's 1:1 refractor odds.",
+    description: `## Corrected parallel odds on athlete pages
+
+On set-scoped athlete pages, a subset whose odds live in a non-default format (for example the promo-pack-only **1981-82 Topps Chrome Basketball** subset in 2026-27 Topps Flagship Basketball) was showing **1:1** on every parallel and **—** on its base. The resolver was reading a single selected format and, when the subset had no odds there, falling back to the main base set's \`Base <Parallel>\` figure.
+
+Parallel rows now resolve only their own \`<Subset> <Parallel>\` odds, falling through the format preference order and tagging the figure with the format it came from (e.g. **Promo Silver Packs**); a parallel with no published odds in any format shows **—**. This matches how the set page has always rendered. For Darryn Peterson's 81BKC-62 the parallels now read 1:18 / 1:24 / 1:37 / 1:72 / 1:145 / 1:361 / 1:727 / 1:3,488.`,
+    tags: ["feature"],
+    setId: 896,
+  },
+  {
     id: "2026-27-topps-flagship-basketball-rookie-fix",
     title: "Rookie flag correction on 2026-27 Topps Flagship Basketball",
     date: "2026-11-12T18:00:00-08:00",
