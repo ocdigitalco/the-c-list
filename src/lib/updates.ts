@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-museum-collection-baseball",
+    title: "Added 2026 Topps Museum Collection Baseball",
+    date: "2026-11-13T12:00:00-08:00",
+    summary:
+      "2026 Topps Museum Collection Baseball: 1,317 cards across 34 subsets with hobby odds and 150 numbered parallels.",
+    description: `## 2026 Topps Museum Collection Baseball
+
+The full **2026 Topps Museum Collection Baseball** checklist is live — **1,317 cards across 34 subsets**, from the 100-card base set through the autograph, relic, and book-card hits, plus the four Canvas Collection and Faces of Greatness sketch subsets.
+
+Every subset carries its **hobby pack odds**, and all **150 numbered parallels** are listed with their print runs — the full base ladder (Gold /275 down to Emerald 1/1 and the 1/1 Printing Plates) and each hit subset's "/N or less" refractor-style parallels. Book cards, dual and triple relics, and co-signed cards are all linked across their players.`,
+    tags: ["checklist", "odds"],
+    setId: 913,
+  },
+  {
     id: "athlete-page-parallel-odds-table",
     title: "Redesigned parallel odds table on athlete pages",
     date: "2026-11-12T22:00:00-08:00",
