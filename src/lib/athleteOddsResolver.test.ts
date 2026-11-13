@@ -50,6 +50,33 @@ test("promo_silver chip selected: same figures, untagged", () => {
   assert.equal(tagFor(aqua!.formatKey, "promo_silver"), null);
 });
 
+test("base-subset parallel resolves its own format, never the base key (findOddsKey base-collapse)", () => {
+  // The "Base Cards" subset: hobby carries only the base ("Base Cards" = 1), while
+  // Diamante lives exclusively in hanger. findOddsKey folds "Base Cards Diamante"
+  // → "Base Cards", so without the composite-only guard Diamante would wrongly
+  // borrow hobby's base 1:1. It must resolve to hanger instead.
+  const packOdds = JSON.stringify({
+    hobby: { "Base Cards": 1, "Base Cards Gold": 31 },
+    hanger: { "Base Cards Diamante": 1, "Base Cards Gold Diamante": 73 },
+    fanatics_value: { "Base Cards Topps Foil Pattern": 1 },
+  });
+  const ordered = buildOrderedFormats(packOdds, "hobby");
+  const diamante = resolveOddsRow(ordered, "Base Cards", "Diamante");
+  assert.equal(diamante?.value, 1);
+  assert.equal(diamante?.formatKey, "hanger"); // NOT "hobby" (the base key)
+
+  const foil = resolveOddsRow(ordered, "Base Cards", "Topps Foil Pattern");
+  assert.equal(foil?.formatKey, "fanatics_value");
+
+  // The base row still resolves hobby's "Base Cards".
+  const base = resolveOddsRow(ordered, "Base Cards", null);
+  assert.equal(base?.value, 1);
+  assert.equal(base?.formatKey, "hobby");
+
+  // Gold exists in hobby → resolves there (own composite, not the base).
+  assert.equal(resolveOddsRow(ordered, "Base Cards", "Gold")?.formatKey, "hobby");
+});
+
 test("base row never borrows a parallel key; parallel never borrows the subset base", () => {
   const ordered = buildOrderedFormats(PACK_ODDS, "hobby");
   // Base resolves the subset key (1), not any parallel figure.

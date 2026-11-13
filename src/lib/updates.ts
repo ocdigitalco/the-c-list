@@ -15,6 +15,22 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "athlete-page-parallel-odds-table",
+    title: "Redesigned parallel odds table on athlete pages",
+    date: "2026-11-12T22:00:00-08:00",
+    summary:
+      "Parallel odds on athlete pages are now one line per parallel, with the box format shown once per subset and only repeated on rows that differ.",
+    description: `## One line per parallel, with the format shown once
+
+The per-subset parallel table on set-scoped athlete pages has been rebuilt. Each parallel is now a single row — **Parallel · Found in · Print run · Pack odds · eBay** on desktop, and a compact three-column layout on phones — instead of stacking the odds, format, and print run across several lines in a narrow column.
+
+The box format is stated **once** in the subset header (e.g. "Promo Silver Packs only" when every parallel comes from one format, or "Hobby odds" otherwise) and repeated on a row only when that row's odds come from a different box (e.g. a Hanger-only Diamante inside an otherwise-Hobby subset). A parallel with no published odds shows **—** with its exclusivity, if known.
+
+As part of the rebuild, base-subset parallels (like the Base Cards Diamante and Topps Foil Pattern) now resolve their own per-format odds instead of borrowing the base card's figure, so their true pull rates and box exclusivity show correctly.`,
+    tags: ["feature"],
+    setId: 896,
+  },
+  {
     id: "athlete-page-parallel-odds-resolver-fix",
     title: "Fixed parallel pack odds on athlete pages",
     date: "2026-11-12T20:00:00-08:00",

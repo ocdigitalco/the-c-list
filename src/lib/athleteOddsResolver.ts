@@ -38,8 +38,13 @@ export function lookupParallelIn(
   for (const n of normalizeParallelNameShared(parallelName)) {
     const composed = `${subset} ${n}`;
     if (odds[composed] != null) return odds[composed];
+    // Composite-only: accept a fuzzy key ONLY if it still names this parallel.
+    // findOddsKey folds a base-subset parallel ("Base Cards Diamante") down to the
+    // bare base key ("Base Cards") via its startsWith("Base") rule; honoring that
+    // would make the parallel borrow the base ROW's odds (and wrong format), so we
+    // reject any match that dropped the parallel suffix.
     const found = findOddsKey(composed, keys);
-    if (found && odds[found] != null) return odds[found];
+    if (found && found.toLowerCase().includes(n.toLowerCase()) && odds[found] != null) return odds[found];
   }
   return null;
 }

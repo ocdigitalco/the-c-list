@@ -12,10 +12,10 @@ import { trackEvent } from "@/lib/trackEvent";
 import { trackEvent as trackGaEvent } from "@/lib/analytics";
 import { getTeamLogo } from "@/lib/utils/teamLogo";
 import { label as boxLabel } from "@/lib/boxLabels";
-import { buildOrderedFormats, resolveOddsRow, type ResolvedOdds } from "@/lib/athleteOddsResolver";
-import { SubsetCard } from "./SubsetCard";
+import { buildOrderedFormats, resolveOddsRow } from "@/lib/athleteOddsResolver";
 import { formatAvailabilityTag } from "./SetDetailClient";
-import type { ParallelRowData } from "./ParallelTable";
+import { ParallelOddsTable, type OddsTableRow, type OddsTableAppearance } from "./ParallelOddsTable";
+import { FLAT_FORMAT_KEY } from "@/lib/athleteSubsetChips";
 import { buildEbaySearchUrl } from "@/lib/ebay/searchUrl";
 
 // ─── Constants ──────────────────────────────────────────────────────────────────
@@ -119,12 +119,6 @@ function PlayerAvatar({ name, nbaPlayerId, ufcImageUrl, mlbPlayerId, imageUrl, s
       className="rounded-full object-cover object-top flex-shrink-0"
       style={{ width: size, height: size }} />
   );
-}
-
-function displayOdds(odds: string | number | null): string {
-  if (odds == null) return "—";
-  if (typeof odds === "number") return `1:${odds.toLocaleString()}`;
-  return String(odds);
 }
 
 function parallelTone(name: string): string {
@@ -448,21 +442,11 @@ function AthleteSubsetTab({ insertSets, packOddsJson, playerName, setName, setId
     () => buildOrderedFormats(packOddsJson, activeFormat?.key ?? null),
     [packOddsJson, activeFormat]
   );
+  // Flat (non-nested) pack_odds → a single unnamed format: no format chips.
+  const isFlatOdds = orderedFormats.length === 1 && orderedFormats[0]?.key === FLAT_FORMAT_KEY;
 
   const resolveRow = (subset: string, parallelName: string | null) =>
     resolveOddsRow(orderedFormats, subset, parallelName);
-
-  // Build the odds cell: the figure, tagged with the source format's label when
-  // it came from a format other than the selected chip (never tagged for flat
-  // odds or when the figure is from the selected format).
-  function cellFor(r: ResolvedOdds | null): { text: string; tag?: string | null } | null {
-    if (!r) return null;
-    const tag =
-      r.formatKey !== "__flat__" && r.formatKey !== activeFormat?.key
-        ? formatAvailabilityTag(JSON.stringify([r.formatKey]))
-        : null;
-    return { text: displayOdds(r.value), tag };
-  }
 
   const subsets = useMemo(() => [...insertSets].sort((a, b) => a.insertSetId - b.insertSetId), [insertSets]);
   if (subsets.length === 0) return (
@@ -496,39 +480,31 @@ function AthleteSubsetTab({ insertSets, packOddsJson, playerName, setName, setId
             parallel, printRun, athleteId, setId, insertSetId: is.insertSetId, parallelId,
           }, epnCampaignId);
 
-        const tableRows: ParallelRowData[] = [];
+        const rows: OddsTableRow[] = [];
         if (!hasBaseParallel) {
-          tableRows.push({ name: "Base", printRun: null, odds: cellFor(resolveRow(is.insertSetName, null)), shopUrl: shopFor("Base", null, null) });
+          rows.push({ name: "Base", printRun: null, exclusivity: null, resolved: resolveRow(is.insertSetName, null), shopUrl: shopFor("Base", null, null) });
         }
         for (const p of is.parallels) {
-          const rare = p.name.toLowerCase().includes("superfractor") || (p.printRun != null && p.printRun <= 5);
-          tableRows.push({ name: p.name, printRun: p.printRun, rare, exclusivity: p.exclusivity ?? null, odds: cellFor(resolveRow(is.insertSetName, p.name)), shopUrl: shopFor(p.name, p.printRun, p.id) });
+          rows.push({ name: p.name, printRun: p.printRun, exclusivity: p.exclusivity ?? null, resolved: resolveRow(is.insertSetName, p.name), shopUrl: shopFor(p.name, p.printRun, p.id) });
         }
 
-        const checklist = (
-          <div style={{ border: "1px solid var(--brand-line)", borderRadius: 8, overflow: "hidden", background: "var(--brand-card)" }}>
-            {is.appearances.map((app, i) => (
-              <div key={`${is.insertSetId}-${app.cardNumber}-${i}`} className="flex items-center gap-3"
-                style={{ padding: "8px 12px", borderTop: i > 0 ? "1px solid var(--brand-line)" : "none" }}>
-                <span style={{ fontFamily: FONT_MONO, fontSize: 13, color: "var(--brand-slate)", minWidth: 54 }}>#{app.cardNumber}</span>
-                <span style={{ fontSize: 15, fontWeight: 500, color: "var(--brand-ink)", flex: 1, minWidth: 0 }}>{playerName}</span>
-                {formatAvailabilityTag(app.formats) && (
-                  <span style={{ flexShrink: 0, fontFamily: FONT_MONO, fontSize: 9, fontWeight: 700, letterSpacing: 0.3,
-                    color: "var(--brand-slate)", background: "var(--brand-track)", border: "1px solid var(--brand-line)", padding: "1px 5px", borderRadius: 3, whiteSpace: "nowrap" }}>{formatAvailabilityTag(app.formats)}</span>
-                )}
-                {app.isRookie && (
-                  <span style={{ flexShrink: 0, fontFamily: FONT_MONO, fontSize: 9, fontWeight: 700, letterSpacing: 0.5,
-                    color: "var(--brand-accent-deep)", background: "rgba(154,43,20,0.08)", border: "1px solid rgba(154,43,20,0.2)", padding: "1px 5px", borderRadius: 3 }}>RC</span>
-                )}
-                {app.team && <span style={{ fontSize: 13, color: "var(--brand-slate)", flexShrink: 0, textAlign: "right" }}>{app.team}</span>}
-              </div>
-            ))}
-          </div>
-        );
+        const appearances: OddsTableAppearance[] = is.appearances.map((app) => ({
+          cardNumber: app.cardNumber, team: app.team, isRookie: app.isRookie,
+        }));
 
         return (
-          <SubsetCard key={is.insertSetId} name={is.insertSetName} cardsCount={is.appearances.length}
-            parallelsCount={is.parallels.length} checklist={checklist} tableRows={tableRows} showNumbered />
+          <ParallelOddsTable
+            key={is.insertSetId}
+            subsetName={is.insertSetName}
+            cardsCount={is.appearances.length}
+            parallelsCount={is.parallels.length}
+            athleteName={playerName}
+            appearances={appearances}
+            rows={rows}
+            selectedFormatKey={activeFormat?.key ?? null}
+            flat={isFlatOdds}
+            showEbay={!!epnCampaignId}
+          />
         );
       })}
 

@@ -1,0 +1,107 @@
+/* Set-scoped athlete page: per-subset parallel odds table.
+   Layout from the approved design canvas; type/color/spacing mapped onto the
+   site's --brand-* tokens. The card keys its layout to its OWN width with a
+   container query (like SealedBoxOffers' `sbb`), so it renders identically in the
+   narrow Overview column and at full width: ≥860px → the five-column desktop
+   grid; below that → the stacked phone layout (the 700–860 middle tier cannot
+   fit five columns, so it uses phone too). */
+
+.wrap { container-type: inline-size; container-name: pot; margin-bottom: 28px; }
+
+/* ── Subset header (title · count · chip) ─────────────────────────────────── */
+.shead { display: flex; flex-direction: column; gap: 8px; margin-bottom: 10px; }
+.sheadTop { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.title { font-family: var(--brand-font-head); font-weight: 400; font-size: 20px; line-height: 1; color: var(--brand-ink); margin: 0; }
+.count { font-family: var(--cl-font-mono); font-size: 11px; color: var(--brand-slate); }
+
+.card { background: var(--brand-card); border: 1px solid var(--brand-line); border-radius: 10px; overflow: hidden; }
+
+/* ── Card header: one per appearance (card number · athlete · RC · team) ──── */
+.cardHead { display: flex; flex-direction: column; gap: 6px; padding: 12px 14px; border-top: 1px solid var(--brand-line); }
+.cardHead:first-child { border-top: none; }
+.cardHeadRow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.cardNum { font-family: var(--cl-font-mono); font-size: 12px; color: var(--brand-slate); }
+.cardName { font-size: 16px; font-weight: 500; color: var(--brand-ink); }
+.team { font-size: 13px; color: var(--brand-ink-soft); }
+
+/* ── Chips (real spans, title carries the long form) ──────────────────────── */
+.chip {
+  display: inline-flex; align-items: center; height: 20px; padding: 0 7px;
+  border-radius: var(--brand-radius-pill);
+  background: var(--brand-track); color: var(--brand-ink-soft);
+  border: 1px solid var(--brand-line);
+  font-family: var(--cl-font-mono); font-size: 10px; font-weight: 500; letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.chipDark { background: var(--brand-ink); color: var(--brand-head); border-color: var(--brand-ink); }
+.chipDashed { background: transparent; border: 1px dashed var(--brand-fog); color: var(--brand-slate); }
+.rc {
+  display: inline-flex; align-items: center; height: 18px; padding: 0 5px;
+  border: 1px solid var(--brand-accent); border-radius: var(--brand-radius-tag);
+  color: var(--brand-accent-deep);
+  font-family: var(--cl-font-mono); font-size: 10px; font-weight: 700;
+}
+
+/* ── Table head + rows (phone layout is the default; ≥860 overrides below) ── */
+.headPhone, .row { display: grid; grid-template-columns: 1fr auto 44px; gap: 12px; align-items: center; }
+.headPhone { padding: 8px 14px; background: var(--brand-track); }
+.row { padding: 12px 14px; border-top: 1px solid var(--brand-line); min-height: 52px; box-sizing: border-box; }
+.headDesktop { display: none; }
+
+.hcell { font-family: var(--cl-font-mono); font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand-slate); }
+.right { text-align: right; }
+
+.pname { font-size: 15px; line-height: 1.25; color: var(--brand-ink); }
+.pnameOne { color: var(--brand-accent); }
+
+/* Phone meta line: "<print run> · <found in>" as plain text under the name. */
+.meta { display: flex; align-items: center; gap: 6px; margin-top: 5px; font-family: var(--cl-font-mono); font-size: 11px; color: var(--brand-slate); flex-wrap: wrap; }
+.metaDot { color: var(--brand-fog); }
+.metaOne { color: var(--brand-accent); }
+
+.num { font-family: var(--cl-font-mono); font-size: 15px; font-weight: 500; color: var(--brand-ink); text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.numDash { color: var(--brand-fog); }
+
+.pr { font-family: var(--cl-font-mono); font-size: 13px; color: var(--brand-slate); text-align: right; font-variant-numeric: tabular-nums; }
+.prOne { color: var(--brand-accent); }
+
+/* Desktop-only cells — hidden in the phone layout. */
+.cFound, .cPr { display: none; }
+
+/* eBay: icon-only button on phone, text button on desktop. */
+.ebayIcon {
+  display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px;
+  border: 1px solid var(--brand-accent); border-radius: var(--brand-radius-thumb);
+  color: var(--brand-accent-deep); text-decoration: none;
+}
+.ebayText { display: none; }
+
+/* eBay column absent (no EPN campaign) → drop the track and cell. */
+.noEbay .headPhone, .noEbay .row { grid-template-columns: 1fr auto; }
+.noEbay .cEbay, .noEbay .hEbay { display: none; }
+
+/* ── ≥860px: the five-column desktop grid ─────────────────────────────────── */
+@container pot (min-width: 860px) {
+  .shead { flex-direction: row; align-items: baseline; gap: 14px; }
+  .title { font-size: 24px; }
+
+  .headPhone { display: none; }
+  .headDesktop {
+    display: grid; grid-template-columns: 1fr 260px 110px 150px 150px; gap: 16px;
+    align-items: center; padding: 10px 20px; background: var(--brand-track);
+  }
+  .row { grid-template-columns: 1fr 260px 110px 150px 150px; gap: 16px; padding: 14px 20px; }
+
+  .cFound, .cPr { display: block; }
+  .meta { display: none; }
+
+  .ebayIcon { display: none; }
+  .ebayText {
+    display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px;
+    border: 1px solid var(--brand-accent); border-radius: var(--brand-radius-thumb);
+    color: var(--brand-accent-deep); text-decoration: none; white-space: nowrap;
+    font-family: var(--cl-font-body); font-size: 13px; font-weight: 500;
+  }
+
+  .noEbay .headDesktop, .noEbay .row { grid-template-columns: 1fr 260px 110px 150px; }
+}
