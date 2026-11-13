@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-27-topps-flagship-basketball-rookie-fix",
+    title: "Rookie flag correction on 2026-27 Topps Flagship Basketball",
+    date: "2026-11-12T18:00:00-08:00",
+    summary:
+      "Corrected rookie flags on Cooper Flagg and Dylan Harper (Fanatics Authentic Redemption FR-14 / FR-49); both are second-year players.",
+    description: `## Rookie flag correction — Cooper Flagg and Dylan Harper
+
+The official Topps checklist marked "Rookie" on exactly one card each for **Cooper Flagg** (FR-14) and **Dylan Harper** (FR-49) in the Fanatics Authentic Redemption subset, while all of their other cards in the set were unmarked. Both are 2025 draft picks now in their **second season**, so the marker is a copy error on those two lines, and it was carried into the seed.
+
+Those two appearances are now cleared, so neither player shows the rookie chip on **2026-27 Topps Flagship Basketball**. Their site-wide rookie status is unchanged — both keep rookie-flagged cards across their 2025-26 Basketball sets.`,
+    tags: ["checklist"],
+    setId: 896,
+  },
+  {
     id: "2026-topps-allen-ginter-x-baseball-checklist",
     title: "2026 Topps Allen & Ginter X Baseball checklist + odds",
     date: "2026-11-12T12:00:00-08:00",
