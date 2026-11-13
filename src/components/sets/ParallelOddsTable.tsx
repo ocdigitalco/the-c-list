@@ -130,8 +130,10 @@ export function ParallelOddsTable({
 
         {rows.map((r, i) => {
           const chip = model.rows[i];
-          const chase = isChase(r.name);
           const oneOfOne = r.printRun === 1;
+          // Red parallel name on every 1/1 row (as on the set page), plus the
+          // SuperFractor chase even when its print run isn't carried.
+          const nameRed = oneOfOne || isChase(r.name);
           const prText = printRunDisplay(r.printRun);
           const oddsText = displayOdds(r.resolved ? r.resolved.value : null);
           const noOdds = r.resolved == null;
@@ -140,7 +142,7 @@ export function ParallelOddsTable({
             <div key={`${r.name}-${i}`} className={styles.row}>
               {/* Col 1: parallel name (+ phone meta line) */}
               <div>
-                <span className={`${styles.pname}${chase ? ` ${styles.pnameOne}` : ""}`}>{r.name}</span>
+                <span className={`${styles.pname}${nameRed ? ` ${styles.pnameOne}` : ""}`}>{r.name}</span>
                 <div className={styles.meta}>
                   <span className={oneOfOne ? styles.metaOne : undefined}>{prText}</span>
                   {chip && (
