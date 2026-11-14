@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "royalty-ufc-dana-white-bounty",
+    title: "Dana White's $250,000 Royalty UFC bounty",
+    date: "2026-11-14T12:00:00-08:00",
+    summary:
+      "Royalty UFC article updated with Dana White's $250,000 bounty for the 1/1 White/Trump USA 250 booklet.",
+    description: `## Dana White's $250,000 bounty card
+
+The 2026 Topps Royalty UFC breakdown has been updated: Dana White announced on Instagram that he will pay **$250,000** to whoever pulls the 1/1 **USA 250 Dual Patch Autographs Booklet**, a single booklet card signed by White and Donald J. Trump with a patch from the UFC Freedom 250 event on each side.
+
+Topps published no pack odds for the card and only one copy exists, which already made it the likely scarcest card in the set. The article now explains the bounty, puts the prize in scale against box prices and recorded UFC card sales, and adds it to the FAQ.`,
+    tags: ["announcement"],
+    setId: 911,
+  },
+  {
     id: "2026-topps-museum-collection-baseball",
     title: "Added 2026 Topps Museum Collection Baseball",
     date: "2026-11-13T12:00:00-08:00",

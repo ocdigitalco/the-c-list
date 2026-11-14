@@ -77,9 +77,9 @@ export const articles: Article[] = [
     "id": "2026-topps-royalty-ufc-rarest-pulls-and-print-run",
     "title": "2026 Topps Royalty UFC Checklist Breakdown: Rarest Cards, Print Run, and Box Count",
     "publishedAt": "2026-11-10",
-    "updatedAt": "2026-11-10",
+    "updatedAt": "2026-11-14",
     "description": "Every card in 2026 Topps Royalty UFC is serial numbered and every subset has published hobby odds. This breakdown uses those numbers to show who leads the checklist, the five rarest cards, how many cards Topps printed, and how many hobby boxes exist.",
-    "metaDescription": "2026 Topps Royalty UFC: 785 cards, 104 numbered parallels, about 131,000 cards printed and roughly 12,000 hobby boxes. Rarest pulls, top fighters, hobby odds.",
+    "metaDescription": "2026 Topps Royalty UFC: 785 cards, 104 numbered parallels, about 131,000 cards printed, roughly 12,000 boxes, and Dana White's $250,000 bounty card.",
     "heroImage": "/sets/cards/2026-topps-royalty-ufc/2026-topps-royalty-ufc-10.jpg",
     "heroAlt": "2026 Topps Royalty UFC hobby box and cards",
     "tags": [
@@ -88,7 +88,8 @@ export const articles: Article[] = [
       "topps",
       "checklist breakdown",
       "odds",
-      "print run"
+      "print run",
+      "dana white"
     ],
     "setId": 911,
     "tldr": "Every card in 2026 Topps Royalty UFC is serial numbered and every subset has published hobby odds. This breakdown uses those numbers to show who leads the checklist, the five rarest cards, how many cards Topps printed, and how many hobby boxes exist.",
@@ -124,13 +125,17 @@ export const articles: Article[] = [
       {
         "q": "Are all cards in 2026 Topps Royalty UFC numbered?",
         "a": "Yes. Every base card in 2026 Topps Royalty UFC is numbered to 99 and all 104 parallels are serial numbered, from Red /75 down to Platinum 1/1. Only three lines (Liquid Silver, Letterman Booklet Autographs, Welcome to the Club Dual Autographs) have print runs Topps has not published."
+      },
+      {
+        "q": "What is the Dana White $250,000 bounty in 2026 Topps Royalty UFC?",
+        "a": "Dana White announced on Instagram that he will pay $250,000 to the collector who pulls the 1/1 USA 250 Dual Patch Autographs Booklet from 2026 Topps Royalty UFC, a booklet card signed by White and Donald J. Trump with a patch from the UFC Freedom 250 event. Topps published no pack odds for the card; one copy exists in the entire print run."
       }
     ],
     "content": [
       {
         "type": "p",
         "html": true,
-        "text": "<strong>2026 Topps Royalty UFC releases December 13, 2026, as a hobby-only product: one 10-card pack per box with 5 autographs and 3 relics, 4 boxes per case. The checklist has 785 cards across 32 subsets and 104 serial-numbered parallels. Using the published print runs and hobby odds, Topps printed about 131,000 cards, which works out to roughly 12,000 hobby boxes. Islam Makhachev leads the checklist with 16 cards, and the rarest pulls are the Platinum 1/1 Dual Fighter Relic Autographs and Triple Autographs at 1:2,675 packs.</strong>"
+        "text": "<strong>2026 Topps Royalty UFC releases December 13, 2026, as a hobby-only product: one 10-card pack per box with 5 autographs and 3 relics, 4 boxes per case. The checklist has 785 cards across 32 subsets and 104 serial-numbered parallels. Using the published print runs and hobby odds, Topps printed about 131,000 cards, which works out to roughly 12,000 hobby boxes. Islam Makhachev leads the checklist with 16 cards, and the rarest pulls are the Platinum 1/1 Dual Fighter Relic Autographs and Triple Autographs at 1:2,675 packs. Dana White has announced a $250,000 bounty for whoever pulls the set's 1/1 USA 250 Dual Patch Autographs Booklet, signed by White and Donald J. Trump.</strong>"
       },
       {
         "type": "p",
@@ -398,7 +403,11 @@ export const articles: Article[] = [
       {
         "type": "p",
         "html": true,
-        "text": "One card sits outside this list because Topps published no odds for it: the <strong>USA 250 Dual Patch Autographs Booklet</strong>, a single 1/1 pairing Dana White with Donald J. Trump. With one copy and no odds line, it is almost certainly the scarcest card in 2026 Topps Royalty UFC, but it cannot be ranked by the odds sheet."
+        "text": "<strong>The $250,000 card.</strong> One card sits outside this list because Topps published no odds for it: the USA 250 Dual Patch Autographs Booklet, a single 1/1 pairing Dana White with Donald J. Trump, with a patch from the UFC Freedom 250 event on each side. With one copy and no odds line it is almost certainly the scarcest card in 2026 Topps Royalty UFC, and it now carries the biggest prize: Dana White announced on <a href=\"https://www.instagram.com/reel/DfsVLLqun1i/\" rel=\"noopener\" target=\"_blank\">Instagram</a> that he will pay $250,000 to whoever pulls it."
+      },
+      {
+        "type": "p",
+        "text": "For scale, that bounty is more than the highest publicly recorded sale of any UFC card, and roughly the price of 100 hobby boxes at release. At an estimated 12,000 boxes in the print run, the expected cost of chasing it box by box is far above the prize; it is a lottery ticket attached to every pack, not a strategy."
       },
       {
         "type": "p",
