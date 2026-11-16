@@ -15,6 +15,7 @@ import type { LeaderboardRow } from "@/components/sets/types";
 import type { BreakSheetPlayer } from "@/components/BreakSheetModal";
 import { articles } from "@/lib/articles";
 import { buildSetMeta, computeSetAeo, SITE_URL } from "@/lib/setSeo";
+import { getSetNote } from "@/lib/setNotes";
 import { getCardGalleryImages } from "@/lib/cardGallery";
 import { getSealedBoxData, type SealedBoxData } from "@/lib/ebayRefresh";
 import { buildEbayItemUrl } from "@/lib/ebay/searchUrl";
@@ -641,6 +642,12 @@ export default async function V2SetPage({
     })),
   });
 
+  // Per-set custom copy (setNotes.ts): custom FAQ entries append to the generated
+  // Q&A so they flow into both the visible list and the FAQPage JSON-LD; the About
+  // paragraph renders under the Overview "About This Set" header.
+  const setNote = getSetNote(canonicalSlug);
+  if (setNote?.faq?.length) aeo.faqs.push(...setNote.faq);
+
   const pageUrl = `${SITE_URL}/sets/${rawParam}`;
   const datasetLd = {
     "@context": "https://schema.org",
@@ -731,6 +738,7 @@ export default async function V2SetPage({
         heroImage: articles.find((a) => a.setId === setId)!.heroImage,
       } : null}
         aeoSummary={aeo.summary}
+        aboutNote={setNote?.about ?? null}
         faqs={aeo.faqs}
         cardImages={cardImages}
         toppsUrl={toppsUrl}

@@ -79,6 +79,8 @@ export interface SetDetailClientProps {
   autographSubsetNames: string[];
   featuredArticle?: { slug: string; title: string; description: string; heroImage: string } | null;
   aeoSummary?: string | null;
+  /** Optional human-written About paragraph (setNotes.ts), shown above aeoSummary. */
+  aboutNote?: string | null;
   faqs?: { q: string; a: string }[];
   /** Card-image gallery, pre-read server-side from public/sets/cards/{slug}/. */
   cardImages?: CardGalleryImage[];
@@ -856,13 +858,13 @@ function CardGallery({ images, setName }: { images: CardGalleryImage[]; setName:
 
 // ─── Tab: Overview ──────────────────────────────────────────────────────────
 
-function OverviewContent({ boxConfig, boxOffers, setSlug, cards, cardTypes, parallelTypes, autographs, autoParallels, totalParallels, athleteCount, releaseDate, hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds, subjectLabel = "Athletes", featuredArticle, setName, aeoSummary, faqs, cardImages, toppsUrl, relatedLinks, subsets = [], packOdds = null, liveBreaksEnabled = false, videoUrl = null }: {
+function OverviewContent({ boxConfig, boxOffers, setSlug, cards, cardTypes, parallelTypes, autographs, autoParallels, totalParallels, athleteCount, releaseDate, hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds, subjectLabel = "Athletes", featuredArticle, setName, aeoSummary, aboutNote, faqs, cardImages, toppsUrl, relatedLinks, subsets = [], packOdds = null, liveBreaksEnabled = false, videoUrl = null }: {
   boxConfig: string | null; boxOffers: SealedBoxData | null; setSlug: string; cards: number; cardTypes: number; parallelTypes: number;
   autographs: number; autoParallels: number; totalParallels: number; athleteCount: number;
   releaseDate: string | null; hasChecklist: boolean; hasNumberedParallels: boolean;
   hasBoxConfig: boolean; hasPackOdds: boolean; subjectLabel?: string;
   featuredArticle?: { slug: string; title: string; description: string; heroImage: string } | null;
-  setName: string; aeoSummary?: string | null; faqs?: { q: string; a: string }[];
+  setName: string; aeoSummary?: string | null; aboutNote?: string | null; faqs?: { q: string; a: string }[];
   cardImages?: CardGalleryImage[]; toppsUrl?: string | null; relatedLinks?: RelatedLink[];
   subsets?: SubsetChecklist[]; packOdds?: string | null; liveBreaksEnabled?: boolean; videoUrl?: string | null;
 }) {
@@ -896,11 +898,16 @@ function OverviewContent({ boxConfig, boxOffers, setSlug, cards, cardTypes, para
       )}
 
       {/* Set Summary */}
-      {(aeoSummary || toppsUrl || (relatedLinks && relatedLinks.length > 0)) && (
+      {(aboutNote || aeoSummary || toppsUrl || (relatedLinks && relatedLinks.length > 0)) && (
         <section>
           <div style={{ fontFamily: FONT_MONO, fontSize: 9, fontWeight: 600, letterSpacing: 1.6, color: "var(--brand-slate)", textTransform: "uppercase", marginBottom: 12 }}>
             About This Set
           </div>
+          {aboutNote && (
+            <p style={{ fontSize: 16, lineHeight: 1.65, color: "var(--brand-ink-soft)", margin: `0 0 ${aeoSummary ? 12 : 0}px` }}>
+              {aboutNote}
+            </p>
+          )}
           {aeoSummary && (
             <p style={{ fontSize: 16, lineHeight: 1.65, color: "var(--brand-ink-soft)", margin: 0 }}>
               {aeoSummary.startsWith(setName) ? (
@@ -1325,7 +1332,7 @@ export function SetDetailClient({
   subjectLabel: subjectLabelProp, teamLabel: teamLabelProp,
   hasChecklist, hasNumberedParallels, hasBoxConfig, hasPackOdds,
   boxConfig, boxOffers, packOdds, entries, hasTeamData, breakSheetPlayers, parallelsList, autographSubsetNames, featuredArticle,
-  aeoSummary, faqs, cardImages, toppsUrl, relatedLinks, subsets = [], soldCompsEnabled = false, soldCompsAvailableFrom = null, liveBreaksEnabled = false, videoUrl = null,
+  aeoSummary, aboutNote, faqs, cardImages, toppsUrl, relatedLinks, subsets = [], soldCompsEnabled = false, soldCompsAvailableFrom = null, liveBreaksEnabled = false, videoUrl = null,
 }: SetDetailClientProps) {
   const subjectLabel = subjectLabelProp ?? "Athletes";
   const teamLabel = teamLabelProp ?? "Team";
@@ -1527,7 +1534,7 @@ export function SetDetailClient({
                 totalParallels={totalParallels} athleteCount={athleteCount} releaseDate={releaseDate}
                 hasChecklist={hasChecklist} hasNumberedParallels={hasNumberedParallels}
                 hasBoxConfig={hasBoxConfig} hasPackOdds={hasPackOdds} subjectLabel={subjectLabel}
-                featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} faqs={faqs} cardImages={cardImages} toppsUrl={toppsUrl} relatedLinks={relatedLinks} subsets={subsets} packOdds={packOdds} liveBreaksEnabled={liveBreaksEnabled} videoUrl={videoUrl} />
+                featuredArticle={featuredArticle} setName={setName} aeoSummary={aeoSummary} aboutNote={aboutNote} faqs={faqs} cardImages={cardImages} toppsUrl={toppsUrl} relatedLinks={relatedLinks} subsets={subsets} packOdds={packOdds} liveBreaksEnabled={liveBreaksEnabled} videoUrl={videoUrl} />
             ) : (
               <CardTypeTabContent tab={activeTab as CardTab} subsets={subsets}
                 hasNumberedParallels={hasNumberedParallels} oddsResolver={oddsResolver} setId={setId} setSlug={setSlug ?? undefined} soldCompsEnabled={soldCompsEnabled} soldCompsAvailableFrom={soldCompsAvailableFrom} />

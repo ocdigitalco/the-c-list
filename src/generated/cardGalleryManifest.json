@@ -2563,6 +2563,78 @@
       "height": 1434
     }
   ],
+  "2026-topps-royalty-tennis": [
+    {
+      "file": "2026-topps-royalty-tennis-1.jpg",
+      "width": 1080,
+      "height": 1515
+    },
+    {
+      "file": "2026-topps-royalty-tennis-2.jpg",
+      "width": 1513,
+      "height": 1080
+    },
+    {
+      "file": "2026-topps-royalty-tennis-3.jpg",
+      "width": 1080,
+      "height": 1515
+    },
+    {
+      "file": "2026-topps-royalty-tennis-5.jpg",
+      "width": 1605,
+      "height": 1080
+    },
+    {
+      "file": "2026-topps-royalty-tennis-6.jpg",
+      "width": 1080,
+      "height": 1512
+    },
+    {
+      "file": "2026-topps-royalty-tennis-7.jpg",
+      "width": 1080,
+      "height": 1517
+    },
+    {
+      "file": "2026-topps-royalty-tennis-8.jpg",
+      "width": 1514,
+      "height": 1080
+    },
+    {
+      "file": "2026-topps-royalty-tennis-9.jpg",
+      "width": 1080,
+      "height": 1517
+    },
+    {
+      "file": "2026-topps-royalty-tennis-10.jpg",
+      "width": 1080,
+      "height": 1502
+    },
+    {
+      "file": "2026-topps-royalty-tennis-11.jpg",
+      "width": 1000,
+      "height": 712
+    },
+    {
+      "file": "2026-topps-royalty-tennis-12.jpg",
+      "width": 713,
+      "height": 1000
+    },
+    {
+      "file": "2026-topps-royalty-tennis-13.jpg",
+      "width": 513,
+      "height": 695
+    },
+    {
+      "file": "2026-topps-royalty-tennis-14.jpg",
+      "width": 711,
+      "height": 1000
+    },
+    {
+      "file": "2026-topps-royalty-tennis-15.jpg",
+      "width": 709,
+      "height": 1000
+    }
+  ],
   "2026-topps-royalty-ufc": [
     {
       "file": "2026-topps-royalty-ufc-1.jpg",
@@ -2628,6 +2700,11 @@
       "file": "2026-topps-royalty-ufc-14.jpg",
       "width": 358,
       "height": 501
+    },
+    {
+      "file": "2026-topps-royalty-ufc-15.jpg",
+      "width": 1024,
+      "height": 1439
     }
   ],
   "2026-topps-stadium-club-football": [

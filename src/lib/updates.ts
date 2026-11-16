@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-royalty-tennis",
+    title: "Added 2026 Topps Royalty Tennis",
+    date: "2026-11-15T12:00:00-08:00",
+    summary:
+      "2026 Topps Royalty Tennis: 1,048 cards across 28 subsets with hobby odds and 83 parallels",
+    description: `## 2026 Topps Royalty Tennis
+
+The full **2026 Topps Royalty Tennis** checklist is live — **1,048 cards across 28 subsets**, from the 100-card base set (every card numbered to 99) through the autograph, relic, and booklet hits. The checklist runs from current champions and rising players to legends like Nadal, Graf, Agassi and Borg, with dual, triple, and quad autographs linked across their players.
+
+Every subset carries its **hobby pack odds**, and all **83 numbered parallels** are listed with their print runs. Memorabilia is the centerpiece: Racket Knob Relics and Racket Knob Autographs return as 1/1s built around the butt cap of a player's racket, The Grip and Superior Relic Signatures are back, and On-Court Shoe Relics are new for 2026 with pieces of match-used shoes.`,
+    tags: ["checklist", "odds"],
+    setId: 914,
+  },
+  {
     id: "royalty-ufc-dana-white-bounty",
     title: "Dana White's $250,000 Royalty UFC bounty",
     date: "2026-11-14T12:00:00-08:00",
