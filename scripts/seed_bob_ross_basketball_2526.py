@@ -105,10 +105,16 @@ def main():
                 assert key not in fmt_odds[f], f"duplicate {f} key: {key!r}"
                 fmt_odds[f][key] = to_denom(v)
         if par is not None:
-            file_note = o.get("note")
             pr = o.get("print_run")
-            note = file_note if file_note else (
-                "numbered, print run not published" if pr is None else None)
+            # Combine both facts: the file's note (sticker / on-card autograph) and,
+            # for unnumbered parallels, the print-run annotation. The three Midnight
+            # Black rows are print_run 1, so they keep only their file note.
+            parts = []
+            if o.get("note"):
+                parts.append(o["note"])
+            if pr is None:
+                parts.append("numbered, print run not published")
+            note = "; ".join(parts) or None
             parallel_rows.append((sub, par, pr, o.get("exclusivity"), note))
 
     assert len(parallel_rows) == 17, f"expected 17 parallels, got {len(parallel_rows)}"
