@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-midnight-football-odds",
+    title: "2026 Topps Midnight Football odds + parallels",
+    date: "2026-11-16T12:00:00-08:00",
+    summary:
+      "2026 Topps Midnight Football: official Hobby, FDI and Instant odds plus 194 parallels with print runs",
+    description: `## Odds and parallels for 2026 Topps Midnight Football
+
+The **2026 Topps Midnight Football** checklist now carries the official Topps pack odds across all three box formats — **Hobby, First Day Issue, and Instant Packs** — for every subset and parallel the sheet lists.
+
+All **194 numbered parallels** are live with their print runs, from the full base ladder (Zodiac and Moon Beam unnumbered, Morning /125 down through Midnight /12 and Daybreak /5 to the 1/1 Black Light) through each autograph and relic subset. Molten Mercury is First Day Issue exclusive and the Base Hourglass is Instant Packs exclusive, flagged as such on the odds tables.`,
+    tags: ["odds", "checklist"],
+    setId: 893,
+  },
+  {
     id: "2026-topps-royalty-tennis",
     title: "Added 2026 Topps Royalty Tennis",
     date: "2026-11-15T12:00:00-08:00",
