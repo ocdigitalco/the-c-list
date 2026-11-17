@@ -196,8 +196,9 @@ queue_id,norm,sport,exact_name,subject_role,set_count,example_sets,suggested_act
 96,ultimate warrior,Wrestling,Ultimate Warrior,athlete,6,2025-topps-universe-wwe|2025-topps-exalted-wwe|2025-topps-chrome-wwe-cactus-jack,premerge,Ultimate Warrior,in-set-spelling-twin;keeper=most-appearances,premerge,Ultimate Warrior,
 97,emerson fittipaldi,Racing,Emerson Fittipaldi,athlete,3,2025-topps-chrome-sapphire-formula-1|2025-topps-chrome-formula-1|2026-topps-chrome-formula-1,keep_separate,Emerson Fittipaldi,most-appearances,keep_separate,,Emerson Fittipaldi Jr. is the grandson — different driver
 97,emerson fittipaldi,Racing,Emerson Fittipaldi Jr.,athlete,1,2026-topps-chrome-formula-1,keep_separate,Emerson Fittipaldi,most-appearances,keep_separate,,Emerson Fittipaldi Jr. is the grandson — different driver
-98,egor demin,Basketball,Egor Dëmin,athlete,15,2025-26-topps-chrome-cactus-jack-basketball|2025-26-topps-midnight-basketball|2025-26-topps-finest-basketball,merge,Egor Dëmin,diacritic-form,merge,Egor Dëmin,
-98,egor demin,Basketball,Egor Demin,athlete,1,2025-26-topps-signature-class-basketball,merge,Egor Dëmin,diacritic-form,merge,Egor Dëmin,
+98,egor demin,Basketball,Egor Dëmin,athlete,15,2025-26-topps-chrome-cactus-jack-basketball|2025-26-topps-midnight-basketball|2025-26-topps-finest-basketball,premerge,Egor Dëmin,in-set-spelling-twin;keeper=diacritic-form,premerge,Egor Dëmin,
+98,egor demin,Basketball,Egor Demin,athlete,1,2025-26-topps-signature-class-basketball,premerge,Egor Dëmin,in-set-spelling-twin;keeper=diacritic-form,premerge,Egor Dëmin,
+98,egor demin,Basketball,Egor Dёmin,athlete,1,2025-26-topps-definitive-basketball,premerge,Egor Dëmin,in-set-spelling-twin;cyrillic-yo-to-latin-e;keeper=diacritic-form,premerge,Egor Dëmin,
 99,hugo gonzalez,Basketball,Hugo González,athlete,15,2025-26-topps-chrome-cactus-jack-basketball|2025-26-topps-midnight-basketball|2025-26-topps-finest-basketball,merge,Hugo González,diacritic-form,merge,Hugo González,
 99,hugo gonzalez,Basketball,Hugo Gonzalez,athlete,1,2025-26-topps-signature-class-basketball,merge,Hugo González,diacritic-form,merge,Hugo González,
 100,kasparas jakucionis,Basketball,Kasparas Jakučionis,athlete,14,2025-26-topps-chrome-cactus-jack-basketball|2025-26-topps-midnight-basketball|2025-26-topps-finest-basketball,merge,Kasparas Jakučionis,diacritic-form,merge,Kasparas Jakučionis,

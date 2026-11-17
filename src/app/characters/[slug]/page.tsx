@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { loadAthlete, loadAthletePage, buildAthleteMetadata, matchesSegment } from "@/lib/athletes/seo";
+import { notFound, permanentRedirect } from "next/navigation";
+import { loadAthlete, loadAthletePage, buildAthleteMetadata, matchesSegment, resolveAliasRedirectHref } from "@/lib/athletes/seo";
 import { AthleteMasterPage } from "@/components/athletes/AthleteMasterPage";
 
 const SEGMENT = "characters"; // page_kind = character
@@ -26,6 +26,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function CharacterPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const core = await loadAthlete(slug);
-  if (!core || !matchesSegment(core, SEGMENT)) notFound();
+  if (!core || !matchesSegment(core, SEGMENT)) {
+    const href = await resolveAliasRedirectHref(slug);
+    if (href && href !== `/${SEGMENT}/${slug}`) permanentRedirect(href);
+    notFound();
+  }
   return <AthleteMasterPage core={core} />;
 }

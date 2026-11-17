@@ -10,6 +10,7 @@
  * read, so the pages stay statically cacheable (revalidate=false / 86400).
  */
 import { rawQuery } from "@/lib/db";
+import type { AliasCandidate } from "./util";
 import { isSellable, availableFromDate } from "@/lib/soldComps";
 import { extractYearAndManufacturer } from "@/lib/setSeo";
 import { buildEbaySearchUrl, buildEbayItemUrl } from "@/lib/ebay/searchUrl";
@@ -68,6 +69,36 @@ export async function getAthleteBySlug(slug: string): Promise<AthleteCore | null
   );
   if (!row || row.page_kind === "none") return null;
   return coreFromRow(row);
+}
+
+/**
+ * Candidates for the old-slug → canonical 301 fallback: athletes with a real
+ * page whose name or aliases might slugify to `requestedSlug`. Cheap SQL probe
+ * on the longest ASCII token of the slug (so we scan a handful of rows, not the
+ * whole table); the precise slugify match is done by pickAliasRedirectTarget.
+ */
+export async function loadAliasRedirectCandidates(
+  requestedSlug: string,
+): Promise<AliasCandidate[]> {
+  const probe = requestedSlug
+    .split("-")
+    .filter((t) => t.length >= 3)
+    .sort((a, b) => b.length - a.length)[0];
+  const base = `SELECT slug, page_kind AS pageKind, name, aliases
+                FROM athletes WHERE page_kind != 'none'`;
+  const rows = probe
+    ? await rawQuery.all<Record<string, unknown>>(
+        `${base} AND (lower(name) LIKE ? OR lower(aliases) LIKE ?)`,
+        `%${probe}%`,
+        `%${probe}%`,
+      )
+    : await rawQuery.all<Record<string, unknown>>(base);
+  return rows.map((r) => ({
+    slug: String(r.slug),
+    pageKind: String(r.pageKind),
+    name: String(r.name),
+    aliases: parseAliases((r.aliases as string | null) ?? null),
+  }));
 }
 
 // ── Detail page payload ──────────────────────────────────────────────────────

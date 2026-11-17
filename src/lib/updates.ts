@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "topps-definitive-basketball-egor-demin-merge",
+    title: "Fixed duplicate Egor Dëmin in Topps Definitive Basketball",
+    date: "2026-11-17T15:00:00-08:00",
+    summary:
+      "2025-26 Topps Definitive Basketball listed Egor Dëmin twice under two spellings — the cards are now merged under one player",
+    description: `## One Egor Dëmin, nine cards
+
+**2025-26 Topps Definitive Basketball** listed Egor Dëmin under two spellings — one with a Latin "ë" and one with a Cyrillic "ё" — which split his nine autograph and relic cards across two separate player entries. They are now merged into a single Egor Dëmin, and his cards from this set join the rest of his checklist on one page.
+
+The Cyrillic spelling now folds to the same player everywhere, and the old link redirects to the canonical page.`,
+    tags: ["checklist"],
+    setId: 868,
+  },
+  {
     id: "2025-26-topps-x-bob-ross-the-joy-of-basketball",
     title: "Added 2025-26 Topps x Bob Ross The Joy of Basketball",
     date: "2026-11-17T12:00:00-08:00",

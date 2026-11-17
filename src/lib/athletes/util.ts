@@ -9,6 +9,8 @@
  *   none      → no page (events, "Team Card"); excluded from indexes + sitemap.
  */
 
+import { slugify } from "@/lib/slugify";
+
 export type PageKind = "player" | "character" | "person" | "team" | "none";
 
 const KIND_TO_SEGMENT: Record<PageKind, string | null> = {
@@ -30,6 +32,36 @@ const SEGMENT_TO_KIND: Record<string, PageKind> = {
 export function athleteHref(pageKind: string, slug: string): string | null {
   const seg = KIND_TO_SEGMENT[pageKind as PageKind];
   return seg ? `/${seg}/${slug}` : null;
+}
+
+/** A candidate athlete for old-slug → canonical redirect resolution. */
+export interface AliasCandidate {
+  slug: string;
+  pageKind: string;
+  name: string;
+  aliases: string[];
+}
+
+/**
+ * Pure resolver for the athlete-route 301 fallback: given a requested slug and
+ * the candidate athletes whose name/aliases might match, return the single
+ * distinct target (page_kind + slug) when exactly ONE athlete has a name or
+ * alias that slugifies to the requested slug. Zero matches, or two or more
+ * distinct athletes, return null (the caller 404s). Multiple alias forms of the
+ * SAME athlete still count as one target.
+ */
+export function pickAliasRedirectTarget(
+  requestedSlug: string,
+  candidates: AliasCandidate[],
+): { pageKind: string; slug: string } | null {
+  const targets = new Map<string, { pageKind: string; slug: string }>();
+  for (const c of candidates) {
+    const forms = [c.name, ...c.aliases];
+    if (forms.some((f) => slugify(f) === requestedSlug)) {
+      targets.set(`${c.pageKind}\u0000${c.slug}`, { pageKind: c.pageKind, slug: c.slug });
+    }
+  }
+  return targets.size === 1 ? [...targets.values()][0] : null;
 }
 
 /** The page_kind a given route segment serves (e.g. "characters" → "character"). */

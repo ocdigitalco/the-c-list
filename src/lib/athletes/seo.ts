@@ -1,8 +1,8 @@
 import { cache } from "react";
 import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/setSeo";
-import { getAthleteBySlug, getAthletePage, type AthleteCore, type AthletePageData } from "./queries";
-import { athleteHref, segmentToPageKind, type PageKind } from "./util";
+import { getAthleteBySlug, getAthletePage, loadAliasRedirectCandidates, type AthleteCore, type AthletePageData } from "./queries";
+import { athleteHref, pickAliasRedirectTarget, segmentToPageKind, type PageKind } from "./util";
 
 // React-cache the loaders so generateMetadata and the page render (same request)
 // share one DB read each, not two.
@@ -19,6 +19,15 @@ export function athleteUrl(core: AthleteCore): string {
 export function matchesSegment(core: AthleteCore, segment: string): boolean {
   return segmentToPageKind(segment) === core.pageKind;
 }
+
+/** Old-slug → canonical 301 fallback. Returns the canonical href when exactly one
+ * athlete has a name/alias that slugifies to `requestedSlug`, else null (→ 404).
+ * Lets a renamed/absorbed spelling (e.g. the Cyrillic "Egor Dёmin" → egor-d-min)
+ * permanently redirect to the surviving athlete's page. */
+export const resolveAliasRedirectHref = cache(async (requestedSlug: string): Promise<string | null> => {
+  const target = pickAliasRedirectTarget(requestedSlug, await loadAliasRedirectCandidates(requestedSlug));
+  return target ? athleteHref(target.pageKind, target.slug) : null;
+});
 
 /** Thin pages (card_count < 3 AND set_count = 1) still render + link, but noindex. */
 export function isThin(core: AthleteCore): boolean {

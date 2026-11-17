@@ -71,7 +71,14 @@ function parseCSV(text: string): string[][] {
 
 // ── Name helpers ─────────────────────────────────────────────────────────────
 function stripDiacritics(s: string): string {
-  return s.normalize("NFD").replace(/[̀-ͯ]/g, "");
+  // Cyrillic ё/Ё (U+0451/U+0401) decompose to a Cyrillic е under NFD, so the
+  // diacritic strip leaves a Cyrillic letter that never matches the Latin key.
+  // Map them to Latin e/E first so e.g. "Egor Dёmin" folds to "egor demin".
+  return s
+    .replace(/ё/g, "e")
+    .replace(/Ё/g, "E")
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "");
 }
 function kebab(name: string): string {
   return stripDiacritics(name)
@@ -307,6 +314,22 @@ const run = db.transaction(() => {
     const role = p.role === "player" ? "athlete" : p.role; // fold player→athlete
     a.roleCount.set(role, (a.roleCount.get(role) ?? 0) + napps);
     agg.set(root, a);
+  }
+
+  // Preserve a queue-declared spelling as an alias when the ё→e normalization
+  // above folds its own key away so no surviving player row carries it (the
+  // Cyrillic "Egor Dёmin" twin, absorbed by the premerge pre-step). Scoped to
+  // names containing Cyrillic ё/Ё so only those folded forms are re-added; it
+  // keeps them searchable and lets the athlete route 301 the old slug
+  // (slugify(alias)) to the canonical page. Other queue spellings are untouched.
+  for (const q of queue) {
+    if (q.action !== "merge" && q.action !== "premerge") continue;
+    if (!q.canonical) continue;
+    if (!/[ёЁ]/.test(q.name)) continue;
+    const cnode = key(q.canonical, q.sport);
+    if (!parent.has(cnode)) continue;
+    const a = agg.get(find(cnode));
+    if (a) a.names.add(q.name);
   }
 
   const ROLE_PRECEDENCE = ["character", "attraction", "celebrity", "sketch_artist", "coach", "athlete", "team", "event"];
