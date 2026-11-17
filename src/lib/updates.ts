@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2025-26-topps-x-bob-ross-the-joy-of-basketball",
+    title: "Added 2025-26 Topps x Bob Ross The Joy of Basketball",
+    date: "2026-11-17T12:00:00-08:00",
+    summary:
+      "2025-26 Topps x Bob Ross The Joy of Basketball: 245 cards with Hobby and Happy Little Box odds and 17 parallels",
+    description: `## 2025-26 Topps x Bob Ross The Joy of Basketball
+
+The first Bob Ross collaboration in basketball cards is live — **245 cards across 8 subsets**, with 105 current stars, rookies and Hall of Famers set against Ross's painted landscapes. The rookie class includes Cooper Flagg, Kon Knueppel and Dylan Harper, alongside LeBron James, Stephen Curry and Victor Wembanyama and legends like Bill Russell, Oscar Robertson and Walt Frazier. A Bob Ross card closes the checklist at 1:164 packs.
+
+Odds are listed for both box formats — the **Hobby Collector's Box** and the single-pack **Happy Little Box** — across every insert and parallel the sheet carries. All **17 parallels** are named for Ross's paint colors, from Sap Green to the 1-of-1 Midnight Black, with sticker and on-card autograph versions distinguished. The Easel parallel is a Happy Little Box exclusive.`,
+    tags: ["checklist", "odds"],
+    setId: 915,
+  },
+  {
     id: "2026-topps-midnight-football-odds",
     title: "2026 Topps Midnight Football odds + parallels",
     date: "2026-11-16T12:00:00-08:00",

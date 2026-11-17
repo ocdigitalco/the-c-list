@@ -50,6 +50,7 @@ export const BOX_LABELS: Record<string, string> = {
   ffnyc: "FFNYC",
   mania: "Mania",
   instant: "Instant Packs",
+  happy_little_box: "Happy Little Box", // Topps x Bob Ross Basketball (set 915) single-pack box
   fanatics: "Fanatics",
   diamond_anniversary: "Diamond Anniversary",
   // Retail SE/EA/CEE variants fold into their base box type
@@ -86,4 +87,5 @@ export const ODDS_FORMAT_PREFERENCE: string[] = [
   "value_se", "value_ea", "value_cee", "mega_se", "mega_ea", "mega_cee", "hanger_se", "hanger_ea",
   "Hobby", "Mega Box CEE", "Mega Box EA", "Mega Box SE", "Value", "Value Box CEE", "Value Box EA", "Value Box SE",
   "bulk", "carnaval", "disneyland_exclusive", "fat_pack_ea", "fat_pack_se", "hat_trick", "japan_hobby", "japan_retail", "london_store", "lunar", "spring_tin", "target_mega", "value_blaster",
+  "happy_little_box", // Topps x Bob Ross Basketball (set 915)
 ];
