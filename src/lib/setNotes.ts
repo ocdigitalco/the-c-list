@@ -16,6 +16,28 @@ export interface SetNote {
 }
 
 export const SET_NOTES: Record<string, SetNote> = {
+  "2026-topps-pro-debut-baseball": {
+    about:
+      "2026 Topps Pro Debut Baseball is the official Minor League Baseball release in the Topps line: a 200-card base set of prospects pictured with their minor-league clubs, each with a Chrome version that falls six per pack. Arizona Fall League Stars, Pipeline Pairings and Pro Debut Gamers are new inserts this year, joining Stars of MiLB and Ballpark Promos. Future Cornerstones, Dual and Triple Autographs and Jumbo Autograph Relics return, and every Hobby Jumbo box carries four autographs.",
+    faq: [
+      {
+        q: "What comes in a 2026 Topps Pro Debut Baseball box?",
+        a: "A Hobby Jumbo box has 6 packs of 24 cards and 4 autographs. Each pack averages six Base Chrome cards. A case holds 8 boxes.",
+      },
+      {
+        q: "Are there rookie cards in Topps Pro Debut?",
+        a: "No. Pro Debut pictures prospects with their Minor League Baseball clubs before they reach the majors, so the cards carry no RC designation.",
+      },
+      {
+        q: "What is new in 2026 Topps Pro Debut Baseball?",
+        a: "Three inserts are new: 2025 Arizona Fall League Stars, Pipeline Pairings and Pro Debut Gamers. Stars of MiLB, Ballpark Promos, Future Cornerstones autographs, Dual and Triple Autographs and Jumbo Autograph Relics return.",
+      },
+      {
+        q: "What are the rarest cards in 2026 Topps Pro Debut Baseball?",
+        a: "By published odds, the Triple Autographs FoilFractor 1/1 (1:34,888 packs) and Dual Autographs FoilFractor 1/1 (1:32,562) are the hardest pulls, followed by the 2025 Arizona Fall League Stars Autographs FoilFractor 1/1 (1:28,731).",
+      },
+    ],
+  },
   "2025-26-topps-x-bob-ross-the-joy-of-basketball": {
     about:
       "2025-26 Topps x Bob Ross The Joy of Basketball is the first Bob Ross collaboration in basketball cards: 105 current stars, rookies and Hall of Famers set against Ross's painted landscapes. The rookie class includes Cooper Flagg, Kon Knueppel and Dylan Harper, alongside LeBron James, Stephen Curry and Victor Wembanyama and legends such as Bill Russell, Oscar Robertson and Walt Frazier. Parallels are named for Ross's paint colors, from Sap Green to the 1-of-1 Midnight Black. Hobby Collector's Boxes also hold the short prints: Beauty is Everywhere, Peapod the Squirrel, and a Bob Ross card at 1:164 packs.",

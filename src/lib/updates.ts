@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-pro-debut-baseball",
+    title: "Added 2026 Topps Pro Debut Baseball",
+    date: "2026-11-17T18:00:00-08:00",
+    summary:
+      "2026 Topps Pro Debut Baseball: 977 cards across 16 subsets with Hobby Jumbo odds and 80 parallels",
+    description: `## 2026 Topps Pro Debut Baseball
+
+The official Minor League Baseball release is live — **977 cards across 16 subsets**, a 200-card base set of prospects pictured with their minor-league clubs, each with a Chrome version that falls six per pack. New inserts this year are 2025 Arizona Fall League Stars, Pipeline Pairings and Pro Debut Gamers, joining Stars of MiLB and Ballpark Promos.
+
+Hobby Jumbo pack odds are listed for every subset and all **80 parallels**, from the base foil ladder (Purple /299 down to Red /10 and the 1/1 FoilFractor) through the Chrome Refractor ladder and each autograph program. Future Cornerstones, Dual and Triple Autographs and Jumbo Autograph Relics return, and every Hobby Jumbo box carries four autographs.`,
+    tags: ["checklist", "odds"],
+    setId: 916,
+  },
+  {
     id: "topps-definitive-basketball-egor-demin-merge",
     title: "Fixed duplicate Egor Dëmin in Topps Definitive Basketball",
     date: "2026-11-17T15:00:00-08:00",
