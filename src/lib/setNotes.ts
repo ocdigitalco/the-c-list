@@ -16,6 +16,32 @@ export interface SetNote {
 }
 
 export const SET_NOTES: Record<string, SetNote> = {
+  "2026-topps-composite-formula-1": {
+    about:
+      "2026 Topps Composite Formula 1 puts seven Topps brands into one F1 release: Paddock Pass, Chrome Black, Allen & Ginter, Cosmic Chrome, Midnight, Heritage and Resurgence each contribute their own design across a 225-card base set. The checklist covers all 22 current drivers, including rookie Arvid Lindblad, along with team principals and legends from Fangio to Räikkönen. The Allen & Ginter section adds circuit landmarks and two paddock animals, Gary the Groundhog and Lionel the Lizard, and The Grail continues with three new cards. Parallels and pack odds will be added when Topps publishes them.",
+    faq: [
+      {
+        q: "What comes in a 2026 Topps Composite Formula 1 box?",
+        a: "A Hobby box has 20 packs of 8 cards with 4 numbered parallels, 12 inserts and 36 Chrome cards; a case holds 12 boxes. A Value Blaster box has 5 packs of 8 cards with 6 inserts and 7 Chrome cards.",
+      },
+      {
+        q: "Which brands are in Topps Composite Formula 1?",
+        a: "The base set is built from Paddock Pass, Chrome Black, Allen & Ginter, Cosmic Chrome, Midnight, World on Wheels and Resurgence designs, with Heritage represented in the F1 Flashbacks insert.",
+      },
+      {
+        q: "What is exclusive to Value Blaster boxes?",
+        a: "Topps lists Base Chrome Resurgence Purple & Yellow Static and Sky Blue & Pink Shock parallels as Value Box exclusives.",
+      },
+      {
+        q: "What autographs and relics are in Topps Composite Formula 1?",
+        a: "Autographs come in Paddock Pass, Chrome Black, Allen & Ginter and Gilded designs. Composite Swatch Autographs combine a signature and a relic, and there are four relic sets: Allen & Ginter Relics, Push the Limits, Top Crop and the jumbo Grand Slam Relics.",
+      },
+      {
+        q: "Are parallels and pack odds available for 2026 Topps Composite Formula 1?",
+        a: "Not yet. Topps has published the checklist and box configuration; parallels and odds will be added when released.",
+      },
+    ],
+  },
   "2026-topps-pro-debut-baseball": {
     about:
       "2026 Topps Pro Debut Baseball is the official Minor League Baseball release in the Topps line: a 200-card base set of prospects pictured with their minor-league clubs, each with a Chrome version that falls six per pack. Arizona Fall League Stars, Pipeline Pairings and Pro Debut Gamers are new inserts this year, joining Stars of MiLB and Ballpark Promos. Future Cornerstones, Dual and Triple Autographs and Jumbo Autograph Relics return, and every Hobby Jumbo box carries four autographs.",

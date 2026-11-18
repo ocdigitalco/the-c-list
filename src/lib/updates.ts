@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-composite-formula-1",
+    title: "Added 2026 Topps Composite Formula 1",
+    date: "2026-11-17T21:00:00-08:00",
+    summary:
+      "2026 Topps Composite Formula 1: 862 cards across 32 subsets; parallels and odds to follow",
+    description: `## 2026 Topps Composite Formula 1
+
+The checklist is live — **862 cards across 32 subsets**, with seven Topps brands feeding one F1 release: Paddock Pass, Chrome Black, Allen & Ginter, Cosmic Chrome, Midnight, World on Wheels and Resurgence each contribute a design across the 225-card base set, and Heritage appears in the F1 Flashbacks insert. The checklist covers all 22 current drivers, including rookie Arvid Lindblad, plus team principals and legends from Fangio to Räikkönen.
+
+Topps has published the checklist and box configuration — Hobby and Value Blaster — but not the parallels or pack odds. Those will be added here when Topps releases them.`,
+    tags: ["checklist", "box-config"],
+    setId: 917,
+  },
+  {
     id: "2026-topps-pro-debut-baseball",
     title: "Added 2026 Topps Pro Debut Baseball",
     date: "2026-11-17T18:00:00-08:00",
