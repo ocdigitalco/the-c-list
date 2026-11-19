@@ -1327,19 +1327,14 @@
   ],
   "2026-topps-chrome-football": [
     {
-      "file": "2026-topps-chrome-football-0.png",
+      "file": "2026-topps-chrome-football-1.jpg",
       "width": 750,
       "height": 852
     },
     {
-      "file": "2026-topps-chrome-football-1.jpg",
-      "width": 1080,
-      "height": 1515
-    },
-    {
       "file": "2026-topps-chrome-football-2.jpg",
       "width": 1080,
-      "height": 1545
+      "height": 1515
     },
     {
       "file": "2026-topps-chrome-football-3.jpg",
@@ -1360,6 +1355,71 @@
       "file": "2026-topps-chrome-football-6.jpg",
       "width": 1080,
       "height": 1515
+    },
+    {
+      "file": "2026-topps-chrome-football-7.jpg",
+      "width": 1050,
+      "height": 750
+    },
+    {
+      "file": "2026-topps-chrome-football-8.jpg",
+      "width": 1000,
+      "height": 714
+    },
+    {
+      "file": "2026-topps-chrome-football-9.jpg",
+      "width": 1050,
+      "height": 750
+    },
+    {
+      "file": "2026-topps-chrome-football-10.jpg",
+      "width": 911,
+      "height": 650
+    },
+    {
+      "file": "2026-topps-chrome-football-11.jpg",
+      "width": 1080,
+      "height": 1514
+    },
+    {
+      "file": "2026-topps-chrome-football-12.jpg",
+      "width": 750,
+      "height": 1050
+    },
+    {
+      "file": "2026-topps-chrome-football-13.jpg",
+      "width": 1080,
+      "height": 1522
+    },
+    {
+      "file": "2026-topps-chrome-football-14.jpg",
+      "width": 1080,
+      "height": 1510
+    },
+    {
+      "file": "2026-topps-chrome-football-15.jpg",
+      "width": 1050,
+      "height": 750
+    },
+    {
+      "file": "2026-topps-chrome-football-16.jpg",
+      "width": 1506,
+      "height": 1080
+    },
+    {
+      "file": "2026-topps-chrome-football-17.jpg",
+      "width": 1080,
+      "height": 1519
+    },
+    {
+      "file": "2026-topps-chrome-football-18.jpg",
+      "width": 1080,
+      "height": 1510
+    },
+    {
+      "file": "2026-topps-chrome-football-19.jpg",
+      "width": 1050,
+      "height": 750
     }
   ],
   "2026-topps-chrome-formula-1": [
@@ -2773,39 +2833,44 @@
       "height": 750
     },
     {
-      "file": "2026-topps-royalty-ufc-4.jpg",
+      "file": "2026-topps-royalty-ufc-3.jpg",
       "width": 750,
       "height": 1050
     },
     {
-      "file": "2026-topps-royalty-ufc-5.jpg",
+      "file": "2026-topps-royalty-ufc-4.jpg",
       "width": 1598,
       "height": 1080
     },
     {
-      "file": "2026-topps-royalty-ufc-6.jpg",
+      "file": "2026-topps-royalty-ufc-5.jpg",
       "width": 1516,
       "height": 1080
     },
     {
-      "file": "2026-topps-royalty-ufc-7.jpg",
+      "file": "2026-topps-royalty-ufc-6.jpg",
       "width": 750,
       "height": 1050
     },
     {
-      "file": "2026-topps-royalty-ufc-8.jpg",
+      "file": "2026-topps-royalty-ufc-7.jpg",
       "width": 1508,
       "height": 1080
     },
     {
-      "file": "2026-topps-royalty-ufc-9.jpg",
+      "file": "2026-topps-royalty-ufc-8.jpg",
       "width": 358,
       "height": 501
     },
     {
-      "file": "2026-topps-royalty-ufc-10.jpg",
+      "file": "2026-topps-royalty-ufc-9.jpg",
       "width": 702,
       "height": 501
+    },
+    {
+      "file": "2026-topps-royalty-ufc-10.jpg",
+      "width": 550,
+      "height": 770
     },
     {
       "file": "2026-topps-royalty-ufc-11.jpg",
@@ -2819,16 +2884,11 @@
     },
     {
       "file": "2026-topps-royalty-ufc-13.jpg",
-      "width": 550,
-      "height": 770
-    },
-    {
-      "file": "2026-topps-royalty-ufc-14.jpg",
       "width": 358,
       "height": 501
     },
     {
-      "file": "2026-topps-royalty-ufc-15.jpg",
+      "file": "2026-topps-royalty-ufc-14.jpg",
       "width": 1024,
       "height": 1439
     }

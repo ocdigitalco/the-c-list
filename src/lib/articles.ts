@@ -80,7 +80,7 @@ export const articles: Article[] = [
     "updatedAt": "2026-11-14",
     "description": "Every card in 2026 Topps Royalty UFC is serial numbered and every subset has published hobby odds. This breakdown uses those numbers to show who leads the checklist, the five rarest cards, how many cards Topps printed, and how many hobby boxes exist.",
     "metaDescription": "2026 Topps Royalty UFC: 785 cards, 104 numbered parallels, about 131,000 cards printed, roughly 12,000 boxes, and Dana White's $250,000 bounty card.",
-    "heroImage": "/sets/cards/2026-topps-royalty-ufc/2026-topps-royalty-ufc-10.jpg",
+    "heroImage": "/sets/cards/2026-topps-royalty-ufc/2026-topps-royalty-ufc-9.jpg",
     "heroAlt": "2026 Topps Royalty UFC hobby box and cards",
     "tags": [
       "ufc",
@@ -387,7 +387,7 @@ export const articles: Article[] = [
       },
       {
         "type": "image",
-        "src": "/sets/cards/2026-topps-royalty-ufc/2026-topps-royalty-ufc-11.jpg",
+        "src": "/sets/cards/2026-topps-royalty-ufc/2026-topps-royalty-ufc-10.jpg",
         "alt": "Justin Gaethje USA 250 Patch Autograph 1/1 from 2026 Topps Royalty UFC",
         "caption": "Justin Gaethje USA 250 Patch Autograph 1/1 from 2026 Topps Royalty UFC"
       },
