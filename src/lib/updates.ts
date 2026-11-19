@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-chrome-football-odds",
+    title: "2026 Topps Chrome Football odds, parallels + final checklist",
+    date: "2026-11-18T12:00:00-08:00",
+    summary:
+      "2026 Topps Chrome Football: official odds for eight box types, 531 parallels with print runs, final checklist with Prem1ere Patch Autographs",
+    description: `## 2026 Topps Chrome Football
+
+Official pack odds are live for all **eight box types** — Hobby, Hobby Jumbo, First Day Issue, Breaker Delight, Mega, Value Blaster, Hanger and Fanatics — covering every subset and all **531 parallels** with their print runs. Each box type carries its own refractor family: Prism in Hobby, Wave in Jumbo and First Day Issue, Geometric in Breaker Delight, RayWave and Football Leather in Value Blasters, Pulsar in Hangers and X-Fractors in Megas, with the FrozenFractor and 1/1 SuperFractor topping the base ladder.
+
+The final checklist adds three autograph subsets — **2023 and 2024 Prem1ere Patch Autographs** and a Gold Shield Dual Autograph (Josh Allen / Matthew Stafford) — plus new Base Variation, Dual and Tecmo autographs and a Patrick Mahomes II redemption, for 112 new cards. First Day Issue boxes released November 13, 2026; Hobby and retail on November 18; Mega boxes follow December 2.`,
+    tags: ["odds", "checklist", "box-config"],
+    setId: 898,
+  },
+  {
     id: "2026-topps-composite-formula-1",
     title: "Added 2026 Topps Composite Formula 1",
     date: "2026-11-17T21:00:00-08:00",

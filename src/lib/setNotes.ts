@@ -16,6 +16,28 @@ export interface SetNote {
 }
 
 export const SET_NOTES: Record<string, SetNote> = {
+  "2026-topps-chrome-football": {
+    about:
+      "2026 Topps Chrome Football is the flagship chrome release for the NFL: a 400-card base set with 100 rookies from the 2026 draft class, including Fernando Mendoza, Jeremiyah Love, Carnell Tate, Jordyn Tyson and Caleb Downs. Each box type has its own refractor family, from Prism in Hobby and Wave in Jumbo to Geometric in Breaker Delight, RayWave and Football Leather in Value Blasters, Pulsar in Hangers and X-Fractors in Megas. Short-print inserts Kaiju, Helix, Ultra Violet, Tecmo and Game Genies return, joined by Glass Canvas, Madden 99 Club and Super Bowl at Night. Autographs include 1/1 Prem1ere Patch Autographs from the 2023 and 2024 rookie classes and NFL Honors Gold Shield Autographs.",
+    faq: [
+      {
+        q: "When does 2026 Topps Chrome Football release?",
+        a: "Hobby and retail formats release November 18, 2026. First Day Issue boxes released November 13, 2026, and Mega boxes follow on December 2, 2026.",
+      },
+      {
+        q: "How many autographs are in a 2026 Topps Chrome Football box?",
+        a: "A Hobby box has 1 autograph. A Jumbo box has 2. A First Day Issue Jumbo box has 3, one of them a Molten Mercury autograph. A Breaker Delight box has 2, one of them a Geometric autograph. Mega, Value Blaster and Hanger boxes have no guaranteed autograph.",
+      },
+      {
+        q: "Which parallels are exclusive to each 2026 Topps Chrome Football box?",
+        a: "Prism Refractors are Hobby only. Molten Mercury /11 is First Day Issue only. Wave Refractors are in Jumbo and First Day Issue. Geometric Refractors are Breaker Delight only. RayWave, Red White & Blue and Football Leather are Value Blaster only. Pulsar Refractors are Hanger only. X-Fractors are Mega only. LogoFractors are in Fanatics boxes.",
+      },
+      {
+        q: "What are the rarest cards in 2026 Topps Chrome Football?",
+        a: "The Gold Shield Dual Autograph of Josh Allen and Matthew Stafford is a 1/1 at 1:9,717,960 Hobby packs. The Lombardi Trophy SuperFractor is a Hobby-only 1/1 at 1:2,776,560 packs, and the 2023 and 2024 Prem1ere Patch Autographs are all 1/1s.",
+      },
+    ],
+  },
   "2026-topps-composite-formula-1": {
     about:
       "2026 Topps Composite Formula 1 puts seven Topps brands into one F1 release: Paddock Pass, Chrome Black, Allen & Ginter, Cosmic Chrome, Midnight, Heritage and Resurgence each contribute their own design across a 225-card base set. The checklist covers all 22 current drivers, including rookie Arvid Lindblad, along with team principals and legends from Fangio to Räikkönen. The Allen & Ginter section adds circuit landmarks and two paddock animals, Gary the Groundhog and Lionel the Lizard, and The Grail continues with three new cards. Parallels and pack odds will be added when Topps publishes them.",

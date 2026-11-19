@@ -16,6 +16,7 @@ export const BOX_LABELS: Record<string, string> = {
   mega: "Mega",
   blaster: "Blaster",
   value: "Value",
+  value_blaster: "Value Blaster",
   fat_pack: "Fat Pack",
   hanger: "Hanger",
   all_star_mega: "All-Star Game Mega",
