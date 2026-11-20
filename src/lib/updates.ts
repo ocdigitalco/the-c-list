@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-finest-formula-1-odds",
+    title: "2026 Topps Finest Formula 1 odds + parallels",
+    date: "2026-11-19T12:00:00-08:00",
+    summary:
+      "2026 Topps Finest Formula 1: official hobby odds and 120 parallels with print runs",
+    description: `## 2026 Topps Finest Formula 1
+
+Official **Hobby** pack odds are live across the checklist — **142 odds entries** covering 21 subset lines and all **120 parallels** with their print runs. The base set runs Common, Uncommon, Rare and Super Rare, each carrying the Finest refractor ladder: Refractor and X-Fractor (unnumbered), Green /99, Purple /75, Gold /50, Orange /25, Black /10, Red /5 and the 1/1 SuperFractor.
+
+Inserts Finest Drivers, Finest Formulas, Finishers and World's Finest add a Checkerboard Refractor to the ladder, while the autograph, autograph-relic and relic programs — Finest Autographs, Starting Grid Signatures, Finest Duos Signatures, the relic quartet and more — are numbered "/N or less." The three-card **The Grail** publishes per-card odds; its G-3 figure (1:2,310) is stored as the subset's base odds, with the G-6 and G-9 figures recorded in the subset notes.`,
+    tags: ["odds", "checklist"],
+    setId: 903,
+  },
+  {
     id: "2026-topps-chrome-football-odds",
     title: "2026 Topps Chrome Football odds, parallels + final checklist",
     date: "2026-11-18T12:00:00-08:00",
