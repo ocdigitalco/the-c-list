@@ -16,6 +16,36 @@ export interface SetNote {
 }
 
 export const SET_NOTES: Record<string, SetNote> = {
+  "2026-topps-gilded-collection-baseball": {
+    about:
+      "Gilded Collection is Topps' gold-themed premium baseball release. The 2026 edition has a 200-card chrome base set mixing current stars, the rookie class and legends, with every base card numbered to 99 and six rarer refractor parallels down to a one-of-one SuperFractor. Inserts are Gold Regalia (100 cards), Gold Storm (25) and Statuesque (4), which pictures player statues that stand outside MLB ballparks. New this year is 24K, a 24-card insert where every card is a one-of-one made of gold. Hobby boxes hold two packs of four cards and guarantee two autographs. Seven autograph subsets cover 207 cards, led by Topps Chrome Gold Autographs (67) and two Hall of Fame programs, plus the new Gilded Ink, signed in gold ink.",
+    faq: [
+      {
+        q: "When does 2026 Topps Gilded Collection Baseball release?",
+        a: "December 25, 2026.",
+      },
+      {
+        q: "How many cards are in the set?",
+        a: "The checklist has 560 cards across 12 subsets: 200 base, 153 inserts and 207 autographs.",
+      },
+      {
+        q: "What is the 24K insert?",
+        a: "A new 24-card insert for 2026. Topps describes each card as a one-of-one made of gold.",
+      },
+      {
+        q: "What is in a hobby box?",
+        a: "Two packs of four cards, with two autographs guaranteed per box. A case holds four boxes.",
+      },
+      {
+        q: "Is every card numbered?",
+        a: "Nearly. Base cards are numbered to 99, Gold Regalia to 79, Gold Storm to 26, and the autographs to 199, 99 or 25 depending on the subset. Only the four-card Statuesque insert is unnumbered in its standard version.",
+      },
+      {
+        q: "Have pack odds been published?",
+        a: "Not yet. This page will be updated when Topps releases the odds sheet.",
+      },
+    ],
+  },
   "2026-topps-chrome-football": {
     about:
       "2026 Topps Chrome Football is the flagship chrome release for the NFL: a 400-card base set with 100 rookies from the 2026 draft class, including Fernando Mendoza, Jeremiyah Love, Carnell Tate, Jordyn Tyson and Caleb Downs. Each box type has its own refractor family, from Prism in Hobby and Wave in Jumbo to Geometric in Breaker Delight, RayWave and Football Leather in Value Blasters, Pulsar in Hangers and X-Fractors in Megas. Short-print inserts Kaiju, Helix, Ultra Violet, Tecmo and Game Genies return, joined by Glass Canvas, Madden 99 Club and Super Bowl at Night. Autographs include 1/1 Prem1ere Patch Autographs from the 2023 and 2024 rookie classes and NFL Honors Gold Shield Autographs.",

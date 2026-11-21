@@ -15,6 +15,20 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    id: "2026-topps-gilded-collection-baseball",
+    title: "Added 2026 Topps Gilded Collection Baseball",
+    date: "2026-11-20T12:00:00-08:00",
+    summary:
+      "2026 Topps Gilded Collection Baseball checklist added: 560 cards across 12 subsets with 50 numbered parallels and the hobby box configuration",
+    description: `## 2026 Topps Gilded Collection Baseball
+
+The gold-themed premium baseball release is live — **560 cards across 12 subsets**: a 200-card chrome base set (every card numbered to 99), the Gold Regalia (100), Gold Storm (25) and Statuesque (4) inserts, the new **24K** insert of 24 one-of-one gold cards, and seven autograph programs (207 cards) led by Topps Chrome Gold Autographs (67), two Hall of Fame programs and the new Gilded Ink.
+
+**50 numbered parallels** carry their print runs, from the base refractor ladder (Gold Wave /75 down to Electroblack /5 and the 1/1 SuperFractor) through the Canasite/Rose Gold/Emerald/Onyx/Ruby/Platinum autograph ladder. Hobby boxes hold two packs of four cards with two autographs guaranteed; a case is four boxes. The set releases December 25, 2026. Pack odds will be added when Topps publishes them.`,
+    tags: ["checklist", "box-config"],
+    setId: 918,
+  },
+  {
     id: "2026-topps-finest-formula-1-odds",
     title: "2026 Topps Finest Formula 1 odds + parallels",
     date: "2026-11-19T12:00:00-08:00",
